@@ -16,9 +16,10 @@
 *** TODO Voyage au centre de la Terre
 * Douglas Adams [1/1]
 *** DONE The hitchhikers's guide to the galaxy
-* Philip K. Dick [2/2]
+* Philip K. Dick [2/3]
 *** DONE Minority Report
 *** DONE Blade Runner
+*** TODO A scanner Darkly
 * Isaac Asimov [/]
 *** 
 * C.S Lewis [1/1]
