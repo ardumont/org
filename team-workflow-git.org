@@ -3,11 +3,14 @@
 #+STARTUP: indent
 #+STARTUP: hidestars odd
 
-Here is one possible workflow!
-Feel free to discuss it and/or patch it!
+* Introduction
+Here is one possible team workflow!
+I'm not saying it's the ultimate way and those that do not follow will
+burn! Feel free to discuss it and/or patch it!
+
 For simplicity's readings, i talk about master as of the final branch
-we need to merge into.
-You can translate this by calling master a release branch. It's still possible.
+we need to merge into. It's just to simplify and give a name.
+You can, of course, translate this by replacing master by a release branch.
 
 * For each developer, here is how we start the retrieval of a project
 *** Retrieve the repository needed
@@ -27,7 +30,7 @@ Example:
 git clone https://ardumont@github.com/ardumont/my-org-files.git
 #+END_SRC sh
 
-*** We create a branch from master to develop our fix or our User Story
+*** We create a branch from master to develop our fix or our functionality.
 #+BEGIN_SRC sh
 git checkout -b trigram-user/branch-name
 #+END_SRC
@@ -36,19 +39,22 @@ Example :
 #+BEGIN_SRC sh
 git checkout -b adu/doSomeStuff
 #+END_SRC
-*** Regularly, return to master to synchronize the source
-
+*** Regularly, return to master to synchronize the source.
 #+BEGIN_SRC sh
 # Return to master
 git checkout master
-# Synchronize your local repository and your workspace with the
-content of the distant repository
+# Synchronize your local repository and your workspace
+# with the content of the distant repository
 git pull
 #+END_SRC
 
-Remark : If it refuses, you made a mistake. 
-It means you have changes locally that you did not commit to your index.
-Before returning to master, make sure that :
+Remark :
+If it refuses (git explains everything it does and why sometimes, it
+does not want to do what you ask it to do), you may have forgotten one
+step. You may, for example, have changes locally that you did not
+commit to your index.
+
+So, before returning to master, make sure that :
 - you have commited everything in your index for your branch 
 #+BEGIN_SRC sh
 git add the-thing-you-wanna-commit-but-unstable another-thing-to-commit-but-unstable ...
