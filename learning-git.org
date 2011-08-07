@@ -3,7 +3,7 @@
 #+STARTUP: indent
 #+STARTUP: hidestars odd
 
-* [[http://progit.org/book/][pro-git]] [3/11]
+* TODO [[http://progit.org/book/][pro-git]] [3/11]
 *** DONE 1) Getting Started [7/7]
 ***** DONE 1.1 - About Version Control
 ***** DONE 1.2 - A Short History of Git
