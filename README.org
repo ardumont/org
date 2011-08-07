@@ -1,0 +1,6 @@
+#+Title: my-org-files README
+#+author: Antoine Romain Dumont
+#+STARTUP: indent
+#+STARTUP: hidestars odd
+
+Just a repository of my org-mode files.
