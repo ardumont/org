@@ -159,4 +159,22 @@ else
 fi
 #+END_SRC
 *** DONE http://help.github.com/multiple-ssh-keys/
+***** Add a new ssh key
+#+BEGIN_SRC sh
+ssh-add ~/.ssh/id_rsa_new
+#+END_SRC
+***** open ~/.ssh/config file to detail which key works where
+#+BEGIN_SRC sh
+# Default GitHub user (joe)
+Host github.com
+  HostName github.com
+  User git
+  IdentityFile /home/tony/.ssh/id_rsa
+
+# Client user (client)
+Host github-client
+  HostName github.com
+  User git
+  IdentityFile /home/tony/.ssh/id_rsa_new
+#+END_SRC
 *** DONE http://help.github.com/ignore-files/
