@@ -53,13 +53,13 @@ git branch --merge
 ***** DONE 3.5 - Remote Branches
 ***** DONE 3.6 - Rebasing
 ***** DONE 3.7 - Summary
-*** TODO 4) Git on the Server [3/11]
+*** TODO 4) Git on the Server [6/11]
 ***** DONE 4.1 - The Protocols
 ***** DONE 4.2 - Getting Git on a Server
 ***** DONE 4.3 - Generating Your SSH Public Key
-***** TODO 4.4 - Setting Up the Server
-***** TODO 4.5 - Public Access
-***** TODO 4.6 - GitWeb
+***** DONE 4.4 - Setting Up the Server
+***** DONE 4.5 - Public Access
+***** DONE 4.6 - GitWeb
 ***** TODO 4.7 - Gitosis
 ***** TODO 4.8 - Gitolite
 ***** TODO 4.9 - Git Daemon
