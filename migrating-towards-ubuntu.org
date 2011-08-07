@@ -5,15 +5,15 @@
 
 * DONE Install ubuntu
 * DONE Migrate home to be independent between linux
-* TODO install linux-pae
-* TODO jvm sun [2/2]
+* DONE install linux-pae
+* DONE jvm sun [2/2]
 ** DONE install
 ** DONE setup (sudo update-alternatives --config java)
-* TODO Eclipse [3/5]
+* DONE Eclipse [4/4]
 ** DONE Download
 ** DONE Install
 ** DONE udpate existing plugins
-** TODO install plugins [10/11]
+** DONE install plugins [10/11]
 *** DONE egit
 *** DONE m2eclipse
 *** DONE moreunit
@@ -21,27 +21,28 @@
 *** DONE sdk google gwt + gae
 *** DONE Cobertura
 *** DONE Sonar
-*** TODO maven-wtp
+*** TODO maven-wtp => useless ?!
 *** DONE mousefeed
 *** DONE eclmma
 *** DONE Dev setup
-* TODO dropbox [2/4]
+* DONE dropbox [4/4]
 ** DONE download
 ** DONE install
-** TODO install daemon
-** TODO setup
+** DONE install daemon
+** DONE setup
 * DONE vmplayer player [4/4]
 ** DONE download
 ** DONE install
 ** DONE install vmware tools
 ** DONE install vmlily
-* TODO emacs [1/3]
+* DONE emacs [3/3]
 ** DONE org-mode
-** TODO technomancy-starter-kit
-** TODO clojure-jack-in
+** DONE technomancy-starter-kit
+** DONE clojure-jack-in
 * DONE clojure
 * DONE git
 * DONE maven2
 * DONE yed
-* TODO conkeror browser [0/1]
-*** TODO find a way to install it on ubuntu (no more in ubuntu repository)
+* DONE conkeror browser [1/1]
+*** DONE find a way to install it on ubuntu (no more in ubuntu repository
+    
