@@ -53,10 +53,10 @@ git branch --merge
 ***** DONE 3.5 - Remote Branches
 ***** DONE 3.6 - Rebasing
 ***** DONE 3.7 - Summary
-*** TODO 4) Git on the Server [2/11]
+*** TODO 4) Git on the Server [3/11]
 ***** DONE 4.1 - The Protocols
 ***** DONE 4.2 - Getting Git on a Server
-***** TODO 4.3 - Generating Your SSH Public Key
+***** DONE 4.3 - Generating Your SSH Public Key
 ***** TODO 4.4 - Setting Up the Server
 ***** TODO 4.5 - Public Access
 ***** TODO 4.6 - GitWeb
@@ -99,7 +99,7 @@ git branch --merge
 ***** TODO 9.7 - Maintenance and Data Recovery
 *** TODO 10) 9.8 - Summary
 *** TODO 11) Index of Commands
-* github help [2/3]
+* TODO [[http://help.github.com][github help]] [4/4]
 *** DONE http://help.github.com/linux-set-up-git/
 *** DONE http://help.github.com/ssh-key-passphrases/
 ***** To add your passphrase to the ssh-agent.
@@ -158,5 +158,5 @@ else
     fi
 fi
 #+END_SRC
-*** TODO http://help.github.com/multiple-ssh-keys/
-    
+*** DONE http://help.github.com/multiple-ssh-keys/
+*** DONE http://help.github.com/ignore-files/
