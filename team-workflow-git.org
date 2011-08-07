@@ -61,7 +61,7 @@ git add the-thing-you-wanna-commit-but-unstable another-thing-to-commit-but-unst
 git commit -m "Filthy commit not stable, need to amend it later"
 # later, when everything is ok
 # git add the-thing-you-wanna-commit-stable \ 
-another-thing-to-commit-stable ... 
+# another-thing-to-commit-stable ... 
 # amend the commit
 # git commit --amend
 #+END_SRC
@@ -105,6 +105,7 @@ If everything is merging without problems, continue.
 
 Else, there were conflits during merge.
 We must fix these conflicts manually.
+
 Either you use the tool git offers you
 #+BEGIN_SRC sh
 git mergetool
@@ -129,7 +130,7 @@ git commit
 *********** How can we be sure of such assertion ?
 ************* Continous integration !
 ************* Code review tool such as Gerrit!
-** I've done my dev, what do i do ?
+*** I've done my dev, what do i do ?
 ***** Check these assertions :
 ******* Is all your code commited to your branch?
 ******* Is your dev done?
@@ -153,9 +154,7 @@ git merge trigram-user/branch-name
 #+END_SRC
 At this point, it will only do a fast forward, that's just a moving
 forward the master pointer to the last commit of your branch (because
-master did not advance between your checkout and the merge command).
-
-That's true for the moment (you didn't push yet).
+your master branch did not advance between your checkout and the merge command).
 ***** Send your modifications to master! 
 #+BEGIN_SRC sh
 git push
@@ -164,6 +163,7 @@ git push
 It's not a real problem, it just means "somebody, somebody put something in your drink"!
 It means really that someone pushed something before you did finish
 your merge.
+
 You must once again merge. But this time, it will be fast.
 As your branch and the master are already merged, when you will pull
 some code, git will automagically merge what it can from master and
@@ -173,8 +173,8 @@ leave you eventuals conflicts to resolve.
 # synchronize with everybody... (needs somebody to love!)
 git pull
 # fix eventual merge conflicts and check your tests 
-# add the merged files to the index and commit
+# add the merged files to the index (git add) 
+# and commit (git commit)
 git push
-# pray that someone did not push something again on the master!!!
 #+END_SRC
 ***** Now, you're done!!!
