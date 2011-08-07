@@ -12,7 +12,7 @@ For simplicity's readings, i talk about master as of the final branch
 we need to merge into. It's just to simplify and give a name.
 You can, of course, translate this by replacing master by a release branch.
 
-* For each developer, here is how we start the retrieval of a project
+* One possible workflow
 *** Retrieve the repository needed
 *** Clone this repository
 ***** Go to the desired folder to receive the clone of the repository
@@ -29,7 +29,6 @@ Example:
 #+BEGIN_SRC sh
 git clone https://ardumont@github.com/ardumont/my-org-files.git
 #+END_SRC sh
-
 *** We create a branch from master to develop our fix or our functionality.
 #+BEGIN_SRC sh
 git checkout -b trigram-user/branch-name
@@ -39,6 +38,10 @@ Example :
 #+BEGIN_SRC sh
 git checkout -b adu/doSomeStuff
 #+END_SRC
+*** You do your dev regularly, add the files and commit.
+The graph will look like something like this:
+
+[[file:~/Documents/presentations/git/00.master-branch-without-pull-on-master.png][file:~/Documents/presentations/git/00.master-branch-without-pull-on-master.png]]
 *** Regularly, return to master to synchronize the source.
 #+BEGIN_SRC sh
 # Return to master
@@ -48,9 +51,12 @@ git checkout master
 git pull
 #+END_SRC
 
-Remark :
-If it refuses (git explains everything it does and why sometimes, it
-does not want to do what you ask it to do), you may have forgotten one
+If there were some changes inside the remote master (origin/master), the graph will evolve like this:
+
+[[file:~/Documents/presentations/git/0.master-branch-before-merge.png][file:~/Documents/presentations/git/0.master-branch-before-merge.png]]
+
+*** Why does git refuse to checkout my branch?
+If it refuses (git explains everything it does and also why it refuses), you may have forgotten one
 step. You may, for example, have changes locally that you did not
 commit to your index.
 
@@ -101,16 +107,20 @@ git merge master
 #+END_SRC
 
 Everything ok ?
-If everything is merging without problems, continue.
+If everything is merging without problems, the graph will look like this:
 
-Else, there were conflits during merge.
-We must fix these conflicts manually.
+[[file:~/Documents/presentations/git/1.merge-master-into-branch.png][file:~/Documents/presentations/git/1.merge-master-into-branch.png]]
+
+*** There were conflicts, what do i do?
+So there were conflits during merge, we must fix these conflicts manually.
 
 Either you use the tool git offers you
 #+BEGIN_SRC sh
 git mergetool
 #+END_SRC
-Or, you open your favourite ide or editor and choose what you want to keep or not depending on the situation.
+(I do not detail because i didn't try yet!)
+
+Or, you open your favourite editor or ide and choose what you want to keep or not depending on the situation.
 When all conflicts are resolved and that all your tests are ok, add
 all the files modified to the index, commit and that's all folks!
 
@@ -120,13 +130,15 @@ git add yourFileModified yourFile2Modified
 git commit
 #+END_SRC
 
+In either case of conflict or not, the branch will look like
+previously.
 ***** Why must i merge master into my branch ?
-******* To make sure what i'm doing still works with the latest code!
-******* If not, you will surely break the code into master when you'll merge your fix or dev!
+******* To make sure that what you're doing is still compatible with the latest code!
+******* If you do not, you may break the code from master when you merge your fix or dev of the branch into master! It's what i think can protect the master!
 ***** What if master is broken ?
 ******* It depends on the policy of your project.
 ******* If your policy is "Every commit is stable (all tests ok)" then it's not possible... or not!
-********* Very strong assertion : Master must be stable!
+********* Very strong assertion : Master must be stable! (It is mine!)
 *********** How can we be sure of such assertion ?
 ************* Continous integration !
 ************* Code review tool such as Gerrit!
@@ -135,8 +147,8 @@ git commit
 ******* Is all your code commited to your branch?
 ******* Is your dev done?
 ******* Are all your unit-tests ok?
-******* Are all your functional-tests or integration-tests ok ?
-******* Does your app deploy and work as expected ?
+******* Are all your functional-tests or integration-tests ok?
+******* Does your app deploy and work as expected?
 *** Ok then, it's time to merge into master.
 ***** Return to master 
 #+BEGIN_SRC sh
@@ -147,19 +159,24 @@ git checkout master
 git pull
 #+END_SRC
 If everything is already up-to-date, then pass to the next step.
-Else, return to the previous step.
-***** Merge the content of the "merging branch" into master
+Else, return to the previous step of merging master into your branch.
+*** Merge the content of the "merging branch" into master
 #+BEGIN_SRC sh
 git merge trigram-user/branch-name
 #+END_SRC
 At this point, it will only do a fast forward, that's just a moving
 forward the master pointer to the last commit of your branch (because
-your master branch did not advance between your checkout and the merge command).
-***** Send your modifications to master! 
+your master branch did not advance between your checkout and the merge
+command).
+
+So the graph will look like this:
+
+[[file:~/Documents/presentations/git/2.master-branch-after-second-merge-branchA-into-master.png][file:~/Documents/presentations/git/2.master-branch-after-second-merge-branchA-into-master.png]]
+*** Send your modifications to master! 
 #+BEGIN_SRC sh
 git push
 #+END_SRC
-***** What if there are problems ?
+*** What if there are problems ?
 It's not a real problem, it just means "somebody, somebody put something in your drink"!
 It means really that someone pushed something before you did finish
 your merge.
@@ -177,4 +194,4 @@ git pull
 # and commit (git commit)
 git push
 #+END_SRC
-***** Now, you're done!!!
+*** Now, you're done!!!
