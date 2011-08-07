@@ -1,0 +1,20 @@
+#+Title: Improve my Debian box
+#+author: Antoine Romain Dumont
+#+STARTUP: indent
+#+STARTUP: hidestars odd
+
+* Improve my debian box [3/6]
+** DONE Improve touchpad to emulate the mac one (scroll with 2 fingers).
+** DONE Fix my numeric keypad -> SHIFT + numlock.
+** TODO Secure my debian [1/2].
+*** DONE Restrict the root login to ssh.
+*** TODO Rest to secure
+** DONE Find a way to make the mic work!!! [1/2]
+*** DONE Actually worked with mic plugged in, just done some playing with alsamixer
+*** TODO Make it work without the mic plugged in.
+** TODO Find a way to increase the resolution screen
+** TODO Find a dock-like! [1/2]
+*** DONE Find Docky but it needs some graphics voodoo magics tricks
+*** TODO Find another one without magic graphics voodoo to do
+
+

@@ -1,0 +1,64 @@
+#+Title: Todo when launching lily
+#+author: Antoine Romain Dumont
+#+STARTUP: indent
+#+STARTUP: hidestars odd
+
+* Documentations about [[http://www.lilyproject.org/lily/][lily project]]
+** DONE [[http://hadoop.apache.org/][Hadoop]]
+*** DONE [[http://www.cloudera.com/what-is-hadoop/][what is hadoop ?]]
+*** DONE [[http://www.cloudera.com/why-hadoop/][why hadoop ?]]
+** DONE About [[http://www.cloudera.com/hadoop/][Cloudera distribution for Hadoop]]
+** DONE lily [1/6]
+*** DONE Running Lily 
+**** DONE About Lily 
+**** DONE Running lily [7/14]
+**** DONE About
+**** DONE Linux, Mac OS X, Windows
+**** DONE Java 1.6
+**** DONE Downloading Lily
+**** DONE Run HBase, HDFS, The MapReduce Job Tracker And Task Tracker, And ZooKeeper 
+***** Start hadoop : bin/launch-hadoop
+**** DONE Run Solr
+***** bin/launch-solr -s samples/books/books_sample_solr_schema.xml -c 5
+**** DONE Run Lily
+***** bin/lily-server
+**** DONE Create Field & Record Types
+***** Import types before loading datas : bin/lily-import -s samples/books/books_sample.json
+**** DONE Define An Index
+***** [[http://docs.outerthought.org/lily-docs-current/415-lily.html][indexer]]
+***** bin/lily-add-index -n books -c samples/books/books_sample_indexerconf.xml -s shard1:http://localhost:8983/solr
+**** DONE Loading Records Into Lily
+***** import records into lily : bin/lily-import samples/books/books_sample.json
+**** DONE Querying The Solr Index
+***** http://localhost:8983/solr/admin/
+**** DONE REST Interface
+***** http://localhost:12060/repository/record/USER.mary_shelley
+**** DONE Rebuilding the index
+**** DONE Next step
+*** TODO [[http://docs.outerthought.org/lily-docs-current/g1/407-lily.html][Field types and record types]]
+*** TODO [[http://docs.outerthought.org/lily-docs-current/415-lily.html][Indexer]]
+*** TODO [[http://docs.outerthought.org/lily-docs-current/408-lily.html][Lily Architecture]]
+*** TODO [[http://docs.outerthought.org/lily-docs-current/g1/407-lily.html][Repository model]]
+*** TODO [[http://docs.outerthought.org/lily-docs-current/414-lily/432-lily.html][Install a real Hadoop and Hbase setup]]
+** TODO [[https://zookeeper.apache.org/][ZooKeeper]] 
+** https://cwiki.apache.org/confluence/display/ZOOKEEPER
+* Vm lily [2/2]
+** DONE Install the vm with vmplayer
+** DONE update vm
+* Actions au demarrage
+** lily-prov-* to do stuff
+** Modifier /etc/hosts 
+192.168.150.129 vmlily
+** serveur http d'admin : http://vmlily:8088
+
+ls  lily-prov-service_all everything stop -> arreter les services lily
+
+OS	lily : ubuntu
+
+hue http://vmlily:8088 lily:hue
+
+admin 	http://vmlily:8088 
+solr  	http://vmlily:8963/solr
+ganglia	http://vmlily:ganglia
+
+

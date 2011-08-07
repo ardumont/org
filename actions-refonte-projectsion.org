@@ -1,0 +1,30 @@
+#+Title: Refonte ProjectionReloaded
+#+author: Antoine Romain Dumont
+#+STARTUP: indent
+#+STARTUP: hidestars odd
+
+* Actions de mise en place Github [7/7]
+** DONE Renseigner correctement son profil
+** DONE Créer un repository git
+** DONE Lire documentation git http://help.github.com/linux-set-up-git/
+** DONE S'inscrire à github
+** DONE Creer un repository git
+
+* Projet [6/8]
+** DONE Initier le projet
+** DONE Decouper en couches
+** DONE Coder en TDD.
+** DONE Lister les applications en json
+** DONE Visualiser une application en json
+** FAIL Creer les applications en json avec JacksonRepresentation
+** DONE Reprendre les fonctionnalites avec de la generation xml plutot que json [4/4]
+*** DONE Lister les applications
+*** DONE Visualiser une application
+*** DONE Creer une application
+*** DONE Creer un test d'integration pour la creation
+** TODO Tester que tout fontionne via curl ou simple rest client
+** TODO pr-front [0/3]
+*** TODO Maven-Gwt
+*** TODO Mise en place
+*** TODO Premiere ihm pour lister les applications
+

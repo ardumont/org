@@ -1,0 +1,16 @@
+#+TITLE: Android todo list
+#+author: Antoine Romain Dumont
+#+STARTUP: indent
+#+STARTUP: hidestars odd
+
+* Android [10/10]
+** DONE Rooter le telephone
+** DONE installer titanium backup
+** DONE backuper les applications
+** DONE installer rom manager
+** DONE Installer cyanogen 6.1.1
+** DONE Installer cyanogen 7.0.0 RC1
+** DONE Installer cyanogen 7.0.0
+** DONE Installer cyanogen 7.0.2
+** DONE Installer cyanogen 7.0.2.3
+** DONE Installer cyanogen 7.0.3

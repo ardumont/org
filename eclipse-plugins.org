@@ -1,0 +1,15 @@
+#+Title: plugins eclipse
+#+author: Antoine Romain Dumont
+#+STARTUP: indent
+#+STARTUP: hidestars odd
+
+* maven : m2eclipse, http://m2eclipse.sonatype.org/sites/m2e
+* extension : http://m2eclipse.sonatype.org/sites/m2e-extras
+* git : egit, http://download.eclipse.org/egit/updates
+* mylyn : http://download.eclipse.org/tools/mylyn/update/helios
+* amazon ec2 : http://aws.amazon.com/eclipse
+* moreunit : http://moreunit.sourceforge.net/org.moreunit.updatesite/
+* infinitest : http://infinitest.github.com
+* eclmma : http://update.eclemma.org/
+* maven-wtp -> to ease the use of deploying apps with maven
+* mousefeed -> to show the key binding when an action is not done with the binding

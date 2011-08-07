@@ -1,0 +1,10 @@
+#+Title: Learning stumpwm
+#+author: Antoine Romain Dumont
+#+STARTUP: indent
+#+STARTUP: hidestars odd
+
+* DONE Retrieve the stumpwmrc of denlab
+* DONE Use stumpwm
+* TODO Use it better
+* DONE Read the stumpwmrm
+* info stumpwmrc

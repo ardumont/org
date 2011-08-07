@@ -1,0 +1,71 @@
+#+TITLE: Livres
+#+author: Antoine Romain Dumont
+#+STARTUP: indent
+#+STARTUP: hidestars odd
+
+* Pascal Hemingway [1/1]
+*** DONE Le vieil homme et la mer
+* H.G. Wells [3/3]
+*** DONE L'homme invisible
+*** DONE La machine a remonter le temps
+*** DONE La guerre des mondes
+* Jules Vernes [3/4]
+*** DONE Le tour du monde en 80 jours (*2)
+*** DONE Le chateau des Carpathes
+*** DONE Vingt milles lieues sous les mers
+*** TODO Voyage au centre de la Terre
+* Douglas Adams [1/1]
+*** DONE The hitchhikers's guide to the galaxy
+* Philip K. Dick [2/2]
+*** DONE Minority Report
+*** DONE Blade Runner
+* Isaac Asimov [/]
+*** 
+* C.S Lewis [1/1]
+*** DONE Le monde de Narnia [7/7]
+***** DONE 1. Le neveu du magicien
+***** DONE 2. Le Lion, la Sorciere Blanche et l'Armoire magique
+***** DONE 3. Le Cheval et son ecuyer
+***** DONE 4. Le Prince Caspian
+***** DONE 5. Le Passeur d'Aurore
+***** DONE 6. Le Fauteuil d'Argent
+***** DONE 7. La derniere Bataille
+* Pierre Boule [1/1]
+*** DONE La planete des singes
+* George Orwell [1/1]
+*** DONE 1984
+* Barjavel [5/5]
+*** DONE La nuit des temps
+*** DONE Ravages
+*** DONE Le voyageur imprudent
+*** DONE Le grand secret
+*** DONE Une rose au paradis
+* Bernard Werber [3/5]
+*** DONE Les thanatonautes
+*** DONE L'ultime secret
+*** DONE La trilogie des Fourmis [3/3]
+***** DONE 1. Les Fourmis
+***** DONE 2. Le jour des fourmis
+***** DONE 3. La revolution des fourmis
+*** TODO Les Dieux [0/3]
+***** TODO 1. Nous les dieux
+***** TODO 2.
+***** TODO 3.
+*** TODO Le mirroir de Cassandre
+* Ray Bradbury [2/2]
+*** DONE Farenheit 451
+*** DONE Les chroniques martiennes
+* J.K. Rowling [7/7]
+*** DONE Harry Potter and the Philosopher's Stone
+*** DONE Harry Potter and the Chamber of Secrets
+*** DONE Harry Potter and the Prisoner of Azkaban
+*** DONE Harry Potter and the Goblet of Fire
+*** DONE Harry Potter and the Order of the Phoenix
+*** DONE Harry Potter and the Half-Blood Prince
+*** DONE Harry Potter and the Deathly Hallows
+* J.R.R Tolkien [2/2]
+*** DONE Bilbo the Hobbit
+*** DONE Le Seigneur des Anneaux [3/3]
+***** DONE La Communaute de l'Anneau
+***** DONE Les deux Tours
+***** DONE Le retour du Roi

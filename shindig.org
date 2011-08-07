@@ -1,0 +1,15 @@
+#+Title: shindig todo
+#+author: Antoine Romain Dumont
+#+STARTUP: indent
+#+STARTUP: hidestars odd
+
+* Installer, configurer un container opensocial (shindig) pour integrer des widgets externes [0/2]
+** TODO Faire fonctionner gadget frame dans shindig cloudbees [2/4]
+***** DONE retrieve sources shindig 2.0.0 
+***** DONE Untar the sources 2.0.0
+***** TODO Launch : mvn clean install
+***** TODO Read [1/3]
+******* DONE README
+******* TODO BUILD-JAVA
+******* TODO java/README
+** TODO Etudier l'api javascript de shindig 

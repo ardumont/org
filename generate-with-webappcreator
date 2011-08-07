@@ -1,0 +1,8 @@
+#+Title: howto generate a new gwt app with WebAppCreator
+#+author: Antoine Romain Dumont
+#+STARTUP: indent
+#+STARTUP: hidestars odd
+
+./webAppCreator -maven -out $project_name
+
+

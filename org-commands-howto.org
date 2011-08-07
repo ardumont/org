@@ -1,0 +1,3 @@
+* M-x org-table-convert-regions -> selection puis conversion en tableau
+
+

@@ -1,0 +1,1076 @@
+#+Title: Learning Lily
+#+author: Antoine Romain Dumont
+#+STARTUP: indent
+#+STARTUP: hidestars odd
+
+* TODO [[http://docs.outerthought.org/lily-docs-current/ext/toc/][Read Lily documentation]] [5/12]
+*** DONE Home
+***** Synthesis : Scalable content repository. Glue between hbase, solr, zookeeper, etc...
+*** DONE Running Lily [3/3]
+***** DONE HBase, Hadoop, ZooKeeper and Solr
+Set of commands to manipulate the start of the different layers used
+by Lily
+***** DONE Java Service Wrapper
+***** DONE Upgrade from Lily 0.3 - useless
+*** DONE Architecture [8/8]
+***** DONE HBase
+      Sparse, distributed, persistent multidimensional sorted map -> store everything in bytes in hdfs
+***** DONE HDFS
+      Hadoop Distributed File System - one file is written multiple times in different nodes for security failure 
+***** DONE Lily Repository
+      CRUD operations with fine grained (read or update only what is needed)
+***** DONE Write-Ahead Log
+      Guarantee that the secondary actions have been done - No
+      transaction and no rollback.
+***** DONE Message queue
+      Post messages for the indexing
+***** DONE Indexer
+      Listens to the message queue and update the index depending on
+      messages
+      Rely on configuration file
+***** DONE Solr
+      Full text search
+***** DONE ZooKeeper
+      Coordination between distributed applications (Lily, Hbase)
+*** DONE Repository [3/3]
+***** DONE Repository Model [10/10]
+******* DONE BASIC CONCEPTS AND TERMINOLOGY
+******* DONE NO HIERARCHY
+******* DONE RECORD IDENTIFICATION
+******* DONE RECORDS, FIELD SCOPES, VERSIONS [2/2]
+********* DONE Records
+          Set of fields, associated to a record type.
+********* DONE Fields scope & versions
+******* DONE FIELD TYPES
+        metadata of fields (version, namespace, etc...)
+******* DONE RECORD TYPES [2/2]
+        - Set of fields types
+        - Metadata of records
+        - Linked to mixins
+********* DONE Record type versioning
+********* DONE Mixins
+******* DONE THE RECORD – RECORD TYPE RELATIONSHIP
+******* DONE Record type as a guide rather than a straightjacket
+******* DONE Variants
+******* DONE Operations
+***** DONE How To Create A Schema [3/3]
+******* DONE [[http://docs.outerthought.org/lily-docs-current/g3/g1/390-lily.html][Java API]]
+******* DONE [[http://docs.outerthought.org/lily-docs-current/g3/g2/427-lily.html][Rest API]] [5/5]
+********* DONE Abstract
+********* DONE Creating a schema [3/3]
+*********** DONE Creating the name field type
+Create a field type sample via POST :
+curl -XPOST localhost:12060/repository/schema/fieldType -H 'Content-Type: application/json' -d '
+{
+  action: "create",
+  fieldType: {
+    name: "n$name",
+    valueType: { primitive: "STRING" },
+    scope: "versioned",
+    namespaces: { "my.demo": "n" }
+  }
+}' -D -
+
+GET
+http://localhost:12060/repository/schema/fieldType/n\$name?ns.n=my.demo
+Retrieve the resource created by its namespace
+
+GET http://localhost:12060/repository/schema/fieldTypeById/{uuid}
+Retrieve the resource created by its id (ouch!)
+*********** DONE Creating the price field type
+Via PUT
+curl -XPUT localhost:12060/repository/schema/fieldType/n\$price?ns.n=my.demo -H 'Content-Type: application/json' -d '
+{
+  name: "n$price",
+  valueType: { primitive: "DECIMAL" },
+  scope: "versioned",
+  namespaces: { "my.demo": "n" }
+}' -D -
+*********** DONE Creating the product record type
+Retrieve the record type
+http://localhost:12060/repository/schema/recordTypeById/{UUID}
+
+Retrieve the record till the version
+curl -XGET
+http://localhost:12060/repository/schema/recordTypeById/{UUID}/version/1
+
+********* DONE Creating records [2/2]
+*********** DONE Create record using POST, server assigns record Id
+Create a record via post :
+curl -XPOST localhost:12060/repository/record -H 'Content-Type: application/json' -d '
+{
+  action : "create",
+  record: {
+    type: "n$product",
+    fields: {
+      n$name: "Bread",
+      n$price: 2.11
+    },
+    namespaces: { "my.demo": "n" }
+  }
+}' -D -
+*********** DONE Creating a record using PUT, assigning the record ID yourself
+Generate a uuid
+uuidgen -r
+
+Use this uuid and pass it to the resource to create
+curl -XPUT localhost:12060/repository/record/UUID.a7166289-eb7a-4715-8c8e-3c997d752926 -H 'Content-Type: application/json' -d '
+{
+  type: "n$product",
+  fields: {
+    n$name: "Butter",
+    n$price: 4.25
+  },
+  namespaces: { "my.demo": "n" }
+}' -D -
+********* DONE Reading records
+Get the record by its id
+curl http://localhost:12060/repository/record/UUID.a7166289-eb7a-4715-8c8e-3c997d752926 | json_reformat
+
+Subset of fields of the record :
+curl 'http://localhost:12060/repository/record/UUID.a7166289-eb7a-4715-8c8e-3c997d752926?fields=n$name&ns.n=my.demo' | json_reformat
+********* DONE Creating a record with a blob f
+******* DONE [[http://docs.outerthought.org/lily-docs-current/g2/435-lily.html][Import json tool]]
+command : lily-import t-h
+Json is structured and the order is important for performance's sake
+********* The import JSON format
+***** DONE How To Create Records
+*** DONE [[http://docs.outerthought.org/lily-docs-current/415-lily/440-lily.html?action=addToBasket][Indexer]] [4/7]
+***** DONE Indexer Tutorial
+******* DONE Overview
+******* DONE The Lily schema
+******* DONE Version Tags [1/1]
+******* DONE The vtag 'last'
+******* DONE Indexer configuration sample [4/4]
+******* DONE Records
+******* DONE Fields
+******* DONE Record type indexing
+******* DONE Dynamic field mappings
+<?xml version="1.0"?>
+<indexer xmlns:b="org.lilyproject.bookssample"
+         xmlns:sys="org.lilyproject.system">
+
+  <records>
+    <record matchNamespace="b" matchName="Book"   vtags="last"/>
+    <record matchNamespace="b" matchName="Author" vtags="last"/>
+  </records>
+
+  <fields>
+    <field name="title"      value="b:title"/>
+    <field name="authors"    value="b:authors=>b:name"/>
+    <field name="name"       value="b:name"/>
+    <field name="recordType" value="sys:recordType"/>
+  </fields>
+
+</indexer>
+******* DONE Solr configuration sample
+******* DONE Declaring an index
+lily-add-index \
+  -n indexName
+  -c indexerconf.xml \
+  -s shard1:http://localhost:8983/solr \
+  -z zookeeperhost
+******* DONE Triggering indexing
+Index is triggered automatically
+We can make it in batch processing
+
+curl http://localhost:8983/solr/update -H 'Content-type:text/xml' --data-binary '<commit/>'
+
+******* DONE Committing the index
+curl http://localhost:8983/solr/update -H 'Content-type:text/xml'
+--data-binary '<commit/>'
+
+******* DONE Querying
+******* DONE Debugging indexing
+******* DONE Further information
+***** DONE Managing Indexes [9/9]
+******* DONE About multiple indexes [1/1]
+********* DONE Index states [3/3]
+*********** DONE The general state
+*********** DONE The update state
+*********** DONE The batch build state
+******* DONE Performing common index actions [5/5]
+********* DONE General notes
+********* DONE Command line clients and programmatic access
+********* DONE ZooKeeper connect string
+********* DONE Getting help
+********* DONE Forgot the name of an index
+******* DONE Knowing what indexes exist
+******* DONE Creating an index [2/2]
+********* DONE Incremental indexing is enabled by default
+********* DONE Using multiple shards
+******* DONE Updating the indexer configuration of an index
+******* DONE Updating other index properties
+******* DONE Deleting an index
+******* DONE Performing a batch build (rebuilding an index)
+******* DONE Interrupting a batch build
+***** DONE Indexer Architecture [6/6]
+******* DONE The indexer mode
+******* DONE The indexer engine
+Maps the lily records to Solr documentations through indexerconf.xml
+
+******* DONE The indexer worker
+- on each node
+- registers one or more message queue listeners for index with
+  incremental indexing
+******* DONE The indexer master
+- only on one node elected by zookeeper
+- manages the message queue subscription of indexes in function of
+  their states (BUILD_REQUESTED, etc...)
+- starts jobs if needed and not being already started
+- stops job indexing started if the state of a job pass at DELETE_REQUESTED
+******* DONE The batch build MapReduce job
+******* DONE The link index
+***** DONE Indexer Configuration [8/8]
+******* DONE Intro [10/10]
+********* DONE Rationale
+********* DONE Core ideas
+********* DONE Version tag based views [3/3]
+*********** DONE The built-in version tag: last
+*********** DONE Version tags & denormalization
+*********** DONE Non-versioned fields & version tags
+********* DONE The indexerconf
+******* DONE Records [6/6]
+********* DONE Evaluation of the record rules
+********* DONE matchVariant expression
+********* DONE Version tags
+******* DONE Formatters [1/1]
+********* DONE Built-in formatter
+******* DONE Fields [8/8]
+********* DONE Index field name
+********* DONE Order is important
+********* DONE Determining the relevant indexFields for an input record
+********* DONE Content extraction
+********* DONE Index fields that use a value from the current record
+********* DONE Index fields that dereference links towards other records
+********* DONE Index fields that dereference towards less-scoped variants of the same record
+********* DONE Denormalized information and index updating
+******* DONE Dynamic index fields
+******* DONE The built-in fields
+******* DONE Indexing record type information
+******* DONE Full dynamic indexer configuration
+***** TODO Index Sharding [0/3]
+******* TODO Introduction
+******* TODO Shard selection [0/1]
+********* TODO Sharding configuration (shard selection configuration)
+******* TODO Example usage
+***** TODO Solr Versions [/]
+***** TODO Indexer Error Handling [/]
+*** TODO Tools [2/4]
+***** DONE Import Tool
+command : lily-import t-h
+Json is structured and the order is important for performance's sake
+******* The import JSON format
+***** TODO mbox Import Tool [/]
+***** TODO Tester Tool [/]
+*** TODO Programming Interfaces [0/2]
+***** TODO Java [0/2]
+******* DONE Repository API Interface [[http://docs.outerthought.org/lily-docs-current/g3/g1/390-lily.html][Java API]] [5/5]
+********* DONE Before reading this
+********* DONE API design
+********* DONE API tutorial code
+********* DONE API reference
+********* DONE API RUN-THROUGH [14/14]
+*********** DONE Project setup
+*********** DONE Connecting to Lily
+*********** DONE Pre-requisites
+*********** DONE Creating a record type
+*********** DONE updating a record type
+*********** DONE Creating a record
+*********** DONE Creating a record with a user-specified id
+*********** DONE Updating a record
+*********** DONE Updating a record via read
+*********** DONE Updating versioned-mutable fields
+*********** DONE Reading a record
+*********** DONE Working with blob fields
+*********** DONE Creating variants
+*********** DONE Link fields
+******* TODO Javadoc [/]
+***** TODO REST (HTTP+JSON) [1/2]
+******* DONE REST Interface Tutorial [5/5]
+********* DONE Abstract
+********* DONE Creating a schema [3/3]
+*********** DONE Creating the name field type
+Create a field type sample via POST :
+curl -XPOST localhost:12060/repository/schema/fieldType -H 'Content-Type: application/json' -d '
+{
+  action: "create",
+  fieldType: {
+    name: "n$name",
+    valueType: { primitive: "STRING" },
+    scope: "versioned",
+    namespaces: { "my.demo": "n" }
+  }
+}' -D -
+
+GET
+http://localhost:12060/repository/schema/fieldType/n\$name?ns.n=my.demo
+Retrieve the resource created by its namespace
+
+GET http://localhost:12060/repository/schema/fieldTypeById/{uuid}
+Retrieve the resource created by its id (ouch!)
+*********** DONE Creating the price field type
+Via PUT
+curl -XPUT localhost:12060/repository/schema/fieldType/n\$price?ns.n=my.demo -H 'Content-Type: application/json' -d '
+{
+  name: "n$price",
+  valueType: { primitive: "DECIMAL" },
+  scope: "versioned",
+  namespaces: { "my.demo": "n" }
+}' -D -
+*********** DONE Creating the product record type
+Retrieve the record type
+http://localhost:12060/repository/schema/recordTypeById/{UUID}
+
+Retrieve the record till the version
+curl -XGET
+http://localhost:12060/repository/schema/recordTypeById/{UUID}/version/1
+
+********* DONE Creating records [2/2]
+*********** DONE Create record using POST, server assigns record Id
+Create a record via post :
+curl -XPOST localhost:12060/repository/record -H 'Content-Type: application/json' -d '
+{
+  action : "create",
+  record: {
+    type: "n$product",
+    fields: {
+      n$name: "Bread",
+      n$price: 2.11
+    },
+    namespaces: { "my.demo": "n" }
+  }
+}' -D -
+*********** DONE Creating a record using PUT, assigning the record ID yourself
+Generate a uuid
+uuidgen -r
+
+Use this uuid and pass it to the resource to create
+curl -XPUT localhost:12060/repository/record/UUID.a7166289-eb7a-4715-8c8e-3c997d752926 -H 'Content-Type: application/json' -d '
+{
+  type: "n$product",
+  fields: {
+    n$name: "Butter",
+    n$price: 4.25
+  },
+  namespaces: { "my.demo": "n" }
+}' -D -
+********* DONE Reading records
+Get the record by its id
+curl http://localhost:12060/repository/record/UUID.a7166289-eb7a-4715-8c8e-3c997d752926 | json_reformat
+
+Subset of fields of the record :
+curl 'http://localhost:12060/repository/record/UUID.a7166289-eb7a-4715-8c8e-3c997d752926?fields=n$name&ns.n=my.demo' | json_reformat
+********* DONE Creating a record with a blob field
+******* TODO REST Interface Reference
+*** TODO Bulk Imports [/]
+*** TODO ZooKeeper Connectionloss And Session Expiration Behavior [/]
+*** TODO Metrics [/]
+*** TODO Table creation settings [/]
+*** TODO Lily Hackers [0/6]
+***** TODO Getting Started [0/3]
+***** TODO Lily Source Code [/]
+***** TODO Repository Model To HBase Mapping [/]
+***** TODO Blobstore [/]
+***** TODO Releasing [0/3]
+***** TODO Building A Lily Release [/]
+***** TODO Publishing The Lily Maven Site (javadocs) [/]
+***** TODO Branching the docs [/]
+***** TODO Guidelines [0/2]
+***** TODO Code Style [/]
+***** TODO Programming Guidelines [/]
+***** TODO Lily Maven Repository Access [/]
+***** TODO Incompatible changes (by commit) [/]
+***** TODO Creating Snapshots Of 3d Party Projects [0/4]
+***** TODO Building HBase Snapshot [/]
+***** TODO Building Kauri Snapshot [/]
+***** TODO Building Avro Plugin Snapshot [/]
+***** TODO Deploying Solr war To Maven [/]
+* TODO [[http://docs.outerthought.org/lilyenterprise-docs-current/ext/toc/][Read Lily enterprise documentation - Howto to setup a cluster environment with Lily]] [0/4]
+*** TODO Lily Enterprise Documentation (v1)
+*** TODO Lily Cluster Installation Guide [0/18]
+***** TODO Assumptions
+***** TODO Passwordless sudo Access
+***** TODO Used Port Numbers
+***** TODO Data Safety
+***** TODO Hardware Usage
+***** TODO Setup The Provisioning Master Node
+***** TODO Configure Node Roles
+***** TODO Software Installation [0/4]
+******* TODO Installing pssh
+******* TODO Installing Java
+******* TODO Installing Hadoop, ZooKeeper, HBase, Solr and Lily
+******* TODO Installing LZO Support
+***** TODO Check Hostnames
+***** TODO Configuration Overview [0/7]
+******* TODO Hadoop Configuration
+******* TODO ZooKeeper Configuration
+******* TODO HBase Configuration
+******* TODO Lily Configuration
+******* TODO Solr Configuration
+******* TODO Cluster-wide Configuration Deployment
+******* TODO Configuration Best Practice
+***** TODO Creating The Data Directories
+***** TODO Installing Daemon Packages
+***** TODO Starting Up The Cluster
+***** TODO Changing Configuration And Restarting Processes
+***** TODO Testing The Cluster
+***** TODO Emptying The Cluster
+***** TODO Ganglia Setup
+***** TODO Maintenance
+*** TODO Lily Administration Application [0/2]
+***** TODO Setting Up the Lily Admin App
+***** TODO Using the Lily Admin App
+*** TODO Summary Tables
+* DONE Lily Course --  Lundi 18/07/2011 - Mardi 19/07/2011
+*** Lily introduction : Architecture and feature
+***** Lily core concepts:
+******* Storage large scale: Hadoop, ZooKeeper, Hbase
+******* Indexing: module lily which communicates between Lily and Solr
+******* Search: Apache Solr
+***** Lily Architecture
+******* Some simple schema
+***** Hadoop
+******* HDFS
+********* Cluster of nodes
+********* Large files, High throughput over low latency
+********* write once, append
+********* Multiple copies in the cluster
+********* namenode which manages the filesystem namespace (table to actual data on data node)
+********* datanodes which knows where the blocks are (where on the hdd in function of the filesystem)
+********* Based on GFS
+******* Map-Reduce Framework: functional system for distributed processing
+********* Map phase
+************* On the namenode, job tracker which does the distributing of map algorithm job to tasks trackers
+************* On the datanodes, there are tasks trackers which does the computing of the map part
+************* Sort the different maps result into a more coherent set
+********* Reduce phase
+************* Retrieve the maps part and compute the result into partial parts which in turns are computed into one final result.
+************* The secret of all is that it is distributed amongst nodes.
+******* => The important phase into for a nosql environment is the writing, the reading can be slow.
+***** Lily and Hadoop
+***** Hbase
+******* a "sparse, distributed, persistent multidimensional sorted map"
+******* add some functionalities above HDFS
+*********** small items capacity, read-write, random access
+*********** scan and filter
+******* borrows some functionality too
+*********** high write throughput
+*********** distributed capacity
+******* not SQL: no query model, no transactions
+******* model; multi-dimensional hashtable
+***** Lily and Hbase
+******* adds high level content model
+********* data types
+********* versioning 
+- interpretation on the OT's part, it's a counter
+- no timestamp is used => no gap inside version
+********* blog storage on HDFS
+******* focus on sparse storage
+******* rowlog for synchronous cross-table updates and async message queue => Write Ahead Log (to know what has happened) and Message queue (for indexing)
+***** ZooKeeper
+******* For distributing cluster combination
+***** Lily and ZooKeeper
+******* Server discovery
+******* Master election for centralized jobs (indexer, rowlog shard)
+******* Deals with locks
+******* Schema:
+Lily client -> Zk -> redirects to one Lily node 
+If one lily node crashes, zk knows and won't use this one for future
+lily clients
+******* Number of zookeeper instances : 2n + 1 ~ 3-5
+With 100 machines
+- 1 machine with one namenode service, hbase master service, job
+  tracker service
+- 99 with datanodes services, hbase regions, task tracker, etc...
+- Amongst those 100 machines, there can be from 3 to 5 zookeeper instances
+***** Solr (cf. chubby paper)
+******* open source
+******* enterprise search server service
+******* based on the Lucene Java Search Library (popular and widespread)
+******* Amongst Features:
+********* REST interfaces : XML and json
+********* caching, faceted search, replication
+********* web administration interface
+***** Lily and Solr
+******* flexible mapping between hbase content model and solr field index
+******* use solr as-is
+******* interactive and batch index maintenance (M/R)
+******* sharding -> more than once instances solr => distributing solr
+******* Access from Lily to Solr via the Solr Rest API
+******* search access via SOLR (HTTP) API
+=> Careful here, if we want abstraction from solr, we need to implement it!!!
+=> cf. http://wiki.apache.org/solr/Solrj Solr java client to access
+solr, add, update or query the solr index
+=> what if we shard the solr index ? => i think we're screwed!!!!
+***** Lily Architecture
+******* Some fucking complex schemas
+http://docs.outerthought.org/lily-docs-current/384-lily/version/default/part/ImageData/data
+http://docs.outerthought.org/lily-docs-current/385-lily/version/default/part/ImageData/data
+***** Lily Storage Model
+******* Schema
+********* Models into
+*********** Record - RecordType (Structure of a record)
+*********** Field - FieldType (Structure of a field)
+*********** RecordType * -> * FieldType * -> 1 ValueType (Date, time, blob, long, etc...)
+********* Notes: Namespace, global nature, semantics
+*********** The meaning of the fieldType is broader than the recordType. They're used inside a recordType but not limited to it.
+******* Versioning model
+******* Variants
+******* Mixins
+***** Flexible content model
+******* generic enough to accomodate many popular content schemas
+******* developer convenience
+********* higher level constructs
+********* schema reuse
+********* versioning, linking, ...
+***** Repository model
+http://docs.outerthought.org/lily-docs-current/387-lily/version/default/part/ImageData/data
+***** Mixins
+http://docs.outerthought.org/lily-docs-current/451-lily/version/default/part/ImageData/data
+***** Sample Schema json
+******* Order is important
+******* TODO add a link to a sample
+***** Sample Schema Overview
+******* Work in progress to simplify the schema declared in json
+@1 non versioned scope
+@# versioned scope
+@v versioned mutable scope (metadatas can change)
+'*' mandatory
+'?' optional
+***** Schema API
+******* TypeManager
+********* Methods for creates and updates
+********* Not yet delete/purge
+********* Straightforward API
+******* Implementation performs client side caching
+********* Enhances performance
+********* Gets refresh trigger upon changes
+********* Assumes you keep your client running
+***** API for getting access
+******* Create an instance of ZooKeeperItf 
+ZooKeeperItf zk = new StateWatchingZooKeeper(localhost:2181, 10000)
+******* Then a LilyClient instance
+LilyClient lilyClient = new LilyClient(zk);
+******* A repository instance from the lilyClient instance
+Repository repo = lilyClient.getRepository();
+******* Factory to manipulate Record, Field
+IdGenerator idgen = repo.getIdGenerator();
+******* To manage types
+TypeManager types = repo.getTypeManager();
+***** Schema API Reading
+******* QName == Qualified name; namespace + name of the field or record or whatever
+***** Schema API Writing
+***** Lily versioning
+http://docs.outerthought.org/lily-docs-current/388-lily/version/default/part/ImageData/data
+***** Record API Reading
+******* RecordId id = idgen.fromString("USER.mary_shelley")
+=> Create an instance of RecordId
+******* Record record = repo.read(id, version)
+=> Read into hbase the record, version == null to have the last version of the record if it exists
+******* Fields fields = record.getFields()
+=> Retrieve the fields of the record
+***** ID
+******* Ownership/Control
+********* "USER" - identity controlled by application/client
+********* "UUID" - identity open to application, assured unique
+******* UUID generated
+********* @Client - known prior to actual create
+********* @Server - create first, then read resulting id
+***** Record API creation
+Record id = idgen.newRecordId()
+Record r = repo.newRecord();
+r = repo.newRecord(id);
+r.setRecordType(qname, version);
+
+Fields
+r.setField(qname, objectValue);
+
+Record
+r.create();
+r.update();
+
+***** Blobs
+******* Associates (larger) files to the record
+********* size determines the value of the location (S, M, L)
+********* includes metadata (filename, mime-type, size)
+******* Can be multi-value as well
+***** Blobs API Reading
+BlobAccess ba = repo.getBlob(record, new QName(ns, blobFieldName));
+Blob b = ba.getBlob();
+InputStream is = b.getInputStream();
+...
+***** Lily Schema flexibility
+******* All records must contain all required fields
+********* Enforced validation on create/update
+******* All records can contain all fields
+********* even if not present in schema of record-type
+******* This flexibility is useful for schema versioning
+********* schema changes
+*********** do not alter any data
+*********** are not validated
+*********** do not trigger indexing
+***** Lily versioning
+http://docs.outerthought.org/lily-docs-current/388-lily/version/default/part/ImageData/data
+***** Relation to vtag
+******* Name pointer to a certain version
+******* Needed ofr the indexer to pick which data will be indexed in any given solr index
+******* Each one labels one of your version as being
+********* last, live, ..., ready, any marker you need => Careful, the implementation is then on the application's side!
+********* vtag last is implicit => always the last version of a record or type or ...
+******* Technically just a field except for 'last'
+********* unversioned, LONG valueType
+********* (org.lilyproject.vtag)
+******* Value '0' points to unversionned data
+***** Variants
+******* Loose grouping of related 'records'
+******* Extension on the 'ID' concept
+***** Variants API Snippet
+***** REST API
+***** REST classic: method tunneling
+******* X-HTTP-REQUEST
+***** REST API Representations
+******* Content-type: application/json
+********* UTF-8
+********* cool json implementation 
+******* Namespaces
+******* ValueTypes
+********* BLOB
+********* LINK
+********* DATE/TIME
+********* ...
+***** REST API More Representations
+******* List format
+******* POST format
+***** REST API for Schema
+***** REST API for Records
+***** REST API for Blobs
+***** Search
+******* Nope not yet!
+***** Index
+***** Lily Indexer
+******* Why ?
+******* Data in Hbase retrievable by ID only
+********* scalable and fast persistence
+******* solr ready to build up a searchable index
+******* Indexer: move data from hbase into Solr
+********* incrementally when created/updated records arrive
+********* redo whenever needed
+********* flexibly when new indexes are needed
+********* based on the rich semantic content model
+***** Lily indexer 2
+******* how it works
+********* rowlog coupling
+********* batch processing: zookeeper and locks
+******* schema mapping
+********* vtags
+********* lily schema <> solr schema
+*********** dynamic fields
+******* management
+********* CLI tools and zookeeper
+********* API
+***** Hbase rowlog library
+***** Hbase rowlog library 2
+******* WAL
+******* Queue
+***** Hbase rowlog library
+******* schema
+***** Indexer feature
+******* schema
+********* 1. denormalize -> link field in cascade
+********* 2. multi-version
+********* 3. incremental -> near real-time, as fast as possible
+********* 4. batch -> 
+********* 5. extraction
+********* 6. sharded
+***** Lily indexer howto
+******* matching solr schema
+********* and launch a solr instance that makes uses of this schema
+********* define index = define queries (and facets)
+******* indexer configuration
+********* which records to index
+********* how to map the lily fields onto solr fields
+******* declare an index in Lily
+********* use of the indexer configuration
+********* send to the matching solr shard
+***** Indexer configuration @SOLR
+******* Presentation of the mandatories fields
+******* If modifying this file (schema.xml), restart the solr instance
+***** Lily system fields in solr
+******* explanation of the mandatory fields for lily
+********* lily.key: unique solr doc identification. combo of lily.id and vtag.id
+********* lily.id: lily record id
+********* lily.vtagId: field-schema-id of the vtag field
+********* lily.vtag: textual version (e.g. last)
+********* lily.version: actual sequence number of the version
+***** Terminology
+******* Don't forget that Solr knows nothing about Lily
+***** Indexer configuration @Lily
+******* <field name="{solr references}" value="{lily expressions}" />
+***** Why Lily indexing conf ?
+******* Alternative ? 
+********* Think the other way around -> Where to stop the indexing (link of link of link of ...)
+******* send all fields (and not store, not index @Solr)
+******* send all versions, recordtypes, ...
+******* ...
+***** Lily index principles
+******* indexing picks up directly in the field-level
+******* vtag based
+******* filtering of records to index
+***** Lily Index syntax
+***** Lily index record matching
+******* first matching test will trigger the indexing
+******* ...
+***** Lily indexing patterns
+***** Grouping patterns
+***** Working with blobs
+******* tika library is used for content extraction
+******* explicit mentioning to the indexer is expected
+<field name="solr-field-name" value="prefix:name-blob-field"
+******* ...
+***** Indexing lily system information
+******* we can index recordType
+***** Dynamic index fields
+******* Useful to lower maintenance. When:
+********* lots of fields
+********* many schema changes expected
+******* first matching rule is active (tip: more specific on top)
+***** Dynamic index fields 2
+***** Dynamic index fields examples
+***** Sample full dynamic index
+***** Lily Advanced Indexing: Formatters
+******* Extension point, rarely needed
+******* Own implementation of org.lilyproject.indexer.model.indexerconf.Formatter
+***** Managing indexes
+******* Control indexer states
+********* General: ACTIVE, DISABLED, DELETE_REQUESTED, DELETING, DELETE_FAILED
+********* Update-state: SUBSCRIBE_AND_LISTEN, SUBSCRIBE_DO_NOT_LISTEN, NOT_SUBSCRIBED
+********* Batch Build Atete: BUILD_REQUESTED, BUILDING, INACTIVE
+***** Managing indexes
+******* some commands:
+********* List indexes: lily-list-indexes
+********* Retrieve lost indexerconf.xml file: lily-get-indexerconf -n NAME >> NAME-indexerconf.xml
+********* Update indexerconf.xml: lily-update-index -n NAME -c NAME-indexerconf.xml
+***** Search?
+***** Not yet: recap. how did we get here ?
+***** Cool, no we can get to...
+******* search!!!
+******* no, we have to commit the fucking indexer
+***** SOLR Commit
+******* Flush added documents to the index
+******* Automatic
+********* cf. solrconfig.xml ===> we must test the environment to find the optimum period for the autocommit!
+******* API
+********* solrserver.commit()
+******* REST
+********* curl http://localhost:8983/solr/update -H 'Content-type: text/xml' --data-binary '<commit />'
+***** Querying solr
+******* Query "where:what"
+********* what?
+*********** keyword or a value.
+********* where?
+*********** which index? default one.
+******* API
+********* solrserver.query(new SolrQuery("authors:shelley"));
+******* REST
+********* /solr/select/?q=authors:shelley&indent=on
+***** SOLR Queries
+******* REST API - HTTP/XML
+******* cf. query on solr http://lucene.apache.org/solr/
+***** SOLR Queries - Request params
+******* q=where:what
+******* fl=comma separated list of fields to return
+********* *: all stored and indexed
+********* score: relevance
+******* wt=json => json output format
+******* sort=field [asc|desc][, field [asc|desc]]
+******* hl=true => highlight
+********* hl.fl = field to highlight
+******* ...
+***** SOLR API
+******* REST API, implemented in java, no java api
+******* REST is a must @SOLR
+******* solj client java API
+***** Solrj facets samples
+*** Lily training course
+***** Agenda
+******* Changes since 0.3
+******* Dev env. support
+******* Dynamic links
+******* Changes since 0.3
+******* Repository API, performance, etc...
+******* Blobs
+******* Indexer
+******* Various upgrades
+********* SOLR 3.1
+********* Tika 0.8
+********* Avro 1.5 + patch (ant netty)
+******* Various fixes
+******* Lily enterpris
+******* Repository changes
+******* Various performance gain
+******* API
+******* The record ID String representation ';' -> ','
+******* Blobs changes
+******* Before the access of blobs was global -> move toward an access control through a record
+******* In anticipation of record-level access-control
+******* Blob-access: only through context of record
+******* Uploaded blobs (created but not used, cannot be read) until it's associated to a record
+******* REST interface adapted accordingly
+******* HDFS storage uses directory hierarchy for speed (uses the name in hierarchy folder)
+******* Blobs API Reading
+BlobAccess ba = repo.getBlob(record, new QName(ns, blobFieldName));
+Blob b = ba.getBlob();
+InputStream is = b.getInputStream();
+******* Indexer changes
+******* vtag.last automatic
+******* no version = vtag.x == 0
+******* renamed built-in required solr field to "lily."
+******* more compact indexer-conf.xml
+********* support for dynamic fields
+******* Lily enterprise offer
+******* deployment packages (rpm/deb)
+******* hue admin
+******* cluster setup guide
+******* Upgrading
+******* No ascendant compatibility between 0.3 and 1.0 or later version
+***** Development support (testing context)
+******* Maven project archetype
+********* Generate a project with:
+mvn archetype:generate \
+  -DarchetypeGroupId=org.lilyproject \
+  -DarchetypeArtifactId=lily-archetype-basic \
+  -DarchetypeVersion=1.1-r5000 \
+  -DarchetypeRepository=http://lilyproject.org/maven/maven2/deploy/
+********* Everything set up to get you started right away
+******* The lily-test-framework
+********* 2 options:
+*********** embed mode: all run inside a same vm; lily and tests
+************* cons: slow
+************* plus: no external setup
+*********** connect mode: tests talk to a standalone lily stack -> there is a possibility to clean all the datas inserted during the tests!
+************* add-hoc testings
+******* lily test framework
+http://docs.outerthought.org/lily-docs-trunk/516-lily/version/default/part/ImageData/data/lilytestproxy.png
+******* Clean slate
+********* embed: clean slate at starting
+********* standalone:
+*********** provided jmx operation 'resetLilySlate'
+*********** this operation is triggered at starting
+******* The big idea -> abandonned
+******* How to use
+********* pom.xml
+<project>
+  <dependencies>
+
+    <dependency>
+      <groupId>org.lilyproject</groupId>
+      <artifactId>lily-server-testfw</artifactId>
+      <version>1.1-SNAPSHOT</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.8.1</version>
+      <scope>test</scope>
+    </dependency>
+
+  </dependencies>
+</project>
+******* RT Lily dependencies
+<project>
+  <dependencies>
+
+    <dependency>
+      <groupId>org.lilyproject</groupId>
+      <artifactId>lily-server-testfw</artifactId>
+      <version>1.1-SNAPSHOT</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.8.1</version>
+      <scope>test</scope>
+    </dependency>
+
+  </dependencies>
+</project>
+******* More maven config
+********* testing should fork vm (beware of classpath issues)
+<project>
+  <build>
+    <plugins>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.5</version>
+        <configuration>
+          <forkMode>always</forkMode>
+          <systemPropertyVariables>
+            <lily.lilyproxy.mode>${lily.lilyproxy.mode}</lily.lilyproxy.mode>
+            <lily.config.customdir>${lily.config.customdir}</lily.config.customdir>
+            <lily.plugin.dir>${lily.plugin.dir}</lily.plugin.dir>
+          </systemPropertyVariables>
+        </configuration>
+      </plugin>
+
+    </plugins>
+  </build>
+</project>
+
+******* And finally
+********* maven dependencies
+******* Maven convenience
+********* create profile to connect
+<project>
+  <profiles>
+
+    <profile>
+      <id>connect</id>
+      <properties>
+        <lily.lilyproxy.mode>connect</lily.lilyproxy.mode>
+      </properties>
+    </profile>
+
+  </profiles>
+</project>
+********* define path properties in the pom (adding modules to lily == adding modules to cody)
+<lily.config.customdir></lily.config.customdir>
+<lily.plugin.dir></lily.plugin.dir>
+******* Under the hood
+******* Recommended: class level proxy
+********* Example:
+#+BEGIN_SRC java
+import org.junit.Test;
+import org.lilyproject.lilyservertestfw.LilyProxy;
+import org.lilyproject.repository.api.*;
+
+public class MyTest {
+    @Test
+    public void testMe() throws Exception {
+        LilyProxy proxy = new LilyProxy();
+
+        // Depending on mode, this will:
+        //  - start Hadoop, ZooKeeper, HBase, Solr, Lily embedded
+        //  - connect to locally running instance launched by launch-test-lily and clear its state
+        proxy.start(); 
+
+        Repository repository = proxy.getLilyServerProxy().getClient();
+
+        // Do stuff with the repository
+        // ...
+        
+        proxy.stop();
+    }
+}
+#+END_SRC
+********* Example 2:
+#+BEGIN_SRC java
+import org.junit.Test;
+import org.lilyproject.lilyservertestfw.LilyProxy;
+import org.lilyproject.repository.api.*;
+
+public class MyTest {
+    private static LilyProxy LILY_PROXY;
+
+    @BeforeClass
+    public static void setup() {
+        LILY_PROXY = new LilyProxy();
+        // Depending on mode, this will:
+        //  - start Hadoop, ZooKeeper, HBase, Solr, Lily embedded
+        //  - connect to locally running instance launched by launch-test-lily and clear its state
+        LILY_PROXY.start();
+    }
+
+    @AfterClass
+    public static void tearDown() {
+        LILY_PROXY.stop();
+    }
+
+    @Test
+    public void testMe() throws Exception {
+        Repository repository = LILY_PROXY.getLilyServerProxy().getClient();
+
+        // Do stuff with the repository
+        // ...
+    }
+}
+#+END_SRC
+******* Embed -> Standalone + Connect
+********* embed: mvn install
+********* standalone ?
+*********** launch with ./bin/launch-test-lily
+********* test connected
+*********** mvn -Pconnect install
+********* then LilyProxy.start() will call JMX#resetListState
+********* when running tests (IDE) outside maven, test will react on system property: -Dlily.lilyproxy.mode=connect
+********* Possibility to use directly a real lily (don't call LilyProxy.start() on the tests)
+******* Service configuration
+********* Allow SOLR schema changes
+*********** on startup
+*********** or even later
+************* LILY_PROXY.getSorlProxy().changeSolrSchema(solrSchemaData)
+*********** ...
+******* Utilities
+********* timeout on methods to "wait" for a result. Return true if the action happened between the timeout, false otherwise.
+********* add an index
+********* wait for the mq, wal and commit solr
+********* batch rebuild index
+***** Dynamic links
+******* Dynamic Links Storage Model
+schema
+******* Setup and configuration 
+********* deploy dynamic-link jar to ~/.m2/repository 
+sources: ~/Downloads/lily/20110719-lily-training/dl-extra/
+********* Add required configuration from "conf" and "plugins" folder 
+sources: ~/Downloads/lily/20110719-lily-training/dl-ss-0.2.tar.gz
+******* Add the DL feature to the Lily Node
+********* These are plugins which are specific for wikeo.
+********* ./plugins/load-before-repository/wiring.xml
+load the extension module into lily-node jvm
+********* ./conf/repository/repository.xml
+let the lily node know what it can find in that module
+******* Configure the DL feature
+********* ./conf/dynamiclink/dynamiclink.xml
+********* ./conf/dynamiclink/dlmetrics.xml
+******* Run Lily with extensions
+********* Standalone
+*********** Add maven jars in repo-layout to $LILY_HOME/lib
+*********** Add configuration files in provided layout to $LILY_HOME/conf
+********* Embed
+<lily.config.customdir>config</lily.config.customdir>
+<lily.plugin.dir>plugin</lily.plugin.dir>
+********* Deploy
+*********** running dev.
+******* Dynamic link schema
+******* Sample
+******* Sample 2
+******* Updating the query
+******* dl.query
+********* Strict json syntqx
+*********** => Use Jackson library
+********* Json-properties map onto solr-query parameters
+*********** directly pass through, no checking
+********* Exceptions
+*********** fl and wt are ignored
+*********** upgrading qt vqleurs with / to path segments
+******* [DL] Related topics
+********* Peeking into the link index
+********* conditional updates
+********* Decorators
+********* record update hook
+********* extensions (cf. running lily with extensions)
+******* Using the link index
+********* Who links to me ?
+********* based on internal knowledge in lily (hbase table dedicated to it)
+********* requires the link-index artifact
+*********** update the pom.xml with the dependency
+******* LinkIndex Object
+******* Conditional updates
+******* Decorators and update hooks
+******* API Exercises

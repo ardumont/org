@@ -1,0 +1,44 @@
+#+STARTUP: indent
+#+STARTUP: hidestars odd
+* TODO demo [0/2]
+*** TODO Plan presentation [0/4]
+***** TODO Vue d'ensemble
+******* TODO Faire un schema simplifie du workflow
+
+***** TODO Demo
+******* TODO Un cas simple
+********* TODO devA clone
+********* TODO devA push commit on gerrit
+********* TODO => check the Jenkins build is triggered
+********* TODO devB clone => don't see the modification
+********* TODO devB go on the 'open page'
+********* TODO devB validte the change
+********* TODO => Jenkins verify the commit
+********* TODO devB pull => sees the modification
+
+******* TODO Un cas plus complexe(?)
+***** TODO Avantage / Inconvenient (Pour aller plus loin...)
+******* TODO Interets
+********* TODO Plus de commit "invalides" sur master (=> schema)
+
+********* TODO Tout le monde lis le code de tout le monde (=> schema)
+
+*********** TODO => Diffusion de la connaissance
+
+*********** TODO => Code ownership de toute l'equipe
+
+*********** TODO => Moins de refactoring
+
+********* TODO Ca va freiner l'integration des commit ?
+
+*********** TODO => Une demie-journee par jour un dev est designe comme code reviewer
+
+********* TODO Faire participer des personnes en dehors de l'equipe de dev ?
+*********** TODO Cyril L, Olivier ? 
+
+*********** TODO Didier G ? 
+
+*********** TODO Et pourquoi pas sur des sujet precis: Outerthought, Jerome Louvel, ... ?
+                      
+********* TODO Contrainte ? : Pusher des commits bien decoupes
+*********** TODO => Pour des codes review plus facile

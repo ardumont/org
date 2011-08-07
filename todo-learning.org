@@ -1,0 +1,42 @@
+#+TITLE: Learning list
+#+author: Antoine Romain Dumont
+#+STARTUP: indent
+#+STARTUP: hidestars odd
+
+* Learning by reading or viewing [2/5]
+** DONE Emacs [7/7]
+*** DONE Read howtos
+*** DONE Read tutorials
+*** DONE Use it
+*** DONE Fix problem at init time for my emacs
+*** DONE install starter kit for emacs
+*** DONE Use it better
+*** DONE Know other combination keys
+** TODO Vim [2/3]
+*** DONE Read howtos
+*** DONE Use it
+*** TODO Use it better
+** DONE conkeror [5/5]
+*** DONE Reading help page also intitulate user manual (C-h i) 
+*** DONE Reading the tutorial (C-h t)
+*** DONE Test it
+*** DONE Use it
+*** DONE Use it better
+** TODO Spring [1/2]
+*** TODO Reading Spring by Example
+*** DONE Do some coding with it [2/2]
+**** DONE Utilise dans le projet
+**** DONE Utilise dans ProjectionReloaded
+
+
+* DONE Doing some open source code [1/1]
+** DONE Fest-assert-goodies [5/5]
+*** DONE Use Denis's project in dependencies for ProjectionReloaded
+*** DONE Create a repository fork of Denis's repository
+
+*** DONE code the DeepListEqual
+*** DONE Push the code for festassert goodies
+*** DONE Pull request on Denis so he can pull my code from my fork repository
+waiting for Denis's response
+
+

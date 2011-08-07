@@ -1,0 +1,48 @@
+#+Title: Learning Solr
+#+author: Antoine Romain Dumont
+#+STARTUP: indent
+#+STARTUP: hidestars odd
+
+* DONE Overview
+* DONE Requirements
+* DONE Getting Started
+  unzip -q solr.zip
+  cd solr/example
+  java -jar start.jar
+  http://localhost:8983/solr/admin
+* DONE Indexing Data
+  java -jar post.jar file_to_post.xml
+  format xml :
+  <add><doc>
+    <field name="id">MA147LL/A</field>
+    <field name="name">Apple 60 GB iPod with Video Playback Black</field>
+  </doc></add>
+  also there are other ways to import datas to solr, e.g. solrj
+* Updating Data
+** Deleting Data
+delete by id example
+java -Ddata=args -Dcommit=no -jar post.jar
+"<delete><id>SP2514N</id></delete>"
+
+search the id that still exists before the commit
+id:SP2514N
+
+commit
+java -jar post.jar
+
+delete by query and commit
+java -Ddata=args -jar post.jar "<delete><query>name:DDR</query></delete>"
+
+* DONE Querying Data
+- different queries output format possible.
+  q=video&sort=price desc&fl=name,id,price
+- different format (json, xml)
+  q=video&wt=json
+
+** DONE Sorting
+* DONE Highlighting
+* DONE Faceted Search
+* DONE Search UI
+* DONE Text Analysis
+** DONE Analysis Debugging
+* DONE Conclusion

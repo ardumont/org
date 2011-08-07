@@ -1,0 +1,51 @@
+#+Title: Install Lily Embedded
+#+author: Antoine Romain Dumont
+#+STARTUP: indent
+#+STARTUP: hidestars odd
+
+* untar the archive
+#+BEGIN_SRC sh
+tar zxvf lily-1.1-r5000.tar.gz 
+#+END_SRC
+* Copy the lib directory to the maven local repository
+#+BEGIN_SRC sh
+cp -rv ~/bin/lily-1.1-r5000/lib/* ~/.m2/repository
+#+END_SRC
+* Add an extra lib
+#+BEGIN_SRC sh
+cp -rv ~/Downloads/lily/20110719-lily-training/dl-extra/lib/* ~/.m2/repository/
+#+END_SRC
+* Create a mvn archetype (pom is complete, no need to change anything in it!)
+#+BEGIN_SRC sh
+mvn archetype:generate \
+  -DarchetypeGroupId=org.lilyproject \
+  -DarchetypeArtifactId=lily-archetype-basic \
+  -DarchetypeVersion=1.1-r5000 \
+  -DarchetypeRepository=http://lilyproject.org/maven/maven2/deploy/
+#+END_SRC
+* Edit /etc/hosts and comment the line 127.0.1.1
+#+BEGIN_SRC sh
+tony@linux$ cat /etc/hosts
+127.0.0.1	localhost
+#127.0.1.1	linux-mi178
+#+END_SRC
+* Add the hostname of the machine to /etc/hosts
+*** Retrieve the hostname of the machine
+#+BEGIN_SRC sh
+tony@linux$ hostname
+linux-mi178
+#+END_SRC
+*** Update /etc/hosts on the line 127.0.0.1
+#+BEGIN_SRC sh
+tony@linux$ cat /etc/hosts
+127.0.0.1	localhost linux-mi178
+#+END_SRC
+* launch the tests
+*** The tests are launched on "embed" mode
+#+BEGIN_SRC sh
+mvn test
+#+END_SRC
+*** the tests are launched on "connect" mode
+#+BEGIN_SRC sh
+mvn test -P connect
+#+END_SRC

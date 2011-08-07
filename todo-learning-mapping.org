@@ -1,0 +1,12 @@
+#+TITLE: Mapping todo list
+#+author: Antoine Romain Dumont
+#+STARTUP: indent
+#+STARTUP: hidestars odd
+
+* DONE Change the mapping of the keyboard to english one [6/6]
+** DONE Find a way to change the keyboard on gnome globally.
+** DONE Test the uk keyboard
+** DONE Test the us keyboard
+** DONE Adopt one (us)
+** DONE Use Denis's mapping of the altgr to alt and caps_lock to ctrl
+** DONE Use The emacs mapping in eclipse

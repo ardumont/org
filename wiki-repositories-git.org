@@ -1,0 +1,9 @@
+#+Title: Repositories
+#+author: Denis Labaye, Antoine Romain Dumont
+#+STARTUP: indent
+#+STARTUP: hidestars odd
+
+* Nouveaux depots git a creer
+** fitnesse : git clone ssh://git@git.cloudbees.com/webadeo/fitnesse.git
+** webtop : git clone ssh://git@git.cloudbees.com/webadeo/webtop2.git
+** Project-Wikeo : git clone ssh://git@git.cloudbees.com/webadeo/Wikeo-Project.git

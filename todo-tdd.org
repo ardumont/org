@@ -1,0 +1,36 @@
+#+Title:Learning TDD
+#+author: Antoine Romain Dumont
+#+STARTUP: indent
+#+STARTUP: hidestars odd
+
+* Fest-assert [[http://code.google.com/p/fest/][Fest assert google site]] [2/2]
+*** DONE Use it
+*** DONE Read some documentations
+* Mockito [[http//mockito.org][Mockito]] [3/3]
+** DONE Use it
+** DONE Read doc [[http://docs.mockito.googlecode.com/hg/org/mockito/Mockito.html][Mockito]] and code it [22/22]
+*** DONE 1. Let's verify some behaviour!
+*** DONE 2. How about some stubbing?
+*** DONE 3. Argument matchers
+*** DONE 4. Verifying exact number of invocations / at least once / never
+*** DONE 5. Stubbing void methods with exceptions
+*** DONE 6. Verification in order
+*** DONE 7. Making sure interaction(s) never happened on mock
+*** DONE 8. Finding redundant invocations
+*** DONE 9. Shorthand for mocks creation - @Mock annotation
+*** DONE 10. Stubbing consecutive calls (iterator-style stubbing)
+*** DONE 11. Stubbing with callbacks
+*** DONE 12. doThrow()|doAnswer()|doNothing()|doReturn() family of methods mostly for stubbing voids
+*** DONE 13. Spying on real objects
+*** DONE 14. Changing default return values of unstubbed invocations (Since 1.7)
+*** DONE 15. Capturing arguments for further assertions (Since 1.8.0)
+*** DONE 16. Real partial mocks (Since 1.8.0)
+*** DONE 17. Resetting mocks (Since 1.8.0)1
+*** DONE 18. Troubleshooting & validating framework usage (Since 1.8.0)
+*** DONE 19. Aliases for behavior driven development (Since 1.8.0)
+*** DONE 20. Serializable mocks (Since 1.8.1)2
+*** DONE 21. New annotations: @Captor, @Spy, @InjectMocks (Since 1.8.3)
+*** DONE 22. (**New**) Verification with timeout (Since 1.8.5) 
+** DONE Read the mockito [[http://code.google.com/p/mockito/wiki/FAQ][faq]]
+* Other informations linked to it
+** DONE Start learning about [[http://en.wikipedia.org/wiki/Behavior_Driven_Development][Behaviour Driven Development]]

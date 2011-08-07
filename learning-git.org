@@ -1,0 +1,162 @@
+#+Title: Learning git
+#+author: Antoine Romain Dumont
+#+STARTUP: indent
+#+STARTUP: hidestars odd
+
+* [[http://progit.org/book/][pro-git]] [3/11]
+*** DONE 1) Getting Started [7/7]
+***** DONE 1.1 - About Version Control
+***** DONE 1.2 - A Short History of Git
+***** DONE 1.3 - Git Basics
+***** DONE 1.4 - Installing Git
+***** DONE 1.5 - First-Time Git Setup
+***** DONE 1.6 - Getting Help
+***** DONE 1.7 - Summary
+*** DONE 2) Git Basics [8/8]
+***** DONE 2.1 - Getting a Git Repository
+***** DONE 2.2 - Recording Changes to the Repository
+***** DONE 2.3 - Viewing the Commit History
+***** DONE 2.4 - Undoing Things
+***** DONE 2.5 - Working with Remotes
+***** DONE 2.6 - Tagging
+***** DONE 2.7 - Tips and Tricks
+***** DONE 2.8 - Summary
+*** DONE 3) Git Branching[7/7]
+***** DONE 3.1 - What a Branch Is
+***** DONE 3.2 - Basic Branching and Merging
+fast-forward : simply put, it's git that moves forward the pointer of
+master directly to the last commit of your branch that you ask to
+merge into master. Git can do that simply because there is no other
+branch that needs to be also merged.
+
+three-way-merge: When master advanced without you having time to
+merge into master, there is a situation of diverging branches. 
+Git needs then to find a common ancestor between your branch and
+master to facilitate its work.  It then creates a commit with two
+parents, one towards the last commit of master and the last one of
+your branch.
+***** DONE 3.3 - Branch Management
+******* To see the last commit of each branch.
+#+BEGIN_SRC sh
+git branch --merged
+#+END_SRC
+******* To know the branches that are already merged into master.
+#+BEGIN_SRC sh
+git branch --merged
+#+END_SRC
+******* To know the branches that are not merged into master
+#+BEGIN_SRC sh
+git branch --merge
+#+END_SRC
+
+***** DONE 3.4 - Branching Workflows
+***** DONE 3.5 - Remote Branches
+***** DONE 3.6 - Rebasing
+***** DONE 3.7 - Summary
+*** TODO 4) Git on the Server [2/11]
+***** DONE 4.1 - The Protocols
+***** DONE 4.2 - Getting Git on a Server
+***** TODO 4.3 - Generating Your SSH Public Key
+***** TODO 4.4 - Setting Up the Server
+***** TODO 4.5 - Public Access
+***** TODO 4.6 - GitWeb
+***** TODO 4.7 - Gitosis
+***** TODO 4.8 - Gitolite
+***** TODO 4.9 - Git Daemon
+***** TODO 4.10 - Hosted Git
+***** TODO 4.11 - Summary
+*** TODO 5) Distributed Git [1/4]
+***** DONE 5.1 - Distributed Workflows
+***** TODO 5.2 - Contributing to a Project
+***** TODO 5.3 - Maintaining a Project
+***** TODO 5.4 - Summary
+*** TODO 6) Git Tools [0/8]
+***** TODO 6.1 - Revision Selection
+***** TODO 6.2 - Interactive Staging
+***** TODO 6.3 - Stashing
+***** TODO 6.4 - Rewriting History
+***** TODO 6.5 - Debugging with Git
+***** TODO 6.6 - Submodules
+***** TODO 6.7 - Subtree Merging
+***** TODO 6.8 - Summary
+*** TODO 7) Customizing Git [0/5]
+***** TODO 7.1 - Git Configuration
+***** TODO 7.2 - Git Attributes
+***** TODO 7.3 - Git Hooks
+***** TODO 7.4 - An Example Git-Enforced Policy
+***** TODO 7.5 - Summary
+*** TODO 8) Git and Other Systems [0/3]
+***** TODO 8.1 - Git and Subversion
+***** TODO 8.2 - Migrating to Git
+***** TODO 8.3 - Summary
+*** TODO 9) Git Internals [0/7]
+***** TODO 9.1 - Plumbing and Porcelain
+***** TODO 9.2 - Git Objects
+***** TODO 9.3 - Git References
+***** TODO 9.4 - Packfiles
+***** TODO 9.5 - The Refspec
+***** TODO 9.6 - Transfer Protocols
+***** TODO 9.7 - Maintenance and Data Recovery
+*** TODO 10) 9.8 - Summary
+*** TODO 11) Index of Commands
+* github help [2/3]
+*** DONE http://help.github.com/linux-set-up-git/
+*** DONE http://help.github.com/ssh-key-passphrases/
+***** To add your passphrase to the ssh-agent.
+#+BEGIN_SRC sh
+ssh-add id_rsa
+#+END_SRC sh
+***** To change a passphrase for a key
+#+BEGIN_SRC sh
+ssh-keygen -p 
+#+END_SRC sh
+***** To automatically launch a ssh-agent, add this to a ~/.profile or ~/.bashrc
+#+BEGIN_SRC sh
+SSH_ENV="$HOME/.ssh/environment"
+
+# start the ssh-agent
+function start_agent {
+    echo "Initializing new SSH agent..."
+    # spawn ssh-agent
+    ssh-agent | sed 's/^echo/#echo/' > "$SSH_ENV"
+    echo succeeded
+    chmod 600 "$SSH_ENV"
+    . "$SSH_ENV" > /dev/null
+    ssh-add
+}
+
+# test for identities
+function test_identities {
+    # test whether standard identities have been added to the agent already
+    ssh-add -l | grep "The agent has no identities" > /dev/null
+    if [ $? -eq 0 ]; then
+        ssh-add
+        # $SSH_AUTH_SOCK broken so we start a new proper agent
+        if [ $? -eq 2 ];then
+            start_agent
+        fi
+    fi
+}
+
+# check for running ssh-agent with proper $SSH_AGENT_PID
+if [ -n "$SSH_AGENT_PID" ]; then
+    ps -ef | grep "$SSH_AGENT_PID" | grep ssh-agent > /dev/null
+    if [ $? -eq 0 ]; then
+	test_identities
+    fi
+# if $SSH_AGENT_PID is not properly set, we might be able to load one from
+# $SSH_ENV
+else
+    if [ -f "$SSH_ENV" ]; then
+	. "$SSH_ENV" > /dev/null
+    fi
+    ps -ef | grep "$SSH_AGENT_PID" | grep ssh-agent > /dev/null
+    if [ $? -eq 0 ]; then
+        test_identities
+    else
+        start_agent
+    fi
+fi
+#+END_SRC
+*** TODO http://help.github.com/multiple-ssh-keys/
+    

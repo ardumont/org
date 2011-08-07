@@ -1,0 +1,23 @@
+#+TITLE: Jerome Louvel - partie 2
+#+author: Antoine Romain Dumont
+#+STARTUP: indent
+#+STARTUP: hidestars odd
+
+Remarques :
+* PUT
+** idempotent -> le resultat doit tjs etre le meme
+** PUT sert pour creation et mise a jour
+
+* Pas d'action dans les uri => les verbes sont deja presents PUT, GET, POST, DELETE
+* 
+* Pour l'association d'un type par exemple :
+Requete : PUT /v1/models/{id}/type
+Content : <type><code>le code du type</code></type>
+
+* Dissociation d'un type
+Requete : PUT /v1/models/{id}/type
+Content : <type />
+
+
+
+
