@@ -5,12 +5,13 @@
 
 Here is one possible workflow!
 Feel free to discuss it and/or patch it!
+For simplicity's readings, i talk about master as of the final branch
+we need to merge into.
+You can translate this by calling master a release branch. It's still possible.
 
 * For each developer, here is how we start the retrieval of a project
-*** Log into the console cloudbees https://webadeo.forge.cloudbees.com/
-***** Here we can see a list of git repositories.
-***** Choose the one needed.
-*** Clone this repository from cloudbees to local
+*** Retrieve the repository needed
+*** Clone this repository
 ***** Go to the desired folder to receive the clone of the repository
 Exemple : 
 #+BEGIN_SRC sh
@@ -18,12 +19,12 @@ cd ~/repositories/pro/
 #+END_SRC
 ***** Then clone the repository
 #+BEGIN_SRC sh
-git clone adress-of-the-repository-cloudbees
+git clone adress-of-the-repository
 #+END_SRC
 
 Example:
 #+BEGIN_SRC sh
-git clone ssh://git@git.cloudbees.com/webadeo/wikeo-core.git
+git clone https://ardumont@github.com/ardumont/my-org-files.git
 #+END_SRC sh
 
 *** We create a branch from master to develop our fix or our User Story
@@ -33,18 +34,41 @@ git checkout -b trigram-user/branch-name
 
 Example : 
 #+BEGIN_SRC sh
-git checkout -b adu/devUS154ImportModel
+git checkout -b adu/doSomeStuff
 #+END_SRC
 *** Regularly, return to master to synchronize the source
 
 #+BEGIN_SRC sh
-git checkout master && git pull
+# Return to master
+git checkout master
+# Synchronize your local repository and your workspace with the
+content of the distant repository
+git pull
 #+END_SRC
 
-Remark : If it refuses, you made a mistake. It means you have changes
-locally that you did not commit to your index.
-Before returning to master, make sur you have commited everything in
-your index for your branch (or dropped it if it is useless to you).
+Remark : If it refuses, you made a mistake. 
+It means you have changes locally that you did not commit to your index.
+Before returning to master, make sure that :
+- you have commited everything in your index for your branch 
+#+BEGIN_SRC sh
+git add the-thing-you-wanna-commit-but-unstable another-thing-to-commit-but-unstable ...
+git commit -m "Filthy commit not stable, need to amend it later"
+# later, when everything is ok
+# git add the-thing-you-wanna-commit-stable \ 
+another-thing-to-commit-stable ... 
+# amend the commit
+# git commit --amend
+#+END_SRC
+- or dropped it if it is useless to you
+#+BEGIN_SRC sh
+rm the-thing-you-wanna-commit-but-unstable another-thing-to-commit-but-unstable ...
+#+END_SRC
+- or another option, stash it! 
+#+BEGIN_SRC sh
+git stash
+# and later when everything is ok, just unstash it
+# git stash pop
+#+END_SRC
 
 Remark 2:
 These commands are your best friends, ask them to help you out!
@@ -52,9 +76,13 @@ These commands are your best friends, ask them to help you out!
 #+BEGIN_SRC sh
 git status
 #+END_SRC
-and 
+and/or 
 #+BEGIN_SRC sh
 gitk --all
+#+END_SRC
+and/or
+#+BEGIN_SRC sh
+git log
 #+END_SRC
 *** Now, we're synchronized with master, we return to our branch and merge these changes inside our branch.
 ***** Return to our branch
@@ -71,7 +99,11 @@ If everything is merging without problems, continue.
 
 Else, there were conflits during merge.
 We must fix these conflicts manually.
-Open your favourite ide or editor and choose what you want to keep or not depending on the situation.
+Either you use the tool git offers you
+#+BEGIN_SRC sh
+git mergetool
+#+END_SRC
+Or, you open your favourite ide or editor and choose what you want to keep or not depending on the situation.
 When all conflicts are resolved and that all your tests are ok, add
 all the files modified to the index, commit and that's all folks!
 
@@ -85,7 +117,8 @@ git commit
 ******* To make sure what i'm doing still works with the latest code!
 ******* If not, you will surely break the code into master when you'll merge your fix or dev!
 ***** What if master is broken ?
-******* Not possible... or not!
+******* It depends on the policy of your project.
+******* If your policy is "Every commit is stable (all tests ok)" then it's not possible... or not!
 ********* Very strong assertion : Master must be stable!
 *********** How can we be sure of such assertion ?
 ************* Continous integration !
@@ -97,95 +130,44 @@ git commit
 ******* Are all your unit-tests ok?
 ******* Are all your functional-tests or integration-tests ok ?
 ******* Does your app deploy and work as expected ?
-*** Ok then, it's time to aggregate your commits into one!
-******* Create a new intermediary branch. Call it for example, USXYZ. 
-I think that, for simplicity's sake, it's best suited that this branch be local. This way, you're sure about what's inside it!
-
-#+BEGIN_SRC sh
-git checkout -b USXYZ/merge/1
-#+END_SRC
-or
-#+BEGIN_SRC sh
-git branch USXYZ/merge/1 && git checkout USXYZ/merge/1
-#+END_SRC
-******* Check how many commits you have on your branch (use gitk --all for this), for example "n"
-#+BEGIN_SRC sh
-gitk --all &
-#+END_SRC
-******* You do not need to merge the content of your branch trigram-user/branch-name into USXYZ/merge/1 because you created this branch from trigram-user/branch-name
-******* Now we squash the commits into one
-********* Launch the command
-#+BEGIN_SRC sh
-git rebase -i HEAD~n
-#+END_SRC
-(with n a number representing your number of commits)
-********* One editor launches itself and present you a list of commit
-#+BEGIN_SRC text
-pick f3525c2 Delete files and add directory which do not need to be on git.
-pick a590b12 Add bin directory which do not need to be on git too.
-#+END_SRC
-********* Replace each "pick" verb by a "s" or "squash" except the first one (first line).
-#+BEGIN_SRC text
-pick f3525c2 Delete files and add directory which do not need to be on git.
-s a590b12 Add bin directory which do not need to be on git too.
-#+END_SRC
-********* Save your changes
-********* You will now be presented with a relatively identical ihm but with only one comment, this is the comment of the line you keep previously
-#+BEGIN_SRC text
-# This is a combination of 2 commits.
-# The first commit's message is:
-
-Delete files which do not need to be on git.
-
-# This is the 2nd commit message:
-
-Add bin directory which do not need to be on git too.
-# Please enter the commit message for your changes.
-#...
-# list of files for the commit
-#+END_SRC
-********* Change the comment to match your user story of fix.
-*********** Exemple : This is the user story XYZ which deals with the content import.
-# This is a combination of 2 commits.
-# The first commit's message is:
-
-Delete files and add directory to gitignore which do not need to be on git.
-
-********* Check again that everything (unit-tests, integration-tests...) are ok!
-***** Now we merge into master!
-******* Return to master 
+*** Ok then, it's time to merge into master.
+***** Return to master 
 #+BEGIN_SRC sh
 git checkout master
 #+END_SRC
-******* Merge the content of the "merging branch" into master
+***** To avoid some later merging, check you're up-to-date with master
 #+BEGIN_SRC sh
-git merge USXYZ/merge/1
+git pull
 #+END_SRC
-******* Send your modifications to master! 
+If everything is already up-to-date, then pass to the next step.
+Else, return to the previous step.
+***** Merge the content of the "merging branch" into master
+#+BEGIN_SRC sh
+git merge trigram-user/branch-name
+#+END_SRC
+At this point, it will only do a fast forward, that's just a moving
+forward the master pointer to the last commit of your branch (because
+master did not advance between your checkout and the merge command).
+
+That's true for the moment (you didn't push yet).
+***** Send your modifications to master! 
 #+BEGIN_SRC sh
 git push
 #+END_SRC
-******* What if there are problems ?
-It means "somebody, somebody put something in your drink"!
+***** What if there are problems ?
+It's not a real problem, it just means "somebody, somebody put something in your drink"!
 It means really that someone pushed something before you did finish
 your merge.
-You must once again merge your branch and the master.
+You must once again merge. But this time, it will be fast.
+As your branch and the master are already merged, when you will pull
+some code, git will automagically merge what it can from master and
+leave you eventuals conflicts to resolve.
+
 #+BEGIN_SRC sh
 # synchronize with everybody... (needs somebody to love!)
 git pull
-# Return to your branch
-git checkout user-trigram/branch-name
-# Merge the content of master into your branch
-git merge master
-# fix eventual merge conflicts and check your tests (add the merge
-into the index and commit)
-# Create a new branch of merging
-git checkout -b USXYZ/merge/2
-# fix eventual merge conflicts and check your tests
-# return to master
-git checkout master
-# Merge the content of the branch into master
-git merge USXYZ/merge/2
+# fix eventual merge conflicts and check your tests 
+# add the merged files to the index and commit
 git push
 # pray that someone did not push something again on the master!!!
 #+END_SRC
