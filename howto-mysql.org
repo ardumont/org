@@ -19,16 +19,15 @@ or
 #+BEGIN_SRC sh
 sudo /etc/init.d/mysql restart
 #+END_SRC
-
-
 * Connexion a la bdd
 #+BEGIN_SRC sh
 mysql -u root -h localhost -p
 #+END_SRC
-
 * Script to create a db locally
 #+BEGIN_SRC sql
 CREATE USER 'wikeo'@'localhost' IDENTIFIED BY 'wikeo';
 CREATE DATABASE wikeocoredb;
 GRANT ALL ON wikeocoredb.* TO wikeo@localhost IDENTIFIED BY 'wikeo';
 #+END_SRC
+* Recover the root password if any problem.
+http://www.cyberciti.biz/tips/recover-mysql-root-password.html
