@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+lang="en" xml:lang="en">
+<head>
+<title>Some good tools</title>
+<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
+<meta name="generator" content="Org-mode"/>
+<meta name="generated" content="2011-08-10 10:39:01 CEST"/>
+<meta name="author" content="Antoine Romain Dumont"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  html { font-family: Times, serif; font-size: 12pt; }
+  .title  { text-align: center; }
+  .todo   { color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #add8e6; font-weight:normal }
+  .target { }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  p.verse { margin-left: 3% }
+  pre {
+	border: 1pt solid #AEBDCC;
+	background-color: #F3F5F7;
+	padding: 5pt;
+	font-family: courier, monospace;
+        font-size: 90%;
+        overflow:auto;
+  }
+  table { border-collapse: collapse; }
+  td, th { vertical-align: top; }
+  dt { font-weight: bold; }
+  div.figure { padding: 0.5em; }
+  div.figure p { text-align: center; }
+  .linenr { font-size:smaller }
+  .code-highlighted {background-color:#ffff00;}
+  .org-info-js_info-navigation { border-style:none; }
+  #org-info-js_console-label { font-size:10px; font-weight:bold;
+                               white-space:nowrap; }
+  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
+                                 font-weight:bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+
+<h1 class="title">Some good tools</h1>
+
+
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1 Tools </a>
+<ul>
+<li><a href="#sec-1.1">1.1 java sun </a></li>
+<li><a href="#sec-1.2">1.2 Linux generic PAE </a></li>
+<li><a href="#sec-1.3">1.3 Emacs: powerful text editor and much more </a></li>
+<li><a href="#sec-1.4">1.4 Git </a></li>
+<li><a href="#sec-1.5">1.5 Maven </a></li>
+<li><a href="#sec-1.6">1.6 Aptitude </a></li>
+<li><a href="#sec-1.7">1.7 Squirrel-sql: client sql (mysql, postgresql) </a>
+<ul>
+<li><a href="#sec-1.7.1">1.7.1 For mysql: </a></li>
+</ul>
+</li>
+<li><a href="#sec-1.8">1.8 Mysql-server </a></li>
+</ul>
+</li>
+<li><a href="#sec-2">2 Howto apt-get: default tool to install via command line </a>
+<ul>
+<li><a href="#sec-2.1">2.1 To search a package </a></li>
+<li><a href="#sec-2.2">2.2 You can install everything with one command </a></li>
+<li><a href="#sec-2.3">2.3 To know the list of packages already installed </a></li>
+<li><a href="#sec-2.4">2.4 To update all packages present on your machine </a></li>
+</ul>
+</li>
+<li><a href="#sec-3">3 Howto aptitude: little simpler installer command over apt-get </a>
+<ul>
+<li><a href="#sec-3.1">3.1 To search a package </a></li>
+<li><a href="#sec-3.2">3.2 You can install everything with one command </a></li>
+<li><a href="#sec-3.3">3.3 To know the list of packages already installed </a></li>
+<li><a href="#sec-3.4">3.4 To update all packages present on your machine </a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Tools </h2>
+<div class="outline-text-2" id="text-1">
+
+
+</div>
+
+<div id="outline-container-1.1" class="outline-3">
+<h3 id="sec-1.1"><span class="section-number-3">1.1</span> java sun </h3>
+<div class="outline-text-3" id="text-1.1">
+
+<p>Know the jdk installed (openjdk by default on ubuntu, nothing on debian)
+</p>
+
+
+<pre class="src src-sh">sudo update-alternatives --list java
+</pre>
+
+
+
+
+<p>
+Install jdk sun
+</p>
+
+
+<pre class="src src-sh">sudo aptitude install sun-java6-jdk
+</pre>
+
+
+
+
+<p>
+Choose the sun jdk:
+</p>
+
+
+<pre class="src src-sh">sudo update-alternatives --config java
+</pre>
+
+
+
+</div>
+
+</div>
+
+<div id="outline-container-1.2" class="outline-3">
+<h3 id="sec-1.2"><span class="section-number-3">1.2</span> Linux generic PAE </h3>
+<div class="outline-text-3" id="text-1.2">
+
+<p>If you got over 4gb ram, install the PAE (Physical Address Extension).
+This permis to use from 4 a 64g de ram
+</p>
+
+
+<pre class="src src-sh">sudo apt-get install linux-generic-pae
+</pre>
+
+
+
+<p>
+As this is a kernel, you must reboot if you want to benefit from it.
+</p></div>
+
+</div>
+
+<div id="outline-container-1.3" class="outline-3">
+<h3 id="sec-1.3"><span class="section-number-3">1.3</span> Emacs: powerful text editor and much more </h3>
+<div class="outline-text-3" id="text-1.3">
+
+
+
+
+<pre class="src src-sh">sudo apt-get install emacs
+</pre>
+
+
+
+</div>
+
+</div>
+
+<div id="outline-container-1.4" class="outline-3">
+<h3 id="sec-1.4"><span class="section-number-3">1.4</span> Git </h3>
+<div class="outline-text-3" id="text-1.4">
+
+
+
+
+<pre class="src src-sh">sudo apt-get install git
+</pre>
+
+
+
+</div>
+
+</div>
+
+<div id="outline-container-1.5" class="outline-3">
+<h3 id="sec-1.5"><span class="section-number-3">1.5</span> Maven </h3>
+<div class="outline-text-3" id="text-1.5">
+
+
+
+
+<pre class="src src-sh">sudo apt-get install maven
+</pre>
+
+
+
+</div>
+
+</div>
+
+<div id="outline-container-1.6" class="outline-3">
+<h3 id="sec-1.6"><span class="section-number-3">1.6</span> Aptitude </h3>
+<div class="outline-text-3" id="text-1.6">
+
+
+
+
+<pre class="src src-sh">sudo apt-get install aptitude
+</pre>
+
+
+
+</div>
+
+</div>
+
+<div id="outline-container-1.7" class="outline-3">
+<h3 id="sec-1.7"><span class="section-number-3">1.7</span> Squirrel-sql: client sql (mysql, postgresql) </h3>
+<div class="outline-text-3" id="text-1.7">
+
+
+</div>
+
+<div id="outline-container-1.7.1" class="outline-4">
+<h4 id="sec-1.7.1"><span class="section-number-4">1.7.1</span> For mysql: </h4>
+<div class="outline-text-4" id="text-1.7.1">
+
+<p>Download the jar and launch it.
+<a href="http://www.squirrelsql.org/">http://www.squirrelsql.org/</a>
+</p>
+<p>
+Download the mysql connector 
+<a href="http://dev.mysql.com/downloads/connector/j/5.0.html">http://dev.mysql.com/downloads/connector/j/5.0.html</a>
+</p>
+
+
+<pre class="src src-sh">sudo apt-get install aptitude
+</pre>
+
+
+
+
+<p>
+Once installed, launch squirrel and add the mysql-connector jar into
+the driver panel.
+</p></div>
+</div>
+
+</div>
+
+<div id="outline-container-1.8" class="outline-3">
+<h3 id="sec-1.8"><span class="section-number-3">1.8</span> Mysql-server </h3>
+<div class="outline-text-3" id="text-1.8">
+
+
+
+
+<pre class="src src-sh">sudo apt-get install mysql-server
+</pre>
+
+
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Howto apt-get: default tool to install via command line </h2>
+<div class="outline-text-2" id="text-2">
+
+
+</div>
+
+<div id="outline-container-2.1" class="outline-3">
+<h3 id="sec-2.1"><span class="section-number-3">2.1</span> To search a package </h3>
+<div class="outline-text-3" id="text-2.1">
+
+
+
+
+<pre class="src src-sh">apt-cache search name-of-app-needed
+</pre>
+
+
+
+</div>
+
+</div>
+
+<div id="outline-container-2.2" class="outline-3">
+<h3 id="sec-2.2"><span class="section-number-3">2.2</span> You can install everything with one command </h3>
+<div class="outline-text-3" id="text-2.2">
+
+
+
+
+<pre class="src src-sh">sudo apt-get install list-of-packages
+</pre>
+
+
+
+</div>
+
+</div>
+
+<div id="outline-container-2.3" class="outline-3">
+<h3 id="sec-2.3"><span class="section-number-3">2.3</span> To know the list of packages already installed </h3>
+<div class="outline-text-3" id="text-2.3">
+
+
+
+
+<pre class="src src-sh">dpkg -l | less
+</pre>
+
+
+
+<p>
+If you know what you search for, use grep to filter on the term
+researched
+</p>
+
+
+<pre class="src src-sh">dpkg -l | grep package-searched
+</pre>
+
+
+
+</div>
+
+</div>
+
+<div id="outline-container-2.4" class="outline-3">
+<h3 id="sec-2.4"><span class="section-number-3">2.4</span> To update all packages present on your machine </h3>
+<div class="outline-text-3" id="text-2.4">
+
+
+
+
+<pre class="src src-sh">sudo apt-get update &amp;&amp; sudo apt-get upgrade
+</pre>
+
+
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> Howto aptitude: little simpler installer command over apt-get </h2>
+<div class="outline-text-2" id="text-3">
+
+
+</div>
+
+<div id="outline-container-3.1" class="outline-3">
+<h3 id="sec-3.1"><span class="section-number-3">3.1</span> To search a package </h3>
+<div class="outline-text-3" id="text-3.1">
+
+
+
+
+<pre class="src src-sh">aptitude search name-of-app-needed
+</pre>
+
+
+
+</div>
+
+</div>
+
+<div id="outline-container-3.2" class="outline-3">
+<h3 id="sec-3.2"><span class="section-number-3">3.2</span> You can install everything with one command </h3>
+<div class="outline-text-3" id="text-3.2">
+
+
+
+
+<pre class="src src-sh">sudo aptitude install list-of-packages
+</pre>
+
+
+
+</div>
+
+</div>
+
+<div id="outline-container-3.3" class="outline-3">
+<h3 id="sec-3.3"><span class="section-number-3">3.3</span> To know the list of packages already installed </h3>
+<div class="outline-text-3" id="text-3.3">
+
+
+
+
+<pre class="src src-sh">dpkg -l | less
+</pre>
+
+
+
+<p>
+If you know what you search for, use grep to filter on the term
+researched
+</p>
+
+
+<pre class="src src-sh">dpkg -l | grep package-searched
+</pre>
+
+
+
+</div>
+
+</div>
+
+<div id="outline-container-3.4" class="outline-3">
+<h3 id="sec-3.4"><span class="section-number-3">3.4</span> To update all packages present on your machine </h3>
+<div class="outline-text-3" id="text-3.4">
+
+
+
+
+<pre class="src src-sh">sudo aptitude update &amp;&amp; sudo aptitude safe-upgrade
+</pre>
+
+
+
+</div>
+</div>
+</div>
+<div id="postamble">
+<p class="author"> Author: Antoine Romain Dumont
+<a href="mailto:tony@linux-mi178">&lt;tony@linux-mi178&gt;</a>
+</p>
+<p class="date"> Date: 2011-08-10 10:39:01 CEST</p>
+<p class="creator">HTML generated by org-mode 6.33x in emacs 23</p>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,105 @@
+#+Title: Some good tools
+#+author: Antoine Romain Dumont
+#+STARTUP: indent
+#+STARTUP: hidestars odd
+
+* Tools
+*** java sun
+Know the jdk installed (openjdk by default on ubuntu, nothing on debian)
+#+BEGIN_SRC sh
+sudo update-alternatives --list java
+#+END_SRC
+
+Install jdk sun
+#+BEGIN_SRC sh
+sudo aptitude install sun-java6-jdk
+#+END_SRC
+
+Choose the sun jdk:
+#+BEGIN_SRC sh
+sudo update-alternatives --config java
+#+END_SRC
+*** Linux generic PAE
+If you got over 4gb ram, install the PAE (Physical Address Extension).
+This permis to use from 4 a 64g de ram
+#+BEGIN_SRC sh
+sudo apt-get install linux-generic-pae
+#+END_SRC
+As this is a kernel, you must reboot if you want to benefit from it.
+*** Emacs: powerful text editor and much more
+#+BEGIN_SRC sh
+sudo apt-get install emacs
+#+END_SRC
+*** Git
+#+BEGIN_SRC sh
+sudo apt-get install git
+#+END_SRC
+*** Maven
+#+BEGIN_SRC sh
+sudo apt-get install maven
+#+END_SRC
+*** Aptitude
+#+BEGIN_SRC sh
+sudo apt-get install aptitude
+#+END_SRC
+*** Squirrel-sql: client sql (mysql, postgresql)
+***** For mysql:
+Download the jar and launch it.
+http://www.squirrelsql.org/
+
+Download the mysql connector 
+http://dev.mysql.com/downloads/connector/j/5.0.html
+#+BEGIN_SRC sh
+sudo apt-get install aptitude
+#+END_SRC
+
+Once installed, launch squirrel and add the mysql-connector jar into
+the driver panel.
+*** Mysql-server
+#+BEGIN_SRC sh
+sudo apt-get install mysql-server
+#+END_SRC
+* Howto apt-get: default tool to install via command line
+*** To search a package
+#+BEGIN_SRC sh
+apt-cache search name-of-app-needed
+#+END_SRC
+*** You can install everything with one command
+#+BEGIN_SRC sh
+sudo apt-get install list-of-packages
+#+END_SRC
+*** To know the list of packages already installed
+#+BEGIN_SRC sh
+dpkg -l | less
+#+END_SRC
+If you know what you search for, use grep to filter on the term
+researched
+#+BEGIN_SRC sh
+dpkg -l | grep package-searched
+#+END_SRC
+*** To update all packages present on your machine
+#+BEGIN_SRC sh
+sudo apt-get update && sudo apt-get upgrade
+#+END_SRC
+* Howto aptitude: little simpler installer command over apt-get
+*** To search a package
+#+BEGIN_SRC sh
+aptitude search name-of-app-needed
+#+END_SRC
+*** You can install everything with one command
+#+BEGIN_SRC sh
+sudo aptitude install list-of-packages
+#+END_SRC
+*** To know the list of packages already installed
+#+BEGIN_SRC sh
+dpkg -l | less
+#+END_SRC
+If you know what you search for, use grep to filter on the term
+researched
+#+BEGIN_SRC sh
+dpkg -l | grep package-searched
+#+END_SRC
+*** To update all packages present on your machine
+#+BEGIN_SRC sh
+sudo aptitude update && sudo aptitude safe-upgrade
+#+END_SRC
