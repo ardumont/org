@@ -1,0 +1,28 @@
+#+Title: Learning Magit - magit is a git plugin for emacs
+#+author: Antoine Romain Dumont
+#+STARTUP: indent
+#+STARTUP: hidestars odd
+
+* TODO [[http://philjackson.github.com/magit/magit.html][magit]] [0/22]
+*** TODO Introduction
+*** TODO Acknowledgments
+*** TODO Sections
+*** TODO Status
+*** TODO Untracked files
+*** TODO Staging and Committing
+*** TODO History
+*** TODO Reflogs
+*** TODO Diffing
+*** TODO Tagging
+*** TODO Resetting
+*** TODO Stashing
+*** TODO Branching
+*** TODO The branch list
+*** TODO Wazzup
+*** TODO Merging
+*** TODO Rebasing
+*** TODO Rewriting
+*** TODO Pushing and Pulling
+*** TODO Submodules
+*** TODO Using Magit Extensions
+*** TODO Using Git Directly
