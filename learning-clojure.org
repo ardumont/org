@@ -1,4 +1,4 @@
-#+Title:Learning Clojure
+#+Title: Learning Clojure
 #+author: Antoine Romain Dumont
 #+STARTUP: indent
 #+STARTUP: hidestars odd
