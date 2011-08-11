@@ -7,10 +7,12 @@
 For linux (maybe mac os x?) platform, mysql is case-sensitive when it creates database
 table name.
 
-Add the file ~/.my.cnf with this line
+Add the file ~/.my.cnf with this content
 #+BEGIN_SRC sh
+[mysqld]
 lower-case-table-names = 1
 #+END_SRC
+
 Then restart the service
 #+BEGIN_SRC sh
 sudo service mysql restart
@@ -19,15 +21,40 @@ or
 #+BEGIN_SRC sh
 sudo /etc/init.d/mysql restart
 #+END_SRC
-* Databse connection
+* Database connection
 #+BEGIN_SRC sh
-mysql -u root -h localhost -p
+mysql -u root -h localhost -p$PASSWD $MY-DB-NAME
 #+END_SRC
+no space between passwd and the flag -p for detailing the passwd (not
+so secure).
+
 * Script to create a db locally
 #+BEGIN_SRC sql
 CREATE USER 'my-user'@'localhost' IDENTIFIED BY 'my-user';
 CREATE DATABASE db-name-desired;
 GRANT ALL ON db-name-desired.* TO my-user@localhost IDENTIFIED BY 'my-user';
 #+END_SRC
+* Script to drop the schema of a database:
+Content of a file named for example drop-schema.sql
+#+BEGIN_SRC sql
+DROP TABLE if exists table-name-0-to-drop;
+DROP TABLE if exists table-name-1-to-drop;
+...
+#+END_SRC
+
+Content of the script drop-db.sh
+#+BEGIN_SRC sh
+#!/bin/sh
+
+USER=user-name
+PASSWD=user-passwd
+SERVER=server-db
+DATABASE=database-name
+SQL=drop-schema.sql
+
+echo "mysql -u $USER -p$PASSWD -h $SERVER $DATABASE < $SQL"
+mysql -u $USER -p$PASSWD -h $SERVER $DATABASE < $SQL
+#+END_SRC
+
 * Recover the root password if any problem.
 http://www.cyberciti.biz/tips/recover-mysql-root-password.html
