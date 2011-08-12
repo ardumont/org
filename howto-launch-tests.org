@@ -1,0 +1,10 @@
+#+Title: How to launch tests
+#+author: Antoine Romain Dumont
+#+STARTUP: indent
+#+STARTUP: hidestars odd
+
+* Launch the tests from a test class
+#+BEGIN_SRC sh
+mvn clean test -P env-local -Dtest=itest.GroupDaoImplIT
+#+END_SRC
+From http://maven.apache.org/plugins/maven-surefire-plugin/examples/single-test.html
