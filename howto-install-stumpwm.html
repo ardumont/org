@@ -1,0 +1,601 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+lang="en" xml:lang="en">
+<head>
+<title>Howto install stumpwm and little more</title>
+<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
+<meta name="generator" content="Org-mode"/>
+<meta name="generated" content="2011-08-13 14:15:30 CEST"/>
+<meta name="author" content="Antoine Romain Dumont"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  html { font-family: Times, serif; font-size: 12pt; }
+  .title  { text-align: center; }
+  .todo   { color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #add8e6; font-weight:normal }
+  .target { }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  p.verse { margin-left: 3% }
+  pre {
+	border: 1pt solid #AEBDCC;
+	background-color: #F3F5F7;
+	padding: 5pt;
+	font-family: courier, monospace;
+        font-size: 90%;
+        overflow:auto;
+  }
+  table { border-collapse: collapse; }
+  td, th { vertical-align: top; }
+  dt { font-weight: bold; }
+  div.figure { padding: 0.5em; }
+  div.figure p { text-align: center; }
+  .linenr { font-size:smaller }
+  .code-highlighted {background-color:#ffff00;}
+  .org-info-js_info-navigation { border-style:none; }
+  #org-info-js_console-label { font-size:10px; font-weight:bold;
+                               white-space:nowrap; }
+  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
+                                 font-weight:bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+
+<h1 class="title">Howto install stumpwm and little more</h1>
+
+
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1 Introduction </a>
+<ul>
+<li><a href="#sec-1.1">1.1 For just install, skip the intro </a></li>
+<li><a href="#sec-1.2">1.2 What is stumpwm? </a></li>
+<li><a href="#sec-1.3">1.3 Why? </a></li>
+<li><a href="#sec-1.4">1.4 How i use it? </a></li>
+<li><a href="#sec-1.5">1.5 Goal of the article </a></li>
+<li><a href="#sec-1.6">1.6 Limits of the article </a>
+<ul>
+<li><a href="#sec-1.6.1">1.6.1 Targeted platform </a></li>
+<li><a href="#sec-1.6.2">1.6.2 Targeted audience </a></li>
+<li><a href="#sec-1.6.3">1.6.3 What is stumpwm in details. </a></li>
+</ul></li>
+</ul>
+</li>
+<li><a href="#sec-2">2 How to install </a>
+<ul>
+<li><a href="#sec-2.1">2.1 Install stumpwm from CLI </a></li>
+<li><a href="#sec-2.2">2.2 Add a new entry to gdm </a></li>
+<li><a href="#sec-2.3">2.3 Logout from gdm </a></li>
+<li><a href="#sec-2.4">2.4 Stumpwm starts </a></li>
+</ul>
+</li>
+<li><a href="#sec-3">3 How to improve it </a>
+<ul>
+<li><a href="#sec-3.1">3.1 Some simple commands </a>
+<ul>
+<li><a href="#sec-3.1.1">3.1.1 Syntax </a></li>
+<li><a href="#sec-3.1.2">3.1.2 C-t ? </a></li>
+<li><a href="#sec-3.1.3">3.1.3 C-t c </a></li>
+<li><a href="#sec-3.1.4">3.1.4 C-t e </a></li>
+<li><a href="#sec-3.1.5">3.1.5 C-t t </a></li>
+<li><a href="#sec-3.1.6">3.1.6 C-t s </a></li>
+<li><a href="#sec-3.1.7">3.1.7 C-t Q </a></li>
+<li><a href="#sec-3.1.8">3.1.8 etc&hellip; </a></li>
+</ul>
+</li>
+<li><a href="#sec-3.2">3.2 Stumpwm is really cool </a></li>
+<li><a href="#sec-3.3">3.3 My setup </a>
+<ul>
+<li><a href="#sec-3.3.1">3.3.1 C-t f </a></li>
+<li><a href="#sec-3.3.2">3.3.2 C-t i </a></li>
+<li><a href="#sec-3.3.3">3.3.3 C-t j </a></li>
+<li><a href="#sec-3.3.4">3.3.4 C-t x </a></li>
+<li><a href="#sec-3.3.5">3.3.5 C-t d </a></li>
+<li><a href="#sec-3.3.6">3.3.6 C-t o </a></li>
+</ul>
+</li>
+<li><a href="#sec-3.4">3.4 My setup file corresponding </a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Introduction </h2>
+<div class="outline-text-2" id="text-1">
+
+
+</div>
+
+<div id="outline-container-1.1" class="outline-3">
+<h3 id="sec-1.1"><span class="section-number-3">1.1</span> For just install, skip the intro </h3>
+<div class="outline-text-3" id="text-1.1">
+
+</div>
+
+</div>
+
+<div id="outline-container-1.2" class="outline-3">
+<h3 id="sec-1.2"><span class="section-number-3">1.2</span> What is stumpwm? </h3>
+<div class="outline-text-3" id="text-1.2">
+
+<p>A tiling, keyboard driven X11 window manager.
+Simply put, it permits you to choose what you do at any given time with key-bindings.
+Another simple way to sum up: Less is more :d.
+</p></div>
+
+</div>
+
+<div id="outline-container-1.3" class="outline-3">
+<h3 id="sec-1.3"><span class="section-number-3">1.3</span> Why? </h3>
+<div class="outline-text-3" id="text-1.3">
+
+<p>I was lost with all the shining catch-eyes effects everywhere.
+</p>
+<p>
+With a friend we search for simpler.
+We found stump and it was mind blowing.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-1.4" class="outline-3">
+<h3 id="sec-1.4"><span class="section-number-3">1.4</span> How i use it? </h3>
+<div class="outline-text-3" id="text-1.4">
+
+<p>Personally, i choose to work with only one window at a time and ask for the one i want when i want it.
+It's my way of seeing it but stumpwm does not limit you in this way.
+</p>
+<p>
+For me, stump empowers you with the choice of doing anything you want your way.
+</p>
+<p>
+The small price to pay is learning key-bindings.
+Small price because you can override them so the sky is really the limit.
+</p>
+<p>
+It's the computer that adapts to you and not the other way around.
+</p></div>
+
+</div>
+
+<div id="outline-container-1.5" class="outline-3">
+<h3 id="sec-1.5"><span class="section-number-3">1.5</span> Goal of the article </h3>
+<div class="outline-text-3" id="text-1.5">
+
+<p>This howto explains how to install stumpwm and the little thing you have to do to login with it in the gnome display manager.
+</p></div>
+
+</div>
+
+<div id="outline-container-1.6" class="outline-3">
+<h3 id="sec-1.6"><span class="section-number-3">1.6</span> Limits of the article </h3>
+<div class="outline-text-3" id="text-1.6">
+
+
+</div>
+
+<div id="outline-container-1.6.1" class="outline-4">
+<h4 id="sec-1.6.1"><span class="section-number-4">1.6.1</span> Targeted platform </h4>
+<div class="outline-text-4" id="text-1.6.1">
+
+<p>This article is clearly oriented for a debian based distribution using a gnome display manager as the login manager.
+You may use some part with other distribution but i do not know how because i didn't have the problem to solve.
+</p></div>
+
+</div>
+
+<div id="outline-container-1.6.2" class="outline-4">
+<h4 id="sec-1.6.2"><span class="section-number-4">1.6.2</span> Targeted audience </h4>
+<div class="outline-text-4" id="text-1.6.2">
+
+<p>Geeky/Nerdy people who likes to make computer adapts to them and not the other way around.
+</p></div>
+
+</div>
+
+<div id="outline-container-1.6.3" class="outline-4">
+<h4 id="sec-1.6.3"><span class="section-number-4">1.6.3</span> What is stumpwm in details. </h4>
+<div class="outline-text-4" id="text-1.6.3">
+
+<p><a href="http://www.nongnu.org/stumpwm/">What is it?</a>
+</p></div>
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> How to install </h2>
+<div class="outline-text-2" id="text-2">
+
+
+</div>
+
+<div id="outline-container-2.1" class="outline-3">
+<h3 id="sec-2.1"><span class="section-number-3">2.1</span> Install stumpwm from CLI </h3>
+<div class="outline-text-3" id="text-2.1">
+
+
+
+
+<pre class="example">sudo apt-get install stumpwm
+</pre>
+
+
+
+</div>
+
+</div>
+
+<div id="outline-container-2.2" class="outline-3">
+<h3 id="sec-2.2"><span class="section-number-3">2.2</span> Add a new entry to gdm </h3>
+<div class="outline-text-3" id="text-2.2">
+
+<p>We need to add an entry menu to gdm for stumpwm so that we can log in with it.
+</p>
+<p>
+For this we add the file /usr/share/xsessions/stumpwm.desktop
+</p>
+
+
+<pre class="example">sudo emacs -nw /usr/share/xsessions/stumpwm.desktop
+</pre>
+
+
+
+
+<p>
+Content of the file:
+</p>
+
+
+<pre class="example">[Desktop Entry]
+        Exec=stumpwm
+        TryExec=stumpwm
+        Name=stumpwm
+        Comment=The Mouseless Window Manager!
+</pre>
+
+
+
+</div>
+
+</div>
+
+<div id="outline-container-2.3" class="outline-3">
+<h3 id="sec-2.3"><span class="section-number-3">2.3</span> Logout from gdm </h3>
+<div class="outline-text-3" id="text-2.3">
+
+<p>Gdm will reload.
+At next login, when you'll choose your user to log in.
+You will be proposed a new entry "stumpwm" at the bottom of the screen (it may depend on your theme).
+Choose it and log in.
+</p></div>
+
+</div>
+
+<div id="outline-container-2.4" class="outline-3">
+<h3 id="sec-2.4"><span class="section-number-3">2.4</span> Stumpwm starts </h3>
+<div class="outline-text-3" id="text-2.4">
+
+<p>At the top right corner, you'll only see a help message inviting you to type "CTRL-t ?" for a presentation of all the simple commands you need to start.
+</p></div>
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> How to improve it </h2>
+<div class="outline-text-2" id="text-3">
+
+
+</div>
+
+<div id="outline-container-3.1" class="outline-3">
+<h3 id="sec-3.1"><span class="section-number-3">3.1</span> Some simple commands </h3>
+<div class="outline-text-3" id="text-3.1">
+
+
+</div>
+
+<div id="outline-container-3.1.1" class="outline-4">
+<h4 id="sec-3.1.1"><span class="section-number-4">3.1.1</span> Syntax </h4>
+<div class="outline-text-4" id="text-3.1.1">
+
+<p>C for Control
+&lt;l&gt; for a letter
+combination C-t for Control + t pressed together
+C-t x for Control+t pressed together followed by a pressure on x. 
+</p></div>
+
+</div>
+
+<div id="outline-container-3.1.2" class="outline-4">
+<h4 id="sec-3.1.2"><span class="section-number-4">3.1.2</span> C-t ? </h4>
+<div class="outline-text-4" id="text-3.1.2">
+
+<p>List the basic commands
+</p></div>
+
+</div>
+
+<div id="outline-container-3.1.3" class="outline-4">
+<h4 id="sec-3.1.3"><span class="section-number-4">3.1.3</span> C-t c </h4>
+<div class="outline-text-4" id="text-3.1.3">
+
+<p>to launch a terminal instance (xterm or gnome-terminal)
+</p></div>
+
+</div>
+
+<div id="outline-container-3.1.4" class="outline-4">
+<h4 id="sec-3.1.4"><span class="section-number-4">3.1.4</span> C-t e </h4>
+<div class="outline-text-4" id="text-3.1.4">
+
+<p>to launch emacs or if it is already launched, call it to display before every other window.
+</p></div>
+
+</div>
+
+<div id="outline-container-3.1.5" class="outline-4">
+<h4 id="sec-3.1.5"><span class="section-number-4">3.1.5</span> C-t t </h4>
+<div class="outline-text-4" id="text-3.1.5">
+
+<p>To make the window behind the current one pass before and vice-versa
+Inside the browser, you need to escape the t to add a tab (i gives a C-t t t).
+</p></div>
+
+</div>
+
+<div id="outline-container-3.1.6" class="outline-4">
+<h4 id="sec-3.1.6"><span class="section-number-4">3.1.6</span> C-t s </h4>
+<div class="outline-text-4" id="text-3.1.6">
+
+<p>Split the screen horizontally in two frames of equal size (emacs way).
+You can move the window inside each frame the same way that when you have only one frame.
+</p></div>
+
+</div>
+
+<div id="outline-container-3.1.7" class="outline-4">
+<h4 id="sec-3.1.7"><span class="section-number-4">3.1.7</span> C-t Q </h4>
+<div class="outline-text-4" id="text-3.1.7">
+
+<p>Cancel all the split screen.
+</p></div>
+
+</div>
+
+<div id="outline-container-3.1.8" class="outline-4">
+<h4 id="sec-3.1.8"><span class="section-number-4">3.1.8</span> etc&hellip; </h4>
+<div class="outline-text-4" id="text-3.1.8">
+
+<p>cf. C-t ?
+</p></div>
+</div>
+
+</div>
+
+<div id="outline-container-3.2" class="outline-3">
+<h3 id="sec-3.2"><span class="section-number-3">3.2</span> Stumpwm is really cool </h3>
+<div class="outline-text-3" id="text-3.2">
+
+<p>You can override commands simply by putting a .stumpwmrc at the root of your home.
+</p>
+<p>
+Granted, the file is in lisp.
+But you can understand it anyway.
+</p>
+<p>
+Plus you can search the web for solution to your problems.
+You will find some geek who already has the answer.
+</p></div>
+
+</div>
+
+<div id="outline-container-3.3" class="outline-3">
+<h3 id="sec-3.3"><span class="section-number-3">3.3</span> My setup </h3>
+<div class="outline-text-3" id="text-3.3">
+
+<p>The run or raise means that it only turns with one instance which is sufficient.
+</p>
+</div>
+
+<div id="outline-container-3.3.1" class="outline-4">
+<h4 id="sec-3.3.1"><span class="section-number-4">3.3.1</span> C-t f </h4>
+<div class="outline-text-4" id="text-3.3.1">
+
+<p>Run or raise firefox (only one instance)
+</p></div>
+
+</div>
+
+<div id="outline-container-3.3.2" class="outline-4">
+<h4 id="sec-3.3.2"><span class="section-number-4">3.3.2</span> C-t i </h4>
+<div class="outline-text-4" id="text-3.3.2">
+
+<p>Run or raise eclipse (i for ide)
+</p></div>
+
+</div>
+
+<div id="outline-container-3.3.3" class="outline-4">
+<h4 id="sec-3.3.3"><span class="section-number-4">3.3.3</span> C-t j </h4>
+<div class="outline-text-4" id="text-3.3.3">
+
+<p>Run or raise intellij idea (j for the j inside intellij)
+</p></div>
+
+</div>
+
+<div id="outline-container-3.3.4" class="outline-4">
+<h4 id="sec-3.3.4"><span class="section-number-4">3.3.4</span> C-t x </h4>
+<div class="outline-text-4" id="text-3.3.4">
+
+<p>Run or raise gnome-terminal
+</p></div>
+
+</div>
+
+<div id="outline-container-3.3.5" class="outline-4">
+<h4 id="sec-3.3.5"><span class="section-number-4">3.3.5</span> C-t d </h4>
+<div class="outline-text-4" id="text-3.3.5">
+
+<p>Run or raise squirrel-sql - a sql client software (d stands for database)
+</p></div>
+
+</div>
+
+<div id="outline-container-3.3.6" class="outline-4">
+<h4 id="sec-3.3.6"><span class="section-number-4">3.3.6</span> C-t o </h4>
+<div class="outline-text-4" id="text-3.3.6">
+
+<p>To add a label (a letter) to each frame to move directly to this frame by typing the lett
+</p></div>
+</div>
+
+</div>
+
+<div id="outline-container-3.4" class="outline-3">
+<h3 id="sec-3.4"><span class="section-number-3">3.4</span> My setup file corresponding </h3>
+<div class="outline-text-3" id="text-3.4">
+
+<p>Here is mine.
+</p>
+
+
+<pre class="example">;; Hey, Emacs! This is a -*- lisp -*- file!
+
+(setf *frame-number-map* "abcdefghijklmnopqrst")
+
+(setf *window-format* "%m%n%s nm=%50t cl=%c id=%i")
+
+;;(run-commands "restore-from-file ~/.stumpwm.screendump")
+
+;; specific commands that permits to run or raise the same instance of programs
+(defcommand firefox () ()
+  "Start Firefox or switch to it, if it is already running."
+  (run-or-raise "firefox" '(:class "Firefox")))
+(define-key *root-map* (kbd "f") "firefox")
+
+(defcommand term1 () ()
+  "run term emul"
+  (run-or-raise "gnome-terminal" '(:class "Term1")))
+(run-commands "term1")
+
+(defcommand xterm-1 () ()
+  "run an xterm instance or switch to it, if it is already running."
+  (run-or-raise "gnome-terminal --title=xterm1" '(:class "Gnome-terminal")))
+(define-key *root-map* (kbd "x") "xterm-1")
+
+;; frame selection
+(define-key *root-map* (kbd "o") "fselect")
+
+(defcommand emacs () () ;! redefining emacs command
+  "Start Emacs or switch to it, if it is already running."
+  (run-or-raise "emacs -rv" '(:class "Emacs")))
+
+;; Another way to declare a shortcut for launching google-chrome
+(defprogram-shortcut :chromium :command "chromium-browser"
+                     :props '(:class "Chromium")
+                     :map *root-map* :key (kbd "b"))
+
+;; conkeror powaaaa!
+;;(defprogram-shortcut :chrome :command "conkeror"
+;; :props '(:class "conkeror")
+;; :map *root-map* :key (kbd "d")
+;; )
+
+;; the ide to the keybinding i (C-t i)
+(defprogram-shortcut :eclipse :command "~/bin/ide-eclipse.sh"
+                     :props '(:class "Eclipse")
+                     :map *root-map* :key (kbd "i"))
+
+;; gnome-volume-control
+(defprogram-shortcut :volume-control :command "gnome-volume-control"
+                     :props '(:class "Gnome-Volume-Control")
+                     :map *root-map* :key (kbd ","))
+
+;; Totem
+(defprogram-shortcut :video-player :command "totem"
+                     :props '(:class "Totem")
+                     :map *root-map* :key (kbd "."))
+
+;; Intellij-idea (C-t j)
+(defprogram-shortcut :intellij-idea :command "~/bin/idea.sh"
+                     :props '(:class "java-lang-Thread")
+                     :map *root-map* :key (kbd "j"))
+
+;; Intellij-idea (C-t d)
+(defprogram-shortcut :squirrel-sql :command "~/bin/squirrel-sql.sh"
+                     :props '(:class "net-sourceforge-squirrel_sql-client-Main")
+                     :map *root-map* :key (kbd "d"))
+
+;;Set the mouse policy to focus follows mouse;
+(setf *mouse-focus-policy* :sloppy) ;; :click, :ignore, :sloppy
+
+;; Launch commands
+(run-shell-command "stalonetray -t --window-type normal --pixmap-bg ~/Dropbox/home/black-1x1.xpm -v -t")
+(run-shell-command "/usr/bin/gnome-settings-daemon")
+(run-shell-command "/usr/bin/nm-applet &amp;")
+(run-shell-command "/usr/bin/bluetooth-applet &amp;")
+(run-shell-command "/usr/bin/pactl load-module module-x11-xsmp &amp;")
+(run-shell-command "gnome-power-manager")
+(run-shell-command "dropbox start")
+(run-shell-command "nautilus --no-default-window")
+</pre>
+
+
+
+<p>
+More up-to-date one <a href="https://github.com/ardumont/stumpwm-config/blob/master/.stumpwmrc">https://github.com/ardumont/stumpwm-config/blob/master/.stumpwmrc</a>
+</p>
+<p>
+Here is the key-bindings corresponding
+</p></div>
+</div>
+</div>
+<div id="postamble">
+<p class="author"> Author: Antoine Romain Dumont
+<a href="mailto:tony@dagobah">&lt;tony@dagobah&gt;</a>
+</p>
+<p class="date"> Date: 2011-08-13 14:15:30 CEST</p>
+<p class="creator">HTML generated by org-mode 6.33x in emacs 23</p>
+</div>
+</div>
+</body>
+</html>
