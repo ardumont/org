@@ -5,6 +5,6 @@
 
 * DONE Retrieve the stumpwmrc of denlab
 * DONE Use stumpwm
-* TODO Use it better
+* DONE Use it better
 * DONE Read the stumpwmrm
-* info stumpwmrc
+* TODO info stumpwm
