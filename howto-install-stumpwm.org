@@ -12,9 +12,8 @@ Another simple way to sum up: Less is more :d.
 *** Why?
 I was lost with all the shining catch-eyes effects everywhere.
 
-With a friend we search for simpler.
-We found stump and it was mind blowing.
-
+With a friend, [[https://twitter.com/#!/denislab][Denis Labaye]], we search for simpler.
+We found stumpwm and it was mind blowing.
 *** How i use it?
 Personally, i choose to work with only one window at a time and ask for the one i want when i want it.
 It's my way of seeing it but stumpwm does not limit you in this way.
@@ -26,7 +25,7 @@ Small price because you can override them so the sky is really the limit.
 
 It's the computer that adapts to you and not the other way around.
 *** Goal of the article
-This howto explains how to install stumpwm and the little thing you have to do to login with it in the gnome display manager.
+This howto explains how to install stumpwm and the little things you have to do to login with it in the gnome display manager.
 *** Limits of the article
 ***** Targeted platform
 This article is clearly oriented for a debian based distribution using a gnome display manager as the login manager.
@@ -56,26 +55,52 @@ Content of the file:
         Name=stumpwm
         Comment=The Mouseless Window Manager!
 #+END_SRC
-*** Logout from gdm
+
+Here is a simple script to do that in one shot (feel free to patch):
+#+BEGIN_SRC sh
+#!/bin/bash
+
+# Install stumpwm
+sudo apt-get install stumpwm
+
+# Create the file
+sudo touch /usr/share/xsessions/stumpwm.desktop
+
+# Add the entry for gdm
+(cat <<EOF
+[Desktop Entry]
+Exec=stumpwm
+TryExec=stumpwm
+Name=stumpwm
+Comment=The Mouseless Window Manager!
+EOF
+)> stumpwm.buffer
+
+sudo cp stumpwm.buffer /usr/share/xsessions/stumpwm.desktop
+
+rm stumpwm.buffer
+#+END_SRC
+
+src: [[https://github.com/ardumont/slash-my-home-slash-bin/blob/master/deploy-stumpwm.sh][deploy-stumpwm.sh]]
+*** `Logout from gdm
 Gdm will reload.
-At next login, when you'll choose your user to log in.
-You will be proposed a new entry "stumpwm" at the bottom of the screen (it may depend on your theme).
+At next login, when you'll choose your user to log in, you will be proposed a new entry "stumpwm" at the bottom of the screen (it may depend on your theme).
 Choose it and log in.
 *** Stumpwm starts
-At the top right corner, you'll only see a help message inviting you to type "CTRL-t ?" for a presentation of all the simple commands you need to start.
+At the top right corner, you'll only see a help message inviting you to type "CTRL-t ?" (Control and t pressed at the same time followed by a pressure on 't') for a presentation of all the simple commands you need to start.
 * How to improve it
 *** Some simple commands
 ***** Syntax
-C for Control
-<l> for a letter
-combination C-t for Control + t pressed together
-C-t x for Control+t pressed together followed by a pressure on x. 
+******* C for Control
+******* <l> for a letter
+******* combination C-t for Control + t pressed together
+******* C-t x for Control+t pressed together followed by a pressure on x.
 ***** C-t ?
 List the basic commands
 ***** C-t c
-to launch a terminal instance (xterm or gnome-terminal)
+To launch a terminal instance (xterm or gnome-terminal)
 ***** C-t e
-to launch emacs or if it is already launched, call it to display before every other window.
+To launch emacs or if it is already launched, call it to display before every other window.
 ***** C-t t
 To make the window behind the current one pass before and vice-versa
 Inside the browser, you need to escape the t to add a tab (i gives a C-t t t).
@@ -84,10 +109,14 @@ Split the screen horizontally in two frames of equal size (emacs way).
 You can move the window inside each frame the same way that when you have only one frame.
 ***** C-t Q
 Cancel all the split screen.
+***** C-t k
+To kill a window not responding
+***** C-t !
+To launch a shell command not mapped yet on any binding.
 ***** etc...
 cf. C-t ?
 *** Stumpwm is really cool
-You can override commands simply by putting a .stumpwmrc at the root of your home.
+You can override commands simply by putting a '.stumpwmrc' at the root of your home.
 
 Granted, the file is in lisp.
 But you can understand it anyway.
@@ -97,19 +126,21 @@ You will find some geek who already has the answer.
 *** My setup
 The run or raise means that it only turns with one instance which is sufficient.
 ***** C-t f
-Run or raise firefox (only one instance)
+Run or raise (only one instance at a time) firefox (f stands for firefox).
+***** C-t b
+Run or raise chromium (b stands for browser).
 ***** C-t i
 Run or raise eclipse (i for ide)
 ***** C-t j
 Run or raise intellij idea (j for the j inside intellij)
 ***** C-t x
-Run or raise gnome-terminal
+Run or raise gnome-terminal (x stands for xterm or any x terminal)
 ***** C-t d
 Run or raise squirrel-sql - a sql client software (d stands for database)
 ***** C-t o
 To add a label (a letter) to each frame to move directly to this frame by typing the lett
 *** My setup file corresponding
-Here is mine.
+~/.stumpwmrc
 #+BEGIN_SRC lisp
 ;; Hey, Emacs! This is a -*- lisp -*- file!
 
@@ -191,6 +222,10 @@ Here is mine.
 (run-shell-command "dropbox start")
 (run-shell-command "nautilus --no-default-window")
 #+END_SRC
-More up-to-date one https://github.com/ardumont/stumpwm-config/blob/master/.stumpwmrc
+src: https://github.com/ardumont/stumpwm-config/blob/master/.stumpwmrc
 
-Here is the key-bindings corresponding
+* Last points
+It's "emacs compatible". The prefix key is C-t whereas the prefix key of emacs is mostly C-x.
+They work well together and they have a lot in common in their usability.
+
+Here is a [[http://www.archive.org/details/TheStumpWMExperience][screencast]] which presents rapidly how to use it.
