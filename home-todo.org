@@ -1,0 +1,179 @@
+#+Title: todo maison
+#+author: Antoine Romain Dumont
+#+STARTUP: indent
+#+STARTUP: hidestars odd
+
+* TODO dehors [0/4]
+*** TODO cote droit [4/10]
+******* DONE Retirer toutes les mauvaises herbes
+******* DONE Planter du gazon
+l'herbe est magnifique
+******* DONE Faire couper l'arbre
+******* DONE Mettre en place les composteurs
+******* TODO Laisser secher les buches restantes
+******* TODO Couper les buches restantes
+******* TODO Couper/Abattre l'abricotier malade.
+Trop pres du mur de separation.
+******* TODO Couper/Abattre le noisetier
+Trop pres du mur de separation.
+******* TODO Cimenter les trous du mur
+******* TODO Repeindre le mur
+*** TODO cote gauche [8/9]
+******* DONE Retirer toutes les mauvaises herbes
+******* DONE Retirer toute la tranchee d'arbustes (~10)
+J'en ai soupe de l'arbuste
+******* DONE Planter du gazon
+l'herbe est magnifique
+******* DONE Commencer un potager (tomate, framboise, menthe...)
+******* DONE Tailler la haie du fond
+******* DONE Deplacer les lauriers
+******* DONE Detruire les arbres a boules blanches qui attirent trop d'abeilles et guepes
+******* DONE Replacer les dalles mal placees
+******* TODO Aplanir le sol du cote du potager.
+*** TODO devant [7/9]
+***** DONE parterres de fleurs [4/4]
+******* DONE Detruire le parterre de marguerite qui prend trop de place dans le jardin.
+******* DONE Aplanir tous les parterres de fleurs.
+******* DONE Ramasser toutes les briques de parpaing
+******* DONE Les ranger sous l'escalier de l'entree
+***** DONE Couper l'arbre de l'entree du cote droit.
+***** DONE Finir de detruire la racine restante de l'arbre
+***** DONE Faire couper la haie
+***** DONE Faire couper les arbres de devant
+***** DONE Mettre en place des barrieres de securite le long de l'allee de descente dans le garage.
+***** DONE Evacuer tous les dechets suites a toutes les actions du jardins
+***** TODO Tailler le noisetier de devant.
+***** TODO Deraciner les arbustes restant de devant (pour les planter derriere)
+*** TODO derriere [3/4]
+***** DONE Retirer le lierre
+***** DONE Tailler la haie de derriere
+***** DONE Reparer la partie de la barriere tombee a cause du lierre
+Merci papy Claude
+***** TODO Replanter les arbustes de devant pour combler le trou dans la haie de derriere
+* TODO dedans [2/12]
+*** TODO Relatif a l'exterieur [2/3]
+***** DONE Tailler les arbustes en morceaux pour pouvoir les rentrer dans le garage
+***** DONE Rentrer les morceaux dans le garage
+***** TODO Bruler les morceaux d'arbustes dans la cheminee [1/2]
+******* DONE 9/10
+******* TODO 1/10
+*** TODO encombrants [3/8]
+***** DONE vieux frigo
+***** DONE vieux four
+***** DONE Grosse armoire du bureau
+***** TODO rameur
+***** TODO pneu
+***** TODO armoires metalliques (piece du ballon d'eau chaude)
+***** TODO cartons
+***** TODO grosses pieces de verre
+*** TODO piece de jeux pour les enfants [2/6]
+***** DONE Retirer la grosse armoire du bureau
+***** DONE Retirer le crepis
+***** TODO Reboucher les trous
+***** TODO Poser la toile de renovation
+***** TODO Poser le papier peint/Peindre
+***** TODO Ranger la piece
+*** TODO Cuisine [3/6]
+***** DONE Degager le vieux frigo 
+***** DONE Refaire les prises de courant
+***** DONE Retirer le crepis
+***** TODO Reboucher les trous (enduit)
+***** TODO Poser la toile de renovation
+***** TODO Poser le papier peint/Peindre
+*** TODO Couloir [7/9]
+***** DONE Changer les portes de l'armoire
+Merci papy Claude
+***** DONE Retirer le papier peint du plafond
+***** DONE Retirer le crepis
+***** DONE Reparer les fissures du plafond
+Merci Papy Claude
+***** DONE Reboucher les trous (enduit)
+Merci Papy Claude
+***** DONE Lessivage/nettoyage
+Merci Papy Claude
+***** DONE Passer la sous-couche.
+Merci Papy Claude
+***** TODO Poser la toile de renovation
+***** TODO Poser le papier peint/Peindre
+*** TODO Salon [7/9]
+***** DONE Retirer le papier peint du plafond
+***** DONE Retirer le crepis
+***** DONE Reparer la fissure de la cheminee
+Merci Papy Claude
+***** DONE Reparer les fissures du plafond
+Mercy Papy Claude
+***** DONE Reboucher les trous (enduit)
+Merci Papy Claude
+***** DONE Lessivage/nettoyage
+Merci Papy Claude
+***** DONE Passer la sous-couche.
+Merci Papy Claude
+***** TODO Poser la toile de renovation
+***** TODO Poser le papier peint/Peindre
+*** TODO Escalier du haut [1/7]
+***** DONE Retirer le crepis
+***** TODO Retirer le papier peint
+***** TODO Reboucher les trous (enduit)
+***** TODO Lessivage/nettoyage
+***** TODO Passer la sous-couche.
+***** TODO Poser la toile de renovation
+***** TODO Poser le papier peint/Peindre
+*** TODO Couloir du haut [4/8]
+***** DONE Retirer le crepis
+***** DONE Retirer le papier peint
+***** DONE Reboucher les trous (enduit)
+***** DONE Reboucher les enormes trous
+Merci Papy Claude
+***** TODO Lessivage/nettoyage
+***** TODO Passer la sous-couche.
+***** TODO Poser la toile de renovation
+***** TODO Poser le papier peint/Peindre
+*** DONE Chambre de Chloe [9/9]
+***** DONE Retirer le papier peint de la porte
+***** DONE Retirer le papier peint des armoires
+***** DONE Finalement remplacer les portes d'armoire
+Merci Papy Claude
+***** DONE Retirer le papier peint
+***** DONE Retirer le papier peint des portes
+***** DONE Lessivage/nettoyage
+Merci Papy Claude
+***** DONE Passer la sous-couche.
+Merci Papy Claude
+***** DONE Peindre
+Merci Papy Claude
+***** DONE Decoration
+Merci Chris
+*** DONE Chambre de Theo [10/10]
+***** DONE Retirer le papier peint de la porte
+***** DONE Retirer le papier peint des armoires
+***** DONE Finalement remplacer les portes d'armoire
+Merci Papy Claude
+***** DONE Retirer la peinture "3d" (poncer)
+Merci Papy Claude
+***** DONE Poncer le plafond
+Merci Papy Claude
+***** DONE Peindre le plafond
+Merci Papy Claude
+***** DONE Changer la prise de courant
+Merci Papy Claude
+***** DONE Lessivage/nettoyage
+Merci Papy Claude
+***** DONE Peindre la chambre
+Merci Papy Claude
+***** DONE Decoration
+Merci Chris
+*** TODO Chambre de nous [0/6]
+***** TODO Retirer le crepis
+***** TODO Reboucher les trous (enduit)
+***** TODO Lessivage/nettoyage
+***** TODO Passer la sous-couche.
+***** TODO Poser la toile de renovation
+***** TODO Poser le papier peint/Peindre
+*** TODO Bureau [0/7]
+***** TODO Retirer le crepis
+***** TODO Reboucher les trous (enduit)
+***** TODO Lessivage/nettoyage
+***** TODO Passer la sous-couche.
+***** TODO Poser la toile de renovation
+***** TODO Poser le papier peint/Peindre
+***** TODO Ranger la piece
