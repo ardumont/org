@@ -1,0 +1,21 @@
+#+Title: todo for acer on grub
+#+author: Antoine Romain Dumont
+#+STARTUP: indent
+#+STARTUP: hidestars 
+
+* Add the option to grub
+
+We need to add the option libata.force=noncq to the file /etc/default/grub
+#+BEGIN_SRC sh
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
+#+END_SRC
+to
+#+BEGIN_SRC sh
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash libata.force=noncq"
+#+END_SRC
+
+* Now relaunch the setup of grub
+#+BEGIN_SRC sh
+sudo grub-mkconfig -o /boot/grub/grub.cfg && sudo grub-install /dev/sda
+#+END_SRC
+
