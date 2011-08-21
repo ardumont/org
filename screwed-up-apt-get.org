@@ -1,0 +1,28 @@
+#+Title: screwed up apt-get and solution
+#+author: Antoine Romain Dumont
+#+STARTUP: indent
+#+STARTUP: hidestars odd
+
+* Symptom
+I couldn't install anything or upgrade anything on my linux box:
+#+BEGIN_SRC sh
+sudo apt-get update && sudo apt-get upgrade
+...
+Reading database ... 60%dpkg: unrecoverable fatal error, aborting:
+ files list file for package 'banshee' is missing final newline
+#+END_SRC
+
+* Solution
+Delete some messed up files for unknown reasons.
+#+BEGIN_SEC sh
+sudo rm /var/lib/dpkg/info/banshee.list
+sudo rm /var/lib/dpkg/info/banshee-extension-soundmenu.list
+#+BEGIN_SEC sh
+#+END_SRC
+
+Then force the reinstall of the package
+#+BEGIN_SEC sh
+sudo apt-get install banshee --reinstall
+#+END_SRC
+
+* That's all folks
