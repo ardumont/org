@@ -1,0 +1,15 @@
+#+Title: Howto emacs as a java ide
+#+author: Antoine Romain Dumont
+#+STARTUP: indent
+#+STARTUP: hidestars odd
+
+* JDEE
+seems stagnant
+* malabar-mode with autocomplete
+*** recommend you to use malabar-mode instead of JDEE - malabar is the only modern mode for Java development currently available for Emacs. It offers:
+*** Tight integration with Maven
+*** A Groovy console for rapid prototyping and exploratory programming
+*** JUnit integration, both for running tests standalone and through Maven
+*** Import help; import one class or all needed classes in the buffer (with prompting if the class name is ambiguous)
+*** Extend class / implement interface / override method helpers
+*** Simplistic refactorings
