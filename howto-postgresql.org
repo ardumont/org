@@ -1,0 +1,100 @@
+#+Title: postgresql howto
+#+author: Antoine Romain Dumont
+#+STARTUP: indent
+#+STARTUP: hidestars odd
+
+* Install postgresql
+*** Install postgresql and one tool for administration
+#+BEGIN_SRC sh
+sudo apt-get install postgresql pgadmin3
+#+END_SRC
+
+* Setup the server to work locally
+*** Setup the password for the database
+#+BEGIN_SRC sh
+sudo su postgres -c psql template1
+#+END_SRC
+which means
+***** sudo
+super user do
+***** su postgres
+connect  as the user postgres which is the user that runs the postgresql service
+***** -c
+Execute the command
+***** psql template1
+psql is a cli command to connect to a database
+template1. Template1 is a template database created in the process of
+installation of postgresql
+***** Sum up
+      To sum up, we will connect to the database template1 as the linux user postgres...
+*** Now we can change the password
+Here is the result:
+#+BEGIN_SRC sh
+tony@linux-mi178(1.01,) 15:00:09 ~/bin (master) $ sudo su postgres -c psql template1
+could not change directory to "/home/tony/Dropbox/repositories/git/slash-my-home-slash-bin"
+psql (8.4.8)
+Type "help" for help.
+postgres=#
+#+END_SRC
+
+Now type
+#+BEGIN_SRC sql
+ALTER USER postgres WITH PASSWORD '$PASSWORD;
+#+END_SRC
+Remember the $PASSWORD value, you will need it for the user
+
+*** Setup the password for the user postgres
+Delete the passwd of the user
+#+BEGIN_SRC sh
+sudo passwd -d postgres
+#+END_SRC
+
+Setup a new one and type the same passwd as in the previous step ($PASSWORD).
+#+BEGIN_SRC sh
+sudo su -c passwd -c postgres
+#+END_SRC
+
+* Create a user and a database
+ Postgresql comes with some simple scripts to help you in creating
+ users and databases
+*** Create a user
+#+BEGIN_SRC sh
+sudo -u postgres createuser -D -A -P $NEW_USER
+#+END_SRC
+-D will be allowed to create databases
+-A do not know yet
+-P to prompt for typing a password
+*** Create a database
+#+BEGIN_SRC sh
+sudo -u postgres createdb -O $NEW_USER $NEW_DATABASE
+#+END_SRC
+*** More simply
+Connect as postgres
+#+BEGIN_SRC sh
+sudo su - postgres
+#+END_SRC
+
+Then
+#+BEGIN_SRC sh
+createuser -D -A -P $NEW_USER
+createdb -O $NEW_USER $NEW_DATABASE
+#+END_SRC
+
+* Drop a database and a user
+Beware of the order. You won't be able to drop a database if a user is
+already logged in.
+*** Log as postgres
+Connect as postgres
+#+BEGIN_SRC sh
+sudo su - postgres
+#+END_SRC
+
+*** Drop a database
+#+BEGIN_SRC sh
+dropdb $NEW_DATABASE
+#+END_SRC
+
+*** Drop a user
+#+BEGIN_SRC sh
+dropuser $NEW_USER
+#+END_SRC
