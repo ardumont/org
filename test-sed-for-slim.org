@@ -1,0 +1,45 @@
+#+Title: Test sed for slim
+#+author: Antoine Romain Dumont
+#+STARTUP: indent
+#+STARTUP: hidestars odd
+
+* Content of file test.txt
+#+BEGIN_SRC txt
+Configured Capacity: 157592621056 (146.77 GB) Present Capacity: 149390270464 (139.13 GB) DFS Remaining: 149390032896 (139.13 GB) DFS Used: 237568 (232 KB) DFS Used%: 0% Under replicated blocks: 22 Blocks with corrupt replicas: 0 Missing blocks: 0 ------------------------------------------------- Datanodes available: 1 (1 total, 0 dead) Name: 10.227.109.123:50010 Decommission Status : Normal Configured Capacity: 157592621056 (146.77 GB) DFS Used: 237568 (232 KB) Non DFS Used: 8202350592 (7.64 GB) DFS Remaining: 149390032896(139.13 GB) DFS Used%: 0% DFS Remaining%: 94.8% Last contact: Mon Sep 05 15:41:17 UTC 2011
+#+END_SRC
+* First test
+#+BEGIN_SRC sh
+cat test.txt | sed -e 's/.*\([0-9]*\).*,\s\([0-9]*\).*/\1 dead \2/g'
+#+END_SRC
+* Second
+#+BEGIN_SRC sh
+cat test.txt | grep --regexp="[0-9]* ([0-9]* total, [0-9]* dead)"
+#+END_SRC
+* First victory
+#+BEGIN_SRC sh
+sed 's/(\([0-9]*\.[0-9]* GB\))/====\1====/gi' < test.txt
+#+END_SRC
+* At last!
+#+BEGIN_SRC sh
+sed 's/: \([0-9]*\) (\([0-9]*\) total, \([0-9]*\) dead)/=\1= =\2= =\3=/i' < test.txt
+#+END_SRC
+* Ultimate success
+#+BEGIN_SRC sh
+sed -e 's/.*: \([0-9]*\) (\([0-9]*\) total, \([0-9]*\) dead).*/\1 \2 \3/i' < test.txt
+#+END_SRC
+* Complete surrender
+#+BEGIN_SRC sh
+# victory
+sed -e 's/.*: \([0-9]*\) (\([0-9]*\) total, \([0-9]*\) dead).*/\1/i' < test.txt
+sed -e 's/.*: \([0-9]*\) (\([0-9]*\) total, \([0-9]*\) dead).*/\2/i' < test.txt
+sed -e 's/.*: \([0-9]*\) (\([0-9]*\) total, \([0-9]*\) dead).*/\3/i' < test.txt
+#+END_SRC
+* Proof of success
+#+BEGIN_SRC sh
+tony@linux-mi178(0.00,) 20:38:22 ~ (ubuntu-11.04) $ sed -e 's/.*: \([0-9]*\) (\([0-9]*\) total, \([0-9]*\) dead).*/\3/i' < test.txt
+0
+tony@linux-mi178(0.00,) 20:38:22 ~ (ubuntu-11.04) $ sed -e 's/.*: \([0-9]*\) (\([0-9]*\) total, \([0-9]*\) dead).*/\1/i' < test.txt
+1
+tony@linux-mi178(0.10,) 20:43:17 ~ (ubuntu-11.04) $ sed -e 's/.*: \([0-9]*\) (\([0-9]*\) total, \([0-9]*\) dead).*/\2/i' < test.txt
+1
+#+END_SRC
