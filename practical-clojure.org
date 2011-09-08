@@ -9,13 +9,49 @@
 * TODO Chapter 1: The Clojure Way....................................................................................1
 *** DONE Clojure’s Philosophy and Special Features.................................................................1
 ***** DONE A Next-Generation Language................................................................................ 1
+The future so why fight it!?
 ***** DONE Dynamic and Powerful (Yes, It’s a Lisp) .................................................................. 1
+ugly for some but excellent for others, clojure is awsome as a lisp language.
 ***** DONE The Java Platform......................................................................................... 2
-*** TODO Functional Programming ........................................................................................2
+The jvm is a real good piece of software. Clojure uses it at its advantages.
+*** TODO Functional Programming ...................................................................................2
 ***** DONE Purely Functional Programming ............................................................................ 4
-***** TODO Clojure’s Compromise ..................................................................................... 6
-***** TODO Immutability.............................................................................................. 7
-***** TODO What about Object-Oriented Programming? .................................................................. 9
+Based on pure function:
+- only inputs (parameters) and output
+- no interaction with the outside
+- no state
+- more simple to test
+- black box
+***** DONE Clojure’s Compromise ..................................................................................... 6
+Coding purely functional functions is impossible but clojure tends
+towards it as much as it can.
+As clojure can manipulate java objects, there is no purity (java
+objects are by definition stateful) when
+manipulating those.
+***** DONE Immutability.............................................................................................. 7
+Structures are immutable.
+When needed to change, a new object is copied but share the common
+structure - this shared structure is called persitence.
+The old shared structure which is not shared anymore will be silently garbage collected.
+
+Many structures:
+- Linked list
+- Vectors
+- Hash maps
+- Sorted maps
+- Hash and sorted sets
+***** DONE What about Object-Oriented Programming? .................................................................. 9
+- Clojure is not object oriented.
+    - mutability
+    - no facility in code modularization and abstraction
+    - inheritance is fragile and can be dangerous
+    - code bloat
+- clear distinction between datas and behaviour
+    - modularity
+    - polymorphism
+    - encapsulation
+    - reusability
+***** TODO Structure of a clojure program .......................................................................... 10
 ***** TODO State Management ........................................................................................ 11
 ***** TODO State and Identity ...................................................................................... 12
 ***** TODO Software Transactional Memory ........................................................................... 13
