@@ -6,15 +6,15 @@
 * DONE About the Authors.......................................................................................... xiv
 * DONE About the Technical Reviewer .............................................................................. xv
 * DONE Acknowledgments ........................................................................................... xvi
-* TODO Chapter 1: The Clojure Way....................................................................................1
-*** DONE Clojure’s Philosophy and Special Features.................................................................1
+* DONE Chapter 1: The Clojure Way [3/3] .............................................................................1
+*** DONE Clojure’s Philosophy and Special Features ................................................................1
 ***** DONE A Next-Generation Language................................................................................ 1
 The future so why fight it!?
 ***** DONE Dynamic and Powerful (Yes, It’s a Lisp) .................................................................. 1
 ugly for some but excellent for others, clojure is awsome as a lisp language.
 ***** DONE The Java Platform......................................................................................... 2
 The jvm is a real good piece of software. Clojure uses it at its advantages.
-*** TODO Functional Programming ...................................................................................2
+*** DONE Functional Programming [8/8] .............................................................................2
 ***** DONE Purely Functional Programming ............................................................................ 4
 Based on pure function:
 - only inputs (parameters) and output
@@ -43,19 +43,22 @@ Many structures:
 ***** DONE What about Object-Oriented Programming? .................................................................. 9
 - Clojure is not object oriented.
     - mutability
-    - no facility in code modularization and abstraction
+    - no facility in code modularization and abstraction -> spaghetti code
     - inheritance is fragile and can be dangerous
-    - code bloat
-- clear distinction between datas and behaviour
+    - code bloat -> needs some frameworks to improve the code -> more
+      boilerplates and interface not serving the soft...
+- Clojure shares the good parts of the OO paradigm
     - modularity
     - polymorphism
     - encapsulation
     - reusability
-***** TODO Structure of a clojure program .......................................................................... 10
-***** TODO State Management ........................................................................................ 11
-***** TODO State and Identity ...................................................................................... 12
-***** TODO Software Transactional Memory ........................................................................... 13
-*** TODO Summary .................................................................................................15
+- Another difference
+***** DONE Structure of a clojure program .......................................................................... 10
+***** DONE State Management ........................................................................................ 11
+stateful objects == new spaghetti code
+***** DONE State and Identity ...................................................................................... 12
+***** DONE Software Transactional Memory ........................................................................... 13
+*** DONE Summary .................................................................................................15
 * TODO Chapter 2: The Clojure Environment ..........................................................................17
 * TODO Chapter 3: Controlling Program Flow .........................................................................29
 * TODO Chapter 4: Data in Clojure...................................................................................51
