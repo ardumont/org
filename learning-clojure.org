@@ -3,11 +3,10 @@
 #+STARTUP: indent
 #+STARTUP: hidestars odd
 
-* TODO Clojure
-** DONE Watch movie "Rich Hickey : Are we there yet ?" sent by denis
-[[http://www.google.fr/url?sa%3Dt&source%3Dweb&cd%3D1&sqi%3D2&ved%3D0CCAQFjAA&url%3Dhttp%3A%2F%2Fgroups.google.com%2Fgroup%2Fclj-la%2Fbrowse_thread%2Fthread%2F1ea791516715487e&ei%3D5bfDTbWeNoSHhQeeycCCBA&usg%3DAFQjCNGhS78b4fwrRw3KXCwNzUUpEr6gjQ&sig2%3DGaKqTIwdFSg1pZyAbjJZlQ][Rich Hikey rocks]]
-** TODO Do some coding
-** Viewing video on youtube about it
+* DONE Watch movie "Rich Hickey : Are we there yet ?" sent by denis
+[[http://www.infoq.com/presentations/Are-We-There-Yet-Rich-Hickey][Rich Hikey rocks]]
+* TODO Do some coding
+* TODO Viewing video on youtube about it
 *** DONE read the getting started
 *** DONE install clojure
 *** DONE intro to clojure 1/10
@@ -65,6 +64,8 @@
 *** TODO Libraries
 *** TODO Conclusion
 *** TODO References
-* TODO midje
-* TODO cake
-* TODO mise en place plateforme test selon denis
+* DONE Install platform
+*** DONE clojure
+*** DONE emacs
+*** DONE midje
+*** DONE leiningen
