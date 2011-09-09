@@ -1,0 +1,43 @@
+#+Title: how to deploy a clojure platform
+#+author: Antoine Romain Dumont
+#+STARTUP: indent
+#+STARTUP: hidestars odd
+
+* Install emacs
+* Install clojure
+* Install leiningen
+* Install some emacs plugin
+slime
+clojure-mode
+* create a new project clojure with leiningen
+lein new my-clojure-lab
+* connect to the server swank via emacs
+M-x cd ~/repositories/perso/my-clojure-lab
+M-x clojure-jack-in
+* edit your project.clj file
+Add this to your project.clj
+#+BEGIN_SRC clj
+ :dependencies [[org.clojure/clojure "1.2.1"]]
+  :dev-dependencies [[org.clojure/clojure-contrib "1.2.0"]
+                     [midje "1.1.1"]] )
+
+#+END_SRC
+* edit in your core.clj
+#+BEGIN_SRC clj
+(fact (+ 1 1) => 3)
+#+END_SRC
+* Retrieve some files from the project midje
+here is the link for the actions to take:
+https://github.com/marick/Midje/wiki/Midje-mode
+Here are the files to download and put inside ~/.emacs.d
+https://github.com/dnaumov/midje-mode/zipball/master
+* edit emacs.d
+in ~/.emacs.d/tony.el, copy these lines
+#+BEGIN_SRC el
+(require 'clojure-mode)
+(add-to-list 'auto-mode-alist '("\\.clj$" . clojure-mode))
+(require 'midje-mode)
+(add-hook 'clojure-mode-hook 'midje-mode)
+#+END_SRC
+
+
