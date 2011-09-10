@@ -1,0 +1,7 @@
+#+Title: Quotations
+#+author: Antoine Romain Dumont
+#+STARTUP: indent
+#+STARTUP: hidestars odd
+
+* First they ignored you, then they laughed at you, then they fought you, now you've won. -- Not quite Gandhi
+* Any intelligent fool can make things bigger, more complex, and more violent. It takes a touch of genius -- and a lot of courage -- to move in the opposite direction. -- Schumacher
