@@ -1,0 +1,6 @@
+#+Title: Reading org-mode manual
+#+author: Antoine Romain Dumont
+#+STARTUP: indent
+#+STARTUP: hidestars odd
+
+* http://orgmode.org/manual/index.html#Top
