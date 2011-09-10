@@ -111,7 +111,7 @@ composites.
 Vars are some sort of "global variables" with a limited scope, its namespace.
 Break into multiple files with for each file a namespace.
 Use namespaces and :use them.
-* TODO Chapter 3: Controlling Program Flow [1/6] ..................................................................29
+* TODO Chapter 3: Controlling Program Flow [2/6] ..................................................................29
 *** DONE Functions [6/6] .........................................................................................29
 Functions are the beginning and the end of clojure.
 ***** DONE First-Class Functions................................................................................... 29
@@ -188,7 +188,36 @@ Reading macro
 
 (def my-mult2 #(* %1 %2))
 #+BEGIN_SRC
-*** TODO Conditional Expressions..................................................................................34
+*** DONE Conditional Expressions..................................................................................34
+if statement.
+#+BEGIN_SRC clj
+(fact (if (= 1 1) "Maths still work!") => "Maths still work!")
+(fact (if (= 1 2) "Maths is broken!" "Maths still work!") => "Maths still work!")
+
+(fact (if-not (= 1 1) "Maths is broken!" "Maths still work!") => "Maths still work!")
+#+END_SRC
+
+cond statements
+#+BEGIN_SRC clj
+(defn weather-judge
+  "given a temperature in degree centigrade, it will comment on the weather's quality"
+  [x]
+  (cond
+   (<= x 0) "extremely cold!"
+   (<= x 10) "cold!"
+   (<= x 20) "nice!"
+   :else "too hot!")
+  )
+
+(fact (weather-judge -10) => "extremely cold!")
+(fact (weather-judge 10) => "cold!")
+(fact (weather-judge 20) => "nice!")
+;.;. Before the reward there must be labor. You plant before you
+;.;. harvest. You sow in tears before you reap joy. -- Ransom
+(fact (weather-judge 30) => "too hot!")
+#+END_SRC
+
+if cond too large, difficult to maintain -> use multimethods instead.
 *** TODO Local Bindings ..........................................................................................35
 *** TODO Looping and Recursion ...................................................................................36
 ***** TODO Tail Recursion.......................................................................................... 39
