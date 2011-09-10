@@ -4,7 +4,7 @@
 #+STARTUP: hidestars odd
 
 * DONE About the Authors.......................................................................................... xiv
-* DONE About the Technical Reviewer .............................................................................. xv
+* DONE About the Technical Reviewer ............................................................................... xv
 * DONE Acknowledgments ........................................................................................... xvi
 * DONE Chapter 1: The Clojure Way [3/3] .............................................................................1
 *** DONE Clojure’s Philosophy and Special Features ................................................................1
@@ -111,14 +111,83 @@ composites.
 Vars are some sort of "global variables" with a limited scope, its namespace.
 Break into multiple files with for each file a namespace.
 Use namespaces and :use them.
-* TODO Chapter 3: Controlling Program Flow [0/12] ..................................................................29
-*** TODO Functions [0/6] .........................................................................................29
-***** TODO First-Class Functions................................................................................... 29
-***** TODO Defining Functions with fn ............................................................................. 29
-***** TODO Defining Functions with defn............................................................................ 31
-***** TODO Functions of Multiple Arities........................................................................... 31
-***** TODO Functions with Variable Arguments....................................................................... 32
-***** TODO Shorthand Function Declaration ......................................................................... 33
+* TODO Chapter 3: Controlling Program Flow [1/6] ..................................................................29
+*** DONE Functions [6/6] .........................................................................................29
+Functions are the beginning and the end of clojure.
+***** DONE First-Class Functions................................................................................... 29
+In clojure, all functions are first-class object, which means
+- can be created at any time
+- not named but can be bound to symbol(s)
+- can be passed to and returned from any functions
+- can be stored as values in any data structures
+***** DONE Defining Functions with fn ............................................................................. 29
+only 2 arguments
+#+BEGIN_SRC clj
+(fn [x y] (* x y))
+#+END_SRC
+this function is not named, so we can bind it to a symbol.
+#+BEGIN_SRC clj
+(def my-mult (fn [x y] (* x y)))
+#+END_SRC
+A function is not called by a name, it is resolved from the symbol
+they are bound to.
+***** DONE Defining Functions with defn............................................................................ 31
+defn shortcut to define a function and bind it to a symbol and
+document it. Use it.
+#+BEGIN_SRC clj
+(fact (sq 0) => 0)
+(fact (sq 5) => 25)
+
+(defn sq
+  "squares the provided argument"
+  [x]
+  (* x x))
+#+END_SRC
+***** DONE Functions of Multiple Arities........................................................................... 31
+We can define multiple implementations of a function depending on the number of arguments.
+#+BEGIN_SRC clj
+(fact (square-or-multiply) => 0)
+(fact (square-or-multiply 5) => 25)
+(fact (square-or-multiply 5 6) => 30)
+
+(defn square-or-multiply
+  "squares the simple provided argument, multiply the 2 arguments provided"
+  ([] 0)
+  ([x] (* x x))
+  ([x y] (* x y)))
+#+BEGIN_SRC
+***** DONE Functions with Variable Arguments....................................................................... 32
+Arity not fixed.
+Use a keyword & to represent this variable arity.
+#+BEGIN_SRC clj
+(fact (add-arg-count 5) => 5)
+(fact (add-arg-count 5 0) => 6)
+(fact (add-arg-count 5 0 1 2 3) => 9)
+
+(defn add-arg-count
+  "Returns the sum of the first argument and the number additionals arguments"
+  [first & more]
+  (+ first (count more)))
+#+END_SRC
+
+***** DONE Shorthand Function Declaration ......................................................................... 33
+Reading macro
+- with same argument
+#+BEGIN_SRC clj
+(fact (sq2 0) => 0)
+;.;. The work itself praises the master. -- CPE Bach
+(fact (sq2 5) => 25)
+
+(def sq2 #(* % %))
+#+BEGIN_SRC
+- with different arguments
+#+BEGIN_SRC clj
+(fact (my-mult2 10 2) => 20)
+;.;. This is the future you were hoping for. -- @Vaguery
+(fact (my-mult 1 2) => 2)
+
+(def my-mult2 #(* %1 %2))
+#+BEGIN_SRC
 *** TODO Conditional Expressions..................................................................................34
 *** TODO Local Bindings ..........................................................................................35
 *** TODO Looping and Recursion ...................................................................................36
