@@ -3,4 +3,4 @@
 #+STARTUP: indent
 #+STARTUP: hidestars odd
 
-Just a repository of my org-mode files.
+My org-mode files.
