@@ -4,7 +4,7 @@
 #+STARTUP: hidestars odd
 
 * TODO dehors [0/4]
-*** TODO cote droit [4/10]
+*** TODO cote droit [6/12]
 ******* DONE Retirer toutes les mauvaises herbes
 ******* DONE Planter du gazon
 l'herbe est magnifique
@@ -18,7 +18,14 @@ Trop pres du mur de separation.
 Trop pres du mur de separation.
 ******* TODO Cimenter les trous du mur
 ******* TODO Repeindre le mur
-*** TODO cote gauche [8/9]
+******* DONE Replanter l'herbe
+CLOSED: [2011-09-12 lun. 13:09]
+******* DONE Retirer les dalles
+CLOSED: [2011-09-12 lun. 13:09]
+
+
+
+*** TODO cote gauche [11/11]
 ******* DONE Retirer toutes les mauvaises herbes
 ******* DONE Retirer toute la tranchee d'arbustes (~10)
 J'en ai soupe de l'arbuste
@@ -29,8 +36,13 @@ l'herbe est magnifique
 ******* DONE Deplacer les lauriers
 ******* DONE Detruire les arbres a boules blanches qui attirent trop d'abeilles et guepes
 ******* DONE Replacer les dalles mal placees
-******* TODO Aplanir le sol du cote du potager.
-*** TODO devant [7/9]
+******* DONE Aplanir le sol du cote du potager.
+CLOSED: [2011-09-12 lun. 13:09]
+******* DONE Replanter l'herbe
+CLOSED: [2011-09-12 lun. 13:09]
+******* DONE Retirer les dalles
+CLOSED: [2011-09-12 lun. 13:09]
+*** TODO devant [8/10]
 ***** DONE parterres de fleurs [4/4]
 ******* DONE Detruire le parterre de marguerite qui prend trop de place dans le jardin.
 ******* DONE Aplanir tous les parterres de fleurs.
@@ -44,6 +56,8 @@ l'herbe est magnifique
 ***** DONE Evacuer tous les dechets suites a toutes les actions du jardins
 ***** TODO Tailler le noisetier de devant.
 ***** TODO Deraciner les arbustes restant de devant (pour les planter derriere)
+***** DONE Replanter l'herbe
+CLOSED: [2011-09-12 lun. 13:10]
 *** TODO derriere [3/4]
 ***** DONE Retirer le lierre
 ***** DONE Tailler la haie de derriere

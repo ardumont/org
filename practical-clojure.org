@@ -111,7 +111,7 @@ composites.
 Vars are some sort of "global variables" with a limited scope, its namespace.
 Break into multiple files with for each file a namespace.
 Use namespaces and :use them.
-* TODO Chapter 3: Controlling Program Flow [3/5] ..................................................................29
+* TODO Chapter 3: Controlling Program Flow [4/6] ..................................................................29
 *** DONE Functions [6/6] .........................................................................................29
 Functions are the beginning and the end of clojure.
 ***** DONE First-Class Functions................................................................................... 29
@@ -224,10 +224,15 @@ This permits a cleaner and much comprehensive code.
 
 *** DONE Looping and Recursion ...................................................................................36
 CLOSED: [2011-09-12 lun. 07:46]
-*** TODO Tail Recursion.......................................................................................... 39
-tail recursive because the base condition only return the result and
+*** DONE Tail Recursion [2/2] ................................................................................... 39
+Tail recursive because the base condition only return the result and
 no computation is done with this result
-
+Only tail recursive algorithm can be optimized.
+***** DONE Clojure's recur
+Using recur explicitely exposes that the method is Tail recursived optimized.
+CLOSED: [2011-09-12 lun. 14:00]
+***** DONE Using loop
+CLOSED: [2011-09-12 lun. 18:50]
 *** TODO Deliberate Side Effects [0/2] ...........................................................................42
 ***** TODO Using do................................................................................................ 42
 ***** TODO Side Effects in Function Definitions.................................................................... 43
