@@ -111,7 +111,7 @@ composites.
 Vars are some sort of "global variables" with a limited scope, its namespace.
 Break into multiple files with for each file a namespace.
 Use namespaces and :use them.
-* TODO Chapter 3: Controlling Program Flow [2/6] ..................................................................29
+* TODO Chapter 3: Controlling Program Flow [3/5] ..................................................................29
 *** DONE Functions [6/6] .........................................................................................29
 Functions are the beginning and the end of clojure.
 ***** DONE First-Class Functions................................................................................... 29
@@ -156,6 +156,7 @@ We can define multiple implementations of a function depending on the number of 
   ([x] (* x x))
   ([x y] (* x y)))
 #+BEGIN_SRC
+
 ***** DONE Functions with Variable Arguments....................................................................... 32
 Arity not fixed.
 Use a keyword & to represent this variable arity.
@@ -187,8 +188,7 @@ Reading macro
 (fact (my-mult 1 2) => 2)
 
 (def my-mult2 #(* %1 %2))
-#+BEGIN_SRC
-*** DONE Conditional Expressions..................................................................................34
+#+BEGIN_SRCDONE Conditional Expressions..................................................................................34
 if statement.
 #+BEGIN_SRC clj
 (fact (if (= 1 1) "Maths still work!") => "Maths still work!")
@@ -218,9 +218,16 @@ cond statements
 #+END_SRC
 
 if cond too large, difficult to maintain -> use multimethods instead.
-*** TODO Local Bindings ..........................................................................................35
-*** TODO Looping and Recursion ...................................................................................36
-***** TODO Tail Recursion.......................................................................................... 39
+*** DONE Local Bindings ..........................................................................................35
+Use let to assign local symbol.
+This permits a cleaner and much comprehensive code.
+
+*** DONE Looping and Recursion ...................................................................................36
+CLOSED: [2011-09-12 lun. 07:46]
+*** TODO Tail Recursion.......................................................................................... 39
+tail recursive because the base condition only return the result and
+no computation is done with this result
+
 *** TODO Deliberate Side Effects [0/2] ...........................................................................42
 ***** TODO Using do................................................................................................ 42
 ***** TODO Side Effects in Function Definitions.................................................................... 43
