@@ -34,6 +34,10 @@ https://github.com/dnaumov/midje-mode/zipball/master
 * edit emacs.d
 in ~/.emacs.d/tony.el, copy these lines
 #+BEGIN_SRC el
+;; =============================================================================
+;; Clojure config
+;; =============================================================================
+
 (require 'clojure-mode)
 (add-to-list 'auto-mode-alist '("\\.clj$" . clojure-mode))
 (require 'midje-mode)
