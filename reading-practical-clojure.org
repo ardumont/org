@@ -307,12 +307,14 @@ CLOSED: [2011-09-14 mer. 18:58]
 - Linked list
 - Ordered sequence of items.
 - Use ' or quote to escape the clojure interpretation
-***** TODO Vectors................................................................................................. 64
+***** DONE Vectors................................................................................................. 64
+CLOSED: [2011-09-15 jeu. 21:02]
 - Ordered sequence of items
 - support efficient, nearly constant time access to index
 - should be preferred to list because no disadvantages and more efficient
 - access to the index like a function call.
 ***** TODO Maps.................................................................................................... 66
+
 ***** TODO Sets ................................................................................................... 71
 *** TODO Summary .................................................................................................72
 * TODO Chapter 5: Sequences [0/11] .................................................................................73
