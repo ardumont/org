@@ -25,3 +25,8 @@ effort is
 
 ;.;. The highest reward for a man's toil is not what he gets for it but
 ;.;. what he becomes by it. -- Ruskin
+
+;.;. Good code is its own best documentation. -- Steve McConnell
+
+;.;. Simplicity, carried to the extreme, becomes elegance. -- Jon
+Franklin
