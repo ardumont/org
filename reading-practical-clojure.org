@@ -418,10 +418,16 @@ Behave like refs except that they do need to participate in transaction.
 CLOSED: [2011-09-21 mer. 08:01]
 ***** DONE When to Use Atoms ..................................................................................... 105
 CLOSED: [2011-09-21 mer. 08:01]
+Independent identities.
+Rapid for reading.
+lightweight of the clojure identity types.
 Use case: cache.
 Internally used by clojure in the memoize function.
 *** TODO Asynchronous Agents ....................................................................................105
 ***** TODO Creating and Updating Agents........................................................................... 105
+asynchronous
+- storing and managing state in a concurrency env
+- introducing concurrency
 ***** TODO Errors and Agents...................................................................................... 107
 ***** TODO Waiting for Agents .................................................................................... 108
 ***** TODO Shutting Down Agents .................................................................................. 108
