@@ -405,7 +405,8 @@ that the new value comes from the old one.
   that the transaction will be ok so it's ok to use the new value.
 - Use ensure to 'lock' a ref that you do not want updated during the
   transaction time.
-******* TODO Examples
+******* DONE Examples
+CLOSED: [2011-09-21 mer. 07:48]
 *** TODO Atoms...................................................................................................104
 ***** TODO Using Atoms ........................................................................................... 104
 ***** TODO When to Use Atoms ..................................................................................... 105
