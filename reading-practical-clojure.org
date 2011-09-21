@@ -394,7 +394,17 @@ CLOSED: [2011-09-20 mar. 18:55]
 ***** TODO Updating refs .......................................................................................... 98
 ******* DONE Transactions
 CLOSED: [2011-09-20 mar. 18:56]
-******* TODO Tools for updating refs
+******* DONE Tools for updating refs
+CLOSED: [2011-09-21 mer. 05:23]
+- transaction nested inside the call of dosync.
+- Use ref-set to update a completely new value to a reference
+- Use alter to update the value of a ref, the idea here is to remind
+that the new value comes from the old one.
+- Use commute inside the transaction to use the new value of the ref
+  even thought the transaction is not done. You behave as if you know
+  that the transaction will be ok so it's ok to use the new value.
+- Use ensure to 'lock' a ref that you do not want updated during the
+  transaction time.
 ******* TODO Examples
 *** TODO Atoms...................................................................................................104
 ***** TODO Using Atoms ........................................................................................... 104
