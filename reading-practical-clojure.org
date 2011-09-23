@@ -424,10 +424,20 @@ lightweight of the clojure identity types.
 Use case: cache.
 Internally used by clojure in the memoize function.
 *** TODO Asynchronous Agents ....................................................................................105
-***** TODO Creating and Updating Agents........................................................................... 105
+***** DONE Creating and Updating Agents........................................................................... 105
+CLOSED: [2011-09-22 jeu. 07:17]
 asynchronous
 - storing and managing state in a concurrency env
 - introducing concurrency
+(def my-agent (agent 5))
+@agent
+
+(send my-agent 3 5); asynchronous call, rapid but undetermined time
+
+; send -> for cpu intensive operation
+; sendoff for an identical call but oriented for IO intensive call
+; (optimized internally)
+
 ***** TODO Errors and Agents...................................................................................... 107
 ***** TODO Waiting for Agents .................................................................................... 108
 ***** TODO Shutting Down Agents .................................................................................. 108
