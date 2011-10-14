@@ -43,12 +43,25 @@ CLOSED: [2011-10-14 ven. 07:45]
 ** TODO Midje-mode: Emacs mode for using Midje with a REPL.
 ** TODO clojure-jump-to-file: Jump to a line of Clojure code from any Emacs buffer (usually a shell buffer).
 ** TODO Cascalog functions
-* TODO Videos [1/4]
+* TODO Videos [3/4]
 ** DONE An introduction to Midje for clojure.test users
 CLOSED: [2011-10-14 ven. 07:32]
 ** TODO An example showing top-down testing using metaconstants (alternate download)
-** TODO An Emacs minor mode for Midje
-** TODO Emacs code to jump to a particular location in a Clojure file
+** DONE An Emacs minor mode for Midje
+CLOSED: [2011-10-14 ven. 08:08]
+^C k kill all rewards comments from midje
+^C ^K Send everything down to the REPL (compile)
+^C , 
+  - Send the execution to the REPL (gets the result back just in front of the fact)
+^C ^u
+  - send the method into the (unfinished) part in your file
+  - inside the (unfinished part), create the definition of the method
+    not existing
+^C-f Focus on the current fact
+^C-h hides all facts
+^C-s shows all facts
+** DONE Emacs code to jump to a particular location in a Clojure file
+CLOSED: [2011-10-14 ven. 07:53]
 * TODO Project [0/4]
 ** TODO Roadmap
 ** TODO Help wanted
