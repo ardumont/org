@@ -1,0 +1,52 @@
+#+Title: midje - clojure TDD framework
+#+author: Antoine Romain Dumont
+#+STARTUP: indent
+#+STARTUP: hidestars odd
+
+* Core features [0/3]
+** TODO Facts and prerequisites: How you describe claims about your code.
+** TODO Extended equality: `=` extended for regular expressions, functions, etc.
+** TODO Checkers: Prepackaged functions that perform common checks.
+* Other features [0/3]
+** TODO More about facts [0/3]
+*** TODO Negating arrows: A convenient way to describe what’s not true.
+*** TODO Future facts: “Commenting out” facts in a way that prevents you from forgetting about them.
+*** TODO Tabular facts: Shorthand for checking multiple sets of values
+** TODO More about checkers [0/3]
+*** TODO Checkers for collections and strings: Containment checking that allows gaps, arbitrary ordering, nested checkers, etc.
+      o Chatty checkers: Checkers that explain more about a failure.
+      o Checkers within prerequisites They’re treated slightly differently than the normal case.
+*** TODO Metaconstants: A notation that avoids confusion between what’s essential about data and what’s accidental.
+*** TODO Metaconstants as partial packets of values
+** TODO More about prerequisites [0/6]
+*** TODO Folded prerequisites: Allowing prerequisites like `(f (g 1)) => 2`.
+*** TODO Background prerequisites: Prerequisites that apply to more than one fact.
+*** TODO Using stateful functions as prerequisites
+*** TODO Specifying call counts: Saying the function-under-test calls another function N times.
+*** TODO Checkers within prerequisites: They’re treated slightly differently than the normal case.
+*** TODO Prerequisites and protocols: Extra work is required to override protocol functions in facts. [0/2]
+***** TODO Setup, teardown, and state: Executing code before, after, and around multiple facts or individual checks.
+***** TODO Production mode: Preventing Midje code from being compiled into production code.
+* TODO Integration and migration [0/7]
+** TODO Migrating from clojure.test
+** TODO lein test: It works with Midje.
+** TODO lein midje: It works better.
+** TODO cake midje: There’s a Cake task for Midje.
+** TODO Midje-mode: Emacs mode for using Midje with a REPL.
+** TODO clojure-jump-to-file: Jump to a line of Clojure code from any Emacs buffer (usually a shell buffer).
+** TODO Cascalog functions
+* TODO Videos [0/4]
+** TODO An introduction to Midje for clojure.test users
+** TODO An example showing top-down testing using metaconstants (alternate download)
+** TODO An Emacs minor mode for Midje
+** TODO Emacs code to jump to a particular location in a Clojure file
+* TODO Project [0/4]
+** TODO Roadmap
+** TODO Help wanted
+** TODO Error message improvements
+** TODO Why is it called "Midje"?
+* TODO Tips [0/4]
+** TODO Caching: Checking memoization and caching.
+** TODO Top-down testing: “Programming by wishful thinking”
+** TODO More than one check per checker
+** TODO Line numbers in helper functions
