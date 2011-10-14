@@ -173,14 +173,28 @@ Edition : Eyrolles
 ******* DONE Aide a la saisie de code JSNI
 ******* DONE Assistants RPC
 ** DONE [[http://www.google.com/events/io/2009/sessions/GoogleWebToolkitBestPractices.html][Google Web Toolkit Architecture: Best Practices For Architecting Your GWT App]]
-* Gin
-*** [[http://code.google.com/p/google-gin/wiki/GinTutorial][tutorial Gin]]
-* Lisp
+* TODO Gin
+*** TODO [[http://code.google.com/p/google-gin/wiki/GinTutorial][tutorial Gin]]
+* TODO Guice
+* TODO Lisp
 *** TODO The land of lisp
-* Clojure
+* TODO Clojure [0/2]
 *** TODO The joy of clojure
-* Others
-*** TODO "the 4 hour work week"
+*** TODO practical clojure (en cours)
+* TODO "the 4 hour work week"
 
 Listening
-*** TODO The software freedom law center podcast
+* TODO The software freedom law center podcast
+* TODO TDD&ATDD for java: http://www.amazon.com/Test-Driven-Acceptance-Java-Developers/dp/1932394850/ref=sr_1_1?ie=UTF8&qid=1318576734&sr=8-1
+* TODO growing oo system through test: http://www.amazon.com/Growing-Object-Oriented-Software-Guided-Tests/dp/0321503627/ref=sr_1_1?ie=UTF8&qid=1318578148&sr=8-1
+* TODO domain driven design
+* DONE Node js - http://nodejs.org/
+CLOSED: [2011-10-14 ven. 19:35]
+* DONE Hammock driven development - http://blip.tv/clojure/hammock-driven-development-4475586
+CLOSED: [2011-10-14 ven. 19:35]
+
+* TODO xUnit Test Patterns - Refactoring test code
+* TODO Domain-Driven Design: Tackling Complexity in the Heart of Software
+* TODO Enterprise integration patterns
+* TODO Hadoop, the definitive guide
+
