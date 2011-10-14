@@ -3,15 +3,23 @@
 #+STARTUP: indent
 #+STARTUP: hidestars odd
 
-* Core features [0/3]
-** TODO Facts and prerequisites: How you describe claims about your code.
-** TODO Extended equality: `=` extended for regular expressions, functions, etc.
-** TODO Checkers: Prepackaged functions that perform common checks.
-* Other features [0/3]
-** TODO More about facts [0/3]
-*** TODO Negating arrows: A convenient way to describe what’s not true.
-*** TODO Future facts: “Commenting out” facts in a way that prevents you from forgetting about them.
-*** TODO Tabular facts: Shorthand for checking multiple sets of values
+* DONE Core features [3/3]
+CLOSED: [2011-10-14 ven. 07:38]
+** DONE Facts and prerequisites: How you describe claims about your code.
+CLOSED: [2011-10-14 ven. 07:29]
+** DONE Extended equality: `=` extended for regular expressions, functions, etc.
+CLOSED: [2011-10-15 sam. 07:29]
+** DONE Checkers: Prepackaged functions that perform common checks.
+CLOSED: [2011-10-14 ven. 07:29]
+* TODO Other features [1/3]
+** DONE More about facts [3/3]
+CLOSED: [2011-10-14 ven. 07:45]
+*** DONE Negating arrows: A convenient way to describe what’s not true.
+CLOSED: [2011-10-14 ven. 07:39]
+*** DONE Future facts: “Commenting out” facts in a way that prevents you from forgetting about them.
+CLOSED: [2011-10-14 ven. 07:41]
+*** DONE Tabular facts: Shorthand for checking multiple sets of values
+CLOSED: [2011-10-14 ven. 07:45]
 ** TODO More about checkers [0/3]
 *** TODO Checkers for collections and strings: Containment checking that allows gaps, arbitrary ordering, nested checkers, etc.
       o Chatty checkers: Checkers that explain more about a failure.
@@ -35,8 +43,9 @@
 ** TODO Midje-mode: Emacs mode for using Midje with a REPL.
 ** TODO clojure-jump-to-file: Jump to a line of Clojure code from any Emacs buffer (usually a shell buffer).
 ** TODO Cascalog functions
-* TODO Videos [0/4]
-** TODO An introduction to Midje for clojure.test users
+* TODO Videos [1/4]
+** DONE An introduction to Midje for clojure.test users
+CLOSED: [2011-10-14 ven. 07:32]
 ** TODO An example showing top-down testing using metaconstants (alternate download)
 ** TODO An Emacs minor mode for Midje
 ** TODO Emacs code to jump to a particular location in a Clojure file
