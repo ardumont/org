@@ -3,7 +3,7 @@
 #+STARTUP: indent
 #+STARTUP: hidestars odd
 
-* GWT [2/3]
+* TODO GWT [2/3]
 ** DONE Titre : GWT Creer des applications web interactives avec Google Web Toolkit (versions 1.7 et 2.0)
 Auteur : Olivier Gerardin
 Editions : Dunod
@@ -197,4 +197,4 @@ CLOSED: [2011-10-14 ven. 19:35]
 * TODO Domain-Driven Design: Tackling Complexity in the Heart of Software
 * TODO Enterprise integration patterns
 * TODO Hadoop, the definitive guide
-
+* TODO How to solve it - Polya
