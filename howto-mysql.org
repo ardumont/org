@@ -29,6 +29,12 @@ no space between passwd and the flag -p for detailing the passwd (not
 so secure).
 
 * Script to create a db locally
+Connect to the master db
+#+BEGIN_SRC sh
+mysql -u root -h localhost -p$PASSWD
+#+END_SRC
+
+Create the db
 #+BEGIN_SRC sql
 CREATE USER 'my-user'@'localhost' IDENTIFIED BY 'my-user';
 CREATE DATABASE db-name-desired;
