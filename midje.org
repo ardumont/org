@@ -43,10 +43,12 @@ CLOSED: [2011-10-14 ven. 07:45]
 ** TODO Midje-mode: Emacs mode for using Midje with a REPL.
 ** TODO clojure-jump-to-file: Jump to a line of Clojure code from any Emacs buffer (usually a shell buffer).
 ** TODO Cascalog functions
-* TODO Videos [3/4]
+* DONE Videos [4/4]
+CLOSED: [2011-10-18 mar. 09:16]
 ** DONE An introduction to Midje for clojure.test users
 CLOSED: [2011-10-14 ven. 07:32]
-** TODO An example showing top-down testing using metaconstants (alternate download)
+** DONE An example showing top-down testing using metaconstants (alternate download)
+CLOSED: [2011-10-18 mar. 09:16]
 ** DONE An Emacs minor mode for Midje
 CLOSED: [2011-10-14 ven. 08:08]
 ^C k kill all rewards comments from midje
