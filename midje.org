@@ -57,7 +57,7 @@ CLOSED: [2011-10-14 ven. 08:08]
   - send the method into the (unfinished) part in your file
   - inside the (unfinished part), create the definition of the method
     not existing
-^C-f Focus on the current fact
+x^C-f Focus on the current fact
 ^C-h hides all facts
 ^C-s shows all facts
 ** DONE Emacs code to jump to a particular location in a Clojure file
