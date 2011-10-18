@@ -1,3 +1,4 @@
+
 #+Title: euler list of problems http://projecteuler.net
 #+author: Antoine Romain Dumont
 #+STARTUP: indent
@@ -39,10 +40,14 @@
   CLOSED: [2011-10-15 sam. 16:26]
 * DONE 18 Find the maximum sum travelling from the top of the triangle to the base. 38256 Solved
   CLOSED: [2011-10-15 sam. 16:26]
-* TODO 19 How many Sundays fell on the first of the month during the twentieth century? 34954 	 
+* DONE 19 How many Sundays fell on the first of the month during the twentieth century? 34954 	 
+CLOSED: [2011-10-18 mar. 08:30]
 * DONE 20 Find the sum of digits in 100! 58052 Solved
   CLOSED: [2011-10-15 sam. 16:26]
-* TODO 21 Evaluate the sum of all amicable pairs under 10000. 38122 
+* DONE 21 Evaluate the sum of all amicable pairs under 10000. 38122 
+CLOSED: [2011-10-18 mar. 08:30]
+* DONE 22
+CLOSED: [2011-10-18 mar. 08:30]
 * TODO 23 Find the sum of all the positive integers which cannot be written as the sum of two abundant numbers.	
 * TODO 24 What is the millionth lexicographic permutation of the digits 0, 1, 2, 3, 4, 5, 6, 7, 8 and 9? 31195
 * TODO 25 What is the first term in the Fibonacci sequence to contain 1000 digits? 43537 
