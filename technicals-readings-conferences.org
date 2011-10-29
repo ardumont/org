@@ -198,3 +198,10 @@ CLOSED: [2011-10-14 ven. 19:35]
 * TODO Enterprise integration patterns
 * TODO Hadoop, the definitive guide
 * TODO How to solve it - Polya
+* TODO emacs [2/3]
+*** DONE http://www.youtube.com/watch?v=rGVVnDxwJYE&feature=related
+CLOSED: [2011-10-29 sam. 12:48]
+*** DONE Make a script to deploy it with starter kit.
+CLOSED: [2011-10-29 sam. 12:49]
+
+*** TODO gnu-emacs-manual.pdf
