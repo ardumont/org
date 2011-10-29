@@ -24,7 +24,6 @@ CLOSED: [2011-09-12 lun. 13:09]
 CLOSED: [2011-09-12 lun. 13:09]
 
 
-
 *** TODO cote gauche [11/11]
 ******* DONE Retirer toutes les mauvaises herbes
 ******* DONE Retirer toute la tranchee d'arbustes (~10)
@@ -132,12 +131,17 @@ Merci Papy Claude
 ***** TODO Passer la sous-couche.
 ***** TODO Poser la toile de renovation
 ***** TODO Poser le papier peint/Peindre
-*** TODO Couloir du haut [4/8]
+*** TODO Couloir du haut [7/12]
 ***** DONE Retirer le crepis
 ***** DONE Retirer le papier peint
-***** DONE Reboucher les trous (enduit)
-***** DONE Reboucher les enormes trous
-Merci Papy Claude
+***** DONE Enduit
+***** DONE Reboucher les fissures
+***** DONE Poncage
+CLOSED: [2011-10-29 sam. 12:50]
+***** DONE Enduit
+***** DONE Poncage
+CLOSED: [2011-10-29 sam. 12:51]
+***** TODO Enduit
 ***** TODO Lessivage/nettoyage
 ***** TODO Passer la sous-couche.
 ***** TODO Poser la toile de renovation
