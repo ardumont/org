@@ -1,0 +1,156 @@
+#+Title: Domain-Driven Design: Tackling Complexity in the Heart of Software - Eric Evans
+#+author: Antoine Romain Dumont
+#+STARTUP: indent
+#+STARTUP: hidestars odd
+
+* Domain-Driven Design: Tackling Complexity in the Heart of Software - Eric Evans
+Publisher: Addison Wesley
+Pub Date: August 20, 2003
+ISBN: 0-321-12521-5
+Pages: 560
+
+* TODO Copyright
+* TODO Praise for Domain-Driven Design
+* TODO Foreword
+* TODO Preface [0/6]
+** TODO Contrasting Three Projects
+** TODO The Challenge of Complexity
+** TODO Design Versus Development Process
+** TODO The Structure of This Book
+** TODO Who Should Read This Book
+** TODO A Domain-Driven Team
+* TODO Acknowledgments
+* TODO Part I: Putting the Domain Model to Work [0/3]
+** TODO Chapter One. Crunching Knowledge [0/5]
+*** TODO Ingredients of Effective Modeling
+*** TODO Knowledge Crunching
+*** TODO Continuous Learning
+*** TODO Knowledge-Rich Design
+*** TODO Deep Models
+** TODO Chapter Two. Communication and the Use of Language [0/5]
+*** TODO Ubiquitous Language
+*** TODO Modeling Out Loud
+*** TODO One Team, One Language
+*** TODO Documents and Diagrams
+*** TODO Explanatory Models
+** TODO Chapter Three. Binding Model and Implementation [0/4]
+*** TODO Model-Driven Design
+*** TODO Modeling Paradigms and Tool Support
+*** TODO Letting the Bones Show: Why Models Matter to Users
+*** TODO Hands-On Modelers
+* TODO Part II: The Building Blocks of a Model-Driven Design [0/4]
+** TODO Chapter Four. Isolating the Domain [0/4]
+*** TODO Layered Architecture
+*** TODO The Domain Layer Is Where the Model Lives
+*** TODO The Smart UI "Anti-Pattern"
+*** TODO Other Kinds of Isolation
+** TODO Chapter Five. A Model Expressed in Software [0/6]
+*** TODO Associations
+*** TODO Entities (a.k.a. Reference Objects)
+*** TODO Value Objects
+*** TODO Services
+*** TODO Modules (a.k.a. Packages)
+*** TODO Modeling Paradigms
+** TODO Chapter Six. The Life Cycle of a Domain Object [0/4]
+*** TODO Aggregates
+*** TODO Factories
+*** TODO Repositories
+*** TODO Designing Objects for Relational Databases
+** TODO Chapter Seven. Using the Language: An Extended Example [0/12]
+*** TODO Introducing the Cargo Shipping System
+*** TODO Isolating the Domain: Introducing the Applications
+*** TODO Distinguishing ENTITIES and VALUE Objects
+*** TODO Designing Associations in the Shipping Domain
+*** TODO A GGREGATE Boundaries
+*** TODO Selecting REPOSITORIES
+*** TODO Walking Through Scenarios
+*** TODO Object Creation
+*** TODO Pause for Refactoring: An Alternative Design of the Cargo AGGREGATE
+*** TODO MODULES in the Shipping Model
+*** TODO Introducing a New Feature: Allocation Checking
+*** TODO A Final Look
+* TODO Part III: Refactoring Toward Deeper Insight [0/6]
+** TODO Chapter Eight. Breakthrough [0/4]
+*** TODO Story of a Breakthrough
+*** TODO Opportunities
+*** TODO Focus on Basics
+*** TODO Epilogue: A Cascade of New Insights
+** TODO Chapter Nine. Making Implicit Concepts Explicit [0/2]
+*** TODO Digging Out Concepts
+*** TODO How to Model Less Obvious Kinds of Concepts
+** TODO Chapter Ten. Supple Design [0/9]
+*** TODO Intention-Revealing Interfaces
+*** TODO Side -Effect-Free Functions
+*** TODO Assertions
+*** TODO Conceptual Contours
+*** TODO Standalone Classes
+*** TODO Closure of Operations
+*** TODO Declarative Design
+*** TODO A Declarative Style of Design
+*** TODO Angles of Attack
+** TODO Chapter Eleven. Applying Analysis Patterns [0/5]
+*** TODO Example
+*** TODO Earning Interest with Accounts
+*** TODO Example
+*** TODO Insight into the Nightly Batch
+*** TODO Analysis Patterns Are Knowledge to Draw On
+** TODO Chapter Twelve. Relating Design Patterns to the Model [0/3]
+*** TODO Strategy (A.K.A.Policy)
+*** TODO Composite
+*** TODO Why Not F LYWEIGHT?
+** TODO Chapter Thirteen. Refactoring Toward Deeper Insight [0/6]
+*** TODO Initiation
+*** TODO Exploration Teams
+*** TODO Prior Art
+*** TODO A Design for Developers
+*** TODO Timing
+*** TODO Crisis as Opportunity
+* TODO Part IV: Strategic Design [0/8]
+** TODO Chapter Fourteen. Maintaining Model Integrity [0/14]
+*** TODO Bounded Context
+*** TODO Continuous Integration
+*** TODO Context Map
+*** TODO Relationships Between BOUNDED C ONTEXTS
+*** TODO Shared Kernel
+*** TODO Customer/Supplier Development Teams
+*** TODO Conformist
+*** TODO Anticorruption Layer
+*** TODO Separate Ways
+*** TODO Open Host Service
+*** TODO Published Language
+*** TODO Unifying an Elephant
+*** TODO Choosing Your Model Context Strategy
+*** TODO Transformations
+** TODO Chapter Fifteen. Distillation [0/10]
+*** TODO Core Domain
+*** TODO An Escalation of Distillations
+*** TODO Generic Subdomains
+*** TODO Domain Vision Statement
+*** TODO Highlighted Core
+*** TODO Cohesive Mechanisms
+*** TODO Segregated Core
+*** TODO Abstract Core
+*** TODO Deep Models Distill
+*** TODO Choosing Refactoring Targets
+** TODO Chapter Sixteen. Large-Scale Structure [0/13]
+*** TODO Evolving Order
+*** TODO System Metaphor
+*** TODO Responsibility Layers
+*** TODO Knowledge Level
+*** TODO Pluggable Component Framework
+*** TODO How Restrictive Should a Structure Be?
+*** TODO Refactoring Toward a Fitting Structure
+*** TODO Chapter Seventeen. Bringing the Strategy Together
+*** TODO Combining Large-Scale Structures and BOUNDED C ONTEXTS
+*** TODO Combining Large-Scale Structures and Distillation
+*** TODO Assessment First
+*** TODO Who Sets the Strategy?
+*** TODO Six Essentials for Strategic Design Decision Making
+** TODO Conclusion [0/2]
+*** TODO Epilogues
+*** TODO Looking Forward
+** TODO Appendix The Use of Patterns in This Book [0/1]
+*** TODO Pattern Name
+** TODO GLOSSARY
+** TODO References
+** TODO PHOTO CREDITS
