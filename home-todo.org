@@ -126,7 +126,7 @@ Merci Papy Claude
 Merci Papy Claude
 ***** TODO Poser la toile de renovation
 ***** TODO Poser le papier peint/Peindre
-*** TODO Escalier salon-1er [4/9]
+*** TODO Escalier salon-1er [6/9]
 ***** DONE Retirer le crepis
 ***** DONE Enduit de lissage
 CLOSED: [2011-10-31 lun. 10:11]
@@ -134,12 +134,17 @@ CLOSED: [2011-10-31 lun. 10:11]
 CLOSED: [2011-10-31 lun. 10:11]
 ***** DONE Retirer le papier peint
 CLOSED: [2011-10-31 lun. 10:11]
-***** TODO Enduit de lissage
-***** TODO Lessivage/nettoyage
-***** TODO Passer la sous-couche.
+***** DONE Enduit de lissage
+CLOSED: [2011-10-31 lun. 19:34]
+***** DONE Lessivage/nettoyage
+CLOSED: [2011-10-31 lun. 19:35]
+***** TODO Passer la sous-couche. [1/2]
+******* DONE 60%
+CLOSED: [2011-10-31 lun. 19:35]
+******* TODO 40%
 ***** TODO Poser la toile de renovation
 ***** TODO Poser le papier peint/Peindre
-*** TODO Couloir du haut [8/12]
+*** TODO Couloir du haut [10/12]
 ***** DONE Retirer le crepis
 ***** DONE Retirer le papier peint
 ***** DONE Enduit
@@ -151,8 +156,10 @@ CLOSED: [2011-10-29 sam. 12:50]
 CLOSED: [2011-10-29 sam. 12:51]
 ***** DONE Enduit
 CLOSED: [2011-10-31 lun. 10:12]
-***** TODO Lessivage/nettoyage
-***** TODO Passer la sous-couche.
+***** DONE Lessivage/nettoyage
+CLOSED: [2011-10-31 lun. 19:36]
+***** DONE Passer la sous-couche.
+CLOSED: [2011-10-31 lun. 19:36]
 ***** TODO Poser la toile de renovation
 ***** TODO Poser le papier peint/Peindre
 *** DONE Chambre de Chloe [9/9]
