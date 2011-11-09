@@ -1,0 +1,22 @@
+#+Title: 
+#+author: Antoine Romain Dumont
+#+STARTUP: indent
+#+STARTUP: hidestars odd
+
+Yop, ci-dessous mes reponses.
+
+|--------------+---------------------+----------------+---------------+--------------------+---------------------|
+| Fondamentale | Construction accord | Nature tierces | Nature accord | Accord a minorer   | Accord a majorer    |
+|--------------+---------------------+----------------+---------------+--------------------+---------------------|
+| Do           | Do Mi Sol           | M m            | Majeur        | Do Mib Sol         | X                   |
+| Re           | Re Fa La            | m M            | mineur        | X                  | Re Fa# La           |
+| Mi           | Mi Sol Si           | m M            | mineur        | X                  | Mi Sol# Si          |
+| Fa           | Fa La Do            | M m            | Majeur        | Fa Lab Do          | X                   |
+| Sol          | Sol Si Re           | M m            | Majeur        | Sol Sib Re         | X                   |
+| La           | La Do Mi            | m M            | mineur        | X                  | La Do# Mi           |
+| Si           | Si Re Fa            | m m            | diminue       | Si Re Fa# (mineur) | Si Re# Fa# (majeur) |
+|              |                     |                |               |                    | ou                  |
+|              |                     |                |               |                    | Sib Re Fa           |
+|--------------+---------------------+----------------+---------------+--------------------+---------------------|
+
+Antoine
