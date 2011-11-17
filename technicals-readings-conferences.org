@@ -3,6 +3,7 @@
 #+STARTUP: indent
 #+STARTUP: hidestars odd
 
+* TODO Effective java - second edition
 * TODO GWT [2/3]
 ** DONE Titre : GWT Creer des applications web interactives avec Google Web Toolkit (versions 1.7 et 2.0)
 Auteur : Olivier Gerardin
@@ -182,12 +183,11 @@ Edition : Eyrolles
 *** TODO The joy of clojure
 *** TODO practical clojure (en cours)
 * TODO "the 4 hour work week"
-
 Listening
 * TODO The software freedom law center podcast
 * TODO TDD&ATDD for java: http://www.amazon.com/Test-Driven-Acceptance-Java-Developers/dp/1932394850/ref=sr_1_1?ie=UTF8&qid=1318576734&sr=8-1
-* TODO growing oo system through test: http://www.amazon.com/Growing-Object-Oriented-Software-Guided-Tests/dp/0321503627/ref=sr_1_1?ie=UTF8&qid=1318578148&sr=8-1
-* TODO domain driven design
+* TODO Growing on system through test: http://www.amazon.com/Growing-Object-Oriented-Software-Guided-Tests/dp/0321503627/ref=sr_1_1?ie=UTF8&qid=1318578148&sr=8-1
+* TODO Domain driven design
 * DONE Node js - http://nodejs.org/
 CLOSED: [2011-10-14 ven. 19:35]
 * DONE Hammock driven development - http://blip.tv/clojure/hammock-driven-development-4475586
@@ -198,7 +198,7 @@ CLOSED: [2011-10-14 ven. 19:35]
 * TODO Enterprise integration patterns
 * TODO Hadoop, the definitive guide
 * TODO How to solve it - Polya
-* TODO emacs [2/3]
+* TODO Emacs [2/3]
 *** DONE http://www.youtube.com/watch?v=rGVVnDxwJYE&feature=related
 CLOSED: [2011-10-29 sam. 12:48]
 *** DONE Make a script to deploy it with starter kit.
