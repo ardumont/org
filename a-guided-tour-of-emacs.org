@@ -68,7 +68,6 @@ M-d C-d M-u , C-y C-n C-a
 C-x )
 ***** To repeat the macro
 C-x e on each line you want the macro applied
-
 ** DONE Help with commands
 CLOSED: [2011-11-20 dim. 20:16]
 *** C-h k
@@ -77,7 +76,8 @@ Search the doc for command that you launch with C-x
 Search the doc for command that you launch with M-x
 *** C-h a
 Search for commands by regexps.
-** TODO More useful features [3/6]
+** DONE More useful features [6/6]
+CLOSED: [2011-11-20 dim. 22:00]
 *** DONE Integration with common tools
 CLOSED: [2011-11-20 dim. 20:27]
 **** M-x shell
@@ -121,9 +121,32 @@ D for diff
 Show all the commit.
 d to see the diff corresponding to the log message
 f to see the all file corresponding to the commit.
-*** TODO Editing remote files
-*** TODO Emacs Server
-*** TODO Being unproductive with emacs
+*** DONE Editing remote files
+CLOSED: [2011-11-20 dim. 21:46]
+Tramp is the name of the feature.
+Even input via C-x C-f to open a file.
+or write the path you want, then go to the end of the writing and C-x
+C-f, then emacs will do thy bidings!
+**** edit local file
+C-x C-f
+then write:
+/sudo::/etc/debconf.conf
+**** edit remote file
+/tony@remove-vm:/file/to/file/to/modify
+*** DONE Emacs Server
+CLOSED: [2011-11-20 dim. 22:00]
+   1. In your existing instance of Emacs, type M-x server-start. Or add (server-start) to your .emacs file to make it do that automatically at startup.
+   2. To edit a file, type emacsclient -t FILENAME at a prompt. You can also change your $EDITOR to emacsclient -t if you're using programs that automatically invoke $EDITOR. (emacsclient -t opens a new frame on the terminal; alternatively, emacsclient -c opens a new X frame.)
+   3. When you're done editing, type C-x C-c, which closes the frame.
+
+*** DONE Being unproductive with emacs [3/3]
+CLOSED: [2011-11-20 dim. 21:51]
+**** DONE M-x tetris
+CLOSED: [2011-11-20 dim. 21:50]
+**** DONE M-x hanoi
+CLOSED: [2011-11-20 dim. 21:51]
+**** DONE M-x doctor
+CLOSED: [2011-11-20 dim. 21:51]
 ** TODO Common emacs concepts [0/5]
 *** TODO Prefix arguments
 *** TODO Major modes
