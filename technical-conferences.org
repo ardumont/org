@@ -1,0 +1,30 @@
+#+TITLE: (Videos|Audio) Conferences
+#+author: Antoine Romain Dumont
+#+STARTUP: indent
+#+STARTUP: hidestars odd
+
+* DONE Are we there yet? - Rich Hikey - http://www.infoq.com/presentations/Are-We-There-Yet-Rich-Hickey
+CLOSED: [2011-11-20 dim. 16:27]
+* DONE Hammock driven development - Rich Hikey - http://blip.tv/clojure/hammock-driven-development-4475586
+CLOSED: [2011-10-14 ven. 19:35]
+
+* DONE Simple Made Easy - Rich Hikey - http://www.infoq.com/presentations/Simple-Made-Easy
+CLOSED: [2011-11-20 dim. 16:44]
+* DONE Node js - http://nodejs.org/
+CLOSED: [2011-11-20 dim. 16:31]
+* DONE Language panel - Gerald Sussman, Rich Hickey, Allen Wirfs-Brock, Joe Pamer, Andrei Alexandrescu, and Jeremy Ashkenas - http://www.infoq.com/presentations/Language-Panel
+CLOSED: [2011-11-20 dim. 16:27]
+* DONE Beginner's mind - Patrick Kua - http://www.infoq.com/presentations/The-Beginner-s-Mind
+CLOSED: [2011-11-20 dim. 16:28]
+* DONE We Really Don't Know How To Compute! - Gerald Jay Sussman - http://www.infoq.com/presentations/We-Really-Dont-Know-How-To-Compute
+CLOSED: [2011-11-20 dim. 16:39]
+* DONE Running a startup on Haskell - Bryan O' Sullivan - http://www.infoq.com/presentations/Running-a-Startup-on-Haskell
+CLOSED: [2011-11-20 dim. 16:40]
+
+* TODO "the 4 hour work week"
+Listening
+* TODO The software freedom law center podcast
+* TODO A Tale of Three Trees - Scott Chacon - http://www.infoq.com/presentations/A-Tale-of-Three-Trees
+* TODO The Kotlin programming language - Andrey Breslav - http://www.infoq.com/presentations/The-Kotlin-Programming-Language
+* TODO Core HTML5 Canvas - Mind Blowing Apps in Your Browser - David Geary - http://www.infoq.com/presentations/Core-HTML5-Canvas
+* TODO ElasticSearch - A Distributed Search Engine - Shay Bannon - http://www.infoq.com/presentations/ElasticSearch
