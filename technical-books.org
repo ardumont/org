@@ -4,14 +4,14 @@
 #+STARTUP: hidestars odd
 
 * TODO Effective java - second edition
-* TODO Emacs [2/4]
+* TODO Emacs [3/4]
 *** DONE http://www.youtube.com/watch?v=rGVVnDxwJYE&feature=related
 CLOSED: [2011-10-29 sam. 12:48]
 *** DONE Make a script to deploy it with starter kit.
 CLOSED: [2011-10-29 sam. 12:49]
-
+*** DONE A guided tour of emacs - http://www.gnu.org/software/emacs/tour/
+CLOSED: [2011-11-20 dim. 22:40]
 *** TODO gnu-emacs-manual.pdf
-*** TODO A guided tour of emacs - http://www.gnu.org/software/emacs/tour/
 * TODO Clojure [0/2]
 *** TODO The joy of clojure
 *** TODO practical clojure (en cours)

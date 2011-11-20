@@ -3,9 +3,10 @@
 #+STARTUP: indent
 #+STARTUP: hidestars odd
 
-* A guided tour of emacs - http://www.gnu.org/software/emacs/tour/
+* DONE A guided tour of emacs - http://www.gnu.org/software/emacs/tour/ [10/10]
+CLOSED: [2011-11-20 dim. 22:39]
 ** DONE Why Emacs?
-CLOSED: [2011-11-20 dim. 17:29]
+CLOSED: [2011-11-20 dim. 22:39]
 ** DONE Before we get started
 CLOSED: [2011-11-20 dim. 17:29]
 
@@ -147,16 +148,57 @@ CLOSED: [2011-11-20 dim. 21:50]
 CLOSED: [2011-11-20 dim. 21:51]
 **** DONE M-x doctor
 CLOSED: [2011-11-20 dim. 21:51]
-** TODO Common emacs concepts [0/5]
-*** TODO Prefix arguments
-*** TODO Major modes
-*** TODO minor modes
-*** TODO The minibuffer
-** TODO Tips for beginners [0/3]
-*** TODO In the event of an emergency
-*** TODO keyboard and terminal setup
-*** TODO Frequently asked questions
-** TODO Migrating to emacs [0/3]
-*** TODO Emacs for window users
-*** TODO Emacs for vi/vim users
-** TODO Emacs resources
+** DONE Common emacs concepts [4/4]
+CLOSED: [2011-11-20 dim. 22:29]
+*** DONE Prefix arguments
+CLOSED: [2011-11-20 dim. 22:19]
+C-u 
+Depending on the method, it can have different effects.
+To know what the prefix will do to a function, refer to its doc C-h f
+or C-h k
+Example:
+**** C-u C-p
+up 4 lines
+**** C-u C-u C-p
+up 16 lines
+**** C-u 10 C-f
+forward 10 characters
+*** DONE Major modes
+CLOSED: [2011-11-20 dim. 22:22]
+Alter the standard keybindings to add some more functionalities
+regarding the support of some languages for example.
+**** M-x java-mode
+**** M-x org-mode
+**** M-x python-mode
+**** M-x fundamental-mode
+*** DONE minor modes
+CLOSED: [2011-11-20 dim. 22:26]
+C-h m
+to describe the major and minor modes.
+*** DONE The minibuffer
+CLOSED: [2011-11-20 dim. 22:29]
+It's the small window at the bottom of emacs.
+** DONE Tips for beginners [3/3]
+CLOSED: [2011-11-20 dim. 22:34]
+*** DONE In the event of an emergency
+CLOSED: [2011-11-20 dim. 22:26]
+**** To cancel any bad writing C-/
+**** C-g to cancel any prefix key typed by error.
+*** DONE keyboard and terminal setup
+CLOSED: [2011-11-20 dim. 22:34]
+*** DONE Frequently asked questions
+CLOSED: [2011-11-20 dim. 22:34]
+C-h C-f
+** DONE Migrating to emacs [2/2]
+CLOSED: [2011-11-20 dim. 22:36]
+*** DONE Emacs for window users
+CLOSED: [2011-11-20 dim. 22:35]
+For completely newb that do not want the real bindings, use CUA-mode.
+*** DONE Emacs for vi/vim users
+CLOSED: [2011-11-20 dim. 22:36]
+M-x viper-mode -> make emacs behaves like vi!
+** DONE Emacs resources
+CLOSED: [2011-11-20 dim. 22:39]
+*** C-h r : GNU emacs manual
+*** C-h i d : for separate manual
+*** C-h C-f : GNU emacs faq
