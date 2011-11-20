@@ -12,29 +12,43 @@ CLOSED: [2011-11-20 dim. 17:29]
 ** DONE The power of text manipulation
 CLOSED: [2011-11-20 dim. 17:29]
 
-** TODO Basic editing commands [7/11]
+** TODO Basic editing commands [9/11]
 *** DONE Moving around in buffers
 CLOSED: [2011-11-20 dim. 17:30]
-
+C-n next line
+C-p previous line
+M-f next word
+M-b previous word
+etc...
 *** DONE Mark
 CLOSED: [2011-11-20 dim. 17:30]
-
+C-SPC to mark
+C-x C-x to return to a mark
+Some common commands mark by default (yank for example or search).
 *** DONE Region
 CLOSED: [2011-11-20 dim. 17:30]
-
 *** DONE Killing ("cutting") text
 CLOSED: [2011-11-20 dim. 17:30]
-
+C-w
 *** DONE Yanking ("pasting") text
 CLOSED: [2011-11-20 dim. 17:31]
+C-y
+M-y
 *** DONE Undo
 CLOSED: [2011-11-20 dim. 17:31]
-
+C-/
+C-x u
+C-_
 *** DONE Incremental search
 CLOSED: [2011-11-20 dim. 17:31]
-
-*** TODO Search and replacement
-*** TODO Regular expression search
+C-s
+C-r in the reverse order
+*** DONE Search and replacement
+CLOSED: [2011-11-20 dim. 17:43]
+M-%
+*** DONE Regular expression search
+CLOSED: [2011-11-20 dim. 17:53]
+C-M-s
 *** TODO Regular expression search and replacement
 *** TODO Keyboard macros
 ** TODO Help with commands
