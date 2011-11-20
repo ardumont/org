@@ -12,7 +12,8 @@ CLOSED: [2011-11-20 dim. 17:29]
 ** DONE The power of text manipulation
 CLOSED: [2011-11-20 dim. 17:29]
 
-** TODO Basic editing commands [9/11]
+** DONE Basic editing commands [11/11]
+CLOSED: [2011-11-20 dim. 20:05]
 *** DONE Moving around in buffers
 CLOSED: [2011-11-20 dim. 17:30]
 C-n next line
@@ -49,13 +50,77 @@ M-%
 *** DONE Regular expression search
 CLOSED: [2011-11-20 dim. 17:53]
 C-M-s
-*** TODO Regular expression search and replacement
-*** TODO Keyboard macros
-** TODO Help with commands
-** TODO More useful features [0/6]
-*** TODO Integration with common tools
-*** TODO Invoking shell commands
-*** TODO Version control
+*** DONE Regular expression search and replacement
+CLOSED: [2011-11-20 dim. 19:58]
+M-x replace-regexp =>  \(\w+\) \(\w+\) by \,(upcase \2), \1
+*** DONE Keyboard macros
+CLOSED: [2011-11-20 dim. 20:04]
+M-u -> to upper-case
+M-l -> to lower-case
+
+**** Example of macro
+Macro with same effect as the regexp replacement.
+***** Start the macro recording
+C-x (
+***** Start the chains of executions
+M-d C-d M-u , C-y C-n C-a
+***** Stop the macro recording
+C-x )
+***** To repeat the macro
+C-x e on each line you want the macro applied
+
+** DONE Help with commands
+CLOSED: [2011-11-20 dim. 20:16]
+*** C-h k
+Search the doc for command that you launch with C-x
+*** C-h f
+Search the doc for command that you launch with M-x
+*** C-h a
+Search for commands by regexps.
+** TODO More useful features [3/6]
+*** DONE Integration with common tools
+CLOSED: [2011-11-20 dim. 20:27]
+**** M-x shell
+C-x RET
+**** M-x compile
+Launch the c compiler
+**** M-x gdb
+Launch the gdb debugger
+**** M-x grep
+Launch grep into a new buffer
+rgrep for the recursive version
+**** M-x man
+Man!
+**** M-x calculator
+**** M-x calendar
+**** M-x phases-of-moon
+*** DONE Invoking shell commands
+CLOSED: [2011-11-20 dim. 20:32]
+**** M-x shell-command
+Or M-!
+
+Example:
+M-x shell-command RET pwd
+**** M-x shell-command-on-region
+Or M-|
+
+The input is piped inside a new buffer.
+*** DONE Version control
+CLOSED: [2011-11-20 dim. 21:18]
+**** C-x v =
+Diff
+**** C-x v ~
+version number -> useless for git
+**** C-x v g
+show each line modified in the file
+<=> git blame
+
+l to show the log message of the commit concerned
+D for diff
+**** C-x v l
+Show all the commit.
+d to see the diff corresponding to the log message
+f to see the all file corresponding to the commit.
 *** TODO Editing remote files
 *** TODO Emacs Server
 *** TODO Being unproductive with emacs
