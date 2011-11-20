@@ -1,0 +1,60 @@
+#+TITLE: A guided tour of emacs
+#+author: Antoine Romain Dumont
+#+STARTUP: indent
+#+STARTUP: hidestars odd
+
+* A guided tour of emacs - http://www.gnu.org/software/emacs/tour/
+** DONE Why Emacs?
+CLOSED: [2011-11-20 dim. 17:29]
+** DONE Before we get started
+CLOSED: [2011-11-20 dim. 17:29]
+
+** DONE The power of text manipulation
+CLOSED: [2011-11-20 dim. 17:29]
+
+** TODO Basic editing commands [7/11]
+*** DONE Moving around in buffers
+CLOSED: [2011-11-20 dim. 17:30]
+
+*** DONE Mark
+CLOSED: [2011-11-20 dim. 17:30]
+
+*** DONE Region
+CLOSED: [2011-11-20 dim. 17:30]
+
+*** DONE Killing ("cutting") text
+CLOSED: [2011-11-20 dim. 17:30]
+
+*** DONE Yanking ("pasting") text
+CLOSED: [2011-11-20 dim. 17:31]
+*** DONE Undo
+CLOSED: [2011-11-20 dim. 17:31]
+
+*** DONE Incremental search
+CLOSED: [2011-11-20 dim. 17:31]
+
+*** TODO Search and replacement
+*** TODO Regular expression search
+*** TODO Regular expression search and replacement
+*** TODO Keyboard macros
+** TODO Help with commands
+** TODO More useful features [0/6]
+*** TODO Integration with common tools
+*** TODO Invoking shell commands
+*** TODO Version control
+*** TODO Editing remote files
+*** TODO Emacs Server
+*** TODO Being unproductive with emacs
+** TODO Common emacs concepts [0/5]
+*** TODO Prefix arguments
+*** TODO Major modes
+*** TODO minor modes
+*** TODO The minibuffer
+** TODO Tips for beginners [0/3]
+*** TODO In the event of an emergency
+*** TODO keyboard and terminal setup
+*** TODO Frequently asked questions
+** TODO Migrating to emacs [0/3]
+*** TODO Emacs for window users
+*** TODO Emacs for vi/vim users
+** TODO Emacs resources
