@@ -12,9 +12,9 @@ CLOSED: [2011-10-29 sam. 12:49]
 *** DONE A guided tour of emacs - http://www.gnu.org/software/emacs/tour/
 CLOSED: [2011-11-20 dim. 22:40]
 *** TODO gnu-emacs-manual.pdf
-* TODO Clojure [0/2]
+* TODO Clojure [1/2]
+*** DONE practical clojure
 *** TODO The joy of clojure
-*** TODO practical clojure (en cours)
 * TODO Lisp
 *** TODO The land of lisp
 * TODO GWT [2/3]
