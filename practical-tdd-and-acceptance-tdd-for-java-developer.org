@@ -13,15 +13,55 @@ CLOSED: [2011-10-29 sam. 13:45]
 CLOSED: [2011-10-29 sam. 13:45]
 * DONE About the Cover Illustration
 CLOSED: [2011-10-29 sam. 13:45]
-* TODO Part 1: A TDD primer [0/4]
-*** TODO 1. The big picture [0/6]
-***** TODO Section 1.1. The challenge: solving the right problem right
-***** TODO Section 1.2. Solution: being test-driven
+* TODO Part 1: A TDD primer [0%]
+*** TODO 1. The big picture [33%]
+Only ever write code to fix a failing test.
+***** DONE Section 1.1. The challenge: solving the right problem right [100%]
+******* DONE 1.1.1 Creating poorly written code
+With the old ways, we got
+- many defects that clutter the code
+- this result in code difficult to maintain
+- and slow to produce
+******* DONE 1.1.2 Failing to meet actual needs
+Cycle to production too long -> the finished product do no correspond
+to what the client really needs anymore
+***** DONE Section 1.2. Solution: being test-driven [100%]
+TDD <=> internal quality
+ATDD <=> external quality
+******* DONE 1.2.1 High quality with TDD [100%]
+- write small automated tests
+- these small tests serves as alarm in our code.
+- Design is what we do last.
+- Refactoring after the tests are written
+********* DONE Quality comes in many flavours
+The quality is subjective (department quality, does the result is what
+the client needed, user-friendly?, etc...).
+With tdd, we are concentrated on the interfaces and not the
+implementation.
+So, we can focus on how the client of the developer's code could use it.
+********* DONE Less time spent on fixing defects
+- The lesser the defects, the less money is lost.
+- The goal of tdd is to avoid as many defects as possible.
+- The more the tests, The less time we spent in the debugger
+- We can see almost immediately where the trouble is.
+******* DONE 1.2.2 Meeting needs with acceptance TDD
+TDD <=> contracts for objects
+ATDD <=> contracts for the code as a all, oriented features.
+The ATDD tools represents the bridge between programmers and
+customers.
+TDD and ATDD can work separately but together form a super tool to
+deliver the high quality product the client needs for him to be more efficient.
+******* DONE 1.2.3 What's in it for me?
+- No more long debugging sessions
+- Confident in the quality of the code we produce
+- More time for other stuff
+We will not be typing faster. It's a long-term vision.
+We will spent less hours at fixing bugs later on.
 ***** TODO Section 1.3. Build it right: TDD
 ***** TODO Section 1.4. Build the right thing: acceptance TDD
 ***** TODO Section 1.5. Tools for test-driven development
 ***** TODO Section 1.6. Summary
-*** TODO 2. Beginning TDD [0/7]
+*** TODO 2. Beginning TDD [%]
 ***** TODO Section 2.1. From requirements to tests
 ***** TODO Section 2.2. Choosing the first test
 ***** TODO Section 2.3. Breadth-first, depth-first
@@ -29,12 +69,12 @@ CLOSED: [2011-10-29 sam. 13:45]
 ***** TODO Section 2.5. Adding a bit of error handling
 ***** TODO Section 2.6. Loose ends on the test list
 ***** TODO Section 2.7. Summary
-*** TODO 3. Refactoring in small steps [0/4]
+*** TODO 3. Refactoring in small steps [%]
 ***** TODO Section 3.1. Exploring a potential solution
 ***** TODO Section 3.2. Changing design in a controlled manner
 ***** TODO Section 3.3. Taking the new design further
 ***** TODO Section 3.4. Summary
-*** TODO 4. Concepts and patterns for TDD [0/7]
+*** TODO 4. Concepts and patterns for TDD [%]
 ***** TODO Section 4.1. How to write tests and make them pass
 ***** TODO Section 4.2. Essential testing concepts
 ***** TODO Section 4.3. Closer look into test doubles
@@ -42,14 +82,14 @@ CLOSED: [2011-10-29 sam. 13:45]
 ***** TODO Section 4.5. Unit-testing patterns
 ***** TODO Section 4.6. Working with legacy code
 ***** TODO Section 4.7. Summary
-* TODO Part 2: Applying TDD to specific technologies [0/4]
-*** TODO 5. Test-driving web components [0/5]
+* TODO Part 2: Applying TDD to specific technologies [%]
+*** TODO 5. Test-driving web components [%]
 ***** TODO Section 5.1. MVC in web applications in 60 seconds
 ***** TODO Section 5.2. Taming the controller
 ***** TODO Section 5.3. Creating the view test-first
 ***** TODO Section 5.4. TDD with component-based web frameworks
 ***** TODO Section 5.5. Summary
-*** TODO 6. Test-driving data access [0/8]
+*** TODO 6. Test-driving data access [%]
 ***** TODO Section 6.1. Exploring the problem domain
 ***** TODO Section 6.2. Driving data access with unit tests
 ***** TODO Section 6.3. Writing integration tests before the code
@@ -58,19 +98,19 @@ CLOSED: [2011-10-29 sam. 13:45]
 ***** TODO Section 6.6. Should I drive with unit or integration tests?
 ***** TODO Section 6.7. File-system access
 ***** TODO Section 6.8. Summary
-*** TODO 7. Test-driving the unpredictable [0/4]
+*** TODO 7. Test-driving the unpredictable [%]
 ***** TODO Section 7.1. Test-driving time-based functionality
 ***** TODO Section 7.2. Test-driving multithreaded code
 ***** TODO Section 7.3. Standard synchronization objects
 ***** TODO Section 7.4. Summary
-*** TODO 8. Test-driving Swing [0/5]
+*** TODO 8. Test-driving Swing [%]
 ***** TODO Section 8.1. What to test in a Swing UI
 ***** TODO Section 8.2. Patterns for testable UI code
 ***** TODO Section 8.3. Tools for testing view components
 ***** TODO Section 8.4. Test-driving a view component
 ***** TODO Section 8.5. Summary
-* TODO Part 3: Building products with Acceptance TDD [0/4]
-*** TODO 9. Acceptance TDD explained [0/8]
+* TODO Part 3: Building products with Acceptance TDD [%]
+*** TODO 9. Acceptance TDD explained [%]
 ***** TODO Section 9.1. Introduction to user stories
 ***** TODO Section 9.2. Acceptance tests
 ***** TODO Section 9.3. Understanding the process
@@ -79,19 +119,19 @@ CLOSED: [2011-10-29 sam. 13:45]
 ***** TODO Section 9.6. What are we testing, exactly?
 ***** TODO Section 9.7. Brief overview of available tools
 ***** TODO Section 9.8. Summary
-*** TODO 10. Creating acceptance tests with Fit [0/5]
+*** TODO 10. Creating acceptance tests with Fit [%]
 ***** TODO Section 10.1. What’s Fit?
 ***** TODO Section 10.2. Three built-in fixtures
 ***** TODO Section 10.3. Beyond the built-ins with FitLibrary
 ***** TODO Section 10.4. Executing Fit tests
 ***** TODO Section 10.5. Summary
-*** TODO 11. Strategies for implementing acceptance tests [0/5]
+*** TODO 11. Strategies for implementing acceptance tests [%]
 ***** TODO Section 11.1. What should acceptance tests test?
 ***** TODO Section 11.2. Implementation approaches
 ***** TODO Section 11.3. Technology-specific considerations
 ***** TODO Section 11.4. Tips for common problems
 ***** TODO Section 11.5. Summary
-*** TODO 12. Adopting TDD [0/5]
+*** TODO 12. Adopting TDD [%]
 ***** TODO Section 12.1. What it takes to adopt TDD
 ***** TODO Section 12.2. Getting others aboard
 ***** TODO Section 12.3. How to fight resistance
@@ -100,12 +140,12 @@ CLOSED: [2011-10-29 sam. 13:45]
 * TODO A. Brief JUnit 4 tutorial
 * TODO B. Brief JUnit 3.8 tutorial
 * TODO C. Brief EasyMock tutorial
-* TODO D. Running tests with Ant [0/4]
+* TODO D. Running tests with Ant [%]
 *** TODO Section D.1. Project directory structure
 *** TODO Section D.2. The basics: compiling all source code
 *** TODO Section D.3. Adding a target for running tests
 *** TODO Section D.4. Generating a human-readable report
-* TODO Resources [0/4]
+* TODO Resources [%]
 *** TODO Works cited
 *** TODO Additional resources
 *** TODO Online resources
