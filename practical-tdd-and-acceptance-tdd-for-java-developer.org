@@ -14,7 +14,7 @@ CLOSED: [2011-10-29 sam. 13:45]
 * DONE About the Cover Illustration
 CLOSED: [2011-10-29 sam. 13:45]
 * TODO Part 1: A TDD primer [0%]
-*** TODO 1. The big picture [33%]
+*** TODO 1. The big picture [50%]
 Only ever write code to fix a failing test.
 ***** DONE Section 1.1. The challenge: solving the right problem right [100%]
 ******* DONE 1.1.1 Creating poorly written code
@@ -57,7 +57,44 @@ deliver the high quality product the client needs for him to be more efficient.
 - More time for other stuff
 We will not be typing faster. It's a long-term vision.
 We will spent less hours at fixing bugs later on.
-***** TODO Section 1.3. Build it right: TDD
+***** DONE Section 1.3. Build it right [66%]
+******* DONE 1.3.1 Test-code-refactor: the heartbeat [100%]
+One simple rule: Only ever write code to fix a failing test
+Before: Design -> Code -> Test
+Now:    Test -> Code -> Refactoring (Design) Or Red - Green - Refactor
+********* DONE First we write a test
+By making the test first, we're starting the design by creating the
+API. 
+We only evaluate a design effectively and objectively if we are trying
+to use it. We can then have a direct feedback.
+
+Goal:
+- easy to use api.
+- Api with the strict needed thing -> do not over engineer because it
+  costs if there are problems in it.
+********* DONE Then we write just enough code
+Just enough so that the test pass.
+********* DONE And then, we refactor.
+We try a better code than the first one but it must do the same as the
+first one, in less ugly if it's possible.
+******* DONE 1.3.2 Developing in small increments [100%]
+Iterate to add new functionalities -> Worst case scenario, the product comes to production with some missing
+functionality.
+With the old way, the worst case scenario is that the product do not
+arrive to production.
+********* DONE Small enought to fit our heads
+We cannot deal with too numerous concepts at the same time.
+So make this number less to consider it appropriately.
+********* DONE Evolutionary design
+Let the need appear and try not to make everything up-front.
+********* DONE Discipline required
+Discipline required from the developers to be able to build on top of
+stable code (tested code).
+******* TODO 1.3.3 Keeping code healthy with refactoring
+Changing the internal code to a more clean design without changing the external behaviour.
+********* DONE Refactoring is discipline
+********* DONE Refactoring is transformation
+********* TODO Refactoring alter internal structure
 ***** TODO Section 1.4. Build the right thing: acceptance TDD
 ***** TODO Section 1.5. Tools for test-driven development
 ***** TODO Section 1.6. Summary

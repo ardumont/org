@@ -1,0 +1,23 @@
+#+Title: Degres
+#+author: Antoine Romain Dumont
+#+STARTUP: indent
+#+STARTUP: hidestars odd
+
+| IV V | I | III | VI |
+| F  G | C | E   | Am |
+
+| IV VI | II  IV | V |   |
+| F Am  | Dm  F  | G | % |
+
+|-----+----------------|
+| I   | Fondamentale   | I -> III VI
+| II  | Sous-dominante |
+| III |                |
+| IV  | Sous-dominante |
+| V   | Dominante      | V -> VII
+| VI  |                |
+| VII |                |
+|-----+----------------|
+
+I IV V I
+I II IV V I
