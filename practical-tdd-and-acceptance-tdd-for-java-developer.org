@@ -163,78 +163,78 @@ CLOSED: [2011-11-28 Mon 08:53]
 Code the test as if the production code exist. When it breaks, fix it.
 When it's green again, continue coding the test.
 ***** TODO Section 2.2. Choosing the first test [%]
-***** TODO Section 2.3. Breadth-first, depth-first
-***** TODO Section 2.4. Let’s not forget to refactor
-***** TODO Section 2.5. Adding a bit of error handling
-***** TODO Section 2.6. Loose ends on the test list
+***** TODO Section 2.3. Breadth-first, depth-first [%]
+***** TODO Section 2.4. Let’s not forget to refactor [%]
+***** TODO Section 2.5. Adding a bit of error handling [%]
+***** TODO Section 2.6. Loose ends on the test list [%]
 ***** TODO Section 2.7. Summary
 *** TODO 3. Refactoring in small steps [%]
-***** TODO Section 3.1. Exploring a potential solution
-***** TODO Section 3.2. Changing design in a controlled manner
-***** TODO Section 3.3. Taking the new design further
+***** TODO Section 3.1. Exploring a potential solution [%]
+***** TODO Section 3.2. Changing design in a controlled manner [%]
+***** TODO Section 3.3. Taking the new design further [%]
 ***** TODO Section 3.4. Summary
 *** TODO 4. Concepts and patterns for TDD [%]
-***** TODO Section 4.1. How to write tests and make them pass
-***** TODO Section 4.2. Essential testing concepts
-***** TODO Section 4.3. Closer look into test doubles
-***** TODO Section 4.4. Guidelines for testable designs
-***** TODO Section 4.5. Unit-testing patterns
-***** TODO Section 4.6. Working with legacy code
+***** TODO Section 4.1. How to write tests and make them pass [%]
+***** TODO Section 4.2. Essential testing concepts [%]
+***** TODO Section 4.3. Closer look into test doubles [%]
+***** TODO Section 4.4. Guidelines for testable designs [%]
+***** TODO Section 4.5. Unit-testing patterns [%]
+***** TODO Section 4.6. Working with legacy code [%]
 ***** TODO Section 4.7. Summary
 * TODO Part 2: Applying TDD to specific technologies [%]
 *** TODO 5. Test-driving web components [%]
-***** TODO Section 5.1. MVC in web applications in 60 seconds
-***** TODO Section 5.2. Taming the controller
-***** TODO Section 5.3. Creating the view test-first
-***** TODO Section 5.4. TDD with component-based web frameworks
+***** TODO Section 5.1. MVC in web applications in 60 seconds [%]
+***** TODO Section 5.2. Taming the controller [%]
+***** TODO Section 5.3. Creating the view test-first [%]
+***** TODO Section 5.4. TDD with component-based web frameworks [%]
 ***** TODO Section 5.5. Summary
 *** TODO 6. Test-driving data access [%]
-***** TODO Section 6.1. Exploring the problem domain
-***** TODO Section 6.2. Driving data access with unit tests
-***** TODO Section 6.3. Writing integration tests before the code
-***** TODO Section 6.4. Integration tests in action
-***** TODO Section 6.5. Populating data for integration tests
-***** TODO Section 6.6. Should I drive with unit or integration tests?
-***** TODO Section 6.7. File-system access
+***** TODO Section 6.1. Exploring the problem domain [%]
+***** TODO Section 6.2. Driving data access with unit tests [%]
+***** TODO Section 6.3. Writing integration tests before the code [%]
+***** TODO Section 6.4. Integration tests in action [%]
+***** TODO Section 6.5. Populating data for integration tests [%]
+***** TODO Section 6.6. Should I drive with unit or integration tests? [%]
+***** TODO Section 6.7. File-system access [%]
 ***** TODO Section 6.8. Summary
 *** TODO 7. Test-driving the unpredictable [%]
-***** TODO Section 7.1. Test-driving time-based functionality
-***** TODO Section 7.2. Test-driving multithreaded code
-***** TODO Section 7.3. Standard synchronization objects
+***** TODO Section 7.1. Test-driving time-based functionality [%]
+***** TODO Section 7.2. Test-driving multithreaded code [%]
+***** TODO Section 7.3. Standard synchronization objects [%]
 ***** TODO Section 7.4. Summary
 *** TODO 8. Test-driving Swing [%]
-***** TODO Section 8.1. What to test in a Swing UI
-***** TODO Section 8.2. Patterns for testable UI code
-***** TODO Section 8.3. Tools for testing view components
-***** TODO Section 8.4. Test-driving a view component
+***** TODO Section 8.1. What to test in a Swing UI [%]
+***** TODO Section 8.2. Patterns for testable UI code [%]
+***** TODO Section 8.3. Tools for testing view components [%]
+***** TODO Section 8.4. Test-driving a view component [%]
 ***** TODO Section 8.5. Summary
 * TODO Part 3: Building products with Acceptance TDD [%]
 *** TODO 9. Acceptance TDD explained [%]
-***** TODO Section 9.1. Introduction to user stories
-***** TODO Section 9.2. Acceptance tests
-***** TODO Section 9.3. Understanding the process
-***** TODO Section 9.4. Acceptance TDD as a team activity
-***** TODO Section 9.5. Benefits of acceptance TDD
-***** TODO Section 9.6. What are we testing, exactly?
-***** TODO Section 9.7. Brief overview of available tools
+***** TODO Section 9.1. Introduction to user stories [%]
+***** TODO Section 9.2. Acceptance tests [%]
+***** TODO Section 9.3. Understanding the process [%]
+***** TODO Section 9.4. Acceptance TDD as a team activity [%]
+***** TODO Section 9.5. Benefits of acceptance TDD [%]
+***** TODO Section 9.6. What are we testing, exactly? [%]
+***** TODO Section 9.7. Brief overview of available tools [%]
 ***** TODO Section 9.8. Summary
 *** TODO 10. Creating acceptance tests with Fit [%]
-***** TODO Section 10.1. What’s Fit?
-***** TODO Section 10.2. Three built-in fixtures
-***** TODO Section 10.3. Beyond the built-ins with FitLibrary
-***** TODO Section 10.4. Executing Fit tests
+***** TODO Section 10.1. What’s Fit? [%]
+***** TODO Section 10.2. Three built-in fixtures [%]
+***** TODO Section 10.3. Beyond the built-ins with FitLibrary [%]
+***** TODO Section 10.4. Executing Fit tests [%]
 ***** TODO Section 10.5. Summary
 *** TODO 11. Strategies for implementing acceptance tests [%]
-***** TODO Section 11.1. What should acceptance tests test?
-***** TODO Section 11.2. Implementation approaches
-***** TODO Section 11.3. Technology-specific considerations
-***** TODO Section 11.4. Tips for common problems
+***** TODO Section 11.1. What should acceptance tests test? [%]
+***** TODO Section 11.2. Implementation approaches [%]
+***** TODO Section 11.3. Technology-specific considerations [%]
+***** TODO Section 11.4. Tips for common problems [%]
 ***** TODO Section 11.5. Summary
 *** TODO 12. Adopting TDD [%]
-***** TODO Section 12.1. What it takes to adopt TDD
-***** TODO Section 12.2. Getting others aboard
-***** TODO Section 12.3. How to fight resistance
-***** TODO Section 12.4. How to facilitate adoption
+***** TODO Section 12.1. What it takes to adopt TDD [%]
+***** TODO Section 12.2. Getting others aboard [%]
+***** TODO Section 12.3. How to fight resistance [%]
+***** TODO Section 12.4. How to facilitate adoption [%]
 ***** TODO Section 12.5. Summary
 * TODO A. Brief JUnit 4 tutorial
 * TODO B. Brief JUnit 3.8 tutorial
