@@ -3,7 +3,6 @@
 #+STARTUP: indent
 #+STARTUP: hidestars odd
 
-
 * Decomposition en tierce pour determiner la nature de l'accord
 |--------+--------+---------------------+----------------+---------------+--------------------+---------------------|
 | Degres | Accord | Construction accord | Nature tierces | Nature accord | Accord a minorer   | Accord a majorer    |
