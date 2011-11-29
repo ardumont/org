@@ -1,22 +1,33 @@
-#+Title: 
+#+Title: Decomposition tierces
 #+author: Antoine Romain Dumont
 #+STARTUP: indent
 #+STARTUP: hidestars odd
 
-Yop, ci-dessous mes reponses.
 
-|--------------+---------------------+----------------+---------------+--------------------+---------------------|
-| Fondamentale | Construction accord | Nature tierces | Nature accord | Accord a minorer   | Accord a majorer    |
-|--------------+---------------------+----------------+---------------+--------------------+---------------------|
-| Do           | Do Mi Sol           | M m            | Majeur        | Do Mib Sol         | X                   |
-| Re           | Re Fa La            | m M            | mineur        | X                  | Re Fa# La           |
-| Mi           | Mi Sol Si           | m M            | mineur        | X                  | Mi Sol# Si          |
-| Fa           | Fa La Do            | M m            | Majeur        | Fa Lab Do          | X                   |
-| Sol          | Sol Si Re           | M m            | Majeur        | Sol Sib Re         | X                   |
-| La           | La Do Mi            | m M            | mineur        | X                  | La Do# Mi           |
-| Si           | Si Re Fa            | m m            | diminue       | Si Re Fa# (mineur) | Si Re# Fa# (majeur) |
-|              |                     |                |               |                    | ou                  |
-|              |                     |                |               |                    | Sib Re Fa           |
-|--------------+---------------------+----------------+---------------+--------------------+---------------------|
+* Decomposition en tierce pour determiner la nature de l'accord
+|--------+--------+---------------------+----------------+---------------+--------------------+---------------------|
+| Degres | Accord | Construction accord | Nature tierces | Nature accord | Accord a minorer   | Accord a majorer    |
+|--------+--------+---------------------+----------------+---------------+--------------------+---------------------|
+| I      | Do     | Do Mi Sol           | M m            | Majeur        | Do Mib Sol         | X                   |
+| II     | Re     | Re Fa La            | m M            | mineur        | X                  | Re Fa# La           |
+| III    | Mi     | Mi Sol Si           | m M            | mineur        | X                  | Mi Sol# Si          |
+| IV     | Fa     | Fa La Do            | M m            | Majeur        | Fa Lab Do          | X                   |
+| V      | Sol    | Sol Si Re           | M m            | Majeur        | Sol Sib Re         | X                   |
+| VI     | La     | La Do Mi            | m M            | mineur        | X                  | La Do# Mi           |
+| VII    | Si     | Si Re Fa            | m m            | diminue       | Si Re Fa# (mineur) | Si Re# Fa# (majeur) |
+|        |        |                     |                |               | ou                 |                     |
+|        |        |                     |                |               | Sib Re Fa          |                     |
+|--------+--------+---------------------+----------------+---------------+--------------------+---------------------|
 
-Antoine
+* Toutes les descentes d'accord pour faire la jonction avec les natures d'accord
+|--------+---------------+---+---+---+---+---+---+---|
+| Degres | Nature accord | C | D | E | F | G | A | B |
+|--------+---------------+---+---+---+---+---+---+---|
+| I      | M             | C | D | E | F | G | A | B |
+| II     | m             | D | E | F | G | A | B | C |
+| III    | m             | E | F | G | A | B | C | D |
+| IV     | M             | F | G | A | B | C | D | E |
+| V      | M             | G | A | B | C | D | E | F |
+| VI     | m             | A | B | C | D | E | F | G |
+| VII    | dim           | B | C | D | E | F | G | A |
+|--------+---------------+---+---+---+---+---+---+---|
