@@ -1,0 +1,56 @@
+#+Title: Joy of Clojure - Michael Fogus, Chris Houser
+#+author: Antoine Romain Dumont
+#+STARTUP: indent
+#+STARTUP: hidestars odd
+
+* TODO Joy Of Clojure [%]
+*** TODO Part 1 Foundations [%]
+***** TODO Clojure philosophy [%]
+******* TODO The Clojure way
+******* TODO Why a(nother) Lisp?
+******* TODO Functional Programming
+******* TODO Why Clojure isn't especially object oriented
+******* TODO Summary
+***** TODO Drinking from the Clojure firehose
+***** TODO Dipping our toes in the pool
+*** TODO Part 2 Data Types [%]
+***** TODO On scalars [%]
+******* TODO 4.1 Understanding precision
+******* TODO 4.2 Trying to be rational
+******* TODO 4.3 When to use keywords
+******* TODO 4.4 Symbolic resolutions
+******* TODO 4.5 Regular expressions-The second problem
+******* TODO 4.6 Summary
+***** TODO Composite data types [%]
+******* TODO 5.1 Persistence, sequence and complexity
+******* TODO 5.2 Vectors: creating and using them in all their varieties
+******* TODO 5.3 Lists: Clojure's code form data structure
+******* TODO 5.4 How to use persistant queues
+******* TODO 5.5 Persistant sets
+******* TODO 5.6 Thinking in maps
+******* TODO 5.7 Putting it all together: finding the position of items in a sequence
+******* TODO 5.8 Summary
+*** TODO Part 3 Functional Programming [%]
+***** TODO Being lazy and set in your ways
+***** TODO Immutability
+***** TODO Designing a persistent toy
+***** TODO Laziness
+***** TODO Putting it all together: a lazy quicksort
+***** TODO Functional programming
+***** TODO Functions in all their forms [%
+******* TODO 7.1.1 First-class functions
+******* TODO 7.1.2 Higher-order functions
+******* TODO 7.1.3 Pure functions
+******* TODO 7.1.4 Named arguments
+******* TODO 7.1.5 Constraining functions with pre- and postconditions
+***** TODO Closures
+***** TODO Thinking recursively
+***** TODO Putting it all together: A* pathfinding
+*** TODO Part 4 Large-Scale Design [%]
+***** TODO Macros
+***** TODO Combining data and code
+***** TODO Java.next
+***** TODO Mutation
+*** TODO Part 5 Tangential Considerations [%]
+***** TODO Performance
+***** TODO Clojure changes the way you think
