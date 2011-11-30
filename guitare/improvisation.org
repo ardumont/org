@@ -1,0 +1,35 @@
+#+Title: Improvisation
+#+author: Antoine Romain Dumont
+#+STARTUP: indent
+#+STARTUP: hidestars odd
+
+* Degres -> Nature
+|--------+----------------+-------------|
+| Degres | Nature degres  | Autre       |
+|--------+----------------+-------------|
+| I      | Fondamentale   | I -> III VI |
+| II     | Sous-dominante |             |
+| III    |                |             |
+| IV     | Sous-dominante |             |
+| V      | Dominante      | V -> VII    |
+| VI     |                |             |
+| VII    |                |             |
+|--------+----------------+-------------|
+
+* Enchainements d'accord qui sonnent bien
+|---+----+----+---|
+| I | II | V  | I |
+|---+----+----+---|
+| I | IV | V  | I |
+|---+----+----+---|
+| I | VI | IV | V |
+|---+----+----+---|
+
+* Tentative d'improvisation
+|---+----+----+---+
+| I | IV | V  | I |
+|---+----+----+---+
+| I | II | IV | V |
+|---+----+----+---+
+
+
