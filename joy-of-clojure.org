@@ -3,8 +3,8 @@
 #+STARTUP: indent
 #+STARTUP: hidestars odd
 
-* TODO Joy Of Clojure [%]
-*** TODO Part 1 Foundations [%]
+* TODO Joy Of Clojure [0%]
+*** TODO Part 1 Foundations [0%]
 ***** TODO Clojure philosophy [%]
 ******* TODO The Clojure way
 ******* TODO Why a(nother) Lisp?
@@ -13,7 +13,7 @@
 ******* TODO Summary
 ***** TODO Drinking from the Clojure firehose
 ***** TODO Dipping our toes in the pool
-*** TODO Part 2 Data Types [%]
+*** TODO Part 2 Data Types [0%]
 ***** TODO On scalars [%]
 ******* TODO 4.1 Understanding precision
 ******* TODO 4.2 Trying to be rational
@@ -30,7 +30,7 @@
 ******* TODO 5.6 Thinking in maps
 ******* TODO 5.7 Putting it all together: finding the position of items in a sequence
 ******* TODO 5.8 Summary
-*** TODO Part 3 Functional Programming [%]
+*** TODO Part 3 Functional Programming [0%]
 ***** TODO Being lazy and set in your ways
 ***** TODO Immutability
 ***** TODO Designing a persistent toy
@@ -46,11 +46,11 @@
 ***** TODO Closures
 ***** TODO Thinking recursively
 ***** TODO Putting it all together: A* pathfinding
-*** TODO Part 4 Large-Scale Design [%]
+*** TODO Part 4 Large-Scale Design [0%]
 ***** TODO Macros
 ***** TODO Combining data and code
 ***** TODO Java.next
 ***** TODO Mutation
-*** TODO Part 5 Tangential Considerations [%]
+*** TODO Part 5 Tangential Considerations [0%]
 ***** TODO Performance
 ***** TODO Clojure changes the way you think
