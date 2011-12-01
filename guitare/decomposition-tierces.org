@@ -18,7 +18,7 @@
 |        |        |         |        |         | Bb D F       |               |
 |--------+--------+---------+--------+---------+--------------+---------------|
 
-* Harmonisation des gammes d'accord majeur
+* Harmonisation des gammes d'accord majeur (sans les alterations pour respecter intervalles cf. gammes.org)
 |--------+---------+------+------+------+------+------+------+------|
 | Degres | Qualite | C    | D    | E    | F    | G    | A    | B    |
 |--------+---------+------+------+------+------+------+------+------|
