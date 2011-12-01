@@ -1,0 +1,112 @@
+#+Title: Effective java - 2nd Edition - Joshua Bloch - Edition Addition-Wesley
+#+author: Antoine Romain Dumont
+#+STARTUP: indent
+#+STARTUP: hidestars odd
+
+* DONE Foreword . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . xiii
+CLOSED: [2011-12-01 Thu 08:11]
+* DONE Preface . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .xv
+CLOSED: [2011-12-01 Thu 08:11]
+* DONE Acknowledgments. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . xix
+CLOSED: [2011-12-01 Thu 08:11]
+* DONE 1 Introduction . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .1
+CLOSED: [2011-12-01 Thu 08:11]
+* TODO 2 Creating and Destroying Objects [28%]
+** DONE Item 1: Consider static factory methods instead of constructors . . . 5
+CLOSED: [2011-12-01 Thu 08:16]
+** DONE Item 2: Consider a builder when faced with many constructor parameters . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 11
+CLOSED: [2011-12-01 Thu 08:16]
+** TODO Item 3: Enforce the singleton property with a private constructor or an enum type . . . . . . . . . . . . . . . . . . . . . . . 17
+** TODO Item 4: Enforce noninstantiability with a private constructor . . . . 19
+** TODO Item 5: Avoid creating unnecessary objects . . . . . . . . . . . . . . . . . 20
+** TODO Item 6: Eliminate obsolete object references . . . . . . . . . . . . . . . . . 24
+** TODO Item 7: Avoid finalizers . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 27
+* TODO 3 Methods Common to All Objects [33%]
+** DONE Item 8: Obey the general contract when overriding equals . . . . .
+CLOSED: [2011-12-01 Thu 08:16]
+** DONE Item 9: Always override hashCode when you override equals . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+CLOSED: [2011-12-01 Thu 08:16]
+** TODO Item 10: Always override toString . . . . . . . . . . . . . . . . . . . . . . . .
+** TODO Item 11: Override clone judiciously . . . . . . . . . . . . . . . . . . . . . . . .
+** TODO Item 12: Consider implementing Comparable . . . . . . . . . . . . . . . .
+** TODO CONTENTS
+* TODO 4 Classes and Interfaces [0%]
+** TODO Item 13: Minimize the accessibility of classes and members . . . . . . 67
+** TODO Item 14: In public classes, use accessor methods, not public fields . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 71
+** TODO Item 15: Minimize mutability . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 73
+** TODO Item 16: Favor composition over inheritance . . . . . . . . . . . . . . . . . . 81
+** TODO Item 17: Design and document for inheritance or else prohibit it . . 87
+** TODO Item 18: Prefer interfaces to abstract classes . . . . . . . . . . . . . . . . . . 93
+** TODO Item 19: Use interfaces only to define types. . . . . . . . . . . . . . . . . . . 98
+** TODO Item 20: Prefer class hierarchies to tagged classes . . . . . . . . . . . . . 100
+** TODO Item 21: Use function objects to represent strategies . . . . . . . . . . . 103
+** TODO Item 22: Favor static member classes over nonstatic . . . . . . . . . . . 106
+* TODO 5 Generics [0%]
+** TODO Item 23: Don’t use raw types in new code . . . . . . . . . . . . . . . . . . . 109
+** TODO Item 24: Eliminate unchecked warnings. . . . . . . . . . . . . . . . . . . . . 116
+** TODO Item 25: Prefer lists to arrays . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 119
+** TODO Item 26: Favor generic types. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 124
+** TODO Item 27: Favor generic methods . . . . . . . . . . . . . . . . . . . . . . . . . . . 129
+** TODO Item 28: Use bounded wildcards to increase API flexibility . . . . . 134
+** TODO Item 29: Consider typesafe heterogeneous containers . . . . . . . . . . 142
+* TODO 6 Enums and Annotations [0%]
+** TODO Item 30: Use enums instead of int constants. . . . . . . . . . . . . . . . . 147
+** TODO Item 31: Use instance fields instead of ordinals . . . . . . . . . . . . . . . 158
+** TODO Item 32: Use EnumSet instead of bit fields . . . . . . . . . . . . . . . . . . . 159
+** TODO Item 33: Use EnumMap instead of ordinal indexing. . . . . . . . . . . . . 161
+** TODO Item 34: Emulate extensible enums with interfaces . . . . . . . . . . . . 165
+** TODO Item 35: Prefer annotations to naming patterns . . . . . . . . . . . . . . . 169
+** TODO Item 36: Consistently use the Override annotation. . . . . . . . . . . . 176
+** TODO Item 37: Use marker interfaces to define types . . . . . . . . . . . . . . . 179
+* TODO 7 Methods [0%]
+** TODO Item 38: Check parameters for validity . . . . . . . . . . . . . . . . . . . . . 181
+** TODO Item 39: Make defensive copies when needed . . . . . . . . . . . . . . . . 184
+** TODO Item 40: Design method signatures carefully . . . . . . . . . . . . . . . . . 189
+** TODO Item 41: Use overloading judiciously . . . . . . . . . . . . . . . . . . . . . . . 191
+** TODO Item 42: Use varargs judiciously . . . . . . . . . . . . . . . . . . . . . . . . . . 197
+** TODO Item 43: Return empty arrays or collections, not nulls . . . . . . . . . 201
+** TODO Item 44: Write doc comments for all exposed API elements . . . . 203
+* TODO 8 General Programming [0%]
+** TODO Item 45: Minimize the scope of local variables . . . . . . . . . . . . . . .
+** TODO Item 46: Prefer for-each loops to traditional for loops . . . . . . . . .
+** TODO Item 47: Know and use the libraries . . . . . . . . . . . . . . . . . . . . . . .
+** TODO Item 48: Avoid float and double if exact answers are required . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+** TODO Item 49: Prefer primitive types to boxed primitives . . . . . . . . . . .
+** TODO Item 50: Avoid strings where other types are more appropriate . .
+** TODO Item 51: Beware the performance of string concatenation . . . . . .
+** TODO Item 52: Refer to objects by their interfaces . . . . . . . . . . . . . . . . .
+** TODO Item 53: Prefer interfaces to reflection . . . . . . . . . . . . . . . . . . . . .
+** TODO Item 54: Use native methods judiciously. . . . . . . . . . . . . . . . . . . .
+** TODO Item 55: Optimize judiciously . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+** TODO Item 56: Adhere to generally accepted naming conventions . . . . .
+* TODO 9 Exceptions [20%]
+** DONE Item 57: Use exceptions only for exceptional conditions . . . . . . .
+CLOSED: [2011-12-01 Thu 08:17]
+** DONE Item 58: Use checked exceptions for recoverable conditions
+CLOSED: [2011-12-01 Thu 08:17]
+** TODO and runtime exceptions for programming errors . . . . . . .
+** TODO Item 59: Avoid unnecessary use of checked exceptions . . . . . . . .
+** TODO Item 60: Favor the use of standard exceptions. . . . . . . . . . . . . . . .
+** TODO Item 61: Throw exceptions appropriate to the abstraction. . . . . . .
+** TODO Item 62: Document all exceptions thrown by each method. . . . . .
+** TODO Item 63: Include failure-capture information in detail messages . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+** TODO Item 64: Strive for failure atomicity . . . . . . . . . . . . . . . . . . . . . . .
+** TODO Item 65: Don’t ignore exceptions . . . . . . . . . . . . . . . . . . . . . . . . .
+* TODO 10 Concurrency [0%]
+** TODO Item 66: Synchronize access to shared mutable data. . . . . . . . . . .
+** TODO Item 67: Avoid excessive synchronization . . . . . . . . . . . . . . . . . .
+** TODO Item 68: Prefer executors and tasks to threads. . . . . . . . . . . . . . . .
+** TODO Item 69: Prefer concurrency utilities to wait and notify. . . . . . .
+** TODO Item 70: Document thread safety . . . . . . . . . . . . . . . . . . . . . . . . . . 278
+** TODO Item 71: Use lazy initialization judiciously . . . . . . . . . . . . . . . . . . 282
+** TODO Item 72: Don’t depend on the thread scheduler . . . . . . . . . . . . . . . 286
+** TODO Item 73: Avoid thread groups . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 288
+* TODO 11 Serialization [0%]
+** TODO Item 74: Implement Serializable judiciously. . . . . . . . . . . . . . . 289
+** TODO Item 75: Consider using a custom serialized form . . . . . . . . . . . . . 295
+** TODO Item 76: Write readObject methods defensively . . . . . . . . . . . . . 302
+** TODO Item 77: For instance control, prefer enum types to read Resolve . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 308
+** TODO Item 78: Consider serialization proxies instead of serialized instances . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 312
+* TODO Appendix: Items Corresponding to First Edition . . . . . . 317
+* TODO References . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 321
+* TODO Index . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 327
