@@ -3,18 +3,22 @@
 #+STARTUP: indent
 #+STARTUP: hidestars odd
 
-
 * Gamme majeure
-English version
+*** English version
+I   II   III    IV    V    VI   VII    V
 |----+----+------+----+----+----+------| [W]hole
 | W  | W  | H    | W  | W  | W  | H    | [H]alf-tone
 |----+----+------+----+----+----+------|
+I   II   III    IV    V    VI   VII    V
 
-French version
+*** French version
+I   II   III    IV    V    VI   VII    V
 |----+----+------+----+----+----+------|
 | 1T | 1T | 1/2T | 1T | 1T | 1T | 1/2T |
 |----+----+------+----+----+----+------|
+I   II   III    IV    V    VI   VII    V
 
+*** Gamme
 |---------+---------+------+-------+-------+------+-------+-------+-------|
 | Degres  | Qualite | C    | D     | E     | F    | G     | A     | B     |
 |---------+---------+------+-------+-------+------+-------+-------+-------|
