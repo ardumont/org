@@ -4,29 +4,30 @@
 #+STARTUP: hidestars odd
 
 * Decomposition en tierce pour determiner la nature de l'accord
-|--------+--------+---------------------+----------------+---------------+--------------------+---------------------|
-| Degres | Accord | Construction accord | Nature tierces | Nature accord | Accord a minorer   | Accord a majorer    |
-|--------+--------+---------------------+----------------+---------------+--------------------+---------------------|
-| I      | Do     | Do Mi Sol           | M m            | Majeur        | Do Mib Sol         | X                   |
-| II     | Re     | Re Fa La            | m M            | mineur        | X                  | Re Fa# La           |
-| III    | Mi     | Mi Sol Si           | m M            | mineur        | X                  | Mi Sol# Si          |
-| IV     | Fa     | Fa La Do            | M m            | Majeur        | Fa Lab Do          | X                   |
-| V      | Sol    | Sol Si Re           | M m            | Majeur        | Sol Sib Re         | X                   |
-| VI     | La     | La Do Mi            | m M            | mineur        | X                  | La Do# Mi           |
-| VII    | Si     | Si Re Fa            | m m            | diminue       | Si Re Fa# (mineur) | Si Re# Fa# (majeur) |
-|        |        |                     |                |               | ou                 |                     |
-|        |        |                     |                |               | Sib Re Fa          |                     |
-|--------+--------+---------------------+----------------+---------------+--------------------+---------------------|
+|--------+--------+---------+--------+---------+--------------+---------------|
+| Degres | Accord | Tierces | Nature | Qualite | A minorer    | A majorer     |
+|--------+--------+---------+--------+---------+--------------+---------------|
+| I      | C      | C E G   | M m    | M       | C Eb G       | X             |
+| II     | D      | D F A   | m M    | m       | X            | D F# A        |
+| III    | E      | E G B   | m M    | m       | X            | E G# B        |
+| IV     | F      | F A C   | M m    | M       | F Ab C       | X             |
+| V      | G      | G B D   | M m    | M       | G Bb D       | X             |
+| VI     | A      | A C E   | m M    | m       | X            | A C# E        |
+| VII    | B      | B D F   | m m    | dim     | B D F# (min) | B D# F# (maj) |
+|        |        |         |        |         | ou           |               |
+|        |        |         |        |         | Bb D F       |               |
+|--------+--------+---------+--------+---------+--------------+---------------|
 
-* Toutes les descentes d'accord pour faire la jonction avec les natures d'accord
-|--------+---------------+---+---+---+---+---+---+---|
-| Degres | Nature accord | C | D | E | F | G | A | B |
-|--------+---------------+---+---+---+---+---+---+---|
-| I      | M             | C | D | E | F | G | A | B |
-| II     | m             | D | E | F | G | A | B | C |
-| III    | m             | E | F | G | A | B | C | D |
-| IV     | M             | F | G | A | B | C | D | E |
-| V      | M             | G | A | B | C | D | E | F |
-| VI     | m             | A | B | C | D | E | F | G |
-| VII    | dim           | B | C | D | E | F | G | A |
-|--------+---------------+---+---+---+---+---+---+---|
+* Harmonisation des gammes d'accord majeur
+|--------+---------+------+------+------+------+------+------+------|
+| Degres | Qualite | C    | D    | E    | F    | G    | A    | B    |
+|--------+---------+------+------+------+------+------+------+------|
+| I      | M       | C    | D    | E    | F    | G    | A    | B    |
+| II     | m       | Dm   | Em   | Fm   | Gm   | Am   | Bm   | Cm   |
+| III    | m       | Em   | Fm   | Gm   | Am   | Bm   | Cm   | Dm   |
+| IV     | M       | F    | G    | A    | B    | C    | D    | E    |
+| V      | M       | G    | A    | B    | C    | D    | E    | F    |
+| VI     | m       | Am   | Bm   | Cm   | Dm   | Em   | Fm   | Gm   |
+| VII    | dim     | Bdim | Cdim | Ddim | Edim | Fdim | Gdim | Adim |
+|--------+---------+------+------+------+------+------+------+------|
+
