@@ -1,0 +1,7 @@
+#+Title: Lecture
+#+author: Antoine Romain Dumont
+#+STARTUP: indent
+#+STARTUP: hidestars odd
+
+* http://www.guitare-improvisation.com/analyser_harmonisation-de-do-majeur.php
+* http://www.guitare-improvisation.com/les-gammes-et-les-modes_gammes-de-reference.php
