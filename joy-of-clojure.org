@@ -3,24 +3,40 @@
 #+STARTUP: indent
 #+STARTUP: hidestars odd
 
-* TODO Joy Of Clojure [0%]
-*** TODO Part 1 Foundations [0%]
-***** TODO Clojure philosophy [%]
-******* TODO The Clojure way
-******* TODO Why a(nother) Lisp?
-******* TODO Functional Programming
-******* TODO Why Clojure isn't especially object oriented
-******* TODO Summary
-***** TODO Drinking from the Clojure firehose
-***** TODO Dipping our toes in the pool
-*** TODO Part 2 Data Types [0%]
-***** TODO On scalars [%]
-******* TODO 4.1 Understanding precision
-******* TODO 4.2 Trying to be rational
-******* TODO 4.3 When to use keywords
-******* TODO 4.4 Symbolic resolutions
-******* TODO 4.5 Regular expressions-The second problem
-******* TODO 4.6 Summary
+* TODO Joy Of Clojure [20%]
+*** DONE Part 1 Foundations [100%]
+CLOSED: [2011-12-08 jeu. 19:59]
+***** DONE Clojure philosophy [100%]
+CLOSED: [2011-12-08 jeu. 19:59]
+******* DONE The Clojure way
+CLOSED: [2011-12-08 jeu. 19:58]
+******* DONE Why a(nother) Lisp?
+CLOSED: [2011-12-08 jeu. 19:58]
+******* DONE Functional Programming
+CLOSED: [2011-12-08 jeu. 19:58]
+******* DONE Why Clojure isn't especially object oriented
+CLOSED: [2011-12-08 jeu. 19:59]
+******* DONE Summary
+CLOSED: [2011-12-08 jeu. 19:59]
+***** DONE Drinking from the Clojure firehose
+CLOSED: [2011-12-08 jeu. 19:59]
+***** DONE Dipping our toes in the pool
+CLOSED: [2011-12-08 jeu. 19:59]
+*** TODO Part 2 Data Types [50%]
+***** DONE On scalars [100%]
+CLOSED: [2011-12-08 jeu. 20:00]
+******* DONE 4.1 Understanding precision
+CLOSED: [2011-12-08 jeu. 19:59]
+******* DONE 4.2 Trying to be rational
+CLOSED: [2011-12-08 jeu. 19:59]
+******* DONE 4.3 When to use keywords
+CLOSED: [2011-12-08 jeu. 19:59]
+******* DONE 4.4 Symbolic resolutions
+CLOSED: [2011-12-08 jeu. 19:59]
+******* DONE 4.5 Regular expressions-The second problem
+CLOSED: [2011-12-08 jeu. 20:00]
+******* DONE 4.6 Summary
+CLOSED: [2011-12-08 jeu. 20:00]
 ***** TODO Composite data types [%]
 ******* TODO 5.1 Persistence, sequence and complexity
 ******* TODO 5.2 Vectors: creating and using them in all their varieties
