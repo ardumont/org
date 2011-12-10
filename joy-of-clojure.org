@@ -37,7 +37,7 @@ CLOSED: [2011-12-08 jeu. 19:59]
 CLOSED: [2011-12-08 jeu. 20:00]
 ******* DONE 4.6 Summary
 CLOSED: [2011-12-08 jeu. 20:00]
-***** TODO Composite data types [%]
+***** TODO Composite data types [0%]
 ******* TODO 5.1 Persistence, sequence and complexity
 ******* TODO 5.2 Vectors: creating and using them in all their varieties
 ******* TODO 5.3 Lists: Clojure's code form data structure
