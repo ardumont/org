@@ -52,14 +52,14 @@ CLOSED: [2011-10-18 mar. 09:16]
 ** DONE An Emacs minor mode for Midje
 CLOSED: [2011-10-14 ven. 08:08]
 ^C k kill all rewards comments from midje
-^C ^K Send everything down to the REPL (compile)
+^C ^k Send everything down to the REPL (compile)
 ^C , 
   - Send the execution to the REPL (gets the result back just in front of the fact)
 ^C ^u
   - send the method into the (unfinished) part in your file
   - inside the (unfinished part), create the definition of the method
     not existing
-x^C-f Focus on the current fact
+^C-f Focus on the current fact
 ^C-h hides all facts
 ^C-s shows all facts
 ** DONE Emacs code to jump to a particular location in a Clojure file
