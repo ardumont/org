@@ -3,7 +3,7 @@
 #+STARTUP: indent
 #+STARTUP: hidestars odd
 
-* Decomposition en tierce pour determiner la nature de l'accord
+* Decomposition en tierce 
 |--------+--------+---------+--------+---------+--------------+---------------|
 | Degres | Accord | Tierces | Nature | Qualite | A minorer    | A majorer     |
 |--------+--------+---------+--------+---------+--------------+---------------|
@@ -18,7 +18,7 @@
 |        |        |         |        |         | Bb D F       |               |
 |--------+--------+---------+--------+---------+--------------+---------------|
 
-* Harmonisation des gammes d'accord majeur (sans les alterations pour respecter intervalles cf. gammes.org)
+* Harmonisation des gammes d'accord majeur
 |--------+---------+------+------+------+------+------+------+------|
 | Degres | Qualite | C    | D    | E    | F    | G    | A    | B    |
 |--------+---------+------+------+------+------+------+------+------|
@@ -30,4 +30,3 @@
 | VI     | m       | Am   | Bm   | Cm   | Dm   | Em   | Fm   | Gm   |
 | VII    | dim     | Bdim | Cdim | Ddim | Edim | Fdim | Gdim | Adim |
 |--------+---------+------+------+------+------+------+------+------|
-
