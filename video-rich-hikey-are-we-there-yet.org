@@ -1,0 +1,14 @@
+#+Title: Video - Rich Hikey - Are we there yet ?
+#+author: Antoine Romain Dumont
+#+STARTUP: indent
+#+STARTUP: hidestars odd
+
+Completely mind blowing video from Rich Hikey ([[http://clojure.org/][Clojure]]'s creator) where he exposes the limitations of the overall most popular actual languages.
+
+Here's the link. I do not enter much in the details here as Rich Hikey himself is so good at explaining.
+
+It's not about [[http://clojure.org/][Clojure]], which is the mere implementation of what this video is all about.
+
+Be open-minded, sit back and enjoy!
+
+[[http://www.infoq.com/presentations/Are-We-There-Yet-Rich-Hickey][Are we there yet?]]
