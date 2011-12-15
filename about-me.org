@@ -3,35 +3,32 @@
 #+STARTUP: indent
 #+STARTUP: hidestars odd
 
-<strong>Personally</strong>
+* Personally
 I'm just a linux fan boy geek (GNU/Linux, *BSD, Android and Free Software etc...).
 Also, completely development addict (Clojure, C, Java, PHP, *sh, Perl, Python, html, etc...)
 
-I'm trying to share the little computer knowledge with the rest of the world because i had this completely amazingly utopist dream of free knowledge (as in free speech).
+I'm trying to share the little computer knowledge with the rest of the
+world because i had this completely amazingly utopist dream of free knowledge (as in free speech).
 
-Trying to share when i'm not too busy playing with my kids or coding to solve some problems (<a href="http://projecteuler.net">Project Euler</a>, <a href="http://4clojure.com">4clojure.com</a>) or playing with my guitar (then again trying) or losing my precious time in some bull... means of transportation.
+Trying to share when i'm not too busy playing with my kids or coding
+to solve some problems ([[http://projecteuler.net][Project Euler]],[[http://4clojure.com][ 4clojure.com]]) or playing with
+my guitar (then again trying) 
+or losing my precious time in some bull... means of transportation.
 
 Anyway, here is my rapid resume.
-
-<strong>Rapid resume</strong>
-
-<strong>Once upon a time, i was a student</strong>
-Master's degree in Networks and systems at the <a href="http://www.univ-paris-diderot.fr/">Denis Diderot College Paris VII</a>.
-
-<strong>Then i started working</strong>
-Software engineer for 4 years at <a href="http://www.sopragroup.com">Sopra Group</a>.
+* Rapid resume
+** Once upon a time, i was a student
+Master's degree in Networks and systems at the [[http://www.univ-paris-diderot.fr/][Denis Diderot College Paris VII]].
+** Then i started working
+Software engineer for 4 years at [[http://www.sopragroup.com"][Sopra Group]].
 Some technologies i came across : JEE4/5, PHP4/5, Oracle, Hibernate, Spring, Ant, Maven, etc...
-
-<strong>Now</strong>
+** Now
 I'm still a software engineer but i like to call it simply developer as i really really enjoy coding.
-I'm working with <a href="http://www.sfeir.com/">Sfeir</a>.
+I'm working with [[http://www.sfeir.com/][Sfeir]].
 The technologies are very innovative : GWT, Android, NoSQL, etc...
-
-<strong>Where can you found me if you ever were interested<strong>
-<ul>
-	<li><a href="https://github.com/ardumont">github</a></li>
-	<li><a href="http://j.mp/hevpPB">blog</a></li>
-	<li><a href="http://j.mp/ibIAVM">viadeo</a></li>
-	<li><a href="http://j.mp/dWMPPr">linkedin</a></li>
-	<li><a href="http://j.mp/gkImOH">My student resume</a>(Need to be updated some day)</li>
-</ul>
+* Where can you found me if you ever were interested
+** [[https://github.com/ardumont][github]]
+** [[http://j.mp/hevpPB][blog]]
+** [[http://j.mp/ibIAVM][viadeo]]
+** [[http://j.mp/dWMPPr][linkedin]]
+** [[http://j.mp/gkImOH][My student resume]] (Need to be updated some day)
