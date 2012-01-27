@@ -1,0 +1,17 @@
+#+Title: Cours 20111213
+#+author: Antoine Romain Dumont
+#+STARTUP: indent
+#+STARTUP: hidestars odd
+
+* Tonalites voisines
+IV et V de la tonique
++1 b
++1 #
+
+** Exemple
+*** C
++1b -> F
++1# -> G
+
+
+* 
