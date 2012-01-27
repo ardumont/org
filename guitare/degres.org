@@ -35,10 +35,12 @@
 |----+----+-----+----+----+----+----|
 
 Le dernier '#' est la sensible (1/2 ton en dessous de la tonique)
+donc dernier # + 1/2 ton -> tonique
 
-*** 3# -> (F->1 C->2 G->3; G - 1/2T =>) F#
-*** 4# -> C#
-*** 2# -> B
+*** 3# -> (F->1 C->2 G->3) G# + 1/2T => A
+*** 4# -> D# + 1/2T => E
+*** 2# -> C# + 1/2T => D
+
 * Ordre des 'b'
 |----+----+----+----+-----+----+----|
 | B  | E  | A  | D  | G   | C  | F  |
