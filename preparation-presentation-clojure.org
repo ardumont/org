@@ -1,5 +1,5 @@
-#+Title: Pq clojure?
-#+author: Antoine Romain Dumont
+#+Title: Why clojure?
+#+author: Denis Labaye, Antoine Romain Dumont
 #+STARTUP: indent
 #+STARTUP: hidestars odd
 
@@ -30,6 +30,10 @@ In our everyday developer life
     - wait for the CI server to feed us
 *** Failfast
 - REPL
-
 * Why Clojure ?
-Clojure addresses these problematic because it was created for that.
+- addresses these problematics because it was created for that.
+(Are we there yet? - Rich Hikey)
+
+* IDE
+*** emacs
+*** plugin eclise? intellij? - Do not know any as emacs is sufficient
