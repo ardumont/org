@@ -1,0 +1,35 @@
+#+Title: Pq clojure?
+#+author: Antoine Romain Dumont
+#+STARTUP: indent
+#+STARTUP: hidestars odd
+
+* What we're craving for?
+In our everyday developer life
+- simplicity / no incidental complexity
+- rapidity
+- clarity
+- feedback
+- fail-fast
+*** Simplicity
+- KISS
+- Concentrate on the pb to solve, no incidental complexity that hides the true pb
+*** Rapidity
+- We do have lots of stuffs to solve, the faster, the merrier
+- No fighting with something out of scope
+*** Clarity
+- Be able to read code from anyone
+- Simplicity is intertwined here
+*** Feedback
+- Want
+  + Know the fastest possible what's wrong
+  + Unit Testing frameworks (midje, clojure.test)
+
+- Do not want
+  - launch some improbable command to know that
+  - setup an heavy environment to do that
+    - wait for the CI server to feed us
+*** Failfast
+- REPL
+
+* Why Clojure ?
+Clojure addresses these problematic because it was created for that.
