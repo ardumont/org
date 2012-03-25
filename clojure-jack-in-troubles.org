@@ -1,0 +1,87 @@
+
+* Versions
+** lein - 1.7.1-SNAPSHOT
+#+BEGIN_SRC sh
+tony@dagobah(0.18,) 12:12:56 ~/repositories/perso/test $ lein -v
+Leiningen 1.7.1-SNAPSHOT on Java 1.6.0_26 Java HotSpot(TM) Client VM
+#+END_SRC
+** swank-clojure 1.4.0
+#+BEGIN_SRC sh
+tony@dagobah(0.08,) 14:36:49 ~/repositories/perso/test $ ls ~/.lein/plugins/
+lein-cljs-0.2.2.jar  lein-marginalia-0.7.0-SNAPSHOT.jar  lein-midje-1.0.7.jar  lein-noir-1.2.1.jar  swank-clojure-1.4.0.jar
+#+END_SRC
+
+** emacs
+#+BEGIN_SRC sh
+tony@dagobah(0.07,) 14:36:53 ~/repositories/perso/test $ emacs -version
+GNU Emacs 24.0.94.1
+#+END_SRC
+
+** emacs el:
+#+BEGIN_SRC lisp
+clojure-mode       1.11.5       installed  Major mode for Clojure code
+  find-file-in-pr... 3.0          installed  Find files in a project quickly.
+  flymake-shell      0.5          installed  A flymake syntax-checker for shell scripts
+  graphviz-dot-mode  0.3.7        installed  Mode for the dot-language used by graphviz (att).
+  idle-highlight-... 1.1.2        installed  highlight the word the point is on
+  ido-ubiquitous     1.0          installed  Use ido (nearly) everywhere.
+  magit              1.1.1        installed  Control Git from Emacs.
+  midje-mode         0.1.0        installed  Minor mode for running Midje tests in emacs, see: https://github.com/dnaumov/midje-mode
+  multi-term         0.8.8        installed  Managing multiple terminal buffers in Emacs.
+  paredit            22           installed  minor mode for editing parentheses  -*- Mode: Emacs-Lisp -*-
+  slime              20100404.1   installed  Superior Lisp Interaction Mode for Emacs
+  smex               1.1.2        installed  M-x interface with Ido-style fuzzy matching.
+  starter-kit        2.0.3        installed  Saner defaults and goodies.
+  starter-kit-bin... 2.0.2        installed  Saner defaults and goodies: bindings
+  switch-window      0.9          installed  A *visual* way to choose a window to switch to
+#+END_SRC
+* Install emacs 24
+J'ai un equivalent de ton install-emacs24.sh
+#+BEGIN_SRC sh
+~/bin/deploy-emacs24.sh
+#+END_SRC
+
+qui fait dans les grandes lignes la meme chose que toi.
+
+Un detail qui joue, j'ai decorelle l'install du setup, du coup pour refaire le setup:
+#+BEGIN_SRC sh
+~/bin/setup-emacs24.sh
+#+END_SRC
+
+Ensuite, je demarre emacs qui charge tout seul les dependances telles que declares dans =~/.emacs.d/init.el= genere par =setup-emacs24.sh=.
+
+Qd je lance :
+#+BEGIN_SRC sh
+emacs -fs -e clojure-jack-in -e split-window-vertically -e other-window -e multi-term
+#+END_SRC
+
+J'ai l'erreur:
+#+BEGIN_SRC lisp
+Debugger entered--Lisp error: (error "Could not start swank server:
+rlwrap: Oops, crashed (caught SIGFPE) - this should not have happened!
+If you need a core dump, re-configure with --enable-debug and rebuild
+Resetting terminal and cleaning up...
+")
+  signal(error ("Could not start swank server: \nrlwrap: Oops, crashed (caught SIGFPE) - this should not have happened!\nIf you need a core dump, re-configure with --enable-debug and rebuild\nResetting terminal and cleaning up...\n"))
+  error("Could not start swank server: %s" "\nrlwrap: Oops, crashed (caught SIGFPE) - this should not have happened!\nIf you need a core dump, re-configure with --enable-debug and rebuild\nResetting terminal and cleaning up...\n")
+  clojure-jack-in-sentinel(#<process swank> "exited abnormally with code 1\n")
+#+END_SRC
+
+Qd je lance:
+#+BEGIN_SRC sh
+lein swank
+#+END_SRC
+Pas de pb.
+Puis je lance un =M-x slime-connect=
+Ca a l'air d'aller bien avec les petites phrases marrantes avant d'ouvrir un repl sauf que pas de repl.
+Si j'ouvre le buffer swank, j'ai
+#+BEGIN_SRC lisp
+rlwrap: Oops, crashed (caught SIGFPE) - this should not have happened!
+If you need a core dump, re-configure with --enable-debug and rebuild
+Resetting terminal and cleaning up...
+#+END_SRC
+
+Bref, un truc qui pue.
+Je pense a une desynchro de version entre slime et swank.
+
+Je n'ai pas essaye le --enable-debug parce que je ne sais pas de quoi il s'agit.
