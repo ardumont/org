@@ -1,0 +1,72 @@
+#+Title: Clojure
+#+author: Antoine Romain Dumont
+#+STARTUP: indent
+#+STARTUP: hidestars odd
+
+Here is my contribution to try and explain clojure.
+I'm not saying that this is complete!
+
+* clojure?
+*** a [[http://clojure.org/functional_programming][functionnal programming]] language
+*** runs on the [[http://en.wikipedia.org/wiki/Java_virtual_machine][java virtual machine]].
+*** and oh, it's a [[http://en.wikipedia.org/wiki/Lisp_%28programming_language%29][dialect of LISP]]!
+* purpose?
+*** general-purpose language
+*** Ease of development in mind
+***** avoid incidental complexity
+I will not define 'incidental complexity' but instead [[http://www.simple-talk.com/opinion/geek-of-the-week/rich-hickey-geek-of-the-week/][quote]] the clojure creator, [[https://plus.google.com/101598622654270873929/posts][Rich Hikey]]
+#+BEGIN_SRC quote
+"I think programmers have become
+inured to incidental complexity...
+when they encounter complexity,
+they consider it a challenge to overcome,
+rather than an obstacle to remove.
+Overcoming complexity isn't work, it's waste."
+#+END_SRC
+
+Here's what clojure provides:
+******* deals with:
+********* memory (as does java)
+********* concurrency
+******* natively gives us tools for:
+********* feedback (REPL)
+********* idiomatic immutability
+******* which permits us to focus on the problem at hands!
+* functionalities?
+*** [[http://clojure.org/functional_programming][functionnal programming]] 
+- Considered as more robust.
+- Datas are de facto immutable
+- First class function - function can manipulate other functions
+- higher order function - many inputs, one output.
+
+#+BEGIN_SRC clj
+(def hello
+  (fn [n] 
+    (println 
+      (str "hello " n "!"))))
+;;user> (hello "tony") 
+;;"hello tony!"
+;;nil
+#+END_SRC
+
+*** jvm
+***** generates byte code
+***** interoperability with java
+***** can call the java library to use them inside clojure programs
+*** lisp
+***** exists since the programming language's dawn of time (1958).
+***** homoiconic: code is data and data is code
+*** Dynamic
+No compilation and running phases
+Directly interact with the language via the REPL (Read-Eval-Print-Loop).
+*** scripting approach
+*** homoiconic - code is data and data is code
+*** macros
+*** immutability
+*** persistent data set
+*** simple concurrent programming
+*** Software Transaction Memory system
+*** Agent
+*** For optmization: type hint to avoid reflection.
+
+
