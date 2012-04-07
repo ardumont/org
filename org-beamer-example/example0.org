@@ -1,0 +1,53 @@
+#+TITLE:     your-title
+#+AUTHOR:    your-name
+#+EMAIL:     your-email
+#+DATE:      bootstrap-date
+#+DESCRIPTION: some-description
+#+KEYWORDS: some-keywords
+#+LANGUAGE:  en
+#+OPTIONS:   H:3 num:t toc:t \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+INFOJS_OPT: view:nil toc:nil ltoc:t mouse:underline buttons:0 path:http://orgmode.org/org-info.js
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:   
+#+LINK_HOME: 
+
+#+startup: beamer
+#+LaTeX_CLASS: beamer
+#+LaTeX_CLASS_OPTIONS: [bigger]
+
+#+BEAMER_FRAME_LEVEL: 2
+
+* Some group of frames
+** frame11
+*** some stuff
+*** to tell
+*** in list elements
+** frame12
+*** what do you know!
+*** nice or what?
+
+* Awsomeness!
+** Clojure
+*** code clojure
+#+BEGIN_SRC clj
+(fact (+ 1 1) => 2)
+#+END_SRC
+*** /Midje/, unit testing fwk is pretty awesome!
+** Emacs
+*** It's pretty cool too!
+** Org-mode with beamer
+*** rocks as we can present                                           :BMCOL:
+:PROPERTIES:
+:BEAMER_col: 0.5
+:END:
+*** in columns
+*** and as always
+:PROPERTIES:
+:BEAMER_col: 0.5
+:END:
+[[file:///home/tony/org/clj-pink.png]]
+*** include images
+* That's all folks!
+
