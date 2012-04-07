@@ -1,0 +1,61 @@
+% Created 2012-04-07 Sat 22:44
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{fixltx2e}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{soul}
+\usepackage{textcomp}
+\usepackage{marvosym}
+\usepackage{wasysym}
+\usepackage{latexsym}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\tolerance=1000
+\providecommand{\alert}[1]{\textbf{#1}}
+
+\title{Howto beamer with org-mode}
+\author{Antoine R. Dumont}
+\date{\today}
+\hypersetup{
+  pdfkeywords={},
+  pdfsubject={},
+  pdfcreator={Emacs Org-mode version 7.8.07}}
+
+\begin{document}
+
+\maketitle
+
+\setcounter{tocdepth}{3}
+\tableofcontents
+\vspace*{1cm}
+
+\section{Pre-requisites}
+\label{sec-1}
+\section{Install the other pre-requisites}
+\label{sec-2}
+
+
+\begin{verbatim}
+sudo aptitude install latex latex-beamer \
+  texlive-latex-extra texlive-fonts-recommended ttf-marvosym
+\end{verbatim}
+\section{Init a org file}
+\label{sec-3}
+\section{Launch the export}
+\label{sec-4}
+
+
+\begin{center}
+\begin{tabular}{ll}
+\hline
+ C-c C-b d  &  compile in latex, then export to pdf and open it.  \\
+ C-C C-b V  &  the same but with using docbook                    \\
+\hline
+\end{tabular}
+\end{center}
+
+\end{document}

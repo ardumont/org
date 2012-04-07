@@ -1,0 +1,50 @@
+#+Title: Howto beamer with org-mode
+#+author: Antoine R. Dumont
+#+STARTUP: indent
+#+STARTUP: hidestars odd
+
+* Pre-requisites
+** emacs
+** org-mode
+* Install the other pre-requisites
+#+BEGIN_SRC sh
+sudo aptitude install latex latex-beamer \
+  texlive-latex-extra texlive-fonts-recommended ttf-marvosym
+#+END_SRC
+* Init a org file
+** Add some particular headers (escaped here)
+#+BEGIN_SRC org
+
+\#+TITLE:     your-title
+\#+AUTHOR:    your-name
+\#+EMAIL:     your-email
+\#+DATE:      bootstrap-date
+\#+DESCRIPTION: some-description
+\#+KEYWORDS: some-keywords
+\#+LANGUAGE:  en
+\#+OPTIONS:   H:3 num:t toc:t \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+\#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+\#+INFOJS_OPT: view:nil toc:nil ltoc:t mouse:underline buttons:0 path:http://orgmode.org/org-info.js
+\#+EXPORT_SELECT_TAGS: export
+\#+EXPORT_EXCLUDE_TAGS: noexport
+\#+LINK_UP:   
+\#+LINK_HOME: 
+
+\#+startup: beamer
+\#+LaTeX_CLASS: beamer
+\#+LaTeX_CLASS_OPTIONS: [bigger]
+
+\#+BEAMER_FRAME_LEVEL: 2
+
+#+END_SRC
+** Add some todo entry a la org-mode
+
+** Output the example
+[[file:///home/tony/org/org-beamer-examples/example0.pdf]]
+
+* Launch the export
+|-----------+---------------------------------------------------|
+| C-c C-b d | compile in latex, then export to pdf and open it. |
+| C-C C-b V | the same but with using docbook                   |
+|-----------+---------------------------------------------------|
+
