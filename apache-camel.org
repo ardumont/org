@@ -1,0 +1,56 @@
+#+TITLE:     Apache camel presentation
+#+AUTHOR:    Antoine R. Dumont
+#+EMAIL:     eniotna.t@gmail.com
+#+DATE:      2012-04-07 Sat
+#+DESC RIPTION: A little presentation about the camel possibilities
+#+KEYWORDS: apache, camel, functional, modular
+#+LANGUAGE:  en
+#+OPTIONS:   H:3 num:t toc:t \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+INFOJS_OPT: view:nil toc:nil ltoc:t mouse:underline buttons:0 path:http://orgmode.org/org-info.js
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:   
+#+LINK_HOME: 
+
+#+startup: beamer
+#+LaTeX_CLASS: beamer
+#+LaTeX_CLASS_OPTIONS: [bigger]
+
+#+BEAMER_FRAME_LEVEL: 2
+
+* Apache Camel
+** What?
+- open source integration software
+** Why?
++ soft need to communicate
+- but do not need to be be aware
+** How?
+*** Modularity
+*** there is a component for that
+** Vocabulary
+*** Message
+What transits between endpoints.
+*** endpoints
+Determines the origin or the destination of an exchange message
+*** routes
+A message transits from one endpoint to one or more endpoints.
+*** components
+**** split
+**** translator
+**** aggregator
+**** ...
+* Examples
+** Basic route
+#+BEGIN_SRC java
+from("file://dummy").
+  to("file://some-other-directory");
+#+END_SRC
+
+** With split of the message
+#+BEGIN_SRC java
+from("file://dummy").
+  split(new XPathBuilder("//families/family")).
+  to("file://some-other-directory");
+#+END_SRC
+** blabla
