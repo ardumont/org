@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
 <meta name="title" content="Howto beamer with org-mode"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2012-04-07 22:45:12 CEST"/>
+<meta name="generated" content="2012-04-08 10:28:40 CEST"/>
 <meta name="author" content="Antoine R. Dumont"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -101,18 +101,30 @@
 <li><a href="#sec-1">1 Pre-requisites</a>
 <ul>
 <li><a href="#sec-1-1">1.1 emacs</a></li>
-<li><a href="#sec-1-2">1.2 org-mode</a></li>
+<li><a href="#sec-1-2">1.2 with org-mode</a></li>
 </ul>
 </li>
 <li><a href="#sec-2">2 Install the other pre-requisites</a></li>
 <li><a href="#sec-3">3 Init a org file</a>
 <ul>
-<li><a href="#sec-3-1">3.1 Add some particular headers (escaped here)</a></li>
-<li><a href="#sec-3-2">3.2 Add some todo entry a la org-mode</a></li>
-<li><a href="#sec-3-3">3.3 Output the example</a></li>
+<li><a href="#sec-3-1">3.1 Add some particular headers</a></li>
+<li><a href="#sec-3-2">3.2 Example of org-code and the output</a></li>
+<li><a href="#sec-3-3">3.3 There is automatically a front-page</a></li>
+<li><a href="#sec-3-4">3.4 And a outline page</a></li>
+<li><a href="#sec-3-5">3.5 Frame 1</a></li>
+<li><a href="#sec-3-6">3.6 Frame 2</a></li>
+<li><a href="#sec-3-7">3.7 A frame about clojure in another group</a></li>
+<li><a href="#sec-3-8">3.8 About emacs</a></li>
+<li><a href="#sec-3-9">3.9 Org</a>
+<ul>
+<li><a href="#sec-3-9-1">3.9.1 <code>Wait!</code> What's with the syntax?</a></li>
+</ul></li>
 </ul>
 </li>
 <li><a href="#sec-4">4 Launch the export</a></li>
+<li><a href="#sec-5">5 And that's it</a></li>
+<li><a href="#sec-6">6 Pros/Cons</a></li>
+<li><a href="#sec-7">7 Source</a></li>
 </ul>
 </div>
 </div>
@@ -133,7 +145,7 @@
 </div>
 
 <div id="outline-container-1-2" class="outline-3">
-<h3 id="sec-1-2"><span class="section-number-3">1.2</span> org-mode</h3>
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> with org-mode</h3>
 <div class="outline-text-3" id="text-1-2">
 
 </div>
@@ -164,14 +176,13 @@
 </div>
 
 <div id="outline-container-3-1" class="outline-3">
-<h3 id="sec-3-1"><span class="section-number-3">3.1</span> Add some particular headers (escaped here)</h3>
+<h3 id="sec-3-1"><span class="section-number-3">3.1</span> Add some particular headers</h3>
 <div class="outline-text-3" id="text-3-1">
 
 
 
 
-<pre class="example">
-\#+TITLE:     your-title
+<pre class="example">\#+TITLE:     your-title
 \#+AUTHOR:    your-name
 \#+EMAIL:     your-email
 \#+DATE:      bootstrap-date
@@ -194,12 +205,18 @@
 
 </pre>
 
+<p>
+They are escaped here (\#) otherwise, it's evaluated by org-mode.
+For real, replace the \# by #. 
+</p>
+
+
 </div>
 
 </div>
 
 <div id="outline-container-3-2" class="outline-3">
-<h3 id="sec-3-2"><span class="section-number-3">3.2</span> Add some todo entry a la org-mode</h3>
+<h3 id="sec-3-2"><span class="section-number-3">3.2</span> Example of org-code and the output</h3>
 <div class="outline-text-3" id="text-3-2">
 
 
@@ -208,11 +225,153 @@
 </div>
 
 <div id="outline-container-3-3" class="outline-3">
-<h3 id="sec-3-3"><span class="section-number-3">3.3</span> Output the example</h3>
+<h3 id="sec-3-3"><span class="section-number-3">3.3</span> There is automatically a front-page</h3>
 <div class="outline-text-3" id="text-3-3">
 
-<p><a href="file:////home/tony/org/org-beamer-examples/example0.pdf">///home/tony/org/org-beamer-examples/example0.pdf</a>
+<p>The informations comes from the previous blocks.
 </p>
+<p>
+<img src="./org-beamer-examples/front-page.png" alt="frame-11 image" title="First frame output example" align="center" width="500" />
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-3-4" class="outline-3">
+<h3 id="sec-3-4"><span class="section-number-3">3.4</span> And a outline page</h3>
+<div class="outline-text-3" id="text-3-4">
+
+
+<p>
+This will come from the content of the other frames below.
+</p>
+<p>
+<img src="./org-beamer-examples/outline.png" alt="frame-11 image" title="First frame output example" align="center" width="500" />
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-3-5" class="outline-3">
+<h3 id="sec-3-5"><span class="section-number-3">3.5</span> Frame 1</h3>
+<div class="outline-text-3" id="text-3-5">
+
+
+
+
+<pre class="example">* Some group of frames
+** frame11
+*** some stuff
+*** to tell
+*** in list elements
+</pre>
+
+
+<p>
+<img src="./org-beamer-examples/frame-11.png" alt="frame-11 image" title="First frame output example" align="center" width="500" />
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-3-6" class="outline-3">
+<h3 id="sec-3-6"><span class="section-number-3">3.6</span> Frame 2</h3>
+<div class="outline-text-3" id="text-3-6">
+
+
+
+
+<pre class="example">** frame12
+*** what do you know!
+*** nice or what?
+</pre>
+
+
+<p>
+<img src="./org-beamer-examples/frame-12.png" alt="frame-11 image" title="First frame output example" align="center" width="500" />
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-3-7" class="outline-3">
+<h3 id="sec-3-7"><span class="section-number-3">3.7</span> A frame about clojure in another group</h3>
+<div class="outline-text-3" id="text-3-7">
+
+
+
+
+<pre class="example">* Awsomeness!
+** Clojure
+*** code clojure
+*** /Midje/, unit testing fwk is pretty awesome!
+</pre>
+
+
+<p>
+<img src="./org-beamer-examples/frame-clojure.png" alt="frame-11 image" title="First frame output example" align="center" width="500" />
+</p></div>
+
+</div>
+
+<div id="outline-container-3-8" class="outline-3">
+<h3 id="sec-3-8"><span class="section-number-3">3.8</span> About emacs</h3>
+<div class="outline-text-3" id="text-3-8">
+
+
+
+
+<pre class="example">** Emacs
+*** It's pretty cool too!
+</pre>
+
+
+<p>
+<img src="./org-beamer-examples/frame-emacs.png" alt="frame-11 image" title="First frame output example" align="center" width="500" />
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-3-9" class="outline-3">
+<h3 id="sec-3-9"><span class="section-number-3">3.9</span> Org</h3>
+<div class="outline-text-3" id="text-3-9">
+
+
+
+
+<pre class="example">** Org-mode with beamer
+*** rocks as we can present                                           :BMCOL:
+:PROPERTIES:
+:BEAMER_col: 0.5
+:END:
+*** in columns
+*** and as always
+:PROPERTIES:
+:BEAMER_col: 0.5
+:END:
+[[./clj-pink.png]]
+*** include images
+</pre>
+
+
+<p>
+<img src="./org-beamer-examples/frame-org.png" alt="frame-11 image" title="First frame output example" align="center" width="500" />
+</p>
+
+</div>
+
+<div id="outline-container-3-9-1" class="outline-4">
+<h4 id="sec-3-9-1"><span class="section-number-4">3.9.1</span> <code>Wait!</code> What's with the syntax?</h4>
+<div class="outline-text-4" id="text-3-9-1">
+
+
+<p>
+It's a binding that does that for us.
+Selection the item that you want in columns then <code>C-c C-b |</code>, this will ask you for the size of the column (ratio
+between 0 and 1). Give, for example, 0.4 then hit enter. Do the same all the other columns.
+</p>
+</div>
 </div>
 </div>
 
@@ -222,23 +381,70 @@
 <h2 id="sec-4"><span class="section-number-2">4</span> Launch the export</h2>
 <div class="outline-text-2" id="text-4">
 
+
+<p>
+C-c C-e will launch a buffer with the options for exporting in the format you want!
+</p>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption></caption>
 <colgroup><col class="left" /><col class="left" />
 </colgroup>
 <tbody>
-<tr><td class="left">C-c C-b d</td><td class="left">compile in latex, then export to pdf and open it.</td></tr>
-<tr><td class="left">C-C C-b V</td><td class="left">the same but with using docbook</td></tr>
+<tr><td class="left">C-c C-e d</td><td class="left">compile in latex, then export to pdf and open it.</td></tr>
 </tbody>
 </table>
 
 
 </div>
+
+</div>
+
+<div id="outline-container-5" class="outline-2">
+<h2 id="sec-5"><span class="section-number-2">5</span> And that's it</h2>
+<div class="outline-text-2" id="text-5">
+
+
+</div>
+
+</div>
+
+<div id="outline-container-6" class="outline-2">
+<h2 id="sec-6"><span class="section-number-2">6</span> Pros/Cons</h2>
+<div class="outline-text-2" id="text-6">
+
+<p>Here's only what i think of, feel free to think otherwise.
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption></caption>
+<colgroup><col class="left" /><col class="left" />
+</colgroup>
+<thead>
+<tr><th scope="col" class="left">Pros</th><th scope="col" class="left">Cons</th></tr>
+</thead>
+<tbody>
+<tr><td class="left">Plain text</td><td class="left">Not editable in browser (as in google docs)</td></tr>
+<tr><td class="left">Versionable (you choose your DVCS)</td><td class="left"></td></tr>
+<tr><td class="left">Share easy</td><td class="left"></td></tr>
+</tbody>
+</table>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-7" class="outline-2">
+<h2 id="sec-7"><span class="section-number-2">7</span> Source</h2>
+<div class="outline-text-2" id="text-7">
+
+<p><a href="https://github.com/ardumont/my-org-files/blob/master/howto-beamer-with-org-mode.org">The example org source code</a>
+<a href="https://github.com/ardumont/my-org-files/blob/master/org-beamer-example/example0.pdf">The example pdf</a>
+</p></div>
 </div>
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2012-04-07 22:45:12 CEST</p>
+<p class="date">Date: 2012-04-08 10:28:40 CEST</p>
 <p class="author">Author: Antoine R. Dumont</p>
 <p class="creator">Org version 7.8.07 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>

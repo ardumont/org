@@ -19,7 +19,7 @@
 
 #+BEAMER_FRAME_LEVEL: 2
 
-* Some group of frames
+* Some basic group of frames
 ** frame11
 *** some stuff
 *** to tell
@@ -27,8 +27,7 @@
 ** frame12
 *** what do you know!
 *** nice or what?
-
-* Awsomeness!
+* Awesomeness!
 ** Clojure
 *** code clojure
 #+BEGIN_SRC clj
