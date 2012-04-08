@@ -5,63 +5,95 @@
 
 This article will show how to install rapidly emacs 24 on a ubuntu 11.10.
 
-But before, one can ask himself...
-
-* Why emacs?
-If you're not interested, skip to the next chapter which will explain the installation process.
-
-I came across it when i was student and used it poorly at the time.
-If i remember correctly, i used it mainly for coding some ocaml projects and some LaTeX reports (i dp not like wysiwyg).
-
-I finally stopped using it.
-I can see clearly now, that i was wrong.
-
-Indeed, i can:
-** Edit lots of files out of the box (sh, java, html, etc...)
-** Edit lisp files (stumpwm config, emacs config file, clojure project file, etc...)
-** Edit files in archives (war, etc...) without unarchiving files.
-** Code for example in clojure (setup required but we'll cover that)
-
-** Commit my changes on the current repositories (with magit)
-** Evaluate directly some computations in it (with elisp)
-** Organise myself (using org-mode)
-** Do some org-mode files and export them as blog articles
-** Do some org-mode files and export them as presentations
-
-** ... and surely, i can do tons more, i just do not know it yet
-
-* How to install it?
-
-- emacs24 (currently in development but still way stable)
-- [[https://github.com/technomancy/emacs-starter-kit][emacs-starter-kit]] to help begin with emacs
-- and some emacs-lisp code that permits to download and install the needed packages for my everyday use.
-emacs.
-
-** Here are the steps 
-The script to change your local setup:
+* What will be installed?
+- emacs 24
+- [[https://github.com/technomancy/emacs-starter-kit][emacs-starter-kit]] that setups emacs in a more appropriate way
+- some init setup
+* How to?
+** Install
+Here are the scripts to download:
 #+begin_src sh
-#+INCLUDE: /home/tony/bin/deploy-emacs24.sh
+wget https://github.com/ardumont/sh/blob/master/deploy-emacs24.sh 
+wget https://github.com/ardumont/sh/blob/master/setup-emacs24.sh
+chmod +x deploy-emacs24.sh && deploy-emacs24.sh
 #+end_src
-This script will:
-*** ask for the right to modify the file =/etc/apt/sources.list=.
-*** update the repositories
-*** install emacs 24
-*** then do some setup (next script).
-
-To launch the installation
-#+begin_src sh
-chmod +x /path/to/deploy-emacs24.sh && /path/to/deploy-emacs24.sh
-#+end_src
-** Script to deploy the emacs setup (call from the previous one)
-#+begin_src sh
-#+INCLUDE: /home/tony/bin/setup-emacs24.sh
-#+end_src
-This script will:
-*** Generate a init.el file in your ~/.emacs.d/ directory.
-This file setup your emacs
-** Now boot emacs
+** Start emacs
 #+begin_src sh
 emacs
 #+end_src
-This will automatically search and install the asked packages.
+This will automatically search and install the asked packages (cf. next chapter for some more details).
+* Some more details
+** deploy-emacs24.sh
+*** Content
+#+INCLUDE: "/home/tony/bin/deploy-emacs24.sh" src sh
 
+*** Details
+**** Setup the script
+#+INCLUDE: "/home/tony/bin/deploy-emacs24.sh" src sh :lines "1-5"
+
+**** Modify =/etc/apt/sources.list= to add a new repository with emacs 24 packaged
+#+INCLUDE: "/home/tony/bin/deploy-emacs24.sh" src sh :lines "6-15"
+
+**** Then update the repositories
+#+INCLUDE: "/home/tony/bin/deploy-emacs24.sh" src sh :lines "16-18"
+
+**** Install emacs 24
+#+INCLUDE: "/home/tony/bin/deploy-emacs24.sh" src sh :lines "19-23"
+
+**** Check that the version is ok
+#+INCLUDE: "/home/tony/bin/deploy-emacs24.sh" src sh :lines "24-25"
+
+**** Then generate some setup file for emacs (cf. next script detail)
+#+INCLUDE: "/home/tony/bin/deploy-emacs24.sh" src sh :lines "28-29"
+
+** setup-emacs24.sh
+This script is dedicated to the generation of the =~/init.el= which is one of the setup file loaded by emacs at startup
+time.
+*** Content:
+
+#+INCLUDE: "/home/tony/bin/setup-emacs24.sh" src sh 
+
+*** Details
+**** Setup the script
+#+INCLUDE: "/home/tony/bin/setup-emacs24.sh" src sh :lines "1-10"
+
+**** Generate the file ~/init.el
+#+INCLUDE: "/home/tony/bin/setup-emacs24.sh" src sh :lines "11-12"
+
+**** Setup the emacs package repositories
+#+INCLUDE: "/home/tony/bin/setup-emacs24.sh" src emacs-lisp :lines "12-24"
+
+**** emacs packages:
+- [[https://github.com/technomancy/emacs-starter-kit][starter-kit*]]: a emacs set of default setup 
+- [[https://github.com/technomancy/clojure-mode][clojure-mode]]: Provides Emacs font-lock, indentation, and navigation for the Clojure language.
+- [[https://github.com/dnaumov/midje-mode][midje-mode]]: Midje-mode is an Emacs minor mode for Midje - test framework for Clojure
+- [[http://emacswiki.org/emacs/MultiTerm][multi-term]]: MultiTerm is an improve term.el mode, for managing multiple terminal buffers in Emacs.
+- [[http://common-lisp.net/project/slime/][slime]]: The Superior Lisp Interaction Mode for Emacs
+- [[http://orgmode.org/][org]]: an Emacs Mode for Notes, Planning, and Authoring
+- [[http://users.skynet.be/ppareit/projects/graphviz-dot-mode/graphviz-dot-mode.html][graphviz-dot-mode]]: An emacs mode for the dot language
+- etc...
+#+INCLUDE: "/home/tony/bin/setup-emacs24.sh" src emacs-lisp :lines "25-29"
+
+**** Install the packages at emacs boot time if the packages are not present (so only once)
+#+INCLUDE: "/home/tony/bin/setup-emacs24.sh" src emacs-lisp :lines "30-32"
+
+**** Some global setup
+- linum-mode -> number on the side automatically triggered for any file
+- justification with a line at 120 characters
+#+INCLUDE: "/home/tony/bin/setup-emacs24.sh" src emacs-lisp :lines "34-46"
+
+**** Add some setup for the clojure-mode
+- Add the clojure-mode for any file ending with the right clojure (clj) or clojurescript (cljs) extension.
+- Add the midje and paredit modes when a clojure-mode is triggered.
+- Add some color on the slime-repl for clojure-mode
+#+INCLUDE: "/home/tony/bin/setup-emacs24.sh" src emacs-lisp :lines "55-79"
+
+**** Some basic setup for org-mode
+#+INCLUDE: "/home/tony/bin/setup-emacs24.sh" src emacs-lisp :lines "80-120"
+
+**** Add a mode that permits to see the line numbered on the emacs left side
+#+INCLUDE: "/home/tony/bin/setup-emacs24.sh" src emacs-lisp :lines "121-"
+
+* Sources:
+** [[https://github.com/ardumont/sh/blob/master/setup-emacs24.sh][setup-emacs24.sh]]
+** [[https://github.com/ardumont/sh/blob/master/deploy-emacs24.sh][deploy-emacs24.sh]]
