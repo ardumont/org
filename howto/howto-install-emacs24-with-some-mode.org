@@ -93,7 +93,7 @@ time.
 #+INCLUDE: "/home/tony/bin/setup-emacs24.sh" src emacs-lisp:lines "80-120"
 
 **** Add a mode that permits to see the line numbered on the emacs left side
-#+INCLUDE: "/home/tony/bin/setup-emacs24.sh" src emacs-lisp :lines "121-" -n
+#+INCLUDE: "/home/tony/bin/setup-emacs24.sh" src emacs-lisp :lines "121-"
 
 * Sources:
 ** [[https://github.com/ardumont/sh/blob/master/setup-emacs24.sh][setup-emacs24.sh]]
