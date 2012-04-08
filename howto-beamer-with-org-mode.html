@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
 <meta name="title" content="Howto beamer with org-mode"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2012-04-08 10:28:40 CEST"/>
+<meta name="generated" content="2012-04-08 18:44:05 CEST"/>
 <meta name="author" content="Antoine R. Dumont"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -304,10 +304,15 @@ This will come from the content of the other frames below.
 <pre class="example">* Awsomeness!
 ** Clojure
 *** code clojure
+\#+BEGIN_SRC clj
+(fact (+ 1 1) =&gt; 2)
+\#+END_SRC
 *** /Midje/, unit testing fwk is pretty awesome!
 </pre>
 
-
+<p>
+As we can see here, we can embedded some block of code from any language as org-mode usually permits.
+</p>
 <p>
 <img src="./org-beamer-examples/frame-clojure.png" alt="frame-11 image" title="First frame output example" align="center" width="500" />
 </p></div>
@@ -422,9 +427,11 @@ C-c C-e will launch a buffer with the options for exporting in the format you wa
 <tr><th scope="col" class="left">Pros</th><th scope="col" class="left">Cons</th></tr>
 </thead>
 <tbody>
-<tr><td class="left">Plain text</td><td class="left">Not editable in browser (as in google docs)</td></tr>
+<tr><td class="left">Simple</td><td class="left">Not editable in browser (as in google docs)</td></tr>
+<tr><td class="left">Portability - Plain text</td><td class="left"></td></tr>
 <tr><td class="left">Versionable (you choose your DVCS)</td><td class="left"></td></tr>
 <tr><td class="left">Share easy</td><td class="left"></td></tr>
+<tr><td class="left">Free as in free beer!</td><td class="left"></td></tr>
 </tbody>
 </table>
 
@@ -437,14 +444,17 @@ C-c C-e will launch a buffer with the options for exporting in the format you wa
 <h2 id="sec-7"><span class="section-number-2">7</span> Source</h2>
 <div class="outline-text-2" id="text-7">
 
-<p><a href="https://github.com/ardumont/my-org-files/blob/master/howto-beamer-with-org-mode.org">The example org source code</a>
+
+<p>
+<a href="https://github.com/ardumont/my-org-files/blob/master/howto-beamer-with-org-mode.org">The example org source code</a>
 <a href="https://github.com/ardumont/my-org-files/blob/master/org-beamer-example/example0.pdf">The example pdf</a>
+<a href="http://orgmode.org/worg/org-tutorials/org-beamer/tutorial.html">Writing Beamer presentations in org-mode</a> 
 </p></div>
 </div>
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2012-04-08 10:28:40 CEST</p>
+<p class="date">Date: 2012-04-08 18:44:05 CEST</p>
 <p class="author">Author: Antoine R. Dumont</p>
 <p class="creator">Org version 7.8.07 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>

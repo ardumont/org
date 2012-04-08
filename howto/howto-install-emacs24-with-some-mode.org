@@ -5,10 +5,11 @@
 
 This article will show how to install rapidly emacs 24 on a ubuntu 11.10.
 
+* Pre-requisites:
+** ubuntu 11.10
+** internet access
 * What will be installed?
-- emacs 24
-- [[https://github.com/technomancy/emacs-starter-kit][emacs-starter-kit]] that setups emacs in a more appropriate way
-- some init setup
+[[http://www.gnu.org/software/emacs/][emacs]] 24 with [[https://github.com/technomancy/emacs-starter-kit][emacs-starter-kit]] and some interesting modes
 * How to?
 ** Install
 Here are the scripts to download:
@@ -89,10 +90,10 @@ time.
 #+INCLUDE: "/home/tony/bin/setup-emacs24.sh" src emacs-lisp :lines "55-79"
 
 **** Some basic setup for org-mode
-#+INCLUDE: "/home/tony/bin/setup-emacs24.sh" src emacs-lisp :lines "80-120"
+#+INCLUDE: "/home/tony/bin/setup-emacs24.sh" src emacs-lisp:lines "80-120"
 
 **** Add a mode that permits to see the line numbered on the emacs left side
-#+INCLUDE: "/home/tony/bin/setup-emacs24.sh" src emacs-lisp :lines "121-"
+#+INCLUDE: "/home/tony/bin/setup-emacs24.sh" src emacs-lisp :lines "121-" -n
 
 * Sources:
 ** [[https://github.com/ardumont/sh/blob/master/setup-emacs24.sh][setup-emacs24.sh]]

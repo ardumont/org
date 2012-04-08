@@ -1,13 +1,13 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="iso-8859-1"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
                "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>How to install emacs 24</title>
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
 <meta name="title" content="How to install emacs 24"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2012-04-08 18:09:18 CEST"/>
+<meta name="generated" content="2012-04-08 18:46:32 CEST"/>
 <meta name="author" content="Antoine R. Dumont"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -100,32 +100,53 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">1 What will be installed?</a></li>
-<li><a href="#sec-2">2 How to?</a>
+<li><a href="#sec-1">1 Pre-requisites:</a>
 <ul>
-<li><a href="#sec-2-1">2.1 Install</a></li>
-<li><a href="#sec-2-2">2.2 Start emacs</a></li>
+<li><a href="#sec-1-1">1.1 ubuntu 11.10</a></li>
+<li><a href="#sec-1-2">1.2 internet access</a></li>
 </ul>
 </li>
-<li><a href="#sec-3">3 Some more details</a>
+<li><a href="#sec-2">2 What will be installed?</a></li>
+<li><a href="#sec-3">3 How to?</a>
 <ul>
-<li><a href="#sec-3-1">3.1 deploy-emacs24.sh</a>
-<ul>
-<li><a href="#sec-3-1-1">3.1.1 Content</a></li>
-<li><a href="#sec-3-1-2">3.1.2 Details</a></li>
+<li><a href="#sec-3-1">3.1 Install</a></li>
+<li><a href="#sec-3-2">3.2 Start emacs</a></li>
 </ul>
 </li>
-<li><a href="#sec-3-2">3.2 setup-emacs24.sh</a>
+<li><a href="#sec-4">4 Some more details</a>
 <ul>
-<li><a href="#sec-3-2-1">3.2.1 Content:</a></li>
-<li><a href="#sec-3-2-2">3.2.2 Details</a></li>
+<li><a href="#sec-4-1">4.1 deploy-emacs24.sh</a></li>
+<li><a href="#sec-4-2">4.2 Content</a></li>
+<li><a href="#sec-4-3">4.3 Details</a>
+<ul>
+<li><a href="#sec-4-3-1">4.3.1 Setup the script</a></li>
+<li><a href="#sec-4-3-2">4.3.2 Modify <code>/etc/apt/sources.list</code> to add a new repository with emacs 24 packaged</a></li>
+<li><a href="#sec-4-3-3">4.3.3 Then update the repositories</a></li>
+<li><a href="#sec-4-3-4">4.3.4 Install emacs 24</a></li>
+<li><a href="#sec-4-3-5">4.3.5 Check that the version is ok</a></li>
+<li><a href="#sec-4-3-6">4.3.6 Then generate some setup file for emacs (cf. next script detail)</a></li>
+</ul>
+</li>
+<li><a href="#sec-4-4">4.4 setup-emacs24.sh</a></li>
+<li><a href="#sec-4-5">4.5 Content:</a></li>
+<li><a href="#sec-4-6">4.6 Details</a>
+<ul>
+<li><a href="#sec-4-6-1">4.6.1 Setup the script</a></li>
+<li><a href="#sec-4-6-2">4.6.2 Generate the file ~/init.el</a></li>
+<li><a href="#sec-4-6-3">4.6.3 Setup the emacs package repositories</a></li>
+<li><a href="#sec-4-6-4">4.6.4 emacs packages:</a></li>
+<li><a href="#sec-4-6-5">4.6.5 Install the packages at emacs boot time if the packages are not present (so only once)</a></li>
+<li><a href="#sec-4-6-6">4.6.6 Some global setup</a></li>
+<li><a href="#sec-4-6-7">4.6.7 Add some setup for the clojure-mode</a></li>
+<li><a href="#sec-4-6-8">4.6.8 Some basic setup for org-mode</a></li>
+<li><a href="#sec-4-6-9">4.6.9 Add a mode that permits to see the line numbered on the emacs left side</a></li>
 </ul></li>
 </ul>
 </li>
-<li><a href="#sec-4">4 Sources:</a>
+<li><a href="#sec-5">5 Sources:</a>
 <ul>
-<li><a href="#sec-4-1">4.1 setup-emacs24.sh</a></li>
-<li><a href="#sec-4-2">4.2 deploy-emacs24.sh</a></li>
+<li><a href="#sec-5-1">5.1 setup-emacs24.sh</a></li>
+<li><a href="#sec-5-2">5.2 deploy-emacs24.sh</a></li>
 </ul>
 </li>
 </ul>
@@ -133,32 +154,48 @@
 </div>
 
 <div id="outline-container-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> What will be installed?</h2>
+<h2 id="sec-1"><span class="section-number-2">1</span> Pre-requisites:</h2>
 <div class="outline-text-2" id="text-1">
 
-<ul>
-<li>emacs 24
-</li>
-<li><a href="https://github.com/technomancy/emacs-starter-kit">emacs-starter-kit</a> that setups emacs in a more appropriate way
-</li>
-<li>some init setup
-</li>
-</ul>
 
+</div>
+
+<div id="outline-container-1-1" class="outline-3">
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> ubuntu 11.10</h3>
+<div class="outline-text-3" id="text-1-1">
+
+</div>
+
+</div>
+
+<div id="outline-container-1-2" class="outline-3">
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> internet access</h3>
+<div class="outline-text-3" id="text-1-2">
+
+</div>
 </div>
 
 </div>
 
 <div id="outline-container-2" class="outline-2">
-<h2 id="sec-2"><span class="section-number-2">2</span> How to?</h2>
+<h2 id="sec-2"><span class="section-number-2">2</span> What will be installed?</h2>
 <div class="outline-text-2" id="text-2">
+
+<p><a href="http://www.gnu.org/software/emacs/">emacs</a> 24 with <a href="https://github.com/technomancy/emacs-starter-kit">emacs-starter-kit</a> and some interesting modes
+</p></div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> How to?</h2>
+<div class="outline-text-2" id="text-3">
 
 
 </div>
 
-<div id="outline-container-2-1" class="outline-3">
-<h3 id="sec-2-1"><span class="section-number-3">2.1</span> Install</h3>
-<div class="outline-text-3" id="text-2-1">
+<div id="outline-container-3-1" class="outline-3">
+<h3 id="sec-3-1"><span class="section-number-3">3.1</span> Install</h3>
+<div class="outline-text-3" id="text-3-1">
 
 <p>Here are the scripts to download:
 </p>
@@ -173,9 +210,9 @@ chmod +x deploy-emacs24.sh &amp;&amp; deploy-emacs24.sh
 
 </div>
 
-<div id="outline-container-2-2" class="outline-3">
-<h3 id="sec-2-2"><span class="section-number-3">2.2</span> Start emacs</h3>
-<div class="outline-text-3" id="text-2-2">
+<div id="outline-container-3-2" class="outline-3">
+<h3 id="sec-3-2"><span class="section-number-3">3.2</span> Start emacs</h3>
+<div class="outline-text-3" id="text-3-2">
 
 
 
@@ -190,28 +227,29 @@ This will automatically search and install the asked packages (cf. next chapter 
 
 </div>
 
-<div id="outline-container-3" class="outline-2">
-<h2 id="sec-3"><span class="section-number-2">3</span> Some more details</h2>
-<div class="outline-text-2" id="text-3">
+<div id="outline-container-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> Some more details</h2>
+<div class="outline-text-2" id="text-4">
 
 
 </div>
 
-<div id="outline-container-3-1" class="outline-3">
-<h3 id="sec-3-1"><span class="section-number-3">3.1</span> deploy-emacs24.sh</h3>
-<div class="outline-text-3" id="text-3-1">
-
+<div id="outline-container-4-1" class="outline-3">
+<h3 id="sec-4-1"><span class="section-number-3">4.1</span> deploy-emacs24.sh</h3>
+<div class="outline-text-3" id="text-4-1">
 
 </div>
 
-<div id="outline-container-3-1-1" class="outline-4">
-<h4 id="sec-3-1-1"><span class="section-number-4">3.1.1</span> Content</h4>
-<div class="outline-text-4" id="text-3-1-1">
+</div>
+
+<div id="outline-container-4-2" class="outline-3">
+<h3 id="sec-4-2"><span class="section-number-3">4.2</span> Content</h3>
+<div class="outline-text-3" id="text-4-2">
 
 
 
 
-<pre class="example">#!/bin/bash -xe
+<pre class="example">#!/bin/bash -x
 
 WDIR=$(dirname $(readlink -f $0))
 source /etc/lsb-release
@@ -246,26 +284,35 @@ $WDIR/setup-emacs24.sh
 
 </div>
 
-<div id="outline-container-3-1-2" class="outline-4">
-<h4 id="sec-3-1-2"><span class="section-number-4">3.1.2</span> Details</h4>
-<div class="outline-text-4" id="text-3-1-2">
-
-<ul>
-<li id="sec-3-3-1">Setup the script<br/>
+<div id="outline-container-4-3" class="outline-3">
+<h3 id="sec-4-3"><span class="section-number-3">4.3</span> Details</h3>
+<div class="outline-text-3" id="text-4-3">
 
 
+</div>
 
-<pre class="example">#!/bin/bash -xe
+<div id="outline-container-4-3-1" class="outline-4">
+<h4 id="sec-4-3-1"><span class="section-number-4">4.3.1</span> Setup the script</h4>
+<div class="outline-text-4" id="text-4-3-1">
+
+
+
+
+<pre class="example">#!/bin/bash -x
 
 WDIR=$(dirname $(readlink -f $0))
 source /etc/lsb-release
 </pre>
 
 
-</li>
-</ul>
-<ul>
-<li id="sec-3-3-2">Modify <code>/etc/apt/sources.list</code> to add a new repository with emacs 24 packaged<br/>
+</div>
+
+</div>
+
+<div id="outline-container-4-3-2" class="outline-4">
+<h4 id="sec-4-3-2"><span class="section-number-4">4.3.2</span> Modify <code>/etc/apt/sources.list</code> to add a new repository with emacs 24 packaged</h4>
+<div class="outline-text-4" id="text-4-3-2">
+
 
 
 
@@ -281,10 +328,14 @@ EOF
 </pre>
 
 
-</li>
-</ul>
-<ul>
-<li id="sec-3-3-3">Then update the repositories<br/>
+</div>
+
+</div>
+
+<div id="outline-container-4-3-3" class="outline-4">
+<h4 id="sec-4-3-3"><span class="section-number-4">4.3.3</span> Then update the repositories</h4>
+<div class="outline-text-4" id="text-4-3-3">
+
 
 
 
@@ -293,10 +344,14 @@ sudo aptitude update
 </pre>
 
 
-</li>
-</ul>
-<ul>
-<li id="sec-3-3-4">Install emacs 24<br/>
+</div>
+
+</div>
+
+<div id="outline-container-4-3-4" class="outline-4">
+<h4 id="sec-4-3-4"><span class="section-number-4">4.3.4</span> Install emacs 24</h4>
+<div class="outline-text-4" id="text-4-3-4">
+
 
 
 
@@ -307,10 +362,14 @@ sudo aptitude install -y emacs-snapshot
 </pre>
 
 
-</li>
-</ul>
-<ul>
-<li id="sec-3-3-5">Check that the version is ok<br/>
+</div>
+
+</div>
+
+<div id="outline-container-4-3-5" class="outline-4">
+<h4 id="sec-4-3-5"><span class="section-number-4">4.3.5</span> Check that the version is ok</h4>
+<div class="outline-text-4" id="text-4-3-5">
+
 
 
 
@@ -318,10 +377,14 @@ sudo aptitude install -y emacs-snapshot
 </pre>
 
 
-</li>
-</ul>
-<ul>
-<li id="sec-3-3-6">Then generate some setup file for emacs (cf. next script detail)<br/>
+</div>
+
+</div>
+
+<div id="outline-container-4-3-6" class="outline-4">
+<h4 id="sec-4-3-6"><span class="section-number-4">4.3.6</span> Then generate some setup file for emacs (cf. next script detail)</h4>
+<div class="outline-text-4" id="text-4-3-6">
+
 
 
 
@@ -329,25 +392,24 @@ sudo aptitude install -y emacs-snapshot
 </pre>
 
 
-</li>
-</ul>
 </div>
 </div>
 
 </div>
 
-<div id="outline-container-3-2" class="outline-3">
-<h3 id="sec-3-2"><span class="section-number-3">3.2</span> setup-emacs24.sh</h3>
-<div class="outline-text-3" id="text-3-2">
+<div id="outline-container-4-4" class="outline-3">
+<h3 id="sec-4-4"><span class="section-number-3">4.4</span> setup-emacs24.sh</h3>
+<div class="outline-text-3" id="text-4-4">
 
 <p>This script is dedicated to the generation of the <code>~/init.el</code> which is one of the setup file loaded by emacs at startup
 time.
-</p>
+</p></div>
+
 </div>
 
-<div id="outline-container-3-2-1" class="outline-4">
-<h4 id="sec-3-2-1"><span class="section-number-4">3.2.1</span> Content:</h4>
-<div class="outline-text-4" id="text-3-2-1">
+<div id="outline-container-4-5" class="outline-3">
+<h3 id="sec-4-5"><span class="section-number-3">4.5</span> Content:</h3>
+<div class="outline-text-3" id="text-4-5">
 
 
 
@@ -482,12 +544,17 @@ wget http://web.student.tuwien.ac.at/~e0225855/linum/linum.el --output-document 
 
 </div>
 
-<div id="outline-container-3-2-2" class="outline-4">
-<h4 id="sec-3-2-2"><span class="section-number-4">3.2.2</span> Details</h4>
-<div class="outline-text-4" id="text-3-2-2">
+<div id="outline-container-4-6" class="outline-3">
+<h3 id="sec-4-6"><span class="section-number-3">4.6</span> Details</h3>
+<div class="outline-text-3" id="text-4-6">
 
-<ul>
-<li id="sec-3-6-1">Setup the script<br/>
+
+</div>
+
+<div id="outline-container-4-6-1" class="outline-4">
+<h4 id="sec-4-6-1"><span class="section-number-4">4.6.1</span> Setup the script</h4>
+<div class="outline-text-4" id="text-4-6-1">
+
 
 
 
@@ -503,10 +570,14 @@ mkdir -p $EM_DIR
 </pre>
 
 
-</li>
-</ul>
-<ul>
-<li id="sec-3-6-2">Generate the file ~/init.el<br/>
+</div>
+
+</div>
+
+<div id="outline-container-4-6-2" class="outline-4">
+<h4 id="sec-4-6-2"><span class="section-number-4">4.6.2</span> Generate the file ~/init.el</h4>
+<div class="outline-text-4" id="text-4-6-2">
+
 
 
 
@@ -514,10 +585,14 @@ mkdir -p $EM_DIR
 </pre>
 
 
-</li>
-</ul>
-<ul>
-<li id="sec-3-6-3">Setup the emacs package repositories<br/>
+</div>
+
+</div>
+
+<div id="outline-container-4-6-3" class="outline-4">
+<h4 id="sec-4-6-3"><span class="section-number-4">4.6.3</span> Setup the emacs package repositories</h4>
+<div class="outline-text-4" id="text-4-6-3">
+
 
 
 
@@ -536,10 +611,14 @@ mkdir -p $EM_DIR
 </pre>
 
 
-</li>
-</ul>
-<ul>
-<li id="sec-3-6-4">emacs packages:<br/>
+</div>
+
+</div>
+
+<div id="outline-container-4-6-4" class="outline-4">
+<h4 id="sec-4-6-4"><span class="section-number-4">4.6.4</span> emacs packages:</h4>
+<div class="outline-text-4" id="text-4-6-4">
+
 <ul>
 <li><a href="https://github.com/technomancy/emacs-starter-kit">starter-kit*</a>: a emacs set of default setup 
 </li>
@@ -569,10 +648,14 @@ mkdir -p $EM_DIR
 </pre>
 
 
-</li>
-</ul>
-<ul>
-<li id="sec-3-6-5">Install the packages at emacs boot time if the packages are not present (so only once)<br/>
+</div>
+
+</div>
+
+<div id="outline-container-4-6-5" class="outline-4">
+<h4 id="sec-4-6-5"><span class="section-number-4">4.6.5</span> Install the packages at emacs boot time if the packages are not present (so only once)</h4>
+<div class="outline-text-4" id="text-4-6-5">
+
 
 
 
@@ -581,10 +664,14 @@ mkdir -p $EM_DIR
 </pre>
 
 
-</li>
-</ul>
-<ul>
-<li id="sec-3-6-6">Some global setup<br/>
+</div>
+
+</div>
+
+<div id="outline-container-4-6-6" class="outline-4">
+<h4 id="sec-4-6-6"><span class="section-number-4">4.6.6</span> Some global setup</h4>
+<div class="outline-text-4" id="text-4-6-6">
+
 <ul>
 <li>linum-mode -&gt; number on the side automatically triggered for any file
 </li>
@@ -610,10 +697,14 @@ mkdir -p $EM_DIR
 </pre>
 
 
-</li>
-</ul>
-<ul>
-<li id="sec-3-6-7">Add some setup for the clojure-mode<br/>
+</div>
+
+</div>
+
+<div id="outline-container-4-6-7" class="outline-4">
+<h4 id="sec-4-6-7"><span class="section-number-4">4.6.7</span> Add some setup for the clojure-mode</h4>
+<div class="outline-text-4" id="text-4-6-7">
+
 <ul>
 <li>Add the clojure-mode for any file ending with the right clojure (clj) or clojurescript (cljs) extension.
 </li>
@@ -653,14 +744,97 @@ mkdir -p $EM_DIR
 </pre>
 
 
-</li>
-</ul>
-<ul>
-<li id="sec-3-6-8">Some basic setup for org-mode<br/>
+</div>
+
+</div>
+
+<div id="outline-container-4-6-8" class="outline-4">
+<h4 id="sec-4-6-8"><span class="section-number-4">4.6.8</span> Some basic setup for org-mode</h4>
+<div class="outline-text-4" id="text-4-6-8">
 
 
 
-<pre class="example">;; =============================================================================
+
+<pre class="example">#!/bin/bash
+
+##################### Setup emacs
+
+EM_DIR=$HOME/.emacs.d
+
+# Delete the old directory
+[ -d $EM_DIR ] &amp;&amp; rm -rf $EM_DIR/*
+mkdir -p $EM_DIR
+
+tee "$EM_DIR"/init.el &lt;&lt;EOF
+;; =============================================================================
+;; Install needed packages if not present
+;; =============================================================================
+
+; some tricks from the emacs-starter-kit v2
+(require 'package)
+(add-to-list 'package-archives
+             '("marmalade" . "http://marmalade-repo.org/packages/") t)
+(package-initialize)
+
+(when (not package-archive-contents)
+  (package-refresh-contents))
+
+;; starter-kit-eshell starter-kit-js starter-kit-ruby)
+;; Add in your own as you wish:
+(defvar my-packages '(starter-kit starter-kit-bindings clojure-mode midje-mode multi-term switch-window slime ediff org flymake-shell graphviz-dot-mode)
+  "A list of packages to ensure are installed at launch.")
+
+(dolist (p my-packages)
+  (when (not (package-installed-p p))
+    (package-install p)))
+
+;; =============================================================================
+;; Display line number in the left margin
+;; =============================================================================
+
+;; put binding for line-mode in t
+(global-set-key (kbd "C-c C-j") 'term-line-mode)
+
+;; linum mode activated by default
+(global-linum-mode 1)
+
+;; justification
+(setq-default fill-column 120)
+
+;; =============================================================================
+;; Autocomplete setup
+;; =============================================================================
+
+'(add-to-list 'ac-dictionary-directories "~/.emacs.d/elpa/auto-complete-1.4.20110207/dict")
+'(require 'auto-complete-config)
+'(ac-config-default)
+
+;; =============================================================================
+;; Clojure config
+;; =============================================================================
+
+(require 'clojure-mode)
+(add-to-list 'auto-mode-alist '("\\.clj$" . clojure-mode))
+(require 'midje-mode)
+(add-hook 'clojure-mode-hook 'midje-mode)
+(add-hook 'clojure-mode-hook (lambda () (paredit-mode +1)))
+
+; add color into the repl via clojure-jack-in
+(add-hook 'slime-repl-mode-hook
+         (defun clojure-mode-slime-font-lock ()
+           (let (font-lock-mode)
+             (clojure-mode-font-lock-setup))))
+
+;; paredit mode in the repl
+(add-hook 'slime-repl-mode-hook (lambda () (paredit-mode +1)))
+
+;; =============================================================================
+;; Clojurescript config
+;; =============================================================================
+
+(add-to-list 'auto-mode-alist '("\.cljs$" . clojure-mode))
+
+;; =============================================================================
 ;; Org config
 ;; =============================================================================
 
@@ -700,47 +874,52 @@ mkdir -p $EM_DIR
                       ("linux")))
 
 EOF
-</pre>
 
-
-</li>
-</ul>
-<ul>
-<li id="sec-3-6-9">Add a mode that permits to see the line numbered on the emacs left side<br/>
-
-
-
-<pre class="example"># Install linum.el file (have the lines numbered on the side)
+# Install linum.el file (have the lines numbered on the side)
 wget http://web.student.tuwien.ac.at/~e0225855/linum/linum.el --output-document $EM_DIR/linum.el
 </pre>
 
 
-</li>
-</ul>
+</div>
+
+</div>
+
+<div id="outline-container-4-6-9" class="outline-4">
+<h4 id="sec-4-6-9"><span class="section-number-4">4.6.9</span> Add a mode that permits to see the line numbered on the emacs left side</h4>
+<div class="outline-text-4" id="text-4-6-9">
+
+
+
+
+<pre class="example"><span class="linenr">1:  </span># Install linum.el file (have the lines numbered on the side)
+<span class="linenr">2:  </span>wget http://web.student.tuwien.ac.at/~e0225855/linum/linum.el --output-document $EM_DIR/linum.el
+</pre>
+
+
 </div>
 </div>
 </div>
 
 </div>
 
-<div id="outline-container-4" class="outline-2">
-<h2 id="sec-4"><span class="section-number-2">4</span> Sources:</h2>
-<div class="outline-text-2" id="text-4">
+<div id="outline-container-5" class="outline-2">
+<h2 id="sec-5"><span class="section-number-2">5</span> Sources:</h2>
+<div class="outline-text-2" id="text-5">
 
 
 </div>
 
-<div id="outline-container-4-1" class="outline-3">
-<h3 id="sec-4-1"><span class="section-number-3">4.1</span> <a href="https://github.com/ardumont/sh/blob/master/setup-emacs24.sh">setup-emacs24.sh</a></h3>
-<div class="outline-text-3" id="text-4-1">
+<div id="outline-container-5-1" class="outline-3">
+<h3 id="sec-5-1"><span class="section-number-3">5.1</span> <a href="https://github.com/ardumont/sh/blob/master/setup-emacs24.sh">setup-emacs24.sh</a></h3>
+<div class="outline-text-3" id="text-5-1">
 
 </div>
 
 </div>
 
-<div id="outline-container-4-2" class="outline-3">
-<h3 id="sec-4-2"><span class="section-number-3">4.2</span> <a href="https://github.com/ardumont/sh/blob/master/deploy-emacs24.sh">deploy-emacs24.sh</a></h3>
-<div class="outline-text-3" id="text-4-2">
+<div id="outline-container-5-2" class="outline-3">
+<h3 id="sec-5-2"><span class="section-number-3">5.2</span> <a href="https://github.com/ardumont/sh/blob/master/deploy-emacs24.sh">deploy-emacs24.sh</a></h3>
+<div class="outline-text-3" id="text-5-2">
 
 </div>
 </div>
@@ -748,7 +927,7 @@ wget http://web.student.tuwien.ac.at/~e0225855/linum/linum.el --output-document 
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2012-04-08 18:09:18 CEST</p>
+<p class="date">Date: 2012-04-08 18:46:32 CEST</p>
 <p class="author">Author: Antoine R. Dumont</p>
 <p class="creator">Org version 7.8.07 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>

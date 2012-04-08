@@ -83,8 +83,12 @@ This will come from the content of the other frames below.
 * Awsomeness!
 ** Clojure
 *** code clojure
+\#+BEGIN_SRC clj
+(fact (+ 1 1) => 2)
+\#+END_SRC
 *** /Midje/, unit testing fwk is pretty awesome!
 #+end_src
+As we can see here, we can embedded some block of code from any language as org-mode usually permits.
 
 #+ATTR_HTML: alt="frame-11 image" title="First frame output example" align="center" width="500" 
 [[./org-beamer-examples/frame-clojure.png]]
@@ -138,11 +142,15 @@ Here's only what i think of, feel free to think otherwise.
 |------------------------------------+---------------------------------------------|
 | Pros                               | Cons                                        |
 |------------------------------------+---------------------------------------------|
-| Plain text                         | Not editable in browser (as in google docs) |
+| Simple                             | Not editable in browser (as in google docs) |
+| Portability - Plain text           |                                             |
 | Versionable (you choose your DVCS) |                                             |
 | Share easy                         |                                             |
+| Free as in free beer!              |                                             |
 |------------------------------------+---------------------------------------------|
 
 * Source
+
 [[https://github.com/ardumont/my-org-files/blob/master/howto-beamer-with-org-mode.org][The example org source code]]
 [[https://github.com/ardumont/my-org-files/blob/master/org-beamer-example/example0.pdf][The example pdf]]
+[[http://orgmode.org/worg/org-tutorials/org-beamer/tutorial.html][Writing Beamer presentations in org-mode]] 
