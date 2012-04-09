@@ -24,18 +24,19 @@
 - open source integration software
 ** Why?
 + soft need to communicate
-- but do not need to be be aware
+- but do not need to be be aware of that
 ** How?
 *** Modularity
-*** there is a component for that
+*** 'there is a component for that' 
 ** Vocabulary
 *** Message
 What transits between endpoints.
-*** endpoints
+*** Endpoints
 Determines the origin or the destination of an exchange message
-*** routes
+*** Routes
 A message transits from one endpoint to one or more endpoints.
-*** components
+*** Components
+**** file
 **** split
 **** translator
 **** aggregator
