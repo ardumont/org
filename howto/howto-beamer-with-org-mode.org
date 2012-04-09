@@ -47,14 +47,14 @@ For real, replace the \# by #.
 The informations comes from the previous blocks.
 
 #+ATTR_HTML: alt="frame-11 image" title="First frame output example" align="center" width="500" 
-[[./org-beamer-examples/front-page.png]]
+[../org-beamer-examples/front-page.png]]
 
 *** And a outline page
 
 This will come from the content of the other frames below.
 
 #+ATTR_HTML: alt="frame-11 image" title="First frame output example" align="center" width="500" 
-[[./org-beamer-examples/outline.png]]
+[[../org-beamer-examples/outline.png]]
 
 *** Frame 1
 #+begin_src txt
@@ -66,7 +66,7 @@ This will come from the content of the other frames below.
 #+end_src
 
 #+ATTR_HTML: alt="frame-11 image" title="First frame output example" align="center" width="500" 
-[[./org-beamer-examples/frame-11.png]]
+[[../org-beamer-examples/frame-11.png]]
 
 *** Frame 2
 #+begin_src txt
@@ -76,7 +76,7 @@ This will come from the content of the other frames below.
 #+end_src
 
 #+ATTR_HTML: alt="frame-11 image" title="First frame output example" align="center" width="500" 
-[[./org-beamer-examples/frame-12.png]]
+[[../org-beamer-examples/frame-12.png]]
 
 *** A frame about clojure in another group
 #+begin_src txt
@@ -91,7 +91,7 @@ This will come from the content of the other frames below.
 As we can see here, we can embedded some block of code from any language as org-mode usually permits.
 
 #+ATTR_HTML: alt="frame-11 image" title="First frame output example" align="center" width="500" 
-[[./org-beamer-examples/frame-clojure.png]]
+[[../org-beamer-examples/frame-clojure.png]]
 *** About emacs
 #+begin_src txt
 ** Emacs
@@ -99,7 +99,7 @@ As we can see here, we can embedded some block of code from any language as org-
 #+end_src
 
 #+ATTR_HTML: alt="frame-11 image" title="First frame output example" align="center" width="500" 
-[[./org-beamer-examples/frame-emacs.png]]
+[[../org-beamer-examples/frame-emacs.png]]
 
 *** Org
 #+begin_src txt
@@ -118,7 +118,7 @@ As we can see here, we can embedded some block of code from any language as org-
 #+end_src
 
 #+ATTR_HTML: alt="frame-11 image" title="First frame output example" align="center" width="500" 
-[[./org-beamer-examples/frame-org.png]]
+[[../org-beamer-examples/frame-org.png]]
 
 ***** =Wait!= What's with the syntax?
 
