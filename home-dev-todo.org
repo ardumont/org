@@ -70,17 +70,16 @@ Add this to the init.el
 This basically tells, when org-mode launches, deactivate the linum-mode (which on my setup is globally activated)
 
 ** TODO Read emacs manual
-
 * TODO blog [0%]
-** TODO migrate tonys-blog with static and nakkaya
+** TODO migrate tonys-blog with static and nakkaya [25%]
 *** DONE static [100%]
-CLOSED: [2012-04-21 Sat 11:56]
+CLOSED: [2012-04-21 Sat 12:48]
 **** DONE fork
 CLOSED: [2012-04-21 Sat 11:56]
 **** DONE clone
 CLOSED: [2012-04-21 Sat 11:56]
 **** DONE try and play with it 
-CLOSED: [2012-04-21 Sat 11:56]
+CLOSED: [2012-04-19 Thu 11:56]
 *** TODO nakkaya.com -> tonys-blog [80%]
 **** DONE fork
 CLOSED: [2012-04-21 Sat 11:57]
@@ -92,7 +91,34 @@ CLOSED: [2012-04-21 Sat 11:57]
 CLOSED: [2012-04-21 Sat 11:57]
 **** TODO pb with the emacs generation
 *** FAIL first try
+The generating emacs-lisp to make emacs export the org-mode files into html does not work!
 *** TODO another try
+** TODO Articles [50%]
+*** DONE Possible team workflow with git
+CLOSED: [2012-04-21 Sat 12:45]
+http://adumont.fr/blog/possible-team-workflow-with-git/
+*** DONE How to install stumpwm
+CLOSED: [2012-04-21 Sat 12:43]
+http://adumont.fr/blog/howto-install-stumpwm-and-little-more/
+*** DONE How to beamer with org-mode
+CLOSED: [2012-04-21 Sat 12:44]
+http://adumont.fr/blog/howto-beamer-with-org-mode/
+*** DONE How to install emacs 24
+CLOSED: [2012-04-21 Sat 12:44]
+http://adumont.fr/blog/how-to-install-emacs-24/
+*** TODO Simple Howto apache camel
+Take what i already did for the team and make it generic
+*** TODO How to use emacs?
+Rapid presentation on what i can do and what i do:
+- simple setup
+- org-mode
+- dev for clojure
+- open wars
+- ...
+*** TODO On clojure
+Rapid presentation on clojure
+What are the possibilities
+*** TODO Visibility on our projects
 * TODO clojure [40%]
 ** DONE install
 CLOSED: [2012-04-21 Sat 12:07]
