@@ -87,12 +87,12 @@ CLOSED: [2012-04-21 Sat 11:57]
 CLOSED: [2012-04-21 Sat 11:57]
 **** DONE migrate nakkaya.com with tonys-blog
 CLOSED: [2012-04-21 Sat 11:57]
-**** FAIL make it work
-CLOSED: [2012-04-21 Sat 11:57]
-**** TODO pb with the emacs generation
-*** FAIL first try
+**** FAIL make it work completely
+CLOSED: [2012-04-21 Sat 12:56]
 The generating emacs-lisp to make emacs export the org-mode files into html does not work!
-*** TODO another try
+**** TODO pb with the emacs generation
+Try and see what's not working
+**** Finish the migration
 ** TODO Articles [50%]
 *** DONE Possible team workflow with git
 CLOSED: [2012-04-21 Sat 12:45]
@@ -119,7 +119,7 @@ Rapid presentation on what i can do and what i do:
 Rapid presentation on clojure
 What are the possibilities
 *** TODO Visibility on our projects
-* TODO clojure [40%]
+* TODO clojure [33%]
 ** DONE install
 CLOSED: [2012-04-21 Sat 12:07]
 #+begin_src sh
@@ -127,8 +127,10 @@ CLOSED: [2012-04-21 Sat 12:07]
 #+end_src
 ** DONE play with it
 CLOSED: [2012-04-21 Sat 12:09]
-** TODO 4clojure
-top 100: 93!
-** TODO twitalyse
-** TODO fnx
+** PENDING 4clojure
+http://www.4clojure.com/users 93/6042
+http://www.4clojure.com/user/ardumont 123/142
+** PENDING twitalyse
+** PENDING fnx
+** PENDING hmdb
 ** ...

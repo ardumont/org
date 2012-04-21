@@ -1,0 +1,649 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Self-organisation</title>
+<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
+<meta name="title" content="Self-organisation"/>
+<meta name="generator" content="Org-mode"/>
+<meta name="generated" content="2012-04-21 12:53:28 CEST"/>
+<meta name="author" content="tony"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  html { font-family: Times, serif; font-size: 12pt; }
+  .title  { text-align: center; }
+  .todo   { color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #add8e6; font-weight:normal }
+  .target { }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  {margin-left:auto; margin-right:0px;  text-align:right;}
+  .left   {margin-left:0px;  margin-right:auto; text-align:left;}
+  .center {margin-left:auto; margin-right:auto; text-align:center;}
+  p.verse { margin-left: 3% }
+  pre {
+	border: 1pt solid #AEBDCC;
+	background-color: #F3F5F7;
+	padding: 5pt;
+	font-family: courier, monospace;
+        font-size: 90%;
+        overflow:auto;
+  }
+  table { border-collapse: collapse; }
+  td, th { vertical-align: top;  }
+  th.right  { text-align:center;  }
+  th.left   { text-align:center;   }
+  th.center { text-align:center; }
+  td.right  { text-align:right;  }
+  td.left   { text-align:left;   }
+  td.center { text-align:center; }
+  dt { font-weight: bold; }
+  div.figure { padding: 0.5em; }
+  div.figure p { text-align: center; }
+  div.inlinetask {
+    padding:10px;
+    border:2px solid gray;
+    margin:10px;
+    background: #ffffcc;
+  }
+  textarea { overflow-x: auto; }
+  .linenr { font-size:smaller }
+  .code-highlighted {background-color:#ffff00;}
+  .org-info-js_info-navigation { border-style:none; }
+  #org-info-js_console-label { font-size:10px; font-weight:bold;
+                               white-space:nowrap; }
+  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
+                                 font-weight:bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+
+</head>
+<body>
+
+<div id="preamble">
+
+</div>
+
+<div id="content">
+<h1 class="title">Self-organisation</h1>
+
+
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1 sh [100%]</a>
+<ul>
+<li><a href="#sec-1-1">1.1 sh</a></li>
+</ul>
+</li>
+<li><a href="#sec-2">2 stumpwm [100%]</a>
+<ul>
+<li><a href="#sec-2-1">2.1 install</a></li>
+<li><a href="#sec-2-2">2.2 setup</a></li>
+</ul>
+</li>
+<li><a href="#sec-3">3 org [80%]</a>
+<ul>
+<li><a href="#sec-3-1">3.1 Howto install it?</a></li>
+<li><a href="#sec-3-2">3.2 basics</a></li>
+<li><a href="#sec-3-3">3.3 How to add some keywords (FAIL, PENDING, etc&hellip;)</a></li>
+<li><a href="#sec-3-4">3.4 Add this in the emacs setup.</a></li>
+<li><a href="#sec-3-5">3.5 &hellip;</a></li>
+</ul>
+</li>
+<li><a href="#sec-4">4 emacs [83%]</a>
+<ul>
+<li><a href="#sec-4-1">4.1 install</a></li>
+<li><a href="#sec-4-2">4.2 setup</a></li>
+<li><a href="#sec-4-3">4.3 basics</a></li>
+<li><a href="#sec-4-4">4.4 Add some emacs packages</a></li>
+<li><a href="#sec-4-5">4.5 How to inactivate the linum-mode in org-mode?</a></li>
+<li><a href="#sec-4-6">4.6 Read emacs manual</a></li>
+</ul>
+</li>
+<li><a href="#sec-5">5 blog [0%]</a>
+<ul>
+<li><a href="#sec-5-1">5.1 migrate tonys-blog with static and nakkaya [25%]</a>
+<ul>
+<li><a href="#sec-5-1-1">5.1.1 static [100%]</a></li>
+<li><a href="#sec-5-1-2">5.1.2 nakkaya.com -&gt; tonys-blog [80%]</a></li>
+<li><a href="#sec-5-1-3">5.1.3 first try</a></li>
+<li><a href="#sec-5-1-4">5.1.4 another try</a></li>
+</ul>
+</li>
+<li><a href="#sec-5-2">5.2 Articles [50%]</a>
+<ul>
+<li><a href="#sec-5-2-1">5.2.1 Possible team workflow with git</a></li>
+<li><a href="#sec-5-2-2">5.2.2 How to install stumpwm</a></li>
+<li><a href="#sec-5-2-3">5.2.3 How to beamer with org-mode</a></li>
+<li><a href="#sec-5-2-4">5.2.4 How to install emacs 24</a></li>
+<li><a href="#sec-5-2-5">5.2.5 Simple Howto apache camel</a></li>
+<li><a href="#sec-5-2-6">5.2.6 How to use emacs?</a></li>
+<li><a href="#sec-5-2-7">5.2.7 On clojure</a></li>
+<li><a href="#sec-5-2-8">5.2.8 Visibility on our projects</a></li>
+</ul></li>
+</ul>
+</li>
+<li><a href="#sec-6">6 clojure [40%]</a>
+<ul>
+<li><a href="#sec-6-1">6.1 install</a></li>
+<li><a href="#sec-6-2">6.2 play with it</a></li>
+<li><a href="#sec-6-3">6.3 4clojure</a></li>
+<li><a href="#sec-6-4">6.4 twitalyse</a></li>
+<li><a href="#sec-6-5">6.5 fnx</a></li>
+<li><a href="#sec-6-6">6.6 &hellip;</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> <span class="done DONE">DONE</span> sh [100%]</h2>
+<div class="outline-text-2" id="text-1">
+
+<p> <span class="timestamp-wrapper"><span class="timestamp-kwd">CLOSED: </span> <span class="timestamp">2012-04-21 Sat 12:08</span></span><br/>
+</p>
+</div>
+
+<div id="outline-container-1-1" class="outline-3">
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> <span class="done DONE">DONE</span> sh</h3>
+<div class="outline-text-3" id="text-1-1">
+
+<p> <span class="timestamp-wrapper"><span class="timestamp-kwd">CLOSED: </span> <span class="timestamp">2012-04-21 Sat 12:21</span></span><br/>
+</p></div>
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> <span class="done DONE">DONE</span> stumpwm [100%]</h2>
+<div class="outline-text-2" id="text-2">
+
+<p> <span class="timestamp-wrapper"><span class="timestamp-kwd">CLOSED: </span> <span class="timestamp">2012-04-21 Sat 12:07</span></span><br/>
+</p>
+</div>
+
+<div id="outline-container-2-1" class="outline-3">
+<h3 id="sec-2-1"><span class="section-number-3">2.1</span> <span class="done DONE">DONE</span> install</h3>
+<div class="outline-text-3" id="text-2-1">
+
+<p> <span class="timestamp-wrapper"><span class="timestamp-kwd">CLOSED: </span> <span class="timestamp">2012-04-21 Sat 12:07</span></span><br/>
+</p></div>
+
+</div>
+
+<div id="outline-container-2-2" class="outline-3">
+<h3 id="sec-2-2"><span class="section-number-3">2.2</span> <span class="done DONE">DONE</span> setup</h3>
+<div class="outline-text-3" id="text-2-2">
+
+<p> <span class="timestamp-wrapper"><span class="timestamp-kwd">CLOSED: </span> <span class="timestamp">2012-04-21 Sat 12:07</span></span><br/>
+</p>
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> <span class="todo TODO">TODO</span> org [80%]</h2>
+<div class="outline-text-2" id="text-3">
+
+
+</div>
+
+<div id="outline-container-3-1" class="outline-3">
+<h3 id="sec-3-1"><span class="section-number-3">3.1</span> <span class="done DONE">DONE</span> Howto install it?</h3>
+<div class="outline-text-3" id="text-3-1">
+
+<p> <span class="timestamp-wrapper"><span class="timestamp-kwd">CLOSED: </span> <span class="timestamp">2012-04-21 Sat 11:58</span></span><br/>
+see <code>~/bin/setup-emacs24.sh</code> (in the init.el, there is some emacs-lisp that launches the install of different modes,
+including org)
+</p></div>
+
+</div>
+
+<div id="outline-container-3-2" class="outline-3">
+<h3 id="sec-3-2"><span class="section-number-3">3.2</span> <span class="done DONE">DONE</span> basics</h3>
+<div class="outline-text-3" id="text-3-2">
+
+<p> <span class="timestamp-wrapper"><span class="timestamp-kwd">CLOSED: </span> <span class="timestamp">2012-04-21 Sat 11:58</span></span><br/>
+</p></div>
+
+</div>
+
+<div id="outline-container-3-3" class="outline-3">
+<h3 id="sec-3-3"><span class="section-number-3">3.3</span> <span class="done DONE">DONE</span> How to add some keywords (FAIL, PENDING, etc&hellip;)</h3>
+<div class="outline-text-3" id="text-3-3">
+
+<p> <span class="timestamp-wrapper"><span class="timestamp-kwd">CLOSED: </span> <span class="timestamp">2012-04-21 Sat 12:29</span></span><br/>
+2 solutions:
+</p><ul>
+<li>per file:
+</li>
+</ul>
+
+<p>Add a line at the beginning of the file like this
+</p>
+
+
+<pre class="example">\#+TODO: TODO FAIL PENDING | DONE DELEGATED CANCELLED
+</pre>
+
+<p>
+then <code>C-c C-c</code> to reload the file in org-mode.
+</p>
+<p>
+<a href="http://orgmode.org/manual/Per_002dfile-keywords.html">http://orgmode.org/manual/Per<sub>002dfile</sub>-keywords.html</a>
+</p>
+<ul>
+<li>global to org-mode:
+</li>
+</ul>
+
+
+<p>
+Add this to your ~/.emacs.d/init.el
+</p>
+
+
+<pre class="example">(setq org-todo-keywords
+  '((sequence "TODO" "FAIL" "PENDING" "|" "DONE" "DELEGATED" "CANCELLED")))
+</pre>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-3-4" class="outline-3">
+<h3 id="sec-3-4"><span class="section-number-3">3.4</span> <span class="done DONE">DONE</span> Add this in the emacs setup.</h3>
+<div class="outline-text-3" id="text-3-4">
+
+<p> <span class="timestamp-wrapper"><span class="timestamp-kwd">CLOSED: </span> <span class="timestamp">2012-04-21 Sat 12:31</span></span><br/>
+</p></div>
+
+</div>
+
+<div id="outline-container-3-5" class="outline-3">
+<h3 id="sec-3-5"><span class="section-number-3">3.5</span> <span class="todo TODO">TODO</span> &hellip;</h3>
+<div class="outline-text-3" id="text-3-5">
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> <span class="todo TODO">TODO</span> emacs [83%]</h2>
+<div class="outline-text-2" id="text-4">
+
+
+</div>
+
+<div id="outline-container-4-1" class="outline-3">
+<h3 id="sec-4-1"><span class="section-number-3">4.1</span> <span class="done DONE">DONE</span> install</h3>
+<div class="outline-text-3" id="text-4-1">
+
+<p> <span class="timestamp-wrapper"><span class="timestamp-kwd">CLOSED: </span> <span class="timestamp">2012-04-21 Sat 12:02</span></span><br/>
+</p>
+
+
+<pre class="example">~/bin/deploy-emacs24.sh
+</pre>
+
+</div>
+
+</div>
+
+<div id="outline-container-4-2" class="outline-3">
+<h3 id="sec-4-2"><span class="section-number-3">4.2</span> <span class="done DONE">DONE</span> setup</h3>
+<div class="outline-text-3" id="text-4-2">
+
+<p> <span class="timestamp-wrapper"><span class="timestamp-kwd">CLOSED: </span> <span class="timestamp">2012-04-21 Sat 12:03</span></span><br/>
+</p>
+
+
+<pre class="example">setup-emacs24.sh
+</pre>
+
+</div>
+
+</div>
+
+<div id="outline-container-4-3" class="outline-3">
+<h3 id="sec-4-3"><span class="section-number-3">4.3</span> <span class="done DONE">DONE</span> basics</h3>
+<div class="outline-text-3" id="text-4-3">
+
+<p> <span class="timestamp-wrapper"><span class="timestamp-kwd">CLOSED: </span> <span class="timestamp">2012-04-21 Sat 12:02</span></span><br/>
+</p></div>
+
+</div>
+
+<div id="outline-container-4-4" class="outline-3">
+<h3 id="sec-4-4"><span class="section-number-3">4.4</span> <span class="done DONE">DONE</span> Add some emacs packages</h3>
+<div class="outline-text-3" id="text-4-4">
+
+<p> <span class="timestamp-wrapper"><span class="timestamp-kwd">CLOSED: </span> <span class="timestamp">2012-04-21 Sat 12:05</span></span><br/>
+<code>M-x package-list-packages</code>
+</p></div>
+
+</div>
+
+<div id="outline-container-4-5" class="outline-3">
+<h3 id="sec-4-5"><span class="section-number-3">4.5</span> <span class="done DONE">DONE</span> How to inactivate the linum-mode in org-mode?</h3>
+<div class="outline-text-3" id="text-4-5">
+
+<p> <span class="timestamp-wrapper"><span class="timestamp-kwd">CLOSED: </span> <span class="timestamp">2012-04-21 Sat 12:41</span></span><br/>
+Add this to the init.el
+</p>
+
+
+
+<pre class="example">(add-hook 'org-mode-hook
+          (lambda () (setq linum-mode nil)))
+</pre>
+
+
+<p>
+This basically tells, when org-mode launches, deactivate the linum-mode (which on my setup is globally activated)
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-4-6" class="outline-3">
+<h3 id="sec-4-6"><span class="section-number-3">4.6</span> <span class="todo TODO">TODO</span> Read emacs manual</h3>
+<div class="outline-text-3" id="text-4-6">
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-5" class="outline-2">
+<h2 id="sec-5"><span class="section-number-2">5</span> <span class="todo TODO">TODO</span> blog [0%]</h2>
+<div class="outline-text-2" id="text-5">
+
+
+</div>
+
+<div id="outline-container-5-1" class="outline-3">
+<h3 id="sec-5-1"><span class="section-number-3">5.1</span> <span class="todo TODO">TODO</span> migrate tonys-blog with static and nakkaya [25%]</h3>
+<div class="outline-text-3" id="text-5-1">
+
+
+</div>
+
+<div id="outline-container-5-1-1" class="outline-4">
+<h4 id="sec-5-1-1"><span class="section-number-4">5.1.1</span> <span class="done DONE">DONE</span> static [100%]</h4>
+<div class="outline-text-4" id="text-5-1-1">
+
+<p> <span class="timestamp-wrapper"><span class="timestamp-kwd">CLOSED: </span> <span class="timestamp">2012-04-21 Sat 12:48</span></span><br/>
+</p><ul>
+<li id="sec-5-1-1-1"><span class="done DONE">DONE</span> fork<br/>
+ <span class="timestamp-wrapper"><span class="timestamp-kwd">CLOSED: </span> <span class="timestamp">2012-04-21 Sat 11:56</span></span><br/>
+</li>
+</ul>
+<ul>
+<li id="sec-5-1-1-2"><span class="done DONE">DONE</span> clone<br/>
+ <span class="timestamp-wrapper"><span class="timestamp-kwd">CLOSED: </span> <span class="timestamp">2012-04-21 Sat 11:56</span></span><br/>
+</li>
+</ul>
+<ul>
+<li id="sec-5-1-1-3"><span class="done DONE">DONE</span> try and play with it<br/>
+ <span class="timestamp-wrapper"><span class="timestamp-kwd">CLOSED: </span> <span class="timestamp">2012-04-19 Thu 11:56</span></span><br/>
+</li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-5-1-2" class="outline-4">
+<h4 id="sec-5-1-2"><span class="section-number-4">5.1.2</span> <span class="todo TODO">TODO</span> nakkaya.com -&gt; tonys-blog [80%]</h4>
+<div class="outline-text-4" id="text-5-1-2">
+
+<ul>
+<li id="sec-5-1-2-1"><span class="done DONE">DONE</span> fork<br/>
+ <span class="timestamp-wrapper"><span class="timestamp-kwd">CLOSED: </span> <span class="timestamp">2012-04-21 Sat 11:57</span></span><br/>
+</li>
+</ul>
+<ul>
+<li id="sec-5-1-2-2"><span class="done DONE">DONE</span> clone<br/>
+ <span class="timestamp-wrapper"><span class="timestamp-kwd">CLOSED: </span> <span class="timestamp">2012-04-21 Sat 11:57</span></span><br/>
+</li>
+</ul>
+<ul>
+<li id="sec-5-1-2-3"><span class="done DONE">DONE</span> migrate nakkaya.com with tonys-blog<br/>
+ <span class="timestamp-wrapper"><span class="timestamp-kwd">CLOSED: </span> <span class="timestamp">2012-04-21 Sat 11:57</span></span><br/>
+</li>
+</ul>
+<ul>
+<li id="sec-5-1-2-4"><span class="done FAIL">FAIL</span> make it work<br/>
+ <span class="timestamp-wrapper"><span class="timestamp-kwd">CLOSED: </span> <span class="timestamp">2012-04-21 Sat 12:53</span></span><br/>
+</li>
+</ul>
+<ul>
+<li id="sec-5-1-2-5"><span class="todo TODO">TODO</span> pb with the emacs generation<br/>
+</li>
+</ul>
+</div>
+
+</div>
+
+<div id="outline-container-5-1-3" class="outline-4">
+<h4 id="sec-5-1-3"><span class="section-number-4">5.1.3</span> <span class="done FAIL">FAIL</span> first try</h4>
+<div class="outline-text-4" id="text-5-1-3">
+
+<p>The generating emacs-lisp to make emacs export the org-mode files into html does not work!
+</p></div>
+
+</div>
+
+<div id="outline-container-5-1-4" class="outline-4">
+<h4 id="sec-5-1-4"><span class="section-number-4">5.1.4</span> <span class="todo TODO">TODO</span> another try</h4>
+<div class="outline-text-4" id="text-5-1-4">
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-5-2" class="outline-3">
+<h3 id="sec-5-2"><span class="section-number-3">5.2</span> <span class="todo TODO">TODO</span> Articles [50%]</h3>
+<div class="outline-text-3" id="text-5-2">
+
+
+</div>
+
+<div id="outline-container-5-2-1" class="outline-4">
+<h4 id="sec-5-2-1"><span class="section-number-4">5.2.1</span> <span class="done DONE">DONE</span> Possible team workflow with git</h4>
+<div class="outline-text-4" id="text-5-2-1">
+
+<p> <span class="timestamp-wrapper"><span class="timestamp-kwd">CLOSED: </span> <span class="timestamp">2012-04-21 Sat 12:45</span></span><br/>
+<a href="http://adumont.fr/blog/possible-team-workflow-with-git/">http://adumont.fr/blog/possible-team-workflow-with-git/</a>
+</p></div>
+
+</div>
+
+<div id="outline-container-5-2-2" class="outline-4">
+<h4 id="sec-5-2-2"><span class="section-number-4">5.2.2</span> <span class="done DONE">DONE</span> How to install stumpwm</h4>
+<div class="outline-text-4" id="text-5-2-2">
+
+<p> <span class="timestamp-wrapper"><span class="timestamp-kwd">CLOSED: </span> <span class="timestamp">2012-04-21 Sat 12:43</span></span><br/>
+<a href="http://adumont.fr/blog/howto-install-stumpwm-and-little-more/">http://adumont.fr/blog/howto-install-stumpwm-and-little-more/</a>
+</p></div>
+
+</div>
+
+<div id="outline-container-5-2-3" class="outline-4">
+<h4 id="sec-5-2-3"><span class="section-number-4">5.2.3</span> <span class="done DONE">DONE</span> How to beamer with org-mode</h4>
+<div class="outline-text-4" id="text-5-2-3">
+
+<p> <span class="timestamp-wrapper"><span class="timestamp-kwd">CLOSED: </span> <span class="timestamp">2012-04-21 Sat 12:44</span></span><br/>
+<a href="http://adumont.fr/blog/howto-beamer-with-org-mode/">http://adumont.fr/blog/howto-beamer-with-org-mode/</a>
+</p></div>
+
+</div>
+
+<div id="outline-container-5-2-4" class="outline-4">
+<h4 id="sec-5-2-4"><span class="section-number-4">5.2.4</span> <span class="done DONE">DONE</span> How to install emacs 24</h4>
+<div class="outline-text-4" id="text-5-2-4">
+
+<p> <span class="timestamp-wrapper"><span class="timestamp-kwd">CLOSED: </span> <span class="timestamp">2012-04-21 Sat 12:44</span></span><br/>
+<a href="http://adumont.fr/blog/how-to-install-emacs-24/">http://adumont.fr/blog/how-to-install-emacs-24/</a>
+</p></div>
+
+</div>
+
+<div id="outline-container-5-2-5" class="outline-4">
+<h4 id="sec-5-2-5"><span class="section-number-4">5.2.5</span> <span class="todo TODO">TODO</span> Simple Howto apache camel</h4>
+<div class="outline-text-4" id="text-5-2-5">
+
+<p>Take what i already did for the team and make it generic
+</p></div>
+
+</div>
+
+<div id="outline-container-5-2-6" class="outline-4">
+<h4 id="sec-5-2-6"><span class="section-number-4">5.2.6</span> <span class="todo TODO">TODO</span> How to use emacs?</h4>
+<div class="outline-text-4" id="text-5-2-6">
+
+<p>Rapid presentation on what i can do and what i do:
+</p><ul>
+<li>simple setup
+</li>
+<li>org-mode
+</li>
+<li>dev for clojure
+</li>
+<li>open wars
+</li>
+<li>&hellip;
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-5-2-7" class="outline-4">
+<h4 id="sec-5-2-7"><span class="section-number-4">5.2.7</span> <span class="todo TODO">TODO</span> On clojure</h4>
+<div class="outline-text-4" id="text-5-2-7">
+
+<p>Rapid presentation on clojure
+What are the possibilities
+</p></div>
+
+</div>
+
+<div id="outline-container-5-2-8" class="outline-4">
+<h4 id="sec-5-2-8"><span class="section-number-4">5.2.8</span> <span class="todo TODO">TODO</span> Visibility on our projects</h4>
+<div class="outline-text-4" id="text-5-2-8">
+
+</div>
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-6" class="outline-2">
+<h2 id="sec-6"><span class="section-number-2">6</span> <span class="todo TODO">TODO</span> clojure [40%]</h2>
+<div class="outline-text-2" id="text-6">
+
+
+</div>
+
+<div id="outline-container-6-1" class="outline-3">
+<h3 id="sec-6-1"><span class="section-number-3">6.1</span> <span class="done DONE">DONE</span> install</h3>
+<div class="outline-text-3" id="text-6-1">
+
+<p> <span class="timestamp-wrapper"><span class="timestamp-kwd">CLOSED: </span> <span class="timestamp">2012-04-21 Sat 12:07</span></span><br/>
+</p>
+
+
+<pre class="example">~/bin/deploy-clojure.sh
+</pre>
+
+</div>
+
+</div>
+
+<div id="outline-container-6-2" class="outline-3">
+<h3 id="sec-6-2"><span class="section-number-3">6.2</span> <span class="done DONE">DONE</span> play with it</h3>
+<div class="outline-text-3" id="text-6-2">
+
+<p> <span class="timestamp-wrapper"><span class="timestamp-kwd">CLOSED: </span> <span class="timestamp">2012-04-21 Sat 12:09</span></span><br/>
+</p></div>
+
+</div>
+
+<div id="outline-container-6-3" class="outline-3">
+<h3 id="sec-6-3"><span class="section-number-3">6.3</span> <span class="todo TODO">TODO</span> 4clojure</h3>
+<div class="outline-text-3" id="text-6-3">
+
+<p>top 100: 93!
+</p></div>
+
+</div>
+
+<div id="outline-container-6-4" class="outline-3">
+<h3 id="sec-6-4"><span class="section-number-3">6.4</span> <span class="todo TODO">TODO</span> twitalyse</h3>
+<div class="outline-text-3" id="text-6-4">
+
+</div>
+
+</div>
+
+<div id="outline-container-6-5" class="outline-3">
+<h3 id="sec-6-5"><span class="section-number-3">6.5</span> <span class="todo TODO">TODO</span> fnx</h3>
+<div class="outline-text-3" id="text-6-5">
+
+</div>
+
+</div>
+
+<div id="outline-container-6-6" class="outline-3">
+<h3 id="sec-6-6"><span class="section-number-3">6.6</span> &hellip;</h3>
+<div class="outline-text-3" id="text-6-6">
+
+</div>
+</div>
+</div>
+</div>
+
+<div id="postamble">
+<p class="date">Date: 2012-04-21 12:53:28 CEST</p>
+<p class="author">Author: tony</p>
+<p class="creator">Org version 7.8.08 with Emacs version 24</p>
+<a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
+
+</div>
+</body>
+</html>
