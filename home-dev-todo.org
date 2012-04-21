@@ -1,0 +1,108 @@
+#+title: Self-organisation
+#+author: tony
+
+* DONE sh [100%]
+CLOSED: [2012-04-21 Sat 12:08]
+** DONE sh
+CLOSED: [2012-04-21 Sat 12:21]
+* DONE stumpwm [100%]
+CLOSED: [2012-04-21 Sat 12:07]
+** DONE install
+CLOSED: [2012-04-21 Sat 12:07]
+** DONE setup
+CLOSED: [2012-04-21 Sat 12:07]
+
+* TODO org [80%]
+** DONE Howto install it?
+CLOSED: [2012-04-21 Sat 11:58]
+see =~/bin/setup-emacs24.sh= (in the init.el, there is some emacs-lisp that launches the install of different modes,
+including org)
+** DONE basics
+CLOSED: [2012-04-21 Sat 11:58]
+** DONE How to add some keywords (FAIL, PENDING, etc...)
+CLOSED: [2012-04-21 Sat 12:29]
+2 solutions:
+- per file:
+Add a line at the beginning of the file like this
+#+begin_src org
+\#+TODO: TODO FAIL PENDING | DONE DELEGATED CANCELLED
+#+end_src
+then =C-c C-c= to reload the file in org-mode.
+
+[[http://orgmode.org/manual/Per_002dfile-keywords.html]]
+
+- global to org-mode:
+
+Add this to your ~/.emacs.d/init.el
+#+begin_src emacs-lisp
+     (setq org-todo-keywords
+       '((sequence "TODO" "FAIL" "PENDING" "|" "DONE" "DELEGATED" "CANCELLED")))
+#+end_src
+
+** DONE Add this in the emacs setup.
+CLOSED: [2012-04-21 Sat 12:31]
+** TODO ...
+* TODO emacs [83%]
+** DONE install
+CLOSED: [2012-04-21 Sat 12:02]
+#+begin_src sh
+~/bin/deploy-emacs24.sh
+#+end_src
+** DONE setup
+CLOSED: [2012-04-21 Sat 12:03]
+#+begin_src sh
+setup-emacs24.sh
+#+end_src
+** DONE basics
+CLOSED: [2012-04-21 Sat 12:02]
+** DONE Add some emacs packages
+CLOSED: [2012-04-21 Sat 12:05]
+=M-x package-list-packages=
+** DONE How to inactivate the linum-mode in org-mode?
+CLOSED: [2012-04-21 Sat 12:41]
+Add this to the init.el
+
+#+begin_src emacs-lisp
+(add-hook 'org-mode-hook
+          (lambda () (setq linum-mode nil)))
+#+end_src
+
+This basically tells, when org-mode launches, deactivate the linum-mode (which on my setup is globally activated)
+
+** TODO Read emacs manual
+
+* TODO blog [0%]
+** TODO migrate tonys-blog with static and nakkaya
+*** DONE static [100%]
+CLOSED: [2012-04-21 Sat 11:56]
+**** DONE fork
+CLOSED: [2012-04-21 Sat 11:56]
+**** DONE clone
+CLOSED: [2012-04-21 Sat 11:56]
+**** DONE try and play with it 
+CLOSED: [2012-04-21 Sat 11:56]
+*** TODO nakkaya.com -> tonys-blog [80%]
+**** DONE fork
+CLOSED: [2012-04-21 Sat 11:57]
+**** DONE clone
+CLOSED: [2012-04-21 Sat 11:57]
+**** DONE migrate nakkaya.com with tonys-blog
+CLOSED: [2012-04-21 Sat 11:57]
+**** FAIL make it work
+CLOSED: [2012-04-21 Sat 11:57]
+**** TODO pb with the emacs generation
+*** FAIL first try
+*** TODO another try
+* TODO clojure [40%]
+** DONE install
+CLOSED: [2012-04-21 Sat 12:07]
+#+begin_src sh
+~/bin/deploy-clojure.sh
+#+end_src
+** DONE play with it
+CLOSED: [2012-04-21 Sat 12:09]
+** TODO 4clojure
+top 100: 93!
+** TODO twitalyse
+** TODO fnx
+** ...
