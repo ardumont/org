@@ -3,8 +3,10 @@
 
 * DONE sh [100%]
 CLOSED: [2012-04-21 Sat 12:08]
-** DONE sh
+** DONE init
 CLOSED: [2012-04-21 Sat 12:21]
+** DONE cleanup
+CLOSED: [2012-04-21 Sat 17:47]
 * DONE stumpwm [100%]
 CLOSED: [2012-04-21 Sat 12:07]
 ** DONE install
@@ -12,6 +14,8 @@ CLOSED: [2012-04-21 Sat 12:07]
 ** DONE setup
 CLOSED: [2012-04-21 Sat 12:07]
 
+** DONE Updating setup
+CLOSED: [2012-04-21 Sat 17:48]
 * TODO org [80%]
 ** DONE Howto install it?
 CLOSED: [2012-04-21 Sat 11:58]
@@ -25,7 +29,7 @@ CLOSED: [2012-04-21 Sat 12:29]
 - per file:
 Add a line at the beginning of the file like this
 #+begin_src org
-\#+TODO: TODO FAIL PENDING | DONE DELEGATED CANCELLED
+\#+TODO: TODO PENDING | FAIL DONE DELEGATED CANCELLED
 #+end_src
 then =C-c C-c= to reload the file in org-mode.
 
@@ -36,13 +40,89 @@ then =C-c C-c= to reload the file in org-mode.
 Add this to your ~/.emacs.d/init.el
 #+begin_src emacs-lisp
      (setq org-todo-keywords
-       '((sequence "TODO" "FAIL" "PENDING" "|" "DONE" "DELEGATED" "CANCELLED")))
+       '((sequence "TODO" "PENDING" "|" "DONE" "FAIL" "DELEGATED" "CANCELLED")))
 #+end_src
 
 ** DONE Add this in the emacs setup.
 CLOSED: [2012-04-21 Sat 12:31]
-** TODO ...
-* TODO emacs [83%]
+** TODO org-babel [66%]
+*** DONE intro [100%]
+CLOSED: [2012-04-22 Sun 10:33]
+http://orgmode.org/worg/org-contrib/babel/intro.html
+**** DONE Introduction
+CLOSED: [2012-04-22 Sun 10:12]
+- can be used as a meta programming language
+- ultimate litterate programming tools
+- one result of a function in a language can be passed to another language block
+**** DONE Overview
+CLOSED: [2012-04-22 Sun 10:14]
+**** DONE Initial Configuration
+CLOSED: [2012-04-22 Sun 10:14]
+**** DONE Code Blocks [100%]
+CLOSED: [2012-04-22 Sun 10:14]
+***** DONE Code Blocks in Org
+CLOSED: [2012-04-22 Sun 10:15]
+***** DONE Code Blocks in Babel
+CLOSED: [2012-04-22 Sun 10:14]
+**** DONE Source Code Execution [100%]
+CLOSED: [2012-04-22 Sun 10:16]
+***** DONE Capturing the Results of Code Evaluation
+CLOSED: [2012-04-22 Sun 10:15]
+***** DONE Session-based Evaluation
+CLOSED: [2012-04-22 Sun 10:15]
+***** DONE Arguments to Code Blocks
+CLOSED: [2012-04-22 Sun 10:15]
+***** DONE In-line Code Blocks
+CLOSED: [2012-04-22 Sun 10:15]
+***** DONE Code Block Body Expansion
+CLOSED: [2012-04-22 Sun 10:15]
+***** DONE A Meta-programming Language for Org-mode
+CLOSED: [2012-04-22 Sun 10:16]
+**** DONE Using Code Blocks in Org Tables
+CLOSED: [2012-04-22 Sun 10:32]
+**** DONE The Library of Babel
+CLOSED: [2012-04-22 Sun 10:32]
+**** DONE Literate Programming
+CLOSED: [2012-04-22 Sun 10:32]
+**** DONE Reproducible Research
+CLOSED: [2012-04-22 Sun 10:33]
+Not only the thesis but everything that make all the research reproducible.
+*** DONE org-babel, a sample of its power
+CLOSED: [2012-04-22 Sun 10:14]
+
+Add an input table.
+#+tblname: fibonacci-inputs
+| 1 | 2 | 3 | 4 |  5 |  6 |  7 |  8 |  9 | 10 |
+| 2 | 4 | 6 | 8 | 10 | 12 | 14 | 16 | 18 | 20 |
+
+Create a block of code that takes the previous table as input
+#+name: fibonacci-seq(fib-inputs=fibonacci-inputs)
+#+begin_src emacs-lisp
+  (defun fibonacci (n)
+    (if (or (= n 0) (= n 1))
+        n
+      (+ (fibonacci (- n 1)) (fibonacci (- n 2)))))
+  
+  (mapcar (lambda (row)
+            (mapcar #'fibonacci row)) fib-inputs)
+#+end_src
+
+*Note*:
+=C-c C-o= will open another buffer with the result in it.
+
+Hit =C-c C-c= to launch the evaluationm and then, this result table is generated
+#+RESULTS: fibonacci-seq
+| 1 | 1 | 2 |  3 |  5 |   8 |  13 |  21 |   34 |   55 |
+| 1 | 3 | 8 | 21 | 55 | 144 | 377 | 987 | 2584 | 6765 |
+
+CLOSED: [2012-04-22 Sun 11:13]
+#+name: directories
+#+begin_src sh :results replace
+  cd ~ && du -sc * |grep -v total
+#+end_src
+Need some setup.
+*** TODO setup it to have access to different languages
+* TODO emacs [50%]
 ** DONE install
 CLOSED: [2012-04-21 Sat 12:02]
 #+begin_src sh
@@ -55,10 +135,17 @@ setup-emacs24.sh
 #+end_src
 ** DONE basics
 CLOSED: [2012-04-21 Sat 12:02]
-** DONE Add some emacs packages
+
+** TODO Read emacs manual
+** TODO A mode to make slides from org
+https://github.com/relevance/org-html-slideshow
+** TODO Eval clojure in org-mode file
+http://orgmode.org/worg/org-contrib/babel/languages/ob-doc-clojure.html
+** TODO Howto [75%]
+*** DONE Add some emacs packages
 CLOSED: [2012-04-21 Sat 12:05]
 =M-x package-list-packages=
-** DONE How to inactivate the linum-mode in org-mode?
+*** DONE Deactivate the linum-mode in org-mode?
 CLOSED: [2012-04-21 Sat 12:41]
 Add this to the init.el
 
@@ -68,8 +155,9 @@ Add this to the init.el
 #+end_src
 
 This basically tells, when org-mode launches, deactivate the linum-mode (which on my setup is globally activated)
-
-** TODO Read emacs manual
+*** DONE Toggle debug on error
+CLOSED: [2012-04-22 Sun 09:37]
+M-x toggle-debug-on-error
 * TODO blog [0%]
 ** TODO migrate tonys-blog with static and nakkaya [25%]
 *** DONE static [100%]
@@ -93,7 +181,13 @@ The generating emacs-lisp to make emacs export the org-mode files into html does
 **** TODO pb with the emacs generation
 Try and see what's not working
 **** Finish the migration
-** TODO Articles [50%]
+** TODO Articles [60%]
+*** DONE Chroot to save one's GNU/Linux
+CLOSED: [2012-04-21 Sat 18:07]
+http://adumont.fr/blog/chroot-pour-sauver-son-gnulinux/
+*** DONE public/private key generation
+CLOSED: [2012-04-21 Sat 18:06]
+http://adumont.fr/blog/generation-cle-priveepublique/
 *** DONE Possible team workflow with git
 CLOSED: [2012-04-21 Sat 12:45]
 http://adumont.fr/blog/possible-team-workflow-with-git/
@@ -115,22 +209,53 @@ Rapid presentation on what i can do and what i do:
 - dev for clojure
 - open wars
 - ...
-*** TODO On clojure
+*** TODO Something about clojure
 Rapid presentation on clojure
 What are the possibilities
-*** TODO Visibility on our projects
-* TODO clojure [33%]
-** DONE install
+*** TODO Visibility on my clojure projects
+* TODO clojure [12%]
+** DONE start [100%]
+CLOSED: [2012-04-21 Sat 18:18]
+*** DONE install
 CLOSED: [2012-04-21 Sat 12:07]
 #+begin_src sh
 ~/bin/deploy-clojure.sh
 #+end_src
-** DONE play with it
+*** DONE setup env
+CLOSED: [2012-04-21 Sat 18:18]
+#+begin_src sh
+~/bin/setup-emacs24.sh
+#+end_src
+*** DONE play with it
 CLOSED: [2012-04-21 Sat 12:09]
-** PENDING 4clojure
+
+** PENDING Reading [33%]
+*** DONE practical clojure
+CLOSED: [2012-04-21 Sat 18:20]
+*** PENDING joy of clojure
+*** PENDING clojure in action
+** PENDING exercises [%]
+*** PENDING euler [66%]
+**** DONE register
+CLOSED: [2012-04-21 Sat 18:20]
+**** DONE Do some exercises
+CLOSED: [2012-04-21 Sat 18:21]
+25/374
+**** PENDING Finish the other exercises
+*** PENDING 4clojure [66%]
+**** DONE register
+CLOSED: [2012-04-21 Sat 17:49]
 http://www.4clojure.com/users 93/6042
+**** DONE Top 100
+CLOSED: [2012-04-21 Sat 17:49]
 http://www.4clojure.com/user/ardumont 123/142
-** PENDING twitalyse
-** PENDING fnx
-** PENDING hmdb
-** ...
+**** TODO Finish all pbs
+
+** TODO projects [%]
+*** PENDING twitalyse
+*** PENDING fnx
+*** PENDING hmdb
+** TODO Incanter
+** TODO xml
+** TODO Create a basic rss reader
+** TODO Cloduino
