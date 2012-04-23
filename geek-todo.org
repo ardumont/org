@@ -16,7 +16,7 @@ CLOSED: [2012-04-21 Sat 12:07]
 
 ** DONE Updating setup
 CLOSED: [2012-04-21 Sat 17:48]
-* TODO org [80%]
+* TODO org-mode [80%]
 ** DONE Howto install it?
 CLOSED: [2012-04-21 Sat 11:58]
 see =~/bin/setup-emacs24.sh= (in the init.el, there is some emacs-lisp that launches the install of different modes,
@@ -121,8 +121,8 @@ CLOSED: [2012-04-22 Sun 11:13]
   cd ~ && du -sc * |grep -v total
 #+end_src
 Need some setup.
-*** TODO setup it to have access to different languages
-* TODO emacs [50%]
+*** IN-PROGRESS setup it to have access to different languages
+* TODO emacs [37%]
 ** DONE install
 CLOSED: [2012-04-21 Sat 12:02]
 #+begin_src sh
@@ -158,6 +158,25 @@ This basically tells, when org-mode launches, deactivate the linum-mode (which o
 *** DONE Toggle debug on error
 CLOSED: [2012-04-22 Sun 09:37]
 M-x toggle-debug-on-error
+** TODO Problems 
+*** TODO why clojure-jack-in does not work from a stumpwm emacs
+Because the emacs path spawned from the stumpwm is not the same from a terminal emacs
+
+#+begin_src 
+(getenv "PATH")
+#+end_src
+
+inside a stumpwm emacs, evaluates to:
+#+begin_example
+"/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games"
+#+end_example
+
+against this inside a terminal emacs:
+
+#+begin_example
+"/home/tony/.lein:/home/tony/.lein/bin:/home/tony/.lein/plugins:/home/tony/applications/bin:/home/tony/work/bin:/home/tony/bin:/home/tony/.lein:/home/tony/.lein/bin:/home/tony/.lein/plugins:/home/tony/applications/bin:/home/tony/work/bin:/home/tony/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games"
+#+end_example
+
 * TODO blog [0%]
 ** TODO migrate tonys-blog with static and nakkaya [25%]
 *** DONE static [100%]
@@ -242,15 +261,180 @@ CLOSED: [2012-04-21 Sat 18:20]
 CLOSED: [2012-04-21 Sat 18:21]
 25/374
 **** PENDING Finish the other exercises
-*** PENDING 4clojure [66%]
+*** PENDING 4clojure [95%]
 **** DONE register
 CLOSED: [2012-04-21 Sat 17:49]
 http://www.4clojure.com/users 93/6042
 **** DONE Top 100
 CLOSED: [2012-04-21 Sat 17:49]
 http://www.4clojure.com/user/ardumont 123/142
-**** TODO Finish all pbs
-
+**** TODO Finish all pbs [97%]
+***** DONE 21
+CLOSED: [2012-04-23 lun. 12:39]
+***** DONE 22
+CLOSED: [2012-04-23 lun. 12:39]
+***** DONE 23
+CLOSED: [2012-04-23 lun. 12:40]
+***** DONE 26
+CLOSED: [2012-04-23 lun. 12:40]
+***** DONE 27
+CLOSED: [2012-04-23 lun. 12:40]
+***** DONE 28
+CLOSED: [2012-04-23 lun. 12:40]
+***** DONE 30
+CLOSED: [2012-04-23 lun. 12:40]
+***** DONE 31
+CLOSED: [2012-04-23 lun. 12:40]
+***** DONE 32
+CLOSED: [2012-04-23 lun. 12:40]
+***** DONE 33
+CLOSED: [2012-04-23 lun. 12:40]
+***** DONE 34
+CLOSED: [2012-04-23 lun. 12:40]
+***** DONE 38
+CLOSED: [2012-04-23 lun. 12:40]
+***** DONE 39
+CLOSED: [2012-04-23 lun. 12:40]
+***** DONE 40
+CLOSED: [2012-04-23 lun. 12:40]
+***** DONE 41
+CLOSED: [2012-04-23 lun. 12:40]
+***** DONE 42
+CLOSED: [2012-04-23 lun. 12:40]
+***** DONE 43
+CLOSED: [2012-04-23 lun. 12:40]
+***** DONE 44
+CLOSED: [2012-04-23 lun. 12:40]
+***** DONE 46
+CLOSED: [2012-04-23 lun. 12:40]
+***** DONE 50
+CLOSED: [2012-04-23 lun. 12:42]
+***** DONE 53
+CLOSED: [2012-04-23 lun. 12:42]
+***** DONE 54
+CLOSED: [2012-04-23 lun. 12:42]
+***** DONE 55
+CLOSED: [2012-04-23 lun. 12:42]
+***** DONE 56
+CLOSED: [2012-04-23 lun. 12:42]
+***** DONE 58
+CLOSED: [2012-04-23 lun. 12:42]
+***** DONE 59
+CLOSED: [2012-04-23 lun. 12:42]
+***** DONE 60
+CLOSED: [2012-04-23 lun. 12:42]
+***** DONE 61
+CLOSED: [2012-04-23 lun. 12:42]
+***** DONE 62
+CLOSED: [2012-04-23 lun. 12:42]
+***** DONE 63
+CLOSED: [2012-04-23 lun. 12:42]
+***** DONE 65
+CLOSED: [2012-04-23 lun. 12:42]
+***** DONE 66
+CLOSED: [2012-04-23 lun. 12:42]
+***** DONE 67
+CLOSED: [2012-04-23 lun. 12:42]
+***** DONE 69
+CLOSED: [2012-04-23 lun. 12:42]
+***** DONE 70
+CLOSED: [2012-04-23 lun. 12:42]
+***** DONE 73
+CLOSED: [2012-04-23 lun. 12:43]
+***** DONE 74
+CLOSED: [2012-04-23 lun. 12:43]
+***** DONE 75
+CLOSED: [2012-04-23 lun. 12:43]
+***** DONE 77
+CLOSED: [2012-04-23 lun. 12:43]
+***** DONE 78
+CLOSED: [2012-04-23 lun. 12:43]
+***** PENDING 79
+***** DONE 80
+CLOSED: [2012-04-23 lun. 12:43]
+***** DONE 81
+CLOSED: [2012-04-23 lun. 12:43]
+***** DONE 83
+CLOSED: [2012-04-23 lun. 12:43]
+***** DONE 85
+CLOSED: [2012-04-23 lun. 12:43]
+***** DONE 86
+CLOSED: [2012-04-23 lun. 12:43]
+***** DONE 90
+CLOSED: [2012-04-23 lun. 12:43]
+***** DONE 91
+CLOSED: [2012-04-23 lun. 12:43]
+***** DONE 92
+CLOSED: [2012-04-23 lun. 12:43]
+***** DONE 93
+CLOSED: [2012-04-23 lun. 12:43]
+***** DONE 94
+CLOSED: [2012-04-23 lun. 12:43]
+***** DONE 95
+CLOSED: [2012-04-23 lun. 12:43]
+***** DONE 96
+CLOSED: [2012-04-23 lun. 12:43]
+***** DONE 97
+CLOSED: [2012-04-23 lun. 12:43]
+***** DONE 98
+CLOSED: [2012-04-23 lun. 12:43]
+***** DONE 99
+CLOSED: [2012-04-23 lun. 12:43]
+***** DONE 100
+CLOSED: [2012-04-23 lun. 12:43]
+***** DONE 102
+CLOSED: [2012-04-23 lun. 12:43]
+***** DONE 103
+CLOSED: [2012-04-23 lun. 12:43]
+***** DONE 104
+CLOSED: [2012-04-23 lun. 12:43]
+***** DONE 105
+CLOSED: [2012-04-23 lun. 12:43]
+***** DONE 108
+CLOSED: [2012-04-23 lun. 12:43]
+***** DONE 110
+CLOSED: [2012-04-23 lun. 12:43]
+***** DONE 112
+CLOSED: [2012-04-23 lun. 12:43]
+***** DONE 114
+CLOSED: [2012-04-23 lun. 12:43]
+***** DONE 115
+CLOSED: [2012-04-23 lun. 12:43]
+***** DONE 116
+CLOSED: [2012-04-23 lun. 12:43]
+***** DONE 118
+CLOSED: [2012-04-23 lun. 12:43]
+***** DONE 120
+CLOSED: [2012-04-23 lun. 12:43]
+***** DONE 121
+CLOSED: [2012-04-23 lun. 12:43]
+***** DONE 122
+CLOSED: [2012-04-23 lun. 12:43]
+***** DONE 128
+CLOSED: [2012-04-23 lun. 12:43]
+***** DONE 131
+CLOSED: [2012-04-23 lun. 12:43]
+***** DONE 132
+CLOSED: [2012-04-23 lun. 12:43]
+***** DONE 135
+CLOSED: [2012-04-23 lun. 12:43]
+***** DONE 137
+CLOSED: [2012-04-23 lun. 12:43]
+***** DONE 143
+CLOSED: [2012-04-23 lun. 12:43]
+***** DONE 144
+CLOSED: [2012-04-23 lun. 12:43]
+***** DONE 146
+CLOSED: [2012-04-23 lun. 12:43]
+***** DONE 147
+CLOSED: [2012-04-23 lun. 12:43]
+***** DONE 148
+CLOSED: [2012-04-23 lun. 12:43]
+***** PENDING 150
+***** DONE 153 
+CLOSED: [2012-04-23 lun. 11:44]
+http://www.4clojure.com/problem/153
+https://github.com/ardumont/my-4clojure-lab/blob/master/src/my_4clojure_lab/199/core153.clj
 ** TODO projects [%]
 *** PENDING twitalyse
 *** PENDING fnx
