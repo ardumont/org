@@ -200,7 +200,7 @@ The generating emacs-lisp to make emacs export the org-mode files into html does
 **** TODO pb with the emacs generation
 Try and see what's not working
 **** Finish the migration
-** TODO Articles [60%]
+** TODO Articles [69%]
 *** DONE Chroot to save one's GNU/Linux
 CLOSED: [2012-04-21 Sat 18:07]
 http://adumont.fr/blog/chroot-pour-sauver-son-gnulinux/
@@ -219,8 +219,29 @@ http://adumont.fr/blog/howto-beamer-with-org-mode/
 *** DONE How to install emacs 24
 CLOSED: [2012-04-21 Sat 12:44]
 http://adumont.fr/blog/how-to-install-emacs-24/
+*** DONE How to install the clojure environment [100%]
+CLOSED: [2012-04-24 mar. 13:34]
+**** DONE org
+CLOSED: [2012-04-24 mar. 13:25]
+**** DONE blog
+CLOSED: [2012-04-24 mar. 13:34]
+http://adumont.fr/blog/how-to-install-the-clojure-development-environment/
+*** DONE How to bootstrap a clojure project [100%]
+CLOSED: [2012-04-24 mar. 14:17]
+**** DONE org 
+CLOSED: [2012-04-24 mar. 14:17]
+**** DONE blog
+CLOSED: [2012-04-24 mar. 14:17]
+http://adumont.fr/blog/how-to-boostrap-a-clojure-project/
+*** DONE One way to solve a problem in clojure [100%]
+CLOSED: [2012-04-24 mar. 15:00]
+**** DONE org
+CLOSED: [2012-04-24 mar. 14:17]
+**** DONE blog
+CLOSED: [2012-04-24 mar. 14:58]
+http://adumont.fr/blog/one-way-to-solve-a-problem-in-clojure/
 *** TODO Simple Howto apache camel
-Take what i already did for the team and make it generic
+Make the team presentation generic.
 *** TODO How to use emacs?
 Rapid presentation on what i can do and what i do:
 - simple setup
@@ -232,7 +253,7 @@ Rapid presentation on what i can do and what i do:
 Rapid presentation on clojure
 What are the possibilities
 *** TODO Visibility on my clojure projects
-* TODO clojure [12%]
+* TODO clojure [11%]
 ** DONE start [100%]
 CLOSED: [2012-04-21 Sat 18:18]
 *** DONE install
@@ -268,7 +289,7 @@ http://www.4clojure.com/users 93/6042
 **** DONE Top 100
 CLOSED: [2012-04-21 Sat 17:49]
 http://www.4clojure.com/user/ardumont 124/142
-**** TODO problems [80%]
+**** TODO problems [79%]
 ***** DONE 21
 CLOSED: [2012-04-23 lun. 12:39]
 ***** DONE 22
@@ -435,6 +456,7 @@ CLOSED: [2012-04-23 lun. 12:43]
 CLOSED: [2012-04-23 lun. 11:44]
 http://www.4clojure.com/problem/153
 https://github.com/ardumont/my-4clojure-lab/blob/master/src/my_4clojure_lab/199/core153.clj
+***** IN-PROGRESS 82 Word Chains
 ***** TODO 98
 ***** TODO 52
 ***** TODO 186
@@ -461,3 +483,4 @@ https://github.com/ardumont/my-4clojure-lab/blob/master/src/my_4clojure_lab/199/
 ** TODO xml
 ** TODO Create a basic rss reader
 ** TODO Cloduino
+** TODO http://sritchie.github.com/2011/05/31/hadoop-on-pallet.html
