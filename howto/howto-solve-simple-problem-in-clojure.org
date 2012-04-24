@@ -78,7 +78,7 @@ So here, we can change the fact to depend on a =mx= function (really a =max= fun
 (fact
   (our-max 1 8 30) => 30
   (provided
-    (mx 1 8) => 1
+    (mx 1 8 ) => 1
     (mx 1 30) => 30)
 #+end_src
 
@@ -95,7 +95,7 @@ By compiling this fact, Midje enriches its message for us:
 #+begin_src clj
 ;.;. [31mFAIL[0m at (NO_SOURCE_FILE:1)
 ;.;. You claimed the following was needed, but it was never used:
-;.;.     (mx 1 8)
+;.;.     (mx 1 8 )
 ;.;. 
 ;.;. [31mFAIL[0m at (NO_SOURCE_FILE:1)
 ;.;. You claimed the following was needed, but it was never used:
@@ -106,7 +106,7 @@ By compiling this fact, Midje enriches its message for us:
 (fact
   (our-max 1 8 30) => 30
   (provided
-    (mx 1 8) => 1
+    (mx 1 8 ) => 1
     (mx 1 30) => 30))
 #+end_src
 
@@ -147,7 +147,7 @@ So here comes our implementation:
 (fact
   (our-max 1 8 30) => 30
   (provided
-    (mx 1 8) => 1
+    (mx 1 8 ) => 1
     (mx 1 30) => 30)
 #+end_src
 
@@ -156,9 +156,9 @@ And this work!
 *Explanations*
 We want to compute the max in a list of integers, so we use =reduce= to loop over the elements and compute the max.
 The detailed step:
-- =(mx 1 8)= will give 1 according to the contract
+- =(mx 1 8 )= will give 1 according to the contract
 #+begin_example
-(provided (mx 1 8) => 1)
+(provided (mx 1 8 ) => 1)
 #+end_example
 - =(mx 1 30)= will give 30 according to the contract
 #+begin_example
@@ -224,7 +224,7 @@ Here is the final =core.clj= file.
 (fact "mock our-max"
   (our-max 1 8 30) => 30
   (provided
-    (mx 1 8) => 1
+    (mx 1 8 ) => 1
     (mx 1 30) => 30))
 
 ;.;. Out of clutter find simplicity; from discord find harmony; in the middle of difficulty lies opportunity. -- Einstein

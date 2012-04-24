@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="One way to solve a problem in clojure"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2012-04-24 14:48:56 CEST"/>
+<meta name="generated" content="2012-04-24 14:55:59 CEST"/>
 <meta name="author" content="Antoine R. Dumont"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -289,7 +289,7 @@ So here, we can change the fact to depend on a <code>mx</code> function (really 
 (fact
   (our-max 1 8 30) =&gt; 30
   (provided
-    (mx 1 8) =&gt; 1
+    (mx 1 8 ) =&gt; 1
     (mx 1 30) =&gt; 30)
 </pre>
 
@@ -317,7 +317,7 @@ By compiling this fact, Midje enriches its message for us:
 
 <pre class="example">;.;. [31mFAIL[0m at (NO_SOURCE_FILE:1)
 ;.;. You claimed the following was needed, but it was never used:
-;.;.     (mx 1 8)
+;.;.     (mx 1 8 )
 ;.;. 
 ;.;. [31mFAIL[0m at (NO_SOURCE_FILE:1)
 ;.;. You claimed the following was needed, but it was never used:
@@ -328,7 +328,7 @@ By compiling this fact, Midje enriches its message for us:
 (fact
   (our-max 1 8 30) =&gt; 30
   (provided
-    (mx 1 8) =&gt; 1
+    (mx 1 8 ) =&gt; 1
     (mx 1 30) =&gt; 30))
 </pre>
 
@@ -391,7 +391,7 @@ So here comes our implementation:
 (fact
   (our-max 1 8 30) =&gt; 30
   (provided
-    (mx 1 8) =&gt; 1
+    (mx 1 8 ) =&gt; 1
     (mx 1 30) =&gt; 30)
 </pre>
 
@@ -404,14 +404,14 @@ And this work!
 We want to compute the max in a list of integers, so we use <code>reduce</code> to loop over the elements and compute the max.
 The detailed step:
 </p><ul>
-<li><code>(mx 1 8)</code> will give 1 according to the contract
+<li><code>(mx 1 8 )</code> will give 1 according to the contract
 </li>
 </ul>
 
 
 
 
-<pre class="example">(provided (mx 1 8) =&gt; 1)
+<pre class="example">(provided (mx 1 8 ) =&gt; 1)
 </pre>
 
 <ul>
@@ -523,7 +523,7 @@ Ok!
 (fact "mock our-max"
   (our-max 1 8 30) =&gt; 30
   (provided
-    (mx 1 8) =&gt; 1
+    (mx 1 8 ) =&gt; 1
     (mx 1 30) =&gt; 30))
 
 ;.;. Out of clutter find simplicity; from discord find harmony; in the middle of difficulty lies opportunity. -- Einstein
@@ -578,7 +578,7 @@ In a near future, i intend to make some other blog posts to focus on:
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2012-04-24 14:48:56 CEST</p>
+<p class="date">Date: 2012-04-24 14:55:59 CEST</p>
 <p class="author">Author: Antoine R. Dumont</p>
 <p class="creator">Org version 7.8.08 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
