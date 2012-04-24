@@ -1,0 +1,489 @@
+#+title: How to bootstrap a clojure project
+#+author: Antoine R. Dumont
+#+tags: clojure emacs leiningen midje tdtdd
+
+In this article, we will see how to rapidly startup a clojure project.
+We will also see how to use the different tools at our disposal to solve a problem.
+
+*Notes*
+- Clojure is in no way limited to simple problems.
+- Clojure, like any language, is limited by the users.
+- The problem is *not* an *impressive one* as i want to focus on how to start a clojure project and how to use the tools.
+
+* Pre-requisites
+** [[http://www.gnu.org/software/emacs/][emacs]]
+See this [[http://adumont.fr/blog/how-to-install-emacs-24/][previous post for installing it]]
+** [[http://clojure.org/][clojure]]
+#+begin_src sh
+sudo aptitude install clojure
+#+end_src
+** [[https://github.com/technomancy/leiningen][leiningen]] 1
+*** Download the script
+#+begin_src sh
+wget https://raw.github.com/technomancy/leiningen/stable/bin/lein
+#+end_src
+*** Place it on your $PATH
+I also like to use ~/bin.
+#+begin_src sh
+export PATH=~/bin/:$PATH
+#+end_src
+*** Make it executable
+#+begin_src sh
+chmod 755 ~/bin/lein
+#+end_src
+*** Ask the version
+This will download all it needs.
+#+begin_src sh
+lein version
+#+end_src
+and finally gives you an output similar to this:
+#+begin_src sh
+tony@dagobah(0.11,) 09:56:26 ~/org (master) $ lein version
+Leiningen 1.7.1 on Java 1.6.0_26 Java HotSpot(TM) Client VM
+#+end_src
+** [[https://github.com/marick/Midje/wiki/Lein-midje][lein-midje]]
+This is a leiningen plugin to launch unit tests for the unit test framework midje.
+#+begin_src sh
+lein plugin install lein-midje 1.0.9
+#+end_src
+
+*Note*
+The version [lein-midje "2.0.0-SNAPSHOT"] is leiningen 2 compatible so do not use this one.
+** jdk installed (either sun or openjdk)
+*** openjdk
+#+begin_src sh
+sudo aptitude install openjdk
+#+end_src
+*** sun jdk on ubuntu 11.04
+https://github.com/ardumont/sh/blob/master/deploy-java-sun-11.04.sh
+*** sun jdk on ubuntu 11.10
+https://github.com/ardumont/sh/blob/master/deploy-java-sun-11.10.sh
+** git (optional)
+#+begin_src sh
+sudo aptitude install git
+#+end_src
+* Create a new clojure project
+#+begin_src sh
+lein new hello
+#+end_src
+
+This will create an arborescence like this:
+#+begin_src sh
+/home/tony/repositories/test/hello/
+├── .gitignore
+├── project.clj
+├── README
+├── src
+│   └── hello
+│       └── core.clj
+└── test
+    └── hello
+        └── test
+            └── core.clj
+
+5 directories, 4 files
+#+end_src
+
+I usually initialize a git project to hold my modifications.
+
+#+begin_src sh
+git init && git add . && git commit -m "Bootstrap clojure project"
+#+end_src
+
+* Launch a [[http://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop][repl]]
+** [[https://github.com/technomancy/swank-clojure][clojure-jack-in]]
+As we [[http://adumont.fr/blog/how-to-install-emacs-24/][already installed emacs]], we can launch the repl by doing simply:
+- =M-x cd= to change the current folder emacs runs into the =hello folder= (the one containing the =project.clj= file)
+- =M-x clojure-jack-in= to launch the repl.
+
+A new [[http://www.cs.utah.edu/dept/old/texinfo/emacs18/emacs_20.html][buffer]] must have launched itself (may take some time the first time)
+[[./resources/img/clojure-jack-in-started.png]]
+** Basic check
+
+Launch some basic operations and hit enter to check that the repl reacts:
+#+begin_src clj
+; SLIME 20100404
+user> (+ 1 1)
+2
+user> (reduce + [ 1 2 3 4])
+10
+user> 
+#+end_src
+
+* Setup dependencies
+** project.clj
+The =project.clj= file is the [[https://github.com/technomancy/leiningen][leiningen]] file holding the metadata of your project.
+This is this file that you want to edit to add dependencies or dev-dependencies.
+
+By default, here is the content:
+#+begin_src clj
+(defproject hello "1.0.0-SNAPSHOT"
+  :description "FIXME: write description"
+  :dependencies [[org.clojure/clojure "1.3.0"]])
+#+end_src
+
+This describes that the project :
+- if packaged, the version will be 1.0.0-SNAPSHOT
+- a simple description to update
+- holds only one runtime dependencies, clojure in its version 1.3.0 (currently, the 1.4.0
+has been released).
+
+*Note*
+For those from the java world, you can see it as the equivalent of the maven pom.xml with less verbosity!
+** Add dependencies
+As i'm a [[http://en.wikipedia.org/wiki/Test-driven_development][tdd]] fanboy, i like to add [[https://github.com/marick/Midje][midje]], an excellent unit test framework for clojure.
+
+*** dev-dependencies
+To add some dev-dependencies, add the :dev-dependencies in this file, like this:
+#+begin_src sh
+(defproject hello "1.0.0-SNAPSHOT"
+  :description "A simple hello world from clojure"
+  :dependencies [[org.clojure/clojure "1.3.0"]]
+  :dev-dependencies [[midje "1.3.1"]])
+#+end_src
+
+*** or dependencies
+
+As midje is a unit test framework, this must be a dev-dependencies (to avoid having it in the jar at runtime).
+
+But, considering that clojure is extremely expressive, i'd rather make midje a runtime dependencies so that my facts (unit
+test in midje) stays with the code they tests.
+Thus, my facts are another level of documentation..
+If you're like me, then change the previous block into this
+
+#+begin_src sh
+(defproject hello "1.0.0-SNAPSHOT"
+  :description "A simple hello world from clojure"
+  :dependencies [[org.clojure/clojure "1.3.0"]
+                 [midje "1.3.1"]])
+#+end_src
+
+Another plus side to this is, we do not have any problems concerning the visibility of the function.
+A function private is still testable.
+** Update the dependencies
+Now that we modify this file, we need to update the jars locally.
+To do this, we will tell leiningen "go fetch my dependencies" with the =deps= commands.
+#+begin_src sh
+lein deps
+#+end_src
+
+This will use the [[http://clojars.org/][clojars]] and/or [[http://maven.apache.org/][maven]] artifacts around the world to satisfy my demands.
+
+* Setup environment
+** Rapid check
+Launch the unit tests, you should have this
+#+begin_src sh
+tony@dagobah(0.08,) 09:31:10 ~/repositories/test/hello $ lein midje
+>>> Output from clojure.test tests:
+
+FAIL in (replace-me) (core.clj:6)
+No tests have been written.
+expected: false
+  actual: false
+
+>>> clojure.test summary:
+Ran 1 tests containing 1 assertions.
+1 failures, 0 errors.
+>>> Midje summary:
+All claimed facts (0) have been confirmed. 
+#+end_src
+
+This is a success.
+
+It's normal that the test fail as there is a default false claim in the file =test/hello/test/core.clj=
+#+begin_src sh
+(ns hello.test.core
+  (:use [hello.core])
+  (:use [clojure.test]))
+
+(deftest replace-me ;; FIXME: write
+  (is false "No tests have been written."))
+#+end_src
+
+You can remove this file as we will write our tests in the source file directly.
+
+** Add a midje fact
+Open the file src/hello/core.clj
+
+#+begin_src sh
+(ns hello.core)
+#+end_src
+
+First of all, we want to solve this problem in tdd, so we know, we will need to use midje.
+So we add this namespace.
+
+#+begin_src sh
+(ns hello.core
+    (:use [midje.sweet]))
+#+end_src
+
+To check that all is ok, we can add a false fact.
+#+begin_src sh
+(fact (+ 1 1) => 3)
+#+end_src
+
+*Note*: We can read this fact like this: "This is a fact that (+ 1 1) gives 3"
+We all know it's false but bare with me.
+
+In the terminal, launch =lein midje= again
+#+begin_src sh
+tony@dagobah(0.14,) 10:21:37 ~/repositories/test/hello (master) $ lein midje
+
+FAIL at (core.clj:4)
+    Expected: 3
+      Actual: 2
+FAILURE: 1 fact was not confirmed. 
+#+end_src
+
+Ok, the test is failing but it's ok, that's what we want.
+
+Now, the ultimate test, check the output when the test is ok.
+
+For this, change the fact to the right result.
+#+begin_src sh
+(fact (+ 1 1) => 2)
+#+end_src
+*Note* This is a fact that (+ 1 1) gives 2.
+
+Now launch =lein midje=
+#+begin_src sh
+tony@dagobah(0.53,) 10:21:58 (1) ~/repositories/test/hello (master) $ lein midje
+All claimed facts (1) have been confirmed. 
+#+end_src
+
+** Another way of checking midje facts
+*** Compilation
+When in the =core.clj= buffer, =C-c C-k= launches the compilation of all the clj file.
+The output of this compilation appears in the repl.
+
+When in error:
+#+begin_src clj
+; SLIME 20100404
+[31mFAIL[0m at (core.clj:4)
+    Expected: 3
+      Actual: 2
+
+user> 
+#+end_src
+
+When there is no error, nothing appears (except if there are prints in your code).
+*** Check one fact
+When in the =core.clj= buffer, =C-c ,= launch the evaluation of the fact.
+If the fact is true, there will be a quotation just before the fact.
+#+begin_src clj
+;.;. Any intelligent fool can make things bigger, more complex, and more violent. It takes a touch of genius -- and a lot of
+;.;. courage -- to move in the opposite direction. -- Schumacher
+(fact (+ 1 1) => 2)
+#+end_src
+
+Else, there will be a summary of the error
+#+begin_src clj
+;.;. [31mFAIL[0m at (NO_SOURCE_FILE:1)
+;.;.     Expected: 3
+;.;.       Actual: 2
+(fact (+ 1 1) => 3)
+
+#+end_src
+* Demo 
+Now to prove that we have all that we need, we will solve a little problem.
+** Problem
+=Write a function which takes a variable number of parameters and returns the maximum value.=
+
+*Note* There is already a =max= function but we will forbid ourselves to use it.
+
+** To the solution in TDTDD
+*** First fact
+The environment is now ready.
+
+Let's design some facts to help us progress.
+#+begin_src clj
+(fact (our-max 1 8 30) => 30)
+#+end_src
+
+*** Compilation problem
+Compilation : =C-c C-k=
+
+Here we will have a compilation problem as there is no function =our-max=
+
+So add this before the fact:
+#+begin_src clj
+(defn our-max "Given an infinite list of int parameters, compute the max of all the input integers."
+  [& l])
+
+(fact (our-max 1 8 30) => 30)
+#+end_src
+
+*Explanations*
+The declaration of the function:
+- is declared with =defn=
+- followed by the name of the function we want, here =our-max=
+- then a doc-string to explicit what the function does
+- the vector of arguments (in square-brackets as all the vectors). The =& l= means that the arguments is an indefinite
+  size of parameters, that's exactly what we want!
+- and at last the body of the function (the implementation), here we did nothing.
+
+*** Compilation ok, fact KO
+Launch the compilation =C-c C-k=.
+Now, the compilation is ok, but we got fail facts.
+That's ok because, with no implementation, we got a nil result.
+*Note* In clojure, a function always return something and in case of nothing, we return nil.
+
+#+begin_src clj
+;.;. [31mFAIL[0m at (NO_SOURCE_FILE:1)
+;.;.     Expected: 30
+;.;.       Actual: nil
+(fact (our-max 1 8 30) => 30)
+#+end_src
+
+We expected 30 but got nil.
+
+*** Top Down Test Driven Development
+We will try a Top Down TDD approach, i.e. we will make the function work but based on mock implementations of sub functions.
+And as soon as we have the top level done, we can develop the sub function we depend on.
+
+So here, we can change the fact to depend on a =mx= function (max) which computes the max between 2 integers.
+#+begin_src clj
+(unfinished mx)
+
+(defn our-max "Our max implementation function"
+  [& l])
+
+(fact
+  (our-max 1 8 30) => 30
+  (provided
+    (mx 1 8) => 1
+    (mx 1 30) => 30)
+#+end_src
+
+*explanations*
+- The =(unfinished list)= is here to tell midje, it's ok that you do not have the implementation yet. Do not fail the
+compilation for such a small delta. By the way, to add a not implemented function into the =unfinished list=, hit =C-c u=
+- This seems apparent here that we mock the call of a new function =mx= with the parameters =1 8= and with the =1 30=.
+- I voluntarily tell midje that the max between 1 and 8 is 1 for everybody to see that this is a mock implementation
+
+Midje enriches its message to us:
+#+begin_src clj
+;.;. [31mFAIL[0m at (NO_SOURCE_FILE:1)
+;.;. You claimed the following was needed, but it was never used:
+;.;.     (mx 1 8)
+;.;. 
+;.;. [31mFAIL[0m at (NO_SOURCE_FILE:1)
+;.;. You claimed the following was needed, but it was never used:
+;.;.     (mx 1 30)
+;.;. 
+;.;. [31mFAIL[0m at (NO_SOURCE_FILE:1)
+;.;.     Expected: 30
+(fact
+  (our-max 1 8 30) => 30
+  (provided
+    (mx 1 8) => 1
+    (mx 1 30) => 30))
+#+end_src
+
+Basically, midje warns us about the absence of our implementation.
+Indeed, we did not yet complete our implementation.
+
+*** First implementation, compilation ok, fact ok
+Here we go
+#+begin_src clj
+(defn our-max "Our max implementation function"
+  [& l]
+  (reduce mx l))
+
+;.;. Happiness comes when you believe that you have done something truly meaningful. -- Yan
+(fact
+  (our-max 1 8 30) => 30
+  (provided
+    (mx 1 8) => 1
+#+end_src
+
+*Explanations*
+We want to compute the max in a list of integers, so we use reduce to loop over the elements and compute the max between
+1 and 8, then the result of the first iteration (here 1 according to fact) and 1 and 30 (so 30 according to the fact too).
+
+Now the fact is ok!
+We just need to implement the =mx= function.
+
+*** =mx= facts
+It's just a max function, here goes the facts:
+#+begin_src clj
+(unfinished )
+
+(defn mx "max"
+  [x y]
+  (if (< x y) y x))
+
+;.;. Without work, all life goes rotten. -- Camus
+(fact "mx"
+  (mx 1 2) => 2
+  (mx 2 100) => 100)
+#+end_src
+
+The arity of the function (number of arguments) needed is 2 so we have this function deal with 2 arguments.
+*** Final - Integration test
+Now that we think we have everything, let's check it with a real fact.
+That's a fact without mock.
+
+For example, add this fact at the bottom of the file.
+#+begin_src clj
+;.;. Out of clutter find simplicity; from discord find harmony; in the middle of difficulty lies opportunity. -- Einstein
+(fact
+  (our-max 9786 4 7 87 9999 876 342 9876 999) => 9999)
+#+end_src
+
+Ok, we do have everything and that worked!
+
+*** Code
+Here is the final =core.clj= file.
+#+begin_src clj
+(ns hello.core
+  (:use [midje.sweet]))
+
+;; Write a function which takes a variable number of parameters and returns the maximum value.
+
+(unfinished )
+
+(defn mx "max"
+  [x y]
+  (if (< x y) y x))
+
+(fact "mx"
+  (mx 1 2) => 2
+  (mx 2 100) => 100)
+
+(defn our-max "Our max implementation function"
+  [& l]
+  (reduce mx l))
+
+(fact "mock our-max"
+  (our-max 1 8 30) => 30
+  (provided
+    (mx 1 8) => 1
+    (mx 1 30) => 30))
+
+;.;. Out of clutter find simplicity; from discord find harmony; in the middle of difficulty lies opportunity. -- Einstein
+(fact
+  (our-max 9786 4 7 87 9999 876 342 9876 999) => 9999)
+#+end_src
+* Notes
+** Around the testing
+There is an ultimate way for testing with midje that i prefer above all:
+ =lein midje --lazytest= 
+At the moment, it seems there is a problem with my platform around the leiningen 1.7.1 version (by downgrading it to leiningen 1.6.2, this works) that i was not yet able to solve.
+
+This mode permits to relaunch the facts after a modification on the file system has been done.
+This is quite handy to avoid the manual compilation.
+The output is the same as previously described.
+
+When this work on my machine, I use it by opening a terminal buffer (=M-x multi-term=) in emacs in which you launch the =lein midje
+--lazytest= command. 
+** Video from Brian Marick using top down tdd to solve a more complex problem
+http://vimeo.com/19404746
+* Conclusion
+You're now able to setup a project in clojure and solve any problems you want.
+
+In a near future, i intend to make some other blog posts to focus on:
+- continued integration with [[http://about.travis-ci.org/docs/user/getting-started/][travis-ci]]
+- [[http://www.heroku.com/][heroku]] for the deploying part
+- [[https://github.com/fogus/marginalia][marginalia]] for the documentation generation and the [[github]] integration.
+
