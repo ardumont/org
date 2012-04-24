@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="How to bootstrap a clojure project"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2012-04-24 12:48:02 CEST"/>
+<meta name="generated" content="2012-04-24 13:34:23 CEST"/>
 <meta name="author" content="Antoine R. Dumont"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -93,21 +93,8 @@
 <div id="content">
 <h1 class="title">How to bootstrap a clojure project</h1>
 
-<p>In this article, we will see how to rapidly startup a clojure project.
-We will also see how to use the different tools at our disposal to solve a problem.
+<p>In this article, we will see how to rapidly startup a <a href="http://clojure.org/">clojure</a> project using <a href="https://github.com/technomancy/leiningen">leiningen</a>.
 </p>
-<p>
-<b>Notes</b>
-</p><ul>
-<li>Clojure is in no way limited to simple problems.
-</li>
-<li>Clojure, like any language, is limited by the users.
-</li>
-<li>The problem is <b>not</b> an <b>impressive one</b> as i want to focus on how to start a clojure project and how to use the tools.
-</li>
-</ul>
-
-
 
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
@@ -116,24 +103,7 @@ We will also see how to use the different tools at our disposal to solve a probl
 <li><a href="#sec-1">1 Pre-requisites</a>
 <ul>
 <li><a href="#sec-1-1">1.1 emacs</a></li>
-<li><a href="#sec-1-2">1.2 clojure</a></li>
-<li><a href="#sec-1-3">1.3 leiningen 1</a>
-<ul>
-<li><a href="#sec-1-3-1">1.3.1 Download the script</a></li>
-<li><a href="#sec-1-3-2">1.3.2 Place it on your $PATH</a></li>
-<li><a href="#sec-1-3-3">1.3.3 Make it executable</a></li>
-<li><a href="#sec-1-3-4">1.3.4 Ask the version</a></li>
-</ul>
-</li>
-<li><a href="#sec-1-4">1.4 lein-midje</a></li>
-<li><a href="#sec-1-5">1.5 jdk installed (either sun or openjdk)</a>
-<ul>
-<li><a href="#sec-1-5-1">1.5.1 openjdk</a></li>
-<li><a href="#sec-1-5-2">1.5.2 sun jdk on ubuntu 11.04</a></li>
-<li><a href="#sec-1-5-3">1.5.3 sun jdk on ubuntu 11.10</a></li>
-</ul>
-</li>
-<li><a href="#sec-1-6">1.6 git (optional)</a></li>
+<li><a href="#sec-1-2">1.2 clojure environment</a></li>
 </ul>
 </li>
 <li><a href="#sec-2">2 Create a new clojure project</a></li>
@@ -194,164 +164,11 @@ We will also see how to use the different tools at our disposal to solve a probl
 </div>
 
 <div id="outline-container-1-2" class="outline-3">
-<h3 id="sec-1-2"><span class="section-number-3">1.2</span> <a href="http://clojure.org/">clojure</a></h3>
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> <a href="http://clojure.org/">clojure</a> environment</h3>
 <div class="outline-text-3" id="text-1-2">
 
-
-
-
-<pre class="example">sudo aptitude install clojure
-</pre>
-
-</div>
-
-</div>
-
-<div id="outline-container-1-3" class="outline-3">
-<h3 id="sec-1-3"><span class="section-number-3">1.3</span> <a href="https://github.com/technomancy/leiningen">leiningen</a> 1</h3>
-<div class="outline-text-3" id="text-1-3">
-
-
-</div>
-
-<div id="outline-container-1-3-1" class="outline-4">
-<h4 id="sec-1-3-1"><span class="section-number-4">1.3.1</span> Download the script</h4>
-<div class="outline-text-4" id="text-1-3-1">
-
-
-
-
-<pre class="example">wget https://raw.github.com/technomancy/leiningen/stable/bin/lein
-</pre>
-
-</div>
-
-</div>
-
-<div id="outline-container-1-3-2" class="outline-4">
-<h4 id="sec-1-3-2"><span class="section-number-4">1.3.2</span> Place it on your $PATH</h4>
-<div class="outline-text-4" id="text-1-3-2">
-
-<p>I also like to use ~/bin.
-</p>
-
-
-<pre class="example">export PATH=~/bin/:$PATH
-</pre>
-
-</div>
-
-</div>
-
-<div id="outline-container-1-3-3" class="outline-4">
-<h4 id="sec-1-3-3"><span class="section-number-4">1.3.3</span> Make it executable</h4>
-<div class="outline-text-4" id="text-1-3-3">
-
-
-
-
-<pre class="example">chmod 755 ~/bin/lein
-</pre>
-
-</div>
-
-</div>
-
-<div id="outline-container-1-3-4" class="outline-4">
-<h4 id="sec-1-3-4"><span class="section-number-4">1.3.4</span> Ask the version</h4>
-<div class="outline-text-4" id="text-1-3-4">
-
-<p>This will download all it needs.
-</p>
-
-
-<pre class="example">lein version
-</pre>
-
-<p>
-and finally gives you an output similar to this:
-</p>
-
-
-<pre class="example">tony@dagobah(0.11,) 09:56:26 ~/org (master) $ lein version
-Leiningen 1.7.1 on Java 1.6.0_26 Java HotSpot(TM) Client VM
-</pre>
-
-</div>
-</div>
-
-</div>
-
-<div id="outline-container-1-4" class="outline-3">
-<h3 id="sec-1-4"><span class="section-number-3">1.4</span> <a href="https://github.com/marick/Midje/wiki/Lein-midje">lein-midje</a></h3>
-<div class="outline-text-3" id="text-1-4">
-
-<p>This is a leiningen plugin to launch unit tests for the unit test framework midje.
-</p>
-
-
-<pre class="example">lein plugin install lein-midje 1.0.9
-</pre>
-
-
-<p>
-<b>Note</b>
-The version [lein-midje "2.0.0-SNAPSHOT"] is leiningen 2 compatible so do not use this one.
+<p>See this <a href="http://adumont.fr/blog/how-to-install-the-clojure-development-environment/">previous post</a>
 </p></div>
-
-</div>
-
-<div id="outline-container-1-5" class="outline-3">
-<h3 id="sec-1-5"><span class="section-number-3">1.5</span> jdk installed (either sun or openjdk)</h3>
-<div class="outline-text-3" id="text-1-5">
-
-
-</div>
-
-<div id="outline-container-1-5-1" class="outline-4">
-<h4 id="sec-1-5-1"><span class="section-number-4">1.5.1</span> openjdk</h4>
-<div class="outline-text-4" id="text-1-5-1">
-
-
-
-
-<pre class="example">sudo aptitude install openjdk
-</pre>
-
-</div>
-
-</div>
-
-<div id="outline-container-1-5-2" class="outline-4">
-<h4 id="sec-1-5-2"><span class="section-number-4">1.5.2</span> sun jdk on ubuntu 11.04</h4>
-<div class="outline-text-4" id="text-1-5-2">
-
-<p><a href="https://github.com/ardumont/sh/blob/master/deploy-java-sun-11.04.sh">https://github.com/ardumont/sh/blob/master/deploy-java-sun-11.04.sh</a>
-</p></div>
-
-</div>
-
-<div id="outline-container-1-5-3" class="outline-4">
-<h4 id="sec-1-5-3"><span class="section-number-4">1.5.3</span> sun jdk on ubuntu 11.10</h4>
-<div class="outline-text-4" id="text-1-5-3">
-
-<p><a href="https://github.com/ardumont/sh/blob/master/deploy-java-sun-11.10.sh">https://github.com/ardumont/sh/blob/master/deploy-java-sun-11.10.sh</a>
-</p></div>
-</div>
-
-</div>
-
-<div id="outline-container-1-6" class="outline-3">
-<h3 id="sec-1-6"><span class="section-number-3">1.6</span> git (optional)</h3>
-<div class="outline-text-3" id="text-1-6">
-
-
-
-
-<pre class="example">sudo aptitude install git
-</pre>
-
-</div>
 </div>
 
 </div>
@@ -829,7 +646,7 @@ When this work on my machine, I use it by opening a terminal buffer (<code>M-x m
 <p>
 In a near future, i intend to make some other blog posts to focus on:
 </p><ul>
-<li>a simple problem resolution
+<li>a simple problem resolution using top down tdd in clojure with midje
 </li>
 <li>continued integration with <a href="http://about.travis-ci.org/docs/user/getting-started/">travis-ci</a>
 </li>
@@ -845,7 +662,7 @@ In a near future, i intend to make some other blog posts to focus on:
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2012-04-24 12:48:02 CEST</p>
+<p class="date">Date: 2012-04-24 13:34:23 CEST</p>
 <p class="author">Author: Antoine R. Dumont</p>
 <p class="creator">Org version 7.8.08 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
