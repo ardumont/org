@@ -1,0 +1,81 @@
+#+title: How to install the clojure development environment
+#+author: Antoine R. Dumont
+#+tags: clojure emacs leiningen midje tdtdd
+
+In this article, we will see how to rapidly install the clojure tools in a debian-like distribution (ubuntu 11.10 for example).
+
+* Pre-requisites
+** [[http://www.gnu.org/software/emacs/][emacs]]
+See this [[http://adumont.fr/blog/how-to-install-emacs-24/][previous post for installing it]]
+* Installation
+** [[http://clojure.org/][clojure]]
+#+begin_src sh
+sudo aptitude install clojure
+#+end_src
+
+*Note* 
+=apt-get= if you do not have =aptitude= installed.
+** [[https://github.com/technomancy/leiningen][leiningen]] 1
+*** The easy way
+#+begin_src sh
+sudo aptitude install leiningen
+#+end_src
+If you do not have leiningen in the packages, then you must pass by the *not so hard* way.
+*** The not so hard way
+**** Download the script
+#+begin_src sh
+wget https://raw.github.com/technomancy/leiningen/stable/bin/lein
+#+end_src
+**** Place it on your $PATH
+I also like to use ~/bin.
+#+begin_src sh
+export PATH=~/bin/:$PATH
+#+end_src
+
+I usually add this in the =~/.bashrc= file.
+**** Make it executable
+#+begin_src sh
+chmod 755 ~/bin/lein
+#+end_src
+**** Ask the version
+This will download all it needs.
+#+begin_src sh
+lein version
+#+end_src
+and finally gives you an output similar to this:
+#+begin_src sh
+tony@dagobah(0.11,) 09:56:26 ~/org (master) $ lein version
+Leiningen 1.7.1 on Java 1.6.0_26 Java HotSpot(TM) Client VM
+#+end_src
+** [[https://github.com/marick/Midje/wiki/Lein-midje][lein-midje]]
+This is a leiningen plugin to launch unit tests for the unit test framework midje.
+#+begin_src sh
+lein plugin install lein-midje 1.0.9
+#+end_src
+
+*Note*
+The version [lein-midje "2.0.0-SNAPSHOT"] is leiningen 2 compatible so do not use this one.
+** jdk installed (either sun or openjdk)
+*** openjdk
+#+begin_src sh
+sudo aptitude install openjdk
+#+end_src
+*** sun jdk on ubuntu 11.04
+https://github.com/ardumont/sh/blob/master/deploy-java-sun-11.04.sh
+*** sun jdk on ubuntu 11.10
+https://github.com/ardumont/sh/blob/master/deploy-java-sun-11.10.sh
+** git (optional)
+#+begin_src sh
+sudo aptitude install git
+#+end_src
+* Conclusion
+We have focused on the needed steps to install the clojure environment.
+You will now have the power to develop with clojure.
+
+In a near future, i intend to make some other blog posts to focus on:
+- how to install a new clojure project using leiningen
+- how to solve a simple problem in clojure and show how these tools work together
+- continued integration with [[http://about.travis-ci.org/docs/user/getting-started/][travis-ci]]
+- [[http://www.heroku.com/][heroku]] for the deploying part
+- [[https://github.com/fogus/marginalia][marginalia]] for the documentation generation and the [[github]] integration.
+
