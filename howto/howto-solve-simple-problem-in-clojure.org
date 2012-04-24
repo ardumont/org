@@ -6,27 +6,24 @@ In this article, we will see how to use the different tools at our disposal to s
 
 *Notes*
 - Clojure is in no way limited to simple problems.
-- Clojure, like any language, is limited by the users.
 - The problem is *not* an *impressive one* as i want to focus on how to start a clojure project and how to use the tools.
 
 * Pre-requisites
-** [[http://www.gnu.org/software/emacs/][emacs]] 
-See this [[http://adumont.fr/blog/how-to-install-emacs-24/][previous post for installing it]]
-** clojure environment setup
-See this previous blog post
+** [[http://adumont.fr/blog/how-to-install-emacs-24/][emacs]]
+** [[http://adumont.fr/blog/how-to-boostrap-a-clojure-project/][clojure environment setup]]
 * Problem
 Now to prove that we have all that we need, we will solve a little problem.
+
 =Write a function which takes a variable number of parameters and returns the maximum value.=
 
 *Note* There is already a =max= function but we will forbid ourselves to use it.
 
-* To the solution in TDTDD
+* To the solution in Top Down TDD
 ** First fact
-The environment is now ready.
-
 Let's design some facts to help us progress.
 #+begin_src clj
-(fact (our-max 1 8 30) => 30)
+(fact 
+  (our-max 1 8 30) => 30)
 #+end_src
 
 ** Compilation problem
@@ -47,15 +44,13 @@ The declaration of the function:
 - is declared with =defn=
 - followed by the name of the function we want, here =our-max=
 - then a doc-string to explicit what the function does
-- the vector of arguments (in square-brackets as all the vectors). The =& l= means that the arguments is an indefinite
-  size of parameters, that's exactly what we want!
+- the vector of arguments (in square-brackets as all the vectors). The =& l= means that the arguments is an indefinite number of parameters, that's exactly what we want!
 - and at last the body of the function (the implementation), here we did nothing.
 
 ** Compilation ok, fact KO
 Launch the compilation =C-c C-k=.
 Now, the compilation is ok, but we got fail facts.
 That's ok because, with no implementation, we got a nil result.
-*Note* In clojure, a function always return something and in case of nothing, we return nil.
 
 #+begin_src clj
 ;.;. [31mFAIL[0m at (NO_SOURCE_FILE:1)
@@ -66,11 +61,14 @@ That's ok because, with no implementation, we got a nil result.
 
 We expected 30 but got nil.
 
+*Note*
+In clojure, a function always return something and in case of no implementation, we return nil.
+
 ** Top Down Test Driven Development
 We will try a Top Down TDD approach, i.e. we will make the function work but based on mock implementations of sub functions.
 And as soon as we have the top level done, we can develop the sub function we depend on.
 
-So here, we can change the fact to depend on a =mx= function (max) which computes the max between 2 integers.
+So here, we can change the fact to depend on a =mx= function (really a =max= function) which computes the max between 2 integers.
 #+begin_src clj
 (unfinished mx)
 
@@ -85,12 +83,15 @@ So here, we can change the fact to depend on a =mx= function (max) which compute
 #+end_src
 
 *explanations*
-- The =(unfinished list)= is here to tell midje, it's ok that you do not have the implementation yet. Do not fail the
-compilation for such a small delta. By the way, to add a not implemented function into the =unfinished list=, hit =C-c u=
-- This seems apparent here that we mock the call of a new function =mx= with the parameters =1 8= and with the =1 30=.
-- I voluntarily tell midje that the max between 1 and 8 is 1 for everybody to see that this is a mock implementation
 
-Midje enriches its message to us:
+- The =(unfinished list)= is here to tell midje, it's ok that you do not have the implementation yet. Do not fail the compilation for such a small detail.
+
+- We mock the call of a new function =mx= with the parameters =1 8= and with the =1 30=.
+
+- I voluntarily tell midje that the max between 1 and 8 is 1 for everybody to see that this is a mock implementation and
+  in no way the reality.
+
+By compiling this fact, Midje enriches its message for us:
 #+begin_src clj
 ;.;. [31mFAIL[0m at (NO_SOURCE_FILE:1)
 ;.;. You claimed the following was needed, but it was never used:
@@ -109,11 +110,34 @@ Midje enriches its message to us:
     (mx 1 30) => 30))
 #+end_src
 
-Basically, midje warns us about the absence of our implementation.
+Basically, midje warns us about the absence of the =mx= call in our implementation.
 Indeed, we did not yet complete our implementation.
 
+*Note*
+- To add a not implemented function into the =unfinished list=, hit =C-c u=
+
 ** First implementation, compilation ok, fact ok
-Here we go
+
+The way i see it is this, we want to =reduce= a list of elements to the max of its elements.
+The function that does such a transformation is the =reduce= function.
+
+In the repl, type =reduce= then =C-c C-d d=, this will open a browser with the documentation on this function.
+#+begin_src sh
+clojure.core/reduce
+([f coll] [f val coll])
+  f should be a function of 2 arguments. If val is not supplied,
+  returns the result of applying f to the first 2 items in coll, then
+  applying f to that result and the 3rd item, etc. If coll contains no
+  items, f must accept no arguments as well, and reduce returns the
+  result of calling f with no arguments.  If coll has only 1 item, it
+  is returned and f is not called.  If val is supplied, returns the
+  result of applying f to val and the first item in coll, then
+  applying f to that result and the 2nd item, etc. If coll contains no
+  items, returns val and f is not called.
+#+end_src
+
+This indeed is exactly what we want with =mx= as our =f= function and =l= our =coll=.
+So here comes our implementation:
 #+begin_src clj
 (defn our-max "Our max implementation function"
   [& l]
@@ -124,17 +148,30 @@ Here we go
   (our-max 1 8 30) => 30
   (provided
     (mx 1 8) => 1
+    (mx 1 30) => 30)
 #+end_src
 
-*Explanations*
-We want to compute the max in a list of integers, so we use reduce to loop over the elements and compute the max between
-1 and 8, then the result of the first iteration (here 1 according to fact) and 1 and 30 (so 30 according to the fact too).
+And this work!
 
-Now the fact is ok!
-We just need to implement the =mx= function.
+*Explanations*
+We want to compute the max in a list of integers, so we use =reduce= to loop over the elements and compute the max.
+The detailed step:
+- =(mx 1 8)= will give 1 according to the contract
+#+begin_example
+(provided (mx 1 8) => 1)
+#+end_example
+- =(mx 1 30)= will give 30 according to the contract
+#+begin_example
+(provided (mx 1 30) => 30)
+#+end_example
+- and that's it. The result is then =30= which indeed is what we expect.
+
+So the fact is ok!
+
+Next step: implement the =mx= function.
 
 ** =mx= facts
-It's just a max function, here goes the facts:
+It's just a max function, so here goes the facts:
 #+begin_src clj
 (unfinished )
 
@@ -148,10 +185,10 @@ It's just a max function, here goes the facts:
   (mx 2 100) => 100)
 #+end_src
 
-The arity of the function (number of arguments) needed is 2 so we have this function deal with 2 arguments.
+*Note*
+The arity of the function (number of arguments) needed was 2 as we described in the first fact (our-max).
 ** Final - Integration test
-Now that we think we have everything, let's check it with a real fact.
-That's a fact without mock.
+Now that we think we have everything, let's check it with a real fact (that is without mock).
 
 For example, add this fact at the bottom of the file.
 #+begin_src clj
@@ -160,7 +197,7 @@ For example, add this fact at the bottom of the file.
   (our-max 9786 4 7 87 9999 876 342 9876 999) => 9999)
 #+end_src
 
-Ok, we do have everything and that worked!
+Ok!
 
 ** Code
 Here is the final =core.clj= file.
@@ -191,23 +228,10 @@ Here is the final =core.clj= file.
     (mx 1 30) => 30))
 
 ;.;. Out of clutter find simplicity; from discord find harmony; in the middle of difficulty lies opportunity. -- Einstein
-(fact
+(fact "ITest our-max"
   (our-max 9786 4 7 87 9999 876 342 9876 999) => 9999)
 #+end_src
-* Notes
-** Around the testing
-There is an ultimate way for testing with midje that i prefer above all:
- =lein midje --lazytest= 
-At the moment, it seems there is a problem with my platform around the leiningen 1.7.1 version (by downgrading it to leiningen 1.6.2, this works) that i was not yet able to solve.
 
-This mode permits to relaunch the facts after a modification on the file system has been done.
-This is quite handy to avoid the manual compilation.
-The output is the same as previously described.
-
-When this work on my machine, I use it by opening a terminal buffer (=M-x multi-term=) in emacs in which you launch the =lein midje
---lazytest= command. 
-** Video from Brian Marick using top down tdd to solve a more complex problem
-http://vimeo.com/19404746
 * Conclusion
 With these posts and this one,
 - http://adumont.fr/blog/how-to-install-emacs-24/
@@ -216,7 +240,7 @@ With these posts and this one,
 
 You now have all you need to develop with clojure.
 
-For documentation about the different tool i use, i recommend you the README on each github project that are well explained.
+For documentation about the different tool i used, i recommend reading the README on each github project which are really well explained.
 
 Also, if you have some time, there is a good [[http://vimeo.com/19404746][video]] from [[http://www.exampler.com/about.html][Brian Marick himself]] (midje's creator)
 using top down tdd to solve a more complex problem than this one.

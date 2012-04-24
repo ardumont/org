@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="One way to solve a problem in clojure"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2012-04-24 14:17:06 CEST"/>
+<meta name="generated" content="2012-04-24 14:48:56 CEST"/>
 <meta name="author" content="Antoine R. Dumont"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -100,8 +100,6 @@
 </p><ul>
 <li>Clojure is in no way limited to simple problems.
 </li>
-<li>Clojure, like any language, is limited by the users.
-</li>
 <li>The problem is <b>not</b> an <b>impressive one</b> as i want to focus on how to start a clojure project and how to use the tools.
 </li>
 </ul>
@@ -119,7 +117,7 @@
 </ul>
 </li>
 <li><a href="#sec-2">2 Problem</a></li>
-<li><a href="#sec-3">3 To the solution in TDTDD</a>
+<li><a href="#sec-3">3 To the solution in Top Down TDD</a>
 <ul>
 <li><a href="#sec-3-1">3.1 First fact</a></li>
 <li><a href="#sec-3-2">3.2 Compilation problem</a></li>
@@ -131,13 +129,7 @@
 <li><a href="#sec-3-8">3.8 Code</a></li>
 </ul>
 </li>
-<li><a href="#sec-4">4 Notes</a>
-<ul>
-<li><a href="#sec-4-1">4.1 Around the testing</a></li>
-<li><a href="#sec-4-2">4.2 Video from Brian Marick using top down tdd to solve a more complex problem</a></li>
-</ul>
-</li>
-<li><a href="#sec-5">5 Conclusion</a></li>
+<li><a href="#sec-4">4 Conclusion</a></li>
 </ul>
 </div>
 </div>
@@ -150,20 +142,18 @@
 </div>
 
 <div id="outline-container-1-1" class="outline-3">
-<h3 id="sec-1-1"><span class="section-number-3">1.1</span> <a href="http://www.gnu.org/software/emacs/">emacs</a></h3>
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> <a href="http://adumont.fr/blog/how-to-install-emacs-24/">emacs</a></h3>
 <div class="outline-text-3" id="text-1-1">
 
-<p>See this <a href="http://adumont.fr/blog/how-to-install-emacs-24/">previous post for installing it</a>
-</p></div>
+</div>
 
 </div>
 
 <div id="outline-container-1-2" class="outline-3">
-<h3 id="sec-1-2"><span class="section-number-3">1.2</span> clojure environment setup</h3>
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> <a href="http://adumont.fr/blog/how-to-boostrap-a-clojure-project/">clojure environment setup</a></h3>
 <div class="outline-text-3" id="text-1-2">
 
-<p>See this previous blog post
-</p></div>
+</div>
 </div>
 
 </div>
@@ -173,6 +163,8 @@
 <div class="outline-text-2" id="text-2">
 
 <p>Now to prove that we have all that we need, we will solve a little problem.
+</p>
+<p>
 <code>Write a function which takes a variable number of parameters and returns the maximum value.</code>
 </p>
 <p>
@@ -183,7 +175,7 @@
 </div>
 
 <div id="outline-container-3" class="outline-2">
-<h2 id="sec-3"><span class="section-number-2">3</span> To the solution in TDTDD</h2>
+<h2 id="sec-3"><span class="section-number-2">3</span> To the solution in Top Down TDD</h2>
 <div class="outline-text-2" id="text-3">
 
 
@@ -193,14 +185,12 @@
 <h3 id="sec-3-1"><span class="section-number-3">3.1</span> First fact</h3>
 <div class="outline-text-3" id="text-3-1">
 
-<p>The environment is now ready.
-</p>
-<p>
-Let's design some facts to help us progress.
+<p>Let's design some facts to help us progress.
 </p>
 
 
-<pre class="example">(fact (our-max 1 8 30) =&gt; 30)
+<pre class="example">(fact 
+  (our-max 1 8 30) =&gt; 30)
 </pre>
 
 
@@ -239,8 +229,7 @@ The declaration of the function:
 </li>
 <li>then a doc-string to explicit what the function does
 </li>
-<li>the vector of arguments (in square-brackets as all the vectors). The <code>&amp; l</code> means that the arguments is an indefinite
-  size of parameters, that's exactly what we want!
+<li>the vector of arguments (in square-brackets as all the vectors). The <code>&amp; l</code> means that the arguments is an indefinite number of parameters, that's exactly what we want!
 </li>
 <li>and at last the body of the function (the implementation), here we did nothing.
 </li>
@@ -258,7 +247,6 @@ The declaration of the function:
 <p>Launch the compilation <code>C-c C-k</code>.
 Now, the compilation is ok, but we got fail facts.
 That's ok because, with no implementation, we got a nil result.
-<b>Note</b> In clojure, a function always return something and in case of nothing, we return nil.
 </p>
 
 
@@ -273,6 +261,10 @@ That's ok because, with no implementation, we got a nil result.
 <p>
 We expected 30 but got nil.
 </p>
+<p>
+<b>Note</b>
+In clojure, a function always return something and in case of no implementation, we return nil.
+</p>
 </div>
 
 </div>
@@ -285,7 +277,7 @@ We expected 30 but got nil.
 And as soon as we have the top level done, we can develop the sub function we depend on.
 </p>
 <p>
-So here, we can change the fact to depend on a <code>mx</code> function (max) which computes the max between 2 integers.
+So here, we can change the fact to depend on a <code>mx</code> function (really a <code>max</code> function) which computes the max between 2 integers.
 </p>
 
 
@@ -304,22 +296,22 @@ So here, we can change the fact to depend on a <code>mx</code> function (max) wh
 
 <p>
 <b>explanations</b>
-</p><ul>
-<li>The <code>(unfinished list)</code> is here to tell midje, it's ok that you do not have the implementation yet. Do not fail the
-</li>
-</ul>
+</p>
+<ul>
+<li>The <code>(unfinished list)</code> is here to tell midje, it's ok that you do not have the implementation yet. Do not fail the compilation for such a small detail.
 
-<p>compilation for such a small delta. By the way, to add a not implemented function into the <code>unfinished list</code>, hit <code>C-c u</code>
-</p><ul>
-<li>This seems apparent here that we mock the call of a new function <code>mx</code> with the parameters <code>1 8</code> and with the <code>1 30</code>.
 </li>
-<li>I voluntarily tell midje that the max between 1 and 8 is 1 for everybody to see that this is a mock implementation
+<li>We mock the call of a new function <code>mx</code> with the parameters <code>1 8</code> and with the <code>1 30</code>.
+
+</li>
+<li>I voluntarily tell midje that the max between 1 and 8 is 1 for everybody to see that this is a mock implementation and
+  in no way the reality.
 </li>
 </ul>
 
 
 <p>
-Midje enriches its message to us:
+By compiling this fact, Midje enriches its message for us:
 </p>
 
 
@@ -342,9 +334,17 @@ Midje enriches its message to us:
 
 
 <p>
-Basically, midje warns us about the absence of our implementation.
+Basically, midje warns us about the absence of the <code>mx</code> call in our implementation.
 Indeed, we did not yet complete our implementation.
 </p>
+<p>
+<b>Note</b>
+</p><ul>
+<li>To add a not implemented function into the <code>unfinished list</code>, hit <code>C-c u</code>
+</li>
+</ul>
+
+
 </div>
 
 </div>
@@ -353,7 +353,33 @@ Indeed, we did not yet complete our implementation.
 <h3 id="sec-3-5"><span class="section-number-3">3.5</span> First implementation, compilation ok, fact ok</h3>
 <div class="outline-text-3" id="text-3-5">
 
-<p>Here we go
+
+<p>
+The way i see it is this, we want to <code>reduce</code> a list of elements to the max of its elements.
+The function that does such a transformation is the <code>reduce</code> function.
+</p>
+<p>
+In the repl, type <code>reduce</code> then <code>C-c C-d d</code>, this will open a browser with the documentation on this function.
+</p>
+
+
+<pre class="example">clojure.core/reduce
+([f coll] [f val coll])
+  f should be a function of 2 arguments. If val is not supplied,
+  returns the result of applying f to the first 2 items in coll, then
+  applying f to that result and the 3rd item, etc. If coll contains no
+  items, f must accept no arguments as well, and reduce returns the
+  result of calling f with no arguments.  If coll has only 1 item, it
+  is returned and f is not called.  If val is supplied, returns the
+  result of applying f to val and the first item in coll, then
+  applying f to that result and the 2nd item, etc. If coll contains no
+  items, returns val and f is not called.
+</pre>
+
+
+<p>
+This indeed is exactly what we want with <code>mx</code> as our <code>f</code> function and <code>l</code> our <code>coll</code>.
+So here comes our implementation:
 </p>
 
 
@@ -366,17 +392,50 @@ Indeed, we did not yet complete our implementation.
   (our-max 1 8 30) =&gt; 30
   (provided
     (mx 1 8) =&gt; 1
+    (mx 1 30) =&gt; 30)
 </pre>
 
 
 <p>
-<b>Explanations</b>
-We want to compute the max in a list of integers, so we use reduce to loop over the elements and compute the max between
-1 and 8, then the result of the first iteration (here 1 according to fact) and 1 and 30 (so 30 according to the fact too).
+And this work!
 </p>
 <p>
-Now the fact is ok!
-We just need to implement the <code>mx</code> function.
+<b>Explanations</b>
+We want to compute the max in a list of integers, so we use <code>reduce</code> to loop over the elements and compute the max.
+The detailed step:
+</p><ul>
+<li><code>(mx 1 8)</code> will give 1 according to the contract
+</li>
+</ul>
+
+
+
+
+<pre class="example">(provided (mx 1 8) =&gt; 1)
+</pre>
+
+<ul>
+<li><code>(mx 1 30)</code> will give 30 according to the contract
+</li>
+</ul>
+
+
+
+
+<pre class="example">(provided (mx 1 30) =&gt; 30)
+</pre>
+
+<ul>
+<li>and that's it. The result is then <code>30</code> which indeed is what we expect.
+</li>
+</ul>
+
+
+<p>
+So the fact is ok!
+</p>
+<p>
+Next step: implement the <code>mx</code> function.
 </p>
 </div>
 
@@ -386,7 +445,7 @@ We just need to implement the <code>mx</code> function.
 <h3 id="sec-3-6"><span class="section-number-3">3.6</span> <code>mx</code> facts</h3>
 <div class="outline-text-3" id="text-3-6">
 
-<p>It's just a max function, here goes the facts:
+<p>It's just a max function, so here goes the facts:
 </p>
 
 
@@ -404,7 +463,8 @@ We just need to implement the <code>mx</code> function.
 
 
 <p>
-The arity of the function (number of arguments) needed is 2 so we have this function deal with 2 arguments.
+<b>Note</b>
+The arity of the function (number of arguments) needed was 2 as we described in the first fact (our-max).
 </p></div>
 
 </div>
@@ -413,8 +473,7 @@ The arity of the function (number of arguments) needed is 2 so we have this func
 <h3 id="sec-3-7"><span class="section-number-3">3.7</span> Final - Integration test</h3>
 <div class="outline-text-3" id="text-3-7">
 
-<p>Now that we think we have everything, let's check it with a real fact.
-That's a fact without mock.
+<p>Now that we think we have everything, let's check it with a real fact (that is without mock).
 </p>
 <p>
 For example, add this fact at the bottom of the file.
@@ -428,7 +487,7 @@ For example, add this fact at the bottom of the file.
 
 
 <p>
-Ok, we do have everything and that worked!
+Ok!
 </p>
 </div>
 
@@ -468,9 +527,10 @@ Ok, we do have everything and that worked!
     (mx 1 30) =&gt; 30))
 
 ;.;. Out of clutter find simplicity; from discord find harmony; in the middle of difficulty lies opportunity. -- Einstein
-(fact
+(fact "ITest our-max"
   (our-max 9786 4 7 87 9999 876 342 9876 999) =&gt; 9999)
 </pre>
+
 
 </div>
 </div>
@@ -478,44 +538,8 @@ Ok, we do have everything and that worked!
 </div>
 
 <div id="outline-container-4" class="outline-2">
-<h2 id="sec-4"><span class="section-number-2">4</span> Notes</h2>
+<h2 id="sec-4"><span class="section-number-2">4</span> Conclusion</h2>
 <div class="outline-text-2" id="text-4">
-
-
-</div>
-
-<div id="outline-container-4-1" class="outline-3">
-<h3 id="sec-4-1"><span class="section-number-3">4.1</span> Around the testing</h3>
-<div class="outline-text-3" id="text-4-1">
-
-<p>There is an ultimate way for testing with midje that i prefer above all:
- <code>lein midje --lazytest</code> 
-At the moment, it seems there is a problem with my platform around the leiningen 1.7.1 version (by downgrading it to leiningen 1.6.2, this works) that i was not yet able to solve.
-</p>
-<p>
-This mode permits to relaunch the facts after a modification on the file system has been done.
-This is quite handy to avoid the manual compilation.
-The output is the same as previously described.
-</p>
-<p>
-When this work on my machine, I use it by opening a terminal buffer (<code>M-x multi-term</code>) in emacs in which you launch the <code>lein midje --lazytest</code> command. 
-</p></div>
-
-</div>
-
-<div id="outline-container-4-2" class="outline-3">
-<h3 id="sec-4-2"><span class="section-number-3">4.2</span> Video from Brian Marick using top down tdd to solve a more complex problem</h3>
-<div class="outline-text-3" id="text-4-2">
-
-<p><a href="http://vimeo.com/19404746">http://vimeo.com/19404746</a>
-</p></div>
-</div>
-
-</div>
-
-<div id="outline-container-5" class="outline-2">
-<h2 id="sec-5"><span class="section-number-2">5</span> Conclusion</h2>
-<div class="outline-text-2" id="text-5">
 
 <p>With these posts and this one,
 </p><ul>
@@ -532,7 +556,7 @@ When this work on my machine, I use it by opening a terminal buffer (<code>M-x m
 You now have all you need to develop with clojure.
 </p>
 <p>
-For documentation about the different tool i use, i recommend you the README on each github project that are well explained.
+For documentation about the different tool i used, i recommend reading the README on each github project which are really well explained.
 </p>
 <p>
 Also, if you have some time, there is a good <a href="http://vimeo.com/19404746">video</a> from <a href="http://www.exampler.com/about.html">Brian Marick himself</a> (midje's creator)
@@ -554,7 +578,7 @@ In a near future, i intend to make some other blog posts to focus on:
 </div>
 
 <div id="postamble">
-<p class="date">Date: 2012-04-24 14:17:06 CEST</p>
+<p class="date">Date: 2012-04-24 14:48:56 CEST</p>
 <p class="author">Author: Antoine R. Dumont</p>
 <p class="creator">Org version 7.8.08 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
