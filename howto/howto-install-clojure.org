@@ -24,7 +24,7 @@ clojure
 user=> 
 #+end_src
 
-You will have a [[http://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop][repl]] in which you could ask some function to eval.
+You will have a [[http://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop][repl]] in which you could ask some functions to eval.
 #+begin_src sh
 user=> (+ 1 1)
 2
