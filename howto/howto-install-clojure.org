@@ -90,7 +90,7 @@ Couldn't find project.clj, which is needed for midje
 #+end_src
 OK
 ** jdk installed (either sun or openjdk)
-*** instal
+*** install
 **** openjdk
 #+begin_src sh
 sudo aptitude install openjdk
@@ -119,10 +119,10 @@ git version 1.7.5.4
 #+end_src
 * Conclusion
 We have focused on the needed steps to install the clojure environment.
-You will now have the power to develop with clojure.
+You now have all the tools to develop with clojure.
 
 In a near future, i intend to make some other blog posts to focus on:
-- how to install a new clojure project using leiningen
+- how to bootstrap a new clojure project using leiningen
 - how to solve a simple problem in clojure and show how these tools work together
 - continued integration with [[http://about.travis-ci.org/docs/user/getting-started/][travis-ci]]
 - [[http://www.heroku.com/][heroku]] for the deploying part
