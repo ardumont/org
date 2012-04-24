@@ -9,6 +9,7 @@ In this article, we will see how to rapidly startup a [[http://clojure.org/][clo
 See this [[http://adumont.fr/blog/how-to-install-emacs-24/][previous post for installing it]]
 ** [[http://clojure.org/][clojure]] environment
 See this [[http://adumont.fr/blog/how-to-install-the-clojure-development-environment/][previous post]]
+** a network to fetch dependencies
 * Create a new clojure project
 #+begin_src sh
 lein new hello
@@ -43,8 +44,11 @@ As we [[http://adumont.fr/blog/how-to-install-emacs-24/][already installed emacs
 - =M-x cd= to change the current folder emacs runs into the =hello folder= (the one containing the =project.clj= file)
 - =M-x clojure-jack-in= to launch the repl.
 
-A new [[http://www.cs.utah.edu/dept/old/texinfo/emacs18/emacs_20.html][buffer]] must have launched itself (may take some time the first time)
-[[./resources/img/clojure-jack-in-started.png]]
+A new [[http://www.cs.utah.edu/dept/old/texinfo/emacs18/emacs_20.html][buffer]] must have launched itself (may take some time the first time).
+#+begin_src clj
+; SLIME 20100404
+user>
+#+end_src
 ** Basic check
 
 Launch some basic operations and hit enter to check that the repl reacts:
@@ -93,10 +97,10 @@ To add some dev-dependencies, add the :dev-dependencies in this file, like this:
 
 As midje is a unit test framework, this must be a dev-dependencies (to avoid having it in the jar at runtime).
 
-But, considering that clojure is extremely expressive, i'd rather make midje a runtime dependencies so that my facts (unit
-test in midje) stays with the code they tests.
-Thus, my facts are another level of documentation (it's quite clear when using [[https://github.com/fogus/marginalia][marginalia]] to generate documentations
-from the code).
+But, considering that clojure is extremely expressive, i'd rather make midje a runtime dependencies so that my facts
+(unit test in midje) stays with the code they tests.
+
+Thus, my facts are another level of documentation (it's quite clear when using [[https://github.com/fogus/marginalia][marginalia]] to generate documentations from the code).
 
 If you're like me, then you can change the previous block into this
 #+begin_src sh
@@ -106,8 +110,9 @@ If you're like me, then you can change the previous block into this
                  [midje "1.3.1"]])
 #+end_src
 
+*Note*
 Another plus side, we do not have any problems concerning the visibility of the functions.
-A function private is still testable.
+A function private is still testable (you do have trouble otherwise).
 ** Update the dependencies
 Now that we modify this file, we need to update the jars locally.
 To do this, we will tell leiningen "go fetch my dependencies" with the =deps= commands.
@@ -153,15 +158,16 @@ You can remove this file as we will write:
 - using midje (and not clojure.test, default one)
 
 ** Add a midje fact
-Open the file src/hello/core.clj
-
+Open the file =src/hello/core.clj=.
+This contains only the =ns= declaration without any dependencies yet.
 #+begin_src sh
 (ns hello.core)
 #+end_src
 
-First of all, we want to solve this problem in tdd, so we know, we will need to use midje.
-So we add this namespace.
+First of all, we want to solve this problem in tdd.
+So a first step, is to add a framework that permits that, i chose to use midje.
 
+For this, we add this namespace like this
 #+begin_src sh
 (ns hello.core
     (:use [midje.sweet]))
@@ -189,11 +195,12 @@ Ok, the test is failing but it's ok, that's what we want.
 
 Now, the ultimate test, check the output when the test is ok.
 
-For this, change the fact to the right result.
+For this, change the fact with the right result.
 #+begin_src sh
 (fact (+ 1 1) => 2)
 #+end_src
-*Note* This is a fact that (+ 1 1) gives 2.
+*Note*
+This is a fact that (+ 1 1) gives 2.
 
 Now launch =lein midje=
 #+begin_src sh
@@ -232,24 +239,41 @@ Else, there will be a summary of the error
 ;.;.     Expected: 3
 ;.;.       Actual: 2
 (fact (+ 1 1) => 3)
-
 #+end_src
-* Notes
-** Around the testing
-There is an ultimate way for testing with midje that i prefer above all:
- =lein midje --lazytest= 
+
+*Note*
+No need to worry about the strange character =[31m=, it's a color in a shell environment.
+This is not correctly interpreted in a clojure buffer.
+
+*** Ultimate way
+There is an ultimate way for testing with midje that i prefer above all =lein midje --lazytest= 
+
 At the moment, it seems there is a problem with my platform around the leiningen 1.7.1 version (by downgrading it to leiningen 1.6.2, this works) that i was not yet able to solve.
 
 This mode permits to relaunch the facts after a modification on the file system has been done.
 This is quite handy to avoid the manual compilation.
 The output is the same as previously described.
 
-When this work on my machine, I use it by opening a terminal buffer (=M-x multi-term=) in emacs in which i launch the =lein midje
---lazytest= command. 
-** Video from Brian Marick using top down tdd to solve a more complex problem
-http://vimeo.com/19404746
+When this work on my machine, I use it by opening a terminal buffer (=M-x multi-term=) in emacs in which i launch the
+=lein midje --lazytest= command. 
+
+**** Try lazytest
+For those with leiningen 1.6.2 who wants to try it.
+
+- Change the project.clj file to this
+#+begin_src clj
+(defproject hello "1.0.0-SNAPSHOT"
+  :description "A simple project"
+  :dependencies [[org.clojure/clojure "1.3.0"]
+                 [midje "1.3.1"]]
+  :dev-dependencies [[com.intelie/lazytest "1.0.0-SNAPSHOT" :exclusions [swank-clojure]]])
+#+end_src
+- Relaunch =lein deps=.
+- Restart =emacs= and =clojure-jack-in=
+- Open a new buffer with =multi-term= or =shell= or =eshell= or whatever (=M-x the-mode-you-chose=).
+- Then launch the command in the terminal as said previously
 * Conclusion
-You're now able to setup a project in clojure.
+You're now able to setup a project in clojure and knows a little about midje.
 
 In a near future, i intend to make some other blog posts to focus on:
 - a simple problem resolution using top down tdd in clojure with midje
