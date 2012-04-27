@@ -289,7 +289,7 @@ http://www.4clojure.com/users 93/6042
 **** DONE Top 100
 CLOSED: [2012-04-21 Sat 17:49]
 http://www.4clojure.com/user/ardumont 124/142
-**** TODO problems [79%]
+**** TODO problems [80%]
 ***** DONE 21
 CLOSED: [2012-04-23 lun. 12:39]
 ***** DONE 22
@@ -451,30 +451,13 @@ CLOSED: [2012-04-23 lun. 12:43]
 CLOSED: [2012-04-23 lun. 12:43]
 ***** DONE 148
 CLOSED: [2012-04-23 lun. 12:43]
-***** PENDING 150
+***** DONE 150 - Palindromic number
+CLOSED: [2012-04-27 ven. 13:22]
 ***** DONE 153 
 CLOSED: [2012-04-23 lun. 11:44]
 http://www.4clojure.com/problem/153
 https://github.com/ardumont/my-4clojure-lab/blob/master/src/my_4clojure_lab/199/core153.clj
 ***** IN-PROGRESS 82 Word Chains
-***** TODO 98
-***** TODO 52
-***** TODO 186
-***** TODO 148
-***** TODO 122
-***** TODO 113
-***** TODO 109
-***** TODO 99
-***** TODO 86
-***** TODO 86
-***** TODO 85
-***** TODO 79
-***** TODO 76
-***** TODO 58
-***** TODO 53
-***** TODO 41
-***** TODO 39
-***** TODO 26
 ** TODO projects [%]
 *** PENDING twitalyse
 *** PENDING fnx
