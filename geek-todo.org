@@ -282,14 +282,16 @@ CLOSED: [2012-04-21 Sat 18:20]
 CLOSED: [2012-04-21 Sat 18:21]
 25/374
 **** PENDING Finish the other exercises
-*** PENDING 4clojure [95%]
+*** PENDING 4clojure [66%]
 **** DONE register
 CLOSED: [2012-04-21 Sat 17:49]
 http://www.4clojure.com/users 93/6042
 **** DONE Top 100
 CLOSED: [2012-04-21 Sat 17:49]
-http://www.4clojure.com/user/ardumont 124/142
-**** TODO problems [80%]
+http://www.4clojure.com/user/ardumont
+130/146
+67/6190
+**** TODO problems [100%]
 ***** DONE 21
 CLOSED: [2012-04-23 lun. 12:39]
 ***** DONE 22
@@ -370,7 +372,8 @@ CLOSED: [2012-04-23 lun. 12:43]
 CLOSED: [2012-04-23 lun. 12:43]
 ***** DONE 78
 CLOSED: [2012-04-23 lun. 12:43]
-***** PENDING 79
+***** DONE 79 - Triangle minimal path
+CLOSED: [2012-05-01 mar. 18:36]
 ***** DONE 80
 CLOSED: [2012-04-23 lun. 12:43]
 ***** DONE 81
@@ -453,11 +456,20 @@ CLOSED: [2012-04-23 lun. 12:43]
 CLOSED: [2012-04-23 lun. 12:43]
 ***** DONE 150 - Palindromic number
 CLOSED: [2012-04-27 ven. 13:22]
-***** DONE 153 
+***** DONE 153 - Pairwise disjoint cells 
 CLOSED: [2012-04-23 lun. 11:44]
 http://www.4clojure.com/problem/153
 https://github.com/ardumont/my-4clojure-lab/blob/master/src/my_4clojure_lab/199/core153.clj
-***** IN-PROGRESS 82 Word Chains
+***** DONE 82 - Word Chains
+CLOSED: [2012-04-30 lun. 15:05]
+***** DONE 156 - Map defaults
+CLOSED: [2012-04-30 lun. 15:05]
+***** DONE 157 - Indexing sequence 
+CLOSED: [2012-04-30 lun. 15:05]
+***** DONE 141 - Tricky card games
+CLOSED: [2012-05-01 mar. 20:45]
+*** TODO code kata
+http://codekata.pragprog.com/2007/01/code_kata_backg.html#more
 ** TODO projects [%]
 *** PENDING twitalyse
 *** PENDING fnx
