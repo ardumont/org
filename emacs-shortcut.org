@@ -1,0 +1,36 @@
+
+* Standard Emacs binding
+|-----------+-----------------------------------------------------------|
+| C-u       | universal (prefix) argument                               |
+|-----------+-----------------------------------------------------------|
+| M--       | negative argument                                         |
+|-----------+-----------------------------------------------------------|
+| C-M-v     | scroll forward the other window                           |
+| M-- C-M-v | scroll backward the other window                          |
+| C-v       | scroll forward the current buffer                         |
+| M-v       | scroll backward the current buffer                        |
+|-----------+-----------------------------------------------------------|
+| C-M-f     | move forward in s-exp                                     |
+| C-M-b     | move backward in s-exp                                    |
+| C-M-d     | move down into a seq                                      |
+| C-M-up    | move up out of a seq                                      |
+| M-{       | move backward between function                            |
+| M-}       | move forward between function                             |
+|-----------+-----------------------------------------------------------|
+| C-s       | isearch forward                                           |
+| C-r       | isearch backward                                          |
+| C-M-s     | regexp aware isearch                                      |
+|-----------+-----------------------------------------------------------|
+| M-m       | back to indentation - beginning of line after indentation |
+|           |                                                           |
+
+* Clojure-mode
+
+|---------+------------------+
+| C-c C-z | Goes to the repl |
+|         |                  |
+
+* Mine
+|---------+------------------------------------------------------|
+| C-c C-z | From any buffer, goes to the terminal 1 (multi-term) |
+|         |                                                      |
