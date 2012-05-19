@@ -282,7 +282,7 @@ CLOSED: [2012-04-21 Sat 18:20]
 CLOSED: [2012-04-21 Sat 18:21]
 25/374
 **** PENDING Finish the other exercises
-*** PENDING 4clojure [66%]
+*** IN-PROGRESS 4clojure [66%]
 **** DONE register
 CLOSED: [2012-04-21 Sat 17:49]
 http://www.4clojure.com/users 93/6042
@@ -474,6 +474,9 @@ http://codekata.pragprog.com/2007/01/code_kata_backg.html#more
 *** PENDING twitalyse
 *** PENDING fnx
 *** PENDING hmdb
+**** DONE Deploy the app and setup the env
+CLOSED: [2012-05-03 jeu. 08:22]
+**** Play with it
 ** TODO Incanter
 ** TODO xml
 ** TODO Create a basic rss reader
