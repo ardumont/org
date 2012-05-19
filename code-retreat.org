@@ -1,0 +1,22 @@
+#+title: first code retreat
+#+author: Antoine R. Dumont
+
+
+* language agnostic
+* have fun in coding
+* The four elements of simple design
+** pass the tests
+** avoid duplication
+** clarity
+** concise
+*** naming must be explicit
+*** no useless code
+* Game of life
+Avoir un univers infinie 2d orthogonal.
+Etant donne une generation initialle.
+Les regles suivantes sont appliquees.
+
+** une cellule vivante ayant 2 ou 3 voisins reste vivante
+** une cellule vite ayant moins de 2 voisins vivants meurt
+** une cellule vivant ayant plus de 3 voisins meurt
+** une cellule morte ayant 3 voisins devient vivante
