@@ -1,0 +1,89 @@
+#+title: on/off
+#+author: Antoine R. Dumont
+#+tags: clodiuno, clojure, arduino, emacs, geek
+
+Now that the setup hell is gone, here i will describe "my first interaction" to make my arduino uno talk in morse.
+
+Source: https://github.com/ardumont/arduino-lab
+
+* Circuit
+First we create a simple circuit.
+
+Plug your LED on the pin 13 of the arduino board.
+
+*Beware*, the LED is polarized, so
+- the longer branch (+) goes into the 13 pin
+- and the other one goes inside the GND just beside.
+
+*No Led*
+If you have no LED, it's no big deal as there is already one in it.
+
+* Pre-requisites
+** Plug your arduino board in your usb
+
+** Upload the firmata sketch
+
+Open up the arduino IDE and load the appropriate Firmata sketch from File > Examples.
+I used StandardFirmata_2_2_forUNO_0_3 because I have an Uno board, but your version may vary.
+
+** In Ubuntu GNU/Linux
+
+Make sure you have correctly linked your device with an appropriate name
+#+begin_src sh
+tony@dagobah(0.44,) 18:06:22 ~/org/clodiuno (master) $ ls -l /dev/ttyS42
+lrwxrwxrwx 1 root root 12 2012-06-03 15:34 /dev/ttyS42 -> /dev/ttyACM0
+#+end_src
+
+Else it will not be seen.
+
+* Setup
+Here is my project's setup:
+
+#+begin_src clj
+(defproject arduino-lab "1.0.0-SNAPSHOT"
+  :description "Mess around with arduino from the comfort of the repl
+  :dependencies [[org.clojure/clojure "1.3.0"]
+                 [clodiuno "0.0.3-SNAPSHOT"]
+                 [serial-port "1.1.2"]]
+  :native-dependencies [[org.clojars.samaaron/rxtx "2.2.0.1"]]
+  :dev-dependencies [[native-deps "1.0.5"]]
+  :jvm-opts ["-Djava.library.path=./native/linux/x86/"
+             "-d32"])
+#+end_src
+
+Fetch the dependencies:
+#+begin_src sh
+lein deps
+#+end_src
+
+Start emacs and start the repl:
+#+begin_src sh
+M-x clojure-jack-in
+#+end_src
+* Now some reality
+Now i can do light up and down a led on my arduino uno from the repl!
+
+Open the repl:
+#+begin_src clj
+(use 'clodiuno.core 'clodiuno.firmata)
+#+end_src
+
+Open the board:
+#+begin_src sh
+(def board (arduino :firmata "/dev/ttyS42"))
+#+end_src
+
+We must first set the built-in 13 pin (the led) to OUTPUT mode.
+#+begin_src clj
+(pin-mode board 13 OUTPUT)
+#+end_src
+
+Then play with the board, may the light be
+#+begin_src clj
+(digital-write board 13 HIGH)
+#+end_src
+
+... or not:
+#+begin_src clj
+(digital-write board 13 LOW)
+#+end_src
