@@ -65,25 +65,36 @@ Now i can do light up and down a led on my arduino uno from the repl!
 
 Open the repl:
 #+begin_src clj
-(use 'clodiuno.core 'clodiuno.firmata)
+user> (use 'clodiuno.core 'clodiuno.firmata)
+nil
 #+end_src
 
 Open the board:
-#+begin_src sh
-(def board (arduino :firmata "/dev/ttyS42"))
+#+begin_src clj
+user>(def board (arduino :firmata "/dev/ttyS42"))
+#'user/board
+#+end_src
+
+Now you can see something along the line:
+#+begin_src clj
+user> board
+#<Ref@9652e4: {:digital-in {2 (0 0 0 0 0 0 0 0), 1 (0 0 0 0 0 0 0 0), 0 (0 0 0 0 0 0 0 0)}, :version [2 2], :port #<RXTXPort /dev/ttyS42>, :interface :firmata}>
 #+end_src
 
 We must first set the built-in 13 pin (the led) to OUTPUT mode.
 #+begin_src clj
-(pin-mode board 13 OUTPUT)
+user> (pin-mode board 13 OUTPUT)
+nil
 #+end_src
 
 Then play with the board, may the light be
 #+begin_src clj
-(digital-write board 13 HIGH)
+user> (digital-write board 13 HIGH)
+nil
 #+end_src
 
 ... or not:
 #+begin_src clj
-(digital-write board 13 LOW)
+user> (digital-write board 13 LOW)
+nil
 #+end_src

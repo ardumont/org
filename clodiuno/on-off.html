@@ -3,11 +3,11 @@
                "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<title>on/off</title>
+<title>Now some reality</title>
 <meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
-<meta name="title" content="on/off"/>
+<meta name="title" content="Now some reality"/>
 <meta name="generator" content="Org-mode"/>
-<meta name="generated" content="2012-06-03 18:29:29 CEST"/>
+<meta name="generated" content="2012-06-03 18:55:26 CEST"/>
 <meta name="author" content="Antoine R. Dumont"/>
 <meta name="description" content=""/>
 <meta name="keywords" content=""/>
@@ -91,156 +91,7 @@
 </div>
 
 <div id="content">
-<h1 class="title">on/off</h1>
-
-<p>Now that the setup hell is gone, here i will describe "my first interaction" to make my arduino uno talk in morse.
-</p>
-<p>
-Source: <a href="https://github.com/ardumont/arduino-lab">https://github.com/ardumont/arduino-lab</a>
-</p>
-
-<div id="table-of-contents">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents">
-<ul>
-<li><a href="#sec-1">1 Circuit</a></li>
-<li><a href="#sec-2">2 Pre-requisites</a>
-<ul>
-<li><a href="#sec-2-1">2.1 Plug your arduino board in your usb</a></li>
-<li><a href="#sec-2-2">2.2 Upload the firmata sketch</a></li>
-<li><a href="#sec-2-3">2.3 In Ubuntu GNU/Linux</a></li>
-</ul>
-</li>
-<li><a href="#sec-3">3 Setup</a></li>
-<li><a href="#sec-4">4 Now some reality</a></li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> Circuit</h2>
-<div class="outline-text-2" id="text-1">
-
-<p>First we create a simple circuit.
-</p>
-<p>
-Plug your LED on the pin 13 of the arduino board.
-</p>
-<p>
-<b>Beware</b>, the LED is polarized, so
-</p><ul>
-<li>the longer branch (+) goes into the 13 pin
-</li>
-<li>and the other one goes inside the GND just beside.
-</li>
-</ul>
-
-
-<p>
-<b>No Led</b>
-If you have no LED, it's no big deal as there is already one in it.
-</p>
-</div>
-
-</div>
-
-<div id="outline-container-2" class="outline-2">
-<h2 id="sec-2"><span class="section-number-2">2</span> Pre-requisites</h2>
-<div class="outline-text-2" id="text-2">
-
-
-</div>
-
-<div id="outline-container-2-1" class="outline-3">
-<h3 id="sec-2-1"><span class="section-number-3">2.1</span> Plug your arduino board in your usb</h3>
-<div class="outline-text-3" id="text-2-1">
-
-
-</div>
-
-</div>
-
-<div id="outline-container-2-2" class="outline-3">
-<h3 id="sec-2-2"><span class="section-number-3">2.2</span> Upload the firmata sketch</h3>
-<div class="outline-text-3" id="text-2-2">
-
-
-<p>
-Open up the arduino IDE and load the appropriate Firmata sketch from File &gt; Examples.
-I used StandardFirmata<sub>2</sub><sub>2</sub><sub>forUNO</sub><sub>0</sub><sub>3</sub> because I have an Uno board, but your version may vary.
-</p>
-</div>
-
-</div>
-
-<div id="outline-container-2-3" class="outline-3">
-<h3 id="sec-2-3"><span class="section-number-3">2.3</span> In Ubuntu GNU/Linux</h3>
-<div class="outline-text-3" id="text-2-3">
-
-
-<p>
-Make sure you have correctly linked your device with an appropriate name
-</p>
-
-
-<pre class="example">tony@dagobah(0.44,) 18:06:22 ~/org/clodiuno (master) $ ls -l /dev/ttyS42
-lrwxrwxrwx 1 root root 12 2012-06-03 15:34 /dev/ttyS42 -&gt; /dev/ttyACM0
-</pre>
-
-
-<p>
-Else it will not be seen.
-</p>
-</div>
-</div>
-
-</div>
-
-<div id="outline-container-3" class="outline-2">
-<h2 id="sec-3"><span class="section-number-2">3</span> Setup</h2>
-<div class="outline-text-2" id="text-3">
-
-<p>Here is my project's setup:
-</p>
-
-
-
-<pre class="example">(defproject arduino-lab "1.0.0-SNAPSHOT"
-  :description "Mess around with arduino from the comfort of the repl
-  :dependencies [[org.clojure/clojure "1.3.0"]
-                 [clodiuno "0.0.3-SNAPSHOT"]
-                 [serial-port "1.1.2"]]
-  :native-dependencies [[org.clojars.samaaron/rxtx "2.2.0.1"]]
-  :dev-dependencies [[native-deps "1.0.5"]]
-  :jvm-opts ["-Djava.library.path=./native/linux/x86/"
-             "-d32"])
-</pre>
-
-
-<p>
-Fetch the dependencies:
-</p>
-
-
-<pre class="example">lein deps
-</pre>
-
-
-<p>
-Start emacs and start the repl:
-</p>
-
-
-<pre class="example">M-x clojure-jack-in
-</pre>
-
-</div>
-
-</div>
-
-<div id="outline-container-4" class="outline-2">
-<h2 id="sec-4"><span class="section-number-2">4</span> Now some reality</h2>
-<div class="outline-text-2" id="text-4">
+<h1 class="title">Now some reality</h1>
 
 <p>Now i can do light up and down a led on my arduino uno from the repl!
 </p>
@@ -249,7 +100,8 @@ Open the repl:
 </p>
 
 
-<pre class="example">(use 'clodiuno.core 'clodiuno.firmata)
+<pre class="example">user&gt; (use 'clodiuno.core 'clodiuno.firmata)
+nil
 </pre>
 
 
@@ -258,7 +110,18 @@ Open the board:
 </p>
 
 
-<pre class="example">(def board (arduino :firmata "/dev/ttyS42"))
+<pre class="example">user&gt;(def board (arduino :firmata "/dev/ttyS42"))
+#'user/board
+</pre>
+
+
+<p>
+Now you can see something along the line:
+</p>
+
+
+<pre class="example">user&gt; board
+#&lt;Ref@9652e4: {:digital-in {2 (0 0 0 0 0 0 0 0), 1 (0 0 0 0 0 0 0 0), 0 (0 0 0 0 0 0 0 0)}, :version [2 2], :port #&lt;RXTXPort /dev/ttyS42&gt;, :interface :firmata}&gt;
 </pre>
 
 
@@ -267,7 +130,8 @@ We must first set the built-in 13 pin (the led) to OUTPUT mode.
 </p>
 
 
-<pre class="example">(pin-mode board 13 OUTPUT)
+<pre class="example">user&gt; (pin-mode board 13 OUTPUT)
+nil
 </pre>
 
 
@@ -276,7 +140,8 @@ Then play with the board, may the light be
 </p>
 
 
-<pre class="example">(digital-write board 13 HIGH)
+<pre class="example">user&gt; (digital-write board 13 HIGH)
+nil
 </pre>
 
 
@@ -285,15 +150,14 @@ Then play with the board, may the light be
 </p>
 
 
-<pre class="example">(digital-write board 13 LOW)
+<pre class="example">user&gt; (digital-write board 13 LOW)
+nil
 </pre>
 
 </div>
-</div>
-</div>
 
 <div id="postamble">
-<p class="date">Date: 2012-06-03 18:29:29 CEST</p>
+<p class="date">Date: 2012-06-03 18:55:26 CEST</p>
 <p class="author">Author: Antoine R. Dumont</p>
 <p class="creator">Org version 7.8.09 with Emacs version 24</p>
 <a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
