@@ -1,0 +1,128 @@
+#+title: My first steps with Arduino/Clodiuno
+#+author: Antoine R. Dumont
+#+tags: clodiuno, clojure, arduino, emacs, geek
+
+In this thread, i will describe my difficulties in starting clodiuno.
+
+* Arduino
+
+I came across a video about [[http://arduino.cc/en/][arduino]] some time ago and this rekindled my ever growing embedded software envy.
+The first thing that crossed my mind at the time was, what if i made the led talk in morse.
+
+Then i came across [[http://nakkaya.com/2010/01/03/clodiuno-a-clojure-api-for-the-firmata-protocol/][one article]] and this envy was multiplied because it added the [[http://clojure.org/][clojure]] dimension into this.
+
+Finally, i decided to begin so i bought an arduino board.
+
+* Beginning
+
+Everything is working fine:
+
+- i received the arduino and all sort of needed stuff (LED, jumpers, resistances, pushbuttons, etc...)
+
+- the arduino ide works out of the box
+and is pretty simple to install on my machine, cool!
+
+#+begin_src sh
+sudo aptitude install arduino
+#+end_src
+
+I did a simple tutorial that worked ok instantly http://arduino.cc/en/Tutorial/Blink.
+
+* Now what?
+
+But then what's the problem?
+
+Professionally, i am a java developer and it's difficult enough as it is.
+Now the arduino language is an implementation of [[http://wiring.org.co/][wiring]], [[http://www.infoq.com/presentations/Are-We-There-Yet-Rich-Hickey][it looks like c/c++/java, but it's all the same to me...]]
+
+To sum up, i do not want to do stuff in imperative language if i can avoid it.
+And me think i can...
+
+* Clodiuno
+
+Anyway, now that i discover the joy of clojure, i want to do most thing in it because i'm convinced i can do more with
+it.
+
+So here enters [[https://github.com/nakkaya/clodiuno][clodiuno]].
+
+Here, i will describe the setup hell. Feel free to dismiss it :D
+
+** first try
+At first, this article seems scary and it is...
+You must mess around with java libs...
+It's not something i enjoy particularly.
+
+And indeed, this must be both way because i failed to make it work.
+
+After all, the author, provided only the jars for OS X and i'm under GNU/Linux.
+
+Status: failed!
+
+** Second try
+
+Here i encountered a great article that tries to fill the gaps left by the first article.
+http://combinate.us/2010/12/27/arduino-and-clojure/
+
+Then again, i failed but there are comments from [[https://github.com/samaaron][Sam Aaron]] that helped!
+He did us a favour and created a [[https://clojars.org/org.clojars.samaaron/rxtx/versions/2.2.0.1][clojar archives with the needed deps for every platform]] (including mine).
+
+(I am under the impression that everywhere there's something rather on the edge ([[https://github.com/quil/quil][quil]], [[https://github.com/overtone/overtone.git][overtone]], etc...), he is nearby :D.)
+
+Status: failed!
+
+** Third try
+
+Sam Aaron did try to fill the needed steps by providing the missing library for us linuxian.
+But still, it did not work.
+
+Status: failed!
+
+** Fourth try
+
+I found out a library that Sam Aaron did https://github.com/samaaron/serial-port on serial devices and how to connect to it.
+I thought this could help me to just try and connect to the board.
+
+So i went and tried it.
+
+Alas, failure again.
+
+I then decided [[https://github.com/samaaron/serial-port/issues/3][to ask for the help of Sam Aaron]].
+
+After all, i did everything by the book, or at least, his readme.
+
+I thought again that this was a good way for me to explain clearly what the problem was.
+It did help but not in finding the solution.
+
+After seeking out why and failing to find anything, i did get back to the arduino ide.
+
+Status: failed!
+
+** Fifth try
+
+I did succeed [[http://arduino.cc/en/Tutorial/Button][what i wanted in the arduino ide]] but still with a failure taste.
+As it's difficult for me to accept a failure, i took a last shot but this time, differently.
+
+I decided to play in the repl with the java base code to make it talk.
+
+That's when i discovered a limitation of the java api - http://rxtx.qbang.org/wiki/index.php/Discovering_comm_ports.
+
+The java api searches for the serial devices with a certain naming convention '/dev/ttySxx' format and that's all.
+My device is named /dev/ttyACM0!
+
+That's it, i found out the underlying "bug".
+
+I tried and made a link and voila! No more bugs.
+
+#+begin_src sh
+sudo ln -s /dev/ttyACM0 /dev/ttyS42
+#+end_src
+
+Status: Success!
+
+** The end of the story.
+I closed the previously opened issue.
+I added some workaround on the serial-port/README.md and made a pull request on the readme of Sam Aaron.
+
+Now i can play with my arduino from the comfort of my repl.
+
+Soon, i will write some real code and post it!

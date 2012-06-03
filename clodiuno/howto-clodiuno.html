@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>My first steps with Arduino/Clodiuno</title>
+<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
+<meta name="title" content="My first steps with Arduino/Clodiuno"/>
+<meta name="generator" content="Org-mode"/>
+<meta name="generated" content="2012-06-03 18:25:35 CEST"/>
+<meta name="author" content="Antoine R. Dumont"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  html { font-family: Times, serif; font-size: 12pt; }
+  .title  { text-align: center; }
+  .todo   { color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #add8e6; font-weight:normal }
+  .target { }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  {margin-left:auto; margin-right:0px;  text-align:right;}
+  .left   {margin-left:0px;  margin-right:auto; text-align:left;}
+  .center {margin-left:auto; margin-right:auto; text-align:center;}
+  p.verse { margin-left: 3% }
+  pre {
+	border: 1pt solid #AEBDCC;
+	background-color: #F3F5F7;
+	padding: 5pt;
+	font-family: courier, monospace;
+        font-size: 90%;
+        overflow:auto;
+  }
+  table { border-collapse: collapse; }
+  td, th { vertical-align: top;  }
+  th.right  { text-align:center;  }
+  th.left   { text-align:center;   }
+  th.center { text-align:center; }
+  td.right  { text-align:right;  }
+  td.left   { text-align:left;   }
+  td.center { text-align:center; }
+  dt { font-weight: bold; }
+  div.figure { padding: 0.5em; }
+  div.figure p { text-align: center; }
+  div.inlinetask {
+    padding:10px;
+    border:2px solid gray;
+    margin:10px;
+    background: #ffffcc;
+  }
+  textarea { overflow-x: auto; }
+  .linenr { font-size:smaller }
+  .code-highlighted {background-color:#ffff00;}
+  .org-info-js_info-navigation { border-style:none; }
+  #org-info-js_console-label { font-size:10px; font-weight:bold;
+                               white-space:nowrap; }
+  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
+                                 font-weight:bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+
+</head>
+<body>
+
+<div id="preamble">
+
+</div>
+
+<div id="content">
+<h1 class="title">My first steps with Arduino/Clodiuno</h1>
+
+<p>In this thread, i will describe my difficulties in starting clodiuno.
+</p>
+
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1 Arduino</a></li>
+<li><a href="#sec-2">2 Beginning</a></li>
+<li><a href="#sec-3">3 Now what?</a></li>
+<li><a href="#sec-4">4 Clodiuno</a>
+<ul>
+<li><a href="#sec-4-1">4.1 first try</a></li>
+<li><a href="#sec-4-2">4.2 Second try</a></li>
+<li><a href="#sec-4-3">4.3 Third try</a></li>
+<li><a href="#sec-4-4">4.4 Fourth try</a></li>
+<li><a href="#sec-4-5">4.5 Fifth try</a></li>
+<li><a href="#sec-4-6">4.6 The end of the story.</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Arduino</h2>
+<div class="outline-text-2" id="text-1">
+
+
+<p>
+I came across a video about <a href="http://arduino.cc/en/">arduino</a> some time ago and this rekindled my ever growing embedded software envy.
+The first thing that crossed my mind at the time was, what if i made the led talk in morse.
+</p>
+<p>
+Then i came across <a href="http://nakkaya.com/2010/01/03/clodiuno-a-clojure-api-for-the-firmata-protocol/">one article</a> and this envy was multiplied because it added the <a href="http://clojure.org/">clojure</a> dimension into this.
+</p>
+<p>
+Finally, i decided to begin so i bought an arduino board.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Beginning</h2>
+<div class="outline-text-2" id="text-2">
+
+
+<p>
+Everything is working fine:
+</p>
+<ul>
+<li>i received the arduino and all sort of needed stuff (LED, jumpers, resistances, pushbuttons, etc&hellip;)
+
+</li>
+<li>the arduino ide works out of the box
+</li>
+</ul>
+
+<p>and is pretty simple to install on my machine, cool!
+</p>
+
+
+
+<pre class="example">sudo aptitude install arduino
+</pre>
+
+
+<p>
+I did a simple tutorial that worked ok instantly <a href="http://arduino.cc/en/Tutorial/Blink">http://arduino.cc/en/Tutorial/Blink</a>.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> Now what?</h2>
+<div class="outline-text-2" id="text-3">
+
+
+<p>
+But then what's the problem?
+</p>
+<p>
+Professionally, i am a java developer and it's difficult enough as it is.
+Now the arduino language is an implementation of <a href="http://wiring.org.co/">wiring</a>, <a href="http://www.infoq.com/presentations/Are-We-There-Yet-Rich-Hickey">it looks like c/c++/java, but it's all the same to me&hellip;</a>
+</p>
+<p>
+To sum up, i do not want to do stuff in imperative language if i can avoid it.
+And me think i can&hellip;
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> Clodiuno</h2>
+<div class="outline-text-2" id="text-4">
+
+
+<p>
+Anyway, now that i discover the joy of clojure, i want to do most thing in it because i'm convinced i can do more with
+it.
+</p>
+<p>
+So here enters <a href="https://github.com/nakkaya/clodiuno">clodiuno</a>.
+</p>
+<p>
+Here, i will describe the setup hell. Feel free to dismiss it :D
+</p>
+
+</div>
+
+<div id="outline-container-4-1" class="outline-3">
+<h3 id="sec-4-1"><span class="section-number-3">4.1</span> first try</h3>
+<div class="outline-text-3" id="text-4-1">
+
+<p>At first, this article seems scary and it is&hellip;
+You must mess around with java libs&hellip;
+It's not something i enjoy particularly.
+</p>
+<p>
+And indeed, this must be both way because i failed to make it work.
+</p>
+<p>
+After all, the author, provided only the jars for OS X and i'm under GNU/Linux.
+</p>
+<p>
+Status: failed!
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-4-2" class="outline-3">
+<h3 id="sec-4-2"><span class="section-number-3">4.2</span> Second try</h3>
+<div class="outline-text-3" id="text-4-2">
+
+
+<p>
+Here i encountered a great article that tries to fill the gaps left by the first article.
+<a href="http://combinate.us/2010/12/27/arduino-and-clojure/">http://combinate.us/2010/12/27/arduino-and-clojure/</a>
+</p>
+<p>
+Then again, i failed but there are comments from <a href="https://github.com/samaaron">Sam Aaron</a> that helped!
+He did us a favour and created a <a href="https://clojars.org/org.clojars.samaaron/rxtx/versions/2.2.0.1">clojar archives with the needed deps for every platform</a> (including mine).
+</p>
+<p>
+(I am under the impression that everywhere there's something rather on the edge (<a href="https://github.com/quil/quil">quil</a>, <a href="https://github.com/overtone/overtone.git">overtone</a>, etc&hellip;), he is nearby :D.)
+</p>
+<p>
+Status: failed!
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-4-3" class="outline-3">
+<h3 id="sec-4-3"><span class="section-number-3">4.3</span> Third try</h3>
+<div class="outline-text-3" id="text-4-3">
+
+
+<p>
+Sam Aaron did try to fill the needed steps by providing the missing library for us linuxian.
+But still, it did not work.
+</p>
+<p>
+Status: failed!
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-4-4" class="outline-3">
+<h3 id="sec-4-4"><span class="section-number-3">4.4</span> Fourth try</h3>
+<div class="outline-text-3" id="text-4-4">
+
+
+<p>
+I found out a library that Sam Aaron did <a href="https://github.com/samaaron/serial-port">https://github.com/samaaron/serial-port</a> on serial devices and how to connect to it.
+I thought this could help me to just try and connect to the board.
+</p>
+<p>
+So i went and tried it.
+</p>
+<p>
+Alas, failure again.
+</p>
+<p>
+I then decided <a href="https://github.com/samaaron/serial-port/issues/3">to ask for the help of Sam Aaron</a>.
+</p>
+<p>
+After all, i did everything by the book, or at least, his readme.
+</p>
+<p>
+I thought again that this was a good way for me to explain clearly what the problem was.
+It did help but not in finding the solution.
+</p>
+<p>
+After seeking out why and failing to find anything, i did get back to the arduino ide.
+</p>
+<p>
+Status: failed!
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-4-5" class="outline-3">
+<h3 id="sec-4-5"><span class="section-number-3">4.5</span> Fifth try</h3>
+<div class="outline-text-3" id="text-4-5">
+
+
+<p>
+I did succeed <a href="http://arduino.cc/en/Tutorial/Button">what i wanted in the arduino ide</a> but still with a failure taste.
+As it's difficult for me to accept a failure, i took a last shot but this time, differently.
+</p>
+<p>
+I decided to play in the repl with the java base code to make it talk.
+</p>
+<p>
+That's when i discovered a limitation of the java api - <a href="http://rxtx.qbang.org/wiki/index.php/Discovering_comm_ports">http://rxtx.qbang.org/wiki/index.php/Discovering_comm_ports</a>.
+</p>
+<p>
+The java api searches for the serial devices with a certain naming convention '/dev/ttySxx' format and that's all.
+My device is named /dev/ttyACM0!
+</p>
+<p>
+That's it, i found out the underlying "bug".
+</p>
+<p>
+I tried and made a link and voila! No more bugs.
+</p>
+
+
+
+<pre class="example">sudo ln -s /dev/ttyACM0 /dev/ttyS42
+</pre>
+
+
+<p>
+Status: Success!
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-4-6" class="outline-3">
+<h3 id="sec-4-6"><span class="section-number-3">4.6</span> The end of the story.</h3>
+<div class="outline-text-3" id="text-4-6">
+
+<p>I closed the previously opened issue.
+I added some workaround on the serial-port/README.md and made a pull request on the readme of Sam Aaron.
+</p>
+<p>
+Now i can play with my arduino from the comfort of my repl.
+</p>
+<p>
+Soon, i will write some real code and post it!
+</p></div>
+</div>
+</div>
+</div>
+
+<div id="postamble">
+<p class="date">Date: 2012-06-03 18:25:35 CEST</p>
+<p class="author">Author: Antoine R. Dumont</p>
+<p class="creator">Org version 7.8.09 with Emacs version 24</p>
+<a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
+
+</div>
+</body>
+</html>
