@@ -1,0 +1,50 @@
+#+title: Rapid clojure
+#+author: Antoine R. Dumont
+#+tags: OO paradigm wtf? clojure
+
+* Object
+** Unit of measure: Class
+*** What does this mean?
+**** Instanciation policy...
+Framework like guice or spring for dependency injection
+**** Stateful code
+**** Design Pattern
+Really?
+intertwined?
+complect?
+anyone?
+**** tests
+How do i test:
+- static method?
+- stateful method?
+**** feedback
+To have feedback, tests are mandatory or else...
+
+Nightmare/Hell
+** Data as object
+*** mutable
+concurrency anyone?
+volatile, synchronized, really?
+*** Why?
+state and identity are 2 different things.
+why merge it?
+* Imagine
+** No instanciation of class
+** stateless
+** instant feedback
+** Immutability
+** No encapsulation
+* Clojure
+** Unit of measure: function
+*** What does this mean?
+**** no instanciation
+**** stateless
+**** immediate feedback
+**** (tests are optionals)
+** Data as Data
+*** a list is a list
+*** if object need be, why not a map?
+*** unicity? set?
+** oh! and code is data
+Hakuna matata
+
