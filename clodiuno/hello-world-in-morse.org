@@ -1,0 +1,138 @@
+#+title: Hello world in morse with clodiuno
+#+author: Antoine R. Dumont
+#+tags: clodiuno, clojure, arduino, emacs, geek
+
+We will now still use the same circuit but this time, we will add a little more fun.
+What if we let the led talk in morse.
+
+Source: https://github.com/ardumont/arduino-lab
+
+* Circuit
+It's the [[http://adumont.fr/blog/clodiuno-command-a-led-from-the-repl/][same one as before]]. That is only one LED on the 13 pin.
+
+* Shut up and show us the code
+** Morse DSL
+it's as simple as a clojure data - map and vectors.
+
+A map with a char as the key and the vector of bits as the morse representation.
+
+#+begin_src clj
+;; 0 represents short signal
+;; 1 represents long signal
+;; Intermational morse from http://en.wikipedia.org/wiki/Morse_code
+(def letters-2-bits {\a [0 1]
+                     \b [1 0 0 0]
+                     \c [1 0 1 0]
+                     \d [1 0 0]
+                     \e [0]
+                     \f [0 0 1 0]
+                     \g [1 1 0]
+                     \h [0 0 0 0]
+                     \i [0 0]
+                     \j [0 1 1 1]
+                     \k [1 0 1]
+                     \l [0 1 0 0]
+                     \m [1 1]
+                     \n [1 0]
+                     \o [1 1 1]
+                     \p [0 1 1 0]
+                     \q [1 1 0 1]
+                     \r [0 1 0]
+                     \s [0 0 0]
+                     \t [1]
+                     \u [0 0 1]
+                     \v [0 0 0 1]
+                     \w [0 1 1]
+                     \x [1 0 0 1]
+                     \y [1 0 1 1]
+                     \z [1 1 0 0]})
+#+end_src
+
+source: https://github.com/ardumont/arduino-lab/blob/master/src/arduino_lab/morse.clj
+
+** orchestration
+
+#+begin_src clj
+;; circuit: Just a led on the 13 pin.
+
+;; time
+(def short-pulse 100)
+(def long-pulse 250)
+(def letter-delay 500)
+
+;; pin number
+(def pin-led 13)
+
+;; functions
+
+(defn blink
+  "Given a board and time, make the led blink a given time"
+  [board time]
+  (digital-write board pin-led HIGH)
+  (Thread/sleep time)
+  (digital-write board pin-led LOW)
+  (Thread/sleep time))
+
+(defn blink-letter
+  "Given a letter, blink according to the sequence of 0 (short pulse) and 1 (long pulse)"
+  [board letter]
+  (doseq [i letter]
+    (if (= i 0)
+      (blink board short-pulse)
+      (blink board long-pulse)))
+  (Thread/sleep letter-delay))
+
+(defn write-morse
+  "Given a word, make the led blink in morse for each letter (no upper case, no punctuation)"
+  [board word]
+  (doseq [l word]
+    (blink-letter board (m/letters-2-bits l))))
+
+(defn main-write-morse
+  "Given a serial device entry:
+- open the board
+- make the led blink in morse the word word
+- then close the board"
+  [board-serial-port word]
+  (let [board (arduino :firmata board-serial-port)]
+    ;;allow arduino to boot
+    (Thread/sleep 5000)
+    (pin-mode board pin-led OUTPUT)
+
+    (write-morse board word)
+
+    (close board)))
+
+#+end_src
+
+source: https://github.com/ardumont/arduino-lab/blob/master/src/arduino_lab/write-morse.clj
+
+** Execution
+
+#+begin_src clj
+  ;; define the device according to your env setup (this may vary)
+  (def device-board "/dev/ttyACM0")
+
+  ;; this is a limitation on the underlying lib clodiuno uses. Indeed, it searches only for /dev/ttySxx serial devices
+  ;; and on ubuntu GNU/Linux it's named /dev/ACM0
+  (System/setProperty "gnu.io.rxtx.SerialPorts" device-board)
+
+  ;; now declaring the board
+  (def board (arduino :firmata device-board))
+
+  ;; the led must be set in output mode
+  (pin-mode board pin-led OUTPUT)
+
+  ;; Now the heart of the program
+  (write-morse board "hello world")
+
+  ;; just to show you that it works (as almost everybody knows at least that sos is 3 short 3 long 3 short)
+  (write-morse board "sos")
+
+  ;; do not forget to free the board
+  (close board)
+#+end_src
+
+* Shut up and show us the real thing
+http://youtu.be/wLsJqLDtk9w
+
