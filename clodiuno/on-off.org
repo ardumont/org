@@ -2,7 +2,7 @@
 #+author: Antoine R. Dumont
 #+tags: clodiuno, clojure, arduino, emacs, geek
 
-Now that the setup hell is gone, here i will describe "my first interaction" to make my arduino uno talk in morse.
+Now that the setup hell is gone, here i will describe "my first interaction" to make my arduino uno talk with a simple led.
 
 Source: https://github.com/ardumont/arduino-lab
 
