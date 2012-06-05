@@ -45,6 +45,20 @@ why merge it?
 *** a list is a list
 *** if object need be, why not a map?
 *** unicity? set?
+*** complex syntax :D
+**** vectors (like java list):
+[:item1 :item2]
+**** maps (like java maps)
+{:key1 :val1, :key2 :val2}
+**** sets (like java sets)
+#{:uniq-item1 :uniq-item2}
+**** lists (like java linked lists)
+(:item1 :item2)
+**** that's it !
+that's the whole syntax for all the langague
+for describing data AND code
+
+
 ** oh! and code is data
 Hakuna matata
 
