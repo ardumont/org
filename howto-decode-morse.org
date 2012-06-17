@@ -1,0 +1,82 @@
+#+begin_src c
+boolean keyDown = false;
+unsigned long time = 0;
+
+int DIT = 100;
+int DAH = 3*DIT;
+
+HIGH:
+  keyDown:
+    led off
+    keyDown <- false
+
+  !keyDown:
+
+LOW:
+
+void loop(){
+
+  if (digitalRead(morsePin) == HIGH) {    // the morse key is UP
+      if (keyDown) {                      // the key was DOWN before
+        unsigned long duration = millis() - time;
+        if (duration<20) return;
+
+        digitalWrite(ledPin, LOW);  // turn LED  OFF
+        noTone(buzzPin);            // turn BUZZ OFF
+        keyDown = false;
+
+      if (duration<(DIT+50)) {           // DIT detected
+          morseCode+=".";
+          // DIT=(DIT+duration)/2;
+          Serial.print(".");
+          if (morseCode=="........") resetAll();
+      } else if (duration<(2*DAH)) {    // DAH detected
+         morseCode+="-";
+         //DAH=(DAH+duration)/2;
+         //DIT=DAH/3;
+         Serial.print("-");
+      } /*else if (duration>1000) {        // send tweet after pressing key for more than one second
+          sendTweet();
+      }*/
+
+      time = millis();
+
+    } else {                           // the key was UP before
+      unsigned long duration = millis() - time;
+      if ((duration>60000) && (message!="")) {             // reset after 60 seconds inactivity
+        resetAll();
+      } else if ((duration>1500) && (morseCode!="")) {     // start a new word after 1.5 seconds
+          decodeMorse();
+          if (message!="") message+=" ";
+          tone(buzzPin, 2000,50);                          // short feedback beep
+      }
+    }
+  } else {               // the morse key is DOWN
+    if (!keyDown) {      // the key was UP before
+      unsigned long duration = millis() - time;
+      if (duration<20) {
+        return;
+      } else if ((duration>DAH+100) && (duration<=1500)) {
+        decodeMorse();   // decode last letter
+      }
+
+      keyDown = true;
+      time = millis();
+
+      digitalWrite(ledPin, HIGH);    // turn LED  ON
+      tone(buzzPin, 440);            // turn BUZZ ON
+    } else {             // the key was already DOWN
+      unsigned long duration = millis() - time;
+      if (duration>1000) {
+
+        digitalWrite(ledPin, LOW);  // turn LED  OFF
+        noTone(buzzPin);            // turn BUZZ OFF
+        keyDown = false;
+
+        sendTweet();                // send tweet after pressing the key for one second
+      }
+    }
+  }
+}
+
+#+end_src
