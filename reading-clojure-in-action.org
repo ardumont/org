@@ -1,0 +1,31 @@
+#+title: Clojure in action
+#+author: Amit Rathor
+
+
+* TODO PART 1 [75%]
+** DONE GETTING STARTED ........................................................1
+CLOSED: [2012-06-17 dim. 19:33]
+** DONE 1 Introduction to Clojure
+CLOSED: [2012-06-17 dim. 19:38]
+** DONE 2 ■ A whirlwind tour
+CLOSED: [2012-06-17 dim. 19:38]
+** DONE 3 ■ Building blocks of Clojure
+CLOSED: [2012-06-17 dim. 19:38]
+** DONE 4 ■ Polymorphism with multimethods 90
+CLOSED: [2012-06-17 dim. 19:38]
+** DONE 5 ■ Clojure and Java interop 106
+CLOSED: [2012-06-17 dim. 19:38]
+** TODO 6 ■ State and the concurrent world
+** TODO 7 ■ Evolving Clojure through macros 148 [%]
+
+* TODO PART 2 [%]
+** TODO GETTING REAL ..........................................................167 [%]
+** TODO 8 ■ Test-driven development and more [%]
+** TODO 9 ■ Data storage with Clojure 189 [%]
+** TODO 10 ■ Clojure and the web 221 [%]
+** TODO 11 ■ Scaling through messaging 240 [%]
+** TODO 12 ■ Data processing with Clojure 273 [%]
+** TODO 13 ■ More on functional programming [%]
+** TODO 14 ■ Protocols, records, and types [%]
+** TODO More macros and DSLs 367 [%]
+
