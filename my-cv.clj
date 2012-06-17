@@ -1,11 +1,12 @@
-{:identity     {:name       "Dumont"
-                :first-name "Antoine R. Dumont"
-                :birth      "22/10/1982"
-                :location   "43 bis boulevard Jean Moulin"
-                :city       "Livry Gargan"
-                :country    "France"
-                :emails     ["antoine.romain.dumont[at]gmail.com"
-                             "eniotna.t[at]gmail.com"]}
+{:identity     {:name        "Dumont"
+                :first-name  "Antoine"
+                :middle-name "Romain"
+                :birth       "22/10/1982"
+                :location    "43 bis boulevard Jean Moulin"
+                :city        "Livry Gargan"
+                :country     "France"
+                :emails      ["antoine.romain.dumont[at]gmail.com"
+                              "eniotna.t[at]gmail.com"]}
 
  :jobs         {:current     :sfeir
                 :sfeir       {:as     "software engineer/developer"
