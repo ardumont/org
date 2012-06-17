@@ -3,7 +3,7 @@
                 :middle-name "Romain"
                 :birth       "22/10/1982"
                 :location    "43 bis boulevard Jean Moulin"
-                :city        "Livry Gargan"
+                :city        "93190 Livry Gargan"
                 :country     "France"
                 :emails      ["antoine.romain.dumont[at]gmail.com"
                               "eniotna.t[at]gmail.com"]}
