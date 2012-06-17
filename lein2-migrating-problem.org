@@ -1,0 +1,109 @@
+
+#+title: Problem with swank-clojure and lein2
+#+author: Antoine R. Dumont
+
+Hello,
+
+I got a problem recently that i succeed in solving alone (wouhou!).
+I think it's kind of interesting to pass along this use case so that other can avoid the trouble.
+
+Problem: After migrating to =lein2=, =clojure-jack-in= and =lein-swank= ko.
+
+I migrated to =lein2= following the migrating guide - https://github.com/technomancy/leiningen/wiki/Upgrading.
+
+I obtained the =~/.lein/profiles.clj=
+
+#+begin_src clj
+{:user {:plugins [[lein-swank "1.4.4"]
+                  [lein-cljs "0.2.2"]
+                  [lein-difftest "1.3.7"]
+                  [lein-marginalia "0.7.0"]
+                  [lein-pprint "1.1.1"]
+                  [lein-midje "2.0.0-SNAPSHOT"]
+                  [lein-noir "1.2.1"]
+                  [com.intelie/lazytest "1.0.0-SNAPSHOT"]
+                  [org.cloudhoist/pallet-lein "0.4.1"]]
+        :search-page-size "30"}}
+#+end_src
+
+I then started my emacs and got an error.
+I do not care much about the jack-in error in emacs as this is often related to a lein problem (due to env problem).
+So i try immediately to =lein swank=.
+
+#+begin_src sh
+$ lein swank
+The eval-in-project function has moved to the leiningen.core.eval
+ namespace; please update your plugin to use that instead.
+ Note that `init' is now the third argument instead of the fifth.
+ This function will be removed for the final 2.0.0 release.
+Exception in thread "main" java.io.FileNotFoundException: Could not locate swank/swank__init.class or swank/swank.clj on classpath:
+        at clojure.lang.RT.load(RT.java:432)
+        at clojure.lang.RT.load(RT.java:400)
+        at clojure.core$load$fn__4890.invoke(core.clj:5415)
+        at clojure.core$load.doInvoke(core.clj:5414)
+        at clojure.lang.RestFn.invoke(RestFn.java:408)
+        at clojure.core$load_one.invoke(core.clj:5227)
+        at clojure.core$load_lib.doInvoke(core.clj:5264)
+        at clojure.lang.RestFn.applyTo(RestFn.java:142)
+        at clojure.core$apply.invoke(core.clj:603)
+        at clojure.core$load_libs.doInvoke(core.clj:5298)
+        at clojure.lang.RestFn.applyTo(RestFn.java:137)
+        at clojure.core$apply.invoke(core.clj:603)
+        at clojure.core$require.doInvoke(core.clj:5381)
+        at clojure.lang.RestFn.invoke(RestFn.java:408)
+        at user$eval27.invoke(NO_SOURCE_FILE:1)
+        at clojure.lang.Compiler.eval(Compiler.java:6511)
+        at clojure.lang.Compiler.eval(Compiler.java:6500)
+        at clojure.lang.Compiler.eval(Compiler.java:6501)
+        at clojure.lang.Compiler.eval(Compiler.java:6477)
+        at clojure.core$eval.invoke(core.clj:2797)
+        at clojure.main$eval_opt.invoke(main.clj:297)
+        at clojure.main$initialize.invoke(main.clj:316)
+        at clojure.main$null_opt.invoke(main.clj:349)
+        at clojure.main$main.doInvoke(main.clj:427)
+        at clojure.lang.RestFn.invoke(RestFn.java:421)
+        at clojure.lang.Var.invoke(Var.java:419)
+        at clojure.lang.AFn.applyToHelper(AFn.java:163)
+        at clojure.lang.Var.applyTo(Var.java:532)
+        at clojure.main.main(main.java:37)
+#+end_src
+
+I do not get the error as i have the latest swank-1.4.4 (from the =profile.clj= file).
+After cleaning up the current project (=lein clean=)
+I decide to remove all the =swank-clojure*.jar= files in my =~/.m2/repository/swank-clojure=.
+This way, the next time, the dependencies are resolved, i will be able to see them.
+
+So here we go, =lein deps=
+#+begin_src sh
+tony@dagobah(1.33,) 21:02:44 (1) ~/repositories/perso/hmdb (hmdb) $ rm -r /home/tony/.m2/repository/swank-clojure/
+
+tony@dagobah(0.98,) 21:05:57 ~/repositories/perso/hmdb (hmdb) $ lein swank
+Could not find artifact swank-clojure:swank-clojure:pom:1.2.1 in central (http://repo1.maven.org/maven2)
+Retrieving swank-clojure/swank-clojure/1.2.1/swank-clojure-1.2.1.pom (1k)
+    from https://clojars.org/repo/
+Could not find artifact swank-clojure:swank-clojure:jar:1.2.1 in central (http://repo1.maven.org/maven2)
+Retrieving swank-clojure/swank-clojure/1.2.1/swank-clojure-1.2.1.jar (41k)
+    from https://clojars.org/repo/
+
+#+end_src
+
+So, indeed, someone is pulling =swank-clojure-1.2.1= but what?
+
+I begin with the more local, my =project.clj=.
+So, i tried to exclude the swank-clojure from the different dev dependencies that i had without success =:exclude
+[swank-clojure]= in my =project.clj=
+
+Then i remembered that the =com.intellie/lazytest= package that i use (which is defined in the =~/.lein/profiles.clj=) has that.
+
+So i added the =:exclusions= to it:
+#+begin_src clj
+ [com.intelie/lazytest "1.0.0-SNAPSHOT" :exclusions [swank-clojure]]
+#+end_src
+
+And all came back to normal, =lein swank= in the project and =M-x clojure-jack-in=.
+
+Hope this can help someone else.
+
+See ya
+
+@ardumont
