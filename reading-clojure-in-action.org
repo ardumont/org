@@ -2,7 +2,8 @@
 #+author: Amit Rathor
 
 
-* TODO PART 1 [75%]
+* DONE PART 1 [100%]
+CLOSED: [2012-06-20 Wed 23:12]
 ** DONE GETTING STARTED ........................................................1
 CLOSED: [2012-06-17 dim. 19:33]
 ** DONE 1 Introduction to Clojure
@@ -15,8 +16,10 @@ CLOSED: [2012-06-17 dim. 19:38]
 CLOSED: [2012-06-17 dim. 19:38]
 ** DONE 5 ■ Clojure and Java interop 106
 CLOSED: [2012-06-17 dim. 19:38]
-** TODO 6 ■ State and the concurrent world
-** TODO 7 ■ Evolving Clojure through macros 148 [%]
+** DONE 6 ■ State and the concurrent world
+CLOSED: [2012-06-20 Wed 23:12]
+** DONE 7 ■ Evolving Clojure through macros 148 [%]
+CLOSED: [2012-06-20 Wed 23:12]
 
 * TODO PART 2 [%]
 ** TODO GETTING REAL ..........................................................167 [%]
