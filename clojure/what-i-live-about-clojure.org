@@ -1,0 +1,49 @@
+#+title: What i love about Clojure
+#+author: Antoine R. Dumont
+#+tags: love clojure why reasons
+
+Hi, I'm kind of becoming tired at explaining why i love Clojure and why i think we must embrace functional programming.
+So here is merely an attempt to explain my state of mind regarding development, function programming and clojure.
+
+Disclaimer:
+I do not have the pretentions to be the most excellent programmer there is.
+There are already some that i have in high esteems: Linus Torvalds, Richard Stallman, Rich Hikey, Stuart Halloway, Chas Emerick, Chris Granger, Sam Aaron,
+Christophe Grand, Laurent Petit, Phil Hagenberg, etc... (sorry for all the others, it's not an exhaustive list)
+They set the path, i merely try to walk alongside them... (as i'm sure, they would not mind).
+
+Point of view:
+This article is to be seen by placing oneself from an object oriented developer view point.
+
+Like i said, i'm not perfect, but some could say, i'm an enlightened java developer.
+That is, i'm aware of:
+- incidental complexity:
+  - side effects
+  - stateful
+  - mutability
+  - etc...
+- his own weaknesses
+- other paradigm than the imperative approach, object oriented vision.
+- Test Driven Development compliant
+
+Here is what i think, What makes you a better programmer?
+- clojure/LISP
+- functional programming
+
+(surely logic programming but i did not wrap my head around all the greatness of functional programming yet...)
+
+Reasons why
+In my everyday java programming, i now tend to apply naturally towards:
+** stateless class
+As much as i could.
+
+*** How?
+For that, i inject dependencies only by the constructor's class.
+My class own only one constructor that knows all its collaborators.
+
+*** Pros
+I'm not disturb in my tests by some externally setuped variables...
+
+*** Cons
+A big constructor.
+
+** method tends to be function
