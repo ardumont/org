@@ -1,17 +1,19 @@
-#+title: What i love about Clojure
+#+title: What i love about Clojure!?
 #+author: Antoine R. Dumont
 #+tags: love clojure why reasons
 
-Hi, I'm kind of becoming tired at explaining why i love Clojure and why i think we must embrace functional programming.
-So here is merely an attempt to explain my state of mind regarding development, function programming and clojure.
 
-Disclaimer:
+* *Intro*
+This is a post about the reasons i think Clojure is THE language.
+This is merely an attempt to explain my state of mind regarding development, function programming and clojure.
+
+* Disclaimer
 I do not have the pretentions to be the most excellent programmer there is.
-There are already some that i have in high esteems: Linus Torvalds, Richard Stallman, Rich Hikey, Stuart Halloway, Chas Emerick, Chris Granger, Sam Aaron,
+There are already some that i have in high esteems: Linus Torvalds, Richard Stallmann, Rich Hikey, Stuart Halloway, Chas Emerick, Chris Granger, Sam Aaron,
 Christophe Grand, Laurent Petit, Phil Hagenberg, etc... (sorry for all the others, it's not an exhaustive list)
 They set the path, i merely try to walk alongside them... (as i'm sure, they would not mind).
 
-Point of view:
+* Point of view
 This article is to be seen by placing oneself from an object oriented developer view point.
 
 Like i said, i'm not perfect, but some could say, i'm an enlightened java developer.
@@ -22,28 +24,69 @@ That is, i'm aware of:
   - mutability
   - etc...
 - his own weaknesses
-- other paradigm than the imperative approach, object oriented vision.
-- Test Driven Development compliant
+- other paradigm than the imperative approach and object oriented vision.
+- Test Driven Development compliant (and i can live with it without shame!)
 
-Here is what i think, What makes you a better programmer?
-- clojure/LISP
-- functional programming
-
+I think Clojure/LISP/functional programming makes you a better programmer.
 (surely logic programming but i did not wrap my head around all the greatness of functional programming yet...)
 
-Reasons why
-In my everyday java programming, i now tend to apply naturally towards:
-** stateless class
-As much as i could.
+* Why do i think that?
+
+Here are the troubles when doing object oriented programming (or at least in java)
+- jar hell (maven, ant, ivy, gradle, etc...)
+- dependency injection hell (spring, guice, ...)
+- orm (do not do it anymore but still pretty common...)
+- all is objects... or so we thought
+- 'static' hell (and now how am i supposed to test this thing? What if some code depend on this and breaks?
+
+Here is the word you're looking for: Incidental complexity.
+
+** Jar hell
+
+In java, if you do not have some specific code that does X, you surely need the framework Y.
+And here comes trouble.
+
+Wait, don't you know ant, maven, ivy, gradle, etc... ? It's easy enough...
+
+We can temper here because it's not only java (unix/linux got so, windows dll, etc...).
+
+Or you can just wait the year 2100 for having just what you want. Hell, be patient, after all, Paris was not built in a day.
+
+** Dependency Injection hell
+
+What's the smallest unit of work in java? The class.
+What does this mean? You must instanciate it.
+Why ? Because, else you won't be able to access the methods you want...
+And here comes trouble again... Dependency injection (spring, guice...)
+
+** ORM
+Do not have the envy to enter here.
+
+** all is objects! really?
+
+What the hell is 'static' then?
+For me, it's the exception that confirms that the object model is falsey.
+
+* Salvation?!
+Here is my recipe to avoid sleepless nights.
+
+** Stateless class
 
 *** How?
-For that, i inject dependencies only by the constructor's class.
-My class own only one constructor that knows all its collaborators.
+Constructor dependency injection.
 
-*** Pros
-I'm not disturb in my tests by some externally setuped variables...
+|---------------------------------------------------------------+--------------------------------------------------------|
+| Pros                                                          | Cons                                                   |
+|---------------------------------------------------------------+--------------------------------------------------------|
+| During testing, not disturbed by some externally variables... | A class may have lots of collaborators (java problem). |
+|---------------------------------------------------------------+--------------------------------------------------------|
 
-*** Cons
-A big constructor.
+** Method as a function
+Inputs + One output.
 
-** method tends to be function
+|-----------+------|
+| Pros      | Cons |
+|-----------+------|
+| Mock/Fake | None |
+|-----------+------|
+
