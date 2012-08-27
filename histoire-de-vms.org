@@ -1,0 +1,88 @@
+#+title: plan de domination mondiale
+#+author: Antoine R. Dumont
+
+Je viens de finir de lire le chapitre 11 de clojure in action a propos de rabbitmq.
+Je sais pas trop pourquoi mais ca m'a fait repenser aux pools de vms qu'on pourrait exploiter pour accelerer
+l'execution des runs fitnesse.
+
+Bref, du coup, je relance le sujet entre nous parce qu'en reflechissant un peu, je me dis que ca vaut le coup d'y passer
+un peu de temps.
+
+* plan de domination mondiale
+
+Voici ce que je propose comme plan, si ca vous interesse:
+
+** pallet
+ On apprend pallet pour faire des vms qui vont bien.
+Soit les vms st statiques une fois qu'on sait les créer soit le coût pallet est minime et on orchestre du pallet
+directement de l'appli pour lancer la construction des vms...
+(On peut aussi se passer de pallet ds un premier temps et utiliser veewee ou vbox direct...)
+
+** pool de vms
+On créé LE pool de vms.
+La le coeur de l'application open-source ecrite en clojure :D
+(Ca permettrait a Dawid et Massyl de monter en competences sur le sujet :D tout en nous apportant plein de geniales
+idees d'archi)
+
+On s'organise comme on veut pour la stack, je pensais a ca:
+- Rabbitmq pour communiquer entre les vms si on a plusieurs vms qui travaillent ou autres et qu'on a des besoins de
+  communication entre elles... (s'il y a reellement le besoin, dans un premier temps, on peut peut etre faire simple et
+  s'en passer)
+- Datomic pour la persistence... ou sont les vms (ec2), ds quel état (creating, created, running, terminated, etc...) ....
+- Compojure pour exposer l'api rest (ou autre...)
+
+** api
+On expose uniquement une api pour créer, exposer, détruire des vms. On ne sait pas a quoi serviront les vms, on expose
+juste un moyen d'en creer (c'est le client qui enverra sa configuration, d'ou l'histoire de pallet initialement...).
+
+** Cote client donc wikeo
+
+En tant que client (donc la, on redevient dev wikeo), on appelle de fitnesse cette api.
+Le premier pb que je vois il faut dire a wikeo ou se trouve lily ... (dev wikeo, je sais que c'est dans le
+resource.properties que cette conf se trouve).
+Solution: on expose un fichier resource.properties via http, la variable de serveur
+WIKEO_PROPERTIES_DIR=http://toto.expose.com (on peut le faire desormais cyril a fait évoluer notre conf pour ça)
+Ce fichier contiendra l'acces aux vms qui vont bien pour solr et lily.
+
+Donc, cote wikeo il y aurait:
+- juste ce setup de fichier de conf du serveur fitnesse a changer
+- l'url rest du reset a virer et remplacer par notre api rest de recuperation de la vm.
+- l'url de destruction de la vm aps le run fitnesse
+- détruire les histoires de tokens foireux pour empêcher le run fitnesse multiple... bref, detruire help-data-test
+
+* Avantages/Inconvients
+
+** dev open-source
+
+L'avantage en tant que dev open-source:
+- on fait de l'open source
+- on apprend clojure
+- on apprend pallet
+- on apprend compojure
+- on apprend datomic
+- on apprend a etre de vrais devops
+- j'oublie temporairement toutes les histoires a propos de lily, moi, ce qui m'interesse eventuellement, c'est la stack
+  hadoop et solr mais pas forcement lily.
+- On créerait la nuit un 'framework' d'exposition de vms via rest qu'on exploiterait le jour... donc on pourrait se
+  retrouver ds une situation vertueuse ou on s'auto alimente des besoins le jour (bugs, evo, etc...) ;)
+
+Les inconvenients, j'en vois pas.
+
+** dev wikeo
+
+- on gicle toute la stack locale concernant fitnesse
+- on a des runs concurrentiels possibles dans fitnesse
+- Par ailleurs, dernier point benefique, si ca marche pour fitnesse, pourquoi cela ne fonctionnerait pas pour les tests
+d'integration wikeo? Donc on s'ouvre les portes pour avoir des temps de ouf avec les runs de tests d'integration. On
+degage le lily-embedded en mode embedded et on utilise lily-embedded en mode connect (on fournit une vm pour chaque
+test d'integration et on peut lancer plusieurs itests en parallele...)
+- point important: on "n'empiete" pas sur ngdata, on embrasse le cote obscur et on essaye d'ameliorer...
+- point important: on ne parle plus de hashmap, donc plus de mot tabou cote wikeo.
+
+Les inconvenients, j'en vois pas.
+
+* Conclusion
+Bref, je pense que ca nous rapporterait bcp plus cette direction que la direction qu'on a deja prise de faker lily.
+En tant que dev et dev wikeo, on manipulerait des technos qui nous interessent.
+
+Ça me plaît bcp ;) et ca ne me parait pas deconnant, qu'en pensez vous ?
