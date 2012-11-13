@@ -1,0 +1,29 @@
+#+title: logic programming
+#+author: Antoine R. Dumont
+
+* logic programming definition
+a program is a set of axioms (or rules)
+defining relations between identities.
+
+a program defines a set of consequences which is its meaning
+
+* basic constructs of logic
+** terms
+** statements
+*** three basic statements
+**** facts
+
+a fact define what holds between identities
+
+#+begin_src some-facts
+(father marc antoine)
+(father antoine theo)
+(father antoine chloe)
+#+end_src
+
+predicate is another term for fact.
+
+**** rules
+**** queries
+
+* single data structure - logical term
