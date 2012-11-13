@@ -26,4 +26,6 @@ predicate is another term for fact.
 **** rules
 **** queries
 
+Means to retrieve data from relations
+
 * single data structure - logical term
