@@ -8,8 +8,11 @@
 * TODO read [0%]
 ** TODO stuart halloway's blog posts around core logic's exercises from the reasoned schemer
 * TODO tryouts [0%]
+** TODO list implementation
 ** TODO arithmetic operators with core.logic
 ** TODO google sdk drive API
 ** TODO datomic
-* guitar
-* drums
+* TODO music [0%]
+** TODO copy music on my phone
+** TODO guitar
+** TODO drums
