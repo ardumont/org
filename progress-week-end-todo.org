@@ -1,0 +1,15 @@
+#+title: todo
+
+* TODO cleanup screen [0%]
+** TODO laptop
+** TODO tablet
+* TODO watch [%]
+** TODO david nolen's core.logic presentation video
+* TODO read [0%]
+** TODO stuart halloway's blog posts around core logic's exercises from the reasoned schemer
+* TODO tryouts [0%]
+** TODO arithmetic operators with core.logic
+** TODO google sdk drive API
+** TODO datomic
+* guitar
+* drums
