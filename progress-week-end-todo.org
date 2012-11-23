@@ -7,11 +7,12 @@
 ** TODO david nolen's core.logic presentation video
 * TODO read [0%]
 ** TODO stuart halloway's blog posts around core logic's exercises from the reasoned schemer
-* TODO tryouts [0%]
+* TODO clojure tryouts [0%]
 ** TODO list implementation
 ** TODO arithmetic operators with core.logic
 ** TODO google sdk drive API
 ** TODO datomic
+** TODO look at nakkaya's updates on its static blog generator
 * TODO music [0%]
 ** TODO copy music on my phone
 ** TODO guitar
