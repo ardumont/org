@@ -1,6 +1,6 @@
 #+title: todo
 
-* TODO 24/11/2012 [44%]
+* TODO 24/11/2012 [55%]
 ** TODO cleanup screen [0%]
 *** TODO laptop
 *** TODO tablet
@@ -17,11 +17,58 @@ CLOSED: [2012-11-24 Sat 11:13]
 *** TODO google sdk drive API
 *** TODO datomic
 *** TODO look at nakkaya's updates on its static blog generator
-** TODO music [33%]
-*** TODO copy music on my phone
+** DONE music [100%]
+CLOSED: [2012-11-24 Sat 19:10]
+*** FAIL copy music on my phone
+CLOSED: [2012-11-24 Sat 19:09]
+**** install mtp
+#+begin_src sh
+sudo aptitude install mtpfs mtp-tools
+#+end_src
+**** update rules
+
+#+begin_src fuse-rule-32-bits
+ACTION!="add", GOTO="gtab_rules_end"
+SUBSYSTEM!="usb|usb_device", GOTO="gtab_usb_end"
+
+ATTRS{idVendor}=="04e8", ATTRS{idProduct}=="6860", MODE="0666" SYMLINK+="gtab"
+
+LABEL="gtab_usb_end"
+
+LABEL="gtab_rules_end"
+#+end_src
+
+#+begin_src sh
+cp ~/Downloads/mtpfs.rules /etc/udev/rules.d/
+#+end_src
+
+**** Automatic setup
+Edit /etc/fstab
+
+#+begin_src fstab
+mtpfs     /media/gtab     fuse     user,noauto,allow_other      0      0
+#+end_src
+
+**** other setup
+Remove the commented line in */etc/fuse.conf* which prevents the user from mounting.
+#+begin_src sh
+#user_allow_user
+#+end_src
+
+**** update group
+Add oneself in the /etc/group fuse
+
+**** Create folder
+
+#+begin_src sh
+sudo mkdir /media/gtab
+sudo chown -R tony: /media/gtab
+#+end_src
+
 *** DONE guitar
 CLOSED: [2012-11-24 Sat 16:36]
-*** TODO drums
+*** CANCELLED drums
+CLOSED: [2012-11-24 Sat 19:10]
 ** DONE help chris remove competences in gestioneleves
 CLOSED: [2012-11-24 Sat 11:07]
 
