@@ -1,24 +1,34 @@
 #+title: todo
 
-* TODO cleanup screen [0%]
-** TODO laptop
-** TODO tablet
-* TODO watch [%]
-** TODO david nolen's core.logic presentation video [50%]
-*** DONE http://vimeo.com/46163091
+* TODO 24/11/2012 [44%]
+** TODO cleanup screen [0%]
+*** TODO laptop
+*** TODO tablet
+** TODO watch [%]
+*** TODO david nolen's core.logic presentation video [50%]
+**** DONE http://vimeo.com/46163091
 CLOSED: [2012-11-24 Sat 11:13]
-*** TODO http://www.youtube.com/watch?v=A7de6pC-tnU
-* TODO read [0%]
-** TODO stuart halloway's blog posts around core logic's exercises from the reasoned schemer
-* TODO clojure tryouts [0%]
-** TODO list implementation
-** TODO arithmetic operators with core.logic
-** TODO google sdk drive API
-** TODO datomic
-** TODO look at nakkaya's updates on its static blog generator
-* TODO music [0%]
-** TODO copy music on my phone
-** TODO guitar
-** TODO drums
-* DONE help chris remove competences in gestioneleves
+**** TODO http://www.youtube.com/watch?v=A7de6pC-tnU
+** TODO read [0%]
+*** TODO stuart halloway's blog posts around core logic's exercises from the reasoned schemer
+** TODO clojure tryouts [0%]
+*** TODO list implementation
+*** TODO arithmetic operators with core.logic
+*** TODO google sdk drive API
+*** TODO datomic
+*** TODO look at nakkaya's updates on its static blog generator
+** TODO music [33%]
+*** TODO copy music on my phone
+*** DONE guitar
+CLOSED: [2012-11-24 Sat 16:36]
+*** TODO drums
+** DONE help chris remove competences in gestioneleves
 CLOSED: [2012-11-24 Sat 11:07]
+
+** DONE search for computers
+CLOSED: [2012-11-24 Sat 16:36]
+
+** DONE some puzzle progress on r2-d2
+CLOSED: [2012-11-24 Sat 16:36]
+** DONE make some badass lego for theo
+CLOSED: [2012-11-24 Sat 17:46]
