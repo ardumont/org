@@ -4,7 +4,10 @@
 ** TODO laptop
 ** TODO tablet
 * TODO watch [%]
-** TODO david nolen's core.logic presentation video
+** TODO david nolen's core.logic presentation video [50%]
+*** DONE http://vimeo.com/46163091
+CLOSED: [2012-11-24 Sat 11:13]
+*** TODO http://www.youtube.com/watch?v=A7de6pC-tnU
 * TODO read [0%]
 ** TODO stuart halloway's blog posts around core logic's exercises from the reasoned schemer
 * TODO clojure tryouts [0%]
@@ -17,3 +20,5 @@
 ** TODO copy music on my phone
 ** TODO guitar
 ** TODO drums
+* DONE help chris remove competences in gestioneleves
+CLOSED: [2012-11-24 Sat 11:07]
