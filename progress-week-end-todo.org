@@ -1,6 +1,6 @@
 #+title: todo
 
-* TODO 24/11/2012 [55%]
+* TODO 24-25/11/2012 [55%]
 ** TODO cleanup screen [0%]
 *** TODO laptop
 *** TODO tablet
@@ -14,9 +14,68 @@ CLOSED: [2012-11-24 Sat 11:13]
 ** TODO clojure tryouts [0%]
 *** TODO list implementation
 *** TODO arithmetic operators with core.logic
-*** TODO google sdk drive API
+*** TODO google sdk drive API [80%]
+**** DONE Activate the service
+CLOSED: [2012-11-24 Sat 19:52]
+https://developers.google.com/drive/quickstart-java
+**** DONE Documentations
+CLOSED: [2012-11-24 Sat 19:37]
+- http://code.google.com/p/google-api-java-client/wiki/APIs#Drive_API
+- https://developers.google.com/drive/
+**** DONE install repositories
+CLOSED: [2012-11-24 Sat 19:36]
+in *~/.lein/profiles.clj* add the repositories
+#+begin_src clj
+  :repositories {"googleapis"          "http://mavenrepo.google-api-java-client.googlecode.com/hg/"
+                 "google-api-services" "http://google-api-client-libraries.appspot.com/mavenrepo"}
+#+end_src
+
+**** DONE install jar dependencies
+CLOSED: [2012-11-24 Sat 19:36]
+#+begin_src clj
+                 [com.google.apis/google-api-services-drive "v2-rev25-1.12.0-beta"]]
+#+end_src
+
+**** IN-PROGRESS play with the api [87%]
+***** DONE api
+CLOSED: [2012-11-24 Sat 19:53]
+ https://developers.google.com/drive/v2/reference/#Files
+
+***** DONE example
+CLOSED: [2012-11-24 Sat 20:36]
+[[https://developers.google.com/drive/quickstart-java][some example]]
+***** DELEGATED understand how to authenticate on the api via http
+CLOSED: [2012-11-25 Sun 10:48]
+https://developers.google.com/accounts/docs/OAuth2WebServer
+***** DONE Use an oauth-clj lib
+https://developers.google.com/accounts/docs/OAuth2
+https://github.com/DerGuteMoritz/clj-oauth2
+https://github.com/r0man/oauth-clj
+***** DONE trying to authenticate
+CLOSED: [2012-11-25 Sun 11:57]
+***** DONE Trying to request some stuff
+CLOSED: [2012-11-25 Sun 12:04]
+#+begin_src clj
+{:gender         "male",
+ :link           "https://plus.google.com/some-id",
+ :name           "Antoine R. Dumont",
+ :given-name     "Antoine R.",
+ :locale         "en",
+ :verified-email true,
+ :family-name    "Dumont",
+ :email          "some-email@some-provider",
+ :id             "some-id",
+ :birthday       "some-birthday",
+ :picture        "some-uri-pointing-to-his-her-picture"}
+#+end_src
+***** DONE sdk drive query
+CLOSED: [2012-11-25 Sun 12:14]
+***** TODO fix the permission on the token
 *** TODO datomic
-*** TODO look at nakkaya's updates on its static blog generator
+*** TODO look at nakkaya's updates on its static blog generator [50%]
+**** DONE update fork
+CLOSED: [2012-11-24 Sat 19:13]
+**** TODO test for my blog
 ** DONE music [100%]
 CLOSED: [2012-11-24 Sat 19:10]
 *** FAIL copy music on my phone
