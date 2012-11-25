@@ -4,13 +4,14 @@
 ** TODO cleanup screen [0%]
 *** TODO laptop
 *** TODO tablet
-** DONE watch [100%]
+** DONE watch [50%]
 CLOSED: [2012-11-25 Sun 16:52]
 *** DONE david nolen's core.logic presentation video http://vimeo.com/46163091
 CLOSED: [2012-11-25 Sun 16:52]
+*** IN-PROGRESS rich hikey's presentation of datomic
 ** TODO read [0%]
 *** TODO stuart halloway's blog posts around core logic's exercises from the reasoned schemer
-** TODO clojure tryouts [20%]
+** TODO clojure tryouts [40%]
 *** TODO list implementation
 *** TODO arithmetic operators with core.logic
 *** DONE google sdk drive API [100%]
@@ -75,7 +76,8 @@ CLOSED: [2012-11-25 Sun 12:14]
 CLOSED: [2012-11-25 Sun 16:51]
 ***** DONE Listing the drive files from the repl
 CLOSED: [2012-11-25 Sun 16:52]
-*** TODO datomic
+*** DONE datomic
+CLOSED: [2012-11-25 Sun 22:10]
 *** TODO look at nakkaya's updates on its static blog generator [50%]
 **** DONE update fork
 CLOSED: [2012-11-24 Sat 19:13]
