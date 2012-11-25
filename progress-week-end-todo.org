@@ -1,20 +1,20 @@
 #+title: todo
 
-* TODO 24-25/11/2012 [55%]
+* TODO 24-25/11/2012 [66%]
 ** TODO cleanup screen [0%]
 *** TODO laptop
 *** TODO tablet
-** TODO watch [%]
-*** TODO david nolen's core.logic presentation video [50%]
-**** DONE http://vimeo.com/46163091
-CLOSED: [2012-11-24 Sat 11:13]
-**** TODO http://www.youtube.com/watch?v=A7de6pC-tnU
+** DONE watch [100%]
+CLOSED: [2012-11-25 Sun 16:52]
+*** DONE david nolen's core.logic presentation video http://vimeo.com/46163091
+CLOSED: [2012-11-25 Sun 16:52]
 ** TODO read [0%]
 *** TODO stuart halloway's blog posts around core logic's exercises from the reasoned schemer
-** TODO clojure tryouts [0%]
+** TODO clojure tryouts [20%]
 *** TODO list implementation
 *** TODO arithmetic operators with core.logic
-*** TODO google sdk drive API [80%]
+*** DONE google sdk drive API [100%]
+CLOSED: [2012-11-25 Sun 16:52]
 **** DONE Activate the service
 CLOSED: [2012-11-24 Sat 19:52]
 https://developers.google.com/drive/quickstart-java
@@ -36,7 +36,8 @@ CLOSED: [2012-11-24 Sat 19:36]
                  [com.google.apis/google-api-services-drive "v2-rev25-1.12.0-beta"]]
 #+end_src
 
-**** IN-PROGRESS play with the api [87%]
+**** DONE play with the api [100%]
+CLOSED: [2012-11-25 Sun 16:52]
 ***** DONE api
 CLOSED: [2012-11-24 Sat 19:53]
  https://developers.google.com/drive/v2/reference/#Files
@@ -70,7 +71,10 @@ CLOSED: [2012-11-25 Sun 12:04]
 #+end_src
 ***** DONE sdk drive query
 CLOSED: [2012-11-25 Sun 12:14]
-***** TODO fix the permission on the token
+***** DONE fix the permission on the token
+CLOSED: [2012-11-25 Sun 16:51]
+***** DONE Listing the drive files from the repl
+CLOSED: [2012-11-25 Sun 16:52]
 *** TODO datomic
 *** TODO look at nakkaya's updates on its static blog generator [50%]
 **** DONE update fork
