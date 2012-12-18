@@ -1,0 +1,62 @@
+#+title: Setup the asus zenbook
+#+author: Antoine R. Dumont
+
+Some tweaks along the way
+
+http://www.howtogeek.com/62761/how-to-tweak-your-ssd-in-ubuntu-for-better-performance/
+https://help.ubuntu.com/community/AsusZenbookPrime
+
+* First backup
+
+#+begin_src sh
+sudo cp /etc/fstab /etc/fstab.ori
+#+end_src
+
+* /etc/fstab
+
+** Remove writes around access times
+
+Adding *noatime,nodiratime*
+
+#+begin_src fstab
+UUID=xyz-blbl-abcd-dcba-xyz /   ext4    noatime,nodiratime,errors=remount-ro 0 1
+#+end_src
+
+** discard
+
+#+begin_src fstab
+UUID=xyz-blbl-abcd-dcba-xyz /   ext4    discard,noatime,nodiratime,errors=remount-ro 0 1
+#+end_src
+
+** /tmp in ram
+
+#+begin_src sh
+tmpfs /tmp tmpfs defaults,noatime,mode=1777 0 0
+#+end_src
+
+* Check the possibilities
+
+#+begin_src sh
+dathomir etc # cat /sys/block/sdb/queue/scheduler
+noop deadline [cfq]
+#+end_src
+
+We can use *deadline*.
+
+Add those line to */etc/rc.local*
+
+#+begin_src sh
+echo deadline > /sys/block/sdb/queue/scheduler
+echo 1 > /sys/block/sdX/queue/iosched/fifo_batch
+#+end_src
+
+* Now edit the grub
+Add this to */etc/default/grub*
+
+#+begin_src sh
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash rootfstype=ext4"
+#+end_src
+
+* Reboot
+
+to check and see that everything still works.
