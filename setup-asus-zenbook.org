@@ -60,3 +60,17 @@ GRUB_CMDLINE_LINUX_DEFAULT="quiet splash rootfstype=ext4"
 * Reboot
 
 to check and see that everything still works.
+* gnome bindings
+#+BEGIN_SRC sh
+sudo aptitude install cheese
+gconftool-2 -s /desktop/gnome/keybindings/custom0/name -t string 'Web Cam'
+gconftool-2 -s /desktop/gnome/keybindings/custom0/binding -t string 'XF86WebCam'
+gconftool-2 -s /desktop/gnome/keybindings/custom0/action -t string 'cheese'
+#+END_SRC
+
+* other params for grub
+
+#+BEGIN_SRC sh
+pcie_aspm=force drm.vblankoffdelay=1 i915.semaphores=1
+#+END_SRC
+* Reboot
