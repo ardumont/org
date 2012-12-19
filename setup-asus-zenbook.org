@@ -47,7 +47,7 @@ Add those line to */etc/rc.local*
 
 #+begin_src sh
 echo deadline > /sys/block/sdb/queue/scheduler
-echo 1 > /sys/block/sdX/queue/iosched/fifo_batch
+echo 1 > /sys/block/sdb/queue/iosched/fifo_batch
 #+end_src
 
 * Now edit the grub
@@ -71,6 +71,6 @@ gconftool-2 -s /desktop/gnome/keybindings/custom0/action -t string 'cheese'
 * other params for grub
 
 #+BEGIN_SRC sh
-pcie_aspm=force drm.vblankoffdelay=1 i915.semaphores=1
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash rootfstype=ext4 pcie_aspm=force drm.vblankoffdelay=1 i915.semaphores=1"
 #+END_SRC
 * Reboot
