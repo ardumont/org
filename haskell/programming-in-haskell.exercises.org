@@ -15,6 +15,20 @@ double (double 2) = (double 2) + (double 2)
 
 2. Show that sum [x] = x for any number x.
 
+sum:
+#+begin_src haskell
+sum :: Num a => [a] -> a
+sum [] = 0
+sum (x:xs) = x + sum xs
+#+end_src
+
+Given the definition of the sum function:
+#+begin_src demo
+sum [x] = x + sum []
+        = x + 0
+        = x
+#+end_src
+
 3. Define a function product that produces the product of a list of numbers,
 and show using your definition that product [2, 3, 4] = 24.
 
