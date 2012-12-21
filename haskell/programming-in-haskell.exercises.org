@@ -51,5 +51,35 @@ pdt [2,3,4] = 2 * pdt [3,4]
 4. How should the definition of the function qsort be modified so that it
 produces a reverse sorted version of a list?
 
+qsort:
+#+begin_src haskell
+qsort :: Ord a => [a] -> [a]
+qsort [] = []
+qsort (x:xs) = qsort smaller ++ [x] ++ qsort larger
+               where
+                 smaller = filter (<= x) xs
+                 larger  = filter (> x) xs
+#+end_src
+
+We want to modify such qsort definition to reverse the output.
+So from *qsort [4 6 2] => [2 4 6] into qsort [4 6 2] => 6 4 2.
+
+#+begin_src haskell
+qsort :: Ord a => [a] -> [a]
+qsort [] = []
+qsort (x:xs) = qsort larger ++ [x] ++ qsort smaller
+               where
+                 smaller = filter (<= x) xs
+                 larger  = filter (> x) xs
+#+end_src
+
+
+#+begin_src demo
+qsort [4,6,2] = qsort [6] ++ [4] ++ qsort [2]
+              = qsort [] ++ [6] ++ qsort [] ++ [4] ++ qsort [] ++ qsort [2] ++ qsort []
+              = [] ++ [6] ++ [] ++ [4] ++ [] ++ [2] ++ []
+              = [6,4,2]
+#+end_src
+
 5. What would be the effect of replacing by < in the original definition
 of qsort ? Hint: consider the example qsort [2, 2, 3, 1, 1].
