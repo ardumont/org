@@ -73,13 +73,40 @@ qsort (x:xs) = qsort larger ++ [x] ++ qsort smaller
                  larger  = filter (> x) xs
 #+end_src
 
+To simplify the proof, we will prove that:
+qsort [x] = [x]
 
 #+begin_src demo
+qsort [x] = qsort [] ++ [x] ++ qsort []
+          = [] ++ [x] ++ []
+          = [x]
+#+end_src
+
+Now solve the question:
+#+begin_src demo
 qsort [4,6,2] = qsort [6] ++ [4] ++ qsort [2]
-              = qsort [] ++ [6] ++ qsort [] ++ [4] ++ qsort [] ++ qsort [2] ++ qsort []
-              = [] ++ [6] ++ [] ++ [4] ++ [] ++ [2] ++ []
+              = [6] ++ [4] ++ [2]
               = [6,4,2]
 #+end_src
 
 5. What would be the effect of replacing by < in the original definition
 of qsort ? Hint: consider the example qsort [2, 2, 3, 1, 1].
+
+Given:
+#+begin_src haskell
+qsort :: Ord a => [a] -> [a]
+qsort [] = []
+qsort (x:xs) = qsort smaller ++ [x] ++ qsort larger
+               where
+                 smaller = filter (< x) xs
+                 larger  = filter (> x) xs
+#+end_src
+
+This will filter out the duplicated entries.
+
+Here is the solved example:
+#+begin_src demo
+qsort [2,2,3,1,1] = qsort [1] ++ [2] ++ qsort [3]
+                  = [1] ++ [2] ++ [3]
+                  = [1,2,3]
+#+end_src
