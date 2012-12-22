@@ -1,5 +1,11 @@
 
 * Posts
+** [[file:/home/tony/org/howto/howto-beamer-with-org-mode.org][Howto beamer with org-mode]]
+:PROPERTIES:
+:POSTID:   412
+:POST_DATE: 20121222T13:20:00+0000
+:Published: Yes
+:END:
 ** [[file:/home/tony/org/howto/howto-install-clojure.org][How to install the clojure development environment]]
 :PROPERTIES:
 :POSTID:   449

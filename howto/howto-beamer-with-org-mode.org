@@ -1,5 +1,12 @@
-#+Title: Howto beamer with org-mode
-#+author: Antoine R. Dumont
+#+BLOG: tony-blog
+#+POSTID: 412
+#+DATE: [2012-12-22 Sat 14:20]
+#+TITLE: Howto beamer with org-mode
+#+AUTHOR: Antoine R. Dumont
+#+OPTIONS:
+#+TAGS: emacs beamer org-mode
+#+CATEGORY: emacs beamer org-mode
+#+DESCRIPTION: howto make presentation using org-mode and beamer
 #+STARTUP: indent
 #+STARTUP: hidestars odd
 
@@ -47,7 +54,7 @@ For real, replace the \# by #.
 The informations comes from the previous blocks.
 
 #+ATTR_HTML: alt="frame-11 image" title="First frame output example" align="center" width="500"
-[../org-beamer-examples/front-page.png]]
+[[../org-beamer-examples/front-page.png]]
 
 *** And a outline page
 
@@ -151,6 +158,15 @@ Here's only what i think of, feel free to think otherwise.
 
 * Source
 
-[[https://github.com/ardumont/my-org-files/blob/master/howto-beamer-with-org-mode.org][The example org source code]]
-[[https://github.com/ardumont/my-org-files/blob/master/org-beamer-example/example0.pdf][The example pdf]]
-[[http://orgmode.org/worg/org-tutorials/org-beamer/tutorial.html][Writing Beamer presentations in org-mode]]
+- [[https://github.com/ardumont/my-org-files/blob/master/howto-beamer-with-org-mode.org][The example org source code]]
+- [[https://github.com/ardumont/my-org-files/blob/master/org-beamer-example/example0.pdf][The example pdf]]
+- [[http://orgmode.org/worg/org-tutorials/org-beamer/tutorial.html][Writing Beamer presentations in org-mode]]
+
+#+../org-beamer-examples/outline.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-outline.png
+#+../org-beamer-examples/frame-11.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-frame-11.png
+#+../org-beamer-examples/frame-12.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-frame-12.png
+#+../org-beamer-examples/frame-clojure.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-frame-clojure.png
+#+../org-beamer-examples/frame-emacs.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-frame-emacs.png
+#+../org-beamer-examples/frame-org.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-frame-org.png
+
+#+../org-beamer-examples/front-page.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-front-page.png
