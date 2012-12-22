@@ -1,5 +1,11 @@
 
 * Posts
+** [[file:/home/tony/org/clodiuno/hello-world-in-morse.org][Hello world in morse with clodiuno]]
+:PROPERTIES:
+:POSTID:   492
+:POST_DATE: 20121222T13:20:00+0000
+:Published: No
+:END:
 ** [[file:/home/tony/org/setup-asus-zenbook.org][Setup the asus zenbook]]
 :PROPERTIES:
 :POSTID:   517

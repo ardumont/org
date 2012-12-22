@@ -1,6 +1,12 @@
-#+title: Hello world in morse with clodiuno
-#+author: Antoine R. Dumont
-#+tags: clodiuno, clojure, arduino, emacs, geek
+#+BLOG: tony-blog
+#+POSTID: 492
+#+DATE: [2012-12-22 Sat 14:20]
+#+TITLE: Hello world in morse with clodiuno
+#+AUTHOR: Antoine R. Dumont
+#+OPTIONS:
+#+TAGS: clodiuno, clojure, arduino, emacs, geek
+#+CATEGORY: arduino, clojure, geek
+#+DESCRIPTION: A small program to make a LED speaks in morse
 
 We will now still use the same circuit but this time, we will add a little more fun.
 What if we let the led talk in morse.
@@ -16,7 +22,7 @@ it's as simple as a clojure data - map and vectors.
 
 A map with a char as the key and the vector of bits as the morse representation.
 
-#+begin_src clj
+#+BEGIN_SRC clj
 ;; 0 represents short signal
 ;; 1 represents long signal
 ;; Intermational morse from http://en.wikipedia.org/wiki/Morse_code
@@ -46,13 +52,13 @@ A map with a char as the key and the vector of bits as the morse representation.
                      \x [1 0 0 1]
                      \y [1 0 1 1]
                      \z [1 1 0 0]})
-#+end_src
+#+END_SRC
 
 source: https://github.com/ardumont/arduino-lab/blob/master/src/arduino_lab/morse.clj
 
 ** orchestration
 
-#+begin_src clj
+#+BEGIN_SRC clj
 ;; circuit: Just a led on the 13 pin.
 
 ;; time
@@ -103,13 +109,13 @@ source: https://github.com/ardumont/arduino-lab/blob/master/src/arduino_lab/mors
 
     (close board)))
 
-#+end_src
+#+END_SRC
 
 source: https://github.com/ardumont/arduino-lab/blob/master/src/arduino_lab/write-morse.clj
 
 ** Execution
 
-#+begin_src clj
+#+BEGIN_SRC clj
   ;; define the device according to your env setup (this may vary)
   (def device-board "/dev/ttyACM0")
 
@@ -131,8 +137,7 @@ source: https://github.com/ardumont/arduino-lab/blob/master/src/arduino_lab/writ
 
   ;; do not forget to free the board
   (close board)
-#+end_src
+#+END_SRC
 
 * Shut up and show us the real thing
 http://youtu.be/wLsJqLDtk9w
-
