@@ -1,30 +1,30 @@
+#+BLOG: tony-blog
+#+POSTID: 517
+#+DATE: [2012-12-22 Sat 14:20]
 #+TITLE: Setup the asus zenbook
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
 #+TAGS: setup GNU/Linux asus zenbook
-#+CATEGORY: install setup
+#+CATEGORY: install/setup
 #+DESCRIPTION: Small steps to setup my asus zenbook
-#+DATE: 12/22/2012
 
-I finally got my head around and towards the asus zenbook.
+Hi,
 
-After some troubles installing GNU/Linux (linux mint), it now works like a charm.
+I finally succeeded in making my choice about a new pc - the asus zenbook (core i5, 24gb ssd, 500 gb, 4go ram...).
 
-My troubles were a dark story of bios/boot manager/partitionning system hell.
-But it's a story for another time.
+After having troubles (dark stories of bios/boot manager/partitioning system hell) installing GNU/Linux (linux mint 13 & 14), it now works like a charm.
+Long story short, to keep the install system simple, now you must use x86_64 for x86_64 and x86 for x86 (at least, it's my conclusion for ubuntu/linuxmint system).
 
-Long story short, to keep the install system simple, use x86_64 for x86_64 (at least, it's my conclusion for ubuntu/linuxmint system).
-(yes i kept installing x86 even in x86_64).
+Anyway, the goal of this article is to show the tweaks for setuping the asus zenbook on an ubuntu based (maybe debian based).
 
-Anyway, the goals of this articles are to show the tweaks for setuping the asus zenbooks.
+- *Sources*
+  - http://www.howtogeek.com/62761/how-to-tweak-your-ssd-in-ubuntu-for-better-performance/
+  - https://help.ubuntu.com/community/AsusZenbookPrime
 
-Here are the main sources:
-- http://www.howtogeek.com/62761/how-to-tweak-your-ssd-in-ubuntu-for-better-performance/
-- https://help.ubuntu.com/community/AsusZenbookPrime
+- *Advices*
+Reboot after each system modifications (regarding file system or boot setup options).
 
-I advise to reboot after each system modifications (regarding file system or boot setup options).
-Indeed, if you make all the modifications at once.
-If there are any problems at reboot time, you won't know what broke.
+Simply to be able to tell which modification broke the machine.
 
 * First backup
 
@@ -36,42 +36,52 @@ sudo cp /etc/fstab /etc/fstab.ori
 
 (No need to reboot here)
 * Update */etc/fstab*
+** Remove writes
+From the man `mount` page:
 
-** Remove writes around access times
+#+BEGIN_SRC man
+       noatime
+              Do not update inode access times on this filesystem (e.g., for faster access on the news spool to speed up news servers).
+       nodiratime
+              Do not update directory inode access times on this filesystem.
+       discard/nodiscard
+              Controls  whether  ext4  should issue discard/TRIM commands to the underlying block device when blocks are freed.  This is useful for SSD devices and
+              sparse/thinly-provisioned LUNs, but it is off by default until sufficient testing has been done.
 
-Adding *noatime,nodiratime* to avoid excessed writing.
+#+END_SRC
+
+The asus zenkook owns 2 hdd, one SSD and one SATA.
+The os is installed on the SSD one.
+
+Adding *noatime* to avoid excessed writing about access times.
 
 #+begin_src fstab
-UUID=xyz-blbl-abcd-dcba-xyz /   ext4    noatime,nodiratime,errors=remount-ro 0 1
+UUID=xyz-blbl-abcd-dcba-xyz /   ext4    discard,noatime,errors=remount-ro 0 1
 #+end_src
 
-** discard
-
-Addind discard?
-
-#+begin_src fstab
-UUID=xyz-blbl-abcd-dcba-xyz /   ext4    discard,noatime,nodiratime,errors=remount-ro 0 1
-#+end_src
+*Note*
+*noatime* is a superset of *nodiratime* so only *noatime* is need.
 
 ** /tmp in ram
 
-To accelerate the software using /tmp, we can give the access to ram.
+To minimize the writing in the ssd, it may be good to mount /tmp in ram.
 
 #+begin_src sh
 tmpfs /tmp tmpfs defaults,noatime,mode=1777 0 0
 #+end_src
 
-Now reboot
+** Reboot
 * scheduler
+** Check the possibilities of your hardware
 
-** Check the possibilities
+if your ssd is /dev/sdb:
 
 #+begin_src sh
-dathomir etc # cat /sys/block/sdb/queue/scheduler
+cat /sys/block/sdb/queue/scheduler
 noop deadline [cfq]
 #+end_src
 
-We can use *deadline*.
+We can use [[http://en.wikipedia.org/wiki/Deadline_scheduler][deadline]] over [[http://en.wikipedia.org/wiki/CFQ][cfq]].
 
 ** Make them permanent
 
@@ -81,13 +91,27 @@ Add those line to */etc/rc.local*
 echo deadline > /sys/block/sdb/queue/scheduler
 echo 1 > /sys/block/sdb/queue/iosched/fifo_batch
 #+end_src
-
+** Reboot
 * Grub setup
-** new options
+** New options
 Add this to */etc/default/grub*
 
+*** =rootfstype=ext4=
+To stress that */root* in in a ext4 partition.
+
+*** =pcie_aspm=force=
+To diminish the loss of power during idle time.
+
+*** =drm.vblankoffdelay=1 i915.semaphores=1=
+To save power.
+
+*** =nmi_watchdog=0=
+Deactivate the watchdog.
+
+** Final Result
+
 #+begin_src sh
-GRUB_CMDLINE_LINUX_DEFAULT="quiet splash rootfstype=ext4 pcie_aspm=force drm.vblankoffdelay=1 i915.semaphores=1"
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash rootfstype=ext4 pcie_aspm=force drm.vblankoffdelay=1 i915.semaphores=1 nmi_watchdog=0"
 #+end_src
 
 ** Update grub
@@ -96,7 +120,8 @@ GRUB_CMDLINE_LINUX_DEFAULT="quiet splash rootfstype=ext4 pcie_aspm=force drm.vbl
 sudo update-grub
 #+END_SRC
 
-* gnome bindings
+** Reboot
+* Gnome bindings (optional)
 
 Those one does not entirely work, you may skip.
 
