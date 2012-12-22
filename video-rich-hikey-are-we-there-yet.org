@@ -1,9 +1,14 @@
-#+Title: Video - Rich Hikey - Are we there yet ?
-#+author: Antoine Romain Dumont
-#+STARTUP: indent
-#+STARTUP: hidestars odd
+#+BLOG: tony-blog
+#+POSTID: 378
+#+DATE: [2012-12-22 Sat 14:20]
+#+TITLE: Video - Rich Hickey - Are we there yet?
+#+AUTHOR: Antoine R. Dumont
+#+OPTIONS:
+#+TAGS: Rich Hickey
+#+CATEGORY: emacs
+#+DESCRIPTION: "Are we there yet?" fanboy
 
-Completely mind blowing video from Rich Hikey ([[http://clojure.org/][Clojure]]'s creator) where he exposes the limitations of the overall most popular actual languages.
+Completely mind blowing video from Rich Hickey ([[http://clojure.org/][Clojure]]'s creator) where he exposes the limitations of the overall most popular actual languages.
 
 Here's the link. I do not enter much in the details here as Rich Hikey himself is so good at explaining.
 
