@@ -1,0 +1,8 @@
+
+* Posts
+** [[file:/home/tony/org/setup-asus-zenbook.org][Setup the asus zenbook]]
+:PROPERTIES:
+:POSTID:   517
+:POST_DATE: 20121222T13:20:00+0000
+:Published: Yes
+:END:
