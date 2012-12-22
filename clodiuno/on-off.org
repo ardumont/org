@@ -1,6 +1,12 @@
-#+title: on/off
-#+author: Antoine R. Dumont
-#+tags: clodiuno, clojure, arduino, emacs, geek
+#+BLOG: tony-blog
+#+POSTID: 481
+#+DATE: [2012-12-22 Sat 14:20]
+#+TITLE: Arduino/Clodiuno - command a LED from the clojure REPL
+#+AUTHOR: Antoine R. Dumont
+#+OPTIONS:
+#+TAGS: clodiuno, clojure, arduino, emacs, geek
+#+CATEGORY: arduino, clojure, geek
+#+DESCRIPTION: What was my difficulties bootstraping arduino/clodiuno.
 
 Now that the setup hell is gone, here i will describe "my first interaction" to make my arduino uno talk with a simple led.
 
@@ -98,3 +104,7 @@ nil
 user> (digital-write board 13 LOW)
 nil
 #+END_SRC
+
+* Result
+
+http://youtu.be/T3ooJXkHRlg
