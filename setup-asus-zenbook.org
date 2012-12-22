@@ -1,22 +1,45 @@
-#+title: Setup the asus zenbook
-#+author: Antoine R. Dumont
+#+TITLE: Setup the asus zenbook
+#+AUTHOR: Antoine R. Dumont
+#+OPTIONS:
+#+TAGS: setup GNU/Linux asus zenbook
+#+CATEGORY: install setup
+#+DESCRIPTION: Small steps to setup my asus zenbook
+#+DATE:
 
-Some tweaks along the way
+I finally got my head around and towards the asus zenbook.
 
-http://www.howtogeek.com/62761/how-to-tweak-your-ssd-in-ubuntu-for-better-performance/
-https://help.ubuntu.com/community/AsusZenbookPrime
+After some troubles installing GNU/Linux (linux mint), it now works like a charm.
+
+My troubles were a dark story of bios/boot manager/partitionning system hell.
+But it's a story for another time.
+
+Long story short, to keep the install system simple, use x86_64 for x86_64 (at least, it's my conclusion for ubuntu/linuxmint system).
+(yes i kept installing x86 even in x86_64).
+
+Anyway, the goals of this articles are to show the tweaks for setuping the asus zenbooks.
+
+Here are the main sources:
+- http://www.howtogeek.com/62761/how-to-tweak-your-ssd-in-ubuntu-for-better-performance/
+- https://help.ubuntu.com/community/AsusZenbookPrime
+
+I advise to reboot after each system modifications (regarding file system or boot setup options).
+Indeed, if you make all the modifications at once.
+If there are any problems at reboot time, you won't know what broke.
 
 * First backup
+
+Backup the current fstab to avoid any errors.
 
 #+begin_src sh
 sudo cp /etc/fstab /etc/fstab.ori
 #+end_src
 
-* /etc/fstab
+(No need to reboot here)
+* Update */etc/fstab*
 
 ** Remove writes around access times
 
-Adding *noatime,nodiratime*
+Adding *noatime,nodiratime* to avoid excessed writing.
 
 #+begin_src fstab
 UUID=xyz-blbl-abcd-dcba-xyz /   ext4    noatime,nodiratime,errors=remount-ro 0 1
@@ -24,17 +47,24 @@ UUID=xyz-blbl-abcd-dcba-xyz /   ext4    noatime,nodiratime,errors=remount-ro 0 1
 
 ** discard
 
+Addind discard?
+
 #+begin_src fstab
 UUID=xyz-blbl-abcd-dcba-xyz /   ext4    discard,noatime,nodiratime,errors=remount-ro 0 1
 #+end_src
 
 ** /tmp in ram
 
+To accelerate the software using /tmp, we can give the access to ram.
+
 #+begin_src sh
 tmpfs /tmp tmpfs defaults,noatime,mode=1777 0 0
 #+end_src
 
-* Check the possibilities
+Now reboot
+* scheduler
+
+** Check the possibilities
 
 #+begin_src sh
 dathomir etc # cat /sys/block/sdb/queue/scheduler
@@ -43,6 +73,8 @@ noop deadline [cfq]
 
 We can use *deadline*.
 
+** Make them permanent
+
 Add those line to */etc/rc.local*
 
 #+begin_src sh
@@ -50,17 +82,24 @@ echo deadline > /sys/block/sdb/queue/scheduler
 echo 1 > /sys/block/sdb/queue/iosched/fifo_batch
 #+end_src
 
-* Now edit the grub
+* Grub setup
+** new options
 Add this to */etc/default/grub*
 
 #+begin_src sh
-GRUB_CMDLINE_LINUX_DEFAULT="quiet splash rootfstype=ext4"
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash rootfstype=ext4 pcie_aspm=force drm.vblankoffdelay=1 i915.semaphores=1"
 #+end_src
 
-* Reboot
+** Update grub
 
-to check and see that everything still works.
+#+BEGIN_SRC sh
+sudo update-grub
+#+END_SRC
+
 * gnome bindings
+
+Those one does not entirely work, you may skip.
+
 #+BEGIN_SRC sh
 sudo aptitude install cheese
 gconftool-2 -s /desktop/gnome/keybindings/custom0/name -t string 'Web Cam'
@@ -68,9 +107,4 @@ gconftool-2 -s /desktop/gnome/keybindings/custom0/binding -t string 'XF86WebCam'
 gconftool-2 -s /desktop/gnome/keybindings/custom0/action -t string 'cheese'
 #+END_SRC
 
-* other params for grub
-
-#+BEGIN_SRC sh
-GRUB_CMDLINE_LINUX_DEFAULT="quiet splash rootfstype=ext4 pcie_aspm=force drm.vblankoffdelay=1 i915.semaphores=1"
-#+END_SRC
 * Reboot
