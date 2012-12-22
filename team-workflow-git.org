@@ -16,7 +16,7 @@ You can, of course, translate this by replacing master by a release branch.
 *** Retrieve the repository needed
 *** Clone this repository
 ***** Go to the desired folder to receive the clone of the repository
-Exemple : 
+Exemple :
 #+BEGIN_SRC sh
 cd ~/repositories/pro/
 #+END_SRC
@@ -34,7 +34,7 @@ git clone https://ardumont@github.com/ardumont/my-org-files.git
 git checkout -b trigram-user/branch-name
 #+END_SRC
 
-Example : 
+Example :
 #+BEGIN_SRC sh
 git checkout -b adu/doSomeStuff
 #+END_SRC
@@ -61,13 +61,13 @@ step. You may, for example, have changes locally that you did not
 commit to your index.
 
 So, before returning to master, make sure that :
-- you have commited everything in your index for your branch 
+- you have commited everything in your index for your branch
 #+BEGIN_SRC sh
 git add the-thing-you-wanna-commit-but-unstable another-thing-to-commit-but-unstable ...
 git commit -m "Filthy commit not stable, need to amend it later"
 # later, when everything is ok
-# git add the-thing-you-wanna-commit-stable \ 
-# another-thing-to-commit-stable ... 
+# git add the-thing-you-wanna-commit-stable \
+# another-thing-to-commit-stable ...
 # amend the commit
 # git commit --amend
 #+END_SRC
@@ -75,7 +75,7 @@ git commit -m "Filthy commit not stable, need to amend it later"
 #+BEGIN_SRC sh
 rm the-thing-you-wanna-commit-but-unstable another-thing-to-commit-but-unstable ...
 #+END_SRC
-- or another option, stash it! 
+- or another option, stash it!
 #+BEGIN_SRC sh
 git stash
 # and later when everything is ok, just unstash it
@@ -88,7 +88,7 @@ These commands are your best friends, ask them to help you out!
 #+BEGIN_SRC sh
 git status
 #+END_SRC
-and/or 
+and/or
 #+BEGIN_SRC sh
 gitk --all
 #+END_SRC
@@ -150,7 +150,7 @@ previously.
 ******* Are all your functional-tests or integration-tests ok?
 ******* Does your app deploy and work as expected?
 *** Ok then, it's time to merge into master.
-***** Return to master 
+***** Return to master
 #+BEGIN_SRC sh
 git checkout master
 #+END_SRC
@@ -172,7 +172,7 @@ command).
 So the graph will look like this:
 
 [[file:~/Documents/presentations/git/2.master-branch-after-second-merge-branchA-into-master.png][file:~/Documents/presentations/git/2.master-branch-after-second-merge-branchA-into-master.png]]
-*** Send your modifications to master! 
+*** Send your modifications to master!
 #+BEGIN_SRC sh
 git push
 #+END_SRC
@@ -189,8 +189,8 @@ leave you eventuals conflicts to resolve.
 #+BEGIN_SRC sh
 # synchronize with everybody... (needs somebody to love!)
 git pull
-# fix eventual merge conflicts and check your tests 
-# add the merged files to the index (git add) 
+# fix eventual merge conflicts and check your tests
+# add the merged files to the index (git add)
 # and commit (git commit)
 git push
 #+END_SRC

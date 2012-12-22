@@ -10,113 +10,113 @@ See this [[http://adumont.fr/blog/how-to-install-emacs-24/][previous post for in
 * Installation
 ** [[http://clojure.org/][clojure]]
 *** install
-#+begin_src sh
+#+BEGIN_SRC sh
 sudo aptitude install clojure
-#+end_src
+#+END_SRC
 
-*Note* 
+*Note*
 =apt-get= if you do not have =aptitude= installed.
 
 *** check
 Type clojure in a shell
-#+begin_src sh
+#+BEGIN_SRC sh
 clojure
-user=> 
-#+end_src
+user=>
+#+END_SRC
 
 You will have a [[http://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop][repl]] in which you could ask some functions to eval.
-#+begin_src sh
+#+BEGIN_SRC sh
 user=> (+ 1 1)
 2
-#+end_src
+#+END_SRC
 ** [[https://github.com/technomancy/leiningen][leiningen]] 1
 *** install
 **** The easy way
-#+begin_src sh
+#+BEGIN_SRC sh
 sudo aptitude install leiningen
-#+end_src
+#+END_SRC
 If you do not have leiningen in the packages, then you must pass by the *not so hard* way.
 **** The not so hard way
 ***** Download the script
-#+begin_src sh
+#+BEGIN_SRC sh
 wget https://raw.github.com/technomancy/leiningen/stable/bin/lein
-#+end_src
+#+END_SRC
 ***** Place it on your $PATH
 I also like to use ~/bin.
-#+begin_src sh
+#+BEGIN_SRC sh
 export PATH=~/bin/:$PATH
-#+end_src
+#+END_SRC
 
 I usually add this in the =~/.bashrc= file.
 ***** Make it executable
-#+begin_src sh
+#+BEGIN_SRC sh
 chmod 755 ~/bin/lein
-#+end_src
+#+END_SRC
 ***** Ask the version
 This will download all it needs.
-#+begin_src sh
+#+BEGIN_SRC sh
 lein version
-#+end_src
+#+END_SRC
 and finally gives you an output similar to this:
-#+begin_src sh
+#+BEGIN_SRC sh
 tony@dagobah(0.11,) 09:56:26 ~/org (master) $ lein version
 Leiningen 1.7.1 on Java 1.6.0_26 Java HotSpot(TM) Client VM
-#+end_src
+#+END_SRC
 *** check
-#+begin_src sh
+#+BEGIN_SRC sh
 tony@dagobah(0.16,) 13:00:07 ~ $ lein repl
 REPL started; server listening on localhost port 14778
-user=> 
-#+end_src
+user=>
+#+END_SRC
 
 For example:
-#+begin_src sh
+#+BEGIN_SRC sh
 user=> (+ 1 1)
 2
-#+end_src
+#+END_SRC
 ** [[https://github.com/marick/Midje/wiki/Lein-midje][lein-midje]]
 *** install
 This is a leiningen plugin to launch unit tests for the unit test framework [[https://github.com/marick/Midje][midje]].
-#+begin_src sh
+#+BEGIN_SRC sh
 lein plugin install lein-midje 1.0.9
-#+end_src
+#+END_SRC
 
 *Note*
 The version [lein-midje "2.0.0-SNAPSHOT"] is leiningen 2 compatible so do not use this one.
 *** check
-#+begin_src sh
+#+BEGIN_SRC sh
 tony@dagobah(0.09,) 13:05:45 ~ $ lein midje --version
 Couldn't find project.clj, which is needed for midje
-#+end_src
+#+END_SRC
 OK
 ** jdk installed (either sun or openjdk)
 *** install
 **** openjdk
-#+begin_src sh
+#+BEGIN_SRC sh
 sudo aptitude install openjdk
-#+end_src
+#+END_SRC
 **** sun jdk on ubuntu 11.04
 https://github.com/ardumont/sh/blob/master/deploy-java-sun-11.04.sh
 **** sun jdk on ubuntu 11.10
 https://github.com/ardumont/sh/blob/master/deploy-java-sun-11.10.sh
 *** check
-#+begin_src sh
+#+BEGIN_SRC sh
 tony@dagobah(0.32,) 13:04:16 ~ $ java -version
 java version "1.6.0_26"
 Java(TM) SE Runtime Environment (build 1.6.0_26-b03)
 Java HotSpot(TM) Server VM (build 20.1-b02, mixed mode)
 
-#+end_src
+#+END_SRC
 ** git (optional)
 *** install
-#+begin_src sh
+#+BEGIN_SRC sh
 sudo aptitude install git
-#+end_src
+#+END_SRC
 *** check
-#+begin_src sh
+#+BEGIN_SRC sh
 tony@dagobah(0.10,) 13:05:41 (129) ~ $ git version
 git version 1.7.5.4
-#+end_src
+#+END_SRC
 * Conclusion
 We have focused on the needed steps to install the clojure environment.
 You now have all the tools to develop with clojure.
@@ -127,4 +127,3 @@ In a near future, i intend to make some other blog posts to focus on:
 - continued integration with [[http://about.travis-ci.org/docs/user/getting-started/][travis-ci]]
 - [[http://www.heroku.com/][heroku]] for the deploying part
 - [[https://github.com/fogus/marginalia][marginalia]] for the documentation generation and the [[github]] integration.
-

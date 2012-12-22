@@ -28,9 +28,9 @@ CLOSED: [2012-04-21 Sat 12:29]
 2 solutions:
 - per file:
 Add a line at the beginning of the file like this
-#+begin_src org
+#+BEGIN_SRC org
 \#+TODO: TODO PENDING | FAIL DONE DELEGATED CANCELLED
-#+end_src
+#+END_SRC
 then =C-c C-c= to reload the file in org-mode.
 
 [[http://orgmode.org/manual/Per_002dfile-keywords.html]]
@@ -38,10 +38,10 @@ then =C-c C-c= to reload the file in org-mode.
 - global to org-mode:
 
 Add this to your ~/.emacs.d/init.el
-#+begin_src emacs-lisp
+#+BEGIN_SRC emacs-lisp
      (setq org-todo-keywords
        '((sequence "TODO" "PENDING" "|" "DONE" "FAIL" "DELEGATED" "CANCELLED")))
-#+end_src
+#+END_SRC
 
 ** DONE Add this in the emacs setup.
 CLOSED: [2012-04-21 Sat 12:31]
@@ -97,15 +97,15 @@ Add an input table.
 
 Create a block of code that takes the previous table as input
 #+name: fibonacci-seq(fib-inputs=fibonacci-inputs)
-#+begin_src emacs-lisp
+#+BEGIN_SRC emacs-lisp
   (defun fibonacci (n)
     (if (or (= n 0) (= n 1))
         n
       (+ (fibonacci (- n 1)) (fibonacci (- n 2)))))
-  
+
   (mapcar (lambda (row)
             (mapcar #'fibonacci row)) fib-inputs)
-#+end_src
+#+END_SRC
 
 *Note*:
 =C-c C-o= will open another buffer with the result in it.
@@ -117,22 +117,22 @@ Hit =C-c C-c= to launch the evaluationm and then, this result table is generated
 
 CLOSED: [2012-04-22 Sun 11:13]
 #+name: directories
-#+begin_src sh :results replace
+#+BEGIN_SRC sh :results replace
   cd ~ && du -sc * |grep -v total
-#+end_src
+#+END_SRC
 Need some setup.
 *** IN-PROGRESS setup it to have access to different languages
 * TODO emacs [37%]
 ** DONE install
 CLOSED: [2012-04-21 Sat 12:02]
-#+begin_src sh
+#+BEGIN_SRC sh
 ~/bin/deploy-emacs24.sh
-#+end_src
+#+END_SRC
 ** DONE setup
 CLOSED: [2012-04-21 Sat 12:03]
-#+begin_src sh
+#+BEGIN_SRC sh
 setup-emacs24.sh
-#+end_src
+#+END_SRC
 ** DONE basics
 CLOSED: [2012-04-21 Sat 12:02]
 
@@ -149,22 +149,22 @@ CLOSED: [2012-04-21 Sat 12:05]
 CLOSED: [2012-04-21 Sat 12:41]
 Add this to the init.el
 
-#+begin_src emacs-lisp
+#+BEGIN_SRC emacs-lisp
 (add-hook 'org-mode-hook
           (lambda () (setq linum-mode nil)))
-#+end_src
+#+END_SRC
 
 This basically tells, when org-mode launches, deactivate the linum-mode (which on my setup is globally activated)
 *** DONE Toggle debug on error
 CLOSED: [2012-04-22 Sun 09:37]
 M-x toggle-debug-on-error
-** TODO Problems 
+** TODO Problems
 *** TODO why clojure-jack-in does not work from a stumpwm emacs
 Because the emacs path spawned from the stumpwm is not the same from a terminal emacs
 
-#+begin_src 
+#+BEGIN_SRC
 (getenv "PATH")
-#+end_src
+#+END_SRC
 
 inside a stumpwm emacs, evaluates to:
 #+begin_example
@@ -185,7 +185,7 @@ CLOSED: [2012-04-21 Sat 12:48]
 CLOSED: [2012-04-21 Sat 11:56]
 **** DONE clone
 CLOSED: [2012-04-21 Sat 11:56]
-**** DONE try and play with it 
+**** DONE try and play with it
 CLOSED: [2012-04-19 Thu 11:56]
 *** TODO nakkaya.com -> tonys-blog [80%]
 **** DONE fork
@@ -228,7 +228,7 @@ CLOSED: [2012-04-24 mar. 13:34]
 http://adumont.fr/blog/how-to-install-the-clojure-development-environment/
 *** DONE How to bootstrap a clojure project [100%]
 CLOSED: [2012-04-24 mar. 14:17]
-**** DONE org 
+**** DONE org
 CLOSED: [2012-04-24 mar. 14:17]
 **** DONE blog
 CLOSED: [2012-04-24 mar. 14:17]
@@ -258,14 +258,14 @@ What are the possibilities
 CLOSED: [2012-04-21 Sat 18:18]
 *** DONE install
 CLOSED: [2012-04-21 Sat 12:07]
-#+begin_src sh
+#+BEGIN_SRC sh
 ~/bin/deploy-clojure.sh
-#+end_src
+#+END_SRC
 *** DONE setup env
 CLOSED: [2012-04-21 Sat 18:18]
-#+begin_src sh
+#+BEGIN_SRC sh
 ~/bin/setup-emacs24.sh
-#+end_src
+#+END_SRC
 *** DONE play with it
 CLOSED: [2012-04-21 Sat 12:09]
 
@@ -456,7 +456,7 @@ CLOSED: [2012-04-23 lun. 12:43]
 CLOSED: [2012-04-23 lun. 12:43]
 ***** DONE 150 - Palindromic number
 CLOSED: [2012-04-27 ven. 13:22]
-***** DONE 153 - Pairwise disjoint cells 
+***** DONE 153 - Pairwise disjoint cells
 CLOSED: [2012-04-23 lun. 11:44]
 http://www.4clojure.com/problem/153
 https://github.com/ardumont/my-4clojure-lab/blob/master/src/my_4clojure_lab/199/core153.clj
@@ -464,7 +464,7 @@ https://github.com/ardumont/my-4clojure-lab/blob/master/src/my_4clojure_lab/199/
 CLOSED: [2012-04-30 lun. 15:05]
 ***** DONE 156 - Map defaults
 CLOSED: [2012-04-30 lun. 15:05]
-***** DONE 157 - Indexing sequence 
+***** DONE 157 - Indexing sequence
 CLOSED: [2012-04-30 lun. 15:05]
 ***** DONE 141 - Tricky card games
 CLOSED: [2012-05-01 mar. 20:45]

@@ -15,11 +15,11 @@ a program defines a set of consequences which is its meaning
 
 a fact define what holds between identities
 
-#+begin_src some-facts
+#+BEGIN_SRC some-facts
 (father marc antoine)
 (father antoine theo)
 (father antoine chloe)
-#+end_src
+#+END_SRC
 
 predicate is another term for fact.
 

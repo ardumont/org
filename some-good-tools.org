@@ -97,7 +97,7 @@ sudo apt-get install maven
 Download the jar and launch it.
 http://www.squirrelsql.org/
 
-Download the mysql connector 
+Download the mysql connector
 http://dev.mysql.com/downloads/connector/j/5.0.html
 
 Once installed, launch squirrel and add the mysql-connector jar into

@@ -21,10 +21,10 @@ Now to prove that we have all that we need, we will solve a little problem.
 * To the solution in Top Down TDD
 ** First fact
 Let's design some facts to help us progress.
-#+begin_src clj
-(fact 
+#+BEGIN_SRC clj
+(fact
   (our-max 1 8 30) => 30)
-#+end_src
+#+END_SRC
 
 ** Compilation problem
 Compilation : =C-c C-k=
@@ -32,12 +32,12 @@ Compilation : =C-c C-k=
 Here we will have a compilation problem as there is no function =our-max=
 
 So add this before the fact:
-#+begin_src clj
+#+BEGIN_SRC clj
 (defn our-max "Given an infinite list of int parameters, compute the max of all the input integers."
   [& l])
 
 (fact (our-max 1 8 30) => 30)
-#+end_src
+#+END_SRC
 
 *Explanations*
 The declaration of the function:
@@ -52,12 +52,12 @@ Launch the compilation =C-c C-k=.
 Now, the compilation is ok, but we got fail facts.
 That's ok because, with no implementation, we got a nil result.
 
-#+begin_src clj
+#+BEGIN_SRC clj
 ;.;. [31mFAIL[0m at (NO_SOURCE_FILE:1)
 ;.;.     Expected: 30
 ;.;.       Actual: nil
 (fact (our-max 1 8 30) => 30)
-#+end_src
+#+END_SRC
 
 We expected 30 but got nil.
 
@@ -69,7 +69,7 @@ We will try a Top Down TDD approach, i.e. we will make the function work but bas
 And as soon as we have the top level done, we can develop the sub function we depend on.
 
 So here, we can change the fact to depend on a =mx= function (really a =max= function) which computes the max between 2 integers.
-#+begin_src clj
+#+BEGIN_SRC clj
 (unfinished mx)
 
 (defn our-max "Our max implementation function"
@@ -80,7 +80,7 @@ So here, we can change the fact to depend on a =mx= function (really a =max= fun
   (provided
     (mx 1 8 ) => 1
     (mx 1 30) => 30)
-#+end_src
+#+END_SRC
 
 *explanations*
 
@@ -92,15 +92,15 @@ So here, we can change the fact to depend on a =mx= function (really a =max= fun
   in no way the reality.
 
 By compiling this fact, Midje enriches its message for us:
-#+begin_src clj
+#+BEGIN_SRC clj
 ;.;. [31mFAIL[0m at (NO_SOURCE_FILE:1)
 ;.;. You claimed the following was needed, but it was never used:
 ;.;.     (mx 1 8 )
-;.;. 
+;.;.
 ;.;. [31mFAIL[0m at (NO_SOURCE_FILE:1)
 ;.;. You claimed the following was needed, but it was never used:
 ;.;.     (mx 1 30)
-;.;. 
+;.;.
 ;.;. [31mFAIL[0m at (NO_SOURCE_FILE:1)
 ;.;.     Expected: 30
 (fact
@@ -108,7 +108,7 @@ By compiling this fact, Midje enriches its message for us:
   (provided
     (mx 1 8 ) => 1
     (mx 1 30) => 30))
-#+end_src
+#+END_SRC
 
 Basically, midje warns us about the absence of the =mx= call in our implementation.
 Indeed, we did not yet complete our implementation.
@@ -122,7 +122,7 @@ The way i see it is this, we want to =reduce= a list of elements to the max of i
 The function that does such a transformation is the =reduce= function.
 
 In the repl, type =reduce= then =C-c C-d d=, this will open a browser with the documentation on this function.
-#+begin_src sh
+#+BEGIN_SRC sh
 clojure.core/reduce
 ([f coll] [f val coll])
   f should be a function of 2 arguments. If val is not supplied,
@@ -134,11 +134,11 @@ clojure.core/reduce
   result of applying f to val and the first item in coll, then
   applying f to that result and the 2nd item, etc. If coll contains no
   items, returns val and f is not called.
-#+end_src
+#+END_SRC
 
 This indeed is exactly what we want with =mx= as our =f= function and =l= our =coll=.
 So here comes our implementation:
-#+begin_src clj
+#+BEGIN_SRC clj
 (defn our-max "Our max implementation function"
   [& l]
   (reduce mx l))
@@ -149,7 +149,7 @@ So here comes our implementation:
   (provided
     (mx 1 8 ) => 1
     (mx 1 30) => 30)
-#+end_src
+#+END_SRC
 
 And this work!
 
@@ -172,7 +172,7 @@ Next step: implement the =mx= function.
 
 ** =mx= facts
 It's just a max function, so here goes the facts:
-#+begin_src clj
+#+BEGIN_SRC clj
 (unfinished )
 
 (defn mx "max"
@@ -183,7 +183,7 @@ It's just a max function, so here goes the facts:
 (fact "mx"
   (mx 1 2) => 2
   (mx 2 100) => 100)
-#+end_src
+#+END_SRC
 
 *Note*
 The arity of the function (number of arguments) needed was 2 as we described in the first fact (our-max).
@@ -191,17 +191,17 @@ The arity of the function (number of arguments) needed was 2 as we described in 
 Now that we think we have everything, let's check it with a real fact (that is without mock).
 
 For example, add this fact at the bottom of the file.
-#+begin_src clj
+#+BEGIN_SRC clj
 ;.;. Out of clutter find simplicity; from discord find harmony; in the middle of difficulty lies opportunity. -- Einstein
 (fact
   (our-max 9786 4 7 87 9999 876 342 9876 999) => 9999)
-#+end_src
+#+END_SRC
 
 Ok!
 
 ** Code
 Here is the final =core.clj= file.
-#+begin_src clj
+#+BEGIN_SRC clj
 (ns hello.core
   (:use [midje.sweet]))
 
@@ -230,7 +230,7 @@ Here is the final =core.clj= file.
 ;.;. Out of clutter find simplicity; from discord find harmony; in the middle of difficulty lies opportunity. -- Einstein
 (fact "ITest our-max"
   (our-max 9786 4 7 87 9999 876 342 9876 999) => 9999)
-#+end_src
+#+END_SRC
 
 * Conclusion
 With these posts and this one,

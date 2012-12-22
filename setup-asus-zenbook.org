@@ -30,9 +30,9 @@ Simply to be able to tell which modification broke the machine.
 
 Backup the current fstab to avoid any errors.
 
-#+begin_src sh
+#+BEGIN_SRC sh
 sudo cp /etc/fstab /etc/fstab.ori
-#+end_src
+#+END_SRC
 
 (No need to reboot here)
 * Update */etc/fstab*
@@ -55,9 +55,9 @@ The os is installed on the SSD one.
 
 Adding *noatime* to avoid excessed writing about access times.
 
-#+begin_src fstab
+#+BEGIN_SRC fstab
 UUID=xyz-blbl-abcd-dcba-xyz /   ext4    discard,noatime,errors=remount-ro 0 1
-#+end_src
+#+END_SRC
 
 *Note*
 *noatime* is a superset of *nodiratime* so only *noatime* is need.
@@ -66,9 +66,9 @@ UUID=xyz-blbl-abcd-dcba-xyz /   ext4    discard,noatime,errors=remount-ro 0 1
 
 To minimize the writing in the ssd, it may be good to mount /tmp in ram.
 
-#+begin_src sh
+#+BEGIN_SRC sh
 tmpfs /tmp tmpfs defaults,noatime,mode=1777 0 0
-#+end_src
+#+END_SRC
 
 ** Reboot
 * scheduler
@@ -76,10 +76,10 @@ tmpfs /tmp tmpfs defaults,noatime,mode=1777 0 0
 
 if your ssd is /dev/sdb:
 
-#+begin_src sh
+#+BEGIN_SRC sh
 cat /sys/block/sdb/queue/scheduler
 noop deadline [cfq]
-#+end_src
+#+END_SRC
 
 We can use [[http://en.wikipedia.org/wiki/Deadline_scheduler][deadline]] over [[http://en.wikipedia.org/wiki/CFQ][cfq]].
 
@@ -87,10 +87,10 @@ We can use [[http://en.wikipedia.org/wiki/Deadline_scheduler][deadline]] over [[
 
 Add those line to */etc/rc.local*
 
-#+begin_src sh
+#+BEGIN_SRC sh
 echo deadline > /sys/block/sdb/queue/scheduler
 echo 1 > /sys/block/sdb/queue/iosched/fifo_batch
-#+end_src
+#+END_SRC
 ** Reboot
 * Grub setup
 ** New options
@@ -110,9 +110,9 @@ Deactivate the watchdog.
 
 ** Final Result
 
-#+begin_src sh
+#+BEGIN_SRC sh
 GRUB_CMDLINE_LINUX_DEFAULT="quiet splash rootfstype=ext4 pcie_aspm=force drm.vblankoffdelay=1 i915.semaphores=1 nmi_watchdog=0"
-#+end_src
+#+END_SRC
 
 ** Update grub
 

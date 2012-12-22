@@ -1,4 +1,4 @@
-#+begin_src c
+#+BEGIN_SRC c
 boolean keyDown = false;
 unsigned long time = 0;
 
@@ -79,4 +79,4 @@ void loop(){
   }
 }
 
-#+end_src
+#+END_SRC

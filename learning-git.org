@@ -30,7 +30,7 @@ merge into master. Git can do that simply because there is no other
 branch that needs to be also merged.
 
 three-way-merge: When master advanced without you having time to
-merge into master, there is a situation of diverging branches. 
+merge into master, there is a situation of diverging branches.
 Git needs then to find a common ancestor between your branch and
 master to facilitate its work.  It then creates a commit with two
 parents, one towards the last commit of master and the last one of
@@ -108,7 +108,7 @@ ssh-add id_rsa
 #+END_SRC sh
 ***** To change a passphrase for a key
 #+BEGIN_SRC sh
-ssh-keygen -p 
+ssh-keygen -p
 #+END_SRC sh
 ***** To automatically launch a ssh-agent, add this to a ~/.profile or ~/.bashrc
 #+BEGIN_SRC sh
@@ -142,13 +142,13 @@ function test_identities {
 if [ -n "$SSH_AGENT_PID" ]; then
     ps -ef | grep "$SSH_AGENT_PID" | grep ssh-agent > /dev/null
     if [ $? -eq 0 ]; then
-	test_identities
+        test_identities
     fi
 # if $SSH_AGENT_PID is not properly set, we might be able to load one from
 # $SSH_ENV
 else
     if [ -f "$SSH_ENV" ]; then
-	. "$SSH_ENV" > /dev/null
+        . "$SSH_ENV" > /dev/null
     fi
     ps -ef | grep "$SSH_AGENT_PID" | grep ssh-agent > /dev/null
     if [ $? -eq 0 ]; then

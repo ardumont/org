@@ -22,9 +22,9 @@ Everything is working fine:
 - the arduino ide works out of the box
 and is pretty simple to install on my machine, cool!
 
-#+begin_src sh
+#+BEGIN_SRC sh
 sudo aptitude install arduino
-#+end_src
+#+END_SRC
 
 I did a simple tutorial that worked ok instantly http://arduino.cc/en/Tutorial/Blink.
 
@@ -113,9 +113,9 @@ That's it, i found out the underlying "bug".
 
 I tried and made a link and voila! No more bugs.
 
-#+begin_src sh
+#+BEGIN_SRC sh
 sudo ln -s /dev/ttyACM0 /dev/ttyS42
-#+end_src
+#+END_SRC
 
 Status: Success!
 

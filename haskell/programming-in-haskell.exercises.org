@@ -4,112 +4,112 @@
 * Introduction
 1. Give another possible calculation for the result of double (double 2).
 
-#+begin_src pseudo
+#+BEGIN_SRC pseudo
 double (double 2) = (double 2) + (double 2)
                   = (double 2) + (2 + 2)
                   = (double 2) + 4
                   = (2 + 2) + 4
                   = 4 + 4
                   = 8
-#+end_src
+#+END_SRC
 
 2. Show that sum [x] = x for any number x.
 
 sum:
-#+begin_src haskell
+#+BEGIN_SRC haskell
 sum :: Num a => [a] -> a
 sum [] = 0
 sum (x:xs) = x + sum xs
-#+end_src
+#+END_SRC
 
 Given the definition of the sum function:
-#+begin_src demo
+#+BEGIN_SRC demo
 sum [x] = x + sum []
         = x + 0
         = x
-#+end_src
+#+END_SRC
 
 3. Define a function product that produces the product of a list of numbers,
 and show using your definition that product [2, 3, 4] = 24.
 
 product:
-#+begin_src haskell
+#+BEGIN_SRC haskell
 pdt :: Num a => [a] -> a
 pdt [] = 1
 pdt (x:xs) = x * pdt xs
-#+end_src
+#+END_SRC
 
 product [2,3,4] = 24?
-#+begin_src demo
+#+BEGIN_SRC demo
 pdt [2,3,4] = 2 * pdt [3,4]
             = 2 * 3 * pdt [4]
             = 2 * 3 * 4 * pdt []
             = 2 * 3 * 4 * 1
             = 24
-#+end_src
+#+END_SRC
 
 4. How should the definition of the function qsort be modified so that it
 produces a reverse sorted version of a list?
 
 qsort:
-#+begin_src haskell
+#+BEGIN_SRC haskell
 qsort :: Ord a => [a] -> [a]
 qsort [] = []
 qsort (x:xs) = qsort smaller ++ [x] ++ qsort larger
                where
                  smaller = filter (<= x) xs
                  larger  = filter (> x) xs
-#+end_src
+#+END_SRC
 
 We want to modify such qsort definition to reverse the output.
 So from *qsort [4 6 2] => [2 4 6] into qsort [4 6 2] => 6 4 2.
 
-#+begin_src haskell
+#+BEGIN_SRC haskell
 qsort :: Ord a => [a] -> [a]
 qsort [] = []
 qsort (x:xs) = qsort larger ++ [x] ++ qsort smaller
                where
                  smaller = filter (<= x) xs
                  larger  = filter (> x) xs
-#+end_src
+#+END_SRC
 
 To simplify the proof, we will prove that:
 qsort [x] = [x]
 
-#+begin_src demo
+#+BEGIN_SRC demo
 qsort [x] = qsort [] ++ [x] ++ qsort []
           = [] ++ [x] ++ []
           = [x]
-#+end_src
+#+END_SRC
 
 Now solve the question:
-#+begin_src demo
+#+BEGIN_SRC demo
 qsort [4,6,2] = qsort [6] ++ [4] ++ qsort [2]
               = [6] ++ [4] ++ [2]
               = [6,4,2]
-#+end_src
+#+END_SRC
 
 5. What would be the effect of replacing by < in the original definition
 of qsort ? Hint: consider the example qsort [2, 2, 3, 1, 1].
 
 Given:
-#+begin_src haskell
+#+BEGIN_SRC haskell
 qsort :: Ord a => [a] -> [a]
 qsort [] = []
 qsort (x:xs) = qsort smaller ++ [x] ++ qsort larger
                where
                  smaller = filter (< x) xs
                  larger  = filter (> x) xs
-#+end_src
+#+END_SRC
 
 This will filter out the duplicated entries.
 
 Here is the solved example:
-#+begin_src demo
+#+BEGIN_SRC demo
 qsort [2,2,3,1,1] = qsort [1] ++ [2] ++ qsort [3]
                   = [1] ++ [2] ++ [3]
                   = [1,2,3]
-#+end_src
+#+END_SRC
 
 * Chapter 2
 
@@ -119,29 +119,29 @@ qsort [2,2,3,1,1] = qsort [1] ++ [2] ++ qsort [3]
 2+3∗4↑5
 2. Work through the examples from this chapter using Hugs.
 
-#+begin_src haskell
+#+BEGIN_SRC haskell
 2^3*4 = (2^3)*4 = 32
 
 2∗3+4∗5 = (2*3)+(4*5) = 26
 
 2+3*4^5 = 2+(3*(4^5)) = 3074
-#+end_src
+#+END_SRC
 
 3. The script below contains three syntactic errors. Correct these errors
 and then check that your script works properly using Hugs.
-#+begin_src
+#+BEGIN_SRC
 N = a 'div' length xs
     where
       a = 10
       xs = [1, 2, 3, 4, 5]
-#+end_src
+#+END_SRC
 
-#+begin_src
+#+BEGIN_SRC
 n = a `div` (length xs)
     where
       a  = 10
       xs = [1, 2, 3, 4, 5]
-#+end_src
+#+END_SRC
 
 4. Show how the library function last that selects the last element of a non-
 empty list could be defined in terms of the library functions introduced

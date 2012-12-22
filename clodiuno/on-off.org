@@ -29,17 +29,17 @@ I used StandardFirmata_2_2_forUNO_0_3 because I have an Uno board, but your vers
 ** In Ubuntu GNU/Linux
 
 Make sure you have correctly linked your device with an appropriate name
-#+begin_src sh
+#+BEGIN_SRC sh
 tony@dagobah(0.44,) 18:06:22 ~/org/clodiuno (master) $ ls -l /dev/ttyS42
 lrwxrwxrwx 1 root root 12 2012-06-03 15:34 /dev/ttyS42 -> /dev/ttyACM0
-#+end_src
+#+END_SRC
 
 Else it will not be seen.
 
 * Setup
 Here is my project's setup:
 
-#+begin_src clj
+#+BEGIN_SRC clj
 (defproject arduino-lab "1.0.0-SNAPSHOT"
   :description "Mess around with arduino from the comfort of the repl
   :dependencies [[org.clojure/clojure "1.3.0"]
@@ -49,52 +49,52 @@ Here is my project's setup:
   :dev-dependencies [[native-deps "1.0.5"]]
   :jvm-opts ["-Djava.library.path=./native/linux/x86/"
              "-d32"])
-#+end_src
+#+END_SRC
 
 Fetch the dependencies:
-#+begin_src sh
+#+BEGIN_SRC sh
 lein deps
-#+end_src
+#+END_SRC
 
 Start emacs and start the repl:
-#+begin_src sh
+#+BEGIN_SRC sh
 M-x clojure-jack-in
-#+end_src
+#+END_SRC
 * Now some reality
 Now i can do light up and down a led on my arduino uno from the repl!
 
 Open the repl:
-#+begin_src clj
+#+BEGIN_SRC clj
 user> (use 'clodiuno.core 'clodiuno.firmata)
 nil
-#+end_src
+#+END_SRC
 
 Open the board:
-#+begin_src clj
+#+BEGIN_SRC clj
 user>(def board (arduino :firmata "/dev/ttyS42"))
 #'user/board
-#+end_src
+#+END_SRC
 
 Now you can see something along the line:
-#+begin_src clj
+#+BEGIN_SRC clj
 user> board
 #<Ref@9652e4: {:digital-in {2 (0 0 0 0 0 0 0 0), 1 (0 0 0 0 0 0 0 0), 0 (0 0 0 0 0 0 0 0)}, :version [2 2], :port #<RXTXPort /dev/ttyS42>, :interface :firmata}>
-#+end_src
+#+END_SRC
 
 We must first set the built-in 13 pin (the led) to OUTPUT mode.
-#+begin_src clj
+#+BEGIN_SRC clj
 user> (pin-mode board 13 OUTPUT)
 nil
-#+end_src
+#+END_SRC
 
 Then play with the board, may the light be
-#+begin_src clj
+#+BEGIN_SRC clj
 user> (digital-write board 13 HIGH)
 nil
-#+end_src
+#+END_SRC
 
 ... or not:
-#+begin_src clj
+#+BEGIN_SRC clj
 user> (digital-write board 13 LOW)
 nil
-#+end_src
+#+END_SRC

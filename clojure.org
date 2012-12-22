@@ -33,7 +33,7 @@ Here's what clojure provides:
 ********* idiomatic immutability
 ******* which permits us to focus on the problem at hands!
 * functionalities?
-*** [[http://clojure.org/functional_programming][functionnal programming]] 
+*** [[http://clojure.org/functional_programming][functionnal programming]]
 - Considered as more robust.
 - Datas are de facto immutable
 - First class function - function can manipulate other functions
@@ -41,10 +41,10 @@ Here's what clojure provides:
 
 #+BEGIN_SRC clj
 (def hello
-  (fn [n] 
-    (println 
+  (fn [n]
+    (println
       (str "hello " n "!"))))
-;;user> (hello "tony") 
+;;user> (hello "tony")
 ;;"hello tony!"
 ;;nil
 #+END_SRC
@@ -68,5 +68,3 @@ Directly interact with the language via the REPL (Read-Eval-Print-Loop).
 *** Software Transaction Memory system
 *** Agent
 *** For optmization: type hint to avoid reflection.
-
-

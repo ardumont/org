@@ -9,9 +9,9 @@
   Example output:
   #+BEGIN_SRC sh
   blkid
-  /dev/sda7: UUID="8009f664-4bd5-4de1-a945-cd9b25437343" TYPE="ext4" 
-  /dev/sda1: UUID="2f5f6869-94aa-4863-b567-250459a7781b" TYPE="ext4" 
-  /dev/sda5: UUID="62218e68-f564-4536-ab5f-f3cfd6105ba7" TYPE="swap" 
+  /dev/sda7: UUID="8009f664-4bd5-4de1-a945-cd9b25437343" TYPE="ext4"
+  /dev/sda1: UUID="2f5f6869-94aa-4863-b567-250459a7781b" TYPE="ext4"
+  /dev/sda5: UUID="62218e68-f564-4536-ab5f-f3cfd6105ba7" TYPE="swap"
   /dev/sda6: UUID="49681dbb-0459-47e4-8332-856504f9ed0f" TYPE="ext4"
   #+END_SRC
 
@@ -35,4 +35,4 @@
   sudo grub-install /dev/sda
   #+END_SRC sh
 
-* 
+*

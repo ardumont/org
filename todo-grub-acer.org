@@ -1,7 +1,7 @@
 #+Title: todo for acer on grub
 #+author: Antoine Romain Dumont
 #+STARTUP: indent
-#+STARTUP: hidestars 
+#+STARTUP: hidestars
 
 * Add the option to grub
 
@@ -18,4 +18,3 @@ GRUB_CMDLINE_LINUX_DEFAULT="quiet splash libata.force=noncq"
 #+BEGIN_SRC sh
 sudo grub-mkconfig -o /boot/grub/grub.cfg && sudo grub-install /dev/sda
 #+END_SRC
-

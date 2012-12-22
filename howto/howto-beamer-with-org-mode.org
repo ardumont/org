@@ -26,8 +26,8 @@ sudo aptitude install latex latex-beamer \
 \#+INFOJS_OPT: view:nil toc:nil ltoc:t mouse:underline buttons:0 path:http://orgmode.org/org-info.js
 \#+EXPORT_SELECT_TAGS: export
 \#+EXPORT_EXCLUDE_TAGS: noexport
-\#+LINK_UP:   
-\#+LINK_HOME: 
+\#+LINK_UP:
+\#+LINK_HOME:
 
 \#+startup: beamer
 \#+LaTeX_CLASS: beamer
@@ -37,7 +37,7 @@ sudo aptitude install latex latex-beamer \
 
 #+END_SRC
 They are escaped here (\#) otherwise, it's evaluated by org-mode.
-For real, replace the \# by #. 
+For real, replace the \# by #.
 
 
 
@@ -46,40 +46,40 @@ For real, replace the \# by #.
 *** There is automatically a front-page
 The informations comes from the previous blocks.
 
-#+ATTR_HTML: alt="frame-11 image" title="First frame output example" align="center" width="500" 
+#+ATTR_HTML: alt="frame-11 image" title="First frame output example" align="center" width="500"
 [../org-beamer-examples/front-page.png]]
 
 *** And a outline page
 
 This will come from the content of the other frames below.
 
-#+ATTR_HTML: alt="frame-11 image" title="First frame output example" align="center" width="500" 
+#+ATTR_HTML: alt="frame-11 image" title="First frame output example" align="center" width="500"
 [[../org-beamer-examples/outline.png]]
 
 *** Frame 1
-#+begin_src txt
+#+BEGIN_SRC txt
 * Some group of frames
 ** frame11
 *** some stuff
 *** to tell
 *** in list elements
-#+end_src
+#+END_SRC
 
-#+ATTR_HTML: alt="frame-11 image" title="First frame output example" align="center" width="500" 
+#+ATTR_HTML: alt="frame-11 image" title="First frame output example" align="center" width="500"
 [[../org-beamer-examples/frame-11.png]]
 
 *** Frame 2
-#+begin_src txt
+#+BEGIN_SRC txt
 ** frame12
 *** what do you know!
 *** nice or what?
-#+end_src
+#+END_SRC
 
-#+ATTR_HTML: alt="frame-11 image" title="First frame output example" align="center" width="500" 
+#+ATTR_HTML: alt="frame-11 image" title="First frame output example" align="center" width="500"
 [[../org-beamer-examples/frame-12.png]]
 
 *** A frame about clojure in another group
-#+begin_src txt
+#+BEGIN_SRC txt
 * Awsomeness!
 ** Clojure
 *** code clojure
@@ -87,22 +87,22 @@ This will come from the content of the other frames below.
 (fact (+ 1 1) => 2)
 \#+END_SRC
 *** /Midje/, unit testing fwk is pretty awesome!
-#+end_src
+#+END_SRC
 As we can see here, we can embedded some block of code from any language as org-mode usually permits.
 
-#+ATTR_HTML: alt="frame-11 image" title="First frame output example" align="center" width="500" 
+#+ATTR_HTML: alt="frame-11 image" title="First frame output example" align="center" width="500"
 [[../org-beamer-examples/frame-clojure.png]]
 *** About emacs
-#+begin_src txt
+#+BEGIN_SRC txt
 ** Emacs
 *** It's pretty cool too!
-#+end_src
+#+END_SRC
 
-#+ATTR_HTML: alt="frame-11 image" title="First frame output example" align="center" width="500" 
+#+ATTR_HTML: alt="frame-11 image" title="First frame output example" align="center" width="500"
 [[../org-beamer-examples/frame-emacs.png]]
 
 *** Org
-#+begin_src txt
+#+BEGIN_SRC txt
 ** Org-mode with beamer
 *** rocks as we can present                                           :BMCOL:
 :PROPERTIES:
@@ -115,9 +115,9 @@ As we can see here, we can embedded some block of code from any language as org-
 :END:
 [[./clj-pink.png]]
 *** include images
-#+end_src
+#+END_SRC
 
-#+ATTR_HTML: alt="frame-11 image" title="First frame output example" align="center" width="500" 
+#+ATTR_HTML: alt="frame-11 image" title="First frame output example" align="center" width="500"
 [[../org-beamer-examples/frame-org.png]]
 
 ***** =Wait!= What's with the syntax?
@@ -153,4 +153,4 @@ Here's only what i think of, feel free to think otherwise.
 
 [[https://github.com/ardumont/my-org-files/blob/master/howto-beamer-with-org-mode.org][The example org source code]]
 [[https://github.com/ardumont/my-org-files/blob/master/org-beamer-example/example0.pdf][The example pdf]]
-[[http://orgmode.org/worg/org-tutorials/org-beamer/tutorial.html][Writing Beamer presentations in org-mode]] 
+[[http://orgmode.org/worg/org-tutorials/org-beamer/tutorial.html][Writing Beamer presentations in org-mode]]

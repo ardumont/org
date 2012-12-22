@@ -11,12 +11,12 @@ See this [[http://adumont.fr/blog/how-to-install-emacs-24/][previous post for in
 See this [[http://adumont.fr/blog/how-to-install-the-clojure-development-environment/][previous post]]
 ** a network to fetch dependencies
 * Create a new clojure project
-#+begin_src sh
+#+BEGIN_SRC sh
 lein new hello
-#+end_src
+#+END_SRC
 
 This will create an arborescence like this:
-#+begin_src sh
+#+BEGIN_SRC sh
 /home/tony/repositories/test/hello/
 ├── .gitignore
 ├── project.clj
@@ -30,13 +30,13 @@ This will create an arborescence like this:
             └── core.clj
 
 5 directories, 4 files
-#+end_src
+#+END_SRC
 
 I usually initialize a git project to hold my modifications.
 
-#+begin_src sh
+#+BEGIN_SRC sh
 git init && git add . && git commit -m "Bootstrap clojure project"
-#+end_src
+#+END_SRC
 
 * Launch a [[http://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop][repl]]
 ** [[https://github.com/technomancy/swank-clojure][clojure-jack-in]]
@@ -45,21 +45,21 @@ As we [[http://adumont.fr/blog/how-to-install-emacs-24/][already installed emacs
 - =M-x clojure-jack-in= to launch the repl.
 
 A new [[http://www.cs.utah.edu/dept/old/texinfo/emacs18/emacs_20.html][buffer]] must have launched itself (may take some time the first time).
-#+begin_src clj
+#+BEGIN_SRC clj
 ; SLIME 20100404
 user>
-#+end_src
+#+END_SRC
 ** Basic check
 
 Launch some basic operations and hit enter to check that the repl reacts:
-#+begin_src clj
+#+BEGIN_SRC clj
 ; SLIME 20100404
 user> (+ 1 1)
 2
 user> (reduce + [ 1 2 3 4])
 10
-user> 
-#+end_src
+user>
+#+END_SRC
 
 * Setup dependencies
 ** project.clj
@@ -67,11 +67,11 @@ The =project.clj= file is the [[https://github.com/technomancy/leiningen][leinin
 This is this file that you want to edit to add dependencies or dev-dependencies.
 
 By default, here is the content:
-#+begin_src clj
+#+BEGIN_SRC clj
 (defproject hello "1.0.0-SNAPSHOT"
   :description "FIXME: write description"
   :dependencies [[org.clojure/clojure "1.3.0"]])
-#+end_src
+#+END_SRC
 
 This describes that the project :
 - if packaged, the version will be 1.0.0-SNAPSHOT
@@ -86,12 +86,12 @@ As i'm a [[http://en.wikipedia.org/wiki/Test-driven_development][tdd]] fanboy, i
 
 *** dev-dependencies
 To add some dev-dependencies, add the :dev-dependencies in this file, like this:
-#+begin_src sh
+#+BEGIN_SRC sh
 (defproject hello "1.0.0-SNAPSHOT"
   :description "A simple hello world from clojure"
   :dependencies [[org.clojure/clojure "1.3.0"]]
   :dev-dependencies [[midje "1.3.1"]])
-#+end_src
+#+END_SRC
 
 *** or dependencies
 
@@ -103,12 +103,12 @@ But, considering that clojure is extremely expressive, i'd rather make midje a r
 Thus, my facts are another level of documentation (it's quite clear when using [[https://github.com/fogus/marginalia][marginalia]] to generate documentations from the code).
 
 If you're like me, then you can change the previous block into this
-#+begin_src sh
+#+BEGIN_SRC sh
 (defproject hello "1.0.0-SNAPSHOT"
   :description "A simple hello world from clojure"
   :dependencies [[org.clojure/clojure "1.3.0"]
                  [midje "1.3.1"]])
-#+end_src
+#+END_SRC
 
 *Note*
 Another plus side, we do not have any problems concerning the visibility of the functions.
@@ -116,16 +116,16 @@ A function private is still testable (you do have trouble otherwise).
 ** Update the dependencies
 Now that we modify this file, we need to update the jars locally.
 To do this, we will tell leiningen "go fetch my dependencies" with the =deps= commands.
-#+begin_src sh
+#+BEGIN_SRC sh
 lein deps
-#+end_src
+#+END_SRC
 
 This will use the [[http://clojars.org/][clojars]] and/or [[http://maven.apache.org/][maven]] artifacts around the world to satisfy my demands.
 
 * Setup environment
 ** Rapid check
 Launch the unit tests, =lein midje=
-#+begin_src sh
+#+BEGIN_SRC sh
 tony@dagobah(0.08,) 09:31:10 ~/repositories/test/hello $ lein midje
 >>> Output from clojure.test tests:
 
@@ -138,20 +138,20 @@ expected: false
 Ran 1 tests containing 1 assertions.
 1 failures, 0 errors.
 >>> Midje summary:
-All claimed facts (0) have been confirmed. 
-#+end_src
+All claimed facts (0) have been confirmed.
+#+END_SRC
 
 This is a success.
 
 It's normal that the test fail as there is a default false claim in the file =test/hello/test/core.clj=
-#+begin_src sh
+#+BEGIN_SRC sh
 (ns hello.test.core
   (:use [hello.core])
   (:use [clojure.test]))
 
 (deftest replace-me ;; FIXME: write
   (is false "No tests have been written."))
-#+end_src
+#+END_SRC
 
 You can remove this file as we will write:
 - our tests in the source file directly.
@@ -160,53 +160,53 @@ You can remove this file as we will write:
 ** Add a midje fact
 Open the file =src/hello/core.clj=.
 This contains only the =ns= declaration without any dependencies yet.
-#+begin_src sh
+#+BEGIN_SRC sh
 (ns hello.core)
-#+end_src
+#+END_SRC
 
 First of all, we want to solve this problem in tdd.
 So a first step, is to add a framework that permits that, i chose to use midje.
 
 For this, we add this namespace like this
-#+begin_src sh
+#+BEGIN_SRC sh
 (ns hello.core
     (:use [midje.sweet]))
-#+end_src
+#+END_SRC
 
 To check that all is ok, we can add a false fact the midje way.
-#+begin_src sh
+#+BEGIN_SRC sh
 (fact (+ 1 1) => 3)
-#+end_src
+#+END_SRC
 
 *Note*: We can read this fact like this: "This is a fact that (+ 1 1) gives 3"
 We all know it's false but bare with me.
 
 In the terminal, launch =lein midje= again
-#+begin_src sh
+#+BEGIN_SRC sh
 tony@dagobah(0.14,) 10:21:37 ~/repositories/test/hello (master) $ lein midje
 
 FAIL at (core.clj:4)
     Expected: 3
       Actual: 2
-FAILURE: 1 fact was not confirmed. 
-#+end_src
+FAILURE: 1 fact was not confirmed.
+#+END_SRC
 
 Ok, the test is failing but it's ok, that's what we want.
 
 Now, the ultimate test, check the output when the test is ok.
 
 For this, change the fact with the right result.
-#+begin_src sh
+#+BEGIN_SRC sh
 (fact (+ 1 1) => 2)
-#+end_src
+#+END_SRC
 *Note*
 This is a fact that (+ 1 1) gives 2.
 
 Now launch =lein midje=
-#+begin_src sh
+#+BEGIN_SRC sh
 tony@dagobah(0.53,) 10:21:58 (1) ~/repositories/test/hello (master) $ lein midje
-All claimed facts (1) have been confirmed. 
-#+end_src
+All claimed facts (1) have been confirmed.
+#+END_SRC
 
 ** Another way of checking midje facts
 *** Compilation
@@ -214,39 +214,39 @@ When in the =core.clj= buffer, =C-c C-k= launches the compilation of all the clj
 The output of this compilation appears in the repl.
 
 When in error:
-#+begin_src clj
+#+BEGIN_SRC clj
 ; SLIME 20100404
 [31mFAIL[0m at (core.clj:4)
     Expected: 3
       Actual: 2
 
-user> 
-#+end_src
+user>
+#+END_SRC
 
 When there is no error, nothing appears (except if there are prints in your code).
 *** Check one fact
 When in the =core.clj= buffer, =C-c ,= launch the evaluation of the fact.
 If the fact is true, there will be a quotation just before the fact.
-#+begin_src clj
+#+BEGIN_SRC clj
 ;.;. Any intelligent fool can make things bigger, more complex, and more violent. It takes a touch of genius -- and a lot of
 ;.;. courage -- to move in the opposite direction. -- Schumacher
 (fact (+ 1 1) => 2)
-#+end_src
+#+END_SRC
 
 Else, there will be a summary of the error
-#+begin_src clj
+#+BEGIN_SRC clj
 ;.;. [31mFAIL[0m at (NO_SOURCE_FILE:1)
 ;.;.     Expected: 3
 ;.;.       Actual: 2
 (fact (+ 1 1) => 3)
-#+end_src
+#+END_SRC
 
 *Note*
 No need to worry about the strange character =[31m=, it's a color in a shell environment.
 This is not correctly interpreted in a clojure buffer.
 
 *** Ultimate way
-There is an ultimate way for testing with midje that i prefer above all =lein midje --lazytest= 
+There is an ultimate way for testing with midje that i prefer above all =lein midje --lazytest=
 
 At the moment, it seems there is a problem with my platform around the leiningen 1.7.1 version (by downgrading it to leiningen 1.6.2, this works) that i was not yet able to solve.
 
@@ -255,19 +255,19 @@ This is quite handy to avoid the manual compilation.
 The output is the same as previously described.
 
 When this work on my machine, I use it by opening a terminal buffer (=M-x multi-term=) in emacs in which i launch the
-=lein midje --lazytest= command. 
+=lein midje --lazytest= command.
 
 **** Try lazytest
 For those with leiningen 1.6.2 who wants to try it.
 
 - Change the project.clj file to this
-#+begin_src clj
+#+BEGIN_SRC clj
 (defproject hello "1.0.0-SNAPSHOT"
   :description "A simple project"
   :dependencies [[org.clojure/clojure "1.3.0"]
                  [midje "1.3.1"]]
   :dev-dependencies [[com.intelie/lazytest "1.0.0-SNAPSHOT" :exclusions [swank-clojure]]])
-#+end_src
+#+END_SRC
 - Relaunch =lein deps=.
 - Restart =emacs= and =clojure-jack-in=
 - Open a new buffer with =multi-term= or =shell= or =eshell= or whatever (=M-x the-mode-you-chose=).
@@ -280,4 +280,3 @@ In a near future, i intend to make some other blog posts to focus on:
 - continued integration with [[http://about.travis-ci.org/docs/user/getting-started/][travis-ci]]
 - [[http://www.heroku.com/][heroku]] for the deploying part
 - [[https://github.com/fogus/marginalia][marginalia]] for the documentation generation and the [[github]] integration.
-

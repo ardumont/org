@@ -26,16 +26,16 @@ CLOSED: [2012-11-24 Sat 19:37]
 **** DONE install repositories
 CLOSED: [2012-11-24 Sat 19:36]
 in *~/.lein/profiles.clj* add the repositories
-#+begin_src clj
+#+BEGIN_SRC clj
   :repositories {"googleapis"          "http://mavenrepo.google-api-java-client.googlecode.com/hg/"
                  "google-api-services" "http://google-api-client-libraries.appspot.com/mavenrepo"}
-#+end_src
+#+END_SRC
 
 **** DONE install jar dependencies
 CLOSED: [2012-11-24 Sat 19:36]
-#+begin_src clj
+#+BEGIN_SRC clj
                  [com.google.apis/google-api-services-drive "v2-rev25-1.12.0-beta"]]
-#+end_src
+#+END_SRC
 
 **** DONE play with the api [100%]
 CLOSED: [2012-11-25 Sun 16:52]
@@ -57,7 +57,7 @@ https://github.com/r0man/oauth-clj
 CLOSED: [2012-11-25 Sun 11:57]
 ***** DONE Trying to request some stuff
 CLOSED: [2012-11-25 Sun 12:04]
-#+begin_src clj
+#+BEGIN_SRC clj
 {:gender         "male",
  :link           "https://plus.google.com/some-id",
  :name           "Antoine R. Dumont",
@@ -69,7 +69,7 @@ CLOSED: [2012-11-25 Sun 12:04]
  :id             "some-id",
  :birthday       "some-birthday",
  :picture        "some-uri-pointing-to-his-her-picture"}
-#+end_src
+#+END_SRC
 ***** DONE sdk drive query
 CLOSED: [2012-11-25 Sun 12:14]
 ***** DONE fix the permission on the token
@@ -87,12 +87,12 @@ CLOSED: [2012-11-24 Sat 19:10]
 *** FAIL copy music on my phone
 CLOSED: [2012-11-24 Sat 19:09]
 **** install mtp
-#+begin_src sh
+#+BEGIN_SRC sh
 sudo aptitude install mtpfs mtp-tools
-#+end_src
+#+END_SRC
 **** update rules
 
-#+begin_src fuse-rule-32-bits
+#+BEGIN_SRC fuse-rule-32-bits
 ACTION!="add", GOTO="gtab_rules_end"
 SUBSYSTEM!="usb|usb_device", GOTO="gtab_usb_end"
 
@@ -101,34 +101,34 @@ ATTRS{idVendor}=="04e8", ATTRS{idProduct}=="6860", MODE="0666" SYMLINK+="gtab"
 LABEL="gtab_usb_end"
 
 LABEL="gtab_rules_end"
-#+end_src
+#+END_SRC
 
-#+begin_src sh
+#+BEGIN_SRC sh
 cp ~/Downloads/mtpfs.rules /etc/udev/rules.d/
-#+end_src
+#+END_SRC
 
 **** Automatic setup
 Edit /etc/fstab
 
-#+begin_src fstab
+#+BEGIN_SRC fstab
 mtpfs     /media/gtab     fuse     user,noauto,allow_other      0      0
-#+end_src
+#+END_SRC
 
 **** other setup
 Remove the commented line in */etc/fuse.conf* which prevents the user from mounting.
-#+begin_src sh
+#+BEGIN_SRC sh
 #user_allow_user
-#+end_src
+#+END_SRC
 
 **** update group
 Add oneself in the /etc/group fuse
 
 **** Create folder
 
-#+begin_src sh
+#+BEGIN_SRC sh
 sudo mkdir /media/gtab
 sudo chown -R tony: /media/gtab
-#+end_src
+#+END_SRC
 
 *** DONE guitar
 CLOSED: [2012-11-24 Sat 16:36]

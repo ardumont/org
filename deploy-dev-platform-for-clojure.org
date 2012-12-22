@@ -43,5 +43,3 @@ in ~/.emacs.d/tony.el, copy these lines
 (require 'midje-mode)
 (add-hook 'clojure-mode-hook 'midje-mode)
 #+END_SRC
-
-

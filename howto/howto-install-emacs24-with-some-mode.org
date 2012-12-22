@@ -13,15 +13,15 @@ This article will show how to install rapidly emacs 24 on a ubuntu 11.10.
 * How to?
 ** Install
 Here are the scripts to download:
-#+begin_src sh
-wget https://github.com/ardumont/sh/blob/master/deploy-emacs24.sh 
+#+BEGIN_SRC sh
+wget https://github.com/ardumont/sh/blob/master/deploy-emacs24.sh
 wget https://github.com/ardumont/sh/blob/master/setup-emacs24.sh
 chmod +x deploy-emacs24.sh && deploy-emacs24.sh
-#+end_src
+#+END_SRC
 ** Start emacs
-#+begin_src sh
+#+BEGIN_SRC sh
 emacs
-#+end_src
+#+END_SRC
 This will automatically search and install the asked packages (cf. next chapter for some more details).
 * Some more details
 ** deploy-emacs24.sh
@@ -52,7 +52,7 @@ This script is dedicated to the generation of the =~/init.el= which is one of th
 time.
 *** Content:
 
-#+INCLUDE: "/home/tony/bin/setup-emacs24.sh" src sh 
+#+INCLUDE: "/home/tony/bin/setup-emacs24.sh" src sh
 
 *** Details
 **** Setup the script
@@ -65,7 +65,7 @@ time.
 #+INCLUDE: "/home/tony/bin/setup-emacs24.sh" src emacs-lisp :lines "12-24"
 
 **** emacs packages:
-- [[https://github.com/technomancy/emacs-starter-kit][starter-kit*]]: a emacs set of default setup 
+- [[https://github.com/technomancy/emacs-starter-kit][starter-kit*]]: a emacs set of default setup
 - [[https://github.com/technomancy/clojure-mode][clojure-mode]]: Provides Emacs font-lock, indentation, and navigation for the Clojure language.
 - [[https://github.com/dnaumov/midje-mode][midje-mode]]: Midje-mode is an Emacs minor mode for Midje - test framework for Clojure
 - [[http://emacswiki.org/emacs/MultiTerm][multi-term]]: MultiTerm is an improve term.el mode, for managing multiple terminal buffers in Emacs.

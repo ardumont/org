@@ -16,7 +16,7 @@ by Lily
 ***** DONE HBase
       Sparse, distributed, persistent multidimensional sorted map -> store everything in bytes in hdfs
 ***** DONE HDFS
-      Hadoop Distributed File System - one file is written multiple times in different nodes for security failure 
+      Hadoop Distributed File System - one file is written multiple times in different nodes for security failure
 ***** DONE Lily Repository
       CRUD operations with fine grained (read or update only what is needed)
 ***** DONE Write-Ahead Log
@@ -462,7 +462,7 @@ curl 'http://localhost:12060/repository/record/UUID.a7166289-eb7a-4715-8c8e-3c99
 ***** Lily and Hbase
 ******* adds high level content model
 ********* data types
-********* versioning 
+********* versioning
 - interpretation on the OT's part, it's a counter
 - no timestamp is used => no gap inside version
 ********* blog storage on HDFS
@@ -475,7 +475,7 @@ curl 'http://localhost:12060/repository/record/UUID.a7166289-eb7a-4715-8c8e-3c99
 ******* Master election for centralized jobs (indexer, rowlog shard)
 ******* Deals with locks
 ******* Schema:
-Lily client -> Zk -> redirects to one Lily node 
+Lily client -> Zk -> redirects to one Lily node
 If one lily node crashes, zk knows and won't use this one for future
 lily clients
 ******* Number of zookeeper instances : 2n + 1 ~ 3-5
@@ -548,7 +548,7 @@ http://docs.outerthought.org/lily-docs-current/451-lily/version/default/part/Ima
 ********* Gets refresh trigger upon changes
 ********* Assumes you keep your client running
 ***** API for getting access
-******* Create an instance of ZooKeeperItf 
+******* Create an instance of ZooKeeperItf
 ZooKeeperItf zk = new StateWatchingZooKeeper(localhost:2181, 10000)
 ******* Then a LilyClient instance
 LilyClient lilyClient = new LilyClient(zk);
@@ -632,7 +632,7 @@ http://docs.outerthought.org/lily-docs-current/388-lily/version/default/part/Ima
 ***** REST API Representations
 ******* Content-type: application/json
 ********* UTF-8
-********* cool json implementation 
+********* cool json implementation
 ******* Namespaces
 ******* ValueTypes
 ********* BLOB
@@ -680,7 +680,7 @@ http://docs.outerthought.org/lily-docs-current/388-lily/version/default/part/Ima
 ********* 1. denormalize -> link field in cascade
 ********* 2. multi-version
 ********* 3. incremental -> near real-time, as fast as possible
-********* 4. batch -> 
+********* 4. batch ->
 ********* 5. extraction
 ********* 6. sharded
 ***** Lily indexer howto
@@ -708,7 +708,7 @@ http://docs.outerthought.org/lily-docs-current/388-lily/version/default/part/Ima
 ***** Indexer configuration @Lily
 ******* <field name="{solr references}" value="{lily expressions}" />
 ***** Why Lily indexing conf ?
-******* Alternative ? 
+******* Alternative ?
 ********* Think the other way around -> Where to stop the indexing (link of link of link of ...)
 ******* send all fields (and not store, not index @Solr)
 ******* send all versions, recordtypes, ...
@@ -958,13 +958,13 @@ public class MyTest {
         // Depending on mode, this will:
         //  - start Hadoop, ZooKeeper, HBase, Solr, Lily embedded
         //  - connect to locally running instance launched by launch-test-lily and clear its state
-        proxy.start(); 
+        proxy.start();
 
         Repository repository = proxy.getLilyServerProxy().getClient();
 
         // Do stuff with the repository
         // ...
-        
+
         proxy.stop();
     }
 }
@@ -1024,10 +1024,10 @@ public class MyTest {
 ***** Dynamic links
 ******* Dynamic Links Storage Model
 schema
-******* Setup and configuration 
-********* deploy dynamic-link jar to ~/.m2/repository 
+******* Setup and configuration
+********* deploy dynamic-link jar to ~/.m2/repository
 sources: ~/Downloads/lily/20110719-lily-training/dl-extra/
-********* Add required configuration from "conf" and "plugins" folder 
+********* Add required configuration from "conf" and "plugins" folder
 sources: ~/Downloads/lily/20110719-lily-training/dl-ss-0.2.tar.gz
 ******* Add the DL feature to the Lily Node
 ********* These are plugins which are specific for wikeo.
