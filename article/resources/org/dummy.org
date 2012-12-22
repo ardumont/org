@@ -1,0 +1,17 @@
+#+BLOG: tony-blog
+#+POSTID: 589
+#+DATE: [2012-12-22 Sat 20:00]
+#+BLOG: tony-blog
+#+TITLE: Dummy sample to prove org2blog rocks!
+#+AUTHOR: Antoine R. Dumont
+#+OPTIONS:
+#+TAGS: dummy
+#+CATEGORY: dummy
+#+DESCRIPTION: a dummy file
+#+STARTUP: indent
+#+STARTUP: hidestars odd
+
+* some
+** dummy
+*** org
+* to prove that everything work

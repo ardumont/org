@@ -1,0 +1,187 @@
+#+BLOG: tony-blog
+#+POSTID: 586
+#+DATE: [2012-12-22 Sat 19:53]
+#+BLOG: tony-blog
+#+TITLE: Blogging with org-mode/org2blog/wordpress
+#+AUTHOR: Antoine R. Dumont
+#+OPTIONS:
+#+TAGS: org-mode, emacs, wordpress, blog, org2blog
+#+CATEGORY: org-mode, blog, wordpress
+#+DESCRIPTION: Syncing one's org-mode files with one's blog using org2blog
+#+STARTUP: indent
+#+STARTUP: hidestars odd
+
+* Statements
+- I'm a feedback addict
+When I execute something, i want it to answer quickly, no lag is acceptable.
+- I found out that there is no faster than the keyboard to input quickly (at least as fast as my fingers go)
+(the mouse is slow, you have to break the position of your hands...)
+- I love emacs and [[http://orgmode.org/][org-mode]]
+- I like wordpress (simple and user-friendly).
+But you have too much to do and click to succeed in making one article.
+
+* Consequence
+
+I have difficulties in blogging directly in wordpress (it is in the click world, I'm not anymore).
+
+* But... *help me org-mode-wan, you are my only hope*
+
+I know [[http://orgmode.org/][org-mode]]. And as soon as i become aware of [[http://orgmode.org/][org-mode]]'s abilities to export, i used the html export to make my articles.
+
+You write offline (no network problem then) your article in [[http://orgmode.org/][org-mode]] (simple yet ultra powerfull text dsl).
+Then you export in html (C-c C-e b), this will open a tab in your browser almost immediately.
+
+It is way cool...
+
+But the html need to be :
+- copy/paste to wordpress
+- improved to remove the css that is exported along [[http://orgmode.org/][org-mode]] (to let wordpress do its work)
+- if images there are, you must upload first one at a time...
+
+But... as always, i'm kind of an exigeant freak too, not perfect.
+
+* Then along came... [[https://github.com/punchagan/org2blog][org2blog]]!
+
+** What is it?
+
+It's an adapter between [[http://orgmode.org/][org-mode]] files and wordpress.
+Given minor setup steps (to do once), you can never leave your [[http://orgmode.org/][org-mode]] until you're done!
+
+It's the ultimate coolness!
+
+** Advantages?
+
+- No network needed (at least until the publishing step)
+- No need to manage the pictures, there will be uploaded and be coherent with the blog
+- You will be prompted to create the tags and categories if they do not exist.
+
+** install?
+
+Here we go, add this to your *init.el*
+This is a snippet of code that permits you to automatically search and install the packages you want at startup.
+
+#+BEGIN_SRC lisp
+(require 'package)(add-to-list 'package-archives
+             '("marmalade" . "http://marmalade-repo.org/packages/") t)
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(package-initialize)
+
+(when (not package-archive-contents)
+  (package-refresh-contents))
+
+(defvar my-packages '(org
+                      xml-rpc
+                      org2blog)
+  "A list of packages to ensure are installed at launch.")
+
+(dolist (p my-packages)
+  (when (not (package-installed-p p))
+    (package-install p)))
+
+#+END_SRC
+
+Here is the details about packages:
+
+|----------+-----------------------------------------------|
+| org      | org-mode                                      |
+| xml-rpc  | An elisp implementation of clientside XML-RPC |
+| org2blog | Blog from Org mode to wordpress               |
+|----------+-----------------------------------------------|
+
+** setup?
+
+*** ~/.netrc
+
+To setup the credentials to login into the wordpress.
+
+Here is a sample:
+#+BEGIN_SRC netrc
+machine some-dummy-machine login some-login password some-password
+#+END_SRC
+
+Each line represents one blog.
+
+|----------+--------------------|
+| machine  | some-dummy-machine |
+| login    | some-login         |
+| password | some-password      |
+|----------+--------------------|
+
+*** ~/.emacs
+Add this to your *~/.emacs*
+
+#+BEGIN_SRC lisp
+;; depends on netrc, xml-rpc
+(require 'netrc)
+(require 'org2blog-autoloads)
+(require 'metaweblog)
+
+;; load the entry 'some-dummy-machine' in the ~/.netrc, we obtain a hash-map with the needed data
+(setq blog (netrc-machine (netrc-parse "~/.netrc") "some-dummy-machine" t))
+
+;; now enter the data in the org2blog list of blogs
+(setq org2blog/wp-blog-alist
+      '(("some-dummy-machine"
+         :url "http://your-wordpress-blog/xmlrpc.php"
+         :username (netrc-get blog "login")
+         :password (netrc-get blog "password"))))
+
+(add-hook 'org-mode-hook 'org2blog/wp-mode)
+#+END_SRC
+
+This will load your credentials and activate the org2blog/wp-mode each time a [[http://orgmode.org/][org-mode]] file is launched.
+
+** Use
+
+Here is my way, you can go from this at first and then improve :D
+
+- Add some metadata on your file
+
+#+BEGIN_SRC org
+\#+BLOG: some-dummy-machine
+\#+TITLE: Blogging with org-mode and org2blog to publish on wordpress
+\#+AUTHOR: Antoine R. Dumont
+\#+OPTIONS:
+\#+TAGS: org-mode, emacs, wordpress, blog
+\#+CATEGORY: org-mode, blog, wordpress
+\#+DESCRIPTION: Syncing one's org-mode files with one's blog
+\#+STARTUP: indent
+\#+STARTUP: hidestars odd
+#+END_SRC
+
+*Note* You can remove the \ for a real test.
+
+- Then You edit normally your [[http://orgmode.org/][org-mode]] file article
+
+#+INCLUDE: "./resources/org/dummy.org" src org
+
+- To check the rendering is ok, export locally your article (C-c C-e b)
+
+[[file:./resources/img/export-dummy.png][file:./resources/img/export-dummy.png]]
+
+- Once you're almost ready, you can upload a draft to wordpress *C-c d* (M-x org2blog/wp-post-buffer)
+
+[[file:./resources/img/export-dummy-as-draft.png][file:./resources/img/export-dummy-as-draft.png]]
+
+- New metadata has been generated at the top of your [[http://orgmode.org/][org-mode]] file
+
+#+BEGIN_SRC org
+\#+BLOG: tony-blog
+\#+POSTID: 589
+\#+DATE: [2012-12-22 Sat 20:00]
+#+END_SRC
+
+This will help in updating your post throughout the time.
+
+- When ready to publish, hit *C-c p* (C-u M-x org2blog/wp-post-buffer)
+
+- Of course, you can republish after updating some errors/typos (hit *C-c p* again)
+
+* Enjoy
+
+Perfect! At least for me!
+
+#+./resources/img/export-dummy.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-export-dummy.png
+
+#+./resources/img/export-dummy-as-draft.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-export-dummy-as-draft.png
