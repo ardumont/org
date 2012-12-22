@@ -1,20 +1,27 @@
-#+Title: Howto install stumpwm and little more
-#+author: Antoine Romain Dumont
+#+BLOG: tony-blog
+#+POSTID: 380
+#+DATE: [2012-12-22 Sat 14:20]
+#+TITLE: Howto install stumpwm and little more
+#+AUTHOR: Antoine R. Dumont
+#+OPTIONS:
+#+TAGS: stumpwm
+#+CATEGORY: stumpwm
+#+DESCRIPTION: howto install/setup/use stumpwm + my stumpwm configuration
 #+STARTUP: indent
 #+STARTUP: hidestars odd
 
 * Introduction
-*** For just install, skip the intro
-*** What is stumpwm?
+** For just install, skip the intro
+** What is stumpwm?
 A tiling, keyboard driven X11 window manager.
 Simply put, it permits you to choose what you do at any given time with key-bindings.
 Another simple way to sum up: Less is more :d.
-*** Why?
+** Why?
 I was lost with all the shining catch-eyes effects everywhere.
 
 With a friend, [[https://twitter.com/#!/denislab][Denis Labaye]], we search for simpler.
 We found stumpwm and it was mind blowing.
-*** How i use it?
+** How do i use it?
 Personally, i choose to work with only one window at a time and ask for the one i want when i want it.
 It's my way of seeing it but stumpwm does not limit you in this way.
 
@@ -24,22 +31,22 @@ The small price to pay is learning key-bindings.
 Small price because you can override them so the sky is really the limit.
 
 It's the computer that adapts to you and not the other way around.
-*** Goal of the article
+** Goal of the article
 This howto explains how to install stumpwm and the little things you have to do to login with it in the gnome display manager.
-*** Limits of the article
-***** Targeted platform
+** Limits of the article
+*** Targeted platform
 This article is clearly oriented for a debian based distribution using a gnome display manager as the login manager.
 You may use some part with other distribution but i do not know how because i didn't have the problem to solve.
-***** Targeted audience
+*** Targeted audience
 Geeky/Nerdy people who likes to make computer adapts to them and not the other way around.
-***** What is stumpwm in details.
+*** What is stumpwm in details.
 [[http://www.nongnu.org/stumpwm/][What is it?]]
 * How to install
-*** Install stumpwm from CLI
+** Install stumpwm from CLI
 #+BEGIN_SRC sh
 sudo apt-get install stumpwm
 #+END_SRC
-*** Add a new entry to gdm
+** Add a new entry to gdm
 We need to add an entry menu to gdm for stumpwm so that we can log in with it.
 
 For this we add the file /usr/share/xsessions/stumpwm.desktop
@@ -57,65 +64,43 @@ Content of the file:
 #+END_SRC
 
 Here is a simple script to do that in one shot (feel free to patch):
-#+BEGIN_SRC sh
-#!/bin/bash
+#+INCLUDE: "/home/tony/bin/deploy/deploy-stumpwm.sh" src sh
 
-# Install stumpwm
-sudo apt-get install stumpwm
-
-# Create the file
-sudo touch /usr/share/xsessions/stumpwm.desktop
-
-# Add the entry for gdm
-(cat <<EOF
-[Desktop Entry]
-Exec=stumpwm
-TryExec=stumpwm
-Name=stumpwm
-Comment=The Mouseless Window Manager!
-EOF
-)> stumpwm.buffer
-
-sudo cp stumpwm.buffer /usr/share/xsessions/stumpwm.desktop
-
-rm stumpwm.buffer
-#+END_SRC
-
-src: [[https://github.com/ardumont/slash-my-home-slash-bin/blob/master/deploy-stumpwm.sh][deploy-stumpwm.sh]]
-*** `Logout from gdm
+src: [[https://github.com/ardumont/sh/blob/master/deploy/deploy-stumpwm.sh][deploy-stumpwm.sh]]
+** Logout from gdm
 Gdm will reload.
 At next login, when you'll choose your user to log in, you will be proposed a new entry "stumpwm" at the bottom of the screen (it may depend on your theme).
 Choose it and log in.
-*** Stumpwm starts
+** Stumpwm starts
 At the top right corner, you'll only see a help message inviting you to type "CTRL-t ?" (Control and t pressed at the same time followed by a pressure on 't') for a presentation of all the simple commands you need to start.
-* How to improve it
-*** Some simple commands
-***** Syntax
-******* C for Control
-******* <l> for a letter
-******* combination C-t for Control + t pressed together
-******* C-t x for Control+t pressed together followed by a pressure on x.
-***** C-t ?
+* How to improve itb
+** Some simple commands
+*** Syntax
+**** C for Control
+**** <l> for a letter
+**** combination C-t for Control + t pressed together
+**** C-t x for Control+t pressed together followed by a pressure on x.
+*** C-t ?
 List the basic commands
-***** C-t c
+*** C-t c
 To launch a terminal instance (xterm or gnome-terminal)
-***** C-t e
+*** C-t e
 To launch emacs or if it is already launched, call it to display before every other window.
-***** C-t t
+*** C-t t
 To make the window behind the current one pass before and vice-versa
 Inside the browser, you need to escape the t to add a tab (i gives a C-t t t).
-***** C-t s
+*** C-t s
 Split the screen horizontally in two frames of equal size (emacs way).
 You can move the window inside each frame the same way that when you have only one frame.
-***** C-t Q
+*** C-t Q
 Cancel all the split screen.
-***** C-t k
+*** C-t k
 To kill a window not responding
-***** C-t !
+*** C-t !
 To launch a shell command not mapped yet on any binding.
-***** etc...
+*** etc...
 cf. C-t ?
-*** Stumpwm is really cool
+** Stumpwm is really cool
 You can override commands simply by putting a '.stumpwmrc' at the root of your home.
 
 Granted, the file is in lisp.
@@ -123,106 +108,43 @@ But you can understand it anyway.
 
 Plus you can search the web for solution to your problems.
 You will find some geek who already has the answer.
-*** My setup
+** My setup
 The run or raise means that it only turns with one instance which is sufficient.
-***** C-t f
+*** C-t f
 Run or raise (only one instance at a time) firefox (f stands for firefox).
-***** C-t b
+*** C-t b
 Run or raise chromium (b stands for browser).
-***** C-t i
+*** C-t i
 Run or raise eclipse (i for ide)
-***** C-t j
-Run or raise intellij idea (j for the j inside intellij)
-***** C-t x
+*** C-t x
 Run or raise gnome-terminal (x stands for xterm or any x terminal)
-***** C-t d
-Run or raise squirrel-sql - a sql client software (d stands for database)
-***** C-t o
-To add a label (a letter) to each frame to move directly to this frame by typing the lett
-*** My setup file corresponding
-~/.stumpwmrc
-#+BEGIN_SRC lisp
-;; Hey, Emacs! This is a -*- lisp -*- file!
+*** C-t o
+To add a label (a letter) to each frame to move directly to this frame by typing the letter
+*** C-t C-e
+Launch the pdf reader (evince here)
+*** C-t I
+Display *ifconfig* result and display it inside a small window
+*** C-t H
+Display the content of */etc/hosts* inside a small window
+*** C-t B
+Display the content of *acpi -b*
+*** C-t K
+Display the keys the ssh-agents holds.
+*** C-t A
+Launch the scripts *ssh-add-identities* that adds the keys i work with to the ssh-agent
+*** C-t C-o
+Launch the image reader (here *eog*)
+*** C-t n
+Launch nautilus
+*** C-t C-s
+Launch a window screenshot.
+*** etc...
+** ~/.stumpwmrc
 
-(setf *frame-number-map* "abcdefghijklmnopqrst")
+Here is my setup:
 
-(setf *window-format* "%m%n%s nm=%50t cl=%c id=%i")
-
-;;(run-commands "restore-from-file ~/.stumpwm.screendump")
-
-;; specific commands that permits to run or raise the same instance of programs
-(defcommand firefox () ()
-  "Start Firefox or switch to it, if it is already running."
-  (run-or-raise "firefox" '(:class "Firefox")))
-(define-key *root-map* (kbd "f") "firefox")
-
-(defcommand term1 () ()
-  "run term emul"
-  (run-or-raise "gnome-terminal" '(:class "Term1")))
-(run-commands "term1")
-
-(defcommand xterm-1 () ()
-  "run an xterm instance or switch to it, if it is already running."
-  (run-or-raise "gnome-terminal --title=xterm1" '(:class "Gnome-terminal")))
-(define-key *root-map* (kbd "x") "xterm-1")
-
-;; frame selection
-(define-key *root-map* (kbd "o") "fselect")
-
-(defcommand emacs () () ;! redefining emacs command
-  "Start Emacs or switch to it, if it is already running."
-  (run-or-raise "emacs -rv" '(:class "Emacs")))
-
-;; Another way to declare a shortcut for launching google-chrome
-(defprogram-shortcut :chromium :command "chromium-browser"
-                     :props '(:class "Chromium")
-                     :map *root-map* :key (kbd "b"))
-
-;; conkeror powaaaa!
-;;(defprogram-shortcut :chrome :command "conkeror"
-;; :props '(:class "conkeror")
-;; :map *root-map* :key (kbd "d")
-;; )
-
-;; the ide to the keybinding i (C-t i)
-(defprogram-shortcut :eclipse :command "~/bin/ide-eclipse.sh"
-                     :props '(:class "Eclipse")
-                     :map *root-map* :key (kbd "i"))
-
-;; gnome-volume-control
-(defprogram-shortcut :volume-control :command "gnome-volume-control"
-                     :props '(:class "Gnome-Volume-Control")
-                     :map *root-map* :key (kbd ","))
-
-;; Totem
-(defprogram-shortcut :video-player :command "totem"
-                     :props '(:class "Totem")
-                     :map *root-map* :key (kbd "."))
-
-;; Intellij-idea (C-t j)
-(defprogram-shortcut :intellij-idea :command "~/bin/idea.sh"
-                     :props '(:class "java-lang-Thread")
-                     :map *root-map* :key (kbd "j"))
-
-;; Intellij-idea (C-t d)
-(defprogram-shortcut :squirrel-sql :command "~/bin/squirrel-sql.sh"
-                     :props '(:class "net-sourceforge-squirrel_sql-client-Main")
-                     :map *root-map* :key (kbd "d"))
-
-;;Set the mouse policy to focus follows mouse;
-(setf *mouse-focus-policy* :sloppy) ;; :click, :ignore, :sloppy
-
-;; Launch commands
-(run-shell-command "stalonetray -t --window-type normal --pixmap-bg ~/Dropbox/home/black-1x1.xpm -v -t")
-(run-shell-command "/usr/bin/gnome-settings-daemon")
-(run-shell-command "/usr/bin/nm-applet &")
-(run-shell-command "/usr/bin/bluetooth-applet &")
-(run-shell-command "/usr/bin/pactl load-module module-x11-xsmp &")
-(run-shell-command "gnome-power-manager")
-(run-shell-command "dropbox start")
-(run-shell-command "nautilus --no-default-window")
-#+END_SRC
-src: https://github.com/ardumont/stumpwm-config/blob/master/.stumpwmrc
+#+INCLUDE: "/home/tony/.stumpwmrc" src lisp
+src: [[https://github.com/ardumont/dot-files/blob/master/.stumpwmrc][.stumpwmrc]]
 
 * Last points
 It's "emacs compatible". The prefix key is C-t whereas the prefix key of emacs is mostly C-x.
