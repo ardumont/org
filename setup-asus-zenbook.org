@@ -4,7 +4,7 @@
 #+TAGS: setup GNU/Linux asus zenbook
 #+CATEGORY: install setup
 #+DESCRIPTION: Small steps to setup my asus zenbook
-#+DATE:
+#+DATE: 12/22/2012
 
 I finally got my head around and towards the asus zenbook.
 
@@ -108,3 +108,4 @@ gconftool-2 -s /desktop/gnome/keybindings/custom0/action -t string 'cheese'
 #+END_SRC
 
 * Reboot
+Now enjoy.
