@@ -1,5 +1,11 @@
 
 * Posts
+** [[file:/home/tony/org/howto/possible-team-workflow-with-git.org][Possible team workflow with git]]
+:PROPERTIES:
+:POSTID:   353
+:POST_DATE: 20121222T13:20:00+0000
+:Published: Yes
+:END:
 ** [[file:/home/tony/org/howto/howto-install-stumpwm.org][Howto install stumpwm and little more]]
 :PROPERTIES:
 :POSTID:   380
