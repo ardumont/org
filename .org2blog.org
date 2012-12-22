@@ -1,5 +1,11 @@
 
 * Posts
+** [[file:/home/tony/org/howto/howto-install-emacs24-with-some-mode.org][How to install emacs 24]]
+:PROPERTIES:
+:POSTID:   449
+:POST_DATE: 20121222T13:20:00+0000
+:Published: Yes
+:END:
 ** [[file:/home/tony/org/howto/howto-beamer-with-org-mode.org][Howto beamer with org-mode]]
 :PROPERTIES:
 :POSTID:   412
