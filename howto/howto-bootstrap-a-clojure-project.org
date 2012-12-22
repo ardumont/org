@@ -1,15 +1,24 @@
-#+title: How to bootstrap a clojure project
-#+author: Antoine R. Dumont
-#+tags: clojure emacs leiningen midje tdtdd
+#+BLOG: tony-blog
+#+POSTID: 449
+#+DATE: [2012-12-22 Sat 14:20]
+#+TITLE: How to bootstrap a clojure project
+#+AUTHOR: Antoine R. Dumont
+#+OPTIONS:
+#+TAGS: clojure emacs leiningen midje tdd
+#+CATEGORY: clojure
+#+DESCRIPTION: howto rapidly startup a clojure project using leiningen
 
 In this article, we will see how to rapidly startup a [[http://clojure.org/][clojure]] project using [[https://github.com/technomancy/leiningen][leiningen]].
 
 * Pre-requisites
 ** [[http://www.gnu.org/software/emacs/][emacs]]
 See this [[http://adumont.fr/blog/how-to-install-emacs-24/][previous post for installing it]]
+
 ** [[http://clojure.org/][clojure]] environment
 See this [[http://adumont.fr/blog/how-to-install-the-clojure-development-environment/][previous post]]
+
 ** a network to fetch dependencies
+
 * Create a new clojure project
 #+BEGIN_SRC sh
 lein new hello
@@ -235,15 +244,11 @@ If the fact is true, there will be a quotation just before the fact.
 
 Else, there will be a summary of the error
 #+BEGIN_SRC clj
-;.;. [31mFAIL[0m at (NO_SOURCE_FILE:1)
+;.;. FAIL at (NO_SOURCE_FILE:1)
 ;.;.     Expected: 3
 ;.;.       Actual: 2
 (fact (+ 1 1) => 3)
 #+END_SRC
-
-*Note*
-No need to worry about the strange character =[31m=, it's a color in a shell environment.
-This is not correctly interpreted in a clojure buffer.
 
 *** Ultimate way
 There is an ultimate way for testing with midje that i prefer above all =lein midje --lazytest=

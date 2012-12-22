@@ -1,6 +1,12 @@
-#+title: One way to solve a problem in clojure
-#+author: Antoine R. Dumont
-#+tags: clojure emacs leiningen midje tdtdd problem
+#+BLOG: tony-blog
+#+POSTID: 461
+#+DATE: [2012-12-22 Sat 14:20]
+#+TITLE: One way to solve a problem in clojure
+#+AUTHOR: Antoine R. Dumont
+#+OPTIONS:
+#+TAGS: clojure emacs leiningen midje tdd problem
+#+CATEGORY: clojure
+#+DESCRIPTION: A simple problem to solve in clojure
 
 In this article, we will see how to use the different tools at our disposal to solve a problem.
 
