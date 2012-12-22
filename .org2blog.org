@@ -1,5 +1,11 @@
 
 * Posts
+** [[file:/home/tony/org/clodiuno/howto-clodiuno.org][Arduino/Clodiuno - My first steps]]
+:PROPERTIES:
+:POSTID:   470
+:POST_DATE: 20121222T13:20:00+0000
+:Published: Yes
+:END:
 ** [[file:/home/tony/org/clodiuno/on-off.org][Arduino/Clodiuno - command a LED from the clojure REPL]]
 :PROPERTIES:
 :POSTID:   481
