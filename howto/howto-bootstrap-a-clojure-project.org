@@ -1,5 +1,5 @@
 #+BLOG: tony-blog
-#+POSTID: 449
+#+POSTID: 454
 #+DATE: [2012-12-22 Sat 14:20]
 #+TITLE: How to bootstrap a clojure project
 #+AUTHOR: Antoine R. Dumont

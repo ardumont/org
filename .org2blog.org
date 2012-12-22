@@ -56,7 +56,7 @@
 :END:
 ** [[file:/home/tony/org/howto/howto-bootstrap-a-clojure-project.org][How to bootstrap a clojure project]]
 :PROPERTIES:
-:POSTID:   449
+:POSTID:   454
 :POST_DATE: 20121222T13:20:00+0000
 :Published: Yes
 :END:
