@@ -1,7 +1,12 @@
-#+Title: About me
-#+author: Antoine Romain Dumont
-#+STARTUP: indent
-#+STARTUP: hidestars odd
+#+BLOG: tony-blog
+#+POSTID: 2
+#+DATE: [2012-12-22 Sat 14:20]
+#+TITLE: About me
+#+AUTHOR: Antoine R. Dumont
+#+OPTIONS:
+#+TAGS: me
+#+CATEGORY: me
+#+DESCRIPTION: Just me
 
 * Personally
 I'm just a linux fan boy geek (GNU/Linux, *BSD, Android and Free Software etc...).
@@ -12,7 +17,7 @@ world because i had this completely amazingly utopist dream of free knowledge (a
 
 Trying to share when i'm not too busy playing with my kids or coding
 to solve some problems ([[http://projecteuler.net][Project Euler]],[[http://4clojure.com][ 4clojure.com]]) or playing with
-my guitar (then again trying) 
+my guitar (then again trying)
 or losing my precious time in some bull... means of transportation.
 
 Anyway, here is my rapid resume.
@@ -25,7 +30,7 @@ Some technologies i came across : JEE4/5, PHP4/5, Oracle, Hibernate, Spring, Ant
 ** Now
 I'm still a software engineer but i like to call it simply developer as i really really enjoy coding.
 I'm working with [[http://www.sfeir.com/][Sfeir]].
-The technologies are very innovative : GWT, Android, NoSQL, etc...
+The technologies are innovative : GWT, Android, NoSQL, etc...
 * Where can you found me if you ever were interested
 ** [[https://github.com/ardumont][github]]
 ** [[http://j.mp/hevpPB][blog]]
