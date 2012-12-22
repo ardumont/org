@@ -162,7 +162,7 @@ Here is my way, you can go from this at first and then improve :D
 
 - Once you're almost ready, you can upload a draft to wordpress *C-c d* (M-x org2blog/wp-post-buffer)
 
-[[file:./resources/img/export-dummy-as-draft.png][file:./resources/img/export-dummy-as-draft.png]]
+[[file:./resources/img/export-dummy-and-upload-draft.png][file:./resources/img/export-dummy-and-upload-draft.png]]
 
 - New metadata has been generated at the top of your [[http://orgmode.org/][org-mode]] file
 
@@ -185,3 +185,7 @@ Perfect! At least for me!
 #+./resources/img/export-dummy.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-export-dummy.png
 
 #+./resources/img/export-dummy-as-draft.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-export-dummy-as-draft.png
+
+#+./resources/img/export-dummy-as-draft.png"><img src="./resources/img/export-dummy-and-upload-draft.png" alt="export-dummy-and-upload-draft.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-export-dummy-and-upload-draft.png-altexport-dummy-and-upload-draft.png
+
+#+./resources/img/export-dummy-and-upload-draft.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-export-dummy-and-upload-draft.png
