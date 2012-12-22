@@ -4,8 +4,8 @@
 #+TITLE: Video - Rich Hickey - Are we there yet?
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
-#+TAGS: Rich Hickey
-#+CATEGORY: emacs
+#+TAGS: Rich Hickey, mind-blowing questions, philosophy
+#+CATEGORY: rich-hickey
 #+DESCRIPTION: "Are we there yet?" fanboy
 
 Completely mind blowing video from Rich Hickey ([[http://clojure.org/][Clojure]]'s creator) where he exposes the limitations of the overall most popular actual languages.
