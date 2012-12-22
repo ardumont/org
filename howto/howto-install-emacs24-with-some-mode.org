@@ -4,9 +4,11 @@
 #+TITLE: How to install emacs 24
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
-#+TAGS: emacs ubuntu-11.10 ubuntu-12.04 ubuntu-12.10
-#+CATEGORY: emacs
+#+TAGS: emacs, ubuntu-11.10, ubuntu-12.04, ubuntu-12.10
+#+CATEGORY: emacs, howto
 #+DESCRIPTION: how to install emacs 24 in ubuntu based box
+#+STARTUP: indent
+#+STARTUP: hidestars odd
 
 This article will show how to install rapidly emacs 24 on ubuntu based system (linuxmint 13/14 for example) from 11.10 to 12.10.
 
