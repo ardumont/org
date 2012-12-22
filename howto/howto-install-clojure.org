@@ -1,6 +1,12 @@
-#+title: How to install the clojure development environment
-#+author: Antoine R. Dumont
-#+tags: clojure emacs leiningen midje tdtdd
+#+BLOG: tony-blog
+#+POSTID: 449
+#+DATE: [2012-12-22 Sat 14:20]
+#+TITLE: How to install the clojure development environment
+#+AUTHOR: Antoine R. Dumont
+#+OPTIONS:
+#+TAGS: clojure emacs leiningen midje top-down-tdd
+#+CATEGORY: clojure
+#+DESCRIPTION: howto install the clojure development environment on debian based system
 
 In this article, we will see how to rapidly install the clojure tools in a debian-like distribution (ubuntu 11.10 for example).
 
@@ -126,4 +132,4 @@ In a near future, i intend to make some other blog posts to focus on:
 - how to solve a simple problem in clojure and show how these tools work together
 - continued integration with [[http://about.travis-ci.org/docs/user/getting-started/][travis-ci]]
 - [[http://www.heroku.com/][heroku]] for the deploying part
-- [[https://github.com/fogus/marginalia][marginalia]] for the documentation generation and the [[github]] integration.
+- [[https://github.com/fogus/marginalia][marginalia]] for the documentation generation and the [[github]] integration
