@@ -1,10 +1,16 @@
-#+title: Programming in haskell - exercices
-#+author: Antoine R. Dumont
+#+BLOG: tony-blog
+#+TITLE: Programming in haskell - exercices - intro
+#+AUTHOR: Antoine R. Dumont
+#+OPTIONS:
+#+TAGS: haskell, exercises
+#+CATEGORY: haskell
+#+DESCRIPTION: Learning haskell and solving problems reasoning and 'repl'ing
+#+STARTUP: indent
+#+STARTUP: hidestars odd
 
-* Introduction
 1. Give another possible calculation for the result of double (double 2).
 
-#+BEGIN_SRC pseudo
+#+BEGIN_SRC text
 double (double 2) = (double 2) + (double 2)
                   = (double 2) + (2 + 2)
                   = (double 2) + 4
@@ -23,7 +29,7 @@ sum (x:xs) = x + sum xs
 #+END_SRC
 
 Given the definition of the sum function:
-#+BEGIN_SRC demo
+#+BEGIN_SRC text
 sum [x] = x + sum []
         = x + 0
         = x
@@ -40,7 +46,7 @@ pdt (x:xs) = x * pdt xs
 #+END_SRC
 
 product [2,3,4] = 24?
-#+BEGIN_SRC demo
+#+BEGIN_SRC text
 pdt [2,3,4] = 2 * pdt [3,4]
             = 2 * 3 * pdt [4]
             = 2 * 3 * 4 * pdt []
@@ -76,14 +82,14 @@ qsort (x:xs) = qsort larger ++ [x] ++ qsort smaller
 To simplify the proof, we will prove that:
 qsort [x] = [x]
 
-#+BEGIN_SRC demo
+#+BEGIN_SRC text
 qsort [x] = qsort [] ++ [x] ++ qsort []
           = [] ++ [x] ++ []
           = [x]
 #+END_SRC
 
 Now solve the question:
-#+BEGIN_SRC demo
+#+BEGIN_SRC text
 qsort [4,6,2] = qsort [6] ++ [4] ++ qsort [2]
               = [6] ++ [4] ++ [2]
               = [6,4,2]
@@ -105,47 +111,8 @@ qsort (x:xs) = qsort smaller ++ [x] ++ qsort larger
 This will filter out the duplicated entries.
 
 Here is the solved example:
-#+BEGIN_SRC demo
+#+BEGIN_SRC text
 qsort [2,2,3,1,1] = qsort [1] ++ [2] ++ qsort [3]
                   = [1] ++ [2] ++ [3]
                   = [1,2,3]
 #+END_SRC
-
-* Chapter 2
-
-1. Parenthesise the following arithmetic expressions:
-2↑3∗4
-2∗3+4∗5
-2+3∗4↑5
-2. Work through the examples from this chapter using Hugs.
-
-#+BEGIN_SRC haskell
-2^3*4 = (2^3)*4 = 32
-
-2∗3+4∗5 = (2*3)+(4*5) = 26
-
-2+3*4^5 = 2+(3*(4^5)) = 3074
-#+END_SRC
-
-3. The script below contains three syntactic errors. Correct these errors
-and then check that your script works properly using Hugs.
-#+BEGIN_SRC
-N = a 'div' length xs
-    where
-      a = 10
-      xs = [1, 2, 3, 4, 5]
-#+END_SRC
-
-#+BEGIN_SRC
-n = a `div` (length xs)
-    where
-      a  = 10
-      xs = [1, 2, 3, 4, 5]
-#+END_SRC
-
-4. Show how the library function last that selects the last element of a non-
-empty list could be defined in terms of the library functions introduced
-in this chapter. Can you think of another possible definition?
-
-5. Show how the library function init that removes the last element from
-a non-empty list could similarly be defined in two different ways.

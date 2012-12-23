@@ -1,0 +1,50 @@
+#+BLOG: tony-blog
+#+TITLE: Programming in haskell - exercices - chapter 2
+#+AUTHOR: Antoine R. Dumont
+#+OPTIONS:
+#+TAGS: haskell, exercises
+#+CATEGORY: haskell
+#+DESCRIPTION: Learning haskell and solving problems reasoning and 'repl'ing
+#+STARTUP: indent
+#+STARTUP: hidestars odd
+
+* Chapter 2
+
+1. Parenthesise the following arithmetic expressions:
+2^3∗4
+2∗3+4∗5
+2+3∗4^5
+
+
+2. Work through the examples from this chapter using Hugs.
+
+#+BEGIN_SRC haskell
+2^3*4 = (2^3)*4 = 32
+
+2∗3+4∗5 = (2*3)+(4*5) = 26
+
+2+3*4^5 = 2+(3*(4^5)) = 3074
+#+END_SRC
+
+3. The script below contains three syntactic errors. Correct these errors
+and then check that your script works properly using Hugs.
+#+BEGIN_SRC
+N = a 'div' length xs
+    where
+      a = 10
+      xs = [1, 2, 3, 4, 5]
+#+END_SRC
+
+#+BEGIN_SRC
+n = a `div` (length xs)
+    where
+      a  = 10
+      xs = [1, 2, 3, 4, 5]
+#+END_SRC
+
+4. Show how the library function last that selects the last element of a non-
+empty list could be defined in terms of the library functions introduced
+in this chapter. Can you think of another possible definition?
+
+5. Show how the library function init that removes the last element from
+a non-empty list could similarly be defined in two different ways.
