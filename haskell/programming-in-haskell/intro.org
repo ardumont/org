@@ -1,4 +1,7 @@
 #+BLOG: tony-blog
+#+POSTID: 632
+#+DATE: [2012-12-23 Sun 18:52]
+#+BLOG: tony-blog
 #+TITLE: Programming in haskell - exercices - intro
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
@@ -8,7 +11,19 @@
 #+STARTUP: indent
 #+STARTUP: hidestars odd
 
-1. Give another possible calculation for the result of double (double 2).
+Now that i went and:
+- learn clojure (I do not know all of it yet but i know enough to say, this is the way)
+- discovered the wonders of the Lisp family (i did learn some common-lisp through 'the land of lisp' and some emacs-lisp through emacs)
+- renewed with functional programming.
+
+Now, for the time being, I'd like to go and see what haskell is all about.
+So here it is. I began reading 'Programming in haskell'.
+
+Here are my solutions to the exercises.
+I did not yet confront them.
+
+* Calculation
+Give another possible calculation for the result of double (double 2).
 
 #+BEGIN_SRC text
 double (double 2) = (double 2) + (double 2)
@@ -19,11 +34,10 @@ double (double 2) = (double 2) + (double 2)
                   = 8
 #+END_SRC
 
-2. Show that sum [x] = x for any number x.
+* Proof
+Show that sum [x] = x for any number x.
 
-sum:
-
-#+BEGIN_SRC haskell
+#+BEGIN_SRC text
 sum :: Num a => [a] -> a
 sum [] = 0
 sum (x:xs) = x + sum xs
@@ -36,11 +50,13 @@ sum [x] = x + sum []
         = x
 #+END_SRC
 
-3. Define a function product that produces the product of a list of numbers,
+* Product
+
+Define a function product that produces the product of a list of numbers,
 and show using your definition that product [2, 3, 4] = 24.
 
 product:
-#+BEGIN_SRC haskell
+#+BEGIN_SRC text
 pdt :: Num a => [a] -> a
 pdt [] = 1
 pdt (x:xs) = x * pdt xs
@@ -55,11 +71,14 @@ pdt [2,3,4] = 2 * pdt [3,4]
             = 24
 #+END_SRC
 
-4. How should the definition of the function qsort be modified so that it
+* Quicksort
+
+How should the definition of the function qsort be modified so that it
 produces a reverse sorted version of a list?
 
-qsort:
-#+BEGIN_SRC haskell
+Given the following quicksort definition:
+
+#+BEGIN_SRC text
 qsort :: Ord a => [a] -> [a]
 qsort [] = []
 qsort (x:xs) = qsort smaller ++ [x] ++ qsort larger
@@ -68,10 +87,10 @@ qsort (x:xs) = qsort smaller ++ [x] ++ qsort larger
                  larger  = filter (> x) xs
 #+END_SRC
 
-We want to modify such qsort definition to reverse the output.
+We want to modify such quicksort definition to reverse the output.
 So from qsort *[4 6 2] => [2 4 6]* into *qsort [4 6 2] => 6 4 2*.
 
-#+BEGIN_SRC haskell
+#+BEGIN_SRC text
 qsort :: Ord a => [a] -> [a]
 qsort [] = []
 qsort (x:xs) = qsort larger ++ [x] ++ qsort smaller
@@ -79,15 +98,17 @@ qsort (x:xs) = qsort larger ++ [x] ++ qsort smaller
                  smaller = filter (<= x) xs
                  larger  = filter (> x) xs
 #+END_SRC
+*Note* _++_ is the concatenation
 
-To simplify the proof, we will prove that:
-*qsort [x] = [x]*
+To simplify the next proofs, we will prove that:
+for any x, *qsort [x] = [x]*
 
 #+BEGIN_SRC text
 qsort [x] = qsort [] ++ [x] ++ qsort []
           = [] ++ [x] ++ []
           = [x]
 #+END_SRC
+case made.
 
 Now solving the question:
 #+BEGIN_SRC text
@@ -96,11 +117,13 @@ qsort [4,6,2] = qsort [6] ++ [4] ++ qsort [2]
               = [6,4,2]
 #+END_SRC
 
-5. What would be the effect of replacing by < in the original definition
+* Quicksort 2/2
+
+What would be the effect of replacing by < in the original definition
 of qsort ? Hint: consider the example *qsort [2, 2, 3, 1, 1]*.
 
 Given:
-#+BEGIN_SRC haskell
+#+BEGIN_SRC text
 qsort :: Ord a => [a] -> [a]
 qsort [] = []
 qsort (x:xs) = qsort smaller ++ [x] ++ qsort larger
