@@ -4,7 +4,7 @@
 #+TITLE: Setup the asus zenbook
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
-#+TAGS: setup GNU/Linux asus zenbook
+#+TAGS: setup, GNU/Linux, asus-zenbook
 #+CATEGORY: install/setup
 #+DESCRIPTION: Small steps to setup my asus zenbook
 

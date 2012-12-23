@@ -6,7 +6,7 @@
 #+OPTIONS:
 #+TAGS: clojure, emacs, leiningen, midje, tdd
 #+CATEGORY: clojure
-#+DESCRIPTION: howto rapidly startup a clojure project using leiningen
+#+DESCRIPTION: howto rapidly startup a clojuroe project using leiningen
 
 In this article, we will see how to rapidly startup a [[http://clojure.org/][clojure]] project using [[https://github.com/technomancy/leiningen][leiningen]].
 

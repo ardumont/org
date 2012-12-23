@@ -5,7 +5,7 @@
 #+TITLE: My emacs tools
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
-#+TAGS: emacs emacs-live emacs-starter-kit
+#+TAGS: emacs, emacs-live, emacs-starter-kit
 #+CATEGORY: emacs
 #+DESCRIPTION: Just explaining my progression using emacs, first emacs-starter-kit, then emacs-live.
 
