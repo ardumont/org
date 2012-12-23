@@ -2,8 +2,8 @@
 #+TITLE: Programming in haskell - exercices - intro
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
-#+TAGS: haskell, exercises
-#+CATEGORY: haskell
+#+TAGS: haskell, exercises, functional-programming
+#+CATEGORY: haskell, programming, functional-programming
 #+DESCRIPTION: Learning haskell and solving problems reasoning and 'repl'ing
 #+STARTUP: indent
 #+STARTUP: hidestars odd
