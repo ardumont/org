@@ -1,7 +1,6 @@
 #+BLOG: tony-blog
 #+POSTID: 632
 #+DATE: [2012-12-23 Sun 18:52]
-#+BLOG: tony-blog
 #+TITLE: Programming in haskell - exercices - intro
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
@@ -119,7 +118,7 @@ qsort [4,6,2] = qsort [6] ++ [4] ++ qsort [2]
 
 * Quicksort 2/2
 
-What would be the effect of replacing by < in the original definition
+What would be the effect of replacing *<=* by *<* in the original definition
 of qsort ? Hint: consider the example *qsort [2, 2, 3, 1, 1]*.
 
 Given:
