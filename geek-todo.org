@@ -122,7 +122,7 @@ CLOSED: [2012-04-22 Sun 11:13]
 #+END_SRC
 Need some setup.
 *** IN-PROGRESS setup it to have access to different languages
-* TODO emacs [37%]
+* TODO emacs [85%]
 ** DONE install
 CLOSED: [2012-04-21 Sat 12:02]
 #+BEGIN_SRC sh
@@ -136,12 +136,14 @@ setup-emacs24.sh
 ** DONE basics
 CLOSED: [2012-04-21 Sat 12:02]
 
-** TODO Read emacs manual
-** TODO A mode to make slides from org
+** TODO Reading [0%]
+*** TODO Read emacs manual
+*** TODO A mode to make slides from org
 https://github.com/relevance/org-html-slideshow
-** TODO Eval clojure in org-mode file
+*** TODO Eval clojure in org-mode file
 http://orgmode.org/worg/org-contrib/babel/languages/ob-doc-clojure.html
-** TODO Howto [75%]
+** DONE Howto [75%]
+CLOSED: [2012-12-23 Sun 13:22]
 *** DONE Add some emacs packages
 CLOSED: [2012-04-21 Sat 12:05]
 =M-x package-list-packages=
@@ -158,8 +160,12 @@ This basically tells, when org-mode launches, deactivate the linum-mode (which o
 *** DONE Toggle debug on error
 CLOSED: [2012-04-22 Sun 09:37]
 M-x toggle-debug-on-error
-** TODO Problems
-*** TODO why clojure-jack-in does not work from a stumpwm emacs
+** DONE Problems [100%]
+CLOSED: [2012-12-23 Sun 13:22]
+*** DONE why clojure-jack-in does not work from a stumpwm emacs? [100%]
+CLOSED: [2012-12-23 Sun 13:22]
+**** DONE solution-12-23 Sun 1
+CLOSED: [2012-12-23 Sun 13:22]
 Because the emacs path spawned from the stumpwm is not the same from a terminal emacs
 
 #+BEGIN_SRC
@@ -177,6 +183,33 @@ against this inside a terminal emacs:
 "/home/tony/.lein:/home/tony/.lein/bin:/home/tony/.lein/plugins:/home/tony/applications/bin:/home/tony/work/bin:/home/tony/bin:/home/tony/.lein:/home/tony/.lein/bin:/home/tony/.lein/plugins:/home/tony/applications/bin:/home/tony/work/bin:/home/tony/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games"
 #+end_example
 
+**** DONE First solution: hacks
+CLOSED: [2012-12-23 Sun 13:21]
+
+In my *init.el*
+#+BEGIN_SRC emacs-lisp
+(setenv "PATH" (concat "/home/tony/bin:" (getenv "PATH")))
+#+END_SRC
+
+**** DONE Second solution: package
+CLOSED: [2012-12-23 Sun 13:21]
+
+I replace the hack and use an existing mode that setup emacs from the cli.
+#+BEGIN_SRC emacs-lisp
+;; setup the path
+(require 'exec-path-from-shell) ;; if not using the ELPA package
+(exec-path-from-shell-initialize)
+#+END_SRC
+So stumpwm now works
+
+** DONE emacs-live [100%]
+CLOSED: [2012-12-23 Sun 13:18]
+*** DONE use it
+CLOSED: [2012-12-23 Sun 13:18]
+*** DONE learn how to make packs
+CLOSED: [2012-12-23 Sun 13:18]
+*** DONE create packs for my setup
+CLOSED: [2012-12-23 Sun 13:18]
 * TODO blog [66%]
 ** CANCELLED migrate tonys-blog with static and nakkaya [100%]
 CLOSED: [2012-12-23 Sun 13:12]
@@ -270,6 +303,15 @@ CLOSED: [2012-04-24 mar. 14:17]
 **** DONE blog
 CLOSED: [2012-04-24 mar. 14:58]
 http://adumont.fr/blog/one-way-to-solve-a-problem-in-clojure/
+*** DONE setup asus zenbook
+CLOSED: [2012-12-23 Sun 13:14]
+http://adumont.fr/blog/setup-the-asus-zenbook/
+*** DONE blogging with org-mode/org2blog/wordpress
+CLOSED: [2012-12-23 Sun 13:14]
+http://adumont.fr/blog/blogging-with-org-mode-and-org2blog-to-publish-on-wordpress/
+*** DONE my emacs tools
+CLOSED: [2012-12-23 Sun 13:14]
+http://adumont.fr/blog/my-emacs-tools/
 *** TODO Simple Howto apache camel
 Make the team presentation generic.
 *** TODO How to use emacs?
@@ -283,15 +325,7 @@ Rapid presentation on what i can do and what i do:
 Rapid presentation on clojure
 What are the possibilities
 *** TODO Visibility on my clojure projects
-*** DONE setup asus zenbook
-CLOSED: [2012-12-23 Sun 13:14]
-http://adumont.fr/blog/setup-the-asus-zenbook/
-*** DONE blogging with org-mode/org2blog/wordpress
-CLOSED: [2012-12-23 Sun 13:14]
-http://adumont.fr/blog/blogging-with-org-mode-and-org2blog-to-publish-on-wordpress/
-*** DONE my emacs tools
-CLOSED: [2012-12-23 Sun 13:14]
-http://adumont.fr/blog/my-emacs-tools/
+
 * TODO clojure [11%]
 ** DONE start [100%]
 CLOSED: [2012-04-21 Sat 18:18]
@@ -308,11 +342,13 @@ CLOSED: [2012-04-21 Sat 18:18]
 *** DONE play with it
 CLOSED: [2012-04-21 Sat 12:09]
 
-** PENDING Reading [33%]
+** PENDING Reading [50%]
 *** DONE practical clojure
 CLOSED: [2012-04-21 Sat 18:20]
 *** PENDING joy of clojure
 *** PENDING clojure in action
+*** DONE Clojure programming
+CLOSED: [2012-12-23 Sun 13:24]
 ** PENDING exercises [0%]
 *** PENDING euler [66%]
 **** DONE register
