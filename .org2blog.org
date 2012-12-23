@@ -1,5 +1,17 @@
 
 * Posts
+** [[file:/home/tony/org/article/my-emacs-tools.org][My emacs tools]]
+:PROPERTIES:
+:POSTID:   607
+:POST_DATE: 20121223T11:15:00+0000
+:Published: Yes
+:END:
+** [[file:/home/tony/org/article/forking-emacs-live.org][My emacs tools]]
+:PROPERTIES:
+:POSTID:   607
+:POST_DATE: 20121223T11:15:35+0000
+:Published: No
+:END:
 ** [[file:/home/tony/org/article/resources/org/dummy.org][Dummy sample to prove org2blog rocks!]]
 :PROPERTIES:
 :POSTID:   589

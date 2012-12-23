@@ -1,0 +1,548 @@
+#+BLOG: tony-blog
+#+POSTID: 607
+#+DATE: [2012-12-23 Sun 12:15]
+#+BLOG: tony-blog
+#+TITLE: My emacs tools
+#+AUTHOR: Antoine R. Dumont
+#+OPTIONS:
+#+TAGS: emacs emacs-live emacs-starter-kit
+#+CATEGORY: emacs
+#+DESCRIPTION: Just explaining my progression using emacs, first emacs-starter-kit, then emacs-live.
+
+[[http://www.gnu.org/software/emacs/][Emacs]] is powerful and can be daunting at first.
+
+But, in this world, you come across very interesting people that share this idealistic vision: search for the ultimate free knowledge and share it.
+
+Among them, there are those who understood the power of emacs and tried and succeeded in setuping it.
+
+They made this setup generic enough to be able to share it:
+- [[https://github.com/technomancy/emacs-starter-kit][emacs-starter-kit]]
+- [[https://github.com/overtone/emacs-live][emacs-live]]
+
+Of course, i point only 2 projects (aggregates of others emacs project too).
+To see a ever more growing list, you can in emacs, *M-x package-list-packages* to see a good portion of those people (through their most excellent project) :D
+
+Anyway, my point is one of those project can help you rapidly become an emacs user.
+
+If you're interested, in this post, i will explain my experiences in setuping those 2 projects, not how to use them.
+
+* [[https://github.com/technomancy/emacs-starter-kit][emacs-starter-kit]]
+
+** beginning
+[[https://github.com/technomancy/emacs-starter-kit][emacs-starter-kit]] helped me at first to rapidly made some development done in [[http://clojure.org][clojure]], [[http://orgmode.org/][org-mode]], [[http://www.gnu.org/software/emacs/manual/html_mono/elisp.html][emacs-lisp]], empowered through [[https://github.com/magit/magit][magit]].
+
+** bootstrap snippet
+Here is a snippet of code to bootstrap :
+
+#+BEGIN_SRC emacs-lisp
+(require 'package)
+(add-to-list 'package-archives
+             '("marmalade" . "http://marmalade-repo.org/packages/") t)
+(package-initialize)
+
+(when (not package-archive-contents)
+  (package-refresh-contents))
+
+;; Add in your own as you wish:
+(defvar my-packages '(starter-kit starter-kit-lisp starter-kit-bindings org magit)
+  "A list of packages to ensure are installed at launch.")
+
+(dolist (p my-packages)
+  (when (not (package-installed-p p))
+    (package-install p)))
+#+END_SRC
+
+** My setup over time
+
+Then came along the modifications that kept on pushing the limit of the *init.el*.
+
+But, at the time, i did not yet search to make rigorous setup in [[http://www.gnu.org/software/emacs/manual/html_mono/elisp.html][emacs-lisp]], i did not have time yet.
+
+So, my setup grew anarchically over time (with sections in one file...)
+
+#+BEGIN_SRC emacs-lisp
+;; User pack init file
+;;
+;; User this file to initiate the pack configuration.
+;; See README for more information.
+
+;; workaround for launching emacs from the stumpwm path
+;; this will permit the starting of lein (which is in /home/tony/bin)
+(setenv "PATH" (concat "/home/tony/bin:" (getenv "PATH")))
+
+;; starter-kit snippets of code imported brutally after the default one (from emacs-live's init.el)
+
+(require 'package)
+(add-to-list 'package-archives
+             '("marmalade" . "http://marmalade-repo.org/packages/") t)
+(package-initialize)
+
+(when (not package-archive-contents)
+  (package-refresh-contents))
+
+(defvar my-packages '(starter-kit starter-kit-lisp starter-kit-js starter-kit-ruby starter-kit-eshell clojure-mode clojure-test-mode multi-term switch-window slime slime-repl ediff org flymake-shell graphviz-dot-mode auto-complete cljdoc fold-dwim htmlize)
+  "A list of packages to ensure are installed at launch.")
+
+(dolist (p my-packages)
+  (when (not (package-installed-p p))
+    (package-install p)))
+
+;; common-lisp setup
+
+(setq inferior-lisp-program "/usr/bin/clisp")
+;; (add-to-list ’load-path "/home/tony/.emacs.d/elpa/slime-20100404.1/")
+;; (require ’slime-autoloads)
+;; (slime-setup)
+
+;; some multi term tweaks
+(require 'multi-term)
+(global-set-key (kbd "C-c C-j") 'term-line-mode)
+
+;; some text/font/color tweaks
+
+(setq-default fill-column 120)
+(set-face-background 'default "black")
+
+;; auto complete
+
+(add-to-list 'ac-dictionary-directories "~/.emacs.d/elpa/auto-complete-1.4/dict")
+(require 'auto-complete-config)
+(ac-config-default)
+
+(set-language-environment "UTF-8")
+
+;; clojure-mode setup
+
+(require 'clojure-mode)
+
+(add-to-list 'auto-mode-alist '("\.cljs$" . clojure-mode))
+
+(add-hook 'clojure-mode-hook (lambda () (paredit-mode +1)))
+
+;; slime repl setup
+
+; add color into the repl via clojure-jack-in
+(add-hook 'slime-repl-mode-hook
+         (defun clojure-mode-slime-font-lock ()
+           (let (font-lock-mode)
+             (clojure-mode-font-lock-setup))))
+
+(add-hook 'slime-repl-mode-hook (lambda () (paredit-mode +1)))
+
+(setq slime-net-coding-system 'utf-8-unix)
+
+;; nrepl setup
+(add-hook 'nrepl-mode-hook (lambda () (paredit-mode +1)))
+
+;; some personal functions that extends the one loaded from user.el
+
+(defun exists-session-or-spawn-it (session-name session-command)
+  "Given a session-name, check the existence of such a session. If it doesn't exist, spawn the session via the command session-command"
+  (let ((proc (get-buffer-process session-name)))
+    (unless (and proc (eq (process-status proc) 'run))
+      (funcall session-command))))
+
+(defun switch-to-buffer-or-nothing (process-name buffer-name)
+  "Given a process name, switch to the corresponding buffer-name if the process is running or does nothing."
+  (unless (string= (buffer-name) buffer-name)
+    (let ((proc (get-buffer-process process-name)))
+      (if (and proc (eq (process-status proc) 'run))
+          (switch-to-buffer-other-window buffer-name)))))
+
+;; examples
+;; (switch-to-buffer-or-nothing "*swank*" "*slime-repl nil*")    ;; clojure-jack-in
+;; (switch-to-buffer-or-nothing "*terminal<1>*" "*terminal<1>*") ;; multi-term
+
+(defun multi-term-once ()
+  "Check the existence of a terminal with multi-term.
+If it doesn't exist, launch it. Then go to this buffer in another buffer."
+  (interactive)
+  (unless (exists-session-or-spawn-it "*terminal<1>*" 'multi-term)
+    (switch-to-buffer-or-nothing "*terminal<1>*" "*terminal<1>*")))
+
+(defun jack-in-once ()
+  "Check the existence of a repl session (nrepl or slime). If it doesn't exist, launch it."
+  (interactive)
+  (exists-session-or-spawn-it "*nrepl-server*" (lambda () (nrepl-jack-in nil))))
+
+;;   (exists-session-or-spawn-it "*swank*" 'clojure-jack-in)
+
+;; other bindings that uses personal functions
+
+(global-set-key (kbd "C-c C-z") 'multi-term-once)
+(add-hook 'clojure-mode-hook 'jack-in-once)
+
+;; Some org-mode setup
+
+(column-number-mode)
+
+(setq org-directory "~/org")
+
+(setq org-startup-indented t)
+
+(setq org-log-done 'time)
+
+(setq org-default-notes-file (concat org-directory "/notes.org"))
+
+(define-key global-map "\C-cc" 'org-capture)
+
+(setq org-tag-alist '(("howTo" . ?h)
+                      ("tech" . ?t)
+                      ("emacs" . ?e)
+                      ("orgMode" . ?o)
+                      ("faq" . ?f)
+                      ("firefox")
+                      ("conkeror")
+                      ("linux")))
+
+(setq org-todo-keywords
+   '((sequence "TODO" "IN-PROGRESS" "PENDING" "|"  "DONE" "FAIL" "DELEGATED" "CANCELLED")))
+
+;; To show/hide block of code
+
+(require 'fold-dwim)
+(global-set-key (kbd "C-c j") 'fold-dwim-toggle)
+(global-set-key (kbd "C-c l") 'fold-dwim-hide-all)
+(global-set-key (kbd "C-c ;") 'fold-dwim-show-all)
+
+;; C-x C-l to lower case ; C-x C-u to upper case
+
+(put 'downcase-region 'disabled nil)
+(put 'upcase-region 'disabled nil)
+
+;; Find file in project
+
+(eval-after-load 'find-file-in-project
+  '(progn
+     ;; add 'entreprise' files patterns (cough!)
+     (setq ffip-patterns
+           (append ffip-patterns
+                   '("*.cs*""*.htm*" "*.java" "*.js*" "*.php"
+                     "*.properties" "*.sql" "*.xml" "*.clj*")))
+     ;; increase the max number of files, otherwise some files will be
+     ;; 'unfindable' on big projects
+     (setq ffip-limit 8192)))
+
+;; etags
+
+(require 'etags)
+
+(defun ido-find-tag ()
+  "Find a tag using ido"
+  (interactive)
+  (tags-completion-table)
+  (let (tag-names)
+    (mapc (lambda (x)
+            (unless (integerp x)
+              (push (prin1-to-string x t) tag-names)))
+          tags-completion-table)
+    (find-tag (ido-completing-read "Tag: " tag-names))))
+
+(defun ido-find-file-in-tag-files ()
+  (interactive)
+  (save-excursion
+    (let ((enable-recursive-minibuffers t))
+      (visit-tags-table-buffer))
+    (find-file
+     (expand-file-name
+      (ido-completing-read
+       "Project file: " (tags-table-files) nil t)))))
+
+(global-set-key [remap find-tag] 'ido-find-tag)
+(global-set-key (kbd "C-.") 'ido-find-file-in-tag-files)
+
+;; to improve the movement in files
+
+(defvar smart-use-extended-syntax nil
+  "If t the smart symbol functionality will consider extended
+syntax in finding matches, if such matches exist.")
+
+(defvar smart-last-symbol-name ""
+  "Contains the current symbol name.
+
+This is only refreshed when `last-command' does not contain
+either `smart-symbol-go-forward' or `smart-symbol-go-backward'")
+
+(make-local-variable 'smart-use-extended-syntax)
+
+(defvar smart-symbol-old-pt nil
+  "Contains the location of the old point")
+
+(defun smart-symbol-goto (name direction)
+  "Jumps to the next NAME in DIRECTION in the current buffer.
+
+DIRECTION must be either `forward' or `backward'; no other option
+is valid."
+
+  ;; if `last-command' did not contain
+  ;; `smart-symbol-go-forward/backward' then we assume it's a
+  ;; brand-new command and we re-set the search term.
+  (unless (memq last-command '(smart-symbol-go-forward
+                               smart-symbol-go-backward))
+    (setq smart-last-symbol-name name))
+  (setq smart-symbol-old-pt (point))
+  (message (format "%s scan for symbol \"%s\""
+                   (capitalize (symbol-name direction))
+                   smart-last-symbol-name))
+  (unless (catch 'done
+            (while (funcall (cond
+                             ((eq direction 'forward) ; forward
+                              'search-forward)
+                             ((eq direction 'backward) ; backward
+                              'search-backward)
+                             (t (error "Invalid direction"))) ; all others
+                            smart-last-symbol-name nil t)
+              (unless (memq (syntax-ppss-context
+                             (syntax-ppss (point))) '(string comment))
+                (throw 'done t))))
+    (goto-char smart-symbol-old-pt)))
+
+(defun smart-symbol-go-forward ()
+  "Jumps forward to the next symbol at point"
+  (interactive)
+  (smart-symbol-goto (smart-symbol-at-pt 'end) 'forward))
+
+(defun smart-symbol-go-backward ()
+  "Jumps backward to the previous symbol at point"
+  (interactive)
+  (smart-symbol-goto (smart-symbol-at-pt 'beginning) 'backward))
+
+(defun smart-symbol-at-pt (&optional dir)
+  "Returns the symbol at point and moves point to DIR (either `beginning' or `end') of the symbol.
+
+If `smart-use-extended-syntax' is t then that symbol is returned
+instead."
+  (with-syntax-table (make-syntax-table)
+    (if smart-use-extended-syntax
+        (modify-syntax-entry ?. "w"))
+    (modify-syntax-entry ?_ "w")
+    (modify-syntax-entry ?- "w")
+    ;; grab the word and return it
+    (let ((word (thing-at-point 'word))
+          (bounds (bounds-of-thing-at-point 'word)))
+      (if word
+          (progn
+            (cond
+             ((eq dir 'beginning) (goto-char (car bounds)))
+             ((eq dir 'end) (goto-char (cdr bounds)))
+             (t (error "Invalid direction")))
+            word)
+        (error "No symbol found")))))
+
+(global-set-key (kbd "M-n") 'smart-symbol-go-forward)
+(global-set-key (kbd "M-p") 'smart-symbol-go-backward)
+
+;; To dynamically extend emacs via macros
+
+(defun save-macro (name)
+  "save a macro. Take a name as argument and save the last
+     defined macro under this name at the end of your .emacs"
+     (interactive "SName of the macro :")  ; ask for the name of the macro
+     (kmacro-name-last-macro name)         ; use this name for the macro
+     (find-file user-init-file)            ; open ~/.emacs or other user init file
+     (goto-char (point-max))               ; go to the end of the .emacs
+     (newline)                             ; insert a newline
+     (insert-kbd-macro name)               ; copy the macro
+     (newline)                             ; insert a newline
+     (switch-to-buffer nil))               ; return to the initial buffer
+
+;; Macro generated by emacs
+
+(fset 'after-jack-in
+      (lambda (&optional arg)
+        "A macro to dispose emacs buffer as i'm used to after the clojure-jack-in is started."
+        (interactive "p")
+        (kmacro-exec-ring-item (quote ([24 48 24 50 24 111 134217848 109 117 108 116 105 return 108 101 105 110 32 109 105 100 106 101 32 45 45 108 97 122 121 116 101 115 116 return 24 51 24 111 24 98 110 114 101 112 108 return 24 98 42 110 114 101 112 108 42 return 24 111] 0 "%d")) arg)))
+
+(global-set-key (kbd "C-c C-i") 'after-jack-in)
+
+;; Load bindings config
+(live-load-config-file "bindings.el")
+#+END_SRC
+source: [[https://github.com/ardumont/emacs-live/blob/3d74b44b30664d36a485fb31456cd9d461a31c3d/packs/live/tony-pack/init.el][old-init.el]]
+
+Then along came...
+
+* [[https://github.com/overtone/emacs-live][emacs-live]]
+
+** Beginning
+
+[[https://github.com/overtone/emacs-live][emacs-live]] is another project aiming at helping beginning coding with [[https://github.com/overtone/overtone][overtone]] and [[https://github.com/quil/quil][quil]].
+
+It's artist/dev oriented people. But, this setup is [[http://clojure.org][clojure]]/java aware, so naturally i gave it a shot.
+
+Its dark theme attracted me.
+
+** Install
+
+So i installed it but i had a different approach this time.
+I directly forked emacs-live (via github), then installing my fork on my machine and made it my *~/.emacs.d* folder:
+
+#+BEGIN_SRC bash
+git clone git@github.com:ardumont/emacs-live.git ~/repo/perso/emacs-live
+ln -s ~/repo/perso/emacs-live ~/.emacs.d
+emacs
+#+END_SRC
+
+** Use
+Then i used it and wow! What a default powerful setup!!!
+
+It's like they say in their documentation *Energy starts surging through your fingertips.*
+
+At first, i used it because the clojure/java part is really great.
+You got a small pop-up when writing your code in all your buffer.
+This pop-up provides with a contextual possible completion (clojure, java, emacs-lisp, common-lisp, etc...).
+
+** Setup
+
+But i rapidly missed some bindings coming from [[https://github.com/technomancy/emacs-starter-kit][emacs-starter-kit]].
+
+*** first tryout and success
+
+So i merged the two of them.
+
+I first created a branch *tony* in my fork to keep the master branch clean to be able to rebase overtone team's work on my branch.
+
+#+BEGIN_SRC bash
+git checkout -b tony
+#+END_SRC
+
+And i simply added a small code at the end of the emacs-live's init.el to load mine.
+
+It's brutal but it worked...
+
+*** live-pack
+
+Then over time, the urge to create a cleaner way came through.
+As i became more and more fluent in clojure (which is a lisp), i became more fluent in lisp in general.
+So i began to enter into emacs-live and created my own pack.
+
+I created a live-pack as already existing functionality explained in emacs-live documentation.
+I simply created a *tony-pack* which is a folder with a specific convention:
+
+#+BEGIN_SRC bash
+/home/tony/.emacs.d/packs/live/tony-pack/
+├── config
+│   └── bindings.el
+├── init.el
+├── lib
+└── README.md
+2 directories, 3 files
+#+END_SRC
+
+And simply, at first, my *init.el* was my old one.
+
+Then added my *tony-pack* in the list of packages to load at emacs startup time (*~/.emacs.el*):
+#+BEGIN_SRC emacs-lisp
+;;default packs
+(let* ((pack-names '("foundation-pack"
+                     "colour-pack"
+                     "clojure-pack"
+                     "lang-pack"
+                     "power-pack"
+                     "git-pack"
+                     "bindings-pack"
+                     "tony-pack"))
+       (live-dir (file-name-as-directory "live"))
+       (dev-dir  (file-name-as-directory "dev")))
+  (setq live-packs (mapcar (lambda (p) (concat live-dir p)) pack-names) )
+  (setq live-dev-pack-list (mapcar (lambda (p) (concat dev-dir p)) pack-names) ))
+#+END_SRC
+
+There you have it. Now emacs starts using emacs-live as basis and as extension my starter-kit.
+
+*** Improvements
+
+I added functionalities but i tried to segregate them directly into packs which is more respectuous of the [[http://en.wikipedia.org/wiki/Separation_of_concerns][separation of concerns]].
+
+Here is my current *init.el*:
+
+#+BEGIN_SRC emacs-lisp
+;; User pack init file
+;;
+;; User this file to initiate the pack configuration.
+;; See README for more information.
+
+;; my init.el snippets of code transformed brutally into a emacs-live live pack
+;; (from emacs-live's init.el)
+
+;; setup the path
+(require 'exec-path-from-shell) ;; if not using the ELPA package
+(exec-path-from-shell-initialize)
+
+;; some text/font/color tweaks
+
+(setq-default fill-column 120)
+(set-face-background 'default "black")
+
+(set-language-environment "UTF-8")
+(blink-cursor-mode 1)
+
+;; puppet-mode for the .pp file
+
+(add-to-list 'auto-mode-alist '("\.pp$" . puppet-mode))
+
+;; C-x C-l to lower case ; C-x C-u to upper case
+
+(put 'downcase-region 'disabled nil)
+(put 'upcase-region 'disabled nil)
+
+;; To dynamically extend emacs via macros
+
+(defun save-macro (name)
+  "save a macro. Take a name as argument and save the last
+     defined macro under this name at the end of your .emacs"
+     (interactive "SName of the macro :")  ; ask for the name of the macro
+     (kmacro-name-last-macro name)         ; use this name for the macro
+     (find-file user-init-file)            ; open ~/.emacs or other user init file
+     (goto-char (point-max))               ; go to the end of the .emacs
+     (newline)                             ; insert a newline
+     (insert-kbd-macro name)               ; copy the macro
+     (newline)                             ; insert a newline
+     (switch-to-buffer nil))               ; return to the initial buffer
+
+;; Load bindings config
+(live-load-config-file "bindings.el")
+
+;; edit-server
+(if (and (daemonp) (locate-library "edit-server"))
+     (progn
+       (require 'edit-server)
+       (setq edit-server-new-frame nil)
+       (edit-server-start)))
+#+END_SRC
+
+Now my packages list grew like this:
+#+BEGIN_SRC emacs-lisp
+(pack-names '(...
+              "tony-install-packages-pack"
+              "tony-pack"
+              "tony-blog-pack"
+              "tony-haskell-pack"
+              "tony-java-pack"
+              "tony-lisp-pack"
+              "tony-orgmode-pack"
+              "tony-buffer-pack"))
+#+END_SRC
+
+where:
+- tony-install-packages-pack: A pack which install all the needed packages not already loaded via emacs-live (it may disappear so that each pack is responsible for doing the install).
+- tony-blog-pack: my setup to post my org-mode files into my blog wordpress
+- tony-haskell-pack: my haskell setup
+- tony-java-pack: my java setup (not yet full functional, it's a start)
+- tony-lisp-pack: my clojure, common-lisp, emacs-lisp setup (adding hooks)
+- tony-org-mode: org-mode setup (added keywords, bindings, etc...)
+- tony-buffer-pack: a pack regarding fast movement/edition in the buffers
+- tony-pack: the remainder of my first tony-pack not yet exploded into packs.
+
+At the moment, those packs are available in my fork in the branch *tony*.
+
+*** Future
+
+As always, there remains work to be done:
+- Continue my work of cleaning up my existing *tony-pack* and create some other packs (tony-org-mode-pack, tony-clojure-pack, etc...)
+- Rename those packs and maybe create some git repositories dedicated for each of them.
+
+* Conclusion
+
+There you have it, my experience with emacs-starter-kit and emacs-live.
