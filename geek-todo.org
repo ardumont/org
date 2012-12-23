@@ -177,8 +177,9 @@ against this inside a terminal emacs:
 "/home/tony/.lein:/home/tony/.lein/bin:/home/tony/.lein/plugins:/home/tony/applications/bin:/home/tony/work/bin:/home/tony/bin:/home/tony/.lein:/home/tony/.lein/bin:/home/tony/.lein/plugins:/home/tony/applications/bin:/home/tony/work/bin:/home/tony/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games"
 #+end_example
 
-* TODO blog [0%]
-** TODO migrate tonys-blog with static and nakkaya [25%]
+* TODO blog [66%]
+** CANCELLED migrate tonys-blog with static and nakkaya [100%]
+CLOSED: [2012-12-23 Sun 13:12]
 *** DONE static [100%]
 CLOSED: [2012-04-21 Sat 12:48]
 **** DONE fork
@@ -187,7 +188,8 @@ CLOSED: [2012-04-21 Sat 11:56]
 CLOSED: [2012-04-21 Sat 11:56]
 **** DONE try and play with it
 CLOSED: [2012-04-19 Thu 11:56]
-*** TODO nakkaya.com -> tonys-blog [80%]
+*** CANCELLED nakkaya.com -> tonys-blog [80%]
+CLOSED: [2012-12-23 Sun 13:11]
 **** DONE fork
 CLOSED: [2012-04-21 Sat 11:57]
 **** DONE clone
@@ -200,7 +202,35 @@ The generating emacs-lisp to make emacs export the org-mode files into html does
 **** TODO pb with the emacs generation
 Try and see what's not working
 **** Finish the migration
-** TODO Articles [69%]
+** DONE org2blog [100%]
+CLOSED: [2012-12-23 Sun 13:12]
+*** DONE Setup org2blog to be able to edit org-mode file and then push them to wordpress.
+CLOSED: [2012-12-23 Sun 13:12]
+*** DONE publish/sync english articles to wordpress using org2blog [100%]
+CLOSED: [2012-12-23 Sun 13:17]
+**** DONE http://adumont.fr/blog/howto-install-stumpwm-and-little-more/
+CLOSED: [2012-12-23 Sun 13:16]
+**** DONE http://adumont.fr/blog/howto-beamer-with-org-mode/
+CLOSED: [2012-12-23 Sun 13:16]
+**** DONE http://adumont.fr/blog/how-to-install-emacs-24/
+CLOSED: [2012-12-23 Sun 13:16]
+**** DONE http://adumont.fr/blog/how-to-install-the-clojure-development-environment/
+CLOSED: [2012-12-23 Sun 13:17]
+**** DONE http://adumont.fr/blog/how-to-boostrap-a-clojure-project/
+CLOSED: [2012-12-23 Sun 13:17]
+**** DONE http://adumont.fr/blog/one-way-to-solve-a-problem-in-clojure/
+CLOSED: [2012-12-23 Sun 13:17]
+**** DONE http://adumont.fr/blog/my-first-steps-with-arduinoclodiuno/
+CLOSED: [2012-12-23 Sun 13:17]
+**** DONE http://adumont.fr/blog/clodiuno-command-a-led-from-the-repl/
+CLOSED: [2012-12-23 Sun 13:17]
+**** DONE http://adumont.fr/blog/hello-world-in-morse-with-arduinoclodiuno/
+CLOSED: [2012-12-23 Sun 13:17]
+**** DONE http://adumont.fr/blog/video-rich-hikey-are-we-there-yet/
+CLOSED: [2012-12-23 Sun 13:17]
+**** DONE http://adumont.fr/blog/possible-team-workflow-with-git/
+CLOSED: [2012-12-23 Sun 13:17]
+** TODO Articles [75%]
 *** DONE Chroot to save one's GNU/Linux
 CLOSED: [2012-04-21 Sat 18:07]
 http://adumont.fr/blog/chroot-pour-sauver-son-gnulinux/
@@ -253,6 +283,15 @@ Rapid presentation on what i can do and what i do:
 Rapid presentation on clojure
 What are the possibilities
 *** TODO Visibility on my clojure projects
+*** DONE setup asus zenbook
+CLOSED: [2012-12-23 Sun 13:14]
+http://adumont.fr/blog/setup-the-asus-zenbook/
+*** DONE blogging with org-mode/org2blog/wordpress
+CLOSED: [2012-12-23 Sun 13:14]
+http://adumont.fr/blog/blogging-with-org-mode-and-org2blog-to-publish-on-wordpress/
+*** DONE my emacs tools
+CLOSED: [2012-12-23 Sun 13:14]
+http://adumont.fr/blog/my-emacs-tools/
 * TODO clojure [11%]
 ** DONE start [100%]
 CLOSED: [2012-04-21 Sat 18:18]
