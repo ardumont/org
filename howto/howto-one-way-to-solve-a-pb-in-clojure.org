@@ -4,7 +4,7 @@
 #+TITLE: One way to solve a problem in clojure
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
-#+TAGS: clojure emacs leiningen midje tdd problem
+#+TAGS: clojure, emacs, leiningen, midje, tdd, problem
 #+CATEGORY: clojure
 #+DESCRIPTION: A simple problem to solve in clojure
 
