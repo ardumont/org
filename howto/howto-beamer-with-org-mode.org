@@ -4,8 +4,8 @@
 #+TITLE: Howto beamer with org-mode
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
-#+TAGS: emacs beamer org-mode
-#+CATEGORY: emacs beamer org-mode
+#+TAGS: emacs, beamer, org-mode
+#+CATEGORY: emacs, beamer, org-mode
 #+DESCRIPTION: howto make presentation using org-mode and beamer
 #+STARTUP: indent
 #+STARTUP: hidestars odd
