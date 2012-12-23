@@ -4,7 +4,7 @@
 #+TITLE: How to bootstrap a clojure project
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
-#+TAGS: clojure emacs leiningen midje tdd
+#+TAGS: clojure, emacs, leiningen, midje, tdd
 #+CATEGORY: clojure
 #+DESCRIPTION: howto rapidly startup a clojure project using leiningen
 
