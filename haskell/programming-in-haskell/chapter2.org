@@ -110,3 +110,9 @@ Or reverse the list, remove the first element, then return the list again.
 init2 :: [a] -> [a]
 init2 xs  = reverse (drop 1 (reverse xs))
 #+END_SRC
+
+And as for the *drop 1* call goes, we can replace this by the *tail* call:
+#+BEGIN_SRC text
+init3 :: [a] -> [a]
+init3 xs  = reverse (tail (reverse xs))
+#+END_SRC
