@@ -98,3 +98,15 @@ last3 xs = head (drop i xs)
 Show how the library function *init* that removes the last element from
 a non-empty list could similarly be defined in two different ways.
 #+END_QUOTE
+
+We can take all the elements from the list except the last one.
+#+BEGIN_SRC text
+init1 :: [a] -> [a]
+init1 xs = take (length xs - 1) xs
+#+END_SRC
+
+Or reverse the list, remove the first element, then return the list again.
+#+BEGIN_SRC text
+init2 :: [a] -> [a]
+init2 xs  = reverse (drop 1 (reverse xs))
+#+END_SRC
