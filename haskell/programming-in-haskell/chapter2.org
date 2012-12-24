@@ -63,8 +63,37 @@ n = a `div` length xs
 #+BEGIN_QUOTE
 Show how the library function *last* that selects the last element of a non-
 empty list could be defined in terms of the library functions introduced
-in this chapter. Can you think of another possible definition?
+in this chapter.
 #+END_QUOTE
+
+We can basically return the sequence and take the first element.
+
+#+BEGIN_SRC text
+last1 :: [a] -> a
+last1 xs = head (reverse xs)
+#+END_SRC
+
+#+BEGIN_QUOTE
+Can you think of another possible definition?
+#+END_QUOTE
+
+We can take the i^th element where i^th element is the length of the list.
+
+#+BEGIN_SRC text
+last2 :: [a] -> a
+last2 xs = xs !! i
+           where
+             i = length xs - 1
+#+END_SRC
+
+Or we can make a sequence by dropping all elements but the last one and then retrieve the first element of such sequence:
+
+#+BEGIN_SRC text
+last3 :: [a] -> a
+last3 xs = head (drop i xs)
+           where
+             i = length xs - 1
+#+END_SRC
 
 * init
 #+BEGIN_QUOTE
