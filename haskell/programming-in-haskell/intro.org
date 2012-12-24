@@ -10,13 +10,13 @@
 #+STARTUP: indent
 #+STARTUP: hidestars odd
 
-Now that i went and:
+It has been some time now (almost 2 years during my free time) that I:
 - renewed with [[http://en.wikipedia.org/wiki/Functional_programming][Functional Programming]].
 - learn [[http://clojure.org][clojure]] (I do not know all of it yet but i know enough to say, this is the way!)
 - discovered the wonders of the [[http://en.wikipedia.org/wiki/Lisp_(programming_language)][Lisp family]] (i did learn some [[http://en.wikipedia.org/wiki/Common_Lisp][common-lisp]] through [[http://landoflisp.com/][the Land of Lisp]] and some [[http://www.gnu.org/software/emacs/manual/html_mono/elisp.html][emacs-lisp]] through [[http://www.gnu.org/s/emacs/][Emacs]]'s most amazing setup power)
 
 Now, for the time being, I'd like to go and see what [[http://www.haskell.org/][Haskell]] is all about.
-So here it is. I began reading 'Programming in haskell'.
+So here it is. I began reading [[http://www.cs.nott.ac.uk/~gmh/book.html][Programming in haskell]].
 
 Here are my solutions to the exercises.
 I did not yet [[http://www.cs.nott.ac.uk/~gmh/solutions.pdf][confront them]].
