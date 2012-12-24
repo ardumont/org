@@ -6,10 +6,10 @@
 :POST_DATE: 20121223T17:52:00+0000
 :Published: Yes
 :END:
-** [[file:/home/tony/org/haskell/programming-in-haskell/chapter3.org][Programming in haskell - Ch3 - First steps - exercises]]
+** [[file:/home/tony/org/haskell/programming-in-haskell/chapter3.org][Programming in haskell - ch3 - Types and classes - exercises]]
 :PROPERTIES:
-:POSTID:   645
-:POST_DATE: 20121224T13:59:00+0000
+:POSTID:   654
+:POST_DATE: 20121224T19:35:10+0000
 :Published: No
 :END:
 ** [[file:/home/tony/org/haskell/programming-in-haskell/chapter2.org][Programming in haskell - Ch2 - First steps - exercises]]
