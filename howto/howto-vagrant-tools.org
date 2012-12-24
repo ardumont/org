@@ -1,144 +1,368 @@
 #+BLOG: tony-blog
+#+POSTID: 659
+#+DATE: [2012-12-24 Mon 21:16]
+#+BLOG: tony-blog
 #+TITLE: Vagrant tools
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
 #+TAGS: vagrant, vagrant-snap, virtualbox, snapshot
 #+CATEGORY: vagrant, vagrant-snap, virtualbox, snapshot
-#+DESCRIPTION: Rapid howto about vagrant
+#+DESCRIPTION: Howto about vagrant tools
 #+STARTUP: indent
-#+STARTUP: hidestars odd
+#+STARTUP: hidestars
 
-I use vagrant to ease local development in my devops dev.
-I'm thinking about helping me in my general dev too.
-Anyhow, here is how i use vagrant tools.
+In this post, I will describe how to install/setup the [[http://vagrantup.com/][vagrant]] stack I use in my every day work to ease my developments.
+[[http://vagrantup.com/v1/docs/getting-started/why.html][For some hints as to why i use vagrant :D]].
 
-* pre-requisites
+As usual, my environment is a debian-based environment.
 
-** ruby (1.9)
+* Pre-requisites
 
+I detail the versions for which I know the combo works!
+
+** No details
+
+#+BEGIN_SRC sh
+sudo aptitude install -y ruby1.9.3 rubygems virtualbox && \
+sudo gem install vagrant vagrant-snap virtualbox
+#+END_SRC
+
+** Details
+*** ruby (1.9)
 #+BEGIN_SRC sh
 sudo aptitude install ruby1.9.3 rubygems
 #+END_SRC
 
-** virtualbox (4.1)
+*** [[https://www.virtualbox.org/][virtualbox]] (4.1)
 
 #+BEGIN_SRC sh
-sudo aptitude virtualbox
+sudo aptitude install virtualbox
 #+END_SRC
 
-** vagrant (1.0.5)
+*** [[http://vagrantup.com/][vagrant]] (1.0.5)
 
-Vagrant permits to ease the starting and stopping or your vms running with virtualbox.
+[[Http://Vagrantup.Com/][Vagrant]] permits to ease the use of [[https://www.virtualbox.org/][virtualbox]] vm from the command line interface.
 
 #+BEGIN_SRC sh
 sudo gem install vagrant
 #+END_SRC
 
-** vagrant-snap (0.10)
+*** [[https://github.com/t9md/vagrant-snap][vagrant-snap]] (0.10)
 
-*vagrant-snap* permits to ease the hot snapshoting of your vm.
+[[https://github.com/t9md/vagrant-snap][Vagrant-snap]] permits to ease the hot snapshoting of your vm.
 
 #+BEGIN_SRC sh
 sudo gem install vagrant-snap virtualbox
 #+END_SRC
 
 *Note*
-You need to add the virtualbox gem dependency because of a [[https://github.com/t9md/vagrant-snap/issues/9][vagrant/vagrant-snap dependency issue]].
+You need to add the [[https://www.virtualbox.org/][virtualbox]] gem dependency because of a [[https://github.com/t9md/vagrant-snap/issues/9][vagrant/vagrant-snap dependency issue]].
 
-* install the image
-
-** download
+* Your first virtual machine (vm)
+** Setup
+*** Default
 
 #+BEGIN_SRC sh
-cd /your/vm/folder && \
-  vagrant init
+cd /your/vm/folder && vagrant init
 #+END_SRC
 
-This will generate a template *Vagrantfile* with a default content.
+This will generate a template *Vagrantfile* with a minimal default content (i removed comments):
+
+#+BEGIN_SRC ruby
+Vagrant::Config.run do |config|
+  config.vm.box = "base"
+end
+#+END_SRC
+
+*** Specific setup
+
 Now edit it to suit your need.
 
-#+BEGIN_SRC sh
-vagrant box add lucid64 http://files.vagrantup.com/lucid64.box
+For example, I frequently use something along those lines :
+- call the vm *lucid64*
+- the iso is based on the template box http://files.vagrantup.com/lucid64.box
+- the vm has *512Mo* of RAM
+- assign one ip *192.168.33.2*
+- assign a hostname to be *ubuntu.local.com*
+- as soon as the vm is up, i want it to run the script =./scripts/bootstrap.sh=
+- and i want to make a mount point on some folder, here =~vagrant/bin/= will be mounted on the host's folder =./scripts=
+
+#+BEGIN_SRC ruby
+Vagrant::Config.run do |config|
+    config.vm.box = "lucid64"
+    config.vm.box_url = "http://files.vagrantup.com/lucid64.box"
+    config.vm.customize ["modifyvm", :id,  "--natdnshostresolver1", "on", "--memory", 512]
+    config.vm.network :hostonly, "192.168.33.2"
+    config.vm.host_name = "ubuntu.local.com"
+    config.vm.provision :shell, :path => "./scripts/bootstrap.sh"
+    config.vm.share_folder "v-data-1", "/home/vagrant/bin", "./scripts"
+end
 #+END_SRC
 
-This will download and install locally a fresh image (you can see this as an equivalent to ec2 ami but for virtualbox).
-Now you got all you need.
+*Note*
+- [[http://www.vagrantbox.es/][find some vagrant templates]].
+- You are not limited to one vm.
 
-** boot the vm
+** Boot
 
-Place yourself in the `/wikeo/wikeo-deploy` folder.
-
+Run this command:
 #+BEGIN_SRC sh
 vagrant up
 #+END_SRC
 
-** connect to it
+*Note*
+The first time around, if you do not have locally the *lucid64* vm, this will download it for you.
 
+Then, this will boot the vm respecting the setup you provided in the *Vagrantfile*.
+
+Possible output:
+#+BEGIN_SRC sh
+tony@dagobah(0.36,) 23:03:09 ~/repo/perso/puppet-sync (master) $ v up vm1
+[vm1] VM already created. Booting if it's not already running...
+[vm1] Clearing any previously set forwarded ports...
+[vm1] Forwarding ports...
+[vm1] -- 22 => 2222 (adapter 1)
+[vm1] Creating shared folders metadata...
+[vm1] Clearing any previously set network interfaces...
+[vm1] Preparing network interfaces based on configuration...
+[vm1] Running any VM customizations...
+[vm1] Booting VM...
+[vm1] Waiting for VM to boot. This can take a few minutes.
+[vm1] VM booted and ready for use!
+[vm1] Configuring and enabling network interfaces...
+[vm1] Setting host name...
+[vm1] Mounting shared folders...
+[vm1] -- v-root: /vagrant
+[vm1] -- v-data-2: /root/bin
+[vm1] -- v-data-3: /home/vagrant/bin
+[vm1] -- v-data-1: /etc/puppet-mount/
+[vm1] -- v-data-4: /usr/local/bin/enc
+[vm1] Running provisioner: Vagrant::Provisioners::Shell...
+stdin: is not a tty
++ whoami
+root
++ '[' '!' -f ./puppetlabs-release-precise.deb ']'
++ grep 'export TERM' /root/.bashrc
+export TERM=xterm
++ '[' '!' 0 = 0 ']'
+#+END_SRC
+
+*Note*
+- =v= stands for =vagrant= (it's a personal alias)
+
+** Connect
+As soon as the vm is up, you get back the prompt.
+It is now time to connect to it:
 #+BEGIN_SRC sh
 vagrant ssh
 #+END_SRC
 
-* halt it
+Possible output:
+#+BEGIN_SRC sh
+tony@dagobah(1.09,) 23:04:38 (7) ~/repo/perso/puppet-sync (master) $ v ssh vm1
+Welcome to Ubuntu 12.04 LTS (GNU/Linux 3.2.0-23-generic-pae i686)
 
-Now that you're good, you can stop the vm.
+ * Documentation:  https://help.ubuntu.com/
+Welcome to your Vagrant-built virtual machine.
+Last login: Sun Dec 16 13:22:45 2012 from 10.0.2.2
+vagrant@puppet:~$
 
+#+END_SRC
+
+** Action
+Once you're connected, you can do whatever you want with your vm (even crash it!).
+
+Imagine:
+- one vm with your puppet master (to serve the install of your agent)
+- another vm with a puppet agent (to check that the modules you develop are ok)
+- one vm with the application you're developing (plugged with the source code on your host machine...)
+- another one with your back end
+- etc...
+
+To sum up, the sky is the limit (at least, the limit is with your host machine's ram)
+
+** Status
+
+You can check at any time the status of your vms.
+
+#+BEGIN_SRC sh
+vagrant status
+#+END_SRC
+
+Possible output:
+#+BEGIN_SRC sh
+tony@dagobah(1.13,) 23:07:47 ~/repo/perso/puppet-sync (master) $ v status
+Current VM states:
+
+vm1                      running
+vm2                      poweroff
+
+This environment represents multiple VMs. The VMs are all listed
+above with their current state. For more information about a specific
+VM, run `vagrant status NAME`.
+#+END_SRC
+** Halt
+
+Once you want to halt the vm because you're done doing what you want.
+First, disconnect from the vm (*C-d* in an empty bash prompt or *exit* or *logout*).
+
+#+BEGIN_SRC sh
+vagrant@puppet:~$ logout
+Connection to 127.0.0.1 closed.
+tony@dagobah(1.23,) 23:06:07 ~/repo/perso/puppet-sync (master) $
+#+END_SRC
+
+Now, you can stop the vm:
 #+BEGIN_SRC sh
 vagrant halt
 #+END_SRC
 
-* snapshot
+Possible output:
+#+BEGIN_SRC sh
+tony@dagobah(1.15,) 23:08:50 (130) ~/repo/perso/puppet-sync (master) $ v halt vm1
+[vm1] Attempting graceful shutdown of VM...
+tony@dagobah(1.34,) 23:09:03 ~/repo/perso/puppet-sync (master) $
+#+END_SRC
+
+* A cool functionality: Snapshot
 
 The utility of the snapshot must not be under-estimated.
-You can see this as an equivalent to git for your code but here it's for your vm.
+This can save you plenty of time (of course, you need to take the time to make some at first).
+You can see this as an equivalent to [[http://git-scm.com/][git]] for your vms.
 
-This permits to rapidly go back in time and change a failed step by short-circuiting the previsous successful steps.
+This permits you to go back at a precise snapshot.
+For example, to redo a failed step by short-circuiting successful steps that you want to skip.
 
-** snapshot
+For this, we will use [[https://github.com/t9md/vagrant-snap][vagrant-snap]].
 
-*** take
+** take
+
+To take one snapshot for the vm1:
 
 #+BEGIN_SRC sh
 vagrant snap take vm1 -n $TAG_YOU_WANT -d $DESCRIPTION_YOU_WANT
 #+END_SRC
 
+*Note*
+- if no name is provided for the vm, all the vms will be snapshoted
 - the description (-d) is optional but recommended.
+- Did I mention that the snapshot can be taken when the vm is running?! Fun, ain't it!!!
 
 Example:
-
 #+BEGIN_SRC sh
-vagrant snap take vm1 -n wikeo-installed-and-ok -d "wikeo-core has been installed via puppet and is ok."
+tony@dagobah(1.44,) 23:15:51 ~/repo/perso/puppet-sync (master) $ v snap take -n master-ready-for-test -d "master up and ready for testing"
+[vm1]
+0%...10%...20%...30%...40%...50%...60%...70%...80%...90%...100%
+[vm2]
+0%...10%...20%...30%...40%...50%...60%...70%...80%...90%...100%
 #+END_SRC
 
-*** list
+** list
 
-This command will list all your snapshots for this vm.
+List all your snapshots for your vms.
 
 #+BEGIN_SRC sh
 vagrant snap list
 #+END_SRC
 
-Here is a possible output:
+Here is a possible output with 2 vms:
 
 #+BEGIN_SRC sh
+tony@dagobah(1.07,) 23:16:29 ~/repo/perso/puppet-sync (master) $ v snap list
 [vm1]
- puppet-agent-ready [ 15658 days ] puppet-master is ready
+ master-ready [ 8 days ] puppet master up and ready
+    `-- master-ready-for-test [ 43 seconds ] master up and ready for testing
 [vm2]
- app-installed [ 15658 days ] app has been installed with the puppet agent
+ agent-ready [ 8 days ] puppet agent up and ready
+    `-- master-ready-for-test [ 41 seconds ] master up and ready for testing
 #+END_SRC
 
-*** back to the ~~future~~ past
+** back to the +future+ past
 
-If you do snapshot, you will have eventually to restore your snapshot at some point:
+If you take snapshots, you will have eventually want to restore some:
 
+*** Suspend (optional)
+
+First, you may need to suspend the vm(s) =$VM_NAME=:
+#+BEGIN_SRC sh
+vagrant $VM_NAME suspend
+#+END_SRC
+
+
+
+Possible output:
+#+BEGIN_SRC sh
+tony@dagobah(0.98,) 23:11:05 ~/repo/perso/puppet-sync (master) $ v suspend vm1
+[vm1] Saving VM state and suspending execution...
+tony@dagobah(0.76,) 23:11:50 (130) ~/repo/perso/puppet-sync (master) $ v status
+Current VM states:
+
+vm1                      saved
+vm2                      poweroff
+
+This environment represents multiple VMs. The VMs are all listed
+above with their current state. For more information about a specific
+VM, run `vagrant status NAME`.
+#+END_SRC
+
+*** Go back
+
+Then you can go back to the =$TAG_YOU_WANT=:
 #+BEGIN_SRC sh
 vagrant snap go $TAG_YOU_WANT $VM_NAME
 #+END_SRC
 
-$VM_NAME is optional.
-If you do not give any, all your vms will be wired up to the tag $TAG_YOU_WANT.
+*Note*
+- =$VM_NAME= is optional.
+- If you do not give any name, all your vms will be wired up to the tag =$TAG_YOU_WANT=.
 
 For example:
 
 #+BEGIN_SRC sh
-vagrant snap go "app-installed-ok" vm1
+tony@dagobah(0.35,) 23:20:05 ~/repo/perso/puppet-sync (master) $ v snap go master-ready-for-test vm1
+[vm1]
+VBoxManage: error: Cannot power down a saved virtual machine
+VBoxManage: error: Details: code VBOX_E_INVALID_VM_STATE (0x80bb0002), component Console, interface IConsole, callee nsISupports
+Context: "PowerDown(progress.asOutParam())" at line 168 of file VBoxManageControlVM.cpp
+Restoring snapshot 9e8f5514-5745-4abb-925f-a2e38bbf9200
+0%...10%...20%...30%...40%...50%...60%...70%...80%...90%...100%
+Waiting for VM "aa8c95dc-571e-4cb2-ae4a-3c57f4c2db8c" to power on...
+VM "aa8c95dc-571e-4cb2-ae4a-3c57f4c2db8c" has been successfully started.
 #+END_SRC
+
+*Note* The error message are normal and may vary according to the state of your vm(s).
+
+** Cleaning Snapshot
+You can delete snapshots once you do not need them anymore.
+
+#+BEGIN_SRC sh
+vagrant snap delete $VM_SNAPSHOT
+#+END_SRC
+
+This may take some time. You can check this via the =status= call:
+#+BEGIN_SRC sh
+tony@dagobah(2.82,) 23:27:44 ~/repo/perso/puppet-sync (master) $ v status
+Current VM states:
+
+vm1                      deletingsnapshotlive
+vm2                      poweroff
+
+This environment represents multiple VMs. The VMs are all listed
+above with their current state. For more information about a specific
+VM, run `vagrant status NAME`.
+
+#+END_SRC
+
+Possible output:
+#+BEGIN_SRC sh
+tony@dagobah(0.47,) 23:23:19 ~/repo/perso/puppet-sync (master) $ v snap delete master-ready-for-test
+[vm1]
+0%...10%...20%...30%...40%...50%...60%...70%...80%...90%...100%
+[vm2]
+0%...10%...20%...30%...40%...50%...60%...70%...80%...90%...100%
+#+END_SRC
+
+* Conclusion
+
+With minor effort from your part, the _Vagrant stack_ is a great way to empower you for your every day use.
+Use it, you won't regret it!
