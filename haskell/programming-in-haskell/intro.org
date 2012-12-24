@@ -11,8 +11,8 @@
 #+STARTUP: hidestars odd
 
 Now that i went and:
-- learn clojure (I do not know all of it yet but i know enough to say, this is the way)
-- discovered the wonders of the Lisp family (i did learn some common-lisp through 'the land of lisp' and some emacs-lisp through emacs)
+- learn [[http://clojure.org][clojure]] (I do not know all of it yet but i know enough to say, this is the way!)
+- discovered the wonders of the Lisp family (i did learn some common-lisp through 'the land of lisp' and some emacs-lisp through emacs's most amazing setup power)
 - renewed with functional programming.
 
 Now, for the time being, I'd like to go and see what haskell is all about.
@@ -22,7 +22,9 @@ Here are my solutions to the exercises.
 I did not yet confront them.
 
 * Calculation
+#+BEGIN_QUOTE
 Give another possible calculation for the result of double (double 2).
+#+END_QUOTE
 
 #+BEGIN_SRC text
 double (double 2) = (double 2) + (double 2)
@@ -34,7 +36,9 @@ double (double 2) = (double 2) + (double 2)
 #+END_SRC
 
 * Proof
+#+BEGIN_QUOTE
 Show that sum [x] = x for any number x.
+#+END_QUOTE
 
 #+BEGIN_SRC text
 sum :: Num a => [a] -> a
@@ -50,9 +54,10 @@ sum [x] = x + sum []
 #+END_SRC
 
 * Product
-
+#+BEGIN_QUOTE
 Define a function product that produces the product of a list of numbers,
 and show using your definition that product [2, 3, 4] = 24.
+#+END_QUOTE
 
 product:
 #+BEGIN_SRC text
@@ -71,9 +76,10 @@ pdt [2,3,4] = 2 * pdt [3,4]
 #+END_SRC
 
 * Quicksort
-
+#+BEGIN_QUOTE
 How should the definition of the function qsort be modified so that it
 produces a reverse sorted version of a list?
+#+END_QUOTE
 
 Given the following quicksort definition:
 
@@ -117,9 +123,10 @@ qsort [4,6,2] = qsort [6] ++ [4] ++ qsort [2]
 #+END_SRC
 
 * Quicksort 2/2
-
+#+BEGIN_QUOTE
 What would be the effect of replacing *<=* by *<* in the original definition
 of qsort ? Hint: consider the example *qsort [2, 2, 3, 1, 1]*.
+#+END_QUOTE
 
 Given:
 #+BEGIN_SRC text
