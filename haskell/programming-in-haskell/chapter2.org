@@ -81,9 +81,7 @@ We can take the i^th element where i^th element is the length of the list.
 
 #+BEGIN_SRC text
 last2 :: [a] -> a
-last2 xs = xs !! i
-           where
-             i = length xs - 1
+last2 xs = xs !! (length xs - 1)
 #+END_SRC
 
 Or we can make a sequence by dropping all elements but the last one and then retrieve the first element of such sequence:
@@ -97,6 +95,6 @@ last3 xs = head (drop i xs)
 
 * init
 #+BEGIN_QUOTE
-Show how the library function init that removes the last element from
+Show how the library function *init* that removes the last element from
 a non-empty list could similarly be defined in two different ways.
 #+END_QUOTE
