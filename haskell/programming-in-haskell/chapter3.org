@@ -7,3 +7,42 @@
 #+DESCRIPTION: Learning haskell and solving problems using reasoning and 'repl'ing
 #+STARTUP: indent
 #+STARTUP: hidestars odd
+
+
+* Types of values
+#+BEGIN_QUOTE
+What are the types of the following values?
+- [’a’, ’b’, ’c’]
+- (’a’, ’b’, ’c’)
+- [(False, ’O’), (True, ’1’)]
+- ([False, True ], [’0’, ’1’])
+- [tail , init, reverse ]
+#+END_QUOTE
+
+* Types of functions
+#+BEGIN_QUOTE
+What are the types of the following functions?
+- second xs = head (tail xs)
+- swap (x , y) = (y, x )
+- pair x y = (x , y)
+- double x = x ∗2
+- palindrome xs = reverse xs == xs
+- twice f x = f (f x )
+
+*Hint* take care to include the necessary class constraints if the functions are
+defined using overloaded operators.
+#+END_QUOTE
+* Check with HUG
+#+BEGIN_QUOTE
+Check your answers to the preceding two questions using Hugs.
+#+END_QUOTE
+
+* Questions
+#+BEGIN_QUOTE
+Why is it not feasible in general for function types to be instances of the Eq class?
+#+END_QUOTE
+
+#+BEGIN_QUOTE
+When is it feasible? Hint: two functions of the same type are equal if
+they always return equal results for equal arguments.
+#+END_QUOTE
