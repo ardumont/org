@@ -41,8 +41,8 @@ What are the types of the following functions?
 - palindrome xs = reverse xs == xs
 - twice f x = f (f x)
 
-*Hint* take care to include the necessary class constraints if the functions are
-defined using overloaded operators.
+*Hint* \\
+Take care to include the necessary class constraints if the functions are defined using overloaded operators.
 #+END_QUOTE
 
 |----------------------------------+-----------------------------------|
@@ -77,7 +77,16 @@ Check your answers to the preceding two questions using Hugs.
 Why is it not feasible in general for function types to be instances of the Eq class?
 #+END_QUOTE
 
+All i can think of to answer this is:
+To check if two functions are equals, you need to be able to enumerate all input parameters
+possibles then check for the functions to compare that for each same input, this gives the same result.
+
+Depending on the starting set of applications, this can be impossible (e.g. the set of natural number is infinite).
+
 #+BEGIN_QUOTE
-When is it feasible? Hint: two functions of the same type are equal if
-they always return equal results for equal arguments.
+When is it feasible? \\
+*Hint* \\
+Two functions of the same type are equal if they always return equal results for equal arguments.
 #+END_QUOTE
+
+If we work with functions that takes as input a small finite set of data, this can be possible.
