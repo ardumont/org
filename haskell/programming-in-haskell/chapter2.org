@@ -53,7 +53,7 @@ N = a 'div' length xs
 Fixed:
 
 #+BEGIN_SRC text
-n = a `div` (length xs)
+n = a `div` length xs
     where
       a  = 10
       xs = [1, 2, 3, 4, 5]
