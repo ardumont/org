@@ -1,120 +1,148 @@
 #+BLOG: tony-blog
-#+POSTID: 645
-#+DATE: [2012-12-24 Mon 14:59]
-#+TITLE: Programming in haskell - ch2 - First steps - exercises
+#+POSTID: 632
+#+DATE: [2012-12-23 Sun 18:52]
+#+TITLE: Programming in haskell - Ch2 - Introduction - exercices
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
 #+TAGS: haskell, exercises, functional-programming
-#+CATEGORY: haskell, exercises, functional-programming
+#+CATEGORY: haskell, programming, functional-programming
 #+DESCRIPTION: Learning haskell and solving problems using reasoning and 'repl'ing
 #+STARTUP: indent
 #+STARTUP: hidestars odd
 
-* Parenthesis
+It has been some time now (almost 2 years during my free time) that I:
+- renewed with [[http://en.wikipedia.org/wiki/Functional_programming][Functional Programming]].
+- learn [[http://clojure.org][clojure]] (I do not know all of it yet but i know enough to say, this is the way!)
+- discovered the wonders of the [[http://en.wikipedia.org/wiki/Lisp_(programming_language)][Lisp family]] (i did learn some [[http://en.wikipedia.org/wiki/Common_Lisp][common-lisp]] through [[http://landoflisp.com/][the Land of Lisp]] and some [[http://www.gnu.org/software/emacs/manual/html_mono/elisp.html][emacs-lisp]] through [[http://www.gnu.org/s/emacs/][Emacs]]'s most amazing setup power)
+
+Now, for the time being, I'd like to go and see what [[http://www.haskell.org/][Haskell]] is all about.
+So here it is. I began reading [[http://www.cs.nott.ac.uk/~gmh/book.html][Programming in haskell]].
+
+Here are my solutions to the exercises.
+I did not yet [[http://www.cs.nott.ac.uk/~gmh/solutions.pdf][confront them]].
+
+* Calculation
 #+BEGIN_QUOTE
-Parenthesise the following arithmetic expressions:
-- 2 ^ 3 ∗ 4
-- 2 ∗ 3 + 4 ∗ 5
-- 2 + 3 ∗ 4 ^ 5
+Give another possible calculation for the result of *double (double 2)*.
 #+END_QUOTE
 
 #+BEGIN_SRC text
-2^3*4 = (2^3)*4
-
-2∗3+4∗5 = (2*3)+(4*5)
-
-2+3*4^5 = 2+(3*(4^5))
+double (double 2) = (double 2) + (double 2)
+                  = (double 2) + (2 + 2)
+                  = (double 2) + 4
+                  = (2 + 2) + 4
+                  = 4 + 4
+                  = 8
 #+END_SRC
 
-* Execution
+* Proof
 #+BEGIN_QUOTE
-Work through the examples from this chapter using Hugs.
+Show that sum [x] = x for any number x.
 #+END_QUOTE
 
 #+BEGIN_SRC text
-2^3*4 =  32
-
-2∗3+4∗5 = 26
-
-2+3*4^5 = 3074
+sum :: Num a => [a] -> a
+sum [] = 0
+sum (x:xs) = x + sum xs
 #+END_SRC
 
-* Fix errors
+Given the definition of the sum function:
+#+BEGIN_SRC text
+sum [x] = x + sum []
+        = x + 0
+        = x
+#+END_SRC
+
+* Product
 #+BEGIN_QUOTE
-The script below contains three syntactic errors. Correct these errors
-and then check that your script works properly using Hugs.
+Define a function product that produces the product of a list of numbers,
+and show using your definition that product [2, 3, 4] = 24.
 #+END_QUOTE
 
+product:
 #+BEGIN_SRC text
-N = a 'div' length xs
-    where
-      a = 10
-      xs = [1, 2, 3, 4, 5]
+pdt :: Num a => [a] -> a
+pdt [] = 1
+pdt (x:xs) = x * pdt xs
 #+END_SRC
 
-Fixed:
-
+product [2,3,4] = 24?
 #+BEGIN_SRC text
-n = a `div` length xs
-    where
-      a  = 10
-      xs = [1, 2, 3, 4, 5]
+pdt [2,3,4] = 2 * pdt [3,4]
+            = 2 * 3 * pdt [4]
+            = 2 * 3 * 4 * pdt []
+            = 2 * 3 * 4 * 1
+            = 24
 #+END_SRC
 
-* Definition of last
+* Quicksort
 #+BEGIN_QUOTE
-Show how the library function *last* that selects the last element of a non-
-empty list could be defined in terms of the library functions introduced
-in this chapter.
+How should the definition of the function qsort be modified so that it
+produces a reverse sorted version of a list?
 #+END_QUOTE
 
-We can basically return the sequence and take the first element.
+Given the following quicksort definition:
 
 #+BEGIN_SRC text
-last1 :: [a] -> a
-last1 xs = head (reverse xs)
+qsort :: Ord a => [a] -> [a]
+qsort [] = []
+qsort (x:xs) = qsort smaller ++ [x] ++ qsort larger
+               where
+                 smaller = filter (<= x) xs
+                 larger  = filter (> x) xs
 #+END_SRC
 
+We want to modify such quicksort definition to reverse the output.
+So from qsort *[4 6 2] => [2 4 6]* into *qsort [4 6 2] => 6 4 2*.
+
+#+BEGIN_SRC text
+qsort :: Ord a => [a] -> [a]
+qsort [] = []
+qsort (x:xs) = qsort larger ++ [x] ++ qsort smaller
+               where
+                 smaller = filter (<= x) xs
+                 larger  = filter (> x) xs
+#+END_SRC
+*Note* _++_ is the concatenation
+
+To simplify the next proofs, we will prove that:
+for any x, *qsort [x] = [x]*
+
+#+BEGIN_SRC text
+qsort [x] = qsort [] ++ [x] ++ qsort []
+          = [] ++ [x] ++ []
+          = [x]
+#+END_SRC
+case made.
+
+Now solving the question:
+#+BEGIN_SRC text
+qsort [4,6,2] = qsort [6] ++ [4] ++ qsort [2]
+              = [6] ++ [4] ++ [2]
+              = [6,4,2]
+#+END_SRC
+
+* Quicksort 2/2
 #+BEGIN_QUOTE
-Can you think of another possible definition?
+What would be the effect of replacing *<=* by *<* in the original definition
+of qsort ? Hint: consider the example *qsort [2, 2, 3, 1, 1]*.
 #+END_QUOTE
 
-We can take the i^th element where i^th element is the length of the list.
-
+Given:
 #+BEGIN_SRC text
-last2 :: [a] -> a
-last2 xs = xs !! (length xs - 1)
+qsort :: Ord a => [a] -> [a]
+qsort [] = []
+qsort (x:xs) = qsort smaller ++ [x] ++ qsort larger
+               where
+                 smaller = filter (< x) xs
+                 larger  = filter (> x) xs
 #+END_SRC
 
-Or we can make a sequence by dropping all elements but the last one and then retrieve the first element of such sequence:
+This will filter out the duplicated entries.
 
+Here is the solved example:
 #+BEGIN_SRC text
-last3 :: [a] -> a
-last3 xs = head (drop i xs)
-           where
-             i = length xs - 1
-#+END_SRC
-
-* init
-#+BEGIN_QUOTE
-Show how the library function *init* that removes the last element from
-a non-empty list could similarly be defined in two different ways.
-#+END_QUOTE
-
-We can take all the elements from the list except the last one.
-#+BEGIN_SRC text
-init1 :: [a] -> [a]
-init1 xs = take (length xs - 1) xs
-#+END_SRC
-
-Or reverse the list, remove the first element, then return the list again.
-#+BEGIN_SRC text
-init2 :: [a] -> [a]
-init2 xs  = reverse (drop 1 (reverse xs))
-#+END_SRC
-
-And as for the *drop 1* call goes, we can replace this by the *tail* call:
-#+BEGIN_SRC text
-init3 :: [a] -> [a]
-init3 xs  = reverse (tail (reverse xs))
+qsort [2,2,3,1,1] = qsort [1] ++ [2] ++ qsort [3]
+                  = [1] ++ [2] ++ [3]
+                  = [1,2,3]
 #+END_SRC
