@@ -4,7 +4,7 @@
 :PROPERTIES:
 :POSTID:   632
 :POST_DATE: 20121223T17:52:00+0000
-:Published: No
+:Published: Yes
 :END:
 ** [[file:/home/tony/org/article/my-emacs-tools.org][My emacs tools]]
 :PROPERTIES:
