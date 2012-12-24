@@ -1,5 +1,5 @@
 #+BLOG: tony-blog
-#+TITLE: Programming in haskell - exercices - chapter 2
+#+TITLE: Programming in haskell - chapter 2 First steps - exercises
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
 #+TAGS: haskell, exercises
