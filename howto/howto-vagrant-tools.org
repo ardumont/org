@@ -1,0 +1,144 @@
+#+BLOG: tony-blog
+#+TITLE: Vagrant tools
+#+AUTHOR: Antoine R. Dumont
+#+OPTIONS:
+#+TAGS: vagrant, vagrant-snap, virtualbox, snapshot
+#+CATEGORY: vagrant, vagrant-snap, virtualbox, snapshot
+#+DESCRIPTION: Rapid howto about vagrant
+#+STARTUP: indent
+#+STARTUP: hidestars odd
+
+I use vagrant to ease local development in my devops dev.
+I'm thinking about helping me in my general dev too.
+Anyhow, here is how i use vagrant tools.
+
+* pre-requisites
+
+** ruby (1.9)
+
+#+BEGIN_SRC sh
+sudo aptitude install ruby1.9.3 rubygems
+#+END_SRC
+
+** virtualbox (4.1)
+
+#+BEGIN_SRC sh
+sudo aptitude virtualbox
+#+END_SRC
+
+** vagrant (1.0.5)
+
+Vagrant permits to ease the starting and stopping or your vms running with virtualbox.
+
+#+BEGIN_SRC sh
+sudo gem install vagrant
+#+END_SRC
+
+** vagrant-snap (0.10)
+
+*vagrant-snap* permits to ease the hot snapshoting of your vm.
+
+#+BEGIN_SRC sh
+sudo gem install vagrant-snap virtualbox
+#+END_SRC
+
+*Note*
+You need to add the virtualbox gem dependency because of a [[https://github.com/t9md/vagrant-snap/issues/9][vagrant/vagrant-snap dependency issue]].
+
+* install the image
+
+** download
+
+#+BEGIN_SRC sh
+cd /your/vm/folder && \
+  vagrant init
+#+END_SRC
+
+This will generate a template *Vagrantfile* with a default content.
+Now edit it to suit your need.
+
+#+BEGIN_SRC sh
+vagrant box add lucid64 http://files.vagrantup.com/lucid64.box
+#+END_SRC
+
+This will download and install locally a fresh image (you can see this as an equivalent to ec2 ami but for virtualbox).
+Now you got all you need.
+
+** boot the vm
+
+Place yourself in the `/wikeo/wikeo-deploy` folder.
+
+#+BEGIN_SRC sh
+vagrant up
+#+END_SRC
+
+** connect to it
+
+#+BEGIN_SRC sh
+vagrant ssh
+#+END_SRC
+
+* halt it
+
+Now that you're good, you can stop the vm.
+
+#+BEGIN_SRC sh
+vagrant halt
+#+END_SRC
+
+* snapshot
+
+The utility of the snapshot must not be under-estimated.
+You can see this as an equivalent to git for your code but here it's for your vm.
+
+This permits to rapidly go back in time and change a failed step by short-circuiting the previsous successful steps.
+
+** snapshot
+
+*** take
+
+#+BEGIN_SRC sh
+vagrant snap take vm1 -n $TAG_YOU_WANT -d $DESCRIPTION_YOU_WANT
+#+END_SRC
+
+- the description (-d) is optional but recommended.
+
+Example:
+
+#+BEGIN_SRC sh
+vagrant snap take vm1 -n wikeo-installed-and-ok -d "wikeo-core has been installed via puppet and is ok."
+#+END_SRC
+
+*** list
+
+This command will list all your snapshots for this vm.
+
+#+BEGIN_SRC sh
+vagrant snap list
+#+END_SRC
+
+Here is a possible output:
+
+#+BEGIN_SRC sh
+[vm1]
+ puppet-agent-ready [ 15658 days ] puppet-master is ready
+[vm2]
+ app-installed [ 15658 days ] app has been installed with the puppet agent
+#+END_SRC
+
+*** back to the ~~future~~ past
+
+If you do snapshot, you will have eventually to restore your snapshot at some point:
+
+#+BEGIN_SRC sh
+vagrant snap go $TAG_YOU_WANT $VM_NAME
+#+END_SRC
+
+$VM_NAME is optional.
+If you do not give any, all your vms will be wired up to the tag $TAG_YOU_WANT.
+
+For example:
+
+#+BEGIN_SRC sh
+vagrant snap go "app-installed-ok" vm1
+#+END_SRC
