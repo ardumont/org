@@ -1,0 +1,9 @@
+#+BLOG: tony-blog
+#+TITLE: Programming in haskell - ch4 - Defining Functions - exercises
+#+AUTHOR: Antoine R. Dumont
+#+OPTIONS:
+#+TAGS: haskell, exercises, functional-programming
+#+CATEGORY: haskell, exercises, functional-programming
+#+DESCRIPTION: Learning haskell and solving problems using reasoning and 'repl'ing
+#+STARTUP: indent
+#+STARTUP: hidestars odd
