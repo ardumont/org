@@ -1,12 +1,12 @@
 
 * Posts
-** [[file:/home/tony/org/haskell/programming-in-haskell/chapter2.org][Programming in haskell - chapter 2 First steps - exercises]]
+** [[file:/home/tony/org/haskell/programming-in-haskell/chapter2.org][Programming in haskell - ch2 - First steps - exercises]]
 :PROPERTIES:
 :POSTID:   645
-:POST_DATE: 20121224T13:59:35+0000
+:POST_DATE: 20121224T13:59:00+0000
 :Published: No
 :END:
-** [[file:/home/tony/org/haskell/programming-in-haskell/intro.org][Programming in haskell - exercices - intro]]
+** [[file:/home/tony/org/haskell/programming-in-haskell/intro.org][Programming in haskell - Introduction - exercices]]
 :PROPERTIES:
 :POSTID:   632
 :POST_DATE: 20121223T17:52:00+0000

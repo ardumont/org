@@ -1,12 +1,12 @@
 #+BLOG: tony-blog
 #+POSTID: 632
 #+DATE: [2012-12-23 Sun 18:52]
-#+TITLE: Programming in haskell - exercices - intro
+#+TITLE: Programming in haskell - Introduction - exercices
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
 #+TAGS: haskell, exercises, functional-programming
 #+CATEGORY: haskell, programming, functional-programming
-#+DESCRIPTION: Learning haskell and solving problems reasoning and 'repl'ing
+#+DESCRIPTION: Learning haskell and solving problems using reasoning and 'repl'ing
 #+STARTUP: indent
 #+STARTUP: hidestars odd
 

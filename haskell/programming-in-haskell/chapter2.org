@@ -2,12 +2,12 @@
 #+POSTID: 645
 #+DATE: [2012-12-24 Mon 14:59]
 #+BLOG: tony-blog
-#+TITLE: Programming in haskell - chapter 2 First steps - exercises
+#+TITLE: Programming in haskell - ch2 - First steps - exercises
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
-#+TAGS: haskell, exercises
-#+CATEGORY: haskell
-#+DESCRIPTION: Learning haskell and solving problems reasoning and 'repl'ing
+#+TAGS: haskell, exercises, functional-programming
+#+CATEGORY: haskell, exercises, functional-programming
+#+DESCRIPTION: Learning haskell and solving problems using reasoning and 'repl'ing
 #+STARTUP: indent
 #+STARTUP: hidestars odd
 
