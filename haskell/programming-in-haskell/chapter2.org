@@ -11,9 +11,9 @@
 * Parenthesis
 #+BEGIN_QUOTE
 Parenthesise the following arithmetic expressions:
-- 2^3∗4
-- 2∗3+4∗5
-- 2+3∗4^5
+- 2 ^ 3 ∗ 4
+- 2 ∗ 3 + 4 ∗ 5
+- 2 + 3 ∗ 4 ^ 5
 #+END_QUOTE
 
 #+BEGIN_SRC text
