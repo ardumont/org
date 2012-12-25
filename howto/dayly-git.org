@@ -1,7 +1,6 @@
 #+BLOG: tony-blog
 #+POSTID: 675
 #+DATE: [2012-12-25 Tue 16:09]
-#+BLOG: tony-blog
 #+TITLE: Daily git
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
@@ -11,200 +10,8 @@
 #+STARTUP: indent
 #+STARTUP: hidestars
 
-Here are the [[http://git-scm.com/][git]] aliases/commands I use in my everyday life:
-
-* Aliases/git aliases
-There exists two kinds of aliases, the:
-- ones for the system
-- ones for git.
-
-Hereupon, I will describe in the title the system alias first, then the git one.
-** Deploy script
-*** system git aliases
-My =~/.bashrc= orchestrates the sourcing of my aliases:
-=~/.bashrc=
-#+BEGIN_SRC sh
-...
-[ -f ~/.bash_aliases ] && . ~/.bash_aliases
-...
-#+END_SRC
-[[https://github.com/ardumont/dot-files/blob/master/.bashrc][.bashrc]]
-
-Then my aliases are loaded:
-#+BEGIN_SRC sh
-alias git='hub'
-alias gitka='gitk --all'
-alias gst='git status'
-alias gci='git commit -v'
-alias gco='git checkout'
-alias gbr='git branch'
-alias gdf='git diff'
-alias gl='git log --oneline --graph --remotes --decorate --all'
-alias gf='git fetch'
-alias gfa='git fetch --all'
-#+END_SRC
-[[https://github.com/ardumont/dot-files/blob/master/.bash_aliases][.bash_aliases]]
-#+END_SRC
-*** git config
-To run once:
-#+BEGIN_SRC sh
-#!/bin/bash -e
-
-git config --global user.name "$YOUR_NAME"
-git config --global user.email "$YOUR_EMAIL"
-
-# emacs
-git config --global core.editor "$YOUR_EDITOR"
-
-# color everywhere (one flag)
-git config --global color.ui true
-# or in separate
-#git config --global color.branch auto
-#git config --global color.diff auto
-#git config --global color.interactive auto
-#git config --global color.status auto
-
-# tool to help the merging
-git config --global merge.tool meld
-
-# aliases
-git config --global alias.co checkout
-git config --global alias.br branch
-git config --global alias.ci commit
-git config --global alias.st status
-
-# unstage a file
-git config --global alias.unstage 'reset HEAD --'
-
-# see the last log
-git config --global alias.last 'log -1 HEAD'
-#+END_SRC
-[[https://github.com/ardumont/sh/blob/master/deploy/deploy-git-config.sh][deploy-git-config.sh]]
-
-*Notes*
-1) Don't forget to change the variable to your convenience:
-- =$YOUR_NAME= with your name
-- =$YOUR_EMAIL= with your email
-- =$YOUR_EDITOR= with your editor
-
-2) If you want meld, you have to install it too
-#+BEGIN_SRC sh
-sudo aptitude install -y meld
-#+END_SRC
-
-** git
-=hub=
-I recently came across [[https://github.com/defunkt/hub][hub]] that is a command to help in [[http://defunkt.io/hub/][gitting with github]].
-This adds the functionalities to [[https://help.github.com/articles/fork-a-repo][fork]], [[https://help.github.com/articles/using-pull-requests][pull request]], browse issues, etc...
-
-This *seems* to be a powerful interface that permits to play with github via the CLI.
-I do not yet play enough with it so I do not enter into much details here.
-
-Suffice it to say that you can alias it as git.
-You will still be able to use hub very much like git.
-
-** gitka
-=gitk --all=
-I use gitk to see where I'm at in terms of branch and SHA1.
-I often want to see all the branches too.
-
-If not, i use directly =gitk=
-
-*Note*
-There is a CLI interface to see beautiful branches called [[https://git.wiki.kernel.org/index.php/Tig][tig]].
-
-Possible output:
-#+BEGIN_SRC sh
-2012-12-25 11:55                    o Unstaged changes
-2012-11-22 19:58 Antoine R. Dumont  o [master] [origin/master] Remove useless import.
-2012-11-22 19:53 Antoine R. Dumont  o Play with the trello api.
-2012-11-12 12:35 Antoine R. Dumont  M─┐ [upstream/master] Merged in denlab/cljsta (pull request #41)
-2012-11-02 18:27 Antoine R. Dumont  M─┐ Merged in denlab/cljsta/movie-query (pull request #40)
-2012-11-02 15:46 Denis Labaye       │ │ o EC2: some refactoring (->)
-2012-11-02 12:27 Denis Labaye       │ │ o DONE EC2: List all instances of all regions
-2012-11-01 19:58 Denis Labaye       │ o │ imdbapi: a ns to query movies
-2012-11-01 17:28 Denis Labaye       │ │ o DONE implements the fake ls (with the local data on disk)
-2012-11-01 17:12 Denis Labaye       │ │ o DONE regions
-2012-11-01 14:56 Denis Labaye       │ │ o cleanup
-2012-10-31 19:14 Antoine R. Dumont  I─┐ │ Merged in denlab/cljsta (pull request #39)
-2012-10-31 09:53 Denis Labaye       │ o─┘ DONE put body in <> properly
-2012-10-31 09:34 Denis Labaye       │ o DONE handle the throw exception case
-2012-10-31 09:20 Denis Labaye       │ o DONE put body in <>
-2012-10-30 20:15 Antoine R. Dumont  I─┐ Merged in denlab/cljsta (pull request #38)
-2012-10-30 15:46 Denis Labaye       │ o DONE package compression
-2012-10-30 15:07 Denis Labaye       │ o DONE make times in title optional
-2012-10-30 11:45 Denis Labaye       │ o DONE add options capabilities to the org-rendering
-2012-10-30 11:22 Denis Labaye       │ o DONE remove the brackets in [%]
-2012-10-30 11:17 Denis Labaye       │ o doc: cleanup todo
-2012-10-30 12:06 Antoine R. Dumont  I─┐ Merged in denlab/cljsta (pull request #37)
-2012-10-30 10:10 lazyposse          M─┐ Merged in ardumont/cljsta/treemap (pull request #36)
-2012-10-30 10:06 Denis Labaye       │ │ o DONE Acquiring WCI data
-2012-10-29 21:48 Antoine R. Dumont  │ o │ [origin/treemap] Just a little update on the actual status.
-2012-10-29 21:34 Antoine R. Dumont  │ o │ *** DONE generate the pivot for the jtreemap applet
-2012-10-29 20:37 Antoine R. Dumont  │ o │ *** DONE tryout one sample
-2012-10-29 19:57 Antoine R. Dumont  │ o │ *** DONE add the jtreemap dependency
-2012-10-29 19:56 Antoine R. Dumont  │ o │ *** DONE Rename the previous treemap namespace (that was not a real treemap) into a more appropriate namespace.
-2012-10-29 16:46 Antoine R. Dumont  I─┐ │ Merged in denlab/cljsta (pull request #35)
-2012-10-29 01:48 Denis Labaye       │ o─┘ data: added files from WCI captures
-#+END_SRC
-** gst/git st
-=git status=
-Show the current working tree status in the current branch.
-
-** gci/git ci
-=git commit=
-Record changes to the current branch.
-
-** gco/git co
-=git checkout=
-
-Move to another branch named *another-branch*:
-#+BEGIN_SRC sh
-gco another-branch
-git co another-branch
-#+END_SRC
-
-Create a new branch named *a-new-branch*
-#+BEGIN_SRC sh
-gco -b a-new-branch
-git co -b a-new-branch
-#+END_SRC
-
-** gbr/git br
-=git branch=
-List, creates or delete branches.
-** gdf
-=git diff=
-To see the diff between the workspace and the git repository.
-** gf
-=git fetch=
-To sync my fork with the remotes forks I depend upon.
-** gfa
-=git fetch --all=
-I always work with forks.
-So when I work in team project, I have at least 2 remotes:
-- origin: this is my fork
-- upstream: this is the main fork
-
-When I want to retrieve the remote commits, I systematically want those of my fork and then those from the main fork to sync the forks.
-It's all a story about forks! :D
-
-** git unstage
-=git reset HEAD --=
-
-I came across it and thought this was a good idea so i installed it.
-But I did not use it yet.
-
-I still use directly =git reset=.
-
-** git last
-=git log -1 HEAD=
-To see the last commit. This is mostly to check if I am where I think I am.
-
-* Commands
-On this chapter, I will present the commands I use everyday with git.
-
-I have 2 main ways of using git, via:
+In another post, I presented my git aliases.
+In this one, I will present the commands I use everyday with git.
 - [[http://en.wikipedia.org/wiki/Command-line_interface][CLI]]
 - [[http://philjackson.github.com/magit/magit.html][magit]] through [[http://www.gnu.org/s/emacs/][emacs]]
 
@@ -212,8 +19,9 @@ I prefer [[http://philjackson.github.com/magit/magit.html][magit]] (from inside 
 Here I will present my [[http://en.wikipedia.org/wiki/Command-line_interface][CLI]] use.
 I'll keep [[http://philjackson.github.com/magit/magit.html][magit]] for another time.
 
-** gbr
+* gbr
 =git branch=
+
 To see the list of branches you have on your current repository.
 
 #+BEGIN_SRC sh
@@ -231,8 +39,9 @@ tony@dagobah(0.36,) 16:41:11 ~/repo/perso/dot-files (master) $ gbr --remote
 #+END_SRC
 Remotely I see other branches, here *master* and *test*.
 
-** gdf
+* gdf
 =git diff=
+
 To see the modifications you developed between your workspace and the commited files.
 
 Example:
@@ -252,115 +61,142 @@ index 7f97a63..54ce989 100644
 _Explanation:_
 Here we can see that the file /README.md/ has one more line *This is a line added to the end of the README*.
 
-** gst
+* gst
 =git status=
 
 This will list the current status of your index (modification, untracked files):
 
 Example:
 #+BEGIN_SRC sh
-tony@dagobah(0.17,) 13:06:11 ~/repo/perso/testproject (twitter-post2) $ gst
-# On branch twitter-post2
+tony@dagobah(0.20,) 17:07:59 ~/repo/perso/dot-files (master) $ gst
+# On branch master
 # Changes not staged for commit:
 #   (use "git add <file>..." to update what will be committed)
 #   (use "git checkout -- <file>..." to discard changes in working directory)
 #
 #       modified:   README.md
 #
-# Untracked files:
-#   (use "git add <file>..." to include in what will be committed)
-#
-#       resources/public/js/cljs.js
-#       target/
 no changes added to commit (use "git add" and/or "git commit -a")
 #+END_SRC
 
 _Explanation:_
 You can see that:
 - the file /README.md/ has been changed.
-- there are 2 untracked files:
-  - one file *cljs.js*
-  - one folder *target*.
+- this has not been staged for commit, that is, I did not added it to the index yet
 
-** git add
+* git add
 Add modifications into the git index.
 
-Example:
+If I add the /README.md/ file to the index and then check the status:
 #+BEGIN_SRC sh
-tony@dagobah(0.20,) 13:10:23 ~/repo/perso/testproject (twitter-post2) $ git add README.md
-tony@dagobah(0.27,) 13:10:26 ~/repo/perso/testproject (twitter-post2) $ gst
-# On branch twitter-post2
+tony@dagobah(0.20,) 17:08:00 ~/repo/perso/dot-files (master) $ git add README.md
+tony@dagobah(0.19,) 17:08:03 ~/repo/perso/dot-files (master) $ gst
+# On branch master
 # Changes to be committed:
 #   (use "git reset HEAD <file>..." to unstage)
 #
 #       modified:   README.md
 #
-# Untracked files:
-#   (use "git add <file>..." to include in what will be committed)
-#
-#       resources/public/js/cljs.js
-#       target/
 #+END_SRC
-
 _Explanation:_
-You add the /README.md/ file in the index.
-Then if you look at your index status, you can see that the index status changed from *Changes not staged for commit* to *Changes to be committed*.
-Inside you can see the /README.md/.
-Nothing changed regarding the 2 other files.
+The index status changed from *Changes not staged for commit* to *Changes to be committed*.
+This time I added the /README.md/ to the index.
+Now we are ready to commit.
 
-** gci
+* gci
 =git commit -v=
+
 Commit the content of the index.
 
-By typing =gci= in the CLI, the git *core.editor* loads itself and here is the main view resulting:
+By typing =gci= in the CLI, the git *core.editor* loads itself and ask you for a commit message:
 #+BEGIN_SRC sh
 ------> Here you type the commit message <------
 # Please enter the commit message for your changes. Lines starting
 # with '#' will be ignored, and an empty message aborts the commit.
-# On branch twitter-post2
+# On branch master
 # Changes to be committed:
 #   (use "git reset HEAD <file>..." to unstage)
 #
 #       modified:   README.md
 #
-# Untracked files:
-#   (use "git add <file>..." to include in what will be committed)
-#
-#       resources/public/js/cljs.js
-#       target/
 diff --git a/README.md b/README.md
-index 7f97a63..54ce989 100644
+index 0358d27..35e6c13 100644
 --- a/README.md
 +++ b/README.md
-@@ -21,3 +21,4 @@ lein run
- Copyright (C) 2011 djhworld
-
- Distributed under the Eclipse Public License, the same as Clojure.
-+This is a line added to the end of the README
-
+@@ -12,3 +12,4 @@ Something along those lines should do the trick:
+ REPO=/path/to/your/clones/dot-files
+ for i in $(ls $REPO); do ln -s $REPO/$i ~; done
+ ```
++this is a test
 #+END_SRC
 *Note*:
 At the same time, we see the modifications between the index and the already gitted file.
 
-** gci --amend
-Reedit the content of the last commit:
-- it can be the message of the commit
-- or the files that are contained in the commit
+_Explanation:_
+I you type a commit message, for example *Temporary commit* then save the modifications and close the editor.
+The content of the index is *commited* (message included).
 
-** git ls-files -d | xargs git rm
+#+BEGIN_SRC sh
+tony@dagobah(0.19,) 17:08:04 ~/repo/perso/dot-files (master) $ gci
+[master 05dfb35] Temporary commit
+ 1 file changed, 1 insertion(+)
+tony@dagobah(0.30,) 17:08:16 ~/repo/perso/dot-files (master) $ gst
+#+END_SRC
+
+* =gci --amend=
+Reedit the content of the last commit, either:
+- the commit message
+- or the files that are contained in the commit.
+
+=gci --amend= will reopen the editor but this time with your last commit message already typed:
+#+BEGIN_SRC sh
+Temporary commit.
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch is ahead of 'origin/master' by 1 commit.
+#
+# Changes to be committed:
+#   (use "git reset HEAD^1 <file>..." to unstage)
+#
+#       modified:   README.md
+#
+diff --git a/README.md b/README.md
+index 0358d27..35e6c13 100644
+--- a/README.md
++++ b/README.md
+@@ -12,3 +12,4 @@ Something along those lines should do the trick:
+ REPO=/path/to/your/clones/dot-files
+ for i in $(ls $REPO); do ln -s $REPO/$i ~; done
+ ```
++this is a test
+#+END_SRC
+
+Then edit for example this commit message to *This is a temporary commit to demonstrate the power of git*.
+Then save and close the editor.
+
+#+BEGIN_SRC sh
+tony@dagobah(0.19,) 17:19:45 ~/repo/perso/dot-files (master) $ gci --amend
+[master 2c40a11] This is a temporary commit to demonstrate the power of git.
+ 1 file changed, 1 insertion(+)
+#+END_SRC
+
+* git ls-files -d | xargs git rm
 When you deleted lots of files, you can rapidly delete them with this command.
 
 *Note* An alias could be cool here :D
 
-** git mv
+* git mv
 Move one file from one destination to another.
 It's the same as the *mv* command, but has the advantage to add the move action to the git index too.
 
-** git reset
-*** soft
-To unstage modifications from the index but let the workspace intact.
+* git reset
+** soft
+To unstage modifications from the index.
+This also let the workspace intact, that is with your modifications.
 
-*--soft* is optional
+(*--soft* is optional)
 #+BEGIN_SRC sh
 git reset HEAD~
 #+END_SRC
@@ -368,7 +204,7 @@ git reset HEAD~
 This will remove the last commit but keep the contents of the last commit that is then seen as modifications to be staged.
 You can then recommit with less files and also rewrite the commit message.
 
-*** hard
+** hard
 To delete local modifications from the index.
 
 #+BEGIN_SRC sh
@@ -377,7 +213,7 @@ git reset --hard HEAD~
 _Explanation:_
 This will ultimately remove the last commit and the contents of the last commit.
 
-** git rebase
+* =git rebase=
 
 When the remote branch has diverged with your local branch and you don't want to use merge.
 You can use rebase instead.
@@ -387,7 +223,7 @@ Thus, if you have conflicts, you can solve them one at a time!
 
 It's kind of cool to be able to focus only on one conflict.
 
-** git rebase -i
+* =git rebase -i=
 Also named interactive rebase. This is another awesome git functionality.
 This command permits you to rewrite your commits.
 
@@ -399,7 +235,7 @@ At the end of it, your history is rewritten and is more straight-forward for oth
 Beware, that with rewriting history has limits.
 Typically, do not rewrite your history if the branch is remote and used by others.
 
-** git blame
+* =git blame=
 Just use to see by whom the modifications have been done.
 Thus engaging in a discussion to help understand the code they have done.
 
@@ -427,13 +263,14 @@ e5a5ce33 (Antoine R. Dumont       2012-12-18 04:18:50 +0100  15)   "Add the iden
 
 Then we can see that for each line which developer touched it lastly.
 As an example, I can ask Denis what the =(setf *frame-number-map* "abcdefghijklmnopqrst")= is all about :D.
-** gco
+* gco
 Just to move myself to the branch I want or creating a new one:
-
+** Move
 #+BEGIN_SRC sh
 gco branch-i-want
 #+END_SRC
 
+** Create
 #+BEGIN_SRC sh
 gco -b new-branch
 #+END_SRC

@@ -1,9 +1,15 @@
 
 * Posts
+** [[file:/home/tony/org/howto/git-aliases.org][Git aliases/System git aliases]]
+:PROPERTIES:
+:POSTID:   686
+:POST_DATE: 20121225T16:31:16+0000
+:Published: No
+:END:
 ** [[file:/home/tony/org/howto/dayly-git.org][Daily git]]
 :PROPERTIES:
 :POSTID:   675
-:POST_DATE: 20121225T15:09:21+0000
+:POST_DATE: 20121225T15:09:00+0000
 :Published: No
 :END:
 ** [[file:/home/tony/org/howto/howto-vagrant-tools.org][Vagrant tools]]
