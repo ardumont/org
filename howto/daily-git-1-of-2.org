@@ -1,0 +1,313 @@
+#+BLOG: tony-blog
+#+POSTID: 675
+#+DATE: [2012-12-25 Tue 16:09]
+#+TITLE: Daily git 1/2
+#+AUTHOR: Antoine R. Dumont
+#+OPTIONS:
+#+TAGS: emacs, git, aliases
+#+CATEGORY: emacs, git
+#+DESCRIPTION: How do i use git every day 1/2
+#+STARTUP: indent
+#+STARTUP: hidestars
+
+In another post, I presented my (system) git aliases.
+In this one, I will enter into a little more details about the most basic of those commands.
+
+* =gbr=
+=git branch=
+
+To see the list of branches you have on your current repository.
+
+#+BEGIN_SRC sh
+tony@dagobah(0.46,) 15:48:41 ~/repo/perso/dot-files (master) $ gbr
+ * master
+#+END_SRC
+_Explanation:_
+Here, I only have locally the master branch.
+
+=gbr -r= or =gbr --remote= to see the remote branches:
+#+BEGIN_SRC sh
+tony@dagobah(0.36,) 16:41:11 ~/repo/perso/dot-files (master) $ gbr --remote
+  origin/HEAD -> origin/master
+  origin/master
+  origin/test
+#+END_SRC
+_Explanation:_
+Remotely I see other branches, here *master* and *test*.
+
+* =gco=
+Just to move oneself from the current branch to another or creating a new one:
+** Create
+#+BEGIN_SRC sh
+gco -b new-branch
+#+END_SRC
+
+Example:
+#+BEGIN_SRC sh
+tony@dagobah(0.33,) 21:31:56 ~/repo/perso/dot-files (master) $ gco -b new-branch
+Switched to a new branch 'new-branch
+tony@dagobah(0.38,) 21:32:03 ~/repo/perso/dot-files (new-branch) $
+#+END_SRC
+** Move
+#+BEGIN_SRC sh
+gco master
+#+END_SRC
+
+Example:
+#+BEGIN_SRC sh
+tony@dagobah(0.38,) 21:32:03 ~/repo/perso/dot-files (new-branch) $ gco master
+Switched to branch 'master'
+Your branch is ahead of 'origin/master' by 6 commits.
+tony@dagobah(0.35,) 21:32:05 ~/repo/perso/dot-files (master) $
+#+END_SRC
+
+** Discard changed
+To discard changes in current directory
+
+Example:
+#+BEGIN_SRC sh
+tony@dagobah(0.13,) 21:33:57 ~/repo/perso/dot-files (master) $ echo 'toto' >> README.org
+
+tony@dagobah(0.11,) 21:34:05 ~/repo/perso/dot-files (master) $ gst
+# On branch master
+# Your branch is ahead of 'origin/master' by 6 commits.
+#
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#       modified:   README.org
+#
+no changes added to commit (use "git add" and/or "git commit -a")
+
+tony@dagobah(0.11,) 21:34:06 ~/repo/perso/dot-files (master) $ gco -- README.org
+
+tony@dagobah(0.09,) 21:34:17 ~/repo/perso/dot-files (master) $ gst
+# On branch master
+# Your branch is ahead of 'origin/master' by 6 commits.
+#
+nothing to commit (working directory clean)
+
+#+END_SRC
+_Explanation:_
+- First we create some changes (=echo=)
+- Then we check the status, there is one file that has changed (indeed the *README.org*)
+- We removed those changes for the file (=gco -- README.org=)
+- When we recheck the status, nothing has changed!
+
+* =gdf=
+=git diff=
+
+To see the modifications you developed between your workspace and the commited files.
+
+Example:
+#+BEGIN_SRC sh
+tony@dagobah(0.31,) 18:05:22 ~/repo/perso/dot-files (master) $ gdf
+diff --git a/README.md b/README.md
+index 0358d27..35e6c13 100644
+--- a/README.md
++++ b/README.md
+@@ -12,3 +12,4 @@ Something along those lines should do the trick:
+ REPO=/path/to/your/clones/dot-files
+ for i in $(ls $REPO); do ln -s $REPO/$i ~; done
+ ```
++this is a test
+#+END_SRC
+
+_Explanation:_
+Here we can see that the file /README.md/ has one more line *this is a test*.
+
+*Note*
+If you already staged your modifications you can use =gdf --cached=.
+
+Example:
+#+BEGIN_SRC sh
+tony@dagobah(0.28,) 18:06:36 ~/repo/perso/dot-files (master) $ git add README.md
+tony@dagobah(0.28,) 18:06:38 ~/repo/perso/dot-files (master) $ gdf
+tony@dagobah(0.26,) 18:06:39 ~/repo/perso/dot-files (master) $ gdf --cached
+diff --git a/README.md b/README.md
+index 0358d27..35e6c13 100644
+--- a/README.md
++++ b/README.md
+@@ -12,3 +12,4 @@ Something along those lines should do the trick:
+ REPO=/path/to/your/clones/dot-files
+ for i in $(ls $REPO); do ln -s $REPO/$i ~; done
+ ```
++this is a test
+
+#+END_SRC
+_Explanation:_
+- =git add README.md= staged your modification
+- =gdf= did not show any difference because you already staged all modifications
+- =gdf --cached= activated the comparison including the index.
+
+* =gst=
+=git status=
+
+This will list the current status of your index (modification, untracked files):
+
+Example:
+#+BEGIN_SRC sh
+tony@dagobah(0.20,) 17:07:59 ~/repo/perso/dot-files (master) $ gst
+# On branch master
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#       modified:   README.md
+#
+no changes added to commit (use "git add" and/or "git commit -a")
+#+END_SRC
+
+_Explanation:_
+You can see that:
+- the file /README.md/ has been changed.
+- this has not been staged for commit, that is, I did not added it to the index yet.
+
+* =git add=
+Add modifications into the git index.
+
+If I add the /README.md/ file to the index and then check the status:
+#+BEGIN_SRC sh
+tony@dagobah(0.20,) 17:08:00 ~/repo/perso/dot-files (master) $ git add README.md
+tony@dagobah(0.19,) 17:08:03 ~/repo/perso/dot-files (master) $ gst
+# On branch master
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#       modified:   README.md
+#
+#+END_SRC
+_Explanation:_
+The index status changed from *Changes not staged for commit* to *Changes to be committed*.
+This time I added the /README.md/ to the index. So, now we are ready to commit.
+
+* =gci=
+=git commit -v=
+
+Commit the content of the index.
+
+By typing =gci= in the CLI, the git *core.editor* loads itself and asks you for a commit message:
+#+BEGIN_SRC sh
+------> Here you type the commit message <------
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#       modified:   README.md
+#
+diff --git a/README.md b/README.md
+index 0358d27..35e6c13 100644
+--- a/README.md
++++ b/README.md
+@@ -12,3 +12,4 @@ Something along those lines should do the trick:
+ REPO=/path/to/your/clones/dot-files
+ for i in $(ls $REPO); do ln -s $REPO/$i ~; done
+ ```
++this is a test
+#+END_SRC
+*Note*:
+At the same time, we see the modifications between the index and the already gitted file.
+
+_Explanation:_
+I you type a commit message, for example *Temporary commit* then save the modifications and close the editor.
+The content of the index is *commited* (message included).
+
+#+BEGIN_SRC sh
+tony@dagobah(0.19,) 17:08:04 ~/repo/perso/dot-files (master) $ gci
+[master 05dfb35] Temporary commit
+ 1 file changed, 1 insertion(+)
+tony@dagobah(0.30,) 17:08:16 ~/repo/perso/dot-files (master) $ gst
+#+END_SRC
+
+* =gci --amend=
+
+Reedit the content of the last commit, either:
+- the commit message
+- or the files that are contained in the commit.
+
+=gci --amend= will reopen the editor but this time with your last commit message already typed:
+#+BEGIN_SRC sh
+Temporary commit.
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch is ahead of 'origin/master' by 1 commit.
+#
+# Changes to be committed:
+#   (use "git reset HEAD^1 <file>..." to unstage)
+#
+#       modified:   README.md
+#
+diff --git a/README.md b/README.md
+index 0358d27..35e6c13 100644
+--- a/README.md
++++ b/README.md
+@@ -12,3 +12,4 @@ Something along those lines should do the trick:
+ REPO=/path/to/your/clones/dot-files
+ for i in $(ls $REPO); do ln -s $REPO/$i ~; done
+ ```
++this is a test
+#+END_SRC
+
+Then edit for example this commit message to *This is a temporary commit to demonstrate the power of git*.
+Then save and close the editor.
+
+#+BEGIN_SRC sh
+tony@dagobah(0.19,) 17:19:45 ~/repo/perso/dot-files (master) $ gci --amend
+[master 2c40a11] This is a temporary commit to demonstrate the power of git.
+ 1 file changed, 1 insertion(+)
+#+END_SRC
+
+[[http://git-scm.com/book/ch2-4.html#Changing-Your-Last-Commit][for more information]]
+* =git rm=
+Remove files or folder and add those modifications into the git index.
+This is the dual to =git add=.
+
+Example:
+#+BEGIN_SRC sh
+tony@dagobah(0.55,) 21:47:28 ~/repo/perso/dot-files (master) $ git rm some-test-file
+rm 'some-test-file'
+tony@dagobah(0.51,) 21:47:34 ~/repo/perso/dot-files (master) $ gst
+# On branch master
+# Your branch is ahead of 'origin/master' by 6 commits.
+#
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#       deleted:    some-test-file
+#
+tony@dagobah(0.51,) 21:47:35 ~/repo/perso/dot-files (master) $ gci
+[master d74715b] Delete useless file.
+ 0 files changed
+ delete mode 100644 some-test-file
+tony@dagobah(0.90,) 21:47:42 ~/repo/perso/dot-files (master) $
+#+END_SRC
+_Explanation:_
+- Remove the *some-test-file* (=git rm=)
+- Check the status, we see that the destruction of the file is to be commited. (=gst=)
+- Commit 'Delete useless file' (=gci=)
+
+* =git mv=
+Move one file from one destination to another.
+It's the same as the *mv* command, but has the advantage to add the move action to the git index too.
+
+#+BEGIN_SRC sh
+tony@dagobah(0.22,) 18:14:29 ~/repo/perso/dot-files (master) $ git mv test some-test-file
+tony@dagobah(0.27,) 18:14:38 ~/repo/perso/dot-files (master) $ gst
+# On branch master
+# Your branch is ahead of 'origin/master' by 3 commits.
+#
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#       renamed:    test -> some-test-file
+#
+
+#+END_SRC
+_Explanation:_
+We rename the *test* file into *some-test-file*.
+This modification is immediately staged into the index.
