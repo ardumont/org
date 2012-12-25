@@ -13,7 +13,7 @@
 In another post, I presented my (system) git aliases.
 In this one, I will enter into more details about those commands.
 
-I have mainly 2 way of using git:
+I have mainly 2 ways of using git:
 - [[http://en.wikipedia.org/wiki/Command-line_interface][CLI]]
 - [[http://philjackson.github.com/magit/magit.html][magit]] through [[http://www.gnu.org/s/emacs/][emacs]]
 
@@ -42,6 +42,66 @@ tony@dagobah(0.36,) 16:41:11 ~/repo/perso/dot-files (master) $ gbr --remote
 #+END_SRC
 _Explanation:_
 Remotely I see other branches, here *master* and *test*.
+
+* =gco=
+Just to move oneself from the current branch to another or creating a new one:
+** Move
+#+BEGIN_SRC sh
+gco branch-i-want
+#+END_SRC
+
+Example:
+#+BEGIN_SRC sh
+tony@dagobah(0.38,) 21:32:03 ~/repo/perso/dot-files (some-branch-i-want) $ gco master
+Switched to branch 'master'
+Your branch is ahead of 'origin/master' by 6 commits.
+tony@dagobah(0.35,) 21:32:05 ~/repo/perso/dot-files (master) $
+#+END_SRC
+** Create
+#+BEGIN_SRC sh
+gco -b new-branch
+#+END_SRC
+
+Example:
+#+BEGIN_SRC sh
+tony@dagobah(0.33,) 21:31:56 ~/repo/perso/dot-files (master) $ gco -b some-branch-i-want
+Switched to a new branch 'some-branch-i-want'
+tony@dagobah(0.38,) 21:32:03 ~/repo/perso/dot-files (some-branch-i-want) $
+#+END_SRC
+
+** Discard changed
+To discard changes in current directory
+
+Example:
+#+BEGIN_SRC sh
+tony@dagobah(0.13,) 21:33:57 ~/repo/perso/dot-files (master) $ echo 'toto' >> README.org
+
+tony@dagobah(0.11,) 21:34:05 ~/repo/perso/dot-files (master) $ gst
+# On branch master
+# Your branch is ahead of 'origin/master' by 6 commits.
+#
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#       modified:   README.org
+#
+no changes added to commit (use "git add" and/or "git commit -a")
+
+tony@dagobah(0.11,) 21:34:06 ~/repo/perso/dot-files (master) $ gco -- README.org
+
+tony@dagobah(0.09,) 21:34:17 ~/repo/perso/dot-files (master) $ gst
+# On branch master
+# Your branch is ahead of 'origin/master' by 6 commits.
+#
+nothing to commit (working directory clean)
+
+#+END_SRC
+_Explanation:_
+- First we create some changes (=echo=)
+- Then we check the status, there is one file that has changed (indeed the *README.org*)
+- We removed those changes for the file (=gco -- README.org=)
+- When we recheck the status, nothing has changed!
 
 * =gdf=
 =git diff=
@@ -171,6 +231,7 @@ tony@dagobah(0.30,) 17:08:16 ~/repo/perso/dot-files (master) $ gst
 #+END_SRC
 
 * =gci --amend=
+
 Reedit the content of the last commit, either:
 - the commit message
 - or the files that are contained in the commit.
@@ -209,8 +270,14 @@ tony@dagobah(0.19,) 17:19:45 ~/repo/perso/dot-files (master) $ gci --amend
  1 file changed, 1 insertion(+)
 #+END_SRC
 
+[[http://git-scm.com/book/ch2-4.html#Changing-Your-Last-Commit][for more information]]
+* =git rm=
+Remove files or folder and add those modifications into the git index.
+This is the dual to =git add=.
+
 * =git ls-files -d | xargs git rm=
-When you deleted lots of files, you can rapidly delete them with this command.
+When you deleted lots of files and forgot to use =git rm=.
+You can rapidly improve your situation with this command.
 
 #+BEGIN_SRC sh
 tony@dagobah(0.20,) 18:11:09 ~/repo/perso/dot-files (master) $ rm titi tutu tata
@@ -264,51 +331,80 @@ This modification is immediately staged into the index.
 
 * =git reset=
 ** soft
-To unstage modifications from the index.
+=git reset --soft=
+
+To unstage commited modifications from the index.
 This also let the workspace intact, that is with your modifications.
 
 (*--soft* is optional)
 #+BEGIN_SRC sh
 git reset HEAD~
 #+END_SRC
+_Explanation:_
+This will:
+- remove the last commit (between =HEAD= and =HEAD~=)
+- keep the modifications you last commited
 
-This will remove the last commit but keep the contents of the last commit that is then seen as modifications to be staged.
-You can then recommit with less files and also rewrite the commit message.
+*Note*
+You can do this with a greater interval =HEAD~10= for 10 commits before HEAD.
+
+Example:
+#+BEGIN_SRC sh
+tony@dagobah(0.11,) 18:17:19 ~/repo/perso/dot-files (master) $ gst
+# On branch master
+# Your branch is ahead of 'origin/master' by 5 commits.
+#
+nothing to commit (working directory clean)
+
+tony@dagobah(0.29,) 19:46:58 ~/repo/perso/dot-files (master) $ git last
+commit fccd142e7388304075c6878e3bc85bfee8b8583b
+Author: Antoine R. Dumont <antoine.romain.dumont@gmail.com>
+Date:   Tue Dec 25 18:17:14 2012 +0100
+
+    A new file README.org for fun.
+
+tony@dagobah(0.33,) 19:47:05 ~/repo/perso/dot-files (master) $ git reset HEAD~
+
+tony@dagobah(0.25,) 19:47:45 ~/repo/perso/dot-files (master) $ gst
+# On branch master
+# Your branch is ahead of 'origin/master' by 4 commits.
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#       README.org
+nothing added to commit but untracked files present (use "git add" to track)
+
+#+END_SRC
+_Explanation:_
+- Check the current status of the repository, we got 5 commits.
+- Last commit has for message *A new file for fun.*
+- Reset softly the last commit.
+- Then when we check again, we got 4 commits now and we see only one file *README.org* which is untracked.
+- So we did not lose the last commit's modification, only the message. This is a soft reset.
 
 ** hard
-To delete local modifications from the index.
+=git reset --hard=
+
+To unstage commited modifications from the index.
+This also revert the workspace back to the indicated [[http://git-scm.com/book/en/Git-Internals-Git-Objects][git's SHA1]].
 
 #+BEGIN_SRC sh
 git reset --hard HEAD~
 #+END_SRC
 _Explanation:_
-This will ultimately remove the last commit and the contents of the last commit.
+This will:
+- remove the last commit (between =HEAD= and =HEAD~=)
+- lost any last commited modifications
 
-* =git rebase=
-
-When the remote branch has diverged with your local branch and you don't want to use merge.
-You can use rebase instead.
-
-This has the advantage of replaying all your commits from your current branch one at a time.
-Thus, if you have conflicts, you can solve them one at a time!
-
-It's kind of cool to be able to focus only on one conflict.
-
-* =git rebase -i=
-Also named interactive rebase. This is another awesome git functionality.
-This command permits you to rewrite your commits.
-
-Once you are done developing the functionality you were aiming to do.
-You can [[http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html][squash your commits together]], remove some (if rendered useless), reedit the commit messages (to more appropriate ones), etc...
-At the end of it, your history is rewritten and is more straight-forward for others to see.
+Litteraly, you get back one commit back in time (=HEAD~=)
 
 *Note*
-Beware, that with rewriting history has limits.
-Typically, do not rewrite your history if the branch is remote and used by others.
+You're not limited to one commit back (e.g. =HEAD~3=)
 
 * =git blame=
 Just use to see by whom the modifications have been done.
-Thus engaging in a discussion to help understand the code they have done.
+Thus engaging in a discussion to help understand the code they did.
 
 In my *dot-files* repository, if I =git blame .stumpwmrc=, I have the following starting output:
 
@@ -331,17 +427,104 @@ e5a5ce33 (Antoine R. Dumont       2012-12-18 04:18:50 +0100  15)   "Add the iden
 58299192 (Antoine R. Dumont       2012-08-12 19:22:08 +0200  16)   (run-shell-command "~/bin/ssh/ssh-add.sh"))
 
 #+END_SRC
+_Explanation:_
+For each line (I limited to the first 16th lines), we see which developer modified lastly what.
 
-Then we can see that for each line which developer touched it lastly.
-As an example, I can ask Denis what the =(setf *frame-number-map* "abcdefghijklmnopqrst")= is all about :D.
-* =gco=
-Just to move myself to the branch I want or creating a new one:
-** Move
+As an example, I can ask Denis what the =(setf *frame-number-map* "abcdefghijklmnopqrst")= is all about :D
+
+*Note*
+
+By the way, it was an example :D.
+
+This command told [[http://www.nongnu.org/stumpwm/][stumpwm]] to use the alphabet as the numerotation for the frame.
+
+* =git rebase=
+
+Once upon a time, I did a lot of [[http://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging#Basic-Merging][merge]]. Then I discovered [[http://git-scm.com/book/en/Git-Branching-Rebasing][rebase]].
+[[http://git-scm.com/book/en/Git-Branching-Rebasing][Rebase]] permits to let you play back your commits from another moment in time.
+
+Let's put it this way:
+- You begin your development at the moment *A*
+- you create a branch from this *A*, thus follows commits *B*, ..., *E*
+- You finish at moment *E*.
+- Bob also starts from *A* and finish to *H* before you
+- Bob integrates this *H* into the main branch
+- You replay your commits from this *H* moment, so you got new commit *b* to *e* commits (it's still your commits but the SHA1 changed because the parent commit changed too!)
+In the end, it's like as if you began your commits from this *H* moment.
+
+This way:
+- you keep the git history inlined which is simpler to follow
+- when replaying the commits, if you got any conflict, you can take them down one at a time
+
+*Note*
+One danger with the rebase is if you already pushed your development and someone left from your development, there will be divergence.
+[[http://git-scm.com/book/en/Git-Branching-Rebasing#The-Perils-of-Rebasing][For more information]]
+
+Example:
+- I made some dev on the branch *some-dev* (5 commits after master)
+- I made some other dev from the same original commit but on another branch *some-other-dev*
+[[./resources/git/rebase/status.png]]
+- Now we can see that the 2 branches *some-dev* and *some-other-dev* have a common ancestor
+- master is advanced according to *some-other-dev*
 #+BEGIN_SRC sh
-gco branch-i-want
+gco master
+git merge some-other-dev
 #+END_SRC
 
-** Create
+*Note*
+Here I use the merge to only fast-forward the branch master according to *some-other-dev*
+
+[[./resources/git/rebase/master-synced-with-some-other-dev.png]]
+
+- Now master and *some-dev* have diverged
+- I place myself to the branch *some-dev* and rebase my work from the master branch.
 #+BEGIN_SRC sh
-gco -b new-branch
+git co some-dev
+git rebase master
 #+END_SRC
+
+I first got a conflict because both the first commit of the branch does the same modifications
+[[./resources/git/rebase/conflict.png]]
+
+- I edit the conflicted file, chose the first implementation, and save the file
+- I add the modification to the index (=git add README.md=) and relaunch the rebase (=git rebase --continue=)
+
+#+BEGIN_SRC sh
+git add README.md
+git rebase --continue
+#+END_SRC
+
+- Once the rebase is done, all is good, we obtain an inlined history
+[[./resources/git/rebase/rebased-final.png]]
+
+- We can fast-forward the *master* with *some-dev*
+[[./resources/git/rebase/master-ff.png]]
+
+#+BEGIN_SRC sh
+git co master
+git rebase some-dev
+#+END_SRC
+
+* =git rebase -i=
+Also named interactive rebase. This is another awesome git functionality.
+This command permits you to rewrite your commits.
+
+Once you are done developing the functionality you were aiming to do.
+You can:
+- [[http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html][squash your commits together]]
+- remove some (if rendered useless)
+- reedit the commit messages (to more appropriate ones), etc...
+
+At the end of it, your history is rewritten and is more straight-forward for others to see.
+
+*Note*
+Beware, that with rewriting history has limits.
+Typically, do not rewrite your history if the branch is remote and used by others.
+
+[[http://git-scm.com/book/en/Git-Tools-Rewriting-History#Changing-Multiple-Commit-Messages][For more information]]
+
+#+./resources/git/rebase/status.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-status.png
+#+./resources/git/rebase/master-synced-with-some-other-dev.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-master-synced-with-some-other-dev.png
+#+./resources/git/rebase/conflict.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-conflict.png
+#+./resources/git/rebase/rebased-final.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-rebased-final.png
+#+./resources/git/rebase/master-ff.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-master-ff.png
