@@ -45,18 +45,6 @@ Remotely I see other branches, here *master* and *test*.
 
 * =gco=
 Just to move oneself from the current branch to another or creating a new one:
-** Move
-#+BEGIN_SRC sh
-gco branch-i-want
-#+END_SRC
-
-Example:
-#+BEGIN_SRC sh
-tony@dagobah(0.38,) 21:32:03 ~/repo/perso/dot-files (some-branch-i-want) $ gco master
-Switched to branch 'master'
-Your branch is ahead of 'origin/master' by 6 commits.
-tony@dagobah(0.35,) 21:32:05 ~/repo/perso/dot-files (master) $
-#+END_SRC
 ** Create
 #+BEGIN_SRC sh
 gco -b new-branch
@@ -64,9 +52,21 @@ gco -b new-branch
 
 Example:
 #+BEGIN_SRC sh
-tony@dagobah(0.33,) 21:31:56 ~/repo/perso/dot-files (master) $ gco -b some-branch-i-want
-Switched to a new branch 'some-branch-i-want'
-tony@dagobah(0.38,) 21:32:03 ~/repo/perso/dot-files (some-branch-i-want) $
+tony@dagobah(0.33,) 21:31:56 ~/repo/perso/dot-files (master) $ gco -b new-branch
+Switched to a new branch 'new-branch
+tony@dagobah(0.38,) 21:32:03 ~/repo/perso/dot-files (new-branch) $
+#+END_SRC
+** Move
+#+BEGIN_SRC sh
+gco master
+#+END_SRC
+
+Example:
+#+BEGIN_SRC sh
+tony@dagobah(0.38,) 21:32:03 ~/repo/perso/dot-files (new-branch) $ gco master
+Switched to branch 'master'
+Your branch is ahead of 'origin/master' by 6 commits.
+tony@dagobah(0.35,) 21:32:05 ~/repo/perso/dot-files (master) $
 #+END_SRC
 
 ** Discard changed
@@ -146,8 +146,8 @@ index 0358d27..35e6c13 100644
 #+END_SRC
 _Explanation:_
 - =git add README.md= staged your modification
-- =gdf= did not show any difference because you stage all modifications
-- =gdf --cached= activated the comparaison including the index.
+- =gdf= did not show any difference because you already staged all modifications
+- =gdf --cached= activated the comparison including the index.
 
 * =gst=
 =git status=
@@ -274,6 +274,30 @@ tony@dagobah(0.19,) 17:19:45 ~/repo/perso/dot-files (master) $ gci --amend
 * =git rm=
 Remove files or folder and add those modifications into the git index.
 This is the dual to =git add=.
+
+Example:
+#+BEGIN_SRC sh
+tony@dagobah(0.55,) 21:47:28 ~/repo/perso/dot-files (master) $ git rm some-test-file
+rm 'some-test-file'
+tony@dagobah(0.51,) 21:47:34 ~/repo/perso/dot-files (master) $ gst
+# On branch master
+# Your branch is ahead of 'origin/master' by 6 commits.
+#
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#       deleted:    some-test-file
+#
+tony@dagobah(0.51,) 21:47:35 ~/repo/perso/dot-files (master) $ gci
+[master d74715b] Delete useless file.
+ 0 files changed
+ delete mode 100644 some-test-file
+tony@dagobah(0.90,) 21:47:42 ~/repo/perso/dot-files (master) $
+#+END_SRC
+_Explanation:_
+- Remove the *some-test-file* (=git rm=)
+- Check the status, we see that the destruction of the file is to be commited. (=gst=)
+- Commit 'Delete useless file' (=gci=)
 
 * =git ls-files -d | xargs git rm=
 When you deleted lots of files and forgot to use =git rm=.
@@ -506,7 +530,9 @@ git rebase some-dev
 #+END_SRC
 
 * =git rebase -i=
-Also named interactive rebase. This is another awesome git functionality.
+Also named interactive rebase.
+
+This is another awesome git functionality.
 This command permits you to rewrite your commits.
 
 Once you are done developing the functionality you were aiming to do.
