@@ -14,7 +14,7 @@
 In this post, I will describe how to install/setup the [[http://vagrantup.com/][vagrant]] stack I use in my every day work to ease my developments.
 [[http://vagrantup.com/v1/docs/getting-started/why.html][For some hints as to why i use vagrant :D]].
 
-As usual, my environment is a debian-based environment.
+As usual, my environment is a [[http://www.debian.org/misc/children-distros][debian-based environment]].
 
 * Pre-requisites
 
@@ -330,7 +330,8 @@ Waiting for VM "aa8c95dc-571e-4cb2-ae4a-3c57f4c2db8c" to power on...
 VM "aa8c95dc-571e-4cb2-ae4a-3c57f4c2db8c" has been successfully started.
 #+END_SRC
 
-*Note* The error message are normal and may vary according to the state of your vm(s).
+*Note*
+The error messages are normals and may vary according to the state of your vm(s).
 
 ** Cleaning Snapshot
 You can delete snapshots once you do not need them anymore.
