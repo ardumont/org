@@ -22,7 +22,7 @@
 :PROPERTIES:
 :POSTID:   645
 :POST_DATE: 20121224T13:59:00+0000
-:Published: No
+:Published: Yes
 :END:
 ** [[file:/home/tony/org/haskell/programming-in-haskell/intro.org][Programming in haskell - Introduction - exercices]]
 :PROPERTIES:
