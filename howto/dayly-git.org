@@ -103,6 +103,18 @@ So when I work in team project, I have at least 2 remotes:
 When i want to retrieve the remote commits, i systematically want those of my fork and then those from the main fork to sync the forks.
 It's all a story about forks! :D
 
+** git unstage
+=git reset HEAD --=
+
+I came across it and thought this was a good idea so i installed it.
+But I did not use it yet.
+
+I still use directly =git reset=.
+
+** git last
+=git log -1 HEAD=
+To see the last commit. This is mainly to check if I am where I think I am.
+
 ** Deploy script
 *** system git aliases
 My =~/.bashrc= orchestrates the sourcing of my aliases:
@@ -162,7 +174,7 @@ git config --global alias.unstage 'reset HEAD --'
 
 # see the last log
 git config --global alias.last 'log -1 HEAD'
-#+END_SR
+#+END_SRC
 [[https://github.com/ardumont/sh/blob/master/deploy/deploy-git-config.sh][deploy-git-config.sh]]
 
 *Notes*
@@ -177,24 +189,127 @@ sudo aptitude install -y meld
 #+END_SRC
 
 * commands
-Hi,<br>
-<br>From what i saw, I use git the same as you in the <a href="http://en.wikipedia.org/wiki/Command-line_interface">CLI</a>.
-I've got the chance to use it directly for git though!<br>
-<br>
-<ul>
-<li>I've got another alias for commiting: <strong>alias gci='git commit -v'</strong>
-<br>This one permits to see the diffs in the editor when typing the commit message.</li>
-<li><strong>git reset</strong> when I make mistakes in commiting (message or the contents of the commit) and want to unstage (<strong>git reset --soft</strong>) or delete modifications (<strong>git reset --hard</strong>, or simply want the origin/upstream repository to take over my modifications (<strong>git reset --hard upstream/master</strong>)</li>
-<li><strong>git blame</strong> to see from whom comes the modifications (this can help to discuss directly with the person when you don't understand the code, yes it happens!)</li>
-</ul>
 
-Remark:
-I do not use <strong>git stash</strong> anymore.<br>
-Instead I directly commit all my modifications in a 'dirty' commit (tagged this way). Do the maintenance I need to do, then get back to the branch and unstage the 'dirty' commit.<br>
+I have 2 main ways of using git:
+- [[http://philjackson.github.com/magit/magit.html][magit]] through [[http://www.gnu.org/s/emacs/][emacs]]
+- [[http://en.wikipedia.org/wiki/Command-line_interface][CLI]]
+** magit
 
-<br>
-Also, as I am an <a href="http://www.gnu.org/s/emacs/">emacs</a> user, there is a mode called <a href="http://philjackson.github.com/magit/&quot;">magit</a> that also ease the commiting, staging, unstaging, deleting, etc... For example, with this, you can make lots of modifications on your files, then only commits chunks of modifications.
+** CLI
+*** gdf
+=git diff=
+To see the modification between your workspace and the commited stuff.
 
-Hope that helps
+Example:
+#+BEGIN_SRC sh
+tony@dagobah(0.51,) 13:04:30 ~/repo/perso/testproject (twitter-post2) $ gdf
+diff --git a/README.md b/README.md
+index 7f97a63..54ce989 100644
+--- a/README.md
++++ b/README.md
+@@ -21,3 +21,4 @@ lein run
+ Copyright (C) 2011 djhworld
 
-Antoine R. Dumont
+ Distributed under the Eclipse Public License, the same as Clojure.
++This is a line added to the end of the README
+#+END_SRC
+
+_Explanation:_
+Here we can see that the file /README.md/ has one more line *This is a line added to the end of the README*.
+*** gst
+=git status=
+
+This will list the current status of your index (modification, untracked files)
+
+Example:
+#+BEGIN_SRC sh
+tony@dagobah(0.17,) 13:06:11 ~/repo/perso/testproject (twitter-post2) $ gst
+# On branch twitter-post2
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#       modified:   README.md
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#       resources/public/js/cljs.js
+#       target/
+no changes added to commit (use "git add" and/or "git commit -a")
+#+END_SRC
+
+_Explanation:_
+You can see that:
+- the file /README.md/ has been changed.
+- there are untracked files:
+  - one untracked file
+  - one folder *target*.
+
+*** git add
+Add modifications into the git index.
+
+Example:
+#+BEGIN_SRC sh
+tony@dagobah(0.20,) 13:10:23 ~/repo/perso/testproject (twitter-post2) $ git add README.md
+tony@dagobah(0.27,) 13:10:26 ~/repo/perso/testproject (twitter-post2) $ gst
+# On branch twitter-post2
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#       modified:   README.md
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#       resources/public/js/cljs.js
+#       target/
+#+END_SRC
+
+_Explanation:_
+You add the /README.md/ file in the index.
+Then if you look at your index status, you can see that the index status changed from *Changes not staged for commit* to *Changes to be committed*.
+Inside you can see the /README.md/.
+Nothing changed regarding the 2 other files.
+
+*** gci
+=git commit -v=
+Commit the content of the index.
+
+By typing =gci= in the CLI, the *core.editor* loads itself and here is the main view resulting:
+#+BEGIN_SRC sh
+------> Here you type the commit message <------
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch twitter-post2
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#       modified:   README.md
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#       resources/public/js/cljs.js
+#       target/
+diff --git a/README.md b/README.md
+index 7f97a63..54ce989 100644
+--- a/README.md
++++ b/README.md
+@@ -21,3 +21,4 @@ lein run
+ Copyright (C) 2011 djhworld
+
+ Distributed under the Eclipse Public License, the same as Clojure.
++This is a line added to the end of the README
+
+#+END_SRC
+*Note*:
+At the same time, we see the modification between the index and the already commited stuff.
+
+*** git ls-files -d | xargs git rm
+*** git mv
+*** git reset
+*** git rebase
+*** git rebase -i
+*** git blame
+*** gco
