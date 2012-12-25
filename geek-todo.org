@@ -331,8 +331,7 @@ Rapid presentation on what i can do and what i do:
 Rapid presentation on clojure
 What are the possibilities
 *** TODO Visibility on my clojure projects
-
-* TODO clojure [11%]
+* TODO clojure [22%]
 ** DONE start [100%]
 CLOSED: [2012-04-21 Sat 18:18]
 *** DONE install
@@ -560,6 +559,7 @@ CLOSED: [2012-05-03 jeu. 08:22]
 **** Play with it
 ** TODO Incanter
 ** TODO xml
-** TODO Create a basic rss reader
+** DONE Create a basic rss reader
+CLOSED: [2012-12-25 Tue 10:51]
 ** TODO Cloduino
 ** TODO http://sritchie.github.com/2011/05/31/hadoop-on-pallet.html
