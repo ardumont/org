@@ -10,16 +10,18 @@
 #+STARTUP: indent
 #+STARTUP: hidestars
 
-In another post, I presented my git aliases.
-In this one, I will present the commands I use everyday with git.
+In another post, I presented my (system) git aliases.
+In this one, I will enter into more details about those commands.
+
+I have mainly 2 way of using git:
 - [[http://en.wikipedia.org/wiki/Command-line_interface][CLI]]
 - [[http://philjackson.github.com/magit/magit.html][magit]] through [[http://www.gnu.org/s/emacs/][emacs]]
 
-I prefer [[http://philjackson.github.com/magit/magit.html][magit]] (from inside emacs) but I still use the [[http://en.wikipedia.org/wiki/Command-line_interface][CLI]] from time to time.
+I prefer [[http://philjackson.github.com/magit/magit.html][magit]] (from inside [[http://www.gnu.org/software/emacs/][emacs]]) but I still use the [[http://en.wikipedia.org/wiki/Command-line_interface][CLI]] from time to time.
 Here I will present my [[http://en.wikipedia.org/wiki/Command-line_interface][CLI]] use.
 I'll keep [[http://philjackson.github.com/magit/magit.html][magit]] for another time.
 
-* gbr
+* =gbr=
 =git branch=
 
 To see the list of branches you have on your current repository.
@@ -28,6 +30,7 @@ To see the list of branches you have on your current repository.
 tony@dagobah(0.46,) 15:48:41 ~/repo/perso/dot-files (master) $ gbr
  * master
 #+END_SRC
+_Explanation:_
 Here, I only have locally the master branch.
 
 =gbr -r= or =gbr --remote= to see the remote branches:
@@ -37,31 +40,56 @@ tony@dagobah(0.36,) 16:41:11 ~/repo/perso/dot-files (master) $ gbr --remote
   origin/master
   origin/test
 #+END_SRC
+_Explanation:_
 Remotely I see other branches, here *master* and *test*.
 
-* gdf
+* =gdf=
 =git diff=
 
 To see the modifications you developed between your workspace and the commited files.
 
 Example:
 #+BEGIN_SRC sh
-tony@dagobah(0.51,) 13:04:30 ~/repo/perso/testproject (twitter-post2) $ gdf
+tony@dagobah(0.31,) 18:05:22 ~/repo/perso/dot-files (master) $ gdf
 diff --git a/README.md b/README.md
-index 7f97a63..54ce989 100644
+index 0358d27..35e6c13 100644
 --- a/README.md
 +++ b/README.md
-@@ -21,3 +21,4 @@ lein run
- Copyright (C) 2011 djhworld
-
- Distributed under the Eclipse Public License, the same as Clojure.
-+This is a line added to the end of the README
+@@ -12,3 +12,4 @@ Something along those lines should do the trick:
+ REPO=/path/to/your/clones/dot-files
+ for i in $(ls $REPO); do ln -s $REPO/$i ~; done
+ ```
++this is a test
 #+END_SRC
 
 _Explanation:_
-Here we can see that the file /README.md/ has one more line *This is a line added to the end of the README*.
+Here we can see that the file /README.md/ has one more line *this is a test*.
 
-* gst
+*Note*
+If you already staged your modifications you can use =gdf --cached=.
+
+Example:
+#+BEGIN_SRC sh
+tony@dagobah(0.28,) 18:06:36 ~/repo/perso/dot-files (master) $ git add README.md
+tony@dagobah(0.28,) 18:06:38 ~/repo/perso/dot-files (master) $ gdf
+tony@dagobah(0.26,) 18:06:39 ~/repo/perso/dot-files (master) $ gdf --cached
+diff --git a/README.md b/README.md
+index 0358d27..35e6c13 100644
+--- a/README.md
++++ b/README.md
+@@ -12,3 +12,4 @@ Something along those lines should do the trick:
+ REPO=/path/to/your/clones/dot-files
+ for i in $(ls $REPO); do ln -s $REPO/$i ~; done
+ ```
++this is a test
+
+#+END_SRC
+_Explanation:_
+- =git add README.md= staged your modification
+- =gdf= did not show any difference because you stage all modifications
+- =gdf --cached= activated the comparaison including the index.
+
+* =gst=
 =git status=
 
 This will list the current status of your index (modification, untracked files):
@@ -82,9 +110,9 @@ no changes added to commit (use "git add" and/or "git commit -a")
 _Explanation:_
 You can see that:
 - the file /README.md/ has been changed.
-- this has not been staged for commit, that is, I did not added it to the index yet
+- this has not been staged for commit, that is, I did not added it to the index yet.
 
-* git add
+* =git add=
 Add modifications into the git index.
 
 If I add the /README.md/ file to the index and then check the status:
@@ -100,15 +128,14 @@ tony@dagobah(0.19,) 17:08:03 ~/repo/perso/dot-files (master) $ gst
 #+END_SRC
 _Explanation:_
 The index status changed from *Changes not staged for commit* to *Changes to be committed*.
-This time I added the /README.md/ to the index.
-Now we are ready to commit.
+This time I added the /README.md/ to the index. So, now we are ready to commit.
 
-* gci
+* =gci=
 =git commit -v=
 
 Commit the content of the index.
 
-By typing =gci= in the CLI, the git *core.editor* loads itself and ask you for a commit message:
+By typing =gci= in the CLI, the git *core.editor* loads itself and asks you for a commit message:
 #+BEGIN_SRC sh
 ------> Here you type the commit message <------
 # Please enter the commit message for your changes. Lines starting
@@ -182,16 +209,60 @@ tony@dagobah(0.19,) 17:19:45 ~/repo/perso/dot-files (master) $ gci --amend
  1 file changed, 1 insertion(+)
 #+END_SRC
 
-* git ls-files -d | xargs git rm
+* =git ls-files -d | xargs git rm=
 When you deleted lots of files, you can rapidly delete them with this command.
+
+#+BEGIN_SRC sh
+tony@dagobah(0.20,) 18:11:09 ~/repo/perso/dot-files (master) $ rm titi tutu tata
+tony@dagobah(0.16,) 18:11:27 (1) ~/repo/perso/dot-files (master) $ gst
+# On branch master
+# Your branch is ahead of 'origin/master' by 2 commits.
+#
+# Changes not staged for commit:
+#   (use "git add/rm <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#       deleted:    tata
+#       deleted:    titi
+#       deleted:    tutu
+#
+no changes added to commit (use "git add" and/or "git commit -a")
+tony@dagobah(0.13,) 18:11:35 ~/repo/perso/dot-files (master) $ git ls-files -d | xargs git rm
+rm 'tata'
+rm 'titi'
+rm 'tutu'
+
+#+END_SRC
+
+_Explanation:_
+- First we delete the file we do not want anymore (the must would have been to use directly =git rm=)
+- Then checking the status of the repository, we see that we must =git rm= the files.
+- At last, we fix the situation by listing all the files to 'git rm'
 
 *Note* An alias could be cool here :D
 
-* git mv
+* =git mv=
 Move one file from one destination to another.
 It's the same as the *mv* command, but has the advantage to add the move action to the git index too.
 
-* git reset
+#+BEGIN_SRC sh
+tony@dagobah(0.22,) 18:14:29 ~/repo/perso/dot-files (master) $ git mv test some-test-file
+tony@dagobah(0.27,) 18:14:38 ~/repo/perso/dot-files (master) $ gst
+# On branch master
+# Your branch is ahead of 'origin/master' by 3 commits.
+#
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#       renamed:    test -> some-test-file
+#
+
+#+END_SRC
+_Explanation:_
+We rename the *test* file into *some-test-file*.
+This modification is immediately staged into the index.
+
+* =git reset=
 ** soft
 To unstage modifications from the index.
 This also let the workspace intact, that is with your modifications.
@@ -263,7 +334,7 @@ e5a5ce33 (Antoine R. Dumont       2012-12-18 04:18:50 +0100  15)   "Add the iden
 
 Then we can see that for each line which developer touched it lastly.
 As an example, I can ask Denis what the =(setf *frame-number-map* "abcdefghijklmnopqrst")= is all about :D.
-* gco
+* =gco=
 Just to move myself to the branch I want or creating a new one:
 ** Move
 #+BEGIN_SRC sh
