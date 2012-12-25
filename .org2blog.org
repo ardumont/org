@@ -1,5 +1,11 @@
 
 * Posts
+** [[file:/home/tony/org/howto/daily-git.org][Daily git]]
+:PROPERTIES:
+:POSTID:   675
+:POST_DATE: 20121225T15:09:00+0000
+:Published: No
+:END:
 ** [[file:/home/tony/org/howto/git-aliases.org][Git aliases/System git aliases]]
 :PROPERTIES:
 :POSTID:   686
