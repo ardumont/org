@@ -1,5 +1,11 @@
 
 * Posts
+** [[file:/home/tony/org/howto/dayly-git.org][Daily git]]
+:PROPERTIES:
+:POSTID:   675
+:POST_DATE: 20121225T15:09:21+0000
+:Published: No
+:END:
 ** [[file:/home/tony/org/howto/howto-vagrant-tools.org][Vagrant tools]]
 :PROPERTIES:
 :POSTID:   659
