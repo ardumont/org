@@ -1,0 +1,200 @@
+#+BLOG: tony-blog
+#+TITLE: Dayly git
+#+AUTHOR: Antoine R. Dumont
+#+OPTIONS:
+#+TAGS: emacs, git, aliases
+#+CATEGORY: emacs, git
+#+DESCRIPTION: How do i use git every day
+#+STARTUP: indent
+#+STARTUP: hidestars
+
+Here are the [[http://git-scm.com/][git]] aliases/commands I use in my everyday life:
+
+* aliases/git aliases
+There exists two kinds of aliases, the ones for the system and the ones for git.
+In the suite, i will describe in the title the system one first separated with / then the git one.
+** git
+=hub=
+I recently came across [[https://github.com/defunkt/hub][hub]] that is a command to help in [[http://defunkt.io/hub/][gitting with github]].
+This adds the funtionalities to fork, pull request, browse issues, etc...
+
+This *seems* to be a powerful interface to permit to play with github via the CLI.
+I do not yet play enough with it so i don't enter into details here.
+
+Suffice it to say that you can alias it as git as this delegate to git underneath.
+
+** gitka
+=gitk --all=
+I often want to see all the branches.
+If not, i use directly =gitk=
+
+*Note*
+There is a CLI interface to see beautiful branches called [[https://git.wiki.kernel.org/index.php/Tig][tig]].
+
+Possible output:
+#+BEGIN_SRC sh
+2012-12-25 11:55                    o Unstaged changes
+2012-11-22 19:58 Antoine R. Dumont  o [master] [origin/master] Remove useless import.
+2012-11-22 19:53 Antoine R. Dumont  o Play with the trello api.
+2012-11-12 12:35 Antoine R. Dumont  M─┐ [upstream/master] Merged in denlab/cljsta (pull request #41)
+2012-11-02 18:27 Antoine R. Dumont  M─┐ Merged in denlab/cljsta/movie-query (pull request #40)
+2012-11-02 15:46 Denis Labaye       │ │ o EC2: some refactoring (->)
+2012-11-02 12:27 Denis Labaye       │ │ o DONE EC2: List all instances of all regions
+2012-11-01 19:58 Denis Labaye       │ o │ imdbapi: a ns to query movies
+2012-11-01 17:28 Denis Labaye       │ │ o DONE implements the fake ls (with the local data on disk)
+2012-11-01 17:12 Denis Labaye       │ │ o DONE regions
+2012-11-01 14:56 Denis Labaye       │ │ o cleanup
+2012-10-31 19:14 Antoine R. Dumont  I─┐ │ Merged in denlab/cljsta (pull request #39)
+2012-10-31 09:53 Denis Labaye       │ o─┘ DONE put body in <> properly
+2012-10-31 09:34 Denis Labaye       │ o DONE handle the throw exception case
+2012-10-31 09:20 Denis Labaye       │ o DONE put body in <>
+2012-10-30 20:15 Antoine R. Dumont  I─┐ Merged in denlab/cljsta (pull request #38)
+2012-10-30 15:46 Denis Labaye       │ o DONE package compression
+2012-10-30 15:07 Denis Labaye       │ o DONE make times in title optional
+2012-10-30 11:45 Denis Labaye       │ o DONE add options capabilities to the org-rendering
+2012-10-30 11:22 Denis Labaye       │ o DONE remove the brackets in [%]
+2012-10-30 11:17 Denis Labaye       │ o doc: cleanup todo
+2012-10-30 12:06 Antoine R. Dumont  I─┐ Merged in denlab/cljsta (pull request #37)
+2012-10-30 10:10 lazyposse          M─┐ Merged in ardumont/cljsta/treemap (pull request #36)
+2012-10-30 10:06 Denis Labaye       │ │ o DONE Acquiring WCI data
+2012-10-29 21:48 Antoine R. Dumont  │ o │ [origin/treemap] Just a little update on the actual status.
+2012-10-29 21:34 Antoine R. Dumont  │ o │ *** DONE generate the pivot for the jtreemap applet
+2012-10-29 20:37 Antoine R. Dumont  │ o │ *** DONE tryout one sample
+2012-10-29 19:57 Antoine R. Dumont  │ o │ *** DONE add the jtreemap dependency
+2012-10-29 19:56 Antoine R. Dumont  │ o │ *** DONE Rename the previous treemap namespace (that was not a real treemap) into a more appropriate namespace.
+2012-10-29 16:46 Antoine R. Dumont  I─┐ │ Merged in denlab/cljsta (pull request #35)
+2012-10-29 01:48 Denis Labaye       │ o─┘ data: added files from WCI captures
+
+#+END_SRC
+** gst/git st
+=git status=
+
+** gci/git ci
+=git commit=
+
+** gco/git co
+=git checkout=
+
+Move to another branch named *another-branch*:
+#+BEGIN_SRC sh
+gco another-branch
+git co another-branch
+#+END_SRC
+
+Create a new branch named *a-new-branch*
+#+BEGIN_SRC sh
+gco -b a-new-branch
+git co -b a-new-branch
+#+END_SRC
+
+** gbr/git br
+=git branch=
+** gdf
+=git diff=
+** gf
+=git fetch=
+** gfa
+=git fetch --all=
+I always work with forks.
+So when I work in team project, I have at least 2 remotes:
+- origin: this is my fork
+- upstream: this is the main fork
+
+When i want to retrieve the remote commits, i systematically want those of my fork and then those from the main fork to sync the forks.
+It's all a story about forks! :D
+
+** Deploy script
+*** system git aliases
+My =~/.bashrc= orchestrates the sourcing of my aliases:
+=~/.bashrc=
+#+BEGIN_SRC sh
+...
+[ -f ~/.bash_aliases ] && . ~/.bash_aliases
+...
+#+END_SRC
+[[https://github.com/ardumont/dot-files/blob/master/.bashrc][.bashrc]]
+
+Then my aliases are loaded:
+#+BEGIN_SRC sh
+alias git='hub'
+alias gitka='gitk --all'
+alias gst='git status'
+alias gci='git commit -v'
+alias gco='git checkout'
+alias gbr='git branch'
+alias gdf='git diff'
+alias gl='git log --oneline --graph --remotes --decorate --all'
+alias gf='git fetch'
+alias gfa='git fetch --all'
+#+END_SRC
+[[https://github.com/ardumont/dot-files/blob/master/.bash_aliases][.bash_aliases]]
+#+END_SRC
+*** git config
+To run once:
+#+BEGIN_SRC sh
+#!/bin/bash -e
+
+git config --global user.name "$YOUR_NAME"
+git config --global user.email "$YOUR_EMAIL"
+
+# emacs
+git config --global core.editor "$YOUR_EDITOR"
+
+# color everywhere (one flag)
+git config --global color.ui true
+# or in separate
+#git config --global color.branch auto
+#git config --global color.diff auto
+#git config --global color.interactive auto
+#git config --global color.status auto
+
+# tool to help the merging
+git config --global merge.tool meld
+
+# aliases
+git config --global alias.co checkout
+git config --global alias.br branch
+git config --global alias.ci commit
+git config --global alias.st status
+
+# unstage a file
+git config --global alias.unstage 'reset HEAD --'
+
+# see the last log
+git config --global alias.last 'log -1 HEAD'
+#+END_SR
+[[https://github.com/ardumont/sh/blob/master/deploy/deploy-git-config.sh][deploy-git-config.sh]]
+
+*Notes*
+1) Don't forget to change the variable to your convenience:
+- =$YOUR_NAME= with your name
+- =$YOUR_EMAIL= with your email
+- =$YOUR_EDITOR= with your editor
+
+2) If you want meld, you have to install it too
+#+BEGIN_SRC sh
+sudo aptitude install -y meld
+#+END_SRC
+
+* commands
+Hi,<br>
+<br>From what i saw, I use git the same as you in the <a href="http://en.wikipedia.org/wiki/Command-line_interface">CLI</a>.
+I've got the chance to use it directly for git though!<br>
+<br>
+<ul>
+<li>I've got another alias for commiting: <strong>alias gci='git commit -v'</strong>
+<br>This one permits to see the diffs in the editor when typing the commit message.</li>
+<li><strong>git reset</strong> when I make mistakes in commiting (message or the contents of the commit) and want to unstage (<strong>git reset --soft</strong>) or delete modifications (<strong>git reset --hard</strong>, or simply want the origin/upstream repository to take over my modifications (<strong>git reset --hard upstream/master</strong>)</li>
+<li><strong>git blame</strong> to see from whom comes the modifications (this can help to discuss directly with the person when you don't understand the code, yes it happens!)</li>
+</ul>
+
+Remark:
+I do not use <strong>git stash</strong> anymore.<br>
+Instead I directly commit all my modifications in a 'dirty' commit (tagged this way). Do the maintenance I need to do, then get back to the branch and unstage the 'dirty' commit.<br>
+
+<br>
+Also, as I am an <a href="http://www.gnu.org/s/emacs/">emacs</a> user, there is a mode called <a href="http://philjackson.github.com/magit/&quot;">magit</a> that also ease the commiting, staging, unstaging, deleting, etc... For example, with this, you can make lots of modifications on your files, then only commits chunks of modifications.
+
+Hope that helps
+
+Antoine R. Dumont
