@@ -210,7 +210,7 @@ CLOSED: [2012-12-23 Sun 13:18]
 CLOSED: [2012-12-23 Sun 13:18]
 *** DONE create packs for my setup
 CLOSED: [2012-12-23 Sun 13:18]
-* TODO blog [66%]
+* TODO blog [50%]
 ** CANCELLED migrate tonys-blog with static and nakkaya [100%]
 CLOSED: [2012-12-23 Sun 13:12]
 *** DONE static [100%]
@@ -263,7 +263,7 @@ CLOSED: [2012-12-23 Sun 13:17]
 CLOSED: [2012-12-23 Sun 13:17]
 **** DONE http://adumont.fr/blog/possible-team-workflow-with-git/
 CLOSED: [2012-12-23 Sun 13:17]
-** TODO Articles [77%]
+** TODO Articles [70%]
 *** DONE Chroot to save one's GNU/Linux
 CLOSED: [2012-04-21 Sat 18:07]
 http://adumont.fr/blog/chroot-pour-sauver-son-gnulinux/
@@ -315,9 +315,12 @@ http://adumont.fr/blog/my-emacs-tools/
 *** DONE programming in haskell - Ch1 - Introduction - exercises
 CLOSED: [2012-12-24 Mon 13:47]
 http://adumont.fr/blog/programming-in-haskell-exercices-intro/
-*** DONE programming in haskell - Ch2 - first steps - exercises
+*** DONE programming in haskell - Ch2 - First steps - exercises
 CLOSED: [2012-12-25 Tue 10:48]
 http://adumont.fr/blog/programming-in-haskell-ch2-first-steps-exercises/
+*** PENDING programming in haskell - Ch3 - Types and classes
+*** PENDING Vagrant tools
+** TODO Possible articles [0%]
 *** TODO Simple Howto apache camel
 Make the team presentation generic.
 *** TODO How to use emacs?
