@@ -75,7 +75,7 @@ git config --global alias.ci commit
 git config --global alias.st status
 
 # unstage a file
-git config --global alias.unstage 'reset HEAD --'
+git config --global alias.unstage 'reset HEAD~ --'
 
 # see the last log
 git config --global alias.last 'log -1 HEAD'
@@ -112,6 +112,8 @@ You will still be able to use [[https://github.com/defunkt/hub][hub]] very much 
 
 I use [[http://wiki.tcl.tk/14598][gitk]] to see where I'm at in terms of branch and SHA1.
 I often want to see all the branches too.
+
+[[./resources/git/gitka-sample.png]]
 
 If not, i use directly =gitk=
 
@@ -165,18 +167,7 @@ Record changes to the current branch.
 *** gco/git co
 =git checkout=
 
-Move to another branch named *another-branch*:
-#+BEGIN_SRC sh
-gco another-branch
-git co another-branch
-#+END_SRC
-
-Create a new branch named *a-new-branch*
-#+BEGIN_SRC sh
-gco -b a-new-branch
-git co -b a-new-branch
-#+END_SRC
-
+Move to branch, create new branch.
 *** gbr/git br
 =git branch=
 
@@ -201,12 +192,10 @@ When I want to retrieve the remote commits, I systematically want those of my fo
 It's all a story about forks! :D
 
 *** git unstage
-=git reset HEAD --=
+=git reset HEAD~ --=
 
 I came across it and thought this was a good idea so i installed it.
-But I did not use it yet.
-
-I still use directly =git reset=.
+But I systematically forgot about it and so I still use directly =git reset=.
 
 *** git last
 =git log -1 HEAD=
