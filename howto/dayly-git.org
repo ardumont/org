@@ -191,10 +191,12 @@ sudo aptitude install -y meld
 * commands
 
 I have 2 main ways of using git:
-- [[http://philjackson.github.com/magit/magit.html][magit]] through [[http://www.gnu.org/s/emacs/][emacs]]
 - [[http://en.wikipedia.org/wiki/Command-line_interface][CLI]]
-** magit
+- [[http://philjackson.github.com/magit/magit.html][magit]] through [[http://www.gnu.org/s/emacs/][emacs]]
+I prefer magit but i still revert some time with the CLI as there exists stuff i still don't know how to do with magit.
+I'm just a RTFM near to know how to do it :D
 
+Anyway, I'll start with CLI.
 ** CLI
 *** gdf
 =git diff=
@@ -276,7 +278,7 @@ Nothing changed regarding the 2 other files.
 =git commit -v=
 Commit the content of the index.
 
-By typing =gci= in the CLI, the *core.editor* loads itself and here is the main view resulting:
+By typing =gci= in the CLI, the git *core.editor* loads itself and here is the main view resulting:
 #+BEGIN_SRC sh
 ------> Here you type the commit message <------
 # Please enter the commit message for your changes. Lines starting
@@ -304,12 +306,23 @@ index 7f97a63..54ce989 100644
 
 #+END_SRC
 *Note*:
-At the same time, we see the modification between the index and the already commited stuff.
+At the same time, we see the modifications between the index and the already gitted file.
+
 
 *** git ls-files -d | xargs git rm
+When you deleted and commited lots of files, you can rapidly delete them with this command.
+
+*Note* An alias could be cool here :D
 *** git mv
+Move one file from one destination to another.
+
 *** git reset
+**** soft
+Soft to unstage modifications from the index but let the workspace intact.
+**** hard
+Hard to delete local modification from the index
 *** git rebase
 *** git rebase -i
 *** git blame
 *** gco
+** magit
