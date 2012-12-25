@@ -10,15 +10,16 @@
 #+STARTUP: indent
 #+STARTUP: hidestars
 
-In this post, I will present my git aliases and my system git aliases.
-Here are the [[http://git-scm.com/][git]] aliases/commands I use in my everyday life:
+In this post, I will present my [[http://git-scm.com/][git]] aliases and my system [[http://git-scm.com/][git]] aliases.
 
 * Aliases/git aliased
 There exists two kinds of aliases, the:
 - ones for the system
-- ones for git.
+- ones for [[http://git-scm.com/][git]].
 
-Hereupon, I will describe in the title the system alias first, then the git one.
+I will first gives you the main script to deploy them if you are interested.
+Then, I will describe the aliases.
+In the title, you will find the system alias first, then the [[http://git-scm.com/][git]] one, the overall separated by the =/=.
 
 ** Deploy script
 *** system git aliases
@@ -45,7 +46,6 @@ alias gf='git fetch'
 alias gfa='git fetch --all'
 #+END_SRC
 [[https://github.com/ardumont/dot-files/blob/master/.bash_aliases][.bash_aliases]]
-#+END_SRC
 *** git config
 To run once:
 #+BEGIN_SRC sh
@@ -83,12 +83,13 @@ git config --global alias.last 'log -1 HEAD'
 [[https://github.com/ardumont/sh/blob/master/deploy/deploy-git-config.sh][deploy-git-config.sh]]
 
 *Notes*
-1) Don't forget to change the variable to your convenience:
+1) Don't forget to change the variables to your convenience:
 - =$YOUR_NAME= with your name
 - =$YOUR_EMAIL= with your email
 - =$YOUR_EDITOR= with your editor
 
-2) If you want meld, you have to install it too
+2) If you want [[http://meldmerge.org/][meld]], you have to install it too.
+
 #+BEGIN_SRC sh
 sudo aptitude install -y meld
 #+END_SRC
@@ -100,22 +101,22 @@ sudo aptitude install -y meld
 I recently came across [[https://github.com/defunkt/hub][hub]] that is a command to help in [[http://defunkt.io/hub/][gitting with github]].
 This adds the functionalities to [[https://help.github.com/articles/fork-a-repo][fork]], [[https://help.github.com/articles/using-pull-requests][pull request]], browse issues, etc...
 
-This *seems* to be a powerful interface that permits to play with github via the CLI.
+This *seems* to be a powerful interface that permits to play with [[https://github.com][github]] via the [[http://en.wikipedia.org/wiki/CLI][CLI]].
 I do not yet play enough with it so I do not enter into much details here.
 
-Suffice it to say that you can alias it as git.
-You will still be able to use hub very much like git.
+Suffice it to say that you can alias it as [[http://git-scm.com/][git]].
+You will still be able to use [[https://github.com/defunkt/hub][hub]] very much like [[http://git-scm.com/][git]].
 
 *** gitka
 =gitk --all=
 
-I use gitk to see where I'm at in terms of branch and SHA1.
+I use [[http://wiki.tcl.tk/14598][gitk]] to see where I'm at in terms of branch and SHA1.
 I often want to see all the branches too.
 
 If not, i use directly =gitk=
 
 *Note*
-There is a CLI interface to see beautiful branches called [[https://git.wiki.kernel.org/index.php/Tig][tig]].
+There is a [[http://en.wikipedia.org/wiki/CLI][CLI]] interface to see beautiful branches called [[https://git.wiki.kernel.org/index.php/Tig][tig]].
 
 Possible output:
 #+BEGIN_SRC sh
@@ -210,4 +211,4 @@ I still use directly =git reset=.
 *** git last
 =git log -1 HEAD=
 
-To see the last commit. This is mostly to check if I am where I think I am.
+To see the last commit. This is mostly to check if I am where I think I am
