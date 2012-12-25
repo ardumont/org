@@ -1,12 +1,12 @@
 #+BLOG: tony-blog
 #+POSTID: 675
 #+DATE: [2012-12-25 Tue 16:09]
-#+TITLE: Daily git
+#+TITLE: Daily git 1/2
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
 #+TAGS: emacs, git, aliases
 #+CATEGORY: emacs, git
-#+DESCRIPTION: How do i use git every day
+#+DESCRIPTION: How do i use git every day 1/2
 #+STARTUP: indent
 #+STARTUP: hidestars
 
@@ -537,15 +537,98 @@ This command permits you to rewrite your commits.
 
 Once you are done developing the functionality you were aiming to do.
 You can:
-- [[http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html][squash your commits together]]
-- remove some (if rendered useless)
 - reedit the commit messages (to more appropriate ones), etc...
+- [[http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html][squash your commits together]]
+- [[http://git-scm.com/book/en/Git-Tools-Rewriting-History#Reordering-Commits][reordering commits]]
+- [[http://git-scm.com/book/en/Git-Tools-Rewriting-History#Splitting-a-Commit][splitting a commit]] (I never did that yet)
+- remove some (if rendered useless)
 
 At the end of it, your history is rewritten and is more straight-forward for others to see.
 
 *Note*
 Beware, that with rewriting history has limits.
 Typically, do not rewrite your history if the branch is remote and used by others.
+
+Example:
+I will squash all the commits I've done until now into one.
+
+[[./resources/git/rebase/before-squash.png]]
+
+#+BEGIN_SRC sh
+tony@dagobah(0.27,) 22:00:09 ~/repo/perso/dot-files (master) $ gst
+# On branch master
+# Your branch is ahead of 'origin/master' by 7 commits.
+#
+nothing to commit (working directory clean)
+tony@dagobah(0.23,) 22:00:19 ~/repo/perso/dot-files (master) $ git rebase -i HEAD~6
+#+END_SRC
+
+This opens the *core.editor* and presents with the 6 possibles commits to work on.
+#+BEGIN_SRC sh
+pick 5a52561 Temporary commit.
+pick 12e529d Some dummy and empty file for testing.
+pick b7484a1 Remove useless stuff.
+pick cad3b17 Rename file.
+pick 05a7f7f A new file README.org for fun.
+pick d74715b Delete useless file.
+
+# Rebase bc82ef2..d74715b onto bc82ef2
+#
+# Commands:
+#  p, pick = use commit
+#  r, reword = use commit, but edit the commit message
+#  e, edit = use commit, but stop for amending
+#  s, squash = use commit, but meld into previous commit
+#  f, fixup = like "squash", but discard this commit's log message
+#  x, exec = run command (the rest of the line) using shell
+#
+# These lines can be re-ordered; they are executed from top to bottom.
+#
+# If you remove a line here THAT COMMIT WILL BE LOST.
+# However, if you remove everything, the rebase will be aborted.
+#
+#+END_SRC
+
+I selection what I want, here I want:
+- to *fixup* all the commits
+- except the last one where I want to *reword* the message to *squash all commits message*.
+#+BEGIN_SRC sh
+r Temporary commit.
+f 12e529d Some dummy and empty file for testing.
+f b7484a1 Remove useless stuff.
+f cad3b17 Rename file.
+f 05a7f7f A new file README.org for fun.
+f d74715b Delete useless file.
+
+# Rebase bc82ef2..d74715b onto bc82ef2
+#
+# Commands:
+#  p, pick = use commit
+#  r, reword = use commit, but edit the commit message
+#  e, edit = use commit, but stop for amending
+#  s, squash = use commit, but meld into previous commit
+#  f, fixup = like "squash", but discard this commit's log message
+#  x, exec = run command (the rest of the line) using shell
+#
+# These lines can be re-ordered; they are executed from top to bottom.
+#
+# If you remove a line here THAT COMMIT WILL BE LOST.
+# However, if you remove everything, the rebase will be aborted.
+#
+#+END_SRC
+
+#+BEGIN_SRC sh
+tony@dagobah(0.27,) 22:07:12 ~/repo/perso/dot-files (master) $ git rebase -i HEAD~6
+[detached HEAD 9199358] squash all commits message.
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+[detached HEAD 35d77a7] squash all commits message.
+ 2 files changed, 2 insertions(+), 1 deletion(-)
+ create mode 100644 README.org
+Successfully rebased and updated refs/heads/master.
+#+END_SRC
+
+Here is the final result:
+[[./resources/git/rebase/after-squash.png]]
 
 [[http://git-scm.com/book/en/Git-Tools-Rewriting-History#Changing-Multiple-Commit-Messages][For more information]]
 
@@ -554,3 +637,6 @@ Typically, do not rewrite your history if the branch is remote and used by other
 #+./resources/git/rebase/conflict.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-conflict.png
 #+./resources/git/rebase/rebased-final.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-rebased-final.png
 #+./resources/git/rebase/master-ff.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-master-ff.png
+
+#+./resources/git/rebase/before-squash.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-before-squash.png
+#+./resources/git/rebase/after-squash.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-after-squash.png
