@@ -210,12 +210,8 @@ False ∧ _ = False
 and3 :: Bool -> Bool -> Bool
 and3 a b = if a
            then b
-           else if not a
-                then False
-                else False
+           else False
 #+END_SRC
-
-The last *else* in this code is only useful because it will satisfy the haskell compiler.
 
 * Curried function and lambda expression
 #+BEGIN_QUOTE
