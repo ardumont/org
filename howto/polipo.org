@@ -1,0 +1,46 @@
+#+TITLE: Polipo setup
+#+AUTHOR: Antoine R. Dumont
+#+OPTIONS:
+#+TAGS: polipo, proxy, setup, tools
+#+CATEGORY: proxy, tools
+#+DESCRIPTION: Possible setup for polipo proxy
+#+STARTUP: indent
+#+STARTUP: hidestars
+
+I have got some troubles with my network from some time now.
+So here is one solution my team and I think of to overcome it.
+
+We created a [[http://vagrantup.com/][vagrant machine]] with [[http://www.pps.univ-paris-diderot.fr/~jch/software/polipo/polipo.html][polipo]] inside.
+
+* Install
+#+BEGIN_SRC sh
+sudo aptitude install polipo
+#+END_SRC
+
+* Make it a service
+#+BEGIN_SRC sh
+sudo aptitude install chkconfig
+#+END_SRC
+
+#+BEGIN_SRC sh
+sudo chkconfig polipo on
+#+END_SRC
+* Setup
+Here is the setup
+
+** Open the proxy to clients
+
+We permit remote connections to the proxy.
+
+#+BEGIN_SRC sh
+proxyAddress=0.0.0.0
+#+END_SRC
+
+*Note*
+No access restriction is done yet.
+
+* Restart
+At the end of the setup, restart the service.
+#+BEGIN_SRC sh
+sudo service polipo restart
+#+END_SRC
