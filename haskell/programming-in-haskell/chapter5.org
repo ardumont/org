@@ -26,6 +26,20 @@ For example:
 ([1, 2, 3], [4, 5, 6])
 #+END_QUOTE
 
+The function *splitAt* already provides the means to split one list from a given position.
+Here our position is the half of the length of the list, which gives:
+
+#+BEGIN_SRC text
+halve :: [a] -> ([a], [a])
+halve xs = splitAt (length xs `div` 2) xs
+#+END_SRC
+
+Executing in the repl, we obtain:
+#+BEGIN_SRC text
+*Ch4> halve [1, 2, 3, 4, 5, 6]
+([1,2,3],[4,5,6])
+#+END_SRC
+
 * safetail
 #+BEGIN_QUOTE
 Consider a function =safetail :: [a] → [a]= that behaves as the library function *tail*, except that safetail maps the empty list to itself, whereas *tail* produces an error in this case.
