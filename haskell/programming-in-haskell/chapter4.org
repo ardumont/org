@@ -217,3 +217,17 @@ and3 a b = if a
 #+BEGIN_QUOTE
 Show how the curried function definition =mult x y z = x ∗ y ∗ z= can be understood in terms of lambda expressions.
 #+END_QUOTE
+
+Here is goes:
+
+#+BEGIN_SRC text
+mult :: Int -> Int -> Int -> Int
+mult = (\ x -> \ y -> \ z -> x * y * z)
+#+END_SRC
+
+Executing in the haskell repl:
+#+BEGIN_SRC text
+*Ch4> mult 10 20 30
+6000
+
+#+END_SRC
