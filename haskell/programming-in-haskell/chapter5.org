@@ -6,7 +6,7 @@
 #+CATEGORY: haskell, exercises, functional-programming
 #+DESCRIPTION: Learning haskell and solving problems using reasoning and 'repl'ing
 #+STARTUP: indent
-#+STARTUP: hidestars odd
+#+STARTUP: hidestars
 
 Exercises on the chapter 5 of the books.
 We encounter :
@@ -45,13 +45,36 @@ Executing in the repl, we obtain:
 Consider a function =safetail :: [a] → [a]= that behaves as the library function *tail*, except that safetail maps the empty list to itself, whereas *tail* produces an error in this case.
 
 Define *safetail* using:
-- a conditional expression;
-- guarded equations;
-- pattern matching.
+- a conditional expression
+- guarded equations
+- pattern matching
 
 *Hint:* make use of the library function *null*.
 #+END_QUOTE
 
+** conditional expression
+
+We need the conditional to discriminate between the empty list (=null xs=) and the non empty list.
+If we are not in the empty list case, we can drop the *head* of the list to obtain the *tail* of list
+
+Thus giving:
+
+#+BEGIN_SRC sh
+safetail1 :: [a] -> [a]
+safetail1 xs = if null xs then [] else drop 1 xs
+#+END_SRC
+
+Example:
+#+BEGIN_SRC sh
+*Ch4> safetail1 []
+[]
+*Ch4> safetail1 [1,2,3]
+[2,3]
+#+END_SRC
+
+** guarded equations
+
+** pattern matching
 * logical disjunction
 #+BEGIN_QUOTE
 In a similar way to *∧*, show how the logical disjunction operator *∨* can be defined in four different ways using pattern matching.
