@@ -34,7 +34,7 @@
 :PROPERTIES:
 :POSTID:   659
 :POST_DATE: 20121224T20:16:00+0000
-:Published: No
+:Published: Yes
 :END:
 ** [[file:/home/tony/org/haskell/programming-in-haskell/chapter1.org][Programming in haskell - Ch1 - Introduction - exercices]]
 :PROPERTIES:

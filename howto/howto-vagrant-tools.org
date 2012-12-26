@@ -5,8 +5,8 @@
 #+TITLE: Vagrant tools
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
-#+TAGS: vagrant, vagrant-snap, virtualbox, snapshot
-#+CATEGORY: vagrant, vagrant-snap, virtualbox, snapshot
+#+TAGS: vagrant, vagrant-snap, virtualbox, snapshot, tools
+#+CATEGORY: vagrant, vagrant-snap, virtualbox, snapshot, tools
 #+DESCRIPTION: Howto about vagrant tools
 #+STARTUP: indent
 #+STARTUP: hidestars
