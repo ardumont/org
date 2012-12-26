@@ -26,6 +26,48 @@ sudo aptitude install chkconfig
 sudo chkconfig polipo on
 #+END_SRC
 * Setup
+First, we will install the server part, then the client.
+
+** Server
+When installing via ubuntu, the default setup is admittedly good.
+After all, so they say if we're confident with the first lines of the =/etc/polipo/config=.
+
+#+BEGIN_SRC sh
+# Sample configuration file for Polipo. -*-sh-*-
+
+# You should not need to edit this configuration file; all configuration
+# variables have reasonable defaults.
+#+END_SRC
+
+I'm confident with those default but I need to make some modifications regarding who is gonna use our proxy.
+
+*** Open the proxy
+We permit remote connections to the proxy.
+
+#+BEGIN_SRC sh
+proxyAddress=0.0.0.0
+#allowedClients = 127.0.0.1, 192.168.0.0/24, 192.168.33.0/24
+#+END_SRC
+
+*Note*
+No access restriction regarding ip is done yet because I shamefully admit that I did not succeeded yet.
+
+(It's the second line where you can detail the ip or the range of ips you authorize to use the proxy)
+
+*** Adding authentication
+
+I want machine to authenticate in the proxy to use it.
+For this, add the =authCredentials= variable.
+
+#+BEGIN_SRC sh
+authCredentials=some-user:some-pass
+#+END_SRC
+
+*** Restart
+At the end of the setup, restart the service.
+#+BEGIN_SRC sh
+sudo service polipo restart
+#+END_SRC
 ** Client
 *** Setup
 Personally, I use the =/etc/environment= file.
@@ -89,29 +131,3 @@ Saving to: `index.html'
 
 We see that we connect to the proxy =192.168.33.2= before requesting google.
 Victory!
-
-** Server
-*** Open the proxy to clients
-
-We permit remote connections to the proxy.
-
-#+BEGIN_SRC sh
-proxyAddress=0.0.0.0
-#+END_SRC
-
-*Note*
-No access restriction regarding ip is done yet (I did not succeed in doing it).
-
-*** Adding authentication
-
-For this, add the =authCredentials= variable.
-
-#+BEGIN_SRC sh
-authCredentials=some-user:some-pass
-#+END_SRC
-
-*** Restart
-At the end of the setup, restart the service.
-#+BEGIN_SRC sh
-sudo service polipo restart
-#+END_SRC
