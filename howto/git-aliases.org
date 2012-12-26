@@ -4,8 +4,8 @@
 #+TITLE: Git aliases/System git aliases
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
-#+TAGS: git, aliases
-#+CATEGORY: git
+#+TAGS: git, aliases, tools
+#+CATEGORY: git, tools
 #+DESCRIPTION: My git aliases
 #+STARTUP: indent
 #+STARTUP: hidestars

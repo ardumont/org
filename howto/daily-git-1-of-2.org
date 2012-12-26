@@ -4,8 +4,8 @@
 #+TITLE: Daily git 1/2
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
-#+TAGS: emacs, git, aliases
-#+CATEGORY: emacs, git
+#+TAGS: emacs, git, aliases, tools
+#+CATEGORY: emacs, git, tools
 #+DESCRIPTION: How do i use git every day 1/2
 #+STARTUP: indent
 #+STARTUP: hidestars

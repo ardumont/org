@@ -4,7 +4,7 @@
 #+TITLE: How to install the clojure development environment
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
-#+TAGS: clojure, emacs, leiningen, midje, tdd
+#+TAGS: clojure, emacs, leiningen, midje, tdd, tools
 #+CATEGORY: clojure
 #+DESCRIPTION: howto install the clojure development environment on debian based system
 
