@@ -55,13 +55,13 @@ Define *safetail* using:
 ** conditional expression
 
 We need the conditional to discriminate between the empty list (=null xs=) and the non empty list.
-If we are not in the empty list case, we can drop the *head* of the list to obtain the *tail* of list
+If we are not in the empty list case, we can take the *tail* of list.
 
 Thus giving:
 
 #+BEGIN_SRC text
 safetail1 :: [a] -> [a]
-safetail1 xs = if null xs then [] else drop 1 xs
+safetail1 xs = if null xs then [] else tail xs
 #+END_SRC
 
 Example:
@@ -79,7 +79,7 @@ Same explanation as before:
 #+BEGIN_SRC text
 safetail2 :: [a] -> [a]
 safetail2 xs | null xs   = []
-             | otherwise = drop 1 xs
+             | otherwise = tail xs
 #+END_SRC
 
 Example:
