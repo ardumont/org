@@ -27,6 +27,7 @@ sudo chkconfig polipo on
 #+END_SRC
 * Setup
 ** Client
+*** Setup
 Personally, I use the =/etc/environment= file.
 
 My personal setup:
@@ -52,6 +53,42 @@ You may need to logout and login again.
 *Note*
 
 As I use stumpwm, I personally only need to reload my stumpwm setup file (*C-t ;* then *loadrc*, or just as my settings goes, *C-t L*).
+
+*** Check
+
+Load a terminal and execute the command =env | grep -i proxy=, you should see something along:
+
+#+BEGIN_SRC sh
+http_proxy=http://some-user:some-pass@192.168.33.2:8123
+ftp_proxy=http://some-user:some-pass@192.168.33.2:8123
+FTP_PROXY=http://some-user:some-pass@192.168.33.2:8123
+HTTPS_PROXY=http://some-user:some-pass@192.168.33.2:8123
+https_proxy=http://some-user:some-pass@192.168.33.2:8123
+no_proxy=localhost,192.168.33.2,localaddress,.localdomain.com
+HTTP_PROXY=http://some-user:some-pass@192.168.33.2:8123
+#+END_SRC
+
+Then requesting to wget google, you should see something along those lines too:
+#+BEGIN_SRC sh
+tony@dagobah(0,09,) 17:01:11 ~/repo/perso/vms/vagrant-http-proxy $ wget http://google.fr
+--2012-12-26 17:01:21--  http://google.fr/
+Connecting to 192.168.33.2:8123... connected.
+Proxy request sent, awaiting response... 301 Moved Permanently
+Location: http://www.google.fr/ [following]
+--2012-12-26 17:01:21--  http://www.google.fr/
+Reusing existing connection to 192.168.33.2:8123.
+Proxy request sent, awaiting response... 200 OK
+Length: unspecified [text/html]
+Saving to: `index.html'
+
+    [ <=>                                                                                                                           ] 13 918      --.-K/s   in 0,04s
+
+2012-12-26 17:01:21 (323 KB/s) - `index.html' saved [13918]
+
+#+END_SRC
+
+We see that we connect to the proxy =192.168.33.2= before requesting google.
+Victory!
 
 ** Server
 *** Open the proxy to clients
