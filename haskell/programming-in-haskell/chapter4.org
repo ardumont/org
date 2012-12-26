@@ -206,6 +206,17 @@ True ∧ b  = b
 False ∧ _ = False
 #+END_QUOTE
 
+#+BEGIN_SRC text
+and3 :: Bool -> Bool -> Bool
+and3 a b = if a
+           then b
+           else if not a
+                then False
+                else False
+#+END_SRC
+
+The last *else* in this code is only useful because it will satisfy the haskell compiler.
+
 * Curried function and lambda expression
 #+BEGIN_QUOTE
 Show how the curried function definition =mult x y z = x ∗ y ∗ z= can be understood in terms of lambda expressions.
