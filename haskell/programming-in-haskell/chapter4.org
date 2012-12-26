@@ -8,8 +8,7 @@
 #+STARTUP: indent
 #+STARTUP: hidestars odd
 
-Exercises on the chapter 4 of the books.
-We encounter :
+In this chapter, we encounter:
 - conditional expressions
 - guarded equations
 - pattern matching (tuple, list, integer)
