@@ -26,9 +26,35 @@ sudo aptitude install chkconfig
 sudo chkconfig polipo on
 #+END_SRC
 * Setup
-Here is the setup
+** Client
+Personally, I use the =/etc/environment= file.
 
-** Open the proxy to clients
+My personal setup:
+- proxy is on the =192.168.33.2= machine
+- proxy listens on port =8123=.
+- credentials: =some-user:some-pass=.
+
+Resulting to this, you can add the equivalent lines to your =/etc/environment=:
+
+#+BEGIN_SRC sh
+export http_proxy="http://some-user:some-pass@192.168.33.2:8123"
+export https_proxy="http://some-user:some-pass@192.168.33.2:8123"
+export ftp_proxy="http://some-user:some-pass@192.168.33.2:8123"
+export no_proxy="localhost,192.168.33.2,localaddress,.localdomain.com"
+export HTTP_PROXY="http://some-user:some-pass@192.168.33.2:8123"
+export HTTPS_PROXY="http://some-user:some-pass@192.168.33.2:8123"
+export FTP_PROXY="http://some-user:some-pass@192.168.33.2:8123"
+#+END_SRC
+
+Then reload your environment.
+You may need to logout and login again.
+
+*Note*
+
+As I use stumpwm, I personally only need to reload my stumpwm setup file (*C-t ;* then *loadrc*, or just as my settings goes, *C-t L*).
+
+** Server
+*** Open the proxy to clients
 
 We permit remote connections to the proxy.
 
@@ -37,9 +63,17 @@ proxyAddress=0.0.0.0
 #+END_SRC
 
 *Note*
-No access restriction is done yet.
+No access restriction regarding ip is done yet (I did not succeed in doing it).
 
-* Restart
+*** Adding authentication
+
+For this, add the =authCredentials= variable.
+
+#+BEGIN_SRC sh
+authCredentials=some-user:some-pass
+#+END_SRC
+
+*** Restart
 At the end of the setup, restart the service.
 #+BEGIN_SRC sh
 sudo service polipo restart
