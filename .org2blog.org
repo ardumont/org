@@ -1,5 +1,11 @@
 
 * Posts
+** [[file:/home/tony/org/haskell/programming-in-haskell/chapter4.org][Programming in haskell - ch4 - Defining Functions - exercises]]
+:PROPERTIES:
+:POSTID:   728
+:POST_DATE: 20121226T22:09:00+0000
+:Published: No
+:END:
 ** [[file:/home/tony/org/howto/daily-git-2-of-2.org][Daily git 2/2]]
 :PROPERTIES:
 :POSTID:   717
