@@ -112,9 +112,71 @@ Example:
 #+END_SRC
 * logical disjunction
 #+BEGIN_QUOTE
-In a similar way to *∧*, show how the logical disjunction operator *∨* can be defined in four different ways using pattern matching.
+In a similar way to *∧*, show how the logical conjunction operator *∨* can be defined in four different ways using pattern matching.
 #+END_QUOTE
 
+** 1^st
+Naive one:
+#+BEGIN_SRC text
+orr :: Bool -> Bool -> Bool
+orr False False = False
+orr True True   = True
+orr True False  = True
+orr False True  = True
+#+END_SRC
+
+Check - Expected result: [False, True, True, True]
+#+BEGIN_SRC sh
+*Ch4> map (\ (f,s) -> orr f s) [(False, False), (False, True), (True, False), (True, True)]
+[False,True,True,True]
+#+END_SRC
+
+OK
+
+** 2^nd
+#+BEGIN_SRC text
+orr2 :: Bool -> Bool -> Bool
+orr2 False False = False
+orr2 _     _     = True
+#+END_SRC
+
+Check - Expected result: [False, True, True, True]
+#+BEGIN_SRC text
+*Ch4> map (\ (f,s) -> orr2 f s) [(False, False), (False, True), (True, False), (True, True)]
+[False,True,True,True]
+#+END_SRC
+
+OK
+** 3^d
+#+BEGIN_SRC text
+orr3 :: Bool -> Bool -> Bool
+orr3 False b     = b
+orr3 b     False = b
+orr3 _     _     = True
+#+END_SRC
+
+Check - Expected result: [False, True, True, True]
+#+BEGIN_SRC text
+*Ch4> map (\ (f,s) -> orr3 f s) [(False, False), (False, True), (True, False), (True, True)]
+[False,True,True,True]
+#+END_SRC
+
+OK
+
+** 4^th
+#+BEGIN_SRC text
+orr4 :: Bool -> Bool -> Bool
+orr4 False b = b
+orr4 True  _ = True
+#+END_SRC
+
+Check - Expected result: [False, True, True, True]
+#+BEGIN_SRC text
+*Ch4> map (\ (f,s) -> orr4 f s) [(False, False), (False, True), (True, False), (True, True)]
+[False,True,True,True]
+#+END_SRC
+
+OK
 * conditional expression
 #+BEGIN_QUOTE
 Redefine the following version of the conjunction operator using conditional expressions rather than pattern matching:
