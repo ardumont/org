@@ -59,13 +59,13 @@ If we are not in the empty list case, we can drop the *head* of the list to obta
 
 Thus giving:
 
-#+BEGIN_SRC sh
+#+BEGIN_SRC text
 safetail1 :: [a] -> [a]
 safetail1 xs = if null xs then [] else drop 1 xs
 #+END_SRC
 
 Example:
-#+BEGIN_SRC sh
+#+BEGIN_SRC text
 *Ch4> safetail1 []
 []
 *Ch4> safetail1 [1,2,3]
@@ -74,6 +74,22 @@ Example:
 
 ** guarded equations
 
+Same explanation as before:
+
+#+BEGIN_SRC text
+safetail2 :: [a] -> [a]
+safetail2 xs | null xs   = []
+             | otherwise = drop 1 xs
+#+END_SRC
+
+Example:
+#+BEGIN_SRC text
+*Ch4> safetail2 []
+[]
+*Ch4> safetail2 [3,2,1]
+[2,1]
+
+#+END_SRC
 ** pattern matching
 * logical disjunction
 #+BEGIN_QUOTE
