@@ -177,7 +177,7 @@ Check - Expected result: [False, True, True, True]
 #+END_SRC
 
 OK
-* conditional expression
+* Conjunction
 #+BEGIN_QUOTE
 Redefine the following version of the conjunction operator using conditional expressions rather than pattern matching:
 
@@ -185,6 +185,17 @@ True ∧ True = True
 
 _ ∧ _       = False
 #+END_QUOTE
+
+#+BEGIN_SRC text
+and1 :: Bool -> Bool -> Bool
+and1 a b = if not a
+           then False
+          else if not b
+               then False
+               else True
+#+END_SRC
+
+Not quite readable.
 
 * conditional expression 2
 #+BEGIN_QUOTE
