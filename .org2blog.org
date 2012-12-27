@@ -28,7 +28,7 @@
 :PROPERTIES:
 :POSTID:   686
 :POST_DATE: 20121225T16:31:00+0000
-:Published: No
+:Published: Yes
 :END:
 ** [[file:/home/tony/org/howto/dayly-git.org][Daily git]]
 :PROPERTIES:
