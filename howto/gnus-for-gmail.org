@@ -1,0 +1,14 @@
+
+| binding   | actions                                          |
+|-----------+--------------------------------------------------|
+| C-c C-d   | draft                                            |
+| C-c C-k   | kill the buffer                                  |
+| C-c C-c   | send the message                                 |
+| C-c C-m f | attach file                                      |
+| C-h i     | manual for Gnus                                  |
+| g         | refresh the mails                                |
+| q         | exit the current buffer                          |
+| r         | Reply to the mail                                |
+| R         | Reply to the mail with quoting the previous mail |
+| M-q       | Reformat paragraph                               |
+|           |                                                  |
