@@ -1,0 +1,30 @@
+#+BLOG: tony-blog
+#+TITLE: Some random exercise in haskell
+#+AUTHOR: Massyl Nait-Mouloud, Antoine R. Dumont
+#+OPTIONS:
+#+TAGS: haskell, exercises, functional-programming
+#+CATEGORY: haskell, exercises, functional-programming
+#+DESCRIPTION: Some random exercises
+#+STARTUP: indent
+#+STARTUP: hidestars
+
+#+begin_quote
+couple *(a,b)* such that *a*b = n*
+#+end_quote
+
+Naive first
+#+begin_src text
+couple :: Int -> [(Int,Int)]
+couple n = [(a,b) | a <- m, b <- m, a * b == n]
+           where m = [1..n]
+#+end_src
+
+Little more thought into it
+#+begin_src text
+couple1 :: Int -> [(Int,Int)]
+couple1 n = [(a,b) | a <- lfactors n, b <- m, a * b == n]
+           where
+             m = [1..n]
+             lfactors :: Int -> [Int]
+             lfactors n' = [ x | x <- m, n' `mod` x == 0]
+#+end_src
