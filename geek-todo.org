@@ -263,7 +263,7 @@ CLOSED: [2012-12-23 Sun 13:17]
 CLOSED: [2012-12-23 Sun 13:17]
 **** DONE http://adumont.fr/blog/possible-team-workflow-with-git/
 CLOSED: [2012-12-23 Sun 13:17]
-** TODO Articles [73%]
+** TODO Articles [78%]
 *** DONE Chroot to save one's GNU/Linux
 CLOSED: [2012-04-21 Sat 18:07]
 http://adumont.fr/blog/chroot-pour-sauver-son-gnulinux/
@@ -324,12 +324,12 @@ CLOSED: [2012-12-26 mer. 17:27]
 CLOSED: [2012-12-26 mer. 23:18]
 *** DONE Git aliases/System git aliases
 CLOSED: [2012-12-27 jeu. 19:09]
-*** PENDING programming in haskell - Ch4 - Defining functions - exercises
+*** DONE programming in haskell - Ch4 - Defining functions - exercises
+CLOSED: [2012-12-28 ven. 18:56]
 *** IN-PROGRESS Programming in haskell - ch5 - Lists comprehension - exercises
 *** PENDING Daily git 1/2
 *** PENDING Daily git 2/2
 *** PENDING polipo simple setup
-*** TODO programming in haskell - Ch5 - List comprehensions - exercises
 ** TODO Possible articles [0%]
 *** TODO Simple Howto apache camel
 Make the team presentation generic.
