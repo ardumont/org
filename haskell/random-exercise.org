@@ -8,21 +8,42 @@
 #+STARTUP: indent
 #+STARTUP: hidestars
 
+A friend of mine asks me to solve a simple exercise in haskell.
+As i made a mistake in solving it the first time (due to the missed unicity, I considered posting it here).
+
+Here is the revised problem:
+
 #+begin_quote
-couple *(a,b)* such that *a*b = n*
+Find all the unique couple *(a,b)* such that *a*b = n*
+
+*Note*
+As the multiplication is commutative, we consider : *for any a, b, (a,b) == (b,a)*
 #+end_quote
 
-Naive first
+Naive first:
 #+begin_src text
 couple :: Int -> [(Int,Int)]
-couple n = [(a,b) | a <- m, b <- m, a * b == n]
+couple n = [(a,b) | a <- m, b <- m, b <= a, a * b == n]
            where m = [1..n]
 #+end_src
 
-Little more thought into it
+To avoid making duplicates, the trick is to consider the input as a kind of pyramid instead of square.
+#+begin_quote
+*0* +1 2 3 4 5 6 7 8+ \\
+*0 1* +2 3 4 5 6 7 8+ \\
+*0 1 2* +3 4 5 6 7 8+ \\
+*0 1 2 3* +4 5 6 7 8+ \\
+*0 1 2 3 4* +5 6 7 8+ \\
+*0 1 2 3 4 5* +6 7 8+ \\
+*0 1 2 3 4 5 6* +7 8+ \\
+*0 1 2 3 4 5 6 7* +8+ \\
+*0 1 2 3 4 5 6 7 8* \\
+#+end_quote
+
+More performant:
 #+begin_src text
 couple1 :: Int -> [(Int,Int)]
-couple1 n = [(a,b) | a <- lfactors n, b <- m, a * b == n]
+couple1 n = [(a,b) | a <- lfactors n, b <- m, b <= a, a * b == n]
            where
              m = [1..n]
              lfactors :: Int -> [Int]
