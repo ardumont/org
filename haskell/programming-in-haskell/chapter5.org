@@ -1,5 +1,8 @@
 #+BLOG: tony-blog
-#+TITLE: Programming in haskell - ch5 b- Lists comprehension - exercises
+#+POSTID: 734
+#+DATE: [2012-12-27 jeu. 23:45]
+#+BLOG: tony-blog
+#+TITLE: Programming in haskell - ch5 - Lists comprehension - exercises
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
 #+TAGS: haskell, exercises, functional-programming
@@ -13,16 +16,20 @@
 Using a list comprehension, give an expression that calculates the sum *1^2 + 2^2 + . . . 100^2* of the first one hundred integer squares.
 #+END_QUOTE
 
+#+begin_src text
+ssqr :: Int -> Int
+ssqr n = sum [ x^2 | x <- [1..n]]
+#+end_src
 * *replicate*
 #+BEGIN_QUOTE
 In a similar way to the function *length*, show how the library function *replicate :: Int → a → [ a ]*
 that produces a list of identical elements can be defined using a list comprehension.
 
 For example:
-#+BEGIN_SRC text
+
 > replicate 3 True
+
 [True, True, True]
-#+END_SRC
 #+END_QUOTE
 
 * *pyths*
@@ -33,11 +40,10 @@ Using a list comprehension, define a function *pyths :: Int → [(Int, Int, Int)
 returns the list of all pythagorean triples whose components are at most a given limit.
 
 For example:
-#+BEGIN_SRC text
-> pyths 10
-[(3, 4, 5), (4, 3, 5), (6, 8, 10), (8, 6, 10)]
-#+END_SRC
 
+> pyths 10
+
+[(3, 4, 5), (4, 3, 5), (6, 8, 10), (8, 6, 10)]
 #+END_QUOTE
 
 * perfect numbers
@@ -48,10 +54,10 @@ Using a list comprehension and the function *factors*, define a function *perfec
 that returns the list of all perfect numbers up to a given limit.
 
 For example:
-#+BEGIN_SRC text
+
 > perfects 500
+
 [6, 28, 496]
-#+END_SRC
 #+END_QUOTE
 
 * Comprehension
@@ -76,10 +82,10 @@ In a similar manner to the function *chisqr*, show how a list comprehension can 
  that returns the scalar product of two lists.
 
 For example:
-#+BEGIN_SRC text
+
 > scalarproduct [1, 2, 3] [4, 5, 6]
+
 32
-#+END_SRC
 #+END_QUOTE
 
 * Caesar cipher
