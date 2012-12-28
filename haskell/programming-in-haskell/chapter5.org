@@ -56,6 +56,17 @@ For example:
 [(3, 4, 5), (4, 3, 5), (6, 8, 10), (8, 6, 10)]
 #+END_QUOTE
 
+We search all the triplets (x, y, z) such as (x,y,z) in [1..n]^3 and x^2+y^2=z^2:
+
+#+begin_src text
+pyths :: Int -> [(Int, Int, Int)]
+pyths n = [(x, y, z) | x <- m,
+                       y <- m,
+                       z <- m,
+                       x^2 + y^2 == z^2 ]
+          where m = [1..n]
+#+end_src
+
 * perfect numbers
 #+BEGIN_QUOTE
 A positive integer is perfect if it equals the sum of its factors, excluding the number itself.
