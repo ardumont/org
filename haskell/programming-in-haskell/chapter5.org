@@ -17,8 +17,7 @@ Using a list comprehension, give an expression that calculates the sum *1^2 + 2^
 #+END_QUOTE
 
 #+begin_src text
-ssqr :: Int -> Int
-ssqr n = sum [ x^2 | x <- [1..n]]
+let ss100 = sum [ x^2 | x <- [1..100]]
 #+end_src
 * *replicate*
 #+BEGIN_QUOTE
@@ -32,6 +31,17 @@ For example:
 [True, True, True]
 #+END_QUOTE
 
+#+begin_src text
+replicate :: Int -> a -> [a]
+replicate n x = [x | _ <- [1..n]]
+#+end_src
+
+#+begin_example
+*Ch5> replicate 10 'a'
+"aaaaaaaaaa"
+*Ch5> replicate 10 1
+[1,1,1,1,1,1,1,1,1,1]
+#+end_example
 * *pyths*
 #+BEGIN_QUOTE
 A triple *(x, y, z)* of positive integers is pythagorean if *x^2 + y^2 = z^2*.
