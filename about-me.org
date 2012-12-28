@@ -8,16 +8,22 @@
 #+CATEGORY: me
 #+DESCRIPTION: Just me
 
+
+* Just me
+
+[[./resources/tux-clj.png]]
+
 * Personally
 I'm just a linux fan boy geek (GNU/Linux, *BSD, Android and Free Software etc...).
-Also, completely development addict (Clojure, C, Java, PHP, *sh, Perl, Python, html, etc...)
+Also, completely development addict (Clojure, Haskell, Java, C, PHP, *sh, Perl, Python, etc...)
 
-I'm trying to share the little computer knowledge with the rest of the
-world because i had this completely amazingly utopist dream of free knowledge (as in free speech).
+I'm /trying/ to share the little computer knowledge I have with the rest of the
+world.
 
-Trying to share when i'm not too busy playing with my kids or coding
-to solve some problems ([[http://projecteuler.net][Project Euler]],[[http://4clojure.com][ 4clojure.com]]) or playing with
-my guitar (then again trying)
+*Why?* Because I have this completely amazingly and utterly utopist dream of free knowledge (as in free beer).
+
+/Trying to share/ when i'm not too busy playing with my kids or coding
+to solve some problems ([[http://projecteuler.net][Project Euler]],[[http://4clojure.com][ 4clojure.com]]) or playing guitar (then again trying)
 or losing my precious time in some bull... means of transportation.
 
 Anyway, here is my rapid resume.
@@ -37,3 +43,5 @@ The technologies are innovative : GWT, Android, NoSQL, etc...
 ** [[http://j.mp/ibIAVM][viadeo]]
 ** [[http://j.mp/dWMPPr][linkedin]]
 ** [[http://j.mp/gkImOH][My student resume]] (Need to be updated some day)
+
+#+./resources/tux-clj.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-tux-clj.png
