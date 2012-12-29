@@ -1,5 +1,11 @@
 
 * Posts
+** [[file:/home/tony/org/howto/stumpwm-touchpad.org][Stumpwm - Activate/Deactivate touchpad]]
+:PROPERTIES:
+:POSTID: 763
+:POST_DATE: 20121229T14:43:29+0000
+:Published: No
+:END:
 ** [[file:/home/tony/org/howto/activate-or-deactivate-touchpad.org][Activate/Deactivate touchpad from the shell]]
 :PROPERTIES:
 :POSTID: 755
