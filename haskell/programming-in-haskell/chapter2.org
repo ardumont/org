@@ -118,3 +118,5 @@ And as for the *drop 1* call goes, we can replace this by the *tail* call:
 init3 :: [a] -> [a]
 init3 xs  = reverse (tail (reverse xs))
 #+END_SRC
+* Source
+[[https://github.com/ardumont/my-haskell-lab/blob/master/src/ch2.hs][ch2.hs]]

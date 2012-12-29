@@ -201,3 +201,6 @@ As an example:
 #+BEGIN_QUOTE
 Modify the Caesar cipher program to also handle upper-case letters.
 #+END_QUOTE
+
+* Source
+[[https://github.com/ardumont/my-haskell-lab/blob/master/src/ch5.hs][ch5.hs]]

@@ -90,3 +90,5 @@ Two functions of the same type are equal if they always return equal results for
 #+END_QUOTE
 
 If we work with functions that takes as input a small finite set of data, this can be possible.
+* Source
+[[https://github.com/ardumont/my-haskell-lab/blob/master/src/ch3.hs][ch3.hs]]

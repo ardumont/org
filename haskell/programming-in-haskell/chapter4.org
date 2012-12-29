@@ -232,3 +232,5 @@ Executing in the haskell repl:
 6000
 
 #+END_SRC
+* Source
+[[https://github.com/ardumont/my-haskell-lab/blob/master/src/ch4.hs][ch4.hs]]
