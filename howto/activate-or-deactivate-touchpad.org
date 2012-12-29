@@ -10,10 +10,10 @@
 #+STARTUP: indent
 #+STARTUP: hidestars
 
-A new need has came for me.
+A new need has come for me.
 I want to activate or deactivate the touchpad from the shell.
 
-In this post, I will concentrate on how to trigger on/off the touchpad it from the shell.
+In this post, I will concentrate on how to trigger on/off the touchpad from the shell.
 
 * pre-requisites
 The package *xinput*.
