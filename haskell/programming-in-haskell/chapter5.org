@@ -183,6 +183,20 @@ For example:
 32
 #+END_QUOTE
 
+We first create the list containing the couple =(x, y)= then we (lazily) compute the product for each couple, then sum them all:
+
+#+begin_src text
+scalarproduct :: [Int] -> [Int] -> Int
+scalarproduct xs ys = sum [x * y | (x, y) <- zip xs ys]
+#+end_src
+
+As an example:
+
+#+begin_example
+*Ch5> scalarproduct [1,2,3] [4,5,6]
+32
+#+end_example
+
 * Caesar cipher
 #+BEGIN_QUOTE
 Modify the Caesar cipher program to also handle upper-case letters.
