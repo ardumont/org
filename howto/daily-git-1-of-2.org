@@ -1,6 +1,6 @@
 #+BLOG: tony-blog
+#+DATE: [2012-12-29 sam. 13:18]
 #+POSTID: 675
-#+DATE: [2012-12-25 Tue 16:09]
 #+TITLE: Daily git 1/2
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
@@ -10,7 +10,8 @@
 #+STARTUP: indent
 #+STARTUP: hidestars
 
-In another post, I presented my (system) git aliases.
+In [[http://adumont.fr/blog/git-aliasessystem-git-aliases/][another post]], I presented my (system) git aliases.
+
 In this one, I will enter into a little more details about the most basic of those commands.
 
 * =gbr=
