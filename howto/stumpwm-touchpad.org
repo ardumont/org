@@ -1,0 +1,46 @@
+#+TITLE: Stumpwm - Activate/Deactivate touchpad
+#+AUTHOR: Antoine R. Dumont
+#+OPTIONS:
+#+TAGS: stumpwm, tools, touchpad
+#+CATEGORY: stumpwm, howto, tools
+#+DESCRIPTION: Show how to activate/deactivate touchpad depending on the soft you use
+#+STARTUP: indent
+#+STARTUP: hidestars
+
+As I recently changed my hardware, I got a new portable with a *HUGE* touchpad (at least for me).
+Thus, when I type with my keyboard, it gets in the way.
+
+So a new need came up, Shell/Stumpwm power to the rescue:
+- I want to be able to disable/enable my touchpad
+- When switching to emacs and my terminal, I want it to be disabled
+- When switching back to the browsers (I'd like not to but there exists some web page who does not work well without the rodent) or other mouse-needed software.
+
+As I [[http://adumont.fr/blog/activatedeactivate-touchpad-from-the-shell/][recently posted on how to activate/deactivate the touchpad from the shell command]], in this post, I will use those bricks to improve my condition using [[http://www.nongnu.org/stumpwm/][stumpwm]].
+
+* C-t T - Toggle the touchpad on/off automatically
+
+There will be times or I will need to toggle on/off the touchpad manually.
+
+I'm aware that there already exists a native binding (=fn F9= on my keyboard) but it breaks my hands positions.
+
+Helper function:
+#+begin_src lisp
+(defun run-shl (&rest cmd)
+  "A simpler command to run-shell-command with multiple params"
+  (run-shell-command (apply #'concatenate 'string cmd)))
+#+end_src
+
+The main code whose only concern is to:
+- reuse the script [[http://adumont.fr/blog/activatedeactivate-touchpad-from-the-shell/][toggle-touchpad.sh described here]]:
+- banish the mouse from the screen (the mouse is positionned at the bottom right of the screen)
+
+#+begin_src lisp
+;; C-t T - Toggle on/off the touchpad
+(defcommand toggle-touchpad-auto () ()
+  "Activate/Deactivate automatically the touchpad depending on the current status."
+  (run-shl "~/bin/stumpwm/toggle-touchpad.sh")
+  (stumpwm::banish))
+(define-key *root-map* (kbd "T") "toggle-touchpad-auto")
+#+end_src
+
+*
