@@ -1,5 +1,11 @@
 
 * Posts
+** [[file:/home/tony/org/howto/stumpwm-zenity.org][Stumpwm - Display result of bash commands using zenity]]
+:PROPERTIES:
+:POSTID: 746
+:POST_DATE: 20121229T12:08:00+0000
+:Published: No
+:END:
 ** [[file:/home/tony/org/haskell/programming-in-haskell/chapter5.org][Programming in haskell - ch5 - Lists comprehension - exercises]]
 :PROPERTIES:
 :POSTID: 734

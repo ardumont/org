@@ -1,3 +1,6 @@
+#+BLOG: tony-blog
+#+POSTID: 746
+#+DATE: [2012-12-29 sam. 13:08]
 #+TITLE: Stumpwm - Display result of bash commands using zenity
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
@@ -9,7 +12,7 @@
 
 It has been [[http://adumont.fr/blog/howto-install-stumpwm-and-little-more/][some time now]] since i talked about [[http://www.nongnu.org/stumpwm/][stumpwm]].
 
-I want to do an update since I added/modified/upgraded some stuff in my setup.
+I wanted to do an update since I added/modified/upgraded some stuff in my setup.
 
 But first of all, let me tell you something, [[http://www.nongnu.org/stumpwm/][stumpwm]] is *really* a great tool.
 After using it for almost 1,5 year, I did not regret one moment, It's:
@@ -17,10 +20,10 @@ After using it for almost 1,5 year, I did not regret one moment, It's:
 - highly configurable
 - lightweight (from a battery standpoint, it's kinda cool :D)
 
-In this post, I will show how I use zenity to display the result of bash command.
+In this post, I will show how I use zenity to display the result of bash commands I use often.
 
 * pre-requisite
-The package zenity is available in the ubuntu repository:
+The package *zenity* is available in the ubuntu repository:
 #+begin_src sh
 sudo aptitude install zenity
 #+end_src
@@ -145,3 +148,11 @@ You have to install the package *acpi* on your machine first.
 
 *** result
 [[./resources/stumpwm/acpi.png]]
+
+#+./resources/stumpwm/cat-environment.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-cat-environment.png
+#+./resources/stumpwm/cat-etc-hosts.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-cat-etc-hosts.png
+#+./resources/stumpwm/ifconfig.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-ifconfig.png
+#+./resources/stumpwm/acpi.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-acpi.png
+
+* Global setup
+[[https://github.com/ardumont/dot-files/blob/master/.stumpwmrc][.stumpwmrc]]
