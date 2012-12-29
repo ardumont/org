@@ -138,6 +138,31 @@ Prelude> [(x, y) | x <- [1, 2, 3], y <- [4, 5, 6]]
 Redefine the function *positions* using the function *find*.
 #+END_QUOTE
 
+Recall the *find* definition:
+
+#+begin_src text
+find :: Eq a => a -> [(a,a)] -> [a]
+find k hs = [v | (k', v) <- hs, k == k']
+#+end_src
+
+We will generate the list of couples *(value, position)* then feed this to the *find* function.
+This will then compute all the values associated (their position) to the search value *v*:
+
+#+begin_src text
+positions2 :: Int -> [Int] -> [Int]
+positions2 v vs = find v valpos
+                  where
+                    valpos = [(v', p) | (v', p) <- zip vs [1..(length vs)]]
+#+end_src
+
+Here is the comparison between the first implementation and the new one:
+#+begin_src text
+*Ch5> positions 1 [0,1,3,4,2,1,3]
+[2,6]
+*Ch5> positions2 1 [0,1,3,4,2,1,3]
+[2,6]
+#+end_src
+
 * scalarproduct
 #+BEGIN_QUOTE
 The scalar product of two lists of integers xs and ys of length n is given by the sum of the products of corresponding integers:
