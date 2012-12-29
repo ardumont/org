@@ -213,7 +213,7 @@ index 0358d27..35e6c13 100644
 At the same time, we see the modifications between the index and the already gitted file.
 
 _Explanation:_
-I you type a commit message, for example *Temporary commit* then save the modifications and close the editor.
+If you type a commit message, for example *Temporary commit* then save the modifications and close the editor.
 The content of the index is *commited* (message included).
 
 #+BEGIN_SRC sh
@@ -265,7 +265,7 @@ tony@dagobah(0.19,) 17:19:45 ~/repo/perso/dot-files (master) $ gci --amend
 
 [[http://git-scm.com/book/ch2-4.html#Changing-Your-Last-Commit][for more information]]
 * =git rm=
-Remove files or folder and add those modifications into the git index.
+Remove files or folders and add those modifications into the git index.
 This is the dual to =git add=.
 
 Example:
