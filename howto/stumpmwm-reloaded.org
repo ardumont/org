@@ -1,0 +1,147 @@
+#+TITLE: Stumpwm - Display result of bash commands using zenity
+#+AUTHOR: Antoine R. Dumont
+#+OPTIONS:
+#+TAGS: stumpwm, tools, zenity
+#+CATEGORY: stumpwm, howto, tools
+#+DESCRIPTION: Display results of bash commands in stumpwm using zenity
+#+STARTUP: indent
+#+STARTUP: hidestars
+
+It has been [[http://adumont.fr/blog/howto-install-stumpwm-and-little-more/][some time now]] since i talked about [[http://www.nongnu.org/stumpwm/][stumpwm]].
+
+I want to do an update since I added/modified/upgraded some stuff in my setup.
+
+But first of all, let me tell you something, [[http://www.nongnu.org/stumpwm/][stumpwm]] is *really* a great tool.
+After using it for almost 1,5 year, I did not regret one moment, It's:
+- like emacs but for managing your windows :D
+- highly configurable
+- lightweight (from a battery standpoint, it's kinda cool :D)
+
+In this post, I will show how I use zenity to display the result of bash command.
+
+* pre-requisite
+The package zenity is available in the ubuntu repository:
+#+begin_src sh
+sudo aptitude install zenity
+#+end_src
+
+* Why?
+I often need to see the content of some files or some setup in my environment:
+- =/etc/hosts=
+- =/etc/environment=
+- =/sbin/ifconfig=
+- =ssh-add -L=
+- etc...
+
+I already knew [[http://library.gnome.org/users/zenity/stable/][zenity]] but did not use it a lot.
+
+In my case, [[http://library.gnome.org/users/zenity/stable/][zenity]] permits to display stuff inside small pop-up window.
+I also wanted to be able to copy/paste from it.
+
+So it was time for some tinkering.
+
+* How?
+My snippet of code that permits to wrap calls to zenity:
+
+#+begin_src lisp
+(defun run-shl (&rest cmd)
+  "A simpler command to run-shell-command with multiple params"
+  (run-shell-command (apply #'concatenate 'string cmd)))
+
+;; (defcommand name (args) (interactive-args) "doc-string" (body))
+;; wrapper around the zenity cli
+(defcommand zenity (command) ()
+   "Wrap a call to the cli and output the result into a zenity window"
+   (run-shl "zenity --info --text \"$(" command ")\""))
+#+end_src
+
+- *run-shl*
+Function to help in reading the shell command we want to launch.
+
+- *zenity*
+Main function, wrap the call to the zenity shell command and tell it to display the result.
+
+* Example
+
+With a good separation of concern, we can now call the command we want to display its result:
+
+#+begin_src lisp
+(defcommand sbin-ifconfig () ()
+  "/sbin/ifconfig"
+  (zenity "/sbin/ifconfig"))
+#+end_src
+
+And binds the key, here *I* to it:
+
+#+begin_src lisp
+(define-key *root-map* (kbd "I") "sbin-ifconfig")
+#+end_src
+
+* Setup
+** C-t K - Display the keys the user-agent holds
+*** code
+#+begin_src lisp
+(defcommand ssh-add-list () ()
+  "run the ~/bin/ssh-add.sh script."
+  (zenity "ssh-add -L"))
+(define-key *root-map* (kbd "K") "ssh-add-list")
+#+end_src
+
+*** Result
+I won't show anything here, just know that I display the result of the command =ssh-add -L=
+
+#+begin_src man
+-L      Lists public key parameters of all identities currently represented by the agent.
+#+end_src
+
+** C-t E - Display the contents of the /etc/environment
+*** code
+#+begin_src lisp
+(defcommand cat-etc-environment () ()
+  "Display the content of the file /etc/environment."
+  (zenity "cat /etc/environment"))
+(define-key *root-map* (kbd "E") "cat-etc-environment")
+
+#+end_src
+*** result
+[[./resources/stumpwm/cat-environment.png]]
+
+** C-t H - Display the contents of /etc/hosts
+*** code
+#+begin_src lisp
+(defcommand cat-etc-hosts () ()
+  "cat /etc/hosts"
+  (zenity "cat /etc/hosts"))
+(define-key *root-map* (kbd "H") "cat-etc-hosts")
+#+end_src
+
+*** result
+[[./resources/stumpwm/cat-etc-hosts.png]]
+
+** C-t I - Display the network properties
+*** code
+#+begin_src lisp
+(defcommand sbin-ifconfig () ()
+  "/sbin/ifconfig"
+  (zenity "/sbin/ifconfig"))
+(define-key *root-map* (kbd "I") "sbin-ifconfig")
+
+#+end_src
+
+*** result
+[[./resources/stumpwm/ifconfig.png]]
+
+** C-t B - Display the battery stat
+*** code
+You have to install the package *acpi* on your machine first.
+
+#+begin_src lisp
+(defcommand acpi-cmd () ()
+  "acpi -b"
+  (zenity "/usr/bin/acpi -b"))
+(define-key *root-map* (kbd "B") "acpi-cmd")
+
+#+end_src
+
+*** result
+[[./resources/stumpwm/acpi.png]]
