@@ -1,0 +1,108 @@
+#+BLOG: tony-blog
+#+POSTID: 774
+#+DATE: [2012-12-29 sam. 18:56]
+#+BLOG: tony-blog
+#+TITLE: Emacs - Activate touchpad when org-mode exports html
+#+AUTHOR: Antoine R. Dumont
+#+OPTIONS:
+#+TAGS: emacs, org-mode, tools, touchpad
+#+CATEGORY: emacs, org-mode, howto, tools
+#+DESCRIPTION: Show how to reactivate the touchpad when exporting the html and opening the browser from emacs's org-mode
+#+STARTUP: indent
+#+STARTUP: hidestars
+
+[[http://adumont.fr/blog/stumpwm-activatedeactivate-touchpad/][In this post]], I explained how to switch on/off the touchpad depending on the software focused at hand.
+Recall that I'm using [[http://www.nongnu.org/stumpwm/][stumpwm]], thus meaning that I have only one window focused at a time (I can do more but that's the way I use it).
+
+Typically, when in:
+- [[http://www.gnu.org/software/emacs/][emacs]], touchpad off
+- browser, touchpad on.
+
+It was perfect until I realized that when in [[http://www.gnu.org/software/emacs/][emacs]], I export in html and open the browser...
+But then, the touchpad is off... which is now inconsistent with my [[http://www.nongnu.org/stumpwm/][stumpwm]] setup.
+
+I completely forgot this use case.
+But, no panic, this time, [[http://www.gnu.org/software/emacs/][emacs]] to the rescue!
+
+From hereupon, I will explain how to setup [[http://www.gnu.org/software/emacs/][emacs]] so that when exporting the html and opening the result in a browser, the touchpad is enabled too.
+
+* Toggle on/off from the [[http://www.gnu.org/software/emacs/][emacs]] repl
+** Pre-requisite
+First, we need a means to call rapidly the shell command from the [[http://www.gnu.org/software/emacs/][emacs]] world (and still being able to see what command is used):
+#+begin_src elisp
+(defun run-shl (&rest cmd)
+  "A simpler command to run-shell-command with multiple params"
+  (shell-command-to-string (apply #'concatenate 'string cmd)))
+#+end_src
+
+** Code
+Then we call the script to [[http://adumont.fr/blog/activatedeactivate-touchpad-from-the-shell/][toggle on/off the touchpad]]:
+#+begin_src elisp
+(defun toggle-touchpad-manual (status)
+  "Activate/Deactivate the touchpad depending on the status parameter (0/1)."
+  (run-shl "toggle-touchpad-manual.sh " status))
+#+end_src
+
+*Note*
+
+I do not detail the full path to the shell script because my *PATH* is correctly setuped.
+If this does not work for you, either fix your *PATH* or gives the full path of such script.
+
+** Check
+Now we can call this from any [[http://www.gnu.org/software/emacs/][emacs]] buffer and see that it's working.
+
+#+begin_src elisp
+(toggle-touchpad-manual "0")
+#+end_src
+Then =C-x C-e= to evaluate.
+The touchpad is disabled, cool!
+
+#+begin_src elisp
+(toggle-touchpad-manual "1")
+#+end_src
+Then =C-x C-e= to evaluate.
+The touchpad is enabled, way cool!
+
+* *[[Http://Www.Gnu.Org/Software/Emacs/Manual/Html_Node/Emacs/Hooks.Html][Hook]]*
+
+At last, the means to tell [[http://www.gnu.org/software/emacs/][emacs]], activate the touchpad when exporting in html.
+This means already exist in [[http://www.gnu.org/software/emacs/][emacs]], it's called a [[http://www.gnu.org/software/emacs/manual/html_node/emacs/Hooks.html][hook]].
+
+** Definition
+
+A [[http://www.gnu.org/software/emacs/manual/html_node/emacs/Hooks.html][hook]] is basically a list of functions to apply at a certain moment in the life-cycle of the [[http://www.gnu.org/software/emacs/manual/html_node/emacs/Major-Modes.html][mode]] you are using.
+This is a [[http://www.gnu.org/software/emacs/manual/html_node/emacs/Major-Modes.html][mode]] mechanism that permits to a emacs user to extends the standard behaviour.
+
+It is often used for example to load a mode depending on the extension of a file.
+
+** Example
+
+Here is a hook for the *clojure-mode* (the naming convention is *name-of-the-mode* followed by a *-hook*).
+In this example, I added a function *jack-in-once* to the *clojure-mode*.
+
+This will trigger the call of such a function as soon as a *clojure-mode* will launch.
+#+begin_src elisp
+(add-hook 'clojure-mode-hook 'jack-in-once)
+#+end_src
+
+** [[http://orgmode.org/][org-mode]] one
+
+The export html is a [[http://orgmode.org/][org-mode]] functionality.
+
+By searching the [[http://orgmode.org/worg/org-configs/org-hooks.html][org-mode hooks]], I found *org-export-html-final-hook* which does correspond.
+
+So here is the elisp snippet:
+#+begin_src elisp
+(add-hook 'org-export-html-final-hook
+          (lambda () (toggle-touchpad-manual "1")))
+#+end_src
+
+*Note*
+Here I tell *org-mode* to call the the function =(lambda)= each time an html export is about to finish.
+
+As a result, now when exporting the [[http://orgmode.org/][org-mode]] into html and opening the browser my touchpad is enabled.
+
+Thus, my setup is consistent again with the rest of the system.
+
+* Conclusion
+The same as the conclusion of [[http://adumont.fr/blog/stumpwm-activatedeactivate-touchpad/][this article]], emacs rocks!
