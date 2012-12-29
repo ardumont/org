@@ -1,6 +1,6 @@
+#+DATE: [2012-12-29 sam. 13:21]
 #+BLOG: tony-blog
 #+POSTID: 717
-#+DATE: [2012-12-25 Tue 22:30]
 #+TITLE: Daily git 2/2
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
@@ -10,7 +10,8 @@
 #+STARTUP: indent
 #+STARTUP: hidestars
 
-On this article, I presented the most basic of the command I use.
+On [[http://adumont.fr/blog/daily-git-12/][this article]], I presented the most basics of the command I use.
+
 In this one, I'll detail the more advanced.
 
 * =git ls-files -d | xargs git rm=
