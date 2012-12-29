@@ -1,0 +1,68 @@
+#+BLOG: tony-blog
+#+POSTID: 755
+#+DATE: [2012-12-29 sam. 13:49]
+#+TITLE: Activate/Deactivate touchpad from the shell
+#+AUTHOR: Antoine R. Dumont
+#+OPTIONS:
+#+TAGS: tools, touchpad, shell
+#+CATEGORY: howto, tools, shell
+#+DESCRIPTION: Show how to activate/deactivate touchpad depending on the soft you use
+#+STARTUP: indent
+#+STARTUP: hidestars
+
+A new need has came for me.
+I want to activate or deactivate the touchpad from the shell.
+
+In this post, I will concentrate on how to trigger on/off the touchpad it from the shell.
+
+* pre-requisites
+The package *xinput*.
+It should already be installed.
+
+Just in case:
+#+begin_src sh
+sudo aptitude install xinput
+#+end_src
+
+* manual
+Here is the script to manually toggle it on/off.
+
+Actions:
+- It first retrieves the status the script is given.
+- If empty, it does set the *1* which means, activate it.
+- Then retrieve the id of the touchpad.
+- At last, trigger the on/off status depending on the status.
+
+** code
+#+INCLUDE: "~/bin/stumpwm/toggle-touchpad-manual.sh" src sh
+src: [[https://github.com/ardumont/sh/blob/master/stumpwm/toggle-touchpad-manual.sh][toggle-touchpad-manual.sh]]
+
+** use
+
+Activate the touchpad
+#+begin_src sh
+toggle-touchpad-manual.sh 1
+#+end_src
+
+Deactivate the touchpad
+#+begin_src sh
+toggle-touchpad-manual.sh 0
+#+end_src
+
+* auto
+Toggle automatically on/off the touchpad.
+** code
+It's almost the same script as before.
+But this one does request the current status of the touchpad and then inverse the status.
+For doing so, it calls the previous script one with the new status as parameter.
+
+#+INCLUDE: "~/bin/stumpwm/toggle-touchpad.sh" src sh
+src: [[https://github.com/ardumont/sh/blob/master/stumpwm/toggle-touchpad.sh][toggle-touchpad.sh]]
+
+** use
+
+* Conclusion
+
+In this post, I presented how to activate/deactivate the touchpad from the shell.
+
+In another post, I'll present another orchestration using those scripts as a basic brick.
