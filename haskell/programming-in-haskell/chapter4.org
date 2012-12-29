@@ -219,7 +219,7 @@ and3 a b = if a
 Show how the curried function definition =mult x y z = x ∗ y ∗ z= can be understood in terms of lambda expressions.
 #+END_QUOTE
 
-Here is goes:
+Here it goes:
 
 #+BEGIN_SRC text
 mult :: Int -> Int -> Int -> Int
