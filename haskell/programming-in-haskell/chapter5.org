@@ -88,6 +88,13 @@ perfect m = sum [ y | y <- factors m, y /= m ] == m
 #+end_src
 
 *Note*
+We can iterate over the *perfect* implementation and change it using the *init* function (drops the last element of a list):
+#+begin_src text
+perfect :: Int -> Bool
+perfect m = sum (init (factors m)) == m
+#+end_src
+
+*Note*
 - The implementation is litteraly the definition.
 - we have the *factors* function that already computes the factors of a number, so we reuse it.
 
@@ -97,19 +104,13 @@ perfects :: Int -> [Int]
 perfects n = [x | x <- [1..n], perfect x]
 #+end_src
 
-*Note*
-We can iterate over the perfect implementation and change it using the *init* function:
-#+begin_src text
-perfect :: Int -> Bool
-perfect m = sum (init (factors m)) == m
-#+end_src
-
 * Comprehension
 #+BEGIN_QUOTE
-Show how the single comprehension *[(x, y) | x ← [1, 2, 3], y ← [4, 5, 6]]* with two generators can be re-expressed using two comprehensions with single generators.
+Show how the single comprehension *[(x, y) | x ← [1, 2, 3], y ← [4, 5, 6]]* with two
+generators can be re-expressed using two comprehensions with single generators.
 
 *Hint:*
- make use of the library function *concat* and nest one comprehension within the other.
+Make use of the library function *concat* and nest one comprehension within the other.
 #+END_QUOTE
 
 * *positions*
