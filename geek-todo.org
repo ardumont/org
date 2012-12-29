@@ -263,7 +263,7 @@ CLOSED: [2012-12-23 Sun 13:17]
 CLOSED: [2012-12-23 Sun 13:17]
 **** DONE http://adumont.fr/blog/possible-team-workflow-with-git/
 CLOSED: [2012-12-23 Sun 13:17]
-** TODO Articles [78%]
+** TODO Articles [76%]
 *** DONE Chroot to save one's GNU/Linux
 CLOSED: [2012-04-21 Sat 18:07]
 http://adumont.fr/blog/chroot-pour-sauver-son-gnulinux/
@@ -326,8 +326,13 @@ CLOSED: [2012-12-26 mer. 23:18]
 CLOSED: [2012-12-27 jeu. 19:09]
 *** DONE programming in haskell - Ch4 - Defining functions - exercises
 CLOSED: [2012-12-28 ven. 18:56]
+*** DONE Daily git 1/2
+CLOSED: [2012-12-29 sam. 13:20]
+http://adumont.fr/blog/daily-git-12/
 *** IN-PROGRESS Programming in haskell - ch5 - Lists comprehension - exercises
-*** PENDING Daily git 1/2
+*** TODO Stumpwm - Activate/Deactivate touchpad
+*** PENDING Activate/Deactivate touchpad from the shell
+*** PENDING Stumpwm - Display result of bash commands using zenity
 *** PENDING Daily git 2/2
 *** PENDING polipo simple setup
 ** TODO Possible articles [0%]
