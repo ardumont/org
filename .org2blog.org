@@ -4,7 +4,7 @@
 :PROPERTIES:
 :POSTID: 755
 :POST_DATE: 20121229T12:49:00+0000
-:Published: No
+:Published: Yes
 :END:
 ** [[file:/home/tony/org/howto/stumpwm-zenity.org][Stumpwm - Display result of bash commands using zenity]]
 :PROPERTIES:
