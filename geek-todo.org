@@ -263,7 +263,7 @@ CLOSED: [2012-12-23 Sun 13:17]
 CLOSED: [2012-12-23 Sun 13:17]
 **** DONE http://adumont.fr/blog/possible-team-workflow-with-git/
 CLOSED: [2012-12-23 Sun 13:17]
-** TODO Articles [80%]
+** TODO Articles [84%]
 *** DONE Chroot to save one's GNU/Linux
 CLOSED: [2012-04-21 Sat 18:07]
 http://adumont.fr/blog/chroot-pour-sauver-son-gnulinux/
@@ -320,20 +320,26 @@ CLOSED: [2012-12-25 Tue 10:48]
 http://adumont.fr/blog/programming-in-haskell-ch2-first-steps-exercises/
 *** DONE Vagrant tools
 CLOSED: [2012-12-26 mer. 17:27]
+http://adumont.fr/blog/vagrant-tools/
 *** DONE programming in haskell - Ch3 - Types and classes - exercises
 CLOSED: [2012-12-26 mer. 23:18]
+http://adumont.fr/blog/programming-in-haskell-ch3-types-and-classes-exercises/
 *** DONE Git aliases/System git aliases
 CLOSED: [2012-12-27 jeu. 19:09]
+http://adumont.fr/blog/git-aliasessystem-git-aliases/
 *** DONE programming in haskell - Ch4 - Defining functions - exercises
 CLOSED: [2012-12-28 ven. 18:56]
+http://adumont.fr/blog/programming-in-haskell-ch4-defining-functions-exercises/
 *** DONE Daily git 1/2
 CLOSED: [2012-12-29 sam. 13:20]
 http://adumont.fr/blog/daily-git-12/
 *** DONE Activate/Deactivate touchpad from the shell
 http://adumont.fr/blog/activatedeactivate-touchpad-from-the-shell/
 CLOSED: [2012-12-29 sam. 15:10]
+*** DONE Stumpwm - Activate/Deactivate touchpad
+CLOSED: [2012-12-29 sam. 15:55]
+http://adumont.fr/blog/stumpwm-activatedeactivate-touchpad/
 *** IN-PROGRESS Programming in haskell - ch5 - Lists comprehension - exercises
-*** IN-PROGRESS Stumpwm - Activate/Deactivate touchpad
 *** PENDING Stumpwm - Display result of bash commands using zenity
 *** PENDING Daily git 2/2
 *** PENDING polipo simple setup
