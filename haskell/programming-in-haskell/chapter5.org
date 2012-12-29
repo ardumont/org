@@ -13,7 +13,8 @@
 
 * List comprehension
 #+BEGIN_QUOTE
-Using a list comprehension, give an expression that calculates the sum *1^2 + 2^2 + . . . 100^2* of the first one hundred integer squares.
+Using a list comprehension, give an expression that calculates the sum \\
+ *1^2 + 2^2 + . . . 100^2*.
 #+END_QUOTE
 
 #+begin_src text
@@ -21,11 +22,10 @@ let ss100 = sum [ x^2 | x <- [1..100]]
 #+end_src
 * *replicate*
 #+BEGIN_QUOTE
-In a similar way to the function *length*, show how the library function *replicate :: Int → a → [ a ]*
-that produces a list of identical elements can be defined using a list comprehension.
+In a similar way to the function *length*, show how the library function \\
+*replicate :: Int → a → [ a ]* that produces a list of identical elements can be defined using a list comprehension.
 
 For example:
-
 > replicate 3 True
 
 [True, True, True]
@@ -50,7 +50,6 @@ Using a list comprehension, define a function *pyths :: Int → [(Int, Int, Int)
 returns the list of all pythagorean triples whose components are at most a given limit.
 
 For example:
-
 > pyths 10
 
 [(3, 4, 5), (4, 3, 5), (6, 8, 10), (8, 6, 10)]
@@ -71,11 +70,10 @@ pyths n = [(x, y, z) | x <- m,
 #+BEGIN_QUOTE
 A positive integer is perfect if it equals the sum of its factors, excluding the number itself.
 
-Using a list comprehension and the function *factors*, define a function *perfects :: Int → [ Int ]*
-that returns the list of all perfect numbers up to a given limit.
+Using a list comprehension and the function *factors*, define a function \\
+*perfects :: Int → [ Int ]* that returns the list of all perfect numbers up to a given limit.
 
 For example:
-
 > perfects 500
 
 [6, 28, 496]
@@ -112,6 +110,28 @@ generators can be re-expressed using two comprehensions with single generators.
 *Hint:*
 Make use of the library function *concat* and nest one comprehension within the other.
 #+END_QUOTE
+
+Apparently, from the *hint*, is possible to nest the list comprehensions.
+
+We will go one step at a time, first nesting:
+#+begin_src text
+Prelude> [[(x,y) | x <- [1,2,3]] | y <- [4,5,6]]
+[[(1,4),(2,4),(3,4)],[(1,5),(2,5),(3,5)],[(1,6),(2,6),(3,6)]]
+#+end_src
+
+Indeed, now if we use *concat*, this will give us what we want:
+
+#+begin_src text
+Prelude> concat [[(x,y) | x <- [1,2,3]] | y <- [4,5,6]]
+[(1,4),(2,4),(3,4),(1,5),(2,5),(3,5),(1,6),(2,6),(3,6)]
+#+end_src
+
+which is equal to the first result if we do not consider the list order:
+#+begin_src text
+Prelude> [(x, y) | x <- [1, 2, 3], y <- [4, 5, 6]]
+[(1,4),(1,5),(1,6),(2,4),(2,5),(2,6),(3,4),(3,5),(3,6)]
+
+#+end_src
 
 * *positions*
 #+BEGIN_QUOTE
