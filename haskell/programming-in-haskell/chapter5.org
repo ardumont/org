@@ -31,10 +31,14 @@ For example:
 [True, True, True]
 #+END_QUOTE
 
+It's like generating n times the same input.
+
 #+begin_src text
 replicate :: Int -> a -> [a]
 replicate n x = [x | _ <- [1..n]]
 #+end_src
+
+Here are some examples:
 
 #+begin_example
 *Ch5> replicate 10 'a'
@@ -42,6 +46,7 @@ replicate n x = [x | _ <- [1..n]]
 *Ch5> replicate 10 1
 [1,1,1,1,1,1,1,1,1,1]
 #+end_example
+
 * *pyths*
 #+BEGIN_QUOTE
 A triple *(x, y, z)* of positive integers is pythagorean if *x^2 + y^2 = z^2*.
@@ -165,16 +170,16 @@ Here is the comparison between the first implementation and the new one:
 
 * scalarproduct
 #+BEGIN_QUOTE
-The scalar product of two lists of integers xs and ys of length n is given by the sum of the products of corresponding integers:
+The scalar product of two lists of integers xs and ys of length n
+is given by the sum of the products of corresponding integers:
 =sum i=0..n−1 (xsi ∗ ysi)=
 
-In a similar manner to the function *chisqr*, show how a list comprehension can be used to define a function *scalarproduct :: [ Int ] → [ Int ] → Int*
- that returns the scalar product of two lists.
+In a similar manner to the function *chisqr*, show how a list comprehension
+can be used to define a function *scalarproduct :: [ Int ] → [ Int ] → Int*
+that returns the scalar product of two lists.
 
 For example:
-
 > scalarproduct [1, 2, 3] [4, 5, 6]
-
 32
 #+END_QUOTE
 
