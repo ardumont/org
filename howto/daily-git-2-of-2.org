@@ -1,4 +1,4 @@
-#+DATE: [2012-12-29 sam. 13:21]
+#+DATE: [2012-12-30 dim. 12:21]
 #+BLOG: tony-blog
 #+POSTID: 717
 #+TITLE: Daily git 2/2

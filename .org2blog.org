@@ -39,8 +39,8 @@
 ** [[file:/home/tony/org/howto/daily-git-2-of-2.org][Daily git 2/2]]
 :PROPERTIES:
 :POSTID: 717
-:POST_DATE: 20121229T12:21:00+0000
-:Published: No
+:POST_DATE: 20121230T11:21:31+0000
+:Published: Yes
 :END:
 ** [[file:/home/tony/org/howto/daily-git-1-of-2.org][Daily git 1/2]]
 :PROPERTIES:
