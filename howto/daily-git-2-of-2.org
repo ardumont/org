@@ -76,7 +76,7 @@ nothing to commit (working directory clean)
 
 tony@dagobah(0.29,) 19:46:58 ~/repo/perso/dot-files (master) $ git last
 commit fccd142e7388304075c6878e3bc85bfee8b8583b
-Author: Antoine R. Dumont <antoine.romain.dumont@gmail.com>
+Author: Antoine R. Dumont <some-email@some-server.com>
 Date:   Tue Dec 25 18:17:14 2012 +0100
 
     A new file README.org for fun.
