@@ -13,20 +13,20 @@
 
 * Statements
 - I'm a feedback addict
-When I execute something, i want it to answer quickly, no lag is acceptable.
+When I execute something, I want it to answer quickly, no lag is acceptable.
 - I found out that there is no faster than the keyboard to input quickly (at least as fast as my fingers go)
-(the mouse is slow, you have to break the position of your hands...)
+The mouse is slow because you to break the position of your hands...
 - I love emacs and [[http://orgmode.org/][org-mode]]
-- I like wordpress (simple and user-friendly).
+- I like [[http://wordpress.org/][wordpress]] (simple and user-friendly).
 But you have too much to do and click to succeed in making one article.
 
 * Consequence
 
-I have difficulties in blogging directly in wordpress (it is in the click world, I'm not anymore).
+I have difficulties in blogging directly in [[http://wordpress.org/][wordpress]] (it is in the click world, I'm not anymore).
 
 * But... *help me org-mode-wan, you are my only hope*
 
-I know [[http://orgmode.org/][org-mode]]. And as soon as i become aware of [[http://orgmode.org/][org-mode]]'s abilities to export, i used the html export to make my articles.
+I know [[http://orgmode.org/][org-mode]]. And as soon as I become aware of [[http://orgmode.org/][org-mode]]'s abilities to export, I used the html export to make my articles.
 
 You write offline (no network problem then) your article in [[http://orgmode.org/][org-mode]] (simple yet ultra powerfull text dsl).
 Then you export in html (C-c C-e b), this will open a tab in your browser almost immediately.
@@ -34,26 +34,31 @@ Then you export in html (C-c C-e b), this will open a tab in your browser almost
 It is way cool...
 
 But the html need to be :
-- copy/paste to wordpress
-- improved to remove the css that is exported along [[http://orgmode.org/][org-mode]] (to let wordpress do its work)
-- if images there are, you must upload first one at a time...
+- copy/paste to [[http://wordpress.org/][wordpress]] the rendered html
+- the rendering of org-mode table via the copy/past of the exported html is not good
+- as the exported html is a standalone one, it comes with some css we need to remove too (as [[http://wordpress.org/][wordpress]] already has one)
+- if images there are, you must upload first one at a time... and then remodify the either the org-mode or the html exported
+- etc...
 
-But... as always, i'm kind of an exigeant freak too, not perfect.
+In short, a lot of manual adaptation needs to be done.
+It's neither feedback oriented nor fun!
+
+In even shorter, it's not perfect!
 
 * Then along came... [[https://github.com/punchagan/org2blog][org2blog]]!
 
 ** What is it?
 
-It's an adapter between [[http://orgmode.org/][org-mode]] files and wordpress.
-Given minor setup steps (to do once), you can never leave your [[http://orgmode.org/][org-mode]] until you're done!
+It's an adapter between [[http://orgmode.org/][org-mode]] files and [[http://wordpress.org/][wordpress]].
+Given minor setup steps (to do once), you can never leave your [[http://orgmode.org/][org-mode]] buffer until you're done!
 
-It's the ultimate coolness!
+It's the ultimate blogging way for an org-mode user like me!
 
 ** Advantages?
 
 - No network needed (at least until the publishing step)
 - No need to manage the pictures, there will be uploaded and be coherent with the blog
-- You will be prompted to create the tags and categories if they do not exist.
+- You will be prompted to create the categories if they do not already exist.
 
 ** install?
 
@@ -61,7 +66,9 @@ Here we go, add this to your *init.el*
 This is a snippet of code that permits you to automatically search and install the packages you want at startup.
 
 #+BEGIN_SRC lisp
-(require 'package)(add-to-list 'package-archives
+(require 'package)
+
+(add-to-list 'package-archives
              '("marmalade" . "http://marmalade-repo.org/packages/") t)
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.milkbox.net/packages/") t)
@@ -93,7 +100,7 @@ Here is the details about packages:
 
 *** ~/.netrc
 
-To setup the credentials to login into the wordpress.
+To setup the credentials to login into the [[http://wordpress.org/][wordpress]].
 
 Here is a sample:
 #+BEGIN_SRC netrc
@@ -102,11 +109,11 @@ machine some-dummy-machine login some-login password some-password
 
 Each line represents one blog.
 
-|----------+--------------------|
-| machine  | some-dummy-machine |
-| login    | some-login         |
-| password | some-password      |
-|----------+--------------------|
+|----------+-------------------------------------------------------------------------|
+| machine  | some-dummy-machine (Note that this will be used in the emacs-lisp code) |
+| login    | some-login                                                              |
+| password | some-password                                                           |
+|----------+-------------------------------------------------------------------------|
 
 *** ~/.emacs
 Add this to your *~/.emacs*
@@ -139,48 +146,45 @@ Here is my way, you can go from this at first and then improve :D
 - Add some metadata on your file
 
 #+BEGIN_SRC org
-\#+BLOG: some-dummy-machine
-\#+TITLE: Blogging with org-mode and org2blog to publish on wordpress
-\#+AUTHOR: Antoine R. Dumont
-\#+OPTIONS:
-\#+TAGS: org-mode, emacs, wordpress, blog
-\#+CATEGORY: org-mode, blog, wordpress
-\#+DESCRIPTION: Syncing one's org-mode files with one's blog
-\#+STARTUP: indent
-\#+STARTUP: hidestars odd
+#+TITLE: Blogging with org-mode and org2blog to publish on wordpress
+#+AUTHOR: Antoine R. Dumont
+#+OPTIONS:
+#+TAGS: org-mode, emacs, wordpress, blog
+#+CATEGORY: org-mode, blog, wordpress
+#+DESCRIPTION: Syncing one's org-mode files with one's blog
 #+END_SRC
 
-*Note* You can remove the \ for a real test.
-
-- Then You edit normally your [[http://orgmode.org/][org-mode]] file article
+- Then You edit normally your [[http://orgmode.org/][org-mode]] file article, here is a full example
 
 #+INCLUDE: "./resources/org/dummy.org" src org
 
-- To check the rendering is ok, export locally your article (C-c C-e b)
+- To check the rendering is ok, export locally your article via *C-c C-e b* (*M-x org-export-as-html-and-open*)
 
 [[file:./resources/img/export-dummy.png][file:./resources/img/export-dummy.png]]
 
-- Once you're almost ready, you can upload a draft to wordpress *C-c d* (M-x org2blog/wp-post-buffer)
+- Once you're almost ready, you can upload a draft to your [[http://wordpress.org/][wordpress]] *C-c d* (*M-x org2blog/wp-post-buffer*)
 
 [[file:./resources/img/export-dummy-and-upload-draft.png][file:./resources/img/export-dummy-and-upload-draft.png]]
 
 - New metadata has been generated at the top of your [[http://orgmode.org/][org-mode]] file
 
 #+BEGIN_SRC org
-\#+BLOG: tony-blog
-\#+POSTID: 589
-\#+DATE: [2012-12-22 Sat 20:00]
+#+BLOG: tony-blog
+#+POSTID: 589
+#+DATE: [2012-12-22 Sat 20:00]
 #+END_SRC
 
 This will help in updating your post throughout the time.
 
-- When ready to publish, hit *C-c p* (C-u M-x org2blog/wp-post-buffer)
+- When ready to publish, hit *C-c p* (or *C-u M-x org2blog/wp-post-buffer*)
 
-- Of course, you can republish after updating some errors/typos (hit *C-c p* again)
+- Of course, you can republish after updating some errors/typos (hit *C-c p* again when you're done updating it)
 
 * Enjoy
 
-Perfect! At least for me!
+At last, the perfect way of blogging through emacs! At least for me!
+
+Long live [[https://github.com/punchagan/org2blog][org2blog]]!
 
 #+./resources/img/export-dummy.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-export-dummy.png
 
