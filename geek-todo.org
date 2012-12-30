@@ -263,7 +263,7 @@ CLOSED: [2012-12-23 Sun 13:17]
 CLOSED: [2012-12-23 Sun 13:17]
 **** DONE http://adumont.fr/blog/possible-team-workflow-with-git/
 CLOSED: [2012-12-23 Sun 13:17]
-** TODO Articles [84%]
+** TODO Articles [88%]
 *** DONE Chroot to save one's GNU/Linux
 CLOSED: [2012-04-21 Sat 18:07]
 http://adumont.fr/blog/chroot-pour-sauver-son-gnulinux/
@@ -342,7 +342,9 @@ http://adumont.fr/blog/stumpwm-activatedeactivate-touchpad/
 *** DONE Daily git 2/2
 CLOSED: [2012-12-30 dim. 12:21]
 http://adumont.fr/blog/daily-git-22/
-*** PENDING Programming in haskell - ch5 - Lists comprehension - exercises
+*** DONE Programming in haskell - ch5 - Lists comprehension - exercises
+CLOSED: [2012-12-30 dim. 15:31]
+http://adumont.fr/blog/programming-in-haskell-ch5-lists-comprehension-exercises/
 *** PENDING Emacs - Activate touchpad when org-mode exports html
 *** PENDING Stumpwm - Display result of bash commands using zenity
 *** PENDING polipo simple setup

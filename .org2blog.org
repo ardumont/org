@@ -28,7 +28,7 @@
 :PROPERTIES:
 :POSTID: 734
 :POST_DATE: 20121227T22:45:00+0000
-:Published: No
+:Published: Yes
 :END:
 ** [[file:/home/tony/org/haskell/programming-in-haskell/chapter4.org][Programming in haskell - ch4 - Defining Functions - exercises]]
 :PROPERTIES:
