@@ -263,7 +263,7 @@ CLOSED: [2012-12-23 Sun 13:17]
 CLOSED: [2012-12-23 Sun 13:17]
 **** DONE http://adumont.fr/blog/possible-team-workflow-with-git/
 CLOSED: [2012-12-23 Sun 13:17]
-** TODO Articles [88%]
+** TODO Articles [76%]
 *** DONE Chroot to save one's GNU/Linux
 CLOSED: [2012-04-21 Sat 18:07]
 http://adumont.fr/blog/chroot-pour-sauver-son-gnulinux/
@@ -348,20 +348,6 @@ http://adumont.fr/blog/programming-in-haskell-ch5-lists-comprehension-exercises/
 *** PENDING Emacs - Activate touchpad when org-mode exports html
 *** PENDING Stumpwm - Display result of bash commands using zenity
 *** PENDING polipo simple setup
-** TODO Possible articles [0%]
-*** TODO Simple Howto apache camel
-Make the team presentation generic.
-*** TODO How to use emacs?
-Rapid presentation on what i can do and what i do:
-- simple setup
-- org-mode
-- dev for clojure
-- open wars
-- ...
-*** TODO Something about clojure
-Rapid presentation on clojure
-What are the possibilities
-*** TODO Visibility on my clojure projects
 * TODO clojure [22%]
 ** DONE start [100%]
 CLOSED: [2012-04-21 Sat 18:18]
