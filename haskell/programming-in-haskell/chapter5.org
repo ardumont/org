@@ -200,7 +200,132 @@ As an example:
 Modify the Caesar cipher program to also handle upper-case letters.
 #+END_QUOTE
 
+** caesar program
+Recall the caesar program:
 
+#+begin_src text
+low2int :: Char -> Int
+low2int c = C.ord c - C.ord 'a'
+
+int2low :: Int -> Char
+int2low l = C.chr (C.ord 'a' + l)
+
+shift :: Int -> Char -> Char
+shift n c | C.isLower c = int2low ((n + low2int c) `mod` 26)
+          | otherwise = c
+
+encode :: Int -> String -> String
+encode n cs = [shift n c | c <- cs]
+#+end_src
+
+Here is a sample or executing the first implementation:
+#+begin_src text
+*Ch5> encode 3 "functional programming rocks!"
+"ixqfwlrqdo surjudpplqj urfnv!"
+#+end_src
+** Upper
+
+We then have to add functions that deals with upper case too.
+
+*** *upp2int*
+
+For this, we can add functions *upp2int* (dual of *low2int*) and *int2upp* (dual of *int2low*).
+
+As their behaviour is similar, we can extract a *char2Int* function which takes the char c to transform and a reference char.
+
+#+begin_src text
+char2int :: Char -> Char -> Int
+char2int c cr = C.ord c - C.ord cr
+#+end_src
+
+The definition of *low2int* and *upp2int* becomes:
+
+#+begin_src text
+low2int :: Char -> Int
+low2int c = char2int c 'a'
+
+upp2int :: Char -> Int
+upp2int c = char2int c 'A'
+#+end_src
+
+*** *int2upp*
+The same thing can be tell for the *int 2 letter* transformation:
+
+#+begin_src text
+int2char :: Int -> Char -> Char
+int2char l c = C.chr (C.ord c + l)
+
+int2low :: Int -> Char
+int2low l = int2char l 'a'
+
+int2upp :: Int -> Char
+int2upp l = int2char l 'A'
+#+end_src
+
+*** *shift*
+The function *shift* evolves to add a guardian entry to check on the Upper case property of a char.
+Again the behaviour is similar, only the reference char changes.
+
+So we can extract a higher order function *shiftchar*:
+
+#+begin_src text
+shiftchar :: (Int -> Char) -> (Char -> Int) -> Int -> Char -> Char
+shiftchar i2c c2i n c = i2c ((n + c2i c) `mod` 26)
+#+end_src
+
+The function *shift* becomes then:
+
+#+begin_src text
+shift :: Int -> Char -> Char
+shift n c | C.isLower c = shiftchar int2low low2int n c
+          | C.isUpper c = shiftchar int2upp upp2int n c
+          | otherwise = c
+#+end_src
+*** *encode*
+At last the function *encode* does not change.
+
+*** Check
+And the encoding final with upper case:
+
+#+begin_src text
+*Ch5> encode 3 "Functional programming ROCKS!"
+"Ixqfwlrqdo surjudpplqj URFNV!"
+#+end_src
+
+Which is definitely the same as before but with upper letters.
+** final
+
+Here is the final result:
+#+begin_src text
+char2int :: Char -> Char -> Int
+char2int c cr = C.ord c - C.ord cr
+
+low2int :: Char -> Int
+low2int c = char2int c 'a'
+
+upp2int :: Char -> Int
+upp2int c = char2int c 'A'
+
+int2char :: Int -> Char -> Char
+int2char l c = C.chr (C.ord c + l)
+
+int2low :: Int -> Char
+int2low l = int2char l 'a'
+
+int2upp :: Int -> Char
+int2upp l = int2char l 'A'
+
+shiftchar :: (Int -> Char) -> (Char -> Int) -> Int -> Char -> Char
+shiftchar i2c c2i n c = i2c ((n + c2i c) `mod` 26)
+
+shift :: Int -> Char -> Char
+shift n c | C.isLower c = shiftchar int2low low2int n c
+          | C.isUpper c = shiftchar int2upp upp2int n c
+          | otherwise = c
+
+encode :: Int -> String -> String
+encode n cs = [shift n c | c <- cs]
+#+end_src
 
 * Source
 [[https://github.com/ardumont/my-haskell-lab/blob/master/src/ch5.hs][ch5.hs]]
