@@ -6,4 +6,59 @@
 #+CATEGORY: haskell, exercises, functional-programming
 #+DESCRIPTION: Learning haskell and solving problems using reasoning and 'repl'ing
 #+STARTUP: indent
-#+STARTUP: hidestars odd
+#+STARTUP: hidestars
+
+* Exponentiation
+#+begin_quote
+Define the exponentiation operator ↑ for non-negative integers using the
+same pattern of recursion as the multiplication operator =∗=, and show how *2 ↑ 3* is evaluated using your definition.
+#+end_quote
+* evaluated
+#+begin_quote
+Using the definitions given in this chapter, show how *length [1, 2, 3]*,
+*drop 3 [1, 2, 3, 4, 5]*, and *init [1, 2, 3]* are evaluated.
+#+end_quote
+* functions
+#+begin_quote
+Without looking at the definitions from the standard prelude, define the
+following library functions using recursion.
+
+-- Decide if all logical values in a list are True: =and :: [Bool] → Bool= \\
+-- Concatenate a list of lists: =concat :: [ [a] ] → [a]= \\
+-- Produce a list with n identical elements: =replicate :: Int → a → [a]= \\
+-- Select the n th element of a list: =(!!) :: [a] → Int → a= \\
+-- Decide if a value is an element of a list: =elem :: Eq a ⇒ a → [a] → Bool= \\
+
+*Note:* most of these functions are in fact defined in the prelude using other
+library functions, rather than using explicit recursion.
+#+end_quote
+* merge
+#+begin_quote
+Define a recursive function =merge :: Ord a ⇒ [a] → [a] → [a]= that
+merges two sorted lists to give a single sorted list.
+
+For example:
+
+> merge [2, 5, 6] [1, 3, 4]
+[1, 2, 3, 4, 5, 6]
+
+*Note:* your definition should not use other functions on sorted lists such as
+*insert* or *isort*, but should be defined using explicit recursion.
+#+end_quote
+* msort
+#+begin_quote
+Using *merge*, define a recursive function =msort :: Ord a ⇒ [a] → [a]= that
+implements merge sort, in which the empty list and singleton lists are already
+sorted, and any other list is sorted by merging together the two lists that
+result from sorting the two halves of the list separately.
+
+*Hint:*
+ first define a function =halve :: [a] → [([a], [a])]= that splits a list into
+two halves whose lengths differ by at most one.
+#+end_quote
+* sum
+#+begin_quote
+Using the five-step process, define the library functions that calculate the
+sum of a list of numbers, take a given number of elements from the start of
+a list, and select the last element of a non-empty list.
+#+end_quote
