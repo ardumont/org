@@ -262,7 +262,7 @@ CLOSED: [2012-12-23 Sun 13:17]
 CLOSED: [2012-12-23 Sun 13:17]
 **** DONE http://adumont.fr/blog/possible-team-workflow-with-git/
 CLOSED: [2012-12-23 Sun 13:17]
-* PENDING Articles [76%]
+* PENDING Articles [92%]
 ** DONE Chroot to save one's GNU/Linux
 CLOSED: [2012-04-21 Sat 18:07]
 http://adumont.fr/blog/chroot-pour-sauver-son-gnulinux/
@@ -345,7 +345,9 @@ http://adumont.fr/blog/daily-git-22/
 CLOSED: [2012-12-30 dim. 15:31]
 http://adumont.fr/blog/programming-in-haskell-ch5-lists-comprehension-exercises/
 ** PENDING Emacs - Activate touchpad when org-mode exports html
-** PENDING Stumpwm - Display result of bash commands using zenity
+** DONE Stumpwm - Display result of bash commands using zenity
+CLOSED: [2012-12-31 lun. 19:53]
+http://adumont.fr/blog/stumpwm-display-result-of-bash-commands-using-zenity/
 ** PENDING polipo simple setup
 * TODO clojure [22%]
 ** DONE start [100%]
