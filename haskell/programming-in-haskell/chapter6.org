@@ -105,21 +105,48 @@ and [] = True
 and (x:xs) = x && (and xs)
 #+end_src
 
+Example:
+#+begin_src text
+*Ch6> and [True, True, True]
+True
+*Ch6> and [True, False, True]
+False
+#+end_src
+
 ** *concat*
 #+begin_quote
 -- Concatenate a list of lists: =concat :: [[a] ] → [a]=
 #+end_quote
 
 #+begin_src text
-ccat :: [[a]] -> [a]
-ccat [xs] = xs
-ccat (xs:xxs) = xs ++ (ccat xxs)
+concat :: [[a]] -> [a]
+concat [xs] = xs
+concat (xs:xxs) = xs ++ (concat xxs)
 #+end_src
 
+Example:
+#+begin_src text
+*Ch6> concat [[1..10], [2,4], [20..25]]
+[1,2,3,4,5,6,7,8,9,10,2,4,20,21,22,23,24,25]
+#+end_src
 ** *replicate*
 #+begin_quote
 -- Produce a list with n identical elements: =replicate :: Int → a → [a]= \\
 #+end_quote
+
+#+begin_src text
+replicate :: Int -> a -> [a]
+replicate 0 _ = []
+replicate n x = x:(replicate (n-1) x)
+#+end_src
+
+Example:
+#+begin_src text
+*Ch6> replicate 10 'a'
+"aaaaaaaaaa"
+*Ch6> replicate 5 9
+[9,9,9,9,9]
+#+end_src
 ** *(!!)*
 #+begin_quote
 -- Select the n^th element of a list: =(!!) :: [a] → Int → a= \\
