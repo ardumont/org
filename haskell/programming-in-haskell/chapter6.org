@@ -159,9 +159,9 @@ Example:
 
 Example:
 #+begin_src text
-*Ch6> [1,2,3] Ch6.!! 2
+*Ch6> [1,2,3] !! 2
 3
-*Ch6> [1,2,3] Ch6.!! 0
+*Ch6> [1,2,3] !! 0
 1
 #+end_src
 
@@ -225,7 +225,7 @@ sorted, and any other list is sorted by merging together the two lists that
 result from sorting the two halves of the list separately.
 
 *Hint:*
- first define a function =halve :: [a] → [([a], [a])]= that splits a list into
+First define a function =halve :: [a] → [([a], [a])]= that splits a list into
 two halves whose lengths differ by at most one.
 #+end_quote
 * sum
