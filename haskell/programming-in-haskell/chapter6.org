@@ -228,9 +228,44 @@ sorted, and any other list is sorted by merging together the two lists that
 result from sorting the two halves of the list separately.
 
 *Hint:*
-First define a function =halve :: [a] → [([a], [a])]= that splits a list into
+First define a function =halve :: [a] → ([a], [a])= that splits a list into
 two halves whose lengths differ by at most one.
 #+end_quote
+
+First, following the hint, we define a *halve* function:
+#+begin_src text
+halve :: [a] -> ([a], [a])
+halve xs = splitAt (length xs `div` 2) xs
+#+end_src
+
+As an example:
+#+begin_src text
+*Ch6> halve [1,2,3]
+([1],[2,3])
+*Ch6> fst ([1],[2,3])
+[1]
+*Ch6> snd ([1],[2,3])
+[2,3]
+#+end_src
+
+Now:
+#+begin_src text
+msort :: Ord a => [a] -> [a]
+msort [] = []
+msort [x] = [x]
+msort xs = merge (msort fh) (msort sh)
+           where
+             hv = halve xs
+             fh = fst hv
+             sh = snd hv
+#+end_src
+
+Example:
+#+begin_src text
+*Ch6> msort [3,2,90,54,1]
+[1,2,3,54,90]
+#+end_src
+
 * sum
 #+begin_quote
 Using the five-step process, define the library functions that calculate the
