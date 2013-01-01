@@ -1,8 +1,7 @@
 #+BLOG: tony-blog
 #+POSTID: 734
 #+DATE: [2012-12-27 jeu. 23:45]
-#+BLOG: tony-blog
-#+TITLE: Programming in haskell - ch5 - Lists comprehension - exercises
+#+TITLE: Programming in haskell - ch5 - Lists comprehension
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
 #+TAGS: haskell, exercises, functional-programming

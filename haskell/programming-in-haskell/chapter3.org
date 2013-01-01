@@ -1,8 +1,7 @@
 #+BLOG: tony-blog
 #+POSTID: 654
 #+DATE: [2012-12-24 Mon 20:35]
-#+BLOG: tony-blog
-#+TITLE: Programming in haskell - Ch3 - Types and classes - exercises
+#+TITLE: Programming in haskell - Ch3 - Types and classes
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
 #+TAGS: haskell, exercises, functional-programming

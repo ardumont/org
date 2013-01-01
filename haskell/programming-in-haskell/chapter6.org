@@ -1,7 +1,7 @@
 #+BLOG: tony-blog
 #+POSTID: 835
 #+DATE: [2013-01-01 mar. 14:28]
-#+TITLE: Programming in haskell - ch6 - Recursive functions - exercises
+#+TITLE: Programming in haskell - ch6 - Recursive functions
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS: toc:2
 #+TAGS: haskell, exercises, functional-programming, recursion

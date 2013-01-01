@@ -1,7 +1,7 @@
 #+BLOG: tony-blog
 #+POSTID: 645
 #+DATE: [2012-12-24 Mon 14:59]
-#+TITLE: Programming in haskell - Ch2 - First steps - exercises
+#+TITLE: Programming in haskell - Ch2 - First stepsb
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
 #+TAGS: haskell, exercises, functional-programming

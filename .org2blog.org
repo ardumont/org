@@ -1,6 +1,6 @@
 
 * Posts
-** [[file:/home/tony/org/haskell/programming-in-haskell/chapter6.org][Programming in haskell - ch6 - Recursive functions - exercises]]
+** [[file:/home/tony/org/haskell/programming-in-haskell/chapter6.org][Programming in haskell - ch6 - Recursive functions]]
 :PROPERTIES:
 :POSTID: 835
 :POST_DATE: 20130101T13:28:00+0000
@@ -30,13 +30,13 @@
 :POST_DATE: 20121231T18:50:00+0000
 :Published: Yes
 :END:
-** [[file:/home/tony/org/haskell/programming-in-haskell/chapter5.org][Programming in haskell - ch5 - Lists comprehension - exercises]]
+** [[file:/home/tony/org/haskell/programming-in-haskell/chapter5.org][Programming in haskell - ch5 - Lists comprehension]]
 :PROPERTIES:
 :POSTID: 734
 :POST_DATE: 20121227T22:45:00+0000
 :Published: Yes
 :END:
-** [[file:/home/tony/org/haskell/programming-in-haskell/chapter4.org][Programming in haskell - ch4 - Defining Functions - exercises]]
+** [[file:/home/tony/org/haskell/programming-in-haskell/chapter4.org][Programming in haskell - ch4 - Defining Functions]]
 :PROPERTIES:
 :POSTID: 728
 :POST_DATE: 20121226T22:09:00+0000
@@ -78,19 +78,19 @@
 :POST_DATE: 20121224T20:16:00+0000
 :Published: Yes
 :END:
-** [[file:/home/tony/org/haskell/programming-in-haskell/chapter1.org][Programming in haskell - Ch1 - Introduction - exercices]]
+** [[file:/home/tony/org/haskell/programming-in-haskell/chapter1.org][Programming in haskell - Ch1 - Introduction]]
 :PROPERTIES:
 :POSTID: 632
 :POST_DATE: 20121223T17:52:00+0000
 :Published: Yes
 :END:
-** [[file:/home/tony/org/haskell/programming-in-haskell/chapter3.org][Programming in haskell - Ch3 - Types and classes - exercises]]
+** [[file:/home/tony/org/haskell/programming-in-haskell/chapter3.org][Programming in haskell - Ch3 - Types and classes]]
 :PROPERTIES:
 :POSTID: 654
 :POST_DATE: 20121224T19:35:00+0000
 :Published: Yes
 :END:
-** [[file:/home/tony/org/haskell/programming-in-haskell/chapter2.org][Programming in haskell - Ch2 - First steps - exercises]]
+** [[file:/home/tony/org/haskell/programming-in-haskell/chapter2.org][Programming in haskell - Ch2 - First steps]]
 :PROPERTIES:
 :POSTID: 645
 :POST_DATE: 20121224T13:59:00+0000
