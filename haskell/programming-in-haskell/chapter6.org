@@ -17,11 +17,8 @@ same pattern of recursion as the multiplication operator =∗=, and show how *2 
 #+begin_src text
 (^) :: Int -> Int -> Int
 _ ^ 0 = 1
-x ^ n = x * (x Ch6.^ (n-1))
+x ^ n = x * (x ^ (n-1))
 #+end_src
-
-*Note*
-I needed to use the =(Ch6.^)= notation because of warning message otherwise (*Ambiguous occurrence `^'*)
 
 #+begin_src text
 2 ^ 3 = 2 * (2 ^ 2)
