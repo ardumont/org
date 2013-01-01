@@ -23,29 +23,23 @@ As the multiplication is commutative, we consider : *for any a, b, (a,b) == (b,a
 Naive first:
 #+begin_src text
 couple :: Int -> [(Int,Int)]
-couple n = [(a,b) | a <- m, b <- m, b <= a, a * b == n]
-           where m = [1..n]
+couple n = [(a,b) | a <- [2..n], b <- [1..a], a * b == n]
 #+end_src
 
 To avoid making duplicates, the trick is to consider the input as a kind of pyramid instead of square.
 #+begin_quote
-*0* +1 2 3 4 5 6 7 8+ \\
-*0 1* +2 3 4 5 6 7 8+ \\
-*0 1 2* +3 4 5 6 7 8+ \\
-*0 1 2 3* +4 5 6 7 8+ \\
-*0 1 2 3 4* +5 6 7 8+ \\
-*0 1 2 3 4 5* +6 7 8+ \\
-*0 1 2 3 4 5 6* +7 8+ \\
-*0 1 2 3 4 5 6 7* +8+ \\
-*0 1 2 3 4 5 6 7 8* \\
-#+end_quote
+for *n = 9* \\
 
-More performant:
-#+begin_src text
-couple1 :: Int -> [(Int,Int)]
-couple1 n = [(a,b) | a <- lfactors n, b <- m, b <= a, a * b == n]
-           where
-             m = [1..n]
-             lfactors :: Int -> [Int]
-             lfactors n' = [ x | x <- m, n' `mod` x == 0]
-#+end_src
+a in *2 3 4 5 6 7 8 9*
+
+b in:\\
+*1 2* +3 4 5 6 7 8 9+ \\
+*1 2 3* +4 5 6 7 8 9+ \\
+*1 2 3 4* +5 6 7 8 9+ \\
+*1 2 3 4 5* +6 7 8 9+ \\
+*1 2 3 4 5 6* +7 8 9+ \\
+*1 2 3 4 5 6 7* +8 9+ \\
+*1 2 3 4 5 6 7 8* +9+ \\
+*1 2 3 4 5 6 7 8 9*
+
+#+end_quote
