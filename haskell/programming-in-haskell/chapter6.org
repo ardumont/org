@@ -151,10 +151,26 @@ Example:
 #+begin_quote
 -- Select the n^th element of a list: =(!!) :: [a] → Int → a= \\
 #+end_quote
+
+#+begin_src text
+(!!) :: [a] -> Int -> a
+(x:_) !! 0 = x
+(_:xs) !! n = xs !! (n-1)
+#+end_src
+
+Example:
+#+begin_src text
+*Ch6> [1,2,3] Ch6.!! 2
+3
+*Ch6> [1,2,3] Ch6.!! 0
+1
+#+end_src
+
 ** *elem*
 #+begin_quote
 -- Decide if a value is an element of a list: =elem :: Eq a ⇒ a → [a] → Bool= \\
 #+end_quote
+
 
 * merge
 #+begin_quote
