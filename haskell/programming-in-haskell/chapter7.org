@@ -1,5 +1,5 @@
 #+BLOG: tony-blog
-#+TITLE: Programming in haskell - ch7 - Higher-order functions - exercises
+#+TITLE: Programming in haskell - ch7 - Higher-order functions
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
 #+TAGS: haskell, exercises, functional-programming
