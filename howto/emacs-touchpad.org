@@ -10,20 +10,21 @@
 #+STARTUP: indent
 #+STARTUP: hidestars
 
-[[http://adumont.fr/blog/stumpwm-activatedeactivate-touchpad/][In this post]], I explained how to switch on/off the touchpad depending on the software focused at hand.
-Recall that I'm using [[http://www.nongnu.org/stumpwm/][stumpwm]], thus meaning that I have only one window focused at a time (I can do more but that's the way I use it).
+[[http://adumont.fr/blog/stumpwm-activatedeactivate-touchpad/][In this previous post]], I explained how to switch on and off the touchpad depending on the software focused at hand[1].
 
-Typically, when in:
-- [[http://www.gnu.org/software/emacs/][emacs]], touchpad off
-- browser, touchpad on.
+[1] Recall that I'm using [[http://www.nongnu.org/stumpwm/][stumpwm]], thus meaning that I have only one window focused at a time (I can do more but [[http://adumont.fr/blog/howto-install-stumpwm-and-little-more/][that's the way I use it]]).
 
 It was perfect until I realized that when in [[http://www.gnu.org/software/emacs/][emacs]], I export in html and open the browser...
-But then, the touchpad is off... which is now inconsistent with my [[http://www.nongnu.org/stumpwm/][stumpwm]] setup.
+But then, the touchpad is off... which is now inconsistent with my [[http://adumont.fr/blog/stumpwm-activatedeactivate-touchpad/#Setup][stumpwm setup]].
 
 I completely forgot this use case.
 But, no panic, this time, [[http://www.gnu.org/software/emacs/][emacs]] to the rescue!
 
-From hereupon, I will explain how to setup [[http://www.gnu.org/software/emacs/][emacs]] so that when exporting the html and opening the result in a browser, the touchpad is enabled too.
+Typically, what I want is, when in:
+- [[http://www.gnu.org/software/emacs/][emacs]], touchpad off
+- browser, touchpad on.
+
+From hereupon, I will explain how to setup [[http://www.gnu.org/software/emacs/][emacs]] so that when exporting the html and see the result in the browser, the touchpad is on too.
 
 * Toggle on/off from the [[http://www.gnu.org/software/emacs/][emacs]] repl
 ** Pre-requisite
