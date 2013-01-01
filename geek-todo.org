@@ -70,6 +70,16 @@ CLOSED: [2012-12-23 Sun 13:17]
 CLOSED: [2012-12-23 Sun 13:17]
 **** DONE http://adumont.fr/blog/possible-team-workflow-with-git/
 CLOSED: [2012-12-23 Sun 13:17]
+* DONE Modifying theme [100%]
+CLOSED: [2013-01-01 mar. 20:10]
+** DONE find one
+CLOSED: [2013-01-01 mar. 20:09]
+** DONE setup it
+CLOSED: [2013-01-01 mar. 20:09]
+** DONE licence CC-SA
+CLOSED: [2013-01-01 mar. 20:10]
+** DONE ok with mobile
+CLOSED: [2013-01-01 mar. 20:10]
 * TODO org-mode [80%]
 ** DONE Howto install it?
 CLOSED: [2012-04-21 Sat 11:58]
