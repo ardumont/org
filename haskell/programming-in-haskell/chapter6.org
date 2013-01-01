@@ -323,7 +323,79 @@ Example:
 #+begin_quote
 *take* a given number of elements.
 #+end_quote
+
+
+*** Step 1 - define the types
+#+begin_src text
+take :: Int -> [a] -> [a]
+#+end_src
+*** Step 2 - enumerate the cases
+Then what are the cases:
+- we take no elements in any list
+- or we take some elements in an empty list.
+
+#+begin_src text
+take 0 _ =
+take _ [] =
+#+end_src
+*** Step 3 - Define the simple case
+Either way, we return an empty list.
+#+begin_src text
+take 0 _ = []
+take _ [] = []
+#+end_src
+*** Step 4 - Define the other cases
+We take the head of the list, it becomes the head of a new list.
+The tail of the list is made by taking *n-1* elements in *xs*.
+#+begin_src text
+take n (x:xs) = x : (take (n-1) xs)
+#+end_src
+*** Step 5 - Generalise and simplify
+First, what do we got?
+
+#+begin_src text
+take :: Int -> [a] -> [a]
+take 0 _ = []
+take _ [] = []
+take n (x:xs) = x : (take (n-1) xs)
+#+end_src
+
+Example:
+#+begin_src text
+*Ch6> take 0 [1..10]
+[]
+*Ch6> take 10 []
+[]
+*Ch6> take 3 [1..10]
+[1,2,3]
+#+end_src
+
 ** *last*
 #+begin_quote
 Select the *last* element of a non empty list.
 #+end_quote
+
+
+*** Step 1 - define the types
+#+begin_src text
+#+end_src
+*** Step 2 - enumerate the cases
+Then what are the cases:
+#+begin_src text
+#+end_src
+*** Step 3 - Define the simple case
+Then defining it:
+#+begin_src text
+#+end_src
+*** Step 4 - Define the other cases
+#+begin_src text
+#+end_src
+*** Step 5 - Generalise and simplify
+First, what do we got?
+
+#+begin_src text
+#+end_src
+
+Example:
+#+begin_src text
+#+end_src
