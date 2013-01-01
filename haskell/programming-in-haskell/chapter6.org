@@ -1,4 +1,3 @@
-#+BLOG: tony-blog
 #+TITLE: Programming in haskell - ch6 - Recursive functions - exercises
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
@@ -175,7 +174,7 @@ Example:
 elem :: Eq a => a -> [a] -> Bool
 elem _ [] = False
 elem x (y:ys) | x == y    = True
-             | otherwise = elem x ys
+              | otherwise = elem x ys
 #+end_src
 
 Example:
