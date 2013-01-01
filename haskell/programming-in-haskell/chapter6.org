@@ -83,17 +83,46 @@ init [1,2,3] = 1:(init [2,3])
 * functions
 #+begin_quote
 Without looking at the definitions from the standard prelude, define the
-following library functions using recursion.
-
--- Decide if all logical values in a list are True: =and :: [Bool] → Bool= \\
--- Concatenate a list of lists: =concat :: [ [a] ] → [a]= \\
--- Produce a list with n identical elements: =replicate :: Int → a → [a]= \\
--- Select the n th element of a list: =(!!) :: [a] → Int → a= \\
--- Decide if a value is an element of a list: =elem :: Eq a ⇒ a → [a] → Bool= \\
+following library functions using recursion:
+-- and
+-- concat
+-- replicate
+-- (!!)
+-- elem
 
 *Note:* most of these functions are in fact defined in the prelude using other
 library functions, rather than using explicit recursion.
 #+end_quote
+
+** *and*
+#+begin_quote
+-- Decide if all logical values in a list are True: =and :: [Bool] → Bool=
+#+end_quote
+
+#+begin_src text
+and :: [Bool] -> Bool
+and [] = True
+and (x:xs) = x && (and xs)
+#+end_src
+
+** *concat*
+#+begin_quote
+-- Concatenate a list of lists: =concat :: [[a] ] → [a]=
+#+end_quote
+
+** *replicate*
+#+begin_quote
+-- Produce a list with n identical elements: =replicate :: Int → a → [a]= \\
+#+end_quote
+** *(!!)*
+#+begin_quote
+-- Select the n^th element of a list: =(!!) :: [a] → Int → a= \\
+#+end_quote
+** *elem*
+#+begin_quote
+-- Decide if a value is an element of a list: =elem :: Eq a ⇒ a → [a] → Bool= \\
+#+end_quote
+
 * merge
 #+begin_quote
 Define a recursive function =merge :: Ord a ⇒ [a] → [a] → [a]= that
