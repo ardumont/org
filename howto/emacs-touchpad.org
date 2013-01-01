@@ -45,7 +45,7 @@ Here is the code:
 #+begin_src elisp
 (defun toggle-touchpad-manual (status)
   "Activate/Deactivate the touchpad depending on the status parameter (0/1)."
-  e(run-shl "toggle-touchpad-manual.sh " status))
+  (run-shl "toggle-touchpad-manual.sh " status))
 #+end_src
 
 *Note*
