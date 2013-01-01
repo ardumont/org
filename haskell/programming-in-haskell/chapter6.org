@@ -3,7 +3,7 @@
 #+DATE: [2013-01-01 mar. 12:07]
 #+TITLE: Programming in haskell - ch6 - Recursive functions - exercises
 #+AUTHOR: Antoine R. Dumont
-#+OPTIONS:
+#+OPTIONS: toc:t
 #+TAGS: haskell, exercises, functional-programming, recursion
 #+CATEGORY: haskell, exercises, functional-programming
 #+DESCRIPTION: Learning haskell and solving problems using reasoning and 'repl'ing
@@ -11,6 +11,7 @@
 #+STARTUP: hidestars
 
 * Exponentiation
+
 #+begin_quote
 Define the exponentiation operator ↑ for non-negative integers using the
 same pattern of recursion as the multiplication operator =∗=, and show how *2 ↑ 3* is evaluated using your definition.
@@ -31,6 +32,7 @@ x ^ n = x * (x ^ (n-1))
 #+end_src
 
 * evaluated
+
 #+begin_quote
 Using the definitions given in this chapter, show how *length [1, 2, 3]*,
 *drop 3 [1, 2, 3, 4, 5]*, and *init [1, 2, 3]* are evaluated.
@@ -374,7 +376,6 @@ Example:
 #+begin_quote
 Select the *last* element of a non empty list.
 #+end_quote
-
 
 *** Step 1 - define the types
 #+begin_src text
