@@ -255,9 +255,7 @@ msort [] = []
 msort [x] = [x]
 msort xs = merge (msort fh) (msort sh)
            where
-             hv = halve xs
-             fh = fst hv
-             sh = snd hv
+             (fh, sh) = halve xs
 #+end_src
 
 Example:
