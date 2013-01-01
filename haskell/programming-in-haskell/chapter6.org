@@ -379,24 +379,36 @@ Select the *last* element of a non empty list.
 
 *** Step 1 - define the types
 #+begin_src text
+last :: [a] -> a
 #+end_src
+
 *** Step 2 - enumerate the cases
 Then what are the cases:
 #+begin_src text
+last []
+last [x]
 #+end_src
 *** Step 3 - Define the simple case
 Then defining it:
 #+begin_src text
+last [] = []
+last [x] = x
 #+end_src
 *** Step 4 - Define the other cases
 #+begin_src text
+last (_:xs) = last xs
 #+end_src
 *** Step 5 - Generalise and simplify
 First, what do we got?
 
 #+begin_src text
+last :: [a] -> a
+last [x] = x
+last (x:xs) = last xs
 #+end_src
 
 Example:
 #+begin_src text
+*Ch6> last [1..10]
+10
 #+end_src
