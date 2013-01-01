@@ -15,17 +15,20 @@ same pattern of recursion as the multiplication operator =∗=, and show how *2 
 #+end_quote
 
 #+begin_src text
-pow :: Int -> Int -> Int
-pow _ 0 = 1
-pow x n = x * pow x (n-1)
+(^) :: Int -> Int -> Int
+_ ^ 0 = 1
+x ^ n = x * (x Ch6.^ (n-1))
 #+end_src
 
+*Note*
+I needed to use the =(Ch6.^)= notation because of warning message otherwise (*Ambiguous occurrence `^'*)
+
 #+begin_src text
-pow 2 3 = 2 * (pow 2 2)
-        = 2 * 2 * (pow 2 1)
-        = 2 * 2 * 2 * (pow 2 0)
-        = 2 * 2 * 2 * 1
-        = 8
+2 ^ 3 = 2 * (2 ^ 2)
+      = 2 * 2 * (2 ^ 1)
+      = 2 * 2 * 2 * (2 ^ 0)
+      = 2 * 2 * 2 * 1
+      = 8
 #+end_src
 
 * evaluated
