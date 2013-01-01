@@ -45,7 +45,7 @@ The script below contains three syntactic errors. Correct these errors
 and then check that your script works properly using Hugs.
 #+END_QUOTE
 
-#+BEGIN_SRC text
+#+begin_src haskell
 N = a 'div' length xs
     where
       a = 10
@@ -54,7 +54,7 @@ N = a 'div' length xs
 
 Fixed:
 
-#+BEGIN_SRC text
+#+begin_src haskell
 n = a `div` length xs
     where
       a  = 10
@@ -70,7 +70,7 @@ in this chapter.
 
 We can basically return the sequence and take the first element.
 
-#+BEGIN_SRC text
+#+begin_src haskell
 last1 :: [a] -> a
 last1 xs = head (reverse xs)
 #+END_SRC
@@ -81,14 +81,14 @@ Can you think of another possible definition?
 
 We can take the i^th element where i^th element is the length of the list.
 
-#+BEGIN_SRC text
+#+begin_src haskell
 last2 :: [a] -> a
 last2 xs = xs !! (length xs - 1)
 #+END_SRC
 
 Or we can make a sequence by dropping all elements but the last one and then retrieve the first element of such sequence:
 
-#+BEGIN_SRC text
+#+begin_src haskell
 last3 :: [a] -> a
 last3 xs = head (drop i xs)
            where
@@ -102,19 +102,19 @@ a non-empty list could similarly be defined in two different ways.
 #+END_QUOTE
 
 We can take all the elements from the list except the last one.
-#+BEGIN_SRC text
+#+begin_src haskell
 init1 :: [a] -> [a]
 init1 xs = take (length xs - 1) xs
 #+END_SRC
 
 Or reverse the list, remove the first element, then return the list again.
-#+BEGIN_SRC text
+#+begin_src haskell
 init2 :: [a] -> [a]
 init2 xs  = reverse (drop 1 (reverse xs))
 #+END_SRC
 
 And as for the *drop 1* call goes, we can replace this by the *tail* call:
-#+BEGIN_SRC text
+#+begin_src haskell
 init3 :: [a] -> [a]
 init3 xs  = reverse (tail (reverse xs))
 #+END_SRC

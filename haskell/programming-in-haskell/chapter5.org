@@ -17,7 +17,7 @@ Using a list comprehension, give an expression that calculates the sum \\
  *1^2 + 2^2 + . . . 100^2*.
 #+END_QUOTE
 
-#+begin_src text
+#+begin_src haskell
 let ss100 = sum [ x^2 | x <- [1..100]]
 #+end_src
 * *replicate*
@@ -33,7 +33,7 @@ For example:
 
 It's like generating n times the same input.
 
-#+begin_src text
+#+begin_src haskell
 replicate :: Int -> a -> [a]
 replicate n x = [x | _ <- [1..n]]
 #+end_src
@@ -62,7 +62,7 @@ For example:
 
 We search all the triplets (x, y, z) such as (x,y,z) in [1..n]^3 and x^2+y^2=z^2:
 
-#+begin_src text
+#+begin_src haskell
 pyths :: Int -> [(Int, Int, Int)]
 pyths n = [(x, y, z) | x <- m,
                        y <- m,
@@ -85,14 +85,14 @@ For example:
 #+END_QUOTE
 
 We are first given the definition for a perfect number so we implement it:
-#+begin_src text
+#+begin_src haskell
 perfect :: Int -> Bool
 perfect m = sum [ y | y <- factors m, y /= m ] == m
 #+end_src
 
 *Note*
 We can iterate over the *perfect* implementation and change it using the *init* function (drops the last element of a list):
-#+begin_src text
+#+begin_src haskell
 perfect :: Int -> Bool
 perfect m = sum (init (factors m)) == m
 #+end_src
@@ -102,7 +102,7 @@ perfect m = sum (init (factors m)) == m
 - we have the *factors* function that already computes the factors of a number, so we reuse it.
 
 We can now define the main function using the previous *perfect* function:
-#+begin_src text
+#+begin_src haskell
 perfects :: Int -> [Int]
 perfects n = [x | x <- [1..n], perfect x]
 #+end_src
@@ -119,20 +119,20 @@ Make use of the library function *concat* and nest one comprehension within the 
 Apparently, from the *hint*, is possible to nest the list comprehensions.
 
 We will go one step at a time, first nesting:
-#+begin_src text
+#+begin_src haskell
 Prelude> [[(x,y) | x <- [1,2,3]] | y <- [4,5,6]]
 [[(1,4),(2,4),(3,4)],[(1,5),(2,5),(3,5)],[(1,6),(2,6),(3,6)]]
 #+end_src
 
 Indeed, now if we use *concat*, this will give us what we want:
 
-#+begin_src text
+#+begin_src haskell
 Prelude> concat [[(x,y) | x <- [1,2,3]] | y <- [4,5,6]]
 [(1,4),(2,4),(3,4),(1,5),(2,5),(3,5),(1,6),(2,6),(3,6)]
 #+end_src
 
 which is equal to the first result if we do not consider the list order:
-#+begin_src text
+#+begin_src haskell
 Prelude> [(x, y) | x <- [1, 2, 3], y <- [4, 5, 6]]
 [(1,4),(1,5),(1,6),(2,4),(2,5),(2,6),(3,4),(3,5),(3,6)]
 
@@ -145,7 +145,7 @@ Redefine the function *positions* using the function *find*.
 
 Recall the *find* definition:
 
-#+begin_src text
+#+begin_src haskell
 find :: Eq a => a -> [(a,a)] -> [a]
 find k hs = [v | (k', v) <- hs, k == k']
 #+end_src
@@ -153,7 +153,7 @@ find k hs = [v | (k', v) <- hs, k == k']
 We will generate the list of couples *(value, position)* then feed this to the *find* function.
 This will then compute all the values associated (their position) to the search value *v*:
 
-#+begin_src text
+#+begin_src haskell
 positions2 :: Int -> [Int] -> [Int]
 positions2 v vs = find v (zip vs [0..n])
                   where
@@ -161,7 +161,7 @@ positions2 v vs = find v (zip vs [0..n])
 #+end_src
 
 Here is the comparison between the first implementation and the new one:
-#+begin_src text
+#+begin_src haskell
 *Ch5> positions2 1 [0,1,3,4,2,1,3]
 [1,5]
 #+end_src
@@ -183,7 +183,7 @@ For example:
 
 We first create the list containing the couple =(x, y)= then we (lazily) compute the product for each couple, then sum them all:
 
-#+begin_src text
+#+begin_src haskell
 scalarproduct :: [Int] -> [Int] -> Int
 scalarproduct xs ys = sum [x * y | (x, y) <- zip xs ys]
 #+end_src
@@ -203,7 +203,7 @@ Modify the Caesar cipher program to also handle upper-case letters.
 ** caesar program
 Recall the caesar program:
 
-#+begin_src text
+#+begin_src haskell
 low2int :: Char -> Int
 low2int c = C.ord c - C.ord 'a'
 
@@ -219,7 +219,7 @@ encode n cs = [shift n c | c <- cs]
 #+end_src
 
 Here is a sample or executing the first implementation:
-#+begin_src text
+#+begin_src haskell
 *Ch5> encode 3 "functional programming rocks!"
 "ixqfwlrqdo surjudpplqj urfnv!"
 #+end_src
@@ -233,14 +233,14 @@ For this, we can add functions *upp2int* (dual of *low2int*) and *int2upp* (dual
 
 As their behaviour is similar, we can extract a *char2Int* function which takes the char c to transform and a reference char.
 
-#+begin_src text
+#+begin_src haskell
 char2int :: Char -> Char -> Int
 char2int c cr = C.ord c - C.ord cr
 #+end_src
 
 The definition of *low2int* and *upp2int* becomes:
 
-#+begin_src text
+#+begin_src haskell
 low2int :: Char -> Int
 low2int c = char2int c 'a'
 
@@ -251,7 +251,7 @@ upp2int c = char2int c 'A'
 *** *int2upp*
 The same thing can be tell for the *int 2 letter* transformation:
 
-#+begin_src text
+#+begin_src haskell
 int2char :: Int -> Char -> Char
 int2char l c = C.chr (C.ord c + l)
 
@@ -268,14 +268,14 @@ Again the behaviour is similar, only the reference char changes.
 
 So we can extract a higher order function *shiftchar*:
 
-#+begin_src text
+#+begin_src haskell
 shiftchar :: (Int -> Char) -> (Char -> Int) -> Int -> Char -> Char
 shiftchar i2c c2i n c = i2c ((n + c2i c) `mod` 26)
 #+end_src
 
 The function *shift* becomes then:
 
-#+begin_src text
+#+begin_src haskell
 shift :: Int -> Char -> Char
 shift n c | C.isLower c = shiftchar int2low low2int n c
           | C.isUpper c = shiftchar int2upp upp2int n c
@@ -287,7 +287,7 @@ At last the function *encode* does not change.
 *** Check
 And the encoding final with upper case:
 
-#+begin_src text
+#+begin_src haskell
 *Ch5> encode 3 "Functional programming ROCKS!"
 "Ixqfwlrqdo surjudpplqj URFNV!"
 #+end_src
@@ -296,7 +296,7 @@ Which is definitely the same as before but with upper letters.
 ** final
 
 Here is the final result:
-#+begin_src text
+#+begin_src haskell
 char2int :: Char -> Char -> Int
 char2int c cr = C.ord c - C.ord cr
 

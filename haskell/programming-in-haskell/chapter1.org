@@ -40,7 +40,7 @@ double (double 2) = (double 2) + (double 2)
 Show that sum [x] = x for any number x.
 #+END_QUOTE
 
-#+BEGIN_SRC text
+#+begin_src haskell
 sum :: Num a => [a] -> a
 sum [] = 0
 sum (x:xs) = x + sum xs
@@ -60,7 +60,7 @@ and show using your definition that product [2, 3, 4] = 24.
 #+END_QUOTE
 
 product:
-#+BEGIN_SRC text
+#+begin_src haskell
 pdt :: Num a => [a] -> a
 pdt [] = 1
 pdt (x:xs) = x * pdt xs
@@ -83,7 +83,7 @@ produces a reverse sorted version of a list?
 
 Given the following quicksort definition:
 
-#+BEGIN_SRC text
+#+begin_src haskell
 qsort :: Ord a => [a] -> [a]
 qsort [] = []
 qsort (x:xs) = qsort smaller ++ [x] ++ qsort larger
@@ -95,7 +95,7 @@ qsort (x:xs) = qsort smaller ++ [x] ++ qsort larger
 We want to modify such quicksort definition to reverse the output.
 So from qsort *[4 6 2] => [2 4 6]* into *qsort [4 6 2] => 6 4 2*.
 
-#+BEGIN_SRC text
+#+begin_src haskell
 qsort :: Ord a => [a] -> [a]
 qsort [] = []
 qsort (x:xs) = qsort larger ++ [x] ++ qsort smaller
@@ -129,7 +129,7 @@ of qsort ? Hint: consider the example *qsort [2, 2, 3, 1, 1]*.
 #+END_QUOTE
 
 Given:
-#+BEGIN_SRC text
+#+begin_src haskell
 qsort :: Ord a => [a] -> [a]
 qsort [] = []
 qsort (x:xs) = qsort smaller ++ [x] ++ qsort larger

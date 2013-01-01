@@ -30,13 +30,13 @@ For example:
 The function *splitAt* already provides the means to split one list from a given position.
 Here our position is the half of the length of the list, which gives:
 
-#+BEGIN_SRC text
+#+begin_src haskell
 halve :: [a] -> ([a], [a])
 halve xs = splitAt (length xs `div` 2) xs
 #+END_SRC
 
 Executing in the repl, we obtain:
-#+BEGIN_SRC text
+#+begin_src haskell
 *Ch4> halve [1, 2, 3, 4, 5, 6]
 ([1,2,3],[4,5,6])
 #+END_SRC
@@ -60,13 +60,13 @@ If we are not in the empty list case, we can take the *tail* of list.
 
 Thus giving:
 
-#+BEGIN_SRC text
+#+begin_src haskell
 safetail1 :: [a] -> [a]
 safetail1 xs = if null xs then [] else tail xs
 #+END_SRC
 
 Example:
-#+BEGIN_SRC text
+#+begin_src haskell
 *Ch4> safetail1 []
 []
 *Ch4> safetail1 [1,2,3]
@@ -77,14 +77,14 @@ Example:
 
 Same explanation as before:
 
-#+BEGIN_SRC text
+#+begin_src haskell
 safetail2 :: [a] -> [a]
 safetail2 xs | null xs   = []
              | otherwise = tail xs
 #+END_SRC
 
 Example:
-#+BEGIN_SRC text
+#+begin_src haskell
 *Ch4> safetail2 []
 []
 *Ch4> safetail2 [3,2,1]
@@ -98,14 +98,14 @@ Either the list is empty and then we return it directly.
 Either, the list follows the pattern of having a head (which we do not care about, thus using the _) and a tail (thus returning the tail).
 
 Here is the definition:
-#+BEGIN_SRC text
+#+begin_src haskell
 safetail3 :: [a] -> [a]
 safetail3 [] = []
 safetail3 (_:xs) = xs
 #+END_SRC
 
 Example:
-#+BEGIN_SRC text
+#+begin_src haskell
 *Ch4> safetail3 []
 []
 *Ch4> safetail3 [1,3,5,7,11]
@@ -118,7 +118,7 @@ In a similar way to *∧*, show how the logical conjunction operator *∨* can b
 
 ** 1^st
 Naive one:
-#+BEGIN_SRC text
+#+begin_src haskell
 orr :: Bool -> Bool -> Bool
 orr False False = False
 orr True True   = True
@@ -135,21 +135,21 @@ Check - Expected result: [False, True, True, True]
 OK
 
 ** 2^nd
-#+BEGIN_SRC text
+#+begin_src haskell
 orr2 :: Bool -> Bool -> Bool
 orr2 False False = False
 orr2 _     _     = True
 #+END_SRC
 
 Check - Expected result: [False, True, True, True]
-#+BEGIN_SRC text
+#+begin_src haskell
 *Ch4> map (\ (f,s) -> orr2 f s) [(False, False), (False, True), (True, False), (True, True)]
 [False,True,True,True]
 #+END_SRC
 
 OK
 ** 3^d
-#+BEGIN_SRC text
+#+begin_src haskell
 orr3 :: Bool -> Bool -> Bool
 orr3 False b     = b
 orr3 b     False = b
@@ -157,7 +157,7 @@ orr3 _     _     = True
 #+END_SRC
 
 Check - Expected result: [False, True, True, True]
-#+BEGIN_SRC text
+#+begin_src haskell
 *Ch4> map (\ (f,s) -> orr3 f s) [(False, False), (False, True), (True, False), (True, True)]
 [False,True,True,True]
 #+END_SRC
@@ -165,14 +165,14 @@ Check - Expected result: [False, True, True, True]
 OK
 
 ** 4^th
-#+BEGIN_SRC text
+#+begin_src haskell
 orr4 :: Bool -> Bool -> Bool
 orr4 False b = b
 orr4 True  _ = True
 #+END_SRC
 
 Check - Expected result: [False, True, True, True]
-#+BEGIN_SRC text
+#+begin_src haskell
 *Ch4> map (\ (f,s) -> orr4 f s) [(False, False), (False, True), (True, False), (True, True)]
 [False,True,True,True]
 #+END_SRC
@@ -187,7 +187,7 @@ True ∧ True = True
 _ ∧ _       = False
 #+END_QUOTE
 
-#+BEGIN_SRC text
+#+begin_src haskell
 and1 :: Bool -> Bool -> Bool
 and1 a b = if not a
            then False
@@ -207,7 +207,7 @@ True ∧ b  = b
 False ∧ _ = False
 #+END_QUOTE
 
-#+BEGIN_SRC text
+#+begin_src haskell
 and3 :: Bool -> Bool -> Bool
 and3 a b = if a
            then b
@@ -221,13 +221,13 @@ Show how the curried function definition =mult x y z = x ∗ y ∗ z= can be und
 
 Here it goes:
 
-#+BEGIN_SRC text
+#+begin_src haskell
 mult :: Int -> Int -> Int -> Int
 mult = (\ x -> \ y -> \ z -> x * y * z)
 #+END_SRC
 
 Executing in the haskell repl:
-#+BEGIN_SRC text
+#+begin_src haskell
 *Ch4> mult 10 20 30
 6000
 
