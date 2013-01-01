@@ -350,7 +350,7 @@ http://adumont.fr/blog/stumpwm-display-result-of-bash-commands-using-zenity/
 ** DONE Emacs - Activate touchpad when org-mode exports html
 CLOSED: [2013-01-01 mar. 12:41]
 http://adumont.fr/blog/emacs-activate-touchpad-when-org-mode-exports-html/
-** IN-PROGRESS Programming in haskell - ch6 - Recursive functions - exercises
+** PENDING Programming in haskell - ch6 - Recursive functions - exercises
 ** PENDING polipo simple setup
 * TODO clojure [22%]
 ** DONE start [100%]
