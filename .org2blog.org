@@ -1,5 +1,11 @@
 
 * Posts
+** [[file:/home/tony/org/haskell/programming-in-haskell/chapter6.org][Programming in haskell - ch6 - Recursive functions - exercises]]
+:PROPERTIES:
+:POSTID: 812
+:POST_DATE: 20130101T11:07:00+0000
+:Published: No
+:END:
 ** [[file:/home/tony/org/howto/emacs-touchpad.org][Emacs - Activate touchpad when org-mode exports html]]
 :PROPERTIES:
 :POSTID: 774
