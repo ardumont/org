@@ -267,6 +267,63 @@ Example:
 * sum
 #+begin_quote
 Using the five-step process, define the library functions that calculate the
-sum of a list of numbers, take a given number of elements from the start of
-a list, and select the last element of a non-empty list.
+*sum* of a list of numbers, *take* a given number of elements from the start of
+a list, and select the *last* element of a non-empty list.
+#+end_quote
+
+** *sum*
+#+begin_quote
+Calculate the *sum* of a list of numbers.
+#+end_quote
+
+*** Step 1 - define the types
+#+begin_src text
+sum :: Num a => [a] -> a
+#+end_src
+*** Step 2 - enumerate the cases
+Then what are the cases:
+#+begin_src text
+sum []
+sum (x:xs)
+#+end_src
+*** Step 3 - Define the simple case
+Then defining it:
+#+begin_src text
+sum [] = 0
+#+end_src
+
+0 is the identity of the sum.
+*** Step 4 - Define the other cases
+#+begin_src text
+sum (x:xs) = x + sum xs
+#+end_src
+*** Step 5 - Generalise and simplify
+
+First, what do we got?
+
+#+begin_src text
+sum :: Num a => [a] -> a
+sum [] = 0
+sum (x:xs) = x + sum xs
+#+end_src
+
+This follows the same recursion pattern that the one for *product*, which is encapsulated in the *foldr* function, thus simplifying gives:
+#+begin_src text
+sum :: Num a => [a] -> a
+sum = foldr (+) 0
+#+end_src
+
+Example:
+#+begin_src text
+*Ch6> summ [3,2,90,54,1]
+150
+#+end_src
+
+** *take*
+#+begin_quote
+*take* a given number of elements.
+#+end_quote
+** *last*
+#+begin_quote
+Select the *last* element of a non empty list.
 #+end_quote
