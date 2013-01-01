@@ -171,6 +171,22 @@ Example:
 -- Decide if a value is an element of a list: =elem :: Eq a ⇒ a → [a] → Bool= \\
 #+end_quote
 
+#+begin_src text
+elem :: Eq a => a -> [a] -> Bool
+elem _ [] = False
+elem x (y:ys) | x == y    = True
+             | otherwise = elem x ys
+#+end_src
+
+Example:
+#+begin_src text
+*Ch6> elem 1 [10,20,30]
+False
+*Ch6> elem 10 [10,20,30]
+True
+*Ch6> elem 40 [10,20,30,40]
+True
+#+end_src
 
 * merge
 #+begin_quote
