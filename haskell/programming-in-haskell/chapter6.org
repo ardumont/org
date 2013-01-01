@@ -110,6 +110,12 @@ and (x:xs) = x && (and xs)
 -- Concatenate a list of lists: =concat :: [[a] ] → [a]=
 #+end_quote
 
+#+begin_src text
+ccat :: [[a]] -> [a]
+ccat [xs] = xs
+ccat (xs:xxs) = xs ++ (ccat xxs)
+#+end_src
+
 ** *replicate*
 #+begin_quote
 -- Produce a list with n identical elements: =replicate :: Int → a → [a]= \\
