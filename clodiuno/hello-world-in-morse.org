@@ -22,7 +22,7 @@ it's as simple as a clojure data - map and vectors.
 
 A map with a char as the key and the vector of bits as the morse representation.
 
-#+BEGIN_SRC clj
+#+BEGIN_SRC clojure
 ;; 0 represents short signal
 ;; 1 represents long signal
 ;; Intermational morse from http://en.wikipedia.org/wiki/Morse_code
@@ -58,7 +58,7 @@ source: https://github.com/ardumont/arduino-lab/blob/master/src/arduino_lab/mors
 
 ** orchestration
 
-#+BEGIN_SRC clj
+#+BEGIN_SRC clojure
 ;; circuit: Just a led on the 13 pin.
 
 ;; time
@@ -115,7 +115,7 @@ source: https://github.com/ardumont/arduino-lab/blob/master/src/arduino_lab/writ
 
 ** Execution
 
-#+BEGIN_SRC clj
+#+BEGIN_SRC clojure
   ;; define the device according to your env setup (this may vary)
   (def device-board "/dev/ttyACM0")
 
