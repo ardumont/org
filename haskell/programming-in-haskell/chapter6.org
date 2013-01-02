@@ -1,12 +1,12 @@
+#+DATE: [2013-01-02 mer. 20:16]
 #+BLOG: tony-blog
 #+POSTID: 835
-#+DATE: [2013-01-01 mar. 14:28]
 #+TITLE: Programming in haskell - ch6 - Recursive functions
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS: toc:2
 #+TAGS: haskell, exercises, functional-programming, recursion
 #+CATEGORY: haskell, exercises, functional-programming
-#+DESCRIPTION: Learning haskell and solving problems using reasoning and 'repl'ing
+#+DESCRIPTION: Learning Haskell by reading and solving problems using reasoning and 'REPL'ing
 #+STARTUP: indent
 #+STARTUP: hidestars
 

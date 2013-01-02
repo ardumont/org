@@ -1,5 +1,5 @@
 #+BLOG: tony-blog
-#+DATE: [2012-12-29 sam. 13:18]
+#+DATE: [2012-12-28 fri. 13:18]
 #+POSTID: 675
 #+TITLE: Daily git 1/2
 #+AUTHOR: Antoine R. Dumont
