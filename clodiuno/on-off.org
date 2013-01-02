@@ -45,9 +45,9 @@ Else it will not be seen.
 * Setup
 Here is my project's setup:
 
-#+BEGIN_SRC clj
+#+BEGIN_SRC clojure
 (defproject arduino-lab "1.0.0-SNAPSHOT"
-  :description "Mess around with arduino from the comfort of the repl
+  :description "Mess around with arduino from the comfort of the repl"
   :dependencies [[org.clojure/clojure "1.3.0"]
                  [clodiuno "0.0.3-SNAPSHOT"]
                  [serial-port "1.1.2"]]
@@ -70,37 +70,37 @@ M-x clojure-jack-in
 Now i can do light up and down a led on my arduino uno from the repl!
 
 Open the repl:
-#+BEGIN_SRC clj
+#+BEGIN_SRC clojure
 user> (use 'clodiuno.core 'clodiuno.firmata)
 nil
 #+END_SRC
 
 Open the board:
-#+BEGIN_SRC clj
-user>(def board (arduino :firmata "/dev/ttyS42"))
+#+BEGIN_SRC clojure
+user> (def board (arduino :firmata "/dev/ttyS42"))
 #'user/board
 #+END_SRC
 
 Now you can see something along the line:
-#+BEGIN_SRC clj
+#+BEGIN_SRC clojure
 user> board
 #<Ref@9652e4: {:digital-in {2 (0 0 0 0 0 0 0 0), 1 (0 0 0 0 0 0 0 0), 0 (0 0 0 0 0 0 0 0)}, :version [2 2], :port #<RXTXPort /dev/ttyS42>, :interface :firmata}>
 #+END_SRC
 
 We must first set the built-in 13 pin (the led) to OUTPUT mode.
-#+BEGIN_SRC clj
+#+BEGIN_SRC clojure
 user> (pin-mode board 13 OUTPUT)
 nil
 #+END_SRC
 
 Then play with the board, may the light be
-#+BEGIN_SRC clj
+#+BEGIN_SRC clojure
 user> (digital-write board 13 HIGH)
 nil
 #+END_SRC
 
 ... or not:
-#+BEGIN_SRC clj
+#+BEGIN_SRC clojure
 user> (digital-write board 13 LOW)
 nil
 #+END_SRC

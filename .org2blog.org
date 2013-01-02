@@ -164,13 +164,13 @@
 :END:
 ** [[file:/home/tony/org/howto/howto-one-way-to-solve-a-pb-in-clojure.org][One way to solve a problem in clojure]]
 :PROPERTIES:
-:POSTID:   461
+:POSTID: 461
 :POST_DATE: 20121222T13:20:00+0000
 :Published: Yes
 :END:
 ** [[file:/home/tony/org/howto/howto-bootstrap-a-clojure-project.org][How to bootstrap a clojure project]]
 :PROPERTIES:
-:POSTID:   454
+:POSTID: 454
 :POST_DATE: 20121222T13:20:00+0000
 :Published: Yes
 :END:
@@ -188,7 +188,7 @@
 :END:
 ** [[file:/home/tony/org/clodiuno/on-off.org][Arduino/Clodiuno - command a LED from the clojure REPL]]
 :PROPERTIES:
-:POSTID:   481
+:POSTID: 481
 :POST_DATE: 20121222T13:20:00+0000
 :Published: Yes
 :END:
