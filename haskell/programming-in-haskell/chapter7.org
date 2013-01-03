@@ -1,4 +1,6 @@
 #+BLOG: tony-blog
+#+POSTID: 886
+#+DATE: [2013-01-03 jeu. 19:36]
 #+TITLE: Programming in haskell - ch7 - Higher-order functions
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
@@ -10,8 +12,41 @@
 
 * Higher-order functions
 #+begin_quote
-Show how the list comprehension =[ f x | x ← xs , p x ]= can be re-expressed using the higher-order functions *map* and *filter*.
+Show how the list comprehension =[ f x | x ← xs, p x ]= can be re-expressed using the higher-order functions *map* and *filter*.
 #+end_quote
+
+What does the list comprehension do?
+- filter all elements from xs according to the predicate *p*
+- then apply f on the elements filtered
+
+#+begin_src haskell
+fmap0 :: (a -> a) -> (a -> Bool) -> [a] -> [a]
+fmap0 f p xs = [ f x | x <- xs, p x]
+#+end_src
+
+Here is an example with:
+- =(+1)= as the function =f=,
+- =even= as the predicate =p=
+- =[1..10]= as the list =xs=
+
+#+begin_src haskell
+*Ch7> fmap0 (+1) even [1..10]
+[3,5,7,9,11]
+#+end_src
+
+With the preceding definition, we can indeed write the same definition using =map= and =filter=:
+
+#+begin_src haskell
+fmap1 :: (a -> a) -> (a -> Bool) -> [a] -> [a]
+fmap1 f p xs = map f (filter p xs)
+#+end_src
+
+Using the same example:
+
+#+begin_src haskell
+*Ch7> fmap1 (+1) even [1..10]
+[3,5,7,9,11]
+#+end_src
 
 * Define HOF
 #+begin_quote
