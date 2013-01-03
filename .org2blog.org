@@ -1,5 +1,11 @@
 
 * Posts
+** [[file:/home/tony/org/haskell/programming-in-haskell/chapter7.org][Programming in haskell - ch7 - Higher-order functions]]
+:PROPERTIES:
+:POSTID: 886
+:POST_DATE: 20130103T18:36:59+0000
+:Published: No
+:END:
 ** [[file:/home/tony/org/haskell/programming-in-haskell/chapter6.org][Programming in haskell - ch6 - Recursive functions]]
 :PROPERTIES:
 :POSTID: 835
