@@ -16,8 +16,8 @@ Show how the list comprehension =[ f x | x ← xs, p x ]= can be re-expressed us
 #+end_quote
 
 What does the list comprehension do?
-- filter all elements from xs according to the predicate *p*
-- then apply f on the elements filtered
+- filter all elements from *xs* according to the predicate *p*
+- then apply *f* on the remaining elements
 
 #+begin_src haskell
 fmap0 :: (a -> a) -> (a -> Bool) -> [a] -> [a]
