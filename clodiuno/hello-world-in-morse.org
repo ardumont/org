@@ -58,7 +58,7 @@ source: https://github.com/ardumont/arduino-lab/blob/master/src/arduino_lab/mors
 
 ** orchestration
 
-#+BEGIN_SRC clojure
+#+BEGIN_SRC clj
 ;; circuit: Just a led on the 13 pin.
 
 ;; time
@@ -115,7 +115,7 @@ source: https://github.com/ardumont/arduino-lab/blob/master/src/arduino_lab/writ
 
 ** Execution
 
-#+BEGIN_SRC clojure
+#+BEGIN_SRC clj
   ;; define the device according to your env setup (this may vary)
   (def device-board "/dev/ttyACM0")
 
@@ -141,4 +141,4 @@ source: https://github.com/ardumont/arduino-lab/blob/master/src/arduino_lab/writ
 
 * Shut up and show us the real thing
 
-http://youtu.be/wLsJqLDtk9w
+http://www.youtube.com/watch?v=wLsJqLDtk9w
