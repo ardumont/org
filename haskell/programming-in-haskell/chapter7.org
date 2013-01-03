@@ -54,6 +54,12 @@ Without looking at the definitions from the standard prelude, define the
 higher-order functions *all*, *any*, *takeWhile*, and *dropWhile*.
 #+end_quote
 
+** all
+
+** any
+** takeWhile
+** dropWhile
+
 * map, filter
 #+begin_quote
 Redefine the functions *map f* and *filter p* using *foldr*.
