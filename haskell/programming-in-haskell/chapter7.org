@@ -55,6 +55,25 @@ higher-order functions *all*, *any*, *takeWhile*, and *dropWhile*.
 #+end_quote
 
 ** all
+Recall the =and= function:
+
+#+begin_src haskell
+and :: [Bool] -> Bool
+and = foldl (&&) True
+#+end_src
+
+So composing the mapping of the predicate =p= to the =and= function will do the trick.
+
+#+begin_src haskell
+all :: (a -> Bool) -> [a] -> Bool
+all p = and . map p
+#+end_src
+
+Example:
+*Ch7> all even [1,2,4]
+False
+*Ch7> all even [0,2,4]
+True
 
 ** any
 ** takeWhile
