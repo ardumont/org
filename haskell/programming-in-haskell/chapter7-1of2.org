@@ -66,8 +66,7 @@ Using the same example:
 
 * Define HOF
 #+begin_quote
-Without looking at the definitions from the standard prelude, define the
-higher-order functions *all*, *any*, *takeWhile*, and *dropWhile*.
+Without looking at the definitions from the standard prelude, define the higher-order functions *all*, *any*, *takeWhile*, and *dropWhile*.
 #+end_quote
 
 ** all
@@ -198,8 +197,7 @@ filter p = foldr (\ x xs -> if (p x) then x : xs else xs) []
 
 * dec2int
 #+begin_quote
-Using *foldl*, define a function =dec2int :: [ Int ] → Int=
-that converts a decimal number into an integer.
+Using *foldl*, define a function =dec2int :: [ Int ] → Int= that converts a decimal number into an integer.
 
 For example:
 #+begin_src haskell
@@ -208,8 +206,7 @@ For example:
 #+end_src
 #+end_quote
 
-Given a list of int [d,c,b,a] representing a 4-digit number, a decimal
-conversion can be rewritten like this:
+Given a list of int [d,c,b,a] representing a 4-digit number, a decimal conversion can be rewritten like this:
 
 #+begin_src text
 [d, c, b, a]

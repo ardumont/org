@@ -3,7 +3,7 @@
 ** [[file:/home/tony/org/haskell/programming-in-haskell/chapter7-2of2.org][Programming in haskell - ch7 - Higher-order functions 2/2]]
 :PROPERTIES:
 :POSTID: 903
-:POST_DATE: 20130105T14:53:50+0000
+:POST_DATE: 20130105T14:53:00+0000
 :Published: No
 :END:
 ** [[file:/home/tony/org/haskell/programming-in-haskell/chapter7-1of2.org][PIH - ch7 - Higher-order Functions 1/2]]
