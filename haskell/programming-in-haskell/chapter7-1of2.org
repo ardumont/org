@@ -1,6 +1,6 @@
+#+DATE: [2013-01-05 sam. 14:07]
 #+BLOG: tony-blog
 #+POSTID: 886
-#+DATE: [2013-01-03 jeu. 19:36]
 #+TITLE: Programming in haskell - ch7 - Higher-order functions 1/2
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
