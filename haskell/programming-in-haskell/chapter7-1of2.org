@@ -245,3 +245,34 @@ Explain why the following definition is invalid:
 sumsqreven = compose [sum, map (↑2), filter even]=
 #+end_src
 #+end_quote
+
+Recall the definition of the =compose= function:
+
+#+begin_src ha
+compose :: [a -> a] -> (a -> a)
+compose = foldr (.) id
+#+end_src
+
+The signatures of the functions in the problem:
+#+begin_src text
+sum         :: [Int] -> Int
+map (^2)    :: [Integer] -> [Integer]
+filter even :: [Integer] -> [Integer]
+#+end_src
+
+Because of the =sum= function, the signatures of the list does not match the one of =compose=.
+
+For it to work, we must separate the =sum= from the other function:
+
+#+begin_src haskell
+sumsqeven :: [Integer] -> Integer
+sumsqeven = sum . (compose [map (^2), filter even])
+#+end_src
+
+Example:
+#+begin_src haskell
+*Ch7> sumsqeven [1..10]
+220
+*Ch7> sumsqeven [0,1,2]
+4
+#+end_src
