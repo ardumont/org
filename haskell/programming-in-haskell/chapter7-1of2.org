@@ -1,10 +1,10 @@
 #+DATE: [2013-01-05 sam. 14:07]
 #+BLOG: tony-blog
 #+POSTID: 886
-#+TITLE: Programming in haskell - ch7 - Higher-order functions 1/2
+#+TITLE: PIH - ch7 - Higher-order Functions 1/2
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
-#+TAGS: haskell, exercises, functional-programming
+#+TAGS: haskell, exercises, functional-programming, hof, functions-composition, foldr, foldl
 #+CATEGORY: haskell, exercises, functional-programming
 #+DESCRIPTION: Learning haskell and solving problems using reasoning and 'repl'ing
 #+STARTUP: indent
