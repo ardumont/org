@@ -136,6 +136,39 @@ Examples:
 Redefine the functions *map f* and *filter p* using *foldr*.
 #+end_quote
 
+** map
+The recursive definition of =map= follows the recursive pattern that =foldr= represents.
+
+Here is the definition of =map= using recursion:
+#+begin_src haskell
+mrmap :: (a -> a) -> [a] -> [a]
+mrmap _ [] = []
+mrmap g (x:xs) = f x:(mrmap g xs)
+#+end_src
+
+Recall the definition of =foldr=:
+#+begin_src haskell
+mfoldr :: (a -> b -> b) -> b -> [a] -> b
+mfoldr _ v [] = v
+mfoldr f v (x:xs) = f x (mfoldr f v xs)
+#+end_src
+
+Following this, we can define =map= using =foldr= like this:
+#+begin_src haskell
+map :: (a -> b) -> [a] -> [b]
+map f = foldr (\ x xs -> f x : xs) []
+#+end_src
+
+Example:
+#+begin_src haskell
+*ch7> map even [1,2,3]
+[False,True,False]
+*Ch7> map (*3) [1,2,3]
+[3,6,9]
+#+end_src
+
+** filter
+
 * dec2int
 #+begin_quote
 Using *foldl*, define a function =dec2int :: [ Int ] → Int=
