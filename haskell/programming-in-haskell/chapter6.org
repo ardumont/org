@@ -1,14 +1,16 @@
 #+DATE: [2013-01-02 mer. 20:16]
 #+BLOG: tony-blog
 #+POSTID: 835
-#+TITLE: Programming in haskell - ch6 - Recursive functions
+#+TITLE: PIH - ch6 - Recursive functions
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS: toc:2
 #+TAGS: haskell, exercises, functional-programming, recursion
 #+CATEGORY: haskell, exercises, functional-programming
-#+DESCRIPTION: Learning Haskell by reading and solving problems using reasoning and 'REPL'ing
+#+DESCRIPTION: recursion exercises in Haskell
 #+STARTUP: indent
 #+STARTUP: hidestars
+
+In this chapter were introduced the [[http://en.wikipedia.org/wiki/Recursion][recursion]], basic mechanism to loop in [[https://www.google.fr/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&ved=0CDIQFjAA&url=http%3A%2F%2Fwww.haskell.org%2F&ei=aT_oUND0D822hAeP9YCoBQ&usg=AFQjCNEUgp4cz-Ux4IBG1O3XhObfY7iizg&sig2=amLa4mWW73L7I3YzXRDNHw&bvm=bv.1355534169,d.ZG4][Haskell]].
 
 * Exponentiation
 

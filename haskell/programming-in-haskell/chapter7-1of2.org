@@ -6,7 +6,7 @@
 #+OPTIONS:
 #+TAGS: haskell, exercises, functional-programming, hof, functions-composition, foldr, foldl
 #+CATEGORY: haskell, exercises, functional-programming
-#+DESCRIPTION: Learning haskell and solving problems using reasoning and 'repl'ing
+#+DESCRIPTION: Higher order functions, function composition, foldr, foldl exercises.
 #+STARTUP: indent
 #+STARTUP: hidestars
 

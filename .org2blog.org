@@ -12,7 +12,7 @@
 :POST_DATE: 20130105T13:07:00+0000
 :Published: Yes
 :END:
-** [[file:/home/tony/org/haskell/programming-in-haskell/chapter6.org][Programming in haskell - ch6 - Recursive functions]]
+** [[file:/home/tony/org/haskell/programming-in-haskell/chapter6.org][PIH - ch6 - Recursive functions]]
 :PROPERTIES:
 :POSTID: 835
 :POST_DATE: 20130102T19:16:00+0000
