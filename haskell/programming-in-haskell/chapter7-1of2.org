@@ -192,6 +192,36 @@ For example:
 #+end_src
 #+end_quote
 
+Given a list of int [d,c,b,a] representing a 4-digit number, a decimal
+conversion can be rewritten like this:
+
+#+begin_src text
+[d, c, b, a]
+1000 * d + 100 * c + 10 * b + 1 * a
+(100 * d + 10 * c + b) * 10 + a
+(((10 * d + c) * 10) + b) * 10 + a
+((((d + 0) * 10 + c) * 10) + b) * 10 + a
+#+end_src
+
+What do we see from this:
+- It's =associative to the left=.
+- The initial value is =0=.
+- The pattern we see is =x * 10 + y=
+
+Indeed, we can then use =foldl= to define =dec2int=:
+#+begin_src haskell
+dec2int :: [Int] -> Int
+dec2int = foldl (\ x y -> x * 10 + y) 0
+#+end_src
+
+Example:
+#+begin_src haskell
+*Ch7> dec2int [2,3,4,5]
+2345
+*Ch7> dec2int [9,8,7,5,3,0]
+987530
+#+end_src
+
 * Invalid definition
 #+begin_quote
 Explain why the following definition is invalid:
