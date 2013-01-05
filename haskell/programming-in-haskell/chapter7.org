@@ -76,6 +76,19 @@ False
 True
 
 ** any
+
+#+begin_src haskell
+any :: (a -> Bool) -> [a] -> Bool
+any p = or . map p
+#+end_src
+
+#+begin_src haskell
+*Ch7> any odd [0,2,1]
+True
+*Ch7> any odd [0,2,4]
+False
+#+end_src
+
 ** takeWhile
 ** dropWhile
 
