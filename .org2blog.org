@@ -3,7 +3,7 @@
 ** [[file:/home/tony/org/haskell/programming-in-haskell/chapter7-1of2.org][Programming in haskell - ch7 - Higher-order functions 1/2]]
 :PROPERTIES:
 :POSTID: 886
-:POST_DATE: 20130105T13:07:31+0000
+:POST_DATE: 20130105T13:07:00+0000
 :Published: No
 :END:
 ** [[file:/home/tony/org/haskell/programming-in-haskell/chapter6.org][Programming in haskell - ch6 - Recursive functions]]
