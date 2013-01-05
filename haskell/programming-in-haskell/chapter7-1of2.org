@@ -10,6 +10,22 @@
 #+STARTUP: indent
 #+STARTUP: hidestars
 
+In this chapter were described:
+- *higher-order functions*
+
+No difference exists between a value and a function, thus permitting a function to either manipulate other functions, either returning another function (or both).
+
+- *composition of functions*
+As in mathematics, a function can be composed of multiple other functions.
+
+- *foldr definition*:
+It's a basic function that represents a recursion pattern that's associative to the right.
+
+- *foldl definition*
+It's another basic function representing another recursion pattern associative to the left.
+
+In this post, I'll first give my solutions for the first 5 exercises of the chapter.
+
 * Higher-order functions
 #+begin_quote
 Show how the list comprehension =[ f x | x ← xs, p x ]= can be re-expressed using the higher-order functions *map* and *filter*.
