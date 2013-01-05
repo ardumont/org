@@ -168,6 +168,17 @@ Example:
 #+end_src
 
 ** filter
+The same way, here is the definition of =filter= using recursion:
+#+begin_src haskell
+mfilter :: (a -> Bool) -> [a] -> [a]
+mfilter p xs = [x | x <- xs, p x]
+#+end_src
+
+Then:
+#+begin_src haskell
+mffilter :: (a -> Bool) -> [a] -> [a]
+mffilter p = foldr (\ x xs -> if (p x) then x : xs else xs) []
+#+end_src
 
 * dec2int
 #+begin_quote
