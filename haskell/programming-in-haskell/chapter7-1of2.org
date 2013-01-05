@@ -113,10 +113,23 @@ Examples:
 []
 #+end_src
 
-
 ** dropWhile
-
 /Given a predicate and a list of elements, drop those elements as long as the predicate is satisfied./
+
+#+begin_src haskell
+dropWhile1 :: (a -> Bool) -> [a] -> [a]
+dropWhile1 _ [] = []
+dropWhile1 p (x:xs) | p x        = dropWhile1 p xs
+                    | otherwise  = x : xs
+#+end_src
+
+Examples:
+#+begin_src haskell
+*Ch7> dropWhile1 odd [1,3,5,7,0,2,3,4,5,6]
+[0,2,3,4,5,6]
+*Ch7> dropWhile1 odd []
+[]
+#+end_src
 
 * map, filter
 #+begin_quote
