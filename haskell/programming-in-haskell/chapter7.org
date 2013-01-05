@@ -1,7 +1,7 @@
 #+BLOG: tony-blog
 #+POSTID: 886
 #+DATE: [2013-01-03 jeu. 19:36]
-#+TITLE: Programming in haskell - ch7 - Higher-order functions
+#+TITLE: Programming in haskell - ch7 - Higher-order functions 1/2
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
 #+TAGS: haskell, exercises, functional-programming
@@ -55,6 +55,8 @@ higher-order functions *all*, *any*, *takeWhile*, and *dropWhile*.
 #+end_quote
 
 ** all
+/Check that given a predicate and a list of elements, all the elements satisfies this predicate./
+
 Recall the =and= function:
 
 #+begin_src haskell
@@ -79,6 +81,8 @@ True
 
 ** any
 
+/Check that given a predicate and a list of elements, at least one of those elements satisfies this predicate./
+
 #+begin_src haskell
 any :: (a -> Bool) -> [a] -> Bool
 any p = or . map p
@@ -92,7 +96,14 @@ False
 #+end_src
 
 ** takeWhile
+
+/Given a predicate and a list of elements, take those elements as long as the predicate is satisfied./
+
+
+
 ** dropWhile
+
+/Given a predicate and a list of elements, drop those elements as long as the predicate is satisfied./
 
 * map, filter
 #+begin_quote
@@ -113,70 +124,8 @@ For example:
 
 * Invalid definition
 #+begin_quote
-Explain why the fopllowing definition is invalid:
+Explain why the following definition is invalid:
 #+begin_src haskell
 sumsqreven = compose [sum, map (↑2), filter even]=
 #+end_src
-#+end_quote
-
-* curry/uncurry
-#+begin_quote
-Without looking at the standard prelude, define the higher-order library
-function curry that converts a function on pairs into a curried function, and,
-conversely, the function uncurry that converts a curried function with two
-arguments into a function on pairs.
-
-*Hint:*
-First write down the types of the two functions.
-#+end_quote
-
-* unfold
-#+begin_quote
-A higher-order function *unfold* that encapsulates a simple pattern of recursion
-for producing a list can be defined as follows:
-#+begin_src haskell
-unfold p h t x | p x = []
-               | otherwise = h x : unfold p h t (t x )
-#+end_src
-
-That is, the function =unfold p h t= produces the empty list if the predicate =p= is
-true of the argument, and otherwise produces a non-empty list by applying
-the function =h= to give the head, and the function =t= to generate another
-argument that is recursively processed in the same way to produce the tail of
-the list.
-
-For example, the function *int2bin* can be rewritten more compactly
-using *unfold* as follows:
-#+begin_src haskell
-int2bin = unfold (== 0) (‘mod ‘2) (‘div ‘2)
-#+end_src
-
-Redefine the functions *chop8*, *map f* and *iterate f* using unfold.
-#+end_quote
-
-** chop8
-** map f
-** iterate f
-
-* transmitter
-#+begin_quote
-Modify the string transmitter program to detect simple transmission errors
-using parity bits. That is, each eight-bit binary number produced during
-encoding is extended with a parity bit, set to one if the number contains
-an odd number of ones, and to zero otherwise. In turn, each resulting nine-
-bit binary number consumed during decoding is checked to ensure that its
-parity bit is correct, with the parity bit being discarded if this is the case,
-and a parity error reported otherwise.
-
-*Hint:*
-The library function =error :: String → a= terminates evaluation and
-displays the given string as an error message.
-
-#+end_quote
-
-* Test
-#+begin_quote
-Test your new string transmitter program from the previous exercise using
-a faulty communication channel that forgets the first bit, which can be
-modelled using the tail function on lists of bits.
 #+end_quote
