@@ -70,10 +70,12 @@ all p = and . map p
 #+end_src
 
 Example:
+#+begin_src haskell
 *Ch7> all even [1,2,4]
 False
 *Ch7> all even [0,2,4]
 True
+#+end_src
 
 ** any
 
