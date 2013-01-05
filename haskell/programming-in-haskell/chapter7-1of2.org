@@ -176,8 +176,8 @@ mfilter p xs = [x | x <- xs, p x]
 
 Then:
 #+begin_src haskell
-mffilter :: (a -> Bool) -> [a] -> [a]
-mffilter p = foldr (\ x xs -> if (p x) then x : xs else xs) []
+filter :: (a -> Bool) -> [a] -> [a]
+filter p = foldr (\ x xs -> if (p x) then x : xs else xs) []
 #+end_src
 
 * dec2int
