@@ -111,7 +111,7 @@ Redefine the functions *chop8*, *map f* and *iterate f* using unfold.
 #+end_quote
 
 ** chop8
-/Slice a bits list into a list of 8-bits list./
+/Split a bits list into a list of 8-bits list./
 
 Recall the definition of the chop8 function:
 #+begin_src haskell
@@ -136,7 +136,7 @@ chop8 = unfold null (take 8) (drop 8)
 Recall the recursive definition of =map=:
 
 #+begin_src haskell
-map :: (a -> a) -> [a] -> [a]
+map :: (a -> b) -> [a] -> [b]
 map _ [] = []
 map f (x:xs) = f x:(map f xs)
 #+end_src
