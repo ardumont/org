@@ -120,10 +120,15 @@ chop8 [] = []
 chop8 bits = take 8 bits : (chop8 (drop 8 bits))
 #+end_src
 
+Here is the 3 functions needed:
+- predicate: check if a list is empty, we can use the =null= function for that
+- head: we take 8 bits
+- tail: we drop 8 bits
+
 Using =unfold=:
 #+begin_src haskell
 chop8 :: [Bit] -> [[Bit]]
-chop8 = unfold (== []) (take 8) (drop 8)
+chop8 = unfold null (take 8) (drop 8)
 #+end_src
 ** map f
 /Map a function =f= to a list/
