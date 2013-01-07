@@ -58,12 +58,27 @@ Given that, a simple scenario to currify =add= is:
 3
 #+end_src
 
-
 ** uncurry
 Conversely, the uncurrified function's type:
 #+begin_src haskell
 uncurry :: a -> b -> c -> (a, b) -> c
 #+end_src
+
+Now the definition:
+#+begin_src haskell
+uncur :: (a -> b -> c) -> (a, b) -> c
+uncur f = \ (x, y) -> (f x y)
+#+end_src
+
+#+begin_src haskell
+*Ch7_2> add (1,2)
+3
+*Ch7_2> (cur add) 1 2
+3
+*Ch7_2> uncur (cur add) (1,2)
+3
+#+end_src
+
 
 * unfold
 #+begin_quote
