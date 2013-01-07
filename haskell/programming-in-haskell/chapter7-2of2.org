@@ -14,11 +14,38 @@ For the first exercises, [[http://adumont.fr/blog/pih-ch7-higher-order-functions
 
 * curry/uncurry
 #+begin_quote
-Without looking at the standard prelude, define the higher-order library function curry that converts a function on pairs into a curried function, and, conversely, the function uncurry that converts a curried function with two arguments into a function on pairs.
+Without looking at the standard prelude, define the higher-order library function *curry* that converts a function on pairs into a curried function, and, conversely, the function *uncurry* that converts a curried function with two arguments into a function on pairs.
 
 *Hint:*
 First write down the types of the two functions.
 #+end_quote
+
+** curry
+First the type:
+
+A function that takes a pair as parameter and output something is typed: =((a,b) -> c)=
+A currified function that takes 2 parameters and output something is typed: =a -> b -> c=
+Thus the final type:
+#+begin_src haskell
+curry :: ((a,b) -> c) -> a -> b -> c
+#+end_src
+
+Now the definition:
+#+begin_src haskell
+cur :: ((a,b) -> c) -> a -> b -> c
+cur f = \x -> \y -> f (x,y)
+#+end_src
+
+Examples:
+#+begin_src haskell
+*Ch7_2> ((cur add) 1) 2
+3
+*Ch7_2> (cur add) 1 2
+3
+#+end_src
+
+
+** uncurry
 
 * unfold
 #+begin_quote
