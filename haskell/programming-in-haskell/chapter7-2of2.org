@@ -133,6 +133,33 @@ chop8 = unfold null (take 8) (drop 8)
 ** map f
 /Map a function =f= to a list/
 
+Recall the recursive definition of =map=:
+
+#+begin_src haskell
+map :: (a -> a) -> [a] -> [a]
+map _ [] = []
+map f (x:xs) = f x:(map f xs)
+#+end_src
+
+From this we deduce the 3 needed functions:
+- predicate: check if a list is empty
+- head: =f . head= (first extracting head, then applying =f= to it)
+- tail: extracting the tail, =tail=.
+
+#+begin_src haskell
+map :: (a -> b) -> [a] -> [b]
+map f = unfold null (f . head) tail
+#+end_src
+
+#+begin_src haskell
+*Ch7_2> map (+1) [1,2,4]
+[2,3,5]
+*Ch7_2> map even [1,2,4]
+[False,True,True]
+*Ch7_2> map int2bin [1,2,4,8,16]
+[[1],[0,1],[0,0,1],[0,0,0,1],[0,0,0,0,1]]
+#+end_src
+
 ** iterate f
 /lazy iteration over f: =\ x -> (f (f (f (f x))))...=/
 
