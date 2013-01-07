@@ -32,8 +32,14 @@ curry :: ((a,b) -> c) -> a -> b -> c
 
 Now the definition:
 #+begin_src haskell
-cur :: ((a,b) -> c) -> a -> b -> c
-cur f = \x -> \y -> f (x,y)
+curry :: ((a,b) -> c) -> a -> b -> c
+curry f = \x -> \y -> f (x,y)
+#+end_src
+
+Simpler
+#+begin_src haskell
+curry :: ((a,b) -> c) -> a -> b -> c
+curry f x y = f (x,y)
 #+end_src
 
 Examples:
@@ -52,9 +58,9 @@ Here is how is used the function =add=:
 
 Given that, a simple scenario to currify =add= is:
 #+begin_src haskell
-*Ch7_2> (cur add) 1 2
+*Ch7_2> (curry add) 1 2
 3
-*Ch7_2> ((cur add) 1) 2
+*Ch7_2> ((curry add) 1) 2
 3
 #+end_src
 
@@ -66,16 +72,23 @@ uncurry :: a -> b -> c -> (a, b) -> c
 
 Now the definition:
 #+begin_src haskell
-uncur :: (a -> b -> c) -> (a, b) -> c
-uncur f = \ (x, y) -> (f x y)
+uncurry :: (a -> b -> c) -> (a, b) -> c
+uncurry f = \ (x, y) -> (f x y)
 #+end_src
+
+Simpler
+#+begin_src haskell
+uncurry :: (a -> b -> c) -> (a, b) -> c
+uncurry f (x, y) = f x y
+#+end_src
+
 
 #+begin_src haskell
 *Ch7_2> add (1,2)
 3
-*Ch7_2> (cur add) 1 2
+*Ch7_2> (curry add) 1 2
 3
-*Ch7_2> uncur (cur add) (1,2)
+*Ch7_2> uncurry (curry add) (1,2)
 3
 #+end_src
 
