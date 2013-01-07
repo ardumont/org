@@ -1,7 +1,7 @@
 #+DATE: [2013-01-05 sam. 14:07]
 #+BLOG: tony-blog
 #+POSTID: 886
-#+TITLE: PIH - ch7 - Higher-order Functions 1/2
+#+TITLE: PIH - ch7 - Higher-order Functions 1/3
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
 #+TAGS: haskell, exercises, functional-programming, hof, functions-composition, foldr, foldl
@@ -245,13 +245,13 @@ sumsqreven = compose [sum, map (↑2), filter even]=
 
 Recall the definition of the =compose= function:
 
-#+begin_src ha
+#+begin_src haskell
 compose :: [a -> a] -> (a -> a)
 compose = foldr (.) id
 #+end_src
 
 The signatures of the functions in the problem:
-#+begin_src text
+#+begin_src haskell
 sum         :: [Int] -> Int
 map (^2)    :: [Integer] -> [Integer]
 filter even :: [Integer] -> [Integer]
