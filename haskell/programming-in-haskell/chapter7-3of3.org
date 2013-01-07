@@ -1,0 +1,132 @@
+#+BLOG: tony-blog
+#+POSTID: 914
+#+DATE: [2013-01-07 lun. 21:47]
+#+TITLE: PIH - ch7 - Higher-order functions 3/3
+#+AUTHOR: Antoine R. Dumont
+#+OPTIONS:
+#+TAGS: haskell, exercises, functional-programming
+#+CATEGORY: haskell, exercises, functional-programming
+#+DESCRIPTION: Higher order functions, function composition, foldr, foldl exercises.
+#+STARTUP: indent
+#+STARTUP: hidestars
+
+For the first exercises, [[http://adumont.fr/blog/pih-ch7-higher-order-functions-12/][see this post]] and this one.
+
+* transmitter
+#+begin_quote
+Modify the string transmitter program to detect simple transmission errors using parity bits. That is, each eight-bit binary number produced during encoding is extended with a parity bit, set to one if the number contains an odd number of ones, and to zero otherwise.
+In turn, each resulting nine-bit binary number consumed during decoding is checked to ensure that its parity bit is correct, with the parity bit being discarded if this is the case, and a parity error reported otherwise.
+
+*Hint:*
+The library function =error :: String → a= terminates evaluation and displays the given string as an error message.
+#+end_quote
+
+Recall the existing functions:
+#+begin_src haskell
+int2bin :: Int -> [Bit]
+int2bin 0 = []
+int2bin n = int2bin (n `div` 2) ++ [n `mod` 2]
+#+end_src
+
+** parbit
+We need the =parbit= function which add the parity bit at the ninth position:
+
+#+begin_src haskell
+parbit :: [Bit] -> [Bit]
+parbit xs | even (sum xs) = xs ++ [0] -- even number of ones
+          | otherwise     = xs ++ [1] -- odd number of ones
+#+end_src
+
+Example:
+#+begin_src haskell
+*Ch7_2> parbit [1,1,0]
+[1,1,0,0]
+*Ch7_2> parbit [1,1,1]
+[1,1,1,1]
+#+end_src
+
+** encode
+Now we need to add in the function the adding of the parity bit.
+After we created the 8 bits portion seems a good idea, so here we go:
+#+begin_src haskell
+encode :: String -> [Bit]
+encode = concat . map (parbit . make8 . int2bin . C.ord)
+#+end_src
+
+** chop9
+Now we need to be able to chop bits by bucket of 9:
+
+Using =unfold=, this goes quite fast:
+#+begin_src haskell
+chop9 :: [Bit] -> [[Bit]]
+chop9 = unfold null (take 9) (drop 9)
+#+end_src
+
+Example:
+#+begin_src haskell
+*Ch7_2> chop9 (encode "haskell")
+[[0,1,1,0,1,0,0,0,1],[0,1,1,0,0,0,0,1,1],[0,1,1,1,0,0,1,1,1],[0,1,1,0,1,0,1,1,1],[0,1,1,0,0,1,0,1,0],[0,1,1,0,1,1,0,0,0],[0,1,1,0,1,1,0,0,0]]
+#+end_src
+
+** checkParbit
+
+I take 8 bits, compute the parity bit and check with the all list, if this matches, then I return the 8th bits, otherwise, i raise an error:
+#+begin_src haskell
+checkParbit :: [Bit] -> [Bit]
+checkParbit xs | (parbit (take 8 xs) == xs) = (take 8 xs)
+               | otherwise = error "Not ok"
+#+end_src
+
+Example:
+#+begin_src haskell
+*Ch7_2> checkParbit (encode "a")
+[0,1,0,0,0,0,1,1]
+*Ch7_2> checkParbit [0,1,0,0,0,0,1,0]
+*** Exception: Not ok
+#+end_src
+
+*** decode
+At last, we can update the decode phase.
+We must first chop by 9 bits the list of bits we receive.
+Then checking the parity bits, then the rest:
+
+#+begin_src haskell
+decode :: [Bit] -> String
+decode = map (C.chr . bin2int . checkParbit) . chop9
+#+end_src
+
+* Test
+#+begin_quote
+Test your new string transmitter program from the previous exercise using a faulty communication channel that forgets the first bit, which can be modelled using the tail function on lists of bits.
+#+end_quote
+** Without errors
+Recall the transmit function:
+
+#+begin_src haskell
+channel :: a -> a
+channel = id
+
+transmit :: String -> String
+transmit = decode . channel . encode
+#+end_src
+
+Thus, everything works ok:
+#+begin_src haskell
+*Ch7_2> transmit "haskell is great"
+"haskell is great"
+#+end_src
+
+** Errors
+The transmit function does not need to change. However, the channel one does.
+As the problem states, we can for example use =tail= for this:
+
+#+begin_src haskell
+channel :: a -> a
+channel = tail
+#+end_src
+
+Then all hell breaks loose:
+#+begin_src haskell
+*Ch7_2> transmit "haskell is great"
+"\209\195\231\215\202\216\216A\210\231A\207\228\202\195*** Exception: Not ok
+#+end_src
