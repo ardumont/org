@@ -37,15 +37,33 @@ cur f = \x -> \y -> f (x,y)
 #+end_src
 
 Examples:
+
+We need a function that takes a pair as parameter:
 #+begin_src haskell
-*Ch7_2> ((cur add) 1) 2
+add :: Num a => (a,a) -> a
+add (x,y) = x + y
+#+end_src
+
+Here is how is used the function =add=:
+#+begin_src haskell
+*Ch7_2> add (1,2)
 3
+#+end_src
+
+Given that, a simple scenario to currify =add= is:
+#+begin_src haskell
 *Ch7_2> (cur add) 1 2
+3
+*Ch7_2> ((cur add) 1) 2
 3
 #+end_src
 
 
 ** uncurry
+Conversely, the uncurrified function's type:
+#+begin_src haskell
+uncurry :: a -> b -> c -> (a, b) -> c
+#+end_src
 
 * unfold
 #+begin_quote
