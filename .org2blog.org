@@ -1,5 +1,22 @@
-
 * Posts
+** [[file:/home/tony/repo/perso/my-org-files/haskell/programming-in-haskell/chapter7-1of3.org][PIH - ch7 - Higher-order Functions 1/3]]
+:PROPERTIES:
+:POSTID: 886
+:POST_DATE: 20130105T13:07:00+0000
+:Published: Yes
+:END
+** [[file:/home/tony/repo/perso/my-org-files/haskell/programming-in-haskell/chapter7-2of3.org][PIH - ch7 - Higher-order functions 2/3]]
+:PROPERTIES:
+:POSTID: 903
+:POST_DATE: 20130105T14:53:00+0000
+:Published: Yes
+:END:
+** [[file:/home/tony/repo/perso/my-org-files/haskell/programming-in-haskell/chapter7-3of3.org][PIH - ch7 - Higher-order functions 3/3]]
+:PROPERTIES:
+:POSTID: 914
+:POST_DATE: 20130107T20:47:00+0000
+:Published: No
+:END:
 ** [[file:/home/tony/repo/perso/my-org-files/haskell/programming-in-haskell/chapter7-2of2.org][Programming in haskell - ch7 - Higher-order functions 2/2]]
 :PROPERTIES:
 :POSTID: 903
@@ -11,12 +28,6 @@
 :POSTID: 903
 :POST_DATE: 20130105T14:53:00+0000
 :Published: No
-:END:
-** [[file:/home/tony/org/haskell/programming-in-haskell/chapter7-1of2.org][PIH - ch7 - Higher-order Functions 1/2]]
-:PROPERTIES:
-:POSTID: 886
-:POST_DATE: 20130105T13:07:00+0000
-:Published: Yes
 :END:
 ** [[file:/home/tony/org/haskell/programming-in-haskell/chapter6.org][PIH - ch6 - Recursive functions]]
 :PROPERTIES:
