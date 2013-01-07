@@ -92,28 +92,44 @@ uncurry f (x, y) = f x y
 3
 #+end_src
 
-
 * unfold
 #+begin_quote
 A higher-order function *unfold* that encapsulates a simple pattern of recursion for producing a list can be defined as follows:
 #+begin_src haskell
 unfold p h t x | p x = []
-               | otherwise = h x : unfold p h t (t x )
+               | otherwise = h x : unfold p h t (t x)
 #+end_src
 
 That is, the function =unfold p h t= produces the empty list if the predicate =p= is true of the argument, and otherwise produces a non-empty list by applying the function =h= to give the head, and the function =t= to generate another argument that is recursively processed in the same way to produce the tail of the list.
 
 For example, the function *int2bin* can be rewritten more compactly using *unfold* as follows:
 #+begin_src haskell
-int2bin = unfold (== 0) (‘mod ‘2) (‘div ‘2)
+int2bin = unfold (== 0) (`mod` 2) (`div` 2)
 #+end_src
 
 Redefine the functions *chop8*, *map f* and *iterate f* using unfold.
 #+end_quote
 
 ** chop8
+/Slice a bits list into a list of 8-bits list./
+
+Recall the definition of the chop8 function:
+#+begin_src haskell
+chop8 :: [Bit] -> [[Bit]]
+chop8 [] = []
+chop8 bits = take 8 bits : (chop8 (drop 8 bits))
+#+end_src
+
+Using =unfold=:
+#+begin_src haskell
+chop8 :: [Bit] -> [[Bit]]
+chop8 = unfold (== []) (take 8) (drop 8)
+#+end_src
 ** map f
+/Map a function =f= to a list/
+
 ** iterate f
+/lazy iteration over f: =\ x -> (f (f (f (f x))))...=/
 
 * transmitter
 #+begin_quote
