@@ -161,7 +161,44 @@ map f = unfold null (f . head) tail
 #+end_src
 
 ** iterate f
-/lazy iteration over f: =\ x -> (f (f (f (f x))))...=/
+/lazy and infinite iteration over f=/
+
+A recursive definition of =iterate= can be:
+
+#+begin_src haskell
+iterate :: (a -> a) -> a -> [a]
+iterate f x = x : iterate f (f x)
+#+end_src
+
+Example:
+#+begin_src haskell
+*Ch7_2> take 10 (iter (+1) 10)
+[10,11,12,13,14,15,16,17,18,19]
+#+end_src
+
+Given this, here are the needed functions:
+- predicate: we want an infinite function, so a function that takes a parameter and returns False, =(\ _ -> False)= is a good default
+- head: as we always return false, we'll never pass here, so identity is a good shot
+- tail: at last, it's where all the work is done, we want =f= to be applied
+
+#+begin_src haskell
+iterate :: (a -> a) -> a -> [a]
+iterate f = unfold (\ _ -> False) id f
+#+end_src
+
+*Note*
+I discovered the function =const=
+So we can replace this definition by this one:
+#+begin_src haskell
+iterate :: (a -> a) -> a -> [a]
+iterate f = unfold (const False) id f
+#+end_src
+
+Example:
+#+begin_src haskell
+*Ch7_2> take 10 (iterate (+2) 0)
+[0,2,4,6,8,10,12,14,16,18]
+#+end_src
 
 * transmitter
 #+begin_quote
