@@ -1,4 +1,10 @@
 * Posts
+** [[file:/home/tony/org/haskell/programming-in-haskell/chapter7-3of3.org][PIH - ch7 - Higher-order functions 3/3]]
+:PROPERTIES:
+:POSTID: 914
+:POST_DATE: 20130108T18:56:48+0000
+:Published: Yes
+:END:
 ** [[file:/home/tony/repo/perso/my-org-files/haskell/programming-in-haskell/chapter7-1of3.org][PIH - ch7 - Higher-order Functions 1/3]]
 :PROPERTIES:
 :POSTID: 886

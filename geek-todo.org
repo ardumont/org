@@ -272,7 +272,7 @@ CLOSED: [2012-12-23 Sun 13:18]
 https://github.com/relevance/org-html-slideshow
 *** TODO Eval clojure in org-mode file
 http://orgmode.org/worg/org-contrib/babel/languages/ob-doc-clojure.html
-* PENDING Articles [93%]
+* PENDING Articles [96%]
 ** DONE Chroot to save one's GNU/Linux
 CLOSED: [2012-04-21 Sat 18:07]
 http://adumont.fr/blog/chroot-pour-sauver-son-gnulinux/
@@ -369,7 +369,9 @@ http://adumont.fr/blog/pih-ch7-higher-order-functions-12/
 ** DONE Programming in haskell - ch7 - Higher-order functions - exercises - 2/3
 CLOSED: [2013-01-07 lun. 21:57]
 http://adumont.fr/blog/pih-ch7-higher-order-functions-23/
-** PENDING Programming in haskell - ch7 - Higher-order functions - exercises - 3/3
+** DONE Programming in haskell - ch7 - Higher-order functions - exercises - 3/3
+CLOSED: [2013-01-08 mar. 19:56]
+http://adumont.fr/blog/pih-ch7-higher-order-functions-33/
 ** PENDING polipo simple setup
 * TODO clojure [22%]
 ** DONE start [100%]
