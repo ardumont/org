@@ -143,25 +143,25 @@
 :POST_DATE: 20121223T17:52:00+0000
 :Published: Yes
 :END:
-** [[file:/home/tony/org/article/my-emacs-tools.org][My emacs tools]]
+** [[file:/home/tony/org/articles/my-emacs-tools.org][My emacs tools]]
 :PROPERTIES:
 :POSTID:   607
 :POST_DATE: 20121223T11:15:00+0000
 :Published: Yes
 :END:
-** [[file:/home/tony/org/article/forking-emacs-live.org][My emacs tools]]
+** [[file:/home/tony/org/articles/forking-emacs-live.org][My emacs tools]]
 :PROPERTIES:
 :POSTID:   607
 :POST_DATE: 20121223T11:15:35+0000
 :Published: No
 :END:
-** [[file:/home/tony/org/article/resources/org/dummy.org][Dummy sample to prove org2blog rocks!]]
+** [[file:/home/tony/org/articles/resources/org/dummy.org][Dummy sample to prove org2blog rocks!]]
 :PROPERTIES:
 :POSTID:   589
 :POST_DATE: 20121222T19:00:48+0000
 :Published: No
 :END:
-** [[file:/home/tony/org/article/blogging-with-org-mode-and-org2blog.org][Blogging with org-mode and org2blog to publish on wordpress]]
+** [[file:/home/tony/org/articles/blogging-with-org-mode-and-org2blog.org][Blogging with org-mode and org2blog to publish on wordpress]]
 :PROPERTIES:
 :POSTID: 586
 :POST_DATE: 20121222T18:53:00+0000
