@@ -7,10 +7,11 @@
 #+STARTUP: indent
 #+STARTUP: hidestars
 
-I have got some troubles with my network from some time now.
+I have got some speed troubles with my network from some time now.
 So here is one solution my team and I think of to overcome it.
 
-We created a [[http://vagrantup.com/][vagrant machine]] with [[http://www.pps.univ-paris-diderot.fr/~jch/software/polipo/polipo.html][polipo]] inside.
+We first created a [[http://vagrantup.com/][vagrant machine]] with [[http://www.pps.univ-paris-diderot.fr/~jch/software/polipo/polipo.html][polipo]] inside.
+Now we moved on to a central machine to avoid the centralization of one person.
 
 * Install
 #+BEGIN_SRC sh
@@ -98,7 +99,7 @@ As I use stumpwm, I personally only need to reload my stumpwm setup file (*C-t ;
 
 *** Check
 
-Load a terminal and execute the command =env | grep -i proxy=, you should see something along:
+Load a terminal and execute the command =env | grep -i proxy=, you should see something along those lines:
 
 #+BEGIN_SRC sh
 http_proxy=http://some-user:some-pass@192.168.33.2:8123
