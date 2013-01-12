@@ -1,4 +1,10 @@
 * Posts
+** [[file:/home/tony/org/howto/polipo.org][Polipo setup]]
+:PROPERTIES:
+:POSTID: 923
+:POST_DATE: 20130112T02:30:00+0000
+:Published: Yes
+:END:
 ** [[file:/home/tony/org/haskell/programming-in-haskell/chapter7-3of3.org][PIH - ch7 - Higher-order functions 3/3]]
 :PROPERTIES:
 :POSTID: 914

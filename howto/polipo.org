@@ -1,3 +1,6 @@
+#+BLOG: tony-blog
+#+POSTID: 923
+#+DATE: [2013-01-12 sam. 03:30]
 #+TITLE: Polipo setup
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
