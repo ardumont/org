@@ -1,7 +1,6 @@
 #+BLOG: tony-blog
 #+POSTID: 586
 #+DATE: [2012-12-22 Sat 19:53]
-#+BLOG: tony-blog
 #+TITLE: Blogging with org-mode/org2blog/wordpress
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
@@ -65,7 +64,7 @@ It's the ultimate blogging way for an org-mode user like me!
 Here we go, add this to your *init.el*
 This is a snippet of code that permits you to automatically search and install the packages you want at startup.
 
-#+BEGIN_SRC lisp
+#+BEGIN_SRC elisp
 (require 'package)
 
 (add-to-list 'package-archives
