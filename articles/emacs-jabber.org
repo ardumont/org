@@ -10,7 +10,7 @@
 #+STARTUP: indent
 #+STARTUP: hidestars
 
-[[https://twitter.com/lo_dawid][A friend of mine]] showed me that he was connected to [[http://www.emacswiki.org/emacs/JabberEl][jabber]] in emacs.
+[[https://twitter.com/lo_dawid][A friend of mine]] showed me that he was connected to [[http://www.emacswiki.org/emacs/JabberEl][jabber in emacs]] for gtalk.
 So I gave it a try. I read [[http://saheelram.blogspot.fr/2011/05/using-emacs-jabber.html][some blog posts]] and tried it.
 I clearly reuse the main parts of those and add my glue on it regarding credentials.
 
@@ -76,7 +76,7 @@ machine jabber login <your-email-gtalk> password <your-credentials>
 - <your-email-gtalk> is the account gtalk
 - <your-credentials> this can be your gtalk password or [[http://support.google.com/accounts/bin/answer.py?hl=en&answer=1070457&topic=1099588&ctx=topic][the password you generated in your google-account for emacs]] [1]
 
-[1] This way, if your =~/.authinfo= is compromised, only emacs is indeed.
+[1] This way, if your =~/.authinfo= is compromised, only emacs is.
 
 *** parsing
 
@@ -158,7 +158,7 @@ source: [[https://github.com/ardumont/emacs-live/blob/tony/packs/live/user-chat-
 *** Connection
 
 To connect: =C-c C-x C-c= (=M-x jabber-connect=)
-To connect: =C-c C-x C-c= (=M-x jabber-disconnect=)
+To connect: =C-c C-x C-d= (=M-x jabber-disconnect=)
 * Conclusion
 You should be good to go.
 Happy chat!
