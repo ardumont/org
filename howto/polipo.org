@@ -54,7 +54,7 @@ proxyAddress=0.0.0.0
 #+END_SRC
 
 *Note*
-No access restriction regarding ip is done yet because I shamefully admit that I did not succeeded yet.
+No access restriction regarding IP is done yet because I shamefully admit that I did not succeed yet.
 
 (It's the second line where you can detail the ip or the range of ips you authorize to use the proxy)
 
