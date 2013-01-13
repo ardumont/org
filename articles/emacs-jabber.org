@@ -1,11 +1,11 @@
+#+DATE: [2013-01-13 dim. 18:42]
 #+BLOG: tony-blog
 #+POSTID: 926
-#+DATE: [2013-01-12 sam. 16:55]
-#+TITLE: Install emacs jabber
+#+TITLE: gtalk in emacs using jabber mode
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
-#+TAGS: jabber, emacs, tools, authentication
-#+CATEGORY: jabber, emacs, tools
+#+TAGS: jabber, emacs, gtalk, tools, authentication
+#+CATEGORY: jabber, emacs, tools, gtalk
 #+DESCRIPTION: Installing jabber and using it from emacs + authentication tips and tricks
 #+STARTUP: indent
 #+STARTUP: hidestars

@@ -375,6 +375,9 @@ http://adumont.fr/blog/pih-ch7-higher-order-functions-33/
 ** DONE polipo simple setup
 CLOSED: [2013-01-12 sam. 03:46]
 http://adumont.fr/blog/polipo-setup/
+** DONE gtalk in emacs using jabber mode
+CLOSED: [2013-01-13 dim. 18:44]
+http://adumont.fr/blog/gtalk-in-emacs-using-jabber-mode/
 * TODO clojure [22%]
 ** DONE start [100%]
 CLOSED: [2012-04-21 Sat 18:18]
