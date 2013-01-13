@@ -108,7 +108,7 @@ Place yourself just after the =)= of the first expression (for example) and =C-x
 
 There is a subtlety here.
 I used a [[https://www.gnu.org/software/emacs/manual/html_node/elisp/Macros.html#Macros][emacs-lisp macro]] to be able to interpose the login and password inside the [[http://www.emacswiki.org/emacs/JabberEl][jabber]] setup.
-Notice the *`* and the *,* to respectively prevent the evaluation of the list and in, the contrary, let the evaluation takes place.
+Notice the backquote ` (prevent the evaluation of the list) and the comma (to let the evaluation takes place).
 
 #+begin_src elisp
 ;; Jabber client configuration
