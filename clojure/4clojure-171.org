@@ -5,9 +5,9 @@
 #+CATEGORY: clojure, exercises
 #+TAGS: clojure, exercises
 #+TITLE: 4clojure - Intervals problem
-#+DESCRIPTION: My solution about the intervals problem on 4clojure
+#+DESCRIPTION: One possible solution about the intervals problem on 4clojure
 
-Since I like solving problems even though it I'm not the best at it, I thought of posting my solutions.
+Since I like to try and solve problems, I thought of posting my solutions.
 
 This may trigger some interesting discussions about how to improve the original algorithm.
 
@@ -48,4 +48,4 @@ Each interval is a a vector of two integers, start and end, such that all intege
 
 #+end_src
 
-[[https://github.com/ardumont/my-4clojure-lab/blob/master/src/my_4clojure_lab/199/core171.clj]]
+[[https://github.com/ardumont/my-4clojure-lab/blob/master/src/my_4clojure_lab/199/core171.clj][source: 171.clj]]

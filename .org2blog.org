@@ -1,4 +1,10 @@
 * Posts
+** [[file:/home/tony/repo/perso/my-org-files/about-me.org][About me]]
+:PROPERTIES:
+:POSTID: 3
+:POST_DATE: 20121222T13:20:00+0000
+:Published: Yes
+:END:
 ** [[file:/home/tony/repo/perso/my-org-files/howto/stumpwm-zenity.org][Stumpwm - Display result of bash commands using zenity]]
 :PROPERTIES:
 :POSTID: 746
