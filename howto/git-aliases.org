@@ -202,7 +202,7 @@ But I systematically forgot about it and so I still use directly =git reset=.
 
 To see the last commit. This is mostly to check if I am where I think I am
 
-#+./resources/git/gitka-sample.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-gitka-sample.png
+#+./resources/git/gitka-sample.png http://adumont.fr/wp-content/uploads/2012/12/wpid-gitka-sample.png
 
 * Conclusion
 

@@ -23,7 +23,7 @@ I do not want to be asked for my password each time I'm connecting.
 
 * Solution
 
-I reuse a mechanism [[http://adumont.fr/blog/blogging-with-org-mode-and-org2blog-to-publish-on-wordpress/#emacs][I was introduced to with org2blog]].
+I reuse a mechanism [[http://adumont.fr/blogging-with-org-mode-and-org2blog-to-publish-on-wordpress/#emacs][I was introduced to with org2blog]].
 
 *Note*
 For those that are concerned by security, I hear you. I strongly believe in separating concerns and security is not the issue at hand so I do not focus on it at all.
@@ -34,7 +34,7 @@ Then again, that's not the subject at hand.
 
 ** install
 
-Indeed, It's the same snippet as [[http://adumont.fr/blog/blogging-with-org-mode-and-org2blog-to-publish-on-wordpress/#install][before]], I add my new package to this list each time I need it.
+Indeed, It's the same snippet as [[http://adumont.fr/blogging-with-org-mode-and-org2blog-to-publish-on-wordpress/#install][before]], I add my new package to this list each time I need it.
 
 #+BEGIN_SRC elisp
 (require 'package)

@@ -10,7 +10,7 @@
 #+STARTUP: indent
 #+STARTUP: hidestars
 
-For the first exercises, [[http://adumont.fr/blog/pih-ch7-higher-order-functions-12/][see this post]].
+For the first exercises, [[http://adumont.fr/pih-ch7-higher-order-functions-12/][see this post]].
 
 * curry/uncurry
 #+begin_quote

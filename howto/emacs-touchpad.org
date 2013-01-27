@@ -10,12 +10,12 @@
 #+STARTUP: indent
 #+STARTUP: hidestars
 
-[[http://adumont.fr/blog/stumpwm-activatedeactivate-touchpad/][In this previous post]], I explained how to switch on and off the touchpad depending on the software focused at hand[1].
+[[http://adumont.fr/stumpwm-activatedeactivate-touchpad/][In this previous post]], I explained how to switch on and off the touchpad depending on the software focused at hand[1].
 
-[1] Recall that I'm using [[http://www.nongnu.org/stumpwm/][stumpwm]], thus meaning that I have only one window focused at a time (I can do more but [[http://adumont.fr/blog/howto-install-stumpwm-and-little-more/][that's the way I use it]]).
+[1] Recall that I'm using [[http://www.nongnu.org/stumpwm/][stumpwm]], thus meaning that I have only one window focused at a time (I can do more but [[http://adumont.fr/howto-install-stumpwm-and-little-more/][that's the way I use it]]).
 
 It was perfect until I realized that when in [[http://www.gnu.org/software/emacs/][emacs]], I export in html and open the browser...
-But then, the touchpad is off... which is now inconsistent with my [[http://adumont.fr/blog/stumpwm-activatedeactivate-touchpad/#Setup][stumpwm setup]].
+But then, the touchpad is off... which is now inconsistent with my [[http://adumont.fr/stumpwm-activatedeactivate-touchpad/#Setup][stumpwm setup]].
 
 I completely forgot this use case.
 But, no panic, this time, [[http://www.gnu.org/software/emacs/][emacs]] to the rescue!
@@ -40,7 +40,7 @@ Now evaluate this snippet of code. Place yourself behind the last parenthesis an
 This loads your emacs lisp into the current session.
 
 ** Code
-Then we call the script to [[http://adumont.fr/blog/activatedeactivate-touchpad-from-the-shell/][toggle on/off the touchpad]]:
+Then we call the script to [[http://adumont.fr/activatedeactivate-touchpad-from-the-shell/][toggle on/off the touchpad]]:
 Here is the code:
 
 #+begin_src elisp
@@ -133,4 +133,4 @@ Thus, my setup is consistent again with the rest of the system.
 
 src: [[https://github.com/ardumont/emacs-live/blob/tony/packs/live/user-orgmode-pack/init.el][user-orgmode-pack/init.el]]
 * Conclusion
-The same as the conclusion of [[http://adumont.fr/blog/stumpwm-activatedeactivate-touchpad/][this article]], emacs rocks!
+The same as the conclusion of [[http://adumont.fr/stumpwm-activatedeactivate-touchpad/][this article]], emacs rocks!

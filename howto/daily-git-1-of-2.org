@@ -10,7 +10,7 @@
 #+STARTUP: indent
 #+STARTUP: hidestars
 
-In [[http://adumont.fr/blog/git-aliasessystem-git-aliases/][another post]], I presented my (system) git aliases.
+In [[http://adumont.fr/git-aliasessystem-git-aliases/][another post]], I presented my (system) git aliases.
 
 In this one, I will enter into a little more details about the most basic of those commands.
 

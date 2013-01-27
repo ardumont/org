@@ -15,8 +15,8 @@ In this article, we will see how to use the different tools at our disposal to s
 - The problem is *not* an *impressive one* as i want to focus on how to start a clojure project and how to use the tools.
 
 * Pre-requisites
-** [[http://adumont.fr/blog/how-to-install-emacs-24/][emacs]]
-** [[http://adumont.fr/blog/how-to-boostrap-a-clojure-project/][clojure environment setup]]
+** [[http://adumont.fr/how-to-install-emacs-24/][emacs]]
+** [[http://adumont.fr/how-to-boostrap-a-clojure-project/][clojure environment setup]]
 * Problem
 Now to prove that we have all that we need, we will solve a little problem.
 
@@ -240,9 +240,9 @@ Here is the final =core.clj= file.
 
 * Conclusion
 With these posts and this one,
-- http://adumont.fr/blog/how-to-install-emacs-24/
-- http://adumont.fr/blog/how-to-install-the-clojure-development-environment/
-- http://adumont.fr/blog/how-to-boostrap-a-clojure-project/
+- http://adumont.fr/how-to-install-emacs-24/
+- http://adumont.fr/how-to-install-the-clojure-development-environment/
+- http://adumont.fr/how-to-boostrap-a-clojure-project/
 
 You now have all you need to develop with clojure.
 
