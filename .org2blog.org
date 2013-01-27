@@ -1,5 +1,5 @@
 * Posts
-** [[file:/home/tony/org/haskell/random-exercise.org][Some random exercise in haskell]]
+** [[file:/home/tony/org/haskell/random-exercises/decomposition-in-product-couples-for-integer.org][Some random exercise in haskell]]
 :PROPERTIES:
 :POSTID: 942
 :POST_DATE: 20130127T10:58:00+0000
