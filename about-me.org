@@ -37,8 +37,9 @@ I'm still a software engineer but i like to call it simply developer as i really
 I'm working with [[http://www.sfeir.com/][Sfeir]].
 The technologies are innovative : GWT, Android, NoSQL, etc...
 * Where can you found me if you ever were interested
+** [[http://en.gravatar.com/ardumont][gravatar]]
 ** [[https://github.com/ardumont][github]]
-** [[http://j.mp/hevpPB][blog]]
+** [[http://adumont.fr][blog]]
 ** [[http://j.mp/ibIAVM][viadeo]]
 ** [[http://j.mp/dWMPPr][linkedin]]
 ** [[http://j.mp/gkImOH][My student resume]] (Need to be updated some day)
