@@ -1,5 +1,5 @@
 * Posts
-** [[file:/home/tony/org/clojure/4clojure-171.org][Intervals]]
+** [[file:/home/tony/org/clojure/4clojure-171.org][4clojure - Intervals problem]]
 :PROPERTIES:
 :POSTID: 938
 :POST_DATE: 20130127T00:02:00+0000
