@@ -1,4 +1,10 @@
 * Posts
+** [[file:/home/tony/org/clojure/4clojure-171.org][Intervals]]
+:PROPERTIES:
+:POSTID: 938
+:POST_DATE: 20130127T00:02:00+0000
+:Published: Yes
+:END:
 ** [[file:/home/tony/org/articles/emacs-jabber.org][gtalk in emacs using jabber mode]]
 :PROPERTIES:
 :POSTID: 926

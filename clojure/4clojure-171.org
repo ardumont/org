@@ -1,0 +1,51 @@
+#+BLOG: tony-blog
+#+POSTID: 938
+#+DATE: [2013-01-27 dim. 01:02]
+#+OPTIONS:
+#+CATEGORY: clojure, exercises
+#+TAGS: clojure, exercises
+#+TITLE: 4clojure - Intervals problem
+#+DESCRIPTION: My solution about the intervals problem on 4clojure
+
+Since I like solving problems even though it I'm not the best at it, I thought of posting my solutions.
+
+This may trigger some interesting discussions about how to improve the original algorithm.
+
+Here is the exercise 171 of 4clojure about intervals.
+
+#+begin_blockquote
+Write a function that takes a sequence of integers and returns a sequence of "intervals".
+Each interval is a a vector of two integers, start and end, such that all integers between start and end (inclusive) are contained in the input sequence.
+#+end_blockquote
+
+#+begin_src clojure
+(ns ^{:doc "http://www.4clojure.com/problem/171#prob-title"}
+  my-4clojure-lab.199.core171
+  (:use [clojure.java.javadoc]
+        [midje.sweet])
+  (:require [clojure.tools.trace :as t]))
+
+(defn intervals
+  [v]
+  (let [[f & t] (sort v)]
+    (if f
+      (reverse
+       (reduce
+        (fn [[[a b] & r :as l] e]
+          (if (<= a e (+ 1 b))
+            (conj r [a e])
+            (conj l [e e])))
+        [[f f]]
+        t))
+      v)))
+
+(fact
+  (intervals [1 2 3]) => [[1 3]]
+  (intervals [10 9 8 1 2 3]) => [[1 3] [8 10]]
+  (intervals [1 1 1 1 1 1 1]) => [[1 1]]
+  (intervals []) => []
+  (intervals [19 4 17 1 3 10 2 13 13 2 16 4 2 15 13 9 6 14 2 11]) => [[1 4] [6 6] [9 11] [13 17] [19 19]])
+
+#+end_src
+
+[[https://github.com/ardumont/my-4clojure-lab/blob/master/src/my_4clojure_lab/199/core171.clj]]
