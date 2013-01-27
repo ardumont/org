@@ -1,59 +1,211 @@
 #+BLOG: tony-blog
+#+POSTID: 942
+#+DATE: [2013-01-27 dim. 11:58]
+#+BLOG: tony-blog
 #+TITLE: Some random exercise in haskell
 #+AUTHOR: Massyl Nait-Mouloud, Antoine R. Dumont
 #+OPTIONS:
-#+TAGS: haskell, exercises, functional-programming
-#+CATEGORY: haskell, exercises, functional-programming
-#+DESCRIPTION: Some random exercises
+#+TAGS: haskell, exercises, functional-programming, quickcheck, generating-testing
+#+CATEGORY: haskell, exercises, functional-programming, quickcheck, generating-testing
+#+DESCRIPTION: Find all the unique couple (a,b) that a*b = n, for n in N+. A first usage of quickcheck to generate tests.
 #+STARTUP: indent
 #+STARTUP: hidestars
 
-A friend of mine asks me to solve a simple exercise in haskell.
-As i made a mistake in solving it the first time (due to the missed unicity, I considered posting it here).
+A friend of mine asks me to solve an exercise in haskell.
+As I made a mistake in solving it the first time (due to the missed unicity, I considered posting it here).
 
+* Problem
 Here is the revised problem:
 
 #+begin_quote
-Find all the unique couple *(a,b)* such that *a*b = n*
+Find all the unique couple *(a,b)* such that *a*b = n*, for n in N+
 
 *Note*
 As the multiplication is commutative, we consider : *for any a, b, (a,b) == (b,a)*
 #+end_quote
 
-Naive first:
-#+begin_src text
-couple :: Int -> [(Int,Int)]
-couple n = [(a,b) | a <- [2..n], b <- [1..a], a * b == n]
-#+end_src
+* Discussion
 
-To avoid making duplicates, the trick is to consider the input as a kind of pyramid instead of square.
+To avoid making duplicates *(a,b) /= (b,a)*, we can consider the input as a kind of pyramid instead of square.
+
 #+begin_quote
 for *n = 9* \\
 
-a in *2 3 4 5 6 7 8 9*
+  a in *1 2 3 4 5 6 7 8 9* (we can see a in rows)\\
 
-b in:\\
-*1 2* +3 4 5 6 7 8 9+ \\
-*1 2 3* +4 5 6 7 8 9+ \\
-*1 2 3 4* +5 6 7 8 9+ \\
-*1 2 3 4 5* +6 7 8 9+ \\
-*1 2 3 4 5 6* +7 8 9+ \\
-*1 2 3 4 5 6 7* +8 9+ \\
-*1 2 3 4 5 6 7 8* +9+ \\
-*1 2 3 4 5 6 7 8 9*
+  b in the range [1 a] (b in columns) \\
+
+    *1* +2 3 4 5 6 7 8 9+ \\
+    *1 2* +3 4 5 6 7 8 9+ \\
+    *1 2 3* +4 5 6 7 8 9+ \\
+    *1 2 3 4* +5 6 7 8 9+ \\
+    *1 2 3 4 5* +6 7 8 9+ \\
+    *1 2 3 4 5 6* +7 8 9+ \\
+    *1 2 3 4 5 6 7* +8 9+ \\
+    *1 2 3 4 5 6 7 8* +9+ \\
+    *1 2 3 4 5 6 7 8 9*
 #+end_quote
 
-Applying the computation:
+Then applying the computation:
 
-|-----+---------------------+-----------------------------|
-|   a | b                   | a * b                       |
-|-----+---------------------+-----------------------------|
-|   2 | 1 2                 | 2 4                         |
-|   3 | 1 2 3               | 3 6 9                       |
-|   4 | 1 2 3 4             | 4 8 12 16                   |
-|   5 | 1 2 3 4 5           | 5 10 15 20 25               |
-|   6 | 1 2 3 4 5 6         | 6 12 18 24 30 36            |
-|   7 | 1 2 3 4 5 6 7       | 7 14 21 28 35 42 49         |
-| ... | ...                 | ...                         |
-|   n | 1 2 3 4 5 6 7 ... n | n 2n 3n 4n 5n 6n 7n ... n^2 |
-|-----+---------------------+-----------------------------|
+|-----+-----------------------+-------------------------------|
+|   a | b                     | a * b                         |
+|-----+-----------------------+-------------------------------|
+|   1 | 1                     | 1                             |
+|   2 | 1 2                   | 2 4                           |
+|   3 | 1 2 3                 | 3 6 9                         |
+|   4 | 1 2 3 4               | 4 8 12 16                     |
+|   5 | 1 2 3 4 5             | 5 10 15 20 25                 |
+|   6 | 1 2 3 4 5 6           | 6 12 18 24 30 36              |
+|   7 | 1 2 3 4 5 6 7         | 7 14 21 28 35 42 49           |
+| ... | ...                   | ...                           |
+|   n | 1 2 3 4 5 6 7 ... n   | n 2n 3n 4n 5n 6n 7n ... n^2   |
+|-----+-----------------------+-------------------------------|
+
+But then, it occurs to me that I did way too much computations.
+Look at the extreme result, we goes up until n^2 ...
+wait, what!?
+
+So, again, the trick is to bound oneself.
+And, I think the floored sqrt value of a is wayyyyy enough.
+
+|-----+--------------------+-------------------------|
+|   a | b in [1..isqrt a]  | a * b                   |
+|-----+--------------------+-------------------------|
+|   1 | 1                  | 1                       |
+|   2 | 1                  | 2                       |
+|   3 | 1 2                | 3 6                     |
+|   4 | 1 2                | 4 8                     |
+|   5 | 1 2                | 5 10                    |
+|   6 | 1 2                | 6 12                    |
+|   7 | 1 2 3              | 7 14 21                 |
+| ... | ...                | ...                     |
+|   n | 1 2 3 4 ... sqrt n | n 2n 3n 4n ... n*sqrt n |
+|-----+--------------------+-------------------------|
+
+
+* algorithm
+Here is the algorithm:
+
+#+begin_src haskell
+isqrt :: Int -> Int
+isqrt = floor . sqrt . fromIntegral ;; this is to compute the square root of an Int
+
+couple :: Int -> [(Int, Int)]
+couple n = [(a,b) | a <- [1..n], b <- [1..isqrt a], a * b == n]
+#+end_src
+
+* Quickcheck
+
+Now that we have the algorithm, we can use Quickcheck to help up in generating the tests.
+
+** why
+
+I love to develop the applications, the design, the performance, etc...
+But then I also need to test the application, to ensure that this does what I think it does (hey I'm human, I do make mistakes, that's how I progress).
+
+So I develop the application then for testing the application, I develop the unit/integration tests...
+
+But then again, what has all in common the applications that crashed in production?
+It passes the tests!!! (go see [[http://www.infoq.com/presentations/Are-We-There-Yet-Rich-Hickey][Rich Hickey's videos, it's way fun]]).
+
+Indeed, we also develop the tests, so let me ask this, who's gonna test the tests? and then... the tests of the tests... and...
+
+So a conclusion imposes to me, we can no longer develop all the tests, we need to rethink this.
+A solution could be to generate them (at least, the integration tests one).
+
+Here, in [[http://www.haskell.org/haskellwiki/Haskell][Haskell]], enters [[http://www.haskell.org/haskellwiki/Introduction_to_QuickCheck2][quickcheck]].
+
+** how
+
+But first, let's see the property of our algorithm:
+
+- for all a,b in N+ x N+, a * b == n
+- for all a,b in N+ x N+, b <= a
+- for all a,b in N+ x N+, a == b or (a,b) /= (b,a)
+
+Here is one way of checking using quickcheck:
+
+#+begin_src haskell
+prop_productOk = (\ n -> all (\ (a,b) -> a * b == n ) (couple n))
+prop_coupleDistinct = (\ n -> all (\ (a,b) -> ((a == b) || (a, b) /= (b, a))) (couple n))
+prop_coupleInferior = (\ n -> all (\ (a,b) -> b <= a ) (couple n))
+
+main = do
+  verboseCheckWith stdArgs { maxSuccess = 10 } prop_productOk
+  verboseCheckWith stdArgs { maxSuccess = 10 } prop_coupleDistinct
+  verboseCheckWith stdArgs { maxSuccess = 10 } prop_coupleInferior
+#+end_src
+
+Here, I ask to chain the checking of each properties in limited the number of success to 10.
+This could [[http://hackage.haskell.org/packages/archive/QuickCheck/2.4.1.1/doc/html/Test-QuickCheck.html][be adapted for more hard checking!]]
+
+** output
+
+Here is a sample output:
+#+begin_src haskell
+*Couple> main
+Passed:
+0
+Passed:
+-1
+Passed:
+-1
+Passed:
+1
+Passed:
+0
+Passed:
+-8
+Passed:
+0
+Passed:
+14
+Passed:
+16
+Passed:
+3
++++ OK, passed 10 tests.
+Passed:
+-1
+Passed:
+0
+Passed:
+2
+Passed:
+1
+Passed:
+0
+Passed:
+1
+Passed:
+-5
+Passed:
+11
+Passed:
+16
+Passed:
+-10
++++ OK, passed 10 tests.
+Passed:
+-1
+Passed:
+-1
+Passed:
+0
+Passed:
+2
+Passed:
+1
+Passed:
+-6
+Passed:
+-3
+Passed:
+6
+Passed:
+-12
+Passed:
+24
++++ OK, passed 10 tests.
+#+end_src

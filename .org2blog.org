@@ -1,4 +1,10 @@
 * Posts
+** [[file:/home/tony/org/haskell/random-exercise.org][Some random exercise in haskell]]
+:PROPERTIES:
+:POSTID: 942
+:POST_DATE: 20130127T10:58:00+0000
+:Published: No
+:END:
 ** [[file:/home/tony/org/clojure/4clojure-171.org][4clojure - Intervals problem]]
 :PROPERTIES:
 :POSTID: 938
