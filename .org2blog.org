@@ -1,4 +1,10 @@
 * Posts
+** [[file:/home/tony/org/clojure/4clojure-106.org][4clojure - Number maze]]
+:PROPERTIES:
+:POSTID: 984
+:POST_DATE: 20130128T18:29:00+0000
+:Published: No
+:END:
 ** [[file:/home/tony/repo/perso/my-org-files/about-me.org][About me]]
 :PROPERTIES:
 :POSTID: 3
