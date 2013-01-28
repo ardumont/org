@@ -203,7 +203,7 @@ git push
 #+END_SRC
 *** Now, you're done!!!
 
-#+./resources/git/00.master-branch-without-pull-on-master.png http://adumont.fr/wp-content/uploads/2012/12/wpid-00.master-branch-without-pull-on-master.png
-#+./resources/git/resources/git/0.master-branch-before-merge.png"><img src="./resources/git/0.master-branch-before-merge.png" alt="0.master-branch-before-merge.png http://adumont.fr/wp-content/uploads/2012/12/wpid-0.master-branch-before-merge.png-alt0.master-branch-before-merge.png
-#+./resources/git/1.merge-master-into-branch.png http://adumont.fr/wp-content/uploads/2012/12/wpid-1.merge-master-into-branch.png
-#+./resources/git/2.master-branch-after-second-merge-branchA-into-master.png http://adumont.fr/wp-content/uploads/2012/12/wpid-2.master-branch-after-second-merge-branchA-into-master.png
+#+./resources/git/00.master-branch-without-pull-on-master.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-00.master-branch-without-pull-on-master.png
+#+./resources/git/resources/git/0.master-branch-before-merge.png"><img src="./resources/git/0.master-branch-before-merge.png" alt="0.master-branch-before-merge.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-0.master-branch-before-merge.png-alt0.master-branch-before-merge.png
+#+./resources/git/1.merge-master-into-branch.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-1.merge-master-into-branch.png
+#+./resources/git/2.master-branch-after-second-merge-branchA-into-master.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-2.master-branch-after-second-merge-branchA-into-master.png

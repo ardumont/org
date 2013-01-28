@@ -10,7 +10,7 @@
 #+STARTUP: indent
 #+STARTUP: hidestars
 
-It has been [[http://adumont.fr/howto-install-stumpwm-and-little-more/][some time now]] since i talked about [[http://www.nongnu.org/stumpwm/][stumpwm]].
+It has been [[http://adumont.fr/blog/howto-install-stumpwm-and-little-more/][some time now]] since i talked about [[http://www.nongnu.org/stumpwm/][stumpwm]].
 
 I wanted to do an update since I added/modified/upgraded some stuff in my setup.
 
@@ -149,10 +149,10 @@ You have to install the package *acpi* on your machine first.
 *** result
 [[./resources/stumpwm/acpi.png]]
 
-#+./resources/stumpwm/cat-environment.png http://adumont.fr/wp-content/uploads/2012/12/wpid-cat-environment.png
-#+./resources/stumpwm/cat-etc-hosts.png http://adumont.fr/wp-content/uploads/2012/12/wpid-cat-etc-hosts.png
-#+./resources/stumpwm/ifconfig.png http://adumont.fr/wp-content/uploads/2012/12/wpid-ifconfig.png
-#+./resources/stumpwm/acpi.png http://adumont.fr/wp-content/uploads/2012/12/wpid-acpi.png
+#+./resources/stumpwm/cat-environment.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-cat-environment.png
+#+./resources/stumpwm/cat-etc-hosts.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-cat-etc-hosts.png
+#+./resources/stumpwm/ifconfig.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-ifconfig.png
+#+./resources/stumpwm/acpi.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-acpi.png
 
 * Global setup
 [[https://github.com/ardumont/dot-files/blob/master/.stumpwmrc][.stumpwmrc]]

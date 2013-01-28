@@ -1,4 +1,4 @@
-#+DATE: [2012-12-30 dim. 12:21]
+!!!!#+DATE: [2012-12-30 dim. 12:21]
 #+BLOG: tony-blog
 #+POSTID: 717
 #+TITLE: Daily git 2/2
@@ -10,7 +10,7 @@
 #+STARTUP: indent
 #+STARTUP: hidestars
 
-On [[http://adumont.fr/daily-git-12/][this article]], I presented the most basics of the command I use.
+On [[http://adumont.fr/blog/daily-git-12/][this article]], I presented the most basics of the command I use.
 
 In this one, I'll detail the more advanced.
 
@@ -326,11 +326,11 @@ Here is the final result:
 
 [[http://git-scm.com/book/en/Git-Tools-Rewriting-History#Changing-Multiple-Commit-Messages][For more information]]
 
-#+./resources/git/rebase/status.png http://adumont.fr/wp-content/uploads/2012/12/wpid-status.png
-#+./resources/git/rebase/master-synced-with-some-other-dev.png http://adumont.fr/wp-content/uploads/2012/12/wpid-master-synced-with-some-other-dev.png
-#+./resources/git/rebase/conflict.png http://adumont.fr/wp-content/uploads/2012/12/wpid-conflict.png
-#+./resources/git/rebase/rebased-final.png http://adumont.fr/wp-content/uploads/2012/12/wpid-rebased-final.png
-#+./resources/git/rebase/master-ff.png http://adumont.fr/wp-content/uploads/2012/12/wpid-master-ff.png
+#+./resources/git/rebase/status.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-status.png
+#+./resources/git/rebase/master-synced-with-some-other-dev.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-master-synced-with-some-other-dev.png
+#+./resources/git/rebase/conflict.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-conflict.png
+#+./resources/git/rebase/rebased-final.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-rebased-final.png
+#+./resources/git/rebase/master-ff.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-master-ff.png
 
-#+./resources/git/rebase/before-squash.png http://adumont.fr/wp-content/uploads/2012/12/wpid-before-squash.png
-#+./resources/git/rebase/after-squash.png http://adumont.fr/wp-content/uploads/2012/12/wpid-after-squash.png
+#+./resources/git/rebase/before-squash.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-before-squash.png
+#+./resources/git/rebase/after-squash.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-after-squash.png

@@ -162,11 +162,11 @@ Here's only what i think of, feel free to think otherwise.
 - [[https://github.com/ardumont/my-org-files/blob/master/org-beamer-example/example0.pdf][The example pdf]]
 - [[http://orgmode.org/worg/org-tutorials/org-beamer/tutorial.html][Writing Beamer presentations in org-mode]]
 
-#+../org-beamer-examples/outline.png http://adumont.fr/wp-content/uploads/2012/12/wpid-outline.png
-#+../org-beamer-examples/frame-11.png http://adumont.fr/wp-content/uploads/2012/12/wpid-frame-11.png
-#+../org-beamer-examples/frame-12.png http://adumont.fr/wp-content/uploads/2012/12/wpid-frame-12.png
-#+../org-beamer-examples/frame-clojure.png http://adumont.fr/wp-content/uploads/2012/12/wpid-frame-clojure.png
-#+../org-beamer-examples/frame-emacs.png http://adumont.fr/wp-content/uploads/2012/12/wpid-frame-emacs.png
-#+../org-beamer-examples/frame-org.png http://adumont.fr/wp-content/uploads/2012/12/wpid-frame-org.png
+#+../org-beamer-examples/outline.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-outline.png
+#+../org-beamer-examples/frame-11.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-frame-11.png
+#+../org-beamer-examples/frame-12.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-frame-12.png
+#+../org-beamer-examples/frame-clojure.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-frame-clojure.png
+#+../org-beamer-examples/frame-emacs.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-frame-emacs.png
+#+../org-beamer-examples/frame-org.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-frame-org.png
 
-#+../org-beamer-examples/front-page.png http://adumont.fr/wp-content/uploads/2012/12/wpid-front-page.png
+#+../org-beamer-examples/front-page.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-front-page.png

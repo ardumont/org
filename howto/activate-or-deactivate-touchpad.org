@@ -74,4 +74,4 @@ This works on my:
 
 In this post, I presented how to activate/deactivate the touchpad from the shell.
 
-In [[http://adumont.fr/stumpwm-activatedeactivate-touchpad/][another post]], I'll present a possible orchestration using those scripts as a basic brick.
+In [[http://adumont.fr/blog/stumpwm-activatedeactivate-touchpad/][another post]], I'll present a possible orchestration using those scripts as a basic brick.

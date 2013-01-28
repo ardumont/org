@@ -12,7 +12,7 @@ In this article, we will see how to rapidly install the clojure tools in a debia
 
 * Pre-requisites
 ** [[http://www.gnu.org/software/emacs/][emacs]]
-See this [[http://adumont.fr/how-to-install-emacs-24/][previous post for installing it]]
+See this [[http://adumont.fr/blog/how-to-install-emacs-24/][previous post for installing it]]
 * Installation
 ** [[http://clojure.org/][clojure]]
 *** install
