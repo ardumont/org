@@ -1,12 +1,13 @@
 #+BLOG: tony-blog
-#+POSTID: 984
+#+POSTID: 946
 #+DATE: [2013-01-28 lun. 19:29]
-#+BLOG: tony-blog
 #+OPTIONS:
 #+CATEGORY: clojure, exercises
-#+TAGS: clojure, exercises
-#+TITLE: 4clojure - Number maze
-#+DESCRIPTION: One possible solution about the number maze problem on 4clojure
+#+TAGS: clojure, exercises, 4clojure, functional-programming
+#+TITLE: 4clojure - Number maze problem
+#+DESCRIPTION: One possible solution about the number maze (106) problem on 4clojure.com
+
+Here is the problem statement:
 
 #+begin_quote
 Given a pair of numbers, the start and end point, find a path between the two using only three possible operations:
@@ -16,8 +17,8 @@ Given a pair of numbers, the start and end point, find a path between the two us
 Find the shortest path through the "maze". Because there are multiple shortest paths, you must return the length of the shortest path, not the path itself.
 #+end_quote
 
-For this, I did three function to separate concerns:
-- make-children function: deals with the operations for each value, we can have 3 (or 2) values depending (/, +, *)
+For this, I did three functions to separate concerns:
+- make-children function: deals with the operations (/, +, *) for each value, we can have 3 values for even number or 2 values for odd ones.
 - lazy breadth-first tree: the construction of each possible values for each step (we use the make-children function)
 - the lazy searching function: drop the returned values from the breadth-first tree as long as we do not find at least one possible value.
 
@@ -38,12 +39,9 @@ Some unit tests representing the use cases (even and odd value):
 
 #+begin_src clojure
 (fact
-  (mkc [10 1]) => (contains [5 2]
-                            [20 2]
-                            [12 2]
-                            :in-any-order)
-  (mkc [9 1]) => [[18 2]
-                  [11 2]])
+  (mkc [10 1]) => [[5 2] [20 2] [12 2]]
+  (mkc [9 1])  => [[18 2]
+                   [11 2]])
 #+end_src
 
 * breadth-first
@@ -84,13 +82,15 @@ Indeed, as we search in breadth, we hit the minimal distance.
   [s e]
   (if (= s e) 1 (let [[[_ d]] (drop-while (fn [[s _]] (not= s e)) (bfs s))] d)))
 
-(fact (maze 1 1)  =>  1) ; 1
-(fact (maze 3 12) =>  3) ; 3 6 12
-(fact (maze 12 3) =>  3) ; 12 6 3
-(fact (maze 5 9)  =>  3) ; 5 7 9
-(fact (maze 9 2)  =>  9) ; 9 18 20 10 12 6 8 4 2
-(fact (maze 9 12) =>  5) ; 9 11 22 24 12
+(fact
+  (maze 1 1)  =>  1
+  (maze 3 12) =>  3
+  (maze 12 3) =>  3
+  (maze 5 9)  =>  3
+  (maze 9 2)  =>  9
+  (maze 9 12) =>  5)
 #+end_src
+source: [[https://github.com/ardumont/my-4clojure-lab/blob/master/src/my_4clojure_lab/149/core106.clj][106]]
 
 *note*
 As this algorithm is lazy and as we drop the head (using drop-while), we could compute forever without smashing the stack :D.
