@@ -5,11 +5,11 @@
 :POST_DATE: 20121222T18:53:00+0000
 :Published: Yes
 :END:
-** [[file:/home/tony/org/clojure/4clojure-106.org][4clojure - Number maze]]
+** [[file:/home/tony/org/clojure/4clojure-106.org][4clojure - Number maze problem]]
 :PROPERTIES:
 :POSTID: 946
 :POST_DATE: 20130128T18:29:00+0000
-:Published: No
+:Published: Yes
 :END:
 ** [[file:/home/tony/repo/perso/my-org-files/about-me.org][About me]]
 :PROPERTIES:

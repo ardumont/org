@@ -379,9 +379,12 @@ http://adumont.fr/blog/polipo-setup/
 ** DONE gtalk in emacs using jabber mode
 CLOSED: [2013-01-13 dim. 18:44]
 http://adumont.fr/blog/gtalk-in-emacs-using-jabber-mode/
-** DONE http://adumont.fr/blog/intervals/
+** DONE problem intervals on 4clojure
 CLOSED: [2013-01-27 dim. 03:10]
 http://adumont.fr/blog/intervals/
+** DONE number maze problem on 4clojure
+CLOSED: [2013-01-28 lun. 22:38]
+http://adumont.fr/blog/4clojure-number-maze-problem/
 * TODO clojure [22%]
 ** DONE start [100%]
 CLOSED: [2012-04-21 Sat 18:18]
