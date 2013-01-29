@@ -1,5 +1,5 @@
 * Posts
-** [[file:/home/tony/org/clojure/4clojure-101.org][4clojure - Levenshtein problem]]
+** [[file:/home/tony/org/clojure/4clojure-101.org][4clojure - Levenshtein distance problem]]
 :PROPERTIES:
 :POSTID: 962
 :POST_DATE: 20130129T18:48:00+0000

@@ -1,19 +1,68 @@
 #+BLOG: tony-blog
 #+POSTID: 962
 #+DATE: [2013-01-29 mar. 19:48]
-#+BLOG: tony-blog
 #+OPTIONS:
 #+CATEGORY: clojure, exercises, 4clojure, functional-programming
 #+TAGS: clojure, exercises, 4clojure, functional-programming
-#+TITLE: 4clojure - Levenshtein problem
+#+TITLE: 4clojure - Levenshtein distance problem
 #+DESCRIPTION: One possible solution about the levenshtein distance computation problem (101) on 4clojure.com
 
-I initially did this exercise using directly the string as a reversed sequence and the natural destucturing of clojure but this did not pass the timeout of 4clojure.
-It was due to the count done to each the parameter strings for each call.
+#+begin_quote
+Given two sequences x and y, calculate the Levenshtein distance of x and y, i. e. the minimum number of edits needed to transform x into y. The allowed edits are:
 
-So, to avoid computing each time the count of each string, I worked directly with the string as vector and worked with indexes and length.
+- insert a single item
+- delete a single item
+- replace a single item with another item
+#+end_quote
 
-#+HTML: <!--more-->
+I did 3 implementations for this one.
+They all passed the tests but only the last one did pass without timeout on 4clojure.
+
+* first implementation
+
+I liked this one. I reversed the input and use the destructuring of clojure with the head and tail of the list.
+
+#+begin_src clojure
+(defn lv
+    [a b]
+    (letfn
+        [(L [[f & r :as x] [h & t :as y]]
+           (let [l (count x)
+                 m (count y)]
+             (cond (= 0 l) m
+                   (= 0 m) l
+                   (= f h) (L r t)
+                   :else (+ 1 (min (L x t)
+                                   (L r y)
+                                   (L r t))))))]
+      (L (-> a vec rseq) (-> b vec rseq))))
+#+end_src
+
+Unfortunately this timeout.
+
+* Second Implementation
+
+I [[http://clojure.org/data_structures][initially]] thought of the timeout of the previous implementation because of the count call.
+So I tried to act on this but failure, tests ok, timeout on 4clojure.
+
+#+begin_src clojure
+(defn lv
+    [a b]
+    (letfn
+        [(L [[f & r :as x] l [h & t :as y] m]
+           (let [l- (- l 1)
+                 m- (- m 1)]
+             (cond (= 0 l) m
+                   (= 0 m) l
+                   (= f h) (L r l- t m-)
+                   :else (+ 1 (min (L x l t m-)
+                                   (L r l- y m)
+                                   (L r l- t m-))))))]
+      (L (-> a reverse vec) (count a) (-> b reverse vec) (count b))))
+#+end_src
+
+* Last
+Finally, I worked directly with the string as vector and worked with indexes and length.
 
 #+begin_src clojure
 (defn lv
@@ -31,7 +80,7 @@ So, to avoid computing each time the count of each string, I worked directly wit
                                    (L l m-)
                                    (L l- m)
                                    (L l- m-))))))]
-      (L (count a) (count b)))))
+      (L (count x) (count y)))))
 
 (fact
   (lv "kitten" "sitting")               => 3
@@ -47,3 +96,4 @@ So, to avoid computing each time the count of each string, I worked directly wit
   (lv "ttttattttctg" "tcaaccctaccat")   => 10
   (lv "gaattctaatctc" "caaacaaaaaattt") => 9)
 #+end_src
+source: [[https://github.com/ardumont/my-4clojure-lab/blob/master/src/my_4clojure_lab/149/core101.clj][101]]
