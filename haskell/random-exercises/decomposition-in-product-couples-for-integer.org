@@ -1,21 +1,18 @@
 #+BLOG: tony-blog
-#+POSTID: 942
-#+DATE: [2013-01-27 dim. 11:58]
-#+BLOG: tony-blog
-#+TITLE: Some random exercise in haskell
+#+POSTID: 970
+#+DATE: [2013-01-29 mar. 20:11]
+#+TITLE: Problem - Decomposition into a product of 2 numbers
 #+AUTHOR: Massyl Nait-Mouloud, Antoine R. Dumont
 #+OPTIONS:
 #+TAGS: haskell, exercises, functional-programming, quickcheck, generating-testing
 #+CATEGORY: haskell, exercises, functional-programming, quickcheck, generating-testing
-#+DESCRIPTION: Find all the unique couple (a,b) that a*b = n, for n in N+. A first usage of quickcheck to generate tests.
+#+DESCRIPTION: Find all the unique couple (a,b) that a*b = n, for n in N+. A first use of quickcheck to generate tests.
 #+STARTUP: indent
 #+STARTUP: hidestars
 #+ATTR_HTML: border="2" rules="all" frame="border"
 
 A friend of mine asks me to solve an exercise in haskell.
-As I made a mistake in solving it the first time (due to the missed unicity, I considered posting it here).
-
-#+HTML: <!--more-->
+As I made a mistake in solving it the first time, due to the missed unicity, I considered posting it here.
 
 * Problem
 Here is the revised problem:
@@ -50,7 +47,7 @@ for *n = 9* \\
 #+end_quote
 
 So, again, the trick is to bound oneself.
-What about using a to n as the bound for b.
+What about using b in [a..n].
 
 |-----+-----------------+-------------------------|
 |   a | b in [a..n]     | a * b                   |
@@ -99,16 +96,17 @@ I can do some repl to check the output:
 
 Seems ok to me...
 
+source: [[https://github.com/ardumont/my-haskell-lab/blob/master/src/couple.hs][couple.hs]]
+
 * Quickcheck
 
 Now that we have the algorithm, we can use Quickcheck to help up in generating the tests.
 
 ** why
 
-I love to develop. The applications, the design, the performance, etc..., it's fun
+I love to develop. The applications, the design, the performance, etc..., it's fun.
 
 But then I also need to test the application, to ensure that this does what I think it does.
-After all, we're humans, we do make mistakes, that's how we progress (at least for me).
 
 So I develop the application then for testing the application, I develop the unit/integration tests...
 
@@ -117,10 +115,9 @@ It passes the tests!!! (go see [[http://www.infoq.com/presentations/Are-We-There
 
 Indeed, we also develop the tests, so let me ask this, who's gonna test the tests? and then... the tests of the tests... and...
 
-So a conclusion imposes to me, we can no longer develop all the tests, we need to rethink this.
-A solution could be to generate them (at least, the integration tests one).
+Another solution could be to generate some of the integration tests.
 
-Here, in [[http://www.haskell.org/haskellwiki/Haskell][Haskell]], enters [[http://www.haskell.org/haskellwiki/Introduction_to_QuickCheck2][quickcheck]].
+In [[http://www.haskell.org/haskellwiki/Haskell][Haskell]], enters [[http://www.haskell.org/haskellwiki/Introduction_to_QuickCheck2][quickcheck]].
 
 ** how
 
@@ -217,3 +214,5 @@ Passed:
 24
 +++ OK, passed 10 tests.
 #+end_src
+
+As we saw OK for all tests, we are more serene for delivering this code :D
