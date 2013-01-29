@@ -8,17 +8,22 @@
 #+DESCRIPTION: One possible solution about the 'win a tic-tac-toe problem' (119) on 4clojure.com
 
 #+begin_quote
-As in Problem 73, a tic-tac-toe board is represented by a two dimensional vector. X is represented by :x, O is represented by :o, and empty is represented by :e.
+As in [[http://www.4clojure.com/problem/73][problem 73]], a tic-tac-toe board is represented by a two dimensional vector. X is represented by :x, O is represented by :o, and empty is represented by :e.
 
 Create a function that accepts a game piece and board as arguments, and returns a set (possibly empty) of all valid board placements of the game piece which would result in an immediate win.
 
 Board coordinates should be as in calls to get-in. For example, [0 1] is the topmost row, center position.
 #+end_quote
+problem: [[http://www.4clojure.com/problem/119][119]]
 
-I decided to reuse the algorithm in the previous exercise which, given a board, compute the winner of the board.
-I did first a naive version to prove the correctness of the algorithm.
 
-* correctness
+I reused the algorithm [[http://adumont.fr/blog/4clojure-analyze-a-tic-tac-toe-problem/][from the previous exercise]] 73 which, given a board, compute the winner of the board.
+And first, I developed a version to prove the correctness of the algorithm.
+
+* Correctness
+
+My main idea to solve this is to generate all possible boards by replacing for each :e the player we want to see win.
+Then computing the coordinates for which it indeed worked.
 
 #+begin_src clojure
 (defn win?
@@ -48,9 +53,6 @@ I did first a naive version to prove the correctness of the algorithm.
          (into #{}))))
 #+end_src
 
-My main idea to solve this is to generate all possible boards by replacing for each :e the player we want to see win.
-Then computing the coordinates for which it indeed worked.
-
 Simply, I pipe these different computation steps:
 - I compute all the values for all possible coordinates
 - filter on the value :e for each coordinates
@@ -61,7 +63,7 @@ Simply, I pipe these different computation steps:
 
 and voila, tests ok.
 
-* Last
+* Improvments
 
 From this on, I realised that most of those steps could be done directly with the initial list comprehension for.
 So here it goes:
