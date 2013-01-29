@@ -1,4 +1,10 @@
 * Posts
+** [[file:/home/tony/org/clojure/4clojure-101.org][4clojure - Levenshtein problem]]
+:PROPERTIES:
+:POSTID: 962
+:POST_DATE: 20130129T18:48:00+0000
+:Published: No
+:END:
 ** [[file:/home/tony/repo/perso/my-org-files/articles/blogging-with-org-mode-and-org2blog.org][Blogging with org-mode and org2blog to publish on wordpress]]
 :PROPERTIES:
 :POSTID: 586
