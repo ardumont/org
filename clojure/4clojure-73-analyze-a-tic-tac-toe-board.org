@@ -18,6 +18,7 @@ A player wins by placing three Xs or three Os in a horizontal, vertical, or diag
 
 Write a function which analyzes a tic-tac-toe board and returns :x if X has won, :o if O has won, and nil if neither player has won.
 #+end_quote
+problem: [[http://www.4clojure.com/problem/73][73]]
 
 In [[http://clojure.org/][clojure]], we got a real useful tool called [[http://blog.jayfields.com/2010/07/clojure-destructuring.html][destructuring]].
 
