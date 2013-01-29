@@ -273,7 +273,7 @@ CLOSED: [2012-12-23 Sun 13:18]
 https://github.com/relevance/org-html-slideshow
 *** TODO Eval clojure in org-mode file
 http://orgmode.org/worg/org-contrib/babel/languages/ob-doc-clojure.html
-* PENDING Articles [100%]
+* PENDING Articles [94%]
 ** DONE Chroot to save one's GNU/Linux
 CLOSED: [2012-04-21 Sat 18:07]
 http://adumont.fr/blog/chroot-pour-sauver-son-gnulinux/
@@ -388,6 +388,11 @@ http://adumont.fr/blog/4clojure-number-maze-problem/
 ** DONE Decomposition into a product of 2 numbers
 CLOSED: [2013-01-29 mar. 20:27]
 http://adumont.fr/blog/problem-decomposition-into-a-product-of-2-numbers/
+** DONE Analyze a tic-tac-toe board
+CLOSED: [2013-01-30 mer. 00:35]
+http://adumont.fr/blog/4clojure-analyze-a-tic-tac-toe-problem/
+** PENDING Win a tic-tac-toe board
+** PENDING Levenshtein distance
 * TODO clojure [22%]
 ** DONE start [100%]
 CLOSED: [2012-04-21 Sat 18:18]

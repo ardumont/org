@@ -1,9 +1,15 @@
 * Posts
+** [[file:/home/tony/org/clojure/4clojure-119-win-a-tic-tac-toe.org][4clojure - win a tic tac toe problem]]
+:PROPERTIES:
+:POSTID: 983
+:POST_DATE: 20130129T23:13:00+0000
+:Published: No
+:END:
 ** [[file:/home/tony/org/clojure/4clojure-73-analyze-a-tic-tac-toe-board.org][4clojure - analyze a tic tac toe problem]]
 :PROPERTIES:
 :POSTID: 984
 :POST_DATE: 20130129T23:32:00+0000
-:Published: No
+:Published: Yes
 :END:
 ** [[file:/home/tony/org/clojure/4clojure-73-win-a-tic-tac-toe.org][4clojure - win a tic tac toe problem]]
 :PROPERTIES:
