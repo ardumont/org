@@ -1,0 +1,16 @@
+
+I love to develop. The applications, the design, the performance, etc..., it's fun.
+
+But then I also need to test the application, to ensure that this does what I think it does.
+
+So I develop the application then for testing the application, I develop the unit/integration tests...
+
+But then again, what has all in common the applications that crashed in production?
+It passes the tests!!! (go see [[http://www.infoq.com/presentations/Are-We-There-Yet-Rich-Hickey][Rich Hickey's videos, it's way fun]]).
+
+Indeed, we also develop the tests, so let me ask this, who's gonna test the tests? and then... the tests of the tests... and...
+
+Another solution could be to generate some of the integration tests.
+
+In [[http://www.haskell.org/haskellwiki/Haskell][Haskell]], enters [[http://www.haskell.org/haskellwiki/Introduction_to_QuickCheck2][quickcheck]].-
+** how

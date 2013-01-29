@@ -101,34 +101,15 @@ source: [[https://github.com/ardumont/my-haskell-lab/blob/master/src/couple.hs][
 
 * Quickcheck
 
-Now that we have the algorithm, we can use Quickcheck to help up in generating the tests.
+Now that we have the algorithm, we can use [[Http://Www.Haskell.Org/Haskellwiki/Introduction_To_QuickCheck2][Quickcheck]] to help up in generating the tests.
 
-** why
-
-I love to develop. The applications, the design, the performance, etc..., it's fun.
-
-But then I also need to test the application, to ensure that this does what I think it does.
-
-So I develop the application then for testing the application, I develop the unit/integration tests...
-
-But then again, what has all in common the applications that crashed in production?
-It passes the tests!!! (go see [[http://www.infoq.com/presentations/Are-We-There-Yet-Rich-Hickey][Rich Hickey's videos, it's way fun]]).
-
-Indeed, we also develop the tests, so let me ask this, who's gonna test the tests? and then... the tests of the tests... and...
-
-Another solution could be to generate some of the integration tests.
-
-In [[http://www.haskell.org/haskellwiki/Haskell][Haskell]], enters [[http://www.haskell.org/haskellwiki/Introduction_to_QuickCheck2][quickcheck]].
-
-** how
-
-For using quickcheck, we need to define the properties of our algorithm:
+For using [[http://www.haskell.org/haskellwiki/Introduction_to_QuickCheck2][quickcheck]], we need to define the properties of our algorithm:
 
 - for all a,b in [(a,b) | n <- [1..], couple n], a * b == n
 - for all n,m in N+ x N+, couple n == couple m
 - for all a,b in [(a,b) | n <- [1..], couple n], a <= isqrt n
 
-Now we tell quickcheck to generate data and check those properties:
+Now we tell [[http://www.haskell.org/haskellwiki/Introduction_to_QuickCheck2][quickcheck]] to generate data and check those properties:
 
 #+begin_src haskell
 prop_productOk = (\ n -> all (\ (a,b) -> a * b == n ) (couple n))
@@ -153,66 +134,23 @@ Here is a sample output:
 *Couple> main
 Passed:
 0
-Passed:
--1
-Passed:
--1
-Passed:
-1
-Passed:
-0
-Passed:
--8
-Passed:
-0
-Passed:
-14
-Passed:
-16
+...
 Passed:
 3
 +++ OK, passed 10 tests.
 Passed:
 -1
-Passed:
-0
-Passed:
-2
-Passed:
-1
-Passed:
-0
-Passed:
-1
-Passed:
--5
+...
 Passed:
 11
-Passed:
-16
-Passed:
--10
 +++ OK, passed 10 tests.
 Passed:
 -1
 Passed:
--1
-Passed:
-0
-Passed:
-2
-Passed:
-1
-Passed:
--6
-Passed:
--3
-Passed:
 6
+...
 Passed:
 -12
-Passed:
-24
 +++ OK, passed 10 tests.
 #+end_src
 
