@@ -9,7 +9,6 @@
 #+DESCRIPTION: Find all the unique couple (a,b) that a*b = n, for n in N+. A first use of quickcheck to generate tests.
 #+STARTUP: indent
 #+STARTUP: hidestars
-#+ATTR_HTML: border="2" rules="all" frame="border"
 
 A friend of mine asks me to solve an exercise in haskell.
 As I made a mistake in solving it the first time, due to the missed unicity, I considered posting it here.
@@ -49,6 +48,7 @@ for *n = 9* \\
 So, again, the trick is to bound oneself.
 What about using b in [a..n].
 
+#+begin_src text
 |-----+-----------------+-------------------------|
 |   a | b in [a..n]     | a * b                   |
 |-----+-----------------+-------------------------|
@@ -56,11 +56,12 @@ What about using b in [a..n].
 |   2 | . 2 3 4 5 ... n | . 4 6  8 10 12 ...  2n  |
 |   3 | . . 3 4 5 ... n | . . 9 12 15 18 ...  3n  |
 |   4 | . . . 4 5 ... n | . . . 16 20 24 ...  4n  |
-|   5 | . . . . 5 ... n | . . . . 25 30  ...  5n  |
-|   6 | . . . . . ... n | . . . . .  36  ...  6n  |
+|   5 | . . . . 5 ... n | . . . .  25 30 ...  5n  |
+|   6 | . . . . . ... n | . . . . .   36 ...  6n  |
 | ... | . . . . . ... n | . . . . . . .  ...      |
 |   n | . . . . . ... n | . . . . . . .  ...  n^2 |
 |-----+-----------------+-------------------------|
+#+end_src
 
 Seems right.
 But then again, we could limit the range [a..n] to [a..sqrt n].

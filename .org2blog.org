@@ -92,7 +92,7 @@
 ** [[file:/home/tony/org/haskell/random-exercises/decomposition-in-product-couples-for-integer.org][Problem - Decomposition into a product of 2 numbers]]
 :PROPERTIES:
 :POSTID: 970
-:POST_DATE: 20130129T19:11:09+0000
+:POST_DATE: 20130129T19:11:00+0000
 :Published: No
 :END:
 ** [[file:/home/tony/org/clojure/4clojure-171.org][4clojure - Intervals problem]]
