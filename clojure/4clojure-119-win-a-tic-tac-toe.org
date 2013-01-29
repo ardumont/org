@@ -16,7 +16,6 @@ Board coordinates should be as in calls to get-in. For example, [0 1] is the top
 #+end_quote
 problem: [[http://www.4clojure.com/problem/119][119]]
 
-
 I reused the algorithm [[http://adumont.fr/blog/4clojure-analyze-a-tic-tac-toe-problem/][from the previous exercise]] 73 which, given a board, compute the winner of the board.
 And first, I developed a version to prove the correctness of the algorithm.
 
@@ -115,3 +114,5 @@ So here it goes:
                [:o :e :o]
                [:x :e :e]]) => #{[2 2] [1 1]})
 #+end_src
+
+source: [[https://github.com/ardumont/my-4clojure-lab/blob/master/src/my_4clojure_lab/149/core119.clj][119]]
