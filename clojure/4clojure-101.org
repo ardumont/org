@@ -1,0 +1,44 @@
+#+BLOG: tony-blog
+#+OPTIONS:
+#+CATEGORY: clojure, exercises, 4clojure, functional-programming
+#+TAGS: clojure, exercises, 4clojure, functional-programming
+#+TITLE: 4clojure - Intervals problem
+#+DESCRIPTION: One possible solution about the levenshtein distance computation problem (101) on 4clojure.com
+
+I initially did this exercise using directly the reversed string as seq and the natural destucturing of clojure but this did not pass the timeout of 4clojure.
+It was due to the count done to each the parameter strings for each call.
+
+So, to avoid computing each time the count of each string, I worked directly with the string as vector and worked with indexes and length.
+
+#+begin_src clojure
+(defn lv
+  [a b]
+  (let [x (vec a)
+        y (vec b)]
+    (letfn
+        [(L [l m]
+           (let [l- (- l 1)
+                 m- (- m 1)]
+             (cond (= 0 l) m
+                   (= 0 m) l
+                   (= (x l-) (y m-)) (L l- m-)       ;; character equals, the levenshtein distance is equal to the one of the rest of the string (we drop the heads and compare)
+                   :else (+ 1 (min
+                                   (L l m-)          ;; deletion
+                                   (L l- m)          ;; insertion
+                                   (L l- m-))))))]   ;; we need to compute the distance of the remaining strings (each minus the first character)
+      (L (count a) (count b)))))
+
+(fact
+  (lv "kitten" "sitting")               => 3
+  (lv "closure" "clojure")              => 1
+  (lv "clojure" "closure")              => 1
+  (lv "xyx" "xyyyx")                    => 2
+  (lv "" "123456")                      => 6
+  (lv "Clojure" "Clojure")              => 0
+  (lv "" "")                            => 0
+  (lv  [] [] )                          => 0
+  (lv [1 2 3 4] [0 2 3 4 5])            => 2
+  (lv '(:a :b :c :d) '(:a :d))          => 2
+  (lv "ttttattttctg" "tcaaccctaccat")   => 10
+  (lv "gaattctaatctc" "caaacaaaaaattt") => 9)
+#+end_src
