@@ -2,7 +2,7 @@
 #+POSTID: 946
 #+DATE: [2013-01-28 lun. 19:29]
 #+OPTIONS:
-#+CATEGORY: clojure, exercises
+#+CATEGORY: clojure, exercises, 4clojure, functional-programming
 #+TAGS: clojure, exercises, 4clojure, functional-programming
 #+TITLE: 4clojure - Number maze problem
 #+DESCRIPTION: One possible solution about the number maze (106) problem on 4clojure.com
