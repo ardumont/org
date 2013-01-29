@@ -1,0 +1,115 @@
+#+BLOG: tony-blog
+#+POSTID: 983
+#+DATE: [2013-01-30 mer. 00:13]
+#+OPTIONS:
+#+CATEGORY: clojure, exercises, 4clojure, functional-programming, tic-tac-toe
+#+TAGS: clojure, exercises, 4clojure, functional-programming, tic-tac-toe
+#+TITLE: 4clojure - win a tic tac toe problem
+#+DESCRIPTION: One possible solution about the 'win a tic-tac-toe problem' (119) on 4clojure.com
+
+#+begin_quote
+As in Problem 73, a tic-tac-toe board is represented by a two dimensional vector. X is represented by :x, O is represented by :o, and empty is represented by :e.
+
+Create a function that accepts a game piece and board as arguments, and returns a set (possibly empty) of all valid board placements of the game piece which would result in an immediate win.
+
+Board coordinates should be as in calls to get-in. For example, [0 1] is the topmost row, center position.
+#+end_quote
+
+I decided to reuse the algorithm in the previous exercise which, given a board, compute the winner of the board.
+I did first a naive version to prove the correctness of the algorithm.
+
+* correctness
+
+#+begin_src clojure
+(defn win?
+  [b]
+  (letfn [(w [[[a b c]
+               [d e f]
+               [g h i]] p] (or (= p a b c)
+                               (= p d e f)
+                               (= p g h i)
+                               (= p a d g)
+                               (= p b e h)
+                               (= p c f i)
+                               (= p a e i)
+                               (= p c e g)))]
+    (cond (w b :x) :x
+          (w b :o) :o
+          :else nil)))
+
+(defn win
+  [p b]
+  (let [n (-> b first count)]
+    (->> (for [x (range n) y (range n)] [(get-in b [x y]) [x y]])
+         (filter (fn [[e _]] (= :e e)))
+         (map (fn [[_ v]] [(win? (assoc-in b v p)) v]))
+         (filter (fn [[w _]] (= p w)))
+         (map second)
+         (into #{}))))
+#+end_src
+
+My main idea to solve this is to generate all possible boards by replacing for each :e the player we want to see win.
+Then computing the coordinates for which it indeed worked.
+
+Simply, I pipe these different computation steps:
+- I compute all the values for all possible coordinates
+- filter on the value :e for each coordinates
+- replace the empty entries by the current player to play and compute the winner of the result board
+- filter on the winner which must be the current player
+- retrieve only the coordinates
+- reduce them in a set
+
+and voila, tests ok.
+
+* Last
+
+From this on, I realised that most of those steps could be done directly with the initial list comprehension for.
+So here it goes:
+
+#+begin_src clojure
+(defn w?
+  [b]
+  (letfn [(w [[[a b c]
+               [d e f]
+               [g h i]] p] (or (= p a b c)
+                               (= p d e f)
+                               (= p g h i)
+                               (= p a d g)
+                               (= p b e h)
+                               (= p c f i)
+                               (= p a e i)
+                               (= p c e g)))]
+    (cond (w b :x) :x
+          (w b :o) :o
+          :else nil)))
+
+(defn win [p b]
+  (let [n (-> b first count)
+        r (range n)]
+    (set (for [x r
+               y r
+               :let [v [x y]
+                     e (get-in b v)]
+               :when (and (= :e e) (= p (-> b (assoc-in v p) w?)))]
+           v))))
+
+(fact (win :x [[:o :e :e]
+               [:o :x :o]
+               [:x :x :e]]) => #{[2 2] [0 1] [0 2]})
+
+(fact (win :x [[:x :o :o]
+               [:x :x :e]
+               [:e :o :e]]) => #{[2 2] [1 2] [2 0]})
+
+(fact (win :x [[:x :e :x]
+               [:o :x :o]
+               [:e :o :e]]) => #{[2 2] [0 1] [2 0]})
+
+(fact (win :x [[:x :x :o]
+               [:e :e :e]
+               [:e :e :e]]) => #{})
+
+(fact (win :o [[:x :x :o]
+               [:o :e :o]
+               [:x :e :e]]) => #{[2 2] [1 1]})
+#+end_src

@@ -1,4 +1,10 @@
 * Posts
+** [[file:/home/tony/org/clojure/4clojure-73-win-a-tic-tac-toe.org][4clojure - win a tic tac toe problem]]
+:PROPERTIES:
+:POSTID: 983
+:POST_DATE: 20130129T23:13:05+0000
+:Published: No
+:END:
 ** [[file:/home/tony/org/clojure/4clojure-101.org][4clojure - Levenshtein distance problem]]
 :PROPERTIES:
 :POSTID: 962
