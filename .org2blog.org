@@ -343,7 +343,7 @@
 :END:
 ** [[file:/home/tony/org/about-me.org][About me]]
 :PROPERTIES:
-:POSTID: 3
+:POSTID: 2
 :POST_DATE: 20121222T13:20:00+0000
 :Published: Yes
 :END:
