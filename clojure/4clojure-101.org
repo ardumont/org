@@ -2,8 +2,8 @@
 #+POSTID: 962
 #+DATE: [2013-01-29 mar. 19:48]
 #+OPTIONS:
-#+CATEGORY: clojure, exercises, 4clojure, functional-programming
-#+TAGS: clojure, exercises, 4clojure, functional-programming
+#+CATEGORY: clojure, exercises, 4clojure, functional-programming, levenshtein, distance
+#+TAGS: clojure, exercises, 4clojure, functional-programming, levenshtein, distance
 #+TITLE: 4clojure - Levenshtein distance problem
 #+DESCRIPTION: One possible solution about the levenshtein distance computation problem (101) on 4clojure.com
 
@@ -16,7 +16,7 @@ Given two sequences x and y, calculate the Levenshtein distance of x and y, i. e
 #+end_quote
 
 I did 3 implementations for this one.
-They all passed the tests but only the last one did pass without timeout on 4clojure.
+They all passed the tests but only the last one did pass without timeout on [[http://www.4clojure.com/][4clojure.com]].
 
 * first implementation
 
@@ -43,7 +43,7 @@ Unfortunately this timeout.
 * Second Implementation
 
 I [[http://clojure.org/data_structures][initially]] thought of the timeout of the previous implementation because of the count call.
-So I tried to act on this but failure, tests ok, timeout on 4clojure.
+So I tried to act on this but failure, tests ok, timeout on [[http://www.4clojure.com/][4clojure.com]].
 
 #+begin_src clojure
 (defn lv
