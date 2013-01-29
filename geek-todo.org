@@ -385,6 +385,9 @@ http://adumont.fr/blog/intervals/
 ** DONE number maze problem on 4clojure
 CLOSED: [2013-01-28 lun. 22:38]
 http://adumont.fr/blog/4clojure-number-maze-problem/
+** DONE Decomposition into a product of 2 numbers
+CLOSED: [2013-01-29 mar. 20:27]
+http://adumont.fr/blog/problem-decomposition-into-a-product-of-2-numbers/
 * TODO clojure [22%]
 ** DONE start [100%]
 CLOSED: [2012-04-21 Sat 18:18]
