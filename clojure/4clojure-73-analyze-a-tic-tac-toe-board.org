@@ -1,0 +1,69 @@
+#+BLOG: tony-blog
+#+POSTID: 984
+#+DATE: [2013-01-30 mer. 00:32]
+#+BLOG: tony-blog
+#+OPTIONS:
+#+CATEGORY: clojure, exercises, 4clojure, functional-programming, tic-tac-toe
+#+TAGS: clojure, exercises, 4clojure, functional-programming, tic-tac-toe
+#+TITLE: 4clojure - analyze a tic tac toe problem
+#+DESCRIPTION: One possible solution about the 'analyze a tic-tac-toe problem' (73) on 4clojure.com
+
+#+begin_quote
+A tic-tac-toe board is represented by a two dimensional vector:
+- X is represented by :x
+- O is represented by :o
+- and empty is represented by :e.
+
+A player wins by placing three Xs or three Os in a horizontal, vertical, or diagonal row.
+
+Write a function which analyzes a tic-tac-toe board and returns :x if X has won, :o if O has won, and nil if neither player has won.
+#+end_quote
+
+In [[http://clojure.org/][clojure]], we got a real useful tool called [[http://blog.jayfields.com/2010/07/clojure-destructuring.html][destructuring]].
+
+I use it here to extract all values in the board (3x3 matrix so only 9 values).
+Then, I compute the 8 possible combinations of success.
+
+#+begin_src clojure
+(defn ttt [b]
+  (letfn [(w [[[a b c]
+               [d e f]
+               [g h i]] p] (or (= p a b c)
+                               (= p d e f)
+                               (= p g h i)
+                               (= p a d g)
+                               (= p b e h)
+                               (= p c f i)
+                               (= p a e i)
+                               (= p c e g)))]
+    (cond (w b :x) :x
+          (w b :o) :o
+          :else nil)))
+
+(fact
+  (ttt [[:e :e :e]
+        [:e :e :e]
+        [:e :e :e]]) => nil
+  (ttt [[:x :e :o]
+        [:x :e :e]
+        [:x :e :o]]) => :x
+  (ttt [[:e :x :e]
+        [:o :o :o]
+        [:x :e :x]]) => :o
+  (ttt [[:x :e :o]
+        [:x :x :e]
+        [:o :x :o]]) => nil
+  (ttt [[:x :e :e]
+        [:o :x :e]
+        [:o :e :x]]) => :x
+  (ttt [[:x :e :o]
+        [:x :o :e]
+        [:o :e :x]]) => :o
+  (ttt [[:x :o :x]
+        [:x :o :x]
+        [:o :x :o]]) => nil)
+#+end_src
+
+Tests ok.
+
+source: [[https://github.com/ardumont/my-4clojure-lab/blob/master/src/my_4clojure_lab/99/core73.clj][73]]
