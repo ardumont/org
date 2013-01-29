@@ -33,67 +33,69 @@ for *n = 9* \\
 
   a in *1 2 3 4 5 6 7 8 9* (we can see a in rows)\\
 
-  b in the range [1 a] (b in columns) \\
+  b in the range [a n] (b in columns) \\
 
-    *1* +2 3 4 5 6 7 8 9+ \\
-    *1 2* +3 4 5 6 7 8 9+ \\
-    *1 2 3* +4 5 6 7 8 9+ \\
-    *1 2 3 4* +5 6 7 8 9+ \\
-    *1 2 3 4 5* +6 7 8 9+ \\
-    *1 2 3 4 5 6* +7 8 9+ \\
-    *1 2 3 4 5 6 7* +8 9+ \\
-    *1 2 3 4 5 6 7 8* +9+ \\
-    *1 2 3 4 5 6 7 8 9*
-#+end_quote
-
-Then applying the computation:
-
-|-----+-----------------------+-------------------------------|
-|   a | b                     | a * b                         |
-|-----+-----------------------+-------------------------------|
-|   1 | 1                     | 1                             |
-|   2 | 1 2                   | 2 4                           |
-|   3 | 1 2 3                 | 3 6 9                         |
-|   4 | 1 2 3 4               | 4 8 12 16                     |
-|   5 | 1 2 3 4 5             | 5 10 15 20 25                 |
-|   6 | 1 2 3 4 5 6           | 6 12 18 24 30 36              |
-|   7 | 1 2 3 4 5 6 7         | 7 14 21 28 35 42 49           |
-| ... | ...                   | ...                           |
-|   n | 1 2 3 4 5 6 7 ... n   | n 2n 3n 4n 5n 6n 7n ... n^2   |
-|-----+-----------------------+-------------------------------|
-
-But then, it occurs to me that I did way too much computations.
-Look at the extreme result, we goes up until n^2 ...
-wait, what!?
+  +1+ *2 3 4 5 6 7 8 9* \\
+  +1 2+ *3 4 5 6 7 8 9* \\
+  +1 2 3+ *4 5 6 7 8 9* \\
+  +1 2 3 4+ *5 6 7 8 9* \\
+  +1 2 3 4 5+ *6 7 8 9* \\
+  +1 2 3 4 5 6+ *7 8 9* \\
+  +1 2 3 4 5 6 7+ *8 9* \\
+  +1 2 3 4 5 6 7 8+ *9* \\
+  +1 2 3 4 5 6 7 8 9+
+#*end_quote
 
 So, again, the trick is to bound oneself.
-And, I think the floored sqrt value of a is wayyyyy enough.
+What about using a to n as the bound for b.
 
 |-----+--------------------+-------------------------|
-|   a | b in [1..isqrt a]  | a * b                   |
+|   a | b in [a..n]        | a * b                   |
 |-----+--------------------+-------------------------|
-|   1 | 1                  | 1                       |
-|   2 | 1                  | 2                       |
-|   3 | 1 2                | 3 6                     |
-|   4 | 1 2                | 4 8                     |
-|   5 | 1 2                | 5 10                    |
-|   6 | 1 2                | 6 12                    |
-|   7 | 1 2 3              | 7 14 21                 |
-| ... | ...                | ...                     |
-|   n | 1 2 3 4 ... sqrt n | n 2n 3n 4n ... n*sqrt n |
+|   1 | 1 2 3 4 5 ... n    | 1 2 3  4  5  6 ...   n  |
+|   2 |   2 3 4 5 ... n    |   4 6  8 10 12 ...  2n  |
+|   3 |     3 4 5 ... n    |     9 12 15 18 ...  3n  |
+|   4 |       4 5 ... n    |       16 20 24 ...  4n  |
+|   5 |         5 ... n    |          25 30 ...  5n  |
+|   6 |         6 ...      |             36 ...      |
+|   7 |           ...      |                ...      |
+| ... |           ...      |                ...      |
+|   n |               n    |                     n^2 |
 |-----+--------------------+-------------------------|
 
+Seems right.
+But then again, we could limit the range [a..n] to [a..sqrt n].
 
 * algorithm
-Here is the algorithm:
 
 #+begin_src haskell
 isqrt :: Int -> Int
-isqrt = floor . sqrt . fromIntegral ;; this is to compute the square root of an Int
+isqrt = floor . sqrt . fromIntegral
 
 couple :: Int -> [(Int, Int)]
-couple n = [(a,b) | a <- [1..n], b <- [1..isqrt a], a * b == n]
+couple n = [(a,b) | a <- [1..isqrt n], b <- [a..n], a * b == n]
 #+end_src
+
+I can do some repl to check the output:
+
+#+begin_src haskell
+*Couple> couple 10
+[(1,10),(2,5)]
+*Couple> couple 12
+[(1,12),(2,6),(3,4)]
+*Couple> couple 24
+[(1,24),(2,12),(3,8),(4,6)]
+*Couple> couple 100
+[(1,100),(2,50),(4,25),(5,20),(10,10)]
+*Couple> couple 1000
+[(1,1000),(2,500),(4,250),(5,200),(8,125),(10,100),(20,50),(25,40)]
+*Couple> couple 1000
+[(1,1000),(2,500),(4,250),(5,200),(8,125),(10,100),(20,50),(25,40)]
+*Couple> couple 10000
+[(1,10000),(2,5000),(4,2500),(5,2000),(8,1250),(10,1000),(16,625),(20,500),(25,400),(40,250),(50,200),(80,125),(100,100)]
+#+end_src
+
+Seems ok to me...
 
 * Quickcheck
 
@@ -101,8 +103,10 @@ Now that we have the algorithm, we can use Quickcheck to help up in generating t
 
 ** why
 
-I love to develop the applications, the design, the performance, etc...
-But then I also need to test the application, to ensure that this does what I think it does (hey I'm human, I do make mistakes, that's how I progress).
+I love to develop. The applications, the design, the performance, etc..., it's fun
+
+But then I also need to test the application, to ensure that this does what I think it does.
+After all, we're humans, we do make mistakes, that's how we progress (at least for me).
 
 So I develop the application then for testing the application, I develop the unit/integration tests...
 
@@ -118,26 +122,28 @@ Here, in [[http://www.haskell.org/haskellwiki/Haskell][Haskell]], enters [[http:
 
 ** how
 
-But first, let's see the property of our algorithm:
+For using quickcheck, we need to define the properties of our algorithm:
 
-- for all a,b in N+ x N+, a * b == n
-- for all a,b in N+ x N+, b <= a
-- for all a,b in N+ x N+, a == b or (a,b) /= (b,a)
+- for all a,b in [(a,b) | n <- [1..], couple n], a * b == n
+- for all n,m in N+ x N+, couple n == couple m
+- for all a,b in [(a,b) | n <- [1..], couple n], a <= isqrt n
 
-Here is one way of checking using quickcheck:
+Now we tell quickcheck to generate data and check those properties:
 
 #+begin_src haskell
 prop_productOk = (\ n -> all (\ (a,b) -> a * b == n ) (couple n))
-prop_coupleDistinct = (\ n -> all (\ (a,b) -> ((a == b) || (a, b) /= (b, a))) (couple n))
-prop_coupleInferior = (\ n -> all (\ (a,b) -> b <= a ) (couple n))
+prop_coupleIdempotence = (\ x y -> couple x == couple y)
+prop_coupleInfSqrt = (\ n -> all (\ (a,b) -> a <= isqrt n ) (couple n))
 
+-- adding
 main = do
-  verboseCheckWith stdArgs { maxSuccess = 10 } prop_productOk
-  verboseCheckWith stdArgs { maxSuccess = 10 } prop_coupleDistinct
-  verboseCheckWith stdArgs { maxSuccess = 10 } prop_coupleInferior
+  verboseCheckWith stdArgs { maxSuccess = 1000, maxSize = 5 } prop_productOk
+  verboseCheckWith stdArgs { maxSuccess = 1000, maxSize = 5 } prop_coupleIdempotence
+  verboseCheckWith stdArgs { maxSuccess = 1000, maxSize = 5 } prop_coupleInfSqrt
 #+end_src
 
-Here, I ask to chain the checking of each properties in limited the number of success to 10.
+Here, I ask to chain the checking of each properties in limiting the number of success to 10.
+
 This could [[http://hackage.haskell.org/packages/archive/QuickCheck/2.4.1.1/doc/html/Test-QuickCheck.html][be adapted for more hard checking!]]
 
 ** output
