@@ -2,8 +2,8 @@
 ** [[file:/home/tony/org/clojure/4clojure-119-win-a-tic-tac-toe.org][4clojure - win a tic tac toe problem]]
 :PROPERTIES:
 :POSTID: 983
-:POST_DATE: 20130129T23:13:00+0000
-:Published: No
+:POST_DATE: 20130131T07:32:00+0000
+:Published: Yes
 :END:
 ** [[file:/home/tony/org/clojure/4clojure-73-analyze-a-tic-tac-toe-board.org][4clojure - analyze a tic tac toe problem]]
 :PROPERTIES:
@@ -20,8 +20,8 @@
 ** [[file:/home/tony/org/clojure/4clojure-101.org][4clojure - Levenshtein distance problem]]
 :PROPERTIES:
 :POSTID: 962
-:POST_DATE: 20130129T18:48:00+0000
-:Published: No
+:POST_DATE: 20130201T07:31:49+0000
+:Published: Yes
 :END:
 ** [[file:/home/tony/repo/perso/my-org-files/articles/blogging-with-org-mode-and-org2blog.org][Blogging with org-mode and org2blog to publish on wordpress]]
 :PROPERTIES:

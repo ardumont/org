@@ -1,6 +1,6 @@
+#+DATE: [2013-02-01 ven. 08:31]
 #+BLOG: tony-blog
 #+POSTID: 962
-#+DATE: [2013-01-29 mar. 19:48]
 #+OPTIONS:
 #+CATEGORY: clojure, exercises, 4clojure, functional-programming, levenshtein, distance
 #+TAGS: clojure, exercises, 4clojure, functional-programming, levenshtein, distance

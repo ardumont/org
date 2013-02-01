@@ -1,6 +1,6 @@
+#+DATE: [2013-01-31 jeu. 08:32]
 #+BLOG: tony-blog
 #+POSTID: 983
-#+DATE: [2013-01-30 mer. 00:13]
 #+OPTIONS:
 #+CATEGORY: clojure, exercises, 4clojure, functional-programming, tic-tac-toe
 #+TAGS: clojure, exercises, 4clojure, functional-programming, tic-tac-toe
