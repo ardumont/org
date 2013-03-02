@@ -393,7 +393,7 @@ CLOSED: [2013-01-30 mer. 00:35]
 http://adumont.fr/blog/4clojure-analyze-a-tic-tac-toe-problem/
 ** PENDING Win a tic-tac-toe board
 ** PENDING Levenshtein distance
-* TODO clojure [22%]
+* TODO clojure [30%]
 ** DONE start [100%]
 CLOSED: [2012-04-21 Sat 18:18]
 *** DONE install
@@ -612,6 +612,12 @@ CLOSED: [2012-04-30 lun. 15:05]
 CLOSED: [2012-05-01 mar. 20:45]
 *** TODO code kata
 http://codekata.pragprog.com/2007/01/code_kata_backg.html#more
+** DONE Create a basic rss reader
+CLOSED: [2012-12-25 Tue 10:51]
+** DONE [[https://github.com/weavejester/environ][environ]]
+CLOSED: [2013-03-02 sam. 15:46]
+library to manage environment settings from a number of different sources
+
 ** TODO projects [%]
 *** PENDING twitalyse
 *** PENDING fnx
@@ -619,9 +625,22 @@ http://codekata.pragprog.com/2007/01/code_kata_backg.html#more
 **** DONE Deploy the app and setup the env
 CLOSED: [2012-05-03 jeu. 08:22]
 **** Play with it
+** TODO Cloduino [66%]
+*** DONE led
+CLOSED: [2013-03-02 sam. 15:11]
+*** DONE blinking led
+CLOSED: [2013-03-02 sam. 15:11]
+*** TODO more advanced subject
+** TODO [[https://github.com/pallet/ritz][ritz]]
+collection of library and servers for clojure dev env and for debuggers.
+** TODO [[https://github.com/pallet/ritz/tree/develop/nrepl][ritz-nrepl]]
+** TODO [[https://github.com/pallet/pallet][pallet]] [50%]
+*** TODO http://sritchie.github.com/2011/05/31/hadoop-on-pallet.html
+*** DONE my-pallet-lab bootstrap
+CLOSED: [2013-03-02 sam. 15:11]
+*** TODO provision an ec2 node with pallet
+
 ** TODO Incanter
 ** TODO xml
-** DONE Create a basic rss reader
-CLOSED: [2012-12-25 Tue 10:51]
-** TODO Cloduino
-** TODO http://sritchie.github.com/2011/05/31/hadoop-on-pallet.html
+** DONE clj-ssh
+CLOSED: [2013-03-02 sam. 15:12]
