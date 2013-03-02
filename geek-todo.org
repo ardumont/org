@@ -638,11 +638,17 @@ CLOSED: [2013-03-02 sam. 15:11]
 ** TODO [[https://github.com/pallet/ritz][ritz]]
 collection of library and servers for clojure dev env and for debuggers.
 ** TODO [[https://github.com/pallet/ritz/tree/develop/nrepl][ritz-nrepl]]
-** TODO [[https://github.com/pallet/pallet][pallet]] [50%]
-*** TODO http://sritchie.github.com/2011/05/31/hadoop-on-pallet.html
+** TODO [[https://github.com/pallet/pallet][pallet]] [66%]
 *** DONE my-pallet-lab bootstrap
 CLOSED: [2013-03-02 sam. 15:11]
-*** TODO provision an ec2 node with pallet
+*** IN-PROGRESS reading [[http://palletops.com/doc/reference/0.8/][documentation]]
+*** DONE setup for ec2
+CLOSED: [2013-03-02 sam. 20:06]
+*** DONE provision an ec2 node with pallet
+CLOSED: [2013-03-02 sam. 20:06]
+*** DONE migrate from 0.7.3 to 0.8.0-beta1
+CLOSED: [2013-03-02 sam. 20:06]
+*** TODO create one small crate
 
 ** TODO Incanter
 ** TODO xml
