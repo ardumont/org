@@ -267,6 +267,8 @@ CLOSED: [2012-12-23 Sun 13:18]
 CLOSED: [2012-12-23 Sun 13:18]
 *** DONE create packs for my setup
 CLOSED: [2012-12-23 Sun 13:18]
+*** DONE update emacs live
+CLOSED: [2013-03-02 sam. 15:50]
 ** TODO Reading [0%]
 *** TODO Read emacs manual
 *** TODO A mode to make slides from org
