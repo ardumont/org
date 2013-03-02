@@ -395,7 +395,7 @@ CLOSED: [2013-01-30 mer. 00:35]
 http://adumont.fr/blog/4clojure-analyze-a-tic-tac-toe-problem/
 ** PENDING Win a tic-tac-toe board
 ** PENDING Levenshtein distance
-* TODO clojure [30%]
+* TODO clojure [28%]
 ** DONE start [100%]
 CLOSED: [2012-04-21 Sat 18:18]
 *** DONE install
@@ -620,6 +620,8 @@ CLOSED: [2012-12-25 Tue 10:51]
 CLOSED: [2013-03-02 sam. 15:46]
 library to manage environment settings from a number of different sources
 
+** DONE clj-ssh
+CLOSED: [2013-03-02 sam. 15:12]
 ** TODO projects [%]
 *** PENDING twitalyse
 *** PENDING fnx
@@ -644,5 +646,4 @@ CLOSED: [2013-03-02 sam. 15:11]
 
 ** TODO Incanter
 ** TODO xml
-** DONE clj-ssh
-CLOSED: [2013-03-02 sam. 15:12]
+** TODO [[https://github.com/ztellman/aleph][Aleph]]
