@@ -81,7 +81,7 @@ CLOSED: [2013-01-01 mar. 20:09]
 CLOSED: [2013-01-01 mar. 20:10]
 ** DONE ok with mobile
 CLOSED: [2013-01-01 mar. 20:10]
-* TODO org-mode [80%]
+* PENDING org-mode [80%]
 ** DONE Howto install it?
 CLOSED: [2012-04-21 Sat 11:58]
 see =~/bin/setup-emacs24.sh= (in the init.el, there is some emacs-lisp that launches the install of different modes,
@@ -187,7 +187,7 @@ CLOSED: [2012-04-22 Sun 11:13]
 #+END_SRC
 Need some setup.
 *** IN-PROGRESS setup it to have access to different languages
-* TODO emacs [85%]
+* PENDING emacs [85%]
 ** DONE install
 CLOSED: [2012-04-21 Sat 12:02]
 #+BEGIN_SRC sh
@@ -395,7 +395,7 @@ CLOSED: [2013-01-30 mer. 00:35]
 http://adumont.fr/blog/4clojure-analyze-a-tic-tac-toe-problem/
 ** PENDING Win a tic-tac-toe board
 ** PENDING Levenshtein distance
-* TODO clojure [28%]
+* PENDING clojure [28%]
 ** DONE start [100%]
 CLOSED: [2012-04-21 Sat 18:18]
 *** DONE install
@@ -653,3 +653,14 @@ CLOSED: [2013-03-02 sam. 20:06]
 ** TODO Incanter
 ** TODO xml
 ** TODO [[https://github.com/ztellman/aleph][Aleph]]
+* PENDING CPUG [80%]
+** DONE make a vm to ease the beginning for newbies
+CLOSED: [2013-03-03 dim. 00:05]
+** DONE make a vagrant box out of this vm
+CLOSED: [2013-03-03 dim. 00:06]
+** PENDING upload this vm somewhere and reference it (where?)
+** DONE make a [[https://github.com/ardumont/cpug-vm][cpug-vm repository]]
+CLOSED: [2013-03-03 dim. 00:06]
+
+** DONE make a decent cpug-vm/Vagrantfile startup
+CLOSED: [2013-03-03 dim. 01:45]
