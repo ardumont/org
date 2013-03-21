@@ -1,0 +1,119 @@
+09/02/2012	7-2	21	Animation d'un 12-14 clojure
+
+11/02/2012	7-2	21	Animation d'un 12-14 clojure
+
+29/02/2012	9-2	55	Animation jduchess battle language pour le langage clojure
+
+02/2012	2-2	2	participation html5 meetup
+
+15/03/2012	2-2	2	participation hadoop user group
+
+10-12 / 2012	2-2	12	participation dojo coding clojure (6)
+
+10-12 / 2012	3-2	9	30 nouveaux contacts viadeo
+
+10-12 / 2012	3-2	15	50 nouveaux contacts linkedin
+
+10-12 / 2012	5-4	8	- pull request sur le projet 4clojure (https://github.com/4clojure/4clojure/pull/207)  issues github sur le projet 4clojure (https://github.com/4clojure/4clojure/issues/205, https://github.com/4clojure/4clojure/issues/206)
+
+10-12 / 2012	5-4	8	- issues github sur le projet midje (https://github.com/marick/Midje/issues/104)
+
+10-12 / 2012	7-7	21	fnx - expose your functions on the web (current)
+
+10-12 / 2012	5-4	8	sh-deps (graphe de dependances des scripts bash)
+
+10-12 / 2012	5-4	8	clojure-plays-checkers (dame en clj)
+
+10-12 / 2012	5-4	8	luhn-challenge (exercices d'anonymisation de cb dans un flux de log infini)
+
+29/03/2012	9-2	55	Hands-on clojure - JDuchess
+
+ 08/2011	6-3	13	http://adumont.fr/blog/howto-install-stumpwm-and-little-more/
+
+ 08/2011	6-3	13	http://adumont.fr/blog/possible-team-workflow-with-git/
+
+ 08/2011	6-3	13	http://adumont.fr/blog/generation-cle-priveepublique/
+
+ 08/2011	6-3	13	http://adumont.fr/blog/possible-team-workflow-with-git/
+
+ 04/2012	6-3	13	http://adumont.fr/blog/howto-beamer-with-org-mode/
+
+ 04/2012	6-3	13	http://adumont.fr/blog/how-to-install-emacs-24/
+
+ 04/2012	6-3	13	http://adumont.fr/blog/how-to-install-the-clojure-development-environment/
+
+ 04/2012	6-3	13	http://adumont.fr/blog/how-to-boostrap-a-clojure-project/
+
+ 04/2012	6-3	13	http://adumont.fr/blog/one-way-to-solve-a-problem-in-clojure/
+
+ 04/2012 5-4	8	issue github sur le projet serial-port - https://github.com/samaaron/serial-port/issues/3
+
+ 04/2012 5-4	8	pull request sur le projet serial-port - https://github.com/samaaron/serial-port/pull/4 - https://github.com/samaaron/serial-port/pull/5
+
+ 05/2012 6-3	13	http://adumont.fr/blog/my-first-steps-with-arduinoclodiuno/
+
+ 05/2012 6-3	13	http://adumont.fr/blog/clodiuno-command-a-led-from-the-repl/
+
+ 05/2012 6-7	13	Euroclojure a Londres - 2 jours
+
+ 05/2012 5-4	8	issue github sur le projet clodiuno https://github.com/nakkaya/clodiuno/issues/1 - https://github.com/nakkaya/clodiuno/issues/2
+
+ 05/2012 5-4	8	pull request sur le projet clodiuno https://github.com/nakkaya/clodiuno/pull/3
+
+ 06/2012 10-2	89	Organisation d'un evenement externe (kata-rendori clojure mercredi 06/06/2012)
+
+ 06/2012 6-3	13	http://adumont.fr/blog/hello-world-in-morse-with-arduinoclodiuno/
+
+ 06/2012  9-2	55	Animation du kata rendori le mercredi 06/06/2012 - 19-22h (lieu xebia)
+
+ 06/2012  7-2	21	Presentation au bof 'introduction a arduino/clodiuno' (pour l'instant vu avec djo, ~6 a 8)
+
+ 06/2012  10-2	89	Organisation d'un evenement externe (kata + rendori le vendredi 29/06/2012) - 19-22h (lieu sfeir)
+
+ 07/2012  9-2	55	Presentation au CPUG
+
+ 12/2012	6-3	13	setup asus zenbook - [2012-12-23 Sun 13:14] - http://adumont.fr/blog/setup-the-asus-zenbook/
+
+ 12/2012	6-3	13	blogging with org-mode/org2blog/wordpress - [2012-12-23 Sun 13:14] - http://adumont.fr/blog/blogging-with-org-mode-and-org2blog-to-publish-on-wordpress/
+
+ 12/2012	6-3	13	my emacs tools - [2012-12-23 Sun 13:14] - http://adumont.fr/blog/my-emacs-tools/
+
+ 12/2012	6-3	13	programming in haskell - Ch1 - Introduction - exercises - [2012-12-24 Mon 13:47] - http://adumont.fr/blog/programming-in-haskell-exercices-intro/
+
+ 12/2012	6-3	13	programming in haskell - Ch2 - First steps - exercises - [2012-12-25 Tue 10:48] - http://adumont.fr/blog/programming-in-haskell-ch2-first-steps-exercises/
+
+ 12/2012	6-3	13	Vagrant tools - [2012-12-26 mer. 17:27] - http://adumont.fr/blog/vagrant-tools/
+
+ 12/2012	6-3	13	programming in haskell - Ch3 - Types and classes - exercises - [2012-12-26 mer. 23:18] - http://adumont.fr/blog/programming-in-haskell-ch3-types-and-classes-exercises/
+
+ 12/2012	6-3	13	Git aliases/System git aliases - [2012-12-27 jeu. 19:09] - http://adumont.fr/blog/git-aliasessystem-git-aliases/
+
+ 12/2012	6-3	13	programming in haskell - Ch4 - Defining functions - exercises - [2012-12-28 ven. 18:56] - http://adumont.fr/blog/programming-in-haskell-ch4-defining-functions-exercises/
+
+ 12/2012	6-3	13	Daily git 1/2 - [2012-12-29 sam. 13:20] - http://adumont.fr/blog/daily-git-12/
+
+ 12/2012	6-3	13	Activate/Deactivate touchpad from the shell - [2012-12-29 sam. 15:10]
+
+ 12/2012	6-3	13	Stumpwm - Activate/Deactivate touchpad - http://adumont.fr/blog/stumpwm-activatedeactivate-touchpad/
+
+ 12/2012	6-3	13	Daily git 2/2 - CLOSED: [2012-12-30 dim. 12:21] - http://adumont.fr/blog/daily-git-22/
+
+ 12/2012	6-3	13	Programming in haskell - ch5 - Lists comprehension - exercises - [2012-12-30 dim. 15:31] - http://adumont.fr/blog/programming-in-haskell-ch5-lists-comprehension-exercises/
+
+ 12/2012	6-3	13	Stumpwm - Display result of bash commands using zenity - [2012-12-31 lun. 19:53] - http://adumont.fr/blog/stumpwm-display-result-of-bash-commands-using-zenity/
+
+ 01/2013	6-3	13	Emacs - Activate touchpad when org-mode exports html - [2013-01-01 mar. 12:41] - http://adumont.fr/blog/emacs-activate-touchpad-when-org-mode-exports-html/
+
+ 01/2013	6-3	13	Programming in haskell - ch6 - Recursive functions - exercises - [2013-01-02 mer. 21:37] - http://adumont.fr/blog/programming-in-haskell-ch6-recursive-functions/
+
+ 01/2013	6-3	13	Programming in haskell - ch7 - Higher-order functions - exercises 1/3 - [2013-01-05 sam. 15:51] - http://adumont.fr/blog/pih-ch7-higher-order-functions-12/
+
+ 01/2013	6-3	13	Programming in haskell - ch7 - Higher-order functions - exercises - 2/3 - [2013-01-07 lun. 21:57] - http://adumont.fr/blog/pih-ch7-higher-order-functions-23/
+
+ 01/2013	6-3	13	Programming in haskell - ch7 - Higher-order functions - exercises - 3/3 - [2013-01-08 mar. 19:56] - http://adumont.fr/blog/pih-ch7-higher-order-functions-33/
+
+ 01/2013	6-3	13	polipo simple setup - [2013-01-12 sam. 03:46] -	http://adumont.fr/blog/polipo-setup/
+
+ 01/2013	6-3	13	gtalk in emacs using jabber mode - [2013-01-13 dim. 18:44] - http://adumont.fr/blog/gtalk-in-emacs-using-jabber-mode/
+
+ 01/2013	6-3	13	4clojure problem on intervals - [2013-01-27 dim. 03:10] - http://adumont.fr/blog/intervals/
