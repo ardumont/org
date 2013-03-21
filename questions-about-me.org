@@ -1,0 +1,104 @@
+#+title: Questions about me
+#+author: Antoine R. Dumont
+
+* Q 1: What is your experience with functional programming? Highlight Clojure experience. Talk about projects you have worked on and how FP was part of their design.
+
+I made my studies at university when I first encountered functional programming with caml.
+I did not realize the power that was given to the programmer.
+
+Then, 2 years ago, I met clojure and overall the world of lisp (emacs-lisp, common-lisp, etc...).
+I am a linuxian since my university years but did not realise the power of lisp (we can only concentrate on so much
+things at once...) .
+
+As yoda says, I unlearned everything I knew and embraced clojure's philosophy (simplicity matters, value of values,
+incidental complexities no more, etc...).
+
+I understood then the power of clojure and functional programming.
+I unfortunately do not program in clojure in my professional carreer yet (java, scripting languages as I orient myself
+towards the devops movements)
+
+* Q 2: If you aren't living in Nashville, talk about your experience working remotely. If you are not within +/- 2 hours of the Central Time Zone in the US, talk about how you manage time differences on projects. Reference projects you have worked on that were remote.
+
+The only remote experience I have is working with one of my friend remotely with ssh, tmux (screen and byobu before),
+emacs, gtalk or g+ on small clojure programs for almost 1,5 years.
+
+We are on the same timezone though.
+
+* Q 3
+
+** What do you consider your primary skills today?
+
+- adaptation
+- self-learning
+- will
+
+** and what skills would you like to develop?
+
+Communication skills.
+
+I already did some presentations (hands-on and other presentations but no video unfortunately) for french people (in
+java community) to introduce them to clojure.
+But I'm mitigated on the results. I must still work on my communication skills.
+
+With a friend, we also animate the clojure-paris-user-group where we presents and soon we will code altogether.
+
+* Q 4: What experience do you have in analytics, law, or search engines that might apply to what Cicayda does?
+
+None.
+That's why interests me the most.
+Things I do not know and must learn to reach a goal.
+
+* Q 5: What are your core guiding philosophies when building software?
+
+All are importants to me and are at the same level:
+
+- simplicity
+- agility, iterative building
+- testing
+- quality
+- maintenability
+
+* Q 6: If you were to choose your ideal programming environment what would it be and why?
+
+- dynamic, repl
+- functional languages (clojure, haskell...) where the simplicity is at the heart of the philosophy
+- emacs (dev, organisation, etc...), anything that can support extensions and dynamism and tweaks.
+- git
+
+To sum up, the environment's got to adapt to you and not the other way around.
+
+* Q 7:. When analyzing a program's or system's design, what qualities do you look for to determine if it is "good" or "bad"?
+
+* Q 8: Describe the characteristics you look for in a team environment.  What are positive indicators, and what are negative indicators?
+
+| +                                                                                  | -                                                                                                |
+|------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------|
+| Let people talk and explain their vision                                           | No automatization philosophy (please, do not laugh, this is my current situation)                |
+| Heterogeneous people (languages, philosophy, experience)                           | Going to war to explain one's vision                                                             |
+| Respect from others (developer, programmer are an important piece of the software) | People that got no experience but talk anyway as if they have (in bad english, people's bull...) |
+|                                                                                    |                                                                                                  |
+
+* Q 9
+
+** How do you spend your time when you are coding for your own amusement?
+
+- Trying out clojure libs (pallet, core-logic, quil, ring, compojure, midje, clj-http, webfui, etc...). (cf. http://github.com/ardumont)
+- Learning tools (vagrant, stumpwm, emacs, etc...) to improve my abilities in my everyday use (cf. http://adumont.fr/blog)
+- Learning new options of bash commands for the same previous reason
+
+** What kind of problems do you solve?
+
+- Solving problems from [[http://projecteuler.net/problems][euler]] or [[http://www.4clojure.com/][4clojure]] sites
+- Trying to make web site, rest services using clojure libs and deployment (pallet, heroku).
+- Solving problems in language programming books (publish my solution on github and my blogs)
+
+** What do you study?
+
+- core-logic
+- haskell
+
+* Q 10: What are some non-programming related interest or hobbies that you have?
+
+- music, guitar, drums
+- continuous learning, reading, conference
+- my family, friends
