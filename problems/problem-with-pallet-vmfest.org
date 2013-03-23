@@ -1,0 +1,627 @@
+#+title: Problem converging a node with pallet-vmfest
+#+author: Antoine R. Dumont
+
+Hi,
+
+I'm trying to converge a node using vmfest in pallet but I encounter troubles.
+I've got an error at the end of the converging step.
+
+The node is created though, I can see it on virtualbox but I'm not able to connect to it.
+
+In the pallet log, I saw this line:
+#+begin_src sh
+2013-03-23 08:35:19,824 DEBUG [operate-38] p.action-plan Stopping execution {:type :pallet/action-execution-error, :context nil, :message "Unexpected exception: No implementation of method: :proxy of protocol: #'pallet.node/NodeProxy found for class: pallet.compute.vmfest.VmfestNode", :cause #<IllegalArgumentException java.lang.IllegalArgumentException: No implementation of method: :proxy of protocol: #'pallet.node/NodeProxy found for class: pallet.compute.vmfest.VmfestNode>}
+#+end_src
+
+I do not see what to do from here.
+
+I could please use some help to determine what I'm doing wrong.
+
+* Call of the repl to converge the node
+
+#+begin_src clojure
+my-pallet-lab.groups.vmfest> (pr/start-node mygroup-vbox :vbox)
+#<Operation dofsm-converge: running :init>
+#+end_src
+
+Note:
+- =pr/start-node= is an orchestration around the =converge= function to start one node specifying the group-node and the service (here vmfest) to use.
+- =pr/start-node= is used for ec2 (:aws) and vmfest (:vbox) at the moment.
+
+** code:
+#+begin_src clojure
+(ns my-pallet-lab.groups.provision
+  "Node definitions for my-pallet-lab"
+  (:use
+   [pallet.api            :only [converge]])
+  (:require
+   [pallet.configure      :as pc]))
+
+;; personal functions
+
+(defn scale-cluster
+  "Scale the cluster of nodes from the group-spec group-spec with nb-nodes nodes (0 to terminate all nodes from the group)"
+  [group-spec nb-nodes service]
+    (-> group-spec
+      (assoc :count nb-nodes)
+      (converge :compute (pc/compute-service service))))
+
+(defn start-node
+  "Starting one node belonging to the group-spec"
+  [group-spec service]
+  (scale-cluster group-spec 1 service))
+
+(defn stop-cluster
+  "Stopping the cluster of group-spec machines"
+  [group-spec service]
+  (scale-cluster group-spec 0 service))
+#+end_src
+
+** group-spec
+
+#+begin_src clojure
+(def
+  ^{:doc "Defines a group spec that can be passed to converge (creation/termination) or lift (updates)."}
+  mygroup-vbox
+  (group-spec
+   "mygroup-vbox"
+   :phases {;; :bootstrap (plan-fn (automated-admin-user)) ;; I tried with this and without it -> same result
+            :configure (plan-fn
+                        (package "curl")
+                        (package "wget")
+                        (package "git")
+                        ;; (package "emacs24")
+                        ;; your crates (set of packages or software to install) here
+                        )}
+   :node-spec (node-spec
+               :image {:os-family :ubuntu
+                       :image-id :ubuntu-12.04}
+               :hardware {:min-cores 1
+                          :min-ram 512})))
+#+end_src
+
+* Project information
+My project uses:
+- pallet 0.8.0-beta.5
+- virtualbox oracle 4.2.10 (i had the same problem with virtualbox ose 4.1.18)
+- pallet-vmfest 0.2.1
+- vmfest 0.2.8 (I used it to install the models needed for vmfest)
+** project.clj
+
+My project.clj can be more interesting for further inquiry:
+#+begin_src clojure
+(defproject my-pallet-lab "0.1.0-SNAPSHOT"
+  :description "My pallet learning playground"
+  :dependencies [[org.clojure/clojure                            "1.4.0"]
+
+                 ;; The latest pallet
+                 [com.palletops/pallet                           "0.8.0-beta.5"]
+
+                 ;; The latest jclouds fun
+                 [org.cloudhoist/pallet-jclouds                  "1.5.2"]
+                 [org.cloudhoist/pallet-vmfest                   "0.2.1"]
+                 [vmfest                                         "0.2.8"]
+                 [org.jclouds/jclouds-allblobstore               "1.5.5"]
+
+                 [org.jclouds/jclouds-allcompute                 "1.5.5"]
+                 [org.jclouds.driver/jclouds-slf4j               "1.5.5"]
+                 [org.jclouds.driver/jclouds-jsch                "1.5.5"]
+                 [org.jclouds/jclouds-compute                    "1.5.5"]
+                 [org.jclouds/jclouds-blobstore                  "1.5.5"]
+                 [org.slf4j/slf4j-api                            "1.6.1"]
+                 [ch.qos.logback/logback-core                    "1.0.0"]
+                 [ch.qos.logback/logback-classic                 "1.0.0"]
+
+                 ;; Rackspace London and Greenqloud jclouds providers,
+                 ;; becuase if you are going to be in the cloud you
+                 ;; might as well be green. See
+                 ;; https://www.mastodonc.com/dashboard for more
+                 ;; information.
+                 [org.jclouds.provider/rackspace-cloudservers-uk "1.5.5"]
+                 [org.jclouds.labs/greenqloud-compute            "1.5.5"]
+                 ]
+  :exclusions [org.jclouds/jclouds-allblobstore
+               org.jclouds/jclouds-allcompute
+               org.jclouds/jclouds-compute
+               org.jclouds/jclouds-blobstore
+               org.jclouds.driver/jclouds-slf4j
+               org.jclouds.driver/jclouds-jsch
+               org.jclouds.labs/greenqloud-compute]
+  :dev-dependencies [[org.cloudhoist/pallet "0.7.3" :type "test-jar"]
+                     [org.cloudhoist/pallet-lein "0.5.2"]]
+  :profiles {:dev {:plugins [[org.cloudhoist/pallet-lein "0.5.1"]]}}
+  :local-repo-classpath true
+  :repositories
+  {"sonatype-snapshots" "https://oss.sonatype.org/content/repositories/snapshots"
+   "sonatype" "https://oss.sonatype.org/content/repositories/releases/"})
+#+end_src
+
+** github repo
+https://github.com/ardumont/my-pallet-lab
+
+* logs
+The logs from the different services involved
+
+** vboxwebsrv
+#+begin_src sh
+tony@dagobah (0,38,) 08:34:16 ~/repo/perso/my-pallet-lab (master) $ vboxwebsrv
+Oracle VM VirtualBox web service Version 4.2.10
+(C) 2007-2013 Oracle Corporation
+All rights reserved.
+VirtualBox web service 4.2.10 r84104 linux.amd64 (Mar  5 2013 13:40:39) release log
+00:00:00.002987 main     Log opened 2013-03-23T07:34:21.922232000Z
+00:00:00.002996 main     OS Product: Linux
+00:00:00.002997 main     OS Release: 3.5.0-25-generic
+00:00:00.002998 main     OS Version: #39-Ubuntu SMP Mon Feb 25 18:26:58 UTC 2013
+00:00:00.003043 main     DMI Product Name: UX32A
+00:00:00.003055 main     DMI Product Version: 1.0
+00:00:00.003067 main     Host RAM: 3712MB total, 161MB available
+00:00:00.003072 main     Executable: /usr/lib/virtualbox/vboxwebsrv
+00:00:00.003072 main     Process ID: 27620
+00:00:00.003073 main     Package type: LINUX_64BITS_UBUNTU_12_10
+00:00:00.162219 SQPmp    Socket connection successful: host = default (localhost), port = 18083, master socket = 8
+00:00:24.508669 SQPmp    Request 1 on socket 9 queued for processing (1 items on Q)
+00:00:24.508698 SQW01    New SOAP thread started
+00:00:24.508727 SQW01    Processing connection from IP=127.0.0.1 socket=9 (0 out of 1 threads idle)
+00:00:29.340784 SQPmp    Request 2 on socket 10 queued for processing (1 items on Q)
+00:00:29.340894 SQW02    New SOAP thread started
+00:00:29.340919 SQW02    Processing connection from IP=127.0.0.1 socket=10 (0 out of 2 threads idle)
+00:00:29.539610 SQPmp    Request 3 on socket 9 queued for processing (1 items on Q)
+00:00:29.539814 SQW01    Processing connection from IP=127.0.0.1 socket=9 (1 out of 2 threads idle)
+00:00:30.042409 SQPmp    Request 4 on socket 10 queued for processing (1 items on Q)
+00:00:30.042675 SQW02    Processing connection from IP=127.0.0.1 socket=10 (1 out of 2 threads idle)
+00:00:37.484535 SQPmp    Request 5 on socket 9 queued for processing (1 items on Q)
+00:00:37.484569 SQW01    Processing connection from IP=127.0.0.1 socket=9 (1 out of 2 threads idle)
+00:00:57.721064 SQPmp    Request 6 on socket 10 queued for processing (1 items on Q)
+00:00:57.721106 SQW02    Processing connection from IP=127.0.0.1 socket=10 (1 out of 2 threads idle)
+00:19:31.166795 SQPmp    Request 7 on socket 9 queued for processing (1 items on Q)
+00:19:31.166830 SQW01    Processing connection from IP=127.0.0.1 socket=9 (1 out of 2 threads idle)
+00:19:32.723401 SQPmp    Request 8 on socket 10 queued for processing (1 items on Q)
+00:19:32.723427 SQW02    Processing connection from IP=127.0.0.1 socket=10 (1 out of 2 threads idle)
+00:19:32.880689 SQPmp    Request 9 on socket 9 queued for processing (1 items on Q)
+00:19:32.880724 SQW01    Processing connection from IP=127.0.0.1 socket=9 (0 out of 2 threads idle)
+00:19:33.034482 SQPmp    Request 10 on socket 10 queued for processing (1 items on Q)
+00:19:33.034519 SQW02    Processing connection from IP=127.0.0.1 socket=10 (1 out of 2 threads idle)
+#+end_src
+
+** pallet
+#+begin_src sh
+2013-03-23 08:33:57,826 DEBUG [nREPL-worker-5] p.configure compute-service-properties service: :vbox available: (:aws :vbox)
+2013-03-23 08:33:58,013 DEBUG [nREPL-worker-5] p.c.vmfest Loading images from /home/tony/.vmfest/models
+2013-03-23 08:33:58,221 DEBUG [nREPL-worker-5] p.c.vmfest Loaded images (:ubuntu-12.04 :debian-6.0.2.1-64bit-v0.3)
+2013-03-23 08:34:46,424 DEBUG [nREPL-worker-6] p.configure compute-service-properties service: :vbox available: (:aws :vbox)
+2013-03-23 08:34:46,424 DEBUG [nREPL-worker-6] p.c.vmfest Loading images from /home/tony/.vmfest/models
+2013-03-23 08:34:46,425 DEBUG [nREPL-worker-6] p.c.vmfest Loaded images (:ubuntu-12.04 :debian-6.0.2.1-64bit-v0.3)
+2013-03-23 08:34:46,654 INFO [nREPL-worker-6] p.c.vmfest No :default-bridged-interface defined. Will chose from these options: wlan0
+2013-03-23 08:34:46,654 INFO [nREPL-worker-6] p.c.vmfest No Local Interface defined. Using vboxnet0
+2013-03-23 08:34:46,654 INFO [nREPL-worker-6] p.c.vmfest Loaded images: (:debian-6.0.2.1-64bit-v0.3 :ubuntu-12.04)
+2013-03-23 08:34:46,654 INFO [nREPL-worker-6] p.c.vmfest Using 'local' networking via interface 'vboxnet0' as defaults for new machines
+2013-03-23 08:34:46,654 DEBUG [nREPL-worker-6] p.c.vmfest loaded model :micro = {:cpu-count 1, :storage [{:devices [nil nil nil nil], :name "IDE Controller", :bus :ide}], :boot-mount-point ["IDE Controller" 0], :memory-size 512}
+2013-03-23 08:34:46,655 DEBUG [nREPL-worker-6] p.c.vmfest loaded model :small = {:cpu-count 1, :storage [{:devices [nil nil nil nil], :name "IDE Controller", :bus :ide}], :boot-mount-point ["IDE Controller" 0], :memory-size 1024}
+2013-03-23 08:34:46,655 DEBUG [nREPL-worker-6] p.c.vmfest loaded model :medium = {:cpu-count 2, :storage [{:devices [nil nil nil nil], :name "IDE Controller", :bus :ide}], :boot-mount-point ["IDE Controller" 0], :memory-size 2048}
+2013-03-23 08:34:46,655 DEBUG [nREPL-worker-6] p.c.vmfest loaded model :large = {:cpu-count 4, :storage [{:devices [nil nil nil nil], :name "IDE Controller", :bus :ide}], :boot-mount-point ["IDE Controller" 0], :memory-size 4096}
+2013-03-23 08:34:50,941 DEBUG [nREPL-worker-6] p.a.f.event-machine fsm :dofsm-converge -  is using locking
+2013-03-23 08:34:50,942 DEBUG [nREPL-worker-6] p.a.f.event-machine Locking transition
+2013-03-23 08:34:50,942 DEBUG [nREPL-worker-6] p.a.f.event-machine :dofsm-converge - in state :init fire :start
+2013-03-23 08:34:50,942 DEBUG [nREPL-worker-6] p.a.fsmop seq-init on :start event
+2013-03-23 08:34:50,943 DEBUG [nREPL-worker-6] p.a.f.event-machine fsm :dofsm-group-nodes -  is using locking
+2013-03-23 08:34:50,944 DEBUG [operate-37] p.a.f.event-machine Locking transition
+2013-03-23 08:34:50,944 DEBUG [operate-37] p.a.f.event-machine :dofsm-group-nodes - in state :init fire :start
+2013-03-23 08:34:50,944 DEBUG [operate-37] p.a.fsmop seq-init on :start event
+2013-03-23 08:34:50,944 DEBUG [operate-37] p.a.f.event-machine fsm clojure.core$partial$fn__4072@7242ac6 -  is using locking
+2013-03-23 08:34:50,945 DEBUG [operate-38] p.a.f.event-machine Locking transition
+2013-03-23 08:34:50,945 DEBUG [operate-38] p.a.f.event-machine clojure.core$partial$fn__4072@7242ac6 - in state :init fire :start
+2013-03-23 08:34:51,125 DEBUG [operate-37] p.a.f.event-machine Locking transition
+2013-03-23 08:34:51,126 DEBUG [operate-37] p.a.f.event-machine clojure.core$partial$fn__4072@7242ac6 - in state :running fire :success
+2013-03-23 08:34:51,126 DEBUG [operate-38] p.a.f.event-machine Locking transition
+2013-03-23 08:34:51,126 DEBUG [operate-38] p.a.f.event-machine :dofsm-group-nodes - in state :running fire :step-complete
+2013-03-23 08:34:51,127 DEBUG [operate-38] p.a.fsmop seq-running
+2013-03-23 08:34:51,339 DEBUG [operate-38] p.a.f.event-machine Locking transition
+2013-03-23 08:34:51,340 DEBUG [operate-38] p.a.f.event-machine :dofsm-group-nodes - in state :step-completed fire :complete
+2013-03-23 08:34:51,340 DEBUG [operate-37] p.a.f.event-machine Locking transition
+2013-03-23 08:34:51,340 DEBUG [operate-37] p.a.f.event-machine :dofsm-converge - in state :running fire :step-complete
+2013-03-23 08:34:51,340 DEBUG [operate-37] p.a.fsmop seq-running
+2013-03-23 08:34:51,341 DEBUG [operate-37] p.a.f.event-machine Locking transition
+2013-03-23 08:34:51,341 DEBUG [operate-37] p.a.f.event-machine :dofsm-converge - in state :step-completed fire :run-next-step
+2013-03-23 08:34:51,343 DEBUG [operate-37] p.a.f.event-machine fsm result -  is using locking
+2013-03-23 08:34:51,344 DEBUG [operate-38] p.a.f.event-machine Locking transition
+2013-03-23 08:34:51,344 DEBUG [operate-38] p.a.f.event-machine result - in state :init fire :start
+2013-03-23 08:34:51,344 DEBUG [operate-37] p.a.f.event-machine Locking transition
+2013-03-23 08:34:51,344 DEBUG [operate-37] p.a.f.event-machine :dofsm-converge - in state :running fire :step-complete
+2013-03-23 08:34:51,344 DEBUG [operate-37] p.a.fsmop seq-running
+2013-03-23 08:34:51,345 DEBUG [operate-37] p.a.f.event-machine Locking transition
+2013-03-23 08:34:51,345 DEBUG [operate-37] p.a.f.event-machine :dofsm-converge - in state :step-completed fire :run-next-step
+2013-03-23 08:34:51,346 DEBUG [operate-37] p.a.f.event-machine fsm succeed -  is using locking
+2013-03-23 08:34:51,346 DEBUG [operate-38] p.a.f.event-machine Locking transition
+2013-03-23 08:34:51,346 DEBUG [operate-38] p.a.f.event-machine succeed - in state :init fire :start
+2013-03-23 08:34:51,346 DEBUG [operate-37] p.a.f.event-machine Locking transition
+2013-03-23 08:34:51,346 DEBUG [operate-37] p.a.f.event-machine :dofsm-converge - in state :running fire :step-complete
+2013-03-23 08:34:51,346 DEBUG [operate-37] p.a.fsmop seq-running
+2013-03-23 08:34:51,347 DEBUG [operate-37] p.a.f.event-machine Locking transition
+2013-03-23 08:34:51,347 DEBUG [operate-37] p.a.f.event-machine :dofsm-converge - in state :step-completed fire :run-next-step
+2013-03-23 08:34:51,347 DEBUG [operate-37] p.c.operations converge :phase [:configure] :groups [:mygroup-vbox] :settings-groups []
+2013-03-23 08:34:51,348 DEBUG [operate-37] p.a.f.event-machine fsm :dofsm-converge -  is using locking
+2013-03-23 08:34:51,350 DEBUG [operate-38] p.a.f.event-machine Locking transition
+2013-03-23 08:34:51,350 DEBUG [operate-38] p.a.f.event-machine :dofsm-converge - in state :init fire :start
+2013-03-23 08:34:51,350 DEBUG [operate-38] p.a.fsmop seq-init on :start event
+2013-03-23 08:34:51,352 DEBUG [operate-38] p.a.f.event-machine fsm :dofsm-node-count-adjuster -  is using locking
+2013-03-23 08:34:51,352 DEBUG [operate-37] p.a.f.event-machine Locking transition
+2013-03-23 08:34:51,352 DEBUG [operate-37] p.a.f.event-machine :dofsm-node-count-adjuster - in state :init fire :start
+2013-03-23 08:34:51,352 DEBUG [operate-37] p.a.fsmop seq-init on :start event
+2013-03-23 08:34:51,353 DEBUG [operate-37] p.a.f.event-machine fsm result -  is using locking
+2013-03-23 08:34:51,353 DEBUG [operate-38] p.a.f.event-machine Locking transition
+2013-03-23 08:34:51,353 DEBUG [operate-38] p.a.f.event-machine result - in state :init fire :start
+2013-03-23 08:34:51,353 DEBUG [operate-37] p.a.f.event-machine Locking transition
+2013-03-23 08:34:51,353 DEBUG [operate-37] p.a.f.event-machine :dofsm-node-count-adjuster - in state :running fire :step-complete
+2013-03-23 08:34:51,353 DEBUG [operate-37] p.a.fsmop seq-running
+2013-03-23 08:34:51,354 DEBUG [operate-37] p.a.f.event-machine Locking transition
+2013-03-23 08:34:51,354 DEBUG [operate-37] p.a.f.event-machine :dofsm-node-count-adjuster - in state :step-completed fire :run-next-step
+2013-03-23 08:34:51,354 DEBUG [operate-37] p.a.f.event-machine fsm result -  is using locking
+2013-03-23 08:34:51,355 DEBUG [operate-38] p.a.f.event-machine Locking transition
+2013-03-23 08:34:51,355 DEBUG [operate-38] p.a.f.event-machine result - in state :init fire :start
+2013-03-23 08:34:51,355 DEBUG [operate-37] p.a.f.event-machine Locking transition
+2013-03-23 08:34:51,355 DEBUG [operate-37] p.a.f.event-machine :dofsm-node-count-adjuster - in state :running fire :step-complete
+2013-03-23 08:34:51,355 DEBUG [operate-37] p.a.fsmop seq-running
+2013-03-23 08:34:51,355 DEBUG [operate-37] p.a.f.event-machine Locking transition
+2013-03-23 08:34:51,355 DEBUG [operate-37] p.a.f.event-machine :dofsm-node-count-adjuster - in state :step-completed fire :run-next-step
+2013-03-23 08:34:51,356 DEBUG [operate-37] p.a.f.event-machine fsm result -  is using locking
+2013-03-23 08:34:51,356 DEBUG [operate-38] p.a.f.event-machine Locking transition
+2013-03-23 08:34:51,356 DEBUG [operate-38] p.a.f.event-machine result - in state :init fire :start
+2013-03-23 08:34:51,356 DEBUG [operate-37] p.a.f.event-machine Locking transition
+2013-03-23 08:34:51,356 DEBUG [operate-37] p.a.f.event-machine :dofsm-node-count-adjuster - in state :running fire :step-complete
+2013-03-23 08:34:51,356 DEBUG [operate-37] p.a.fsmop seq-running
+2013-03-23 08:34:51,357 DEBUG [operate-37] p.a.f.event-machine Locking transition
+2013-03-23 08:34:51,357 DEBUG [operate-37] p.a.f.event-machine :dofsm-node-count-adjuster - in state :step-completed fire :run-next-step
+2013-03-23 08:34:51,357 DEBUG [operate-37] p.c.primitives build-and-execute-phase :destroy-server on 0 target(s)
+2013-03-23 08:34:51,369 DEBUG [operate-37] p.a.f.event-machine fsm :dofsm-execute-action-plans -  is using locking
+2013-03-23 08:34:51,369 DEBUG [operate-38] p.a.f.event-machine Locking transition
+2013-03-23 08:34:51,370 DEBUG [operate-38] p.a.f.event-machine :dofsm-execute-action-plans - in state :init fire :start
+2013-03-23 08:34:51,370 DEBUG [operate-38] p.a.fsmop seq-init on :start event
+2013-03-23 08:34:51,371 DEBUG [operate-38] p.a.f.event-machine fsm map* -  is using locking
+2013-03-23 08:34:51,371 DEBUG [operate-37] p.a.f.event-machine Locking transition
+2013-03-23 08:34:51,372 DEBUG [operate-37] p.a.f.event-machine map* - in state :init fire :start
+2013-03-23 08:34:51,372 DEBUG [operate-37] p.a.fsmop map* init: event :start
+2013-03-23 08:34:51,372 DEBUG [operate-38] p.a.f.event-machine Locking transition
+2013-03-23 08:34:51,372 DEBUG [operate-38] p.a.f.event-machine :dofsm-execute-action-plans - in state :running fire :step-complete
+2013-03-23 08:34:51,373 DEBUG [operate-38] p.a.fsmop seq-running
+2013-03-23 08:34:51,373 DEBUG [operate-38] p.a.f.event-machine Locking transition
+2013-03-23 08:34:51,374 DEBUG [operate-38] p.a.f.event-machine :dofsm-execute-action-plans - in state :step-completed fire :complete
+2013-03-23 08:34:51,374 DEBUG [operate-37] p.a.f.event-machine Locking transition
+2013-03-23 08:34:51,374 DEBUG [operate-37] p.a.f.event-machine :dofsm-node-count-adjuster - in state :running fire :step-complete
+2013-03-23 08:34:51,374 DEBUG [operate-37] p.a.fsmop seq-running
+2013-03-23 08:34:51,375 DEBUG [operate-37] p.a.f.event-machine Locking transition
+2013-03-23 08:34:51,375 DEBUG [operate-37] p.a.f.event-machine :dofsm-node-count-adjuster - in state :step-completed fire :run-next-step
+2013-03-23 08:34:51,375 DEBUG [operate-37] p.c.primitives remove-group-nodes {}
+2013-03-23 08:34:51,376 DEBUG [operate-37] p.a.f.event-machine fsm map* -  is using locking
+2013-03-23 08:34:51,377 DEBUG [operate-38] p.a.f.event-machine Locking transition
+2013-03-23 08:34:51,377 DEBUG [operate-38] p.a.f.event-machine map* - in state :init fire :start
+2013-03-23 08:34:51,377 DEBUG [operate-38] p.a.fsmop map* init: event :start
+2013-03-23 08:34:51,382 DEBUG [operate-37] p.a.f.event-machine Locking transition
+2013-03-23 08:34:51,382 DEBUG [operate-37] p.a.f.event-machine :dofsm-node-count-adjuster - in state :running fire :step-complete
+2013-03-23 08:34:51,382 DEBUG [operate-37] p.a.fsmop seq-running
+2013-03-23 08:34:51,383 DEBUG [operate-37] p.a.f.event-machine Locking transition
+2013-03-23 08:34:51,383 DEBUG [operate-37] p.a.f.event-machine :dofsm-node-count-adjuster - in state :step-completed fire :run-next-step
+2013-03-23 08:34:51,383 DEBUG [operate-37] p.c.primitives build-and-execute-phase :destroy-group on 0 target(s)
+2013-03-23 08:34:51,384 DEBUG [operate-37] p.a.f.event-machine fsm :dofsm-execute-action-plans -  is using locking
+2013-03-23 08:34:51,385 DEBUG [operate-38] p.a.f.event-machine Locking transition
+2013-03-23 08:34:51,385 DEBUG [operate-38] p.a.f.event-machine :dofsm-execute-action-plans - in state :init fire :start
+2013-03-23 08:34:51,385 DEBUG [operate-38] p.a.fsmop seq-init on :start event
+2013-03-23 08:34:51,385 DEBUG [operate-38] p.a.f.event-machine fsm map* -  is using locking
+2013-03-23 08:34:51,386 DEBUG [operate-37] p.a.f.event-machine Locking transition
+2013-03-23 08:34:51,386 DEBUG [operate-37] p.a.f.event-machine map* - in state :init fire :start
+2013-03-23 08:34:51,386 DEBUG [operate-37] p.a.fsmop map* init: event :start
+2013-03-23 08:34:51,387 DEBUG [operate-39] p.a.f.event-machine Locking transition
+2013-03-23 08:34:51,387 DEBUG [operate-39] p.a.f.event-machine :dofsm-execute-action-plans - in state :running fire :step-complete
+2013-03-23 08:34:51,387 DEBUG [operate-39] p.a.fsmop seq-running
+2013-03-23 08:34:51,388 DEBUG [operate-39] p.a.f.event-machine Locking transition
+2013-03-23 08:34:51,388 DEBUG [operate-39] p.a.f.event-machine :dofsm-execute-action-plans - in state :step-completed fire :complete
+2013-03-23 08:34:51,388 DEBUG [operate-38] p.a.f.event-machine Locking transition
+2013-03-23 08:34:51,388 DEBUG [operate-38] p.a.f.event-machine :dofsm-node-count-adjuster - in state :running fire :step-complete
+2013-03-23 08:34:51,388 DEBUG [operate-38] p.a.fsmop seq-running
+2013-03-23 08:34:51,389 DEBUG [operate-38] p.a.f.event-machine Locking transition
+2013-03-23 08:34:51,389 DEBUG [operate-38] p.a.f.event-machine :dofsm-node-count-adjuster - in state :step-completed fire :run-next-step
+2013-03-23 08:34:51,389 DEBUG [operate-38] p.c.primitives build-and-execute-phase :create-group on 1 target(s)
+2013-03-23 08:34:51,390 DEBUG [operate-38] p.a.f.event-machine fsm :dofsm-execute-action-plans -  is using locking
+2013-03-23 08:34:51,390 DEBUG [operate-39] p.a.f.event-machine Locking transition
+2013-03-23 08:34:51,390 DEBUG [operate-39] p.a.f.event-machine :dofsm-execute-action-plans - in state :init fire :start
+2013-03-23 08:34:51,390 DEBUG [operate-39] p.a.fsmop seq-init on :start event
+2013-03-23 08:34:51,390 DEBUG [operate-39] p.a.f.event-machine fsm map* -  is using locking
+2013-03-23 08:34:51,391 DEBUG [operate-38] p.a.f.event-machine Locking transition
+2013-03-23 08:34:51,391 DEBUG [operate-38] p.a.f.event-machine map* - in state :init fire :start
+2013-03-23 08:34:51,391 DEBUG [operate-38] p.a.fsmop map* init: event :start
+2013-03-23 08:34:51,391 DEBUG [operate-39] p.a.f.event-machine Locking transition
+2013-03-23 08:34:51,391 DEBUG [operate-39] p.a.f.event-machine :dofsm-execute-action-plans - in state :running fire :step-complete
+2013-03-23 08:34:51,391 DEBUG [operate-39] p.a.fsmop seq-running
+2013-03-23 08:34:51,394 DEBUG [operate-39] p.a.f.event-machine Locking transition
+2013-03-23 08:34:51,394 DEBUG [operate-39] p.a.f.event-machine :dofsm-execute-action-plans - in state :step-completed fire :complete
+2013-03-23 08:34:51,395 DEBUG [operate-38] p.a.f.event-machine Locking transition
+2013-03-23 08:34:51,395 DEBUG [operate-38] p.a.f.event-machine :dofsm-node-count-adjuster - in state :running fire :step-complete
+2013-03-23 08:34:51,395 DEBUG [operate-38] p.a.fsmop seq-running
+2013-03-23 08:34:51,395 DEBUG [operate-38] p.a.f.event-machine Locking transition
+2013-03-23 08:34:51,395 DEBUG [operate-38] p.a.f.event-machine :dofsm-node-count-adjuster - in state :step-completed fire :run-next-step
+2013-03-23 08:34:51,396 DEBUG [operate-38] p.c.primitives create-group-nodes pallet.compute.vmfest.VmfestService@3c59f4cf {:compute #<VmfestService pallet.compute.vmfest.VmfestService@3c59f4cf>} {{:count 1, :image {:os-family :ubuntu, :image-id :ubuntu-12.04}, :phases {:configure #<vmfest$fn__16711 my_pallet_lab.groups.vmfest$fn__16711@4f209da8>}, :hardware {:min-cores 1, :min-ram 512}, :group-name :mygroup-vbox} {:actual 0, :target 1, :delta 1}}
+2013-03-23 08:34:51,397 DEBUG [operate-38] p.a.f.event-machine fsm :dofsm-create-group-nodes -  is using locking
+2013-03-23 08:34:51,397 DEBUG [operate-39] p.a.f.event-machine Locking transition
+2013-03-23 08:34:51,397 DEBUG [operate-39] p.a.f.event-machine :dofsm-create-group-nodes - in state :init fire :start
+2013-03-23 08:34:51,397 DEBUG [operate-39] p.a.fsmop seq-init on :start event
+2013-03-23 08:34:51,398 DEBUG [operate-39] p.a.f.event-machine fsm map* -  is using locking
+2013-03-23 08:34:51,398 DEBUG [operate-38] p.a.f.event-machine Locking transition
+2013-03-23 08:34:51,398 DEBUG [operate-38] p.a.f.event-machine map* - in state :init fire :start
+2013-03-23 08:34:51,398 DEBUG [operate-38] p.a.fsmop map* init: event :start
+2013-03-23 08:34:51,398 DEBUG [operate-38] p.a.f.event-machine fsm clojure.core$partial$fn__4076@664ea92d -  is using locking
+2013-03-23 08:34:51,399 DEBUG [operate-38] p.a.fsmop map* on running
+2013-03-23 08:34:51,399 DEBUG [operate-38] p.a.fsmop map* on-running starting 1 fsms
+2013-03-23 08:34:51,399 DEBUG [operate-39] p.a.f.event-machine Locking transition
+2013-03-23 08:34:51,399 DEBUG [operate-39] p.a.f.event-machine clojure.core$partial$fn__4076@664ea92d - in state :init fire :start
+2013-03-23 08:34:51,399 DEBUG [operate-38] p.c.vmfest run-nodes with template {:min-cores 1, :os-family :ubuntu, :image-id :ubuntu-12.04, :min-ram 512}
+2013-03-23 08:34:51,400 DEBUG [operate-38] p.c.vmfest Looking for {:min-cores 1, :os-family :ubuntu, :image-id :ubuntu-12.04, :min-ram 512} in {:debian-6.0.2.1-64bit-v0.3 {:os-type-id "Debian_64", :sudo-password "vmfest", :no-sudo false, :image-name "debian-6.0.2.1-64bit-v0.3", :username "vmfest", :os-family :debian, :os-version "6.0.2.1", :uuid "/home/tony/.vmfest/models/vmfest-debian-6.0.2.1-64bit-v0.3.vdi", :os-64-bit true, :image-id "debian-6.0.2.1-64bit-v0.3", :password "vmfest", :description "Debian 6.0.2.1 (64bit) v0.3"}, :ubuntu-12.04 {:os-type-id "Ubuntu_64", :sudo-password "vmfest", :no-sudo false, :image-name "ubuntu-12.04", :packager :apt, :username "vmfest", :os-family :ubuntu, :os-version "12.04", :uuid "/home/tony/.vmfest/models/vmfest-ubuntu-12.04.vdi", :os-64-bit true, :image-id "ubuntu-12.04", :password "vmfest", :description "Ubuntu 12.04 (64bit)"}}
+2013-03-23 08:34:51,700 DEBUG [operate-38] p.c.vmfest current-machine-names #{}
+2013-03-23 08:34:51,700 DEBUG [operate-38] p.c.vmfest target-machine-names #{"mygroup-vbox-0"}
+2013-03-23 08:34:51,700 DEBUG [operate-38] p.c.vmfest target-machines-already-existing #{}
+2013-03-23 08:34:51,700 DEBUG [operate-38] p.c.vmfest target-machines-to-create#{"mygroup-vbox-0"}
+2013-03-23 08:34:51,701 DEBUG [operate-38] p.c.vmfest Selected image: :ubuntu-12.04
+2013-03-23 08:34:51,701 DEBUG [operate-38] p.c.vmfest Hardware model {:cpu-count 1, :network [{:attachment-type :host-only, :host-only-interface "vboxnet0"} {:attachment-type :nat}], :storage [{:devices [nil nil nil nil], :name "IDE Controller", :bus :ide}], :network-type :local, :boot-mount-point ["IDE Controller" 0], :memory-size 512}
+2013-03-23 08:34:55,357 DEBUG [clojure-agent-send-off-pool-9] p.c.vmfest Waiting 300000 ms for the IP in slot 0 of mygroup-vbox-0 to come up.
+2013-03-23 08:35:15,542 DEBUG [clojure-agent-send-off-pool-9] p.c.vmfest Waiting 300000 ms for the IP in slot 1 of mygroup-vbox-0 to come up.
+2013-03-23 08:35:19,556 DEBUG [operate-38] p.a.f.event-machine Locking transition
+2013-03-23 08:35:19,557 DEBUG [operate-38] p.a.f.event-machine clojure.core$partial$fn__4076@664ea92d - in state :running fire :success
+2013-03-23 08:35:19,558 DEBUG [operate-38] p.a.fsmop map* op-completed
+2013-03-23 08:35:19,558 DEBUG [operate-38] p.a.f.event-machine Locking transition
+2013-03-23 08:35:19,558 DEBUG [operate-38] p.a.f.event-machine map* - in state :running fire :op-complete
+2013-03-23 08:35:19,559 DEBUG [operate-38] p.a.fsmop running pending count 1
+2013-03-23 08:35:19,559 DEBUG [operate-38] p.a.fsmop op-complete result: clojure.lang.LazySeq@46e7dfa8
+2013-03-23 08:35:19,559 DEBUG [operate-38] p.a.fsmop maybe-finish pending count 0
+2013-03-23 08:35:19,559 DEBUG [operate-38] p.a.f.event-machine Locking transition
+2013-03-23 08:35:19,560 DEBUG [operate-38] p.a.f.event-machine map* - in state :ops-complete fire :complete
+2013-03-23 08:35:19,560 DEBUG [operate-39] p.a.f.event-machine Locking transition
+2013-03-23 08:35:19,560 DEBUG [operate-39] p.a.f.event-machine :dofsm-create-group-nodes - in state :running fire :step-complete
+2013-03-23 08:35:19,561 DEBUG [operate-39] p.a.fsmop seq-running
+2013-03-23 08:35:19,561 DEBUG [operate-39] p.a.f.event-machine Locking transition
+2013-03-23 08:35:19,562 DEBUG [operate-39] p.a.f.event-machine :dofsm-create-group-nodes - in state :step-completed fire :complete
+2013-03-23 08:35:19,562 DEBUG [operate-37] p.a.f.event-machine Locking transition
+2013-03-23 08:35:19,563 DEBUG [operate-37] p.a.f.event-machine :dofsm-node-count-adjuster - in state :running fire :step-complete
+2013-03-23 08:35:19,563 DEBUG [operate-37] p.a.fsmop seq-running
+2013-03-23 08:35:19,564 DEBUG [operate-37] p.a.f.event-machine Locking transition
+2013-03-23 08:35:19,565 DEBUG [operate-37] p.a.f.event-machine :dofsm-node-count-adjuster - in state :step-completed fire :complete
+2013-03-23 08:35:19,565 DEBUG [operate-38] p.a.f.event-machine Locking transition
+2013-03-23 08:35:19,565 DEBUG [operate-38] p.a.f.event-machine :dofsm-converge - in state :running fire :step-complete
+2013-03-23 08:35:19,566 DEBUG [operate-38] p.a.fsmop seq-running
+2013-03-23 08:35:19,566 DEBUG [operate-38] p.a.f.event-machine Locking transition
+2013-03-23 08:35:19,567 DEBUG [operate-38] p.a.f.event-machine :dofsm-converge - in state :step-completed fire :run-next-step
+2013-03-23 08:35:19,567 DEBUG [operate-38] p.c.primitives build-and-execute-phase :settings on 1 target(s)
+2013-03-23 08:35:19,569 DEBUG [operate-38] p.a.f.event-machine fsm :dofsm-execute-action-plans -  is using locking
+2013-03-23 08:35:19,569 DEBUG [operate-37] p.a.f.event-machine Locking transition
+2013-03-23 08:35:19,569 DEBUG [operate-37] p.a.f.event-machine :dofsm-execute-action-plans - in state :init fire :start
+2013-03-23 08:35:19,569 DEBUG [operate-37] p.a.fsmop seq-init on :start event
+2013-03-23 08:35:19,570 DEBUG [operate-37] p.a.f.event-machine fsm map* -  is using locking
+2013-03-23 08:35:19,570 DEBUG [operate-38] p.a.f.event-machine Locking transition
+2013-03-23 08:35:19,570 DEBUG [operate-38] p.a.f.event-machine map* - in state :init fire :start
+2013-03-23 08:35:19,570 DEBUG [operate-38] p.a.fsmop map* init: event :start
+2013-03-23 08:35:19,571 DEBUG [operate-37] p.a.f.event-machine Locking transition
+2013-03-23 08:35:19,571 DEBUG [operate-37] p.a.f.event-machine :dofsm-execute-action-plans - in state :running fire :step-complete
+2013-03-23 08:35:19,571 DEBUG [operate-37] p.a.fsmop seq-running
+2013-03-23 08:35:19,571 DEBUG [operate-37] p.a.f.event-machine Locking transition
+2013-03-23 08:35:19,571 DEBUG [operate-37] p.a.f.event-machine :dofsm-execute-action-plans - in state :step-completed fire :complete
+2013-03-23 08:35:19,572 DEBUG [operate-38] p.a.f.event-machine Locking transition
+2013-03-23 08:35:19,572 DEBUG [operate-38] p.a.f.event-machine :dofsm-converge - in state :running fire :step-complete
+2013-03-23 08:35:19,572 DEBUG [operate-38] p.a.fsmop seq-running
+2013-03-23 08:35:19,572 DEBUG [operate-38] p.a.f.event-machine Locking transition
+2013-03-23 08:35:19,572 DEBUG [operate-38] p.a.f.event-machine :dofsm-converge - in state :step-completed fire :run-next-step
+2013-03-23 08:35:19,577 DEBUG [operate-38] p.a.f.event-machine fsm succeed -  is using locking
+2013-03-23 08:35:19,577 DEBUG [operate-37] p.a.f.event-machine Locking transition
+2013-03-23 08:35:19,577 DEBUG [operate-37] p.a.f.event-machine succeed - in state :init fire :start
+2013-03-23 08:35:19,577 DEBUG [operate-39] p.a.f.event-machine Locking transition
+2013-03-23 08:35:19,577 DEBUG [operate-39] p.a.f.event-machine :dofsm-converge - in state :running fire :step-complete
+2013-03-23 08:35:19,577 DEBUG [operate-39] p.a.fsmop seq-running
+2013-03-23 08:35:19,578 DEBUG [operate-39] p.a.f.event-machine Locking transition
+2013-03-23 08:35:19,578 DEBUG [operate-39] p.a.f.event-machine :dofsm-converge - in state :step-completed fire :run-next-step
+2013-03-23 08:35:19,578 DEBUG [operate-39] p.c.primitives execute-on-unflagged state-flag :bootstrapped
+2013-03-23 08:35:19,578 DEBUG [operate-39] p.a.f.event-machine fsm :dofsm-execute-on-unflagged -  is using locking
+2013-03-23 08:35:19,578 DEBUG [operate-38] p.a.f.event-machine Locking transition
+2013-03-23 08:35:19,579 DEBUG [operate-38] p.a.f.event-machine :dofsm-execute-on-unflagged - in state :init fire :start
+2013-03-23 08:35:19,579 DEBUG [operate-38] p.a.fsmop seq-init on :start event
+2013-03-23 08:35:19,611 DEBUG [operate-38] p.c.primitives execute-phase-with-image-user on 1 target(s)
+2013-03-23 08:35:19,613 DEBUG [operate-38] p.a.f.event-machine fsm :dofsm-execute-phase-with-image-user -  is using locking
+2013-03-23 08:35:19,614 DEBUG [operate-39] p.a.f.event-machine Locking transition
+2013-03-23 08:35:19,614 DEBUG [operate-39] p.a.f.event-machine :dofsm-execute-phase-with-image-user - in state :init fire :start
+2013-03-23 08:35:19,614 DEBUG [operate-39] p.a.fsmop seq-init on :start event
+2013-03-23 08:35:19,614 DEBUG [operate-39] p.c.primitives build-and-execute-phase :bootstrap on 1 target(s)
+2013-03-23 08:35:19,616 DEBUG [operate-39] p.a.f.event-machine fsm :dofsm-execute-action-plans -  is using locking
+2013-03-23 08:35:19,616 DEBUG [operate-38] p.a.f.event-machine Locking transition
+2013-03-23 08:35:19,620 DEBUG [operate-38] p.a.f.event-machine :dofsm-execute-action-plans - in state :init fire :start
+2013-03-23 08:35:19,620 DEBUG [operate-38] p.a.fsmop seq-init on :start event
+2013-03-23 08:35:19,621 DEBUG [operate-38] p.a.f.event-machine fsm map* -  is using locking
+2013-03-23 08:35:19,622 DEBUG [operate-39] p.a.f.event-machine Locking transition
+2013-03-23 08:35:19,622 DEBUG [operate-39] p.a.f.event-machine map* - in state :init fire :start
+2013-03-23 08:35:19,622 DEBUG [operate-39] p.a.fsmop map* init: event :start
+2013-03-23 08:35:19,624 DEBUG [operate-37] p.a.f.event-machine Locking transition
+2013-03-23 08:35:19,624 DEBUG [operate-37] p.a.f.event-machine :dofsm-execute-action-plans - in state :running fire :step-complete
+2013-03-23 08:35:19,624 DEBUG [operate-37] p.a.fsmop seq-running
+2013-03-23 08:35:19,625 DEBUG [operate-37] p.a.f.event-machine Locking transition
+2013-03-23 08:35:19,625 DEBUG [operate-37] p.a.f.event-machine :dofsm-execute-action-plans - in state :step-completed fire :complete
+2013-03-23 08:35:19,626 DEBUG [operate-39] p.a.f.event-machine Locking transition
+2013-03-23 08:35:19,626 DEBUG [operate-39] p.a.f.event-machine :dofsm-execute-phase-with-image-user - in state :running fire :step-complete
+2013-03-23 08:35:19,626 DEBUG [operate-39] p.a.fsmop seq-running
+2013-03-23 08:35:19,627 DEBUG [operate-39] p.a.f.event-machine Locking transition
+2013-03-23 08:35:19,627 DEBUG [operate-39] p.a.f.event-machine :dofsm-execute-phase-with-image-user - in state :step-completed fire :complete
+2013-03-23 08:35:19,627 DEBUG [operate-38] p.a.f.event-machine Locking transition
+2013-03-23 08:35:19,628 DEBUG [operate-38] p.a.f.event-machine :dofsm-execute-on-unflagged - in state :running fire :step-complete
+2013-03-23 08:35:19,628 DEBUG [operate-38] p.a.fsmop seq-running
+2013-03-23 08:35:19,628 DEBUG [operate-38] p.a.f.event-machine Locking transition
+2013-03-23 08:35:19,629 DEBUG [operate-38] p.a.f.event-machine :dofsm-execute-on-unflagged - in state :step-completed fire :run-next-step
+2013-03-23 08:35:19,630 DEBUG [operate-38] p.a.f.event-machine fsm map* -  is using locking
+2013-03-23 08:35:19,630 DEBUG [operate-37] p.a.f.event-machine Locking transition
+2013-03-23 08:35:19,630 DEBUG [operate-37] p.a.f.event-machine map* - in state :init fire :start
+2013-03-23 08:35:19,631 DEBUG [operate-37] p.a.fsmop map* init: event :start
+2013-03-23 08:35:19,631 DEBUG [operate-39] p.a.f.event-machine Locking transition
+2013-03-23 08:35:19,631 DEBUG [operate-39] p.a.f.event-machine :dofsm-execute-on-unflagged - in state :running fire :step-complete
+2013-03-23 08:35:19,632 DEBUG [operate-39] p.a.fsmop seq-running
+2013-03-23 08:35:19,632 DEBUG [operate-39] p.a.f.event-machine Locking transition
+2013-03-23 08:35:19,632 DEBUG [operate-39] p.a.f.event-machine :dofsm-execute-on-unflagged - in state :step-completed fire :complete
+2013-03-23 08:35:19,632 DEBUG [operate-37] p.a.f.event-machine Locking transition
+2013-03-23 08:35:19,633 DEBUG [operate-37] p.a.f.event-machine :dofsm-converge - in state :running fire :step-complete
+2013-03-23 08:35:19,633 DEBUG [operate-37] p.a.fsmop seq-running
+2013-03-23 08:35:19,634 DEBUG [operate-37] p.a.f.event-machine Locking transition
+2013-03-23 08:35:19,634 DEBUG [operate-37] p.a.f.event-machine :dofsm-converge - in state :step-completed fire :run-next-step
+2013-03-23 08:35:19,635 DEBUG [operate-37] p.a.f.event-machine fsm succeed -  is using locking
+2013-03-23 08:35:19,635 DEBUG [operate-39] p.a.f.event-machine Locking transition
+2013-03-23 08:35:19,636 DEBUG [operate-39] p.a.f.event-machine succeed - in state :init fire :start
+2013-03-23 08:35:19,636 DEBUG [operate-37] p.a.f.event-machine Locking transition
+2013-03-23 08:35:19,636 DEBUG [operate-37] p.a.f.event-machine :dofsm-converge - in state :running fire :step-complete
+2013-03-23 08:35:19,636 DEBUG [operate-37] p.a.fsmop seq-running
+2013-03-23 08:35:19,636 DEBUG [operate-37] p.a.f.event-machine Locking transition
+2013-03-23 08:35:19,637 DEBUG [operate-37] p.a.f.event-machine :dofsm-converge - in state :step-completed fire :run-next-step
+2013-03-23 08:35:19,637 DEBUG [operate-37] p.a.f.event-machine fsm :dofsm-reduce* -  is using locking
+2013-03-23 08:35:19,637 DEBUG [operate-39] p.a.f.event-machine Locking transition
+2013-03-23 08:35:19,637 DEBUG [operate-39] p.a.f.event-machine :dofsm-reduce* - in state :init fire :start
+2013-03-23 08:35:19,637 DEBUG [operate-39] p.a.fsmop seq-init on :start event
+2013-03-23 08:35:19,638 DEBUG [operate-39] p.a.fsmop reduce*-step :configure
+2013-03-23 08:35:19,638 DEBUG [operate-39] p.a.f.event-machine fsm :dofsm-reduce-phases -  is using locking
+2013-03-23 08:35:19,638 DEBUG [operate-37] p.a.f.event-machine Locking transition
+2013-03-23 08:35:19,638 DEBUG [operate-37] p.a.f.event-machine :dofsm-reduce-phases - in state :init fire :start
+2013-03-23 08:35:19,638 DEBUG [operate-37] p.a.fsmop seq-init on :start event
+2013-03-23 08:35:19,638 DEBUG [operate-37] p.c.primitives build-and-execute-phase :configure on 1 target(s)
+2013-03-23 08:35:19,701 DEBUG [operate-37] p.a.f.event-machine fsm :dofsm-execute-action-plans -  is using locking
+2013-03-23 08:35:19,702 DEBUG [operate-39] p.a.f.event-machine Locking transition
+2013-03-23 08:35:19,702 DEBUG [operate-39] p.a.f.event-machine :dofsm-execute-action-plans - in state :init fire :start
+2013-03-23 08:35:19,702 DEBUG [operate-39] p.a.fsmop seq-init on :start event
+2013-03-23 08:35:19,704 DEBUG [operate-39] p.a.f.event-machine fsm map* -  is using locking
+2013-03-23 08:35:19,704 DEBUG [operate-38] p.a.f.event-machine Locking transition
+2013-03-23 08:35:19,705 DEBUG [operate-38] p.a.f.event-machine map* - in state :init fire :start
+2013-03-23 08:35:19,705 DEBUG [operate-38] p.a.fsmop map* init: event :start
+2013-03-23 08:35:19,707 DEBUG [operate-38] p.a.f.event-machine fsm clojure.core$partial$fn__4076@15b9b26a -  is using locking
+2013-03-23 08:35:19,707 DEBUG [operate-38] p.a.fsmop map* on running
+2013-03-23 08:35:19,708 DEBUG [operate-38] p.a.fsmop map* on-running starting 1 fsms
+2013-03-23 08:35:19,708 DEBUG [operate-37] p.a.f.event-machine Locking transition
+2013-03-23 08:35:19,708 DEBUG [operate-37] p.a.f.event-machine clojure.core$partial$fn__4076@15b9b26a - in state :init fire :start
+2013-03-23 08:35:19,769 DEBUG [operate-38] p.executors default-executor
+2013-03-23 08:35:19,799 DEBUG [operate-38] p.executors default-executor script [{:language :bash} "echo 'Packages...';\n{\n# package.clj:54\n    # lib.clj:677\n    # lib.clj:671\n{ debconf-set-selections <<EOF\ndebconf debconf/frontend select noninteractive\ndebconf debconf/frontend seen false\nEOF\n} && \\\n# package.clj:61\naptitude install -q -y curl+ wget+ git+ && \\\n# package.clj:89\naptitude search \"?and(?installed, ?name(^curl$))\" | \\\ngrep \"curl\" && \\\n# package.clj:89\naptitude search \"?and(?installed, ?name(^wget$))\" | \\\ngrep \"wget\" && \\\n# package.clj:89\naptitude search \"?and(?installed, ?name(^git$))\" | \\\ngrep \"git\"\n } || { echo '#> Packages : FAIL'; exit 1;} >&2 \necho '#> Packages : SUCCESS'\n"]
+2013-03-23 08:35:19,822 ERROR [operate-38] p.action-plan Exception in execute-action-map
+java.lang.IllegalArgumentException: No implementation of method: :proxy of protocol: #'pallet.node/NodeProxy found for class: pallet.compute.vmfest.VmfestNode
+	at clojure.core$_cache_protocol_fn.invoke(core_deftype.clj:527) ~[clojure-1.4.0.jar:na]
+	at pallet.node$eval5542$fn__5543$G__5533__5548.invoke(node.clj:37) ~[na:na]
+	at pallet.ssh.execute$endpoint.invoke(execute.clj:35) ~[na:na]
+	at pallet.ssh.execute$ssh_script_on_target.invoke(execute.clj:83) ~[na:na]
+	at pallet.executors$default_executor.invoke(executors.clj:64) ~[na:na]
+	at pallet.action_plan$execute_action_map.invoke(action_plan.clj:590) ~[na:na]
+	at pallet.action_plan$execute$exec_action__7237$execute_with_error_check__7238.invoke(action_plan.clj:657) [na:na]
+	at clojure.algo.monads$fn__6629$m_bind_state__6634$fn__6635.invoke(monads.clj:340) [na:na]
+	at pallet.action_plan$map_action_f.invoke(action_plan.clj:541) [na:na]
+	at pallet.action_plan$execute.invoke(action_plan.clj:660) [na:na]
+	at pallet.core.api$execute_action_plan_STAR_.invoke(api.clj:160) [na:na]
+	at pallet.core.api$eval10772$fn__10774.invoke(api.clj:182) [na:na]
+	at clojure.lang.MultiFn.invoke(MultiFn.java:205) [clojure-1.4.0.jar:na]
+	at clojure.lang.AFn.applyToHelper(AFn.java:193) [clojure-1.4.0.jar:na]
+	at clojure.lang.AFn.applyTo(AFn.java:151) [clojure-1.4.0.jar:na]
+	at clojure.core$apply.invoke(core.clj:607) [clojure-1.4.0.jar:na]
+	at clojure.core$partial$fn__4076.doInvoke(core.clj:2349) [clojure-1.4.0.jar:na]
+	at clojure.lang.RestFn.invoke(RestFn.java:397) [clojure-1.4.0.jar:na]
+	at pallet.core.primitives$async_fsm$run_async__10884$f_runner__10885.invoke(primitives.clj:38) [na:na]
+	at pallet.algo.fsmop$report_exceptions$report_exceptions__7645.invoke(fsmop.clj:64) [na:na]
+	at clojure.lang.AFn.call(AFn.java:18) [clojure-1.4.0.jar:na]
+	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:334) [na:1.7.0_15]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:166) [na:1.7.0_15]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_15]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_15]
+	at java.lang.Thread.run(Thread.java:722) [na:1.7.0_15]
+2013-03-23 08:35:19,824 DEBUG [operate-38] p.action-plan Stopping execution {:type :pallet/action-execution-error, :context nil, :message "Unexpected exception: No implementation of method: :proxy of protocol: #'pallet.node/NodeProxy found for class: pallet.compute.vmfest.VmfestNode", :cause #<IllegalArgumentException java.lang.IllegalArgumentException: No implementation of method: :proxy of protocol: #'pallet.node/NodeProxy found for class: pallet.compute.vmfest.VmfestNode>}
+2013-03-23 08:35:19,824 DEBUG [operate-38] p.a.f.event-machine Locking transition
+2013-03-23 08:35:19,825 DEBUG [operate-38] p.a.f.event-machine clojure.core$partial$fn__4076@15b9b26a - in state :running fire :success
+2013-03-23 08:35:19,825 DEBUG [operate-38] p.a.fsmop map* op-completed
+2013-03-23 08:35:19,826 DEBUG [operate-38] p.a.f.event-machine Locking transition
+2013-03-23 08:35:19,826 DEBUG [operate-38] p.a.f.event-machine map* - in state :running fire :op-complete
+2013-03-23 08:35:19,826 DEBUG [operate-38] p.a.fsmop running pending count 1
+2013-03-23 08:35:19,827 DEBUG [operate-38] p.a.fsmop op-complete result: {:errors ({:error {:type :pallet/action-execution-error, :context nil, :message "Unexpected exception: No implementation of method: :proxy of protocol: #'pallet.node/NodeProxy found for class: pallet.compute.vmfest.VmfestNode", :cause #<IllegalArgumentException java.lang.IllegalArgumentException: No implementation of method: :proxy of protocol: #'pallet.node/NodeProxy found for class: pallet.compute.vmfest.VmfestNode>}}), :target {:count 1, :image {:os-family :ubuntu, :image-id :ubuntu-12.04}, :phases {:configure #<vmfest$fn__16711 my_pallet_lab.groups.vmfest$fn__16711@4f209da8>}, :node #<VmfestNode pallet.compute.vmfest.VmfestNode@1dc6b0b9>, :hardware {:min-cores 1, :min-ram 512}, :group-name :mygroup-vbox}, :target-type nil, :plan-state {}, :result ({:error {:type :pallet/action-execution-error, :context nil, :message "Unexpected exception: No implementation of method: :proxy of protocol: #'pallet.node/NodeProxy found for class: pallet.compute.vmfest.VmfestNode", :cause #<IllegalArgumentException java.lang.IllegalArgumentException: No implementation of method: :proxy of protocol: #'pallet.node/NodeProxy found for class: pallet.compute.vmfest.VmfestNode>}}), :phase :configure}
+2013-03-23 08:35:19,828 DEBUG [operate-38] p.a.fsmop maybe-finish pending count 0
+2013-03-23 08:35:19,828 DEBUG [operate-38] p.a.f.event-machine Locking transition
+2013-03-23 08:35:19,828 DEBUG [operate-38] p.a.f.event-machine map* - in state :ops-complete fire :complete
+2013-03-23 08:35:19,829 DEBUG [operate-37] p.a.f.event-machine Locking transition
+2013-03-23 08:35:19,829 DEBUG [operate-37] p.a.f.event-machine :dofsm-execute-action-plans - in state :running fire :step-complete
+2013-03-23 08:35:19,832 DEBUG [operate-37] p.a.fsmop seq-running
+2013-03-23 08:35:19,833 DEBUG [operate-37] p.a.f.event-machine Locking transition
+2013-03-23 08:35:19,833 DEBUG [operate-37] p.a.f.event-machine :dofsm-execute-action-plans - in state :step-completed fire :complete
+2013-03-23 08:35:19,833 DEBUG [operate-38] p.a.f.event-machine Locking transition
+2013-03-23 08:35:19,833 DEBUG [operate-38] p.a.f.event-machine :dofsm-reduce-phases - in state :running fire :step-complete
+2013-03-23 08:35:19,833 DEBUG [operate-38] p.a.fsmop seq-running
+2013-03-23 08:35:19,834 DEBUG [operate-38] p.a.f.event-machine Locking transition
+2013-03-23 08:35:19,834 DEBUG [operate-38] p.a.f.event-machine :dofsm-reduce-phases - in state :step-completed fire :run-next-step
+2013-03-23 08:35:19,839 ERROR [operate-38] p.c.operations Phase Error in :configure
+java.lang.IllegalArgumentException: No implementation of method: :proxy of protocol: #'pallet.node/NodeProxy found for class: pallet.compute.vmfest.VmfestNode
+	at clojure.core$_cache_protocol_fn.invoke(core_deftype.clj:527) ~[clojure-1.4.0.jar:na]
+	at pallet.node$eval5542$fn__5543$G__5533__5548.invoke(node.clj:37) ~[na:na]
+	at pallet.ssh.execute$endpoint.invoke(execute.clj:35) ~[na:na]
+	at pallet.ssh.execute$ssh_script_on_target.invoke(execute.clj:83) ~[na:na]
+	at pallet.executors$default_executor.invoke(executors.clj:64) ~[na:na]
+	at pallet.action_plan$execute_action_map.invoke(action_plan.clj:590) ~[na:na]
+	at pallet.action_plan$execute$exec_action__7237$execute_with_error_check__7238.invoke(action_plan.clj:657) ~[na:na]
+	at clojure.algo.monads$fn__6629$m_bind_state__6634$fn__6635.invoke(monads.clj:340) ~[na:na]
+	at pallet.action_plan$map_action_f.invoke(action_plan.clj:541) ~[na:na]
+	at pallet.action_plan$execute.invoke(action_plan.clj:660) ~[na:na]
+	at pallet.core.api$execute_action_plan_STAR_.invoke(api.clj:160) ~[na:na]
+	at pallet.core.api$eval10772$fn__10774.invoke(api.clj:182) ~[na:na]
+	at clojure.lang.MultiFn.invoke(MultiFn.java:205) ~[clojure-1.4.0.jar:na]
+	at clojure.lang.AFn.applyToHelper(AFn.java:193) [clojure-1.4.0.jar:na]
+	at clojure.lang.AFn.applyTo(AFn.java:151) [clojure-1.4.0.jar:na]
+	at clojure.core$apply.invoke(core.clj:607) ~[clojure-1.4.0.jar:na]
+	at clojure.core$partial$fn__4076.doInvoke(core.clj:2349) ~[clojure-1.4.0.jar:na]
+	at clojure.lang.RestFn.invoke(RestFn.java:397) ~[clojure-1.4.0.jar:na]
+	at pallet.core.primitives$async_fsm$run_async__10884$f_runner__10885.invoke(primitives.clj:38) ~[na:na]
+	at pallet.algo.fsmop$report_exceptions$report_exceptions__7645.invoke(fsmop.clj:64) [na:na]
+	at clojure.lang.AFn.call(AFn.java:18) [clojure-1.4.0.jar:na]
+	at java.util.concurrent.FutureTask$Sync.innerRun(FutureTask.java:334) [na:1.7.0_15]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:166) [na:1.7.0_15]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145) [na:1.7.0_15]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615) [na:1.7.0_15]
+	at java.lang.Thread.run(Thread.java:722) [na:1.7.0_15]
+2013-03-23 08:35:19,840 DEBUG [operate-38] p.a.f.event-machine fsm succeed -  is using locking
+2013-03-23 08:35:19,840 DEBUG [operate-37] p.a.f.event-machine Locking transition
+2013-03-23 08:35:19,840 DEBUG [operate-37] p.a.f.event-machine succeed - in state :init fire :start
+2013-03-23 08:35:19,840 DEBUG [operate-38] p.a.f.event-machine Locking transition
+2013-03-23 08:35:19,841 DEBUG [operate-38] p.a.f.event-machine :dofsm-reduce-phases - in state :running fire :step-fail
+2013-03-23 08:35:19,841 DEBUG [operate-38] p.a.fsmop seq-running
+2013-03-23 08:35:19,841 DEBUG [operate-38] p.a.f.event-machine Locking transition
+2013-03-23 08:35:19,841 DEBUG [operate-38] p.a.f.event-machine :dofsm-reduce-phases - in state :step-failed fire :fail
+2013-03-23 08:35:19,841 DEBUG [operate-38] p.a.fsmop seq-step-failed event :fail
+2013-03-23 08:35:19,841 DEBUG [operate-37] p.a.f.event-machine Locking transition
+2013-03-23 08:35:19,841 DEBUG [operate-37] p.a.f.event-machine :dofsm-reduce* - in state :running fire :step-fail
+2013-03-23 08:35:19,841 DEBUG [operate-37] p.a.fsmop seq-running
+2013-03-23 08:35:19,841 DEBUG [operate-37] p.a.f.event-machine Locking transition
+2013-03-23 08:35:19,841 DEBUG [operate-37] p.a.f.event-machine :dofsm-reduce* - in state :step-failed fire :fail
+2013-03-23 08:35:19,841 DEBUG [operate-37] p.a.fsmop seq-step-failed event :fail
+2013-03-23 08:35:19,842 DEBUG [operate-38] p.a.f.event-machine Locking transition
+2013-03-23 08:35:19,842 DEBUG [operate-38] p.a.f.event-machine :dofsm-converge - in state :running fire :step-fail
+2013-03-23 08:35:19,842 DEBUG [operate-38] p.a.fsmop seq-running
+2013-03-23 08:35:19,842 DEBUG [operate-38] p.a.f.event-machine Locking transition
+2013-03-23 08:35:19,842 DEBUG [operate-38] p.a.f.event-machine :dofsm-converge - in state :step-failed fire :fail
+2013-03-23 08:35:19,842 DEBUG [operate-38] p.a.fsmop seq-step-failed event :fail
+2013-03-23 08:35:19,842 DEBUG [operate-37] p.a.f.event-machine Locking transition
+2013-03-23 08:35:19,842 DEBUG [operate-37] p.a.f.event-machine :dofsm-converge - in state :running fire :step-fail
+2013-03-23 08:35:19,842 DEBUG [operate-37] p.a.fsmop seq-running
+2013-03-23 08:35:19,842 DEBUG [operate-37] p.a.f.event-machine Locking transition
+2013-03-23 08:35:19,842 DEBUG [operate-37] p.a.f.event-machine :dofsm-converge - in state :step-failed fire :fail
+2013-03-23 08:35:19,842 DEBUG [operate-37] p.a.fsmop seq-step-failed event :fail
+#+end_src
+
+** vmfest
+#+begin_src sh
+2013-03-23 08:33:58,442 DEBUG [nREPL-worker-5] v.v.conditions formatting wrapped exception {:type :connection-error}
+2013-03-23 08:34:51,706 INFO [clojure-agent-send-off-pool-9] v.v.virtualbox create-machine: Creating machine mygroup-vbox-0 in /home/tony/.vmfest/nodes/vmfest/mygroup-vbox-0/mygroup-vbox-0.vbox,  overwriting previous contents
+2013-03-23 08:34:51,953 DEBUG [clojure-agent-send-off-pool-9] v.v.machine-config Configuring network for machine mygroup-vbox-0 with [{:attachment-type :host-only, :host-only-interface "vboxnet0"} {:attachment-type :nat}]
+2013-03-23 08:34:51,964 DEBUG [clojure-agent-send-off-pool-9] v.v.machine-config Configuring adapter 0 with {:attachment-type :host-only, :host-only-interface "vboxnet0"}
+2013-03-23 08:34:51,966 DEBUG [clojure-agent-send-off-pool-9] v.v.machine-config configure-adapter: Configuring network adapter for machine 'mygroup-vbox-0' slot 0 with {:attachment-type :host-only, :host-only-interface "vboxnet0"}
+2013-03-23 08:34:52,072 DEBUG [clojure-agent-send-off-pool-9] v.v.machine-config Configuring adapter 1 with {:attachment-type :nat}
+2013-03-23 08:34:52,074 DEBUG [clojure-agent-send-off-pool-9] v.v.machine-config configure-adapter: Configuring network adapter for machine 'mygroup-vbox-0' slot 1 with {:attachment-type :nat}
+2013-03-23 08:34:52,078 WARN [clojure-agent-send-off-pool-9] v.v.machine-config There is no such setting :network-type in a machine configuration
+2013-03-23 08:34:53,166 DEBUG [clojure-agent-send-off-pool-9] v.manager Configuring storage for {:cpu-count 1, :network [{:attachment-type :host-only, :host-only-interface "vboxnet0"} {:attachment-type :nat}], :storage ({:devices [{:device-type :hard-disk, :location "/home/tony/.vmfest/models/vmfest-ubuntu-12.04.vdi", :attachment-type :multi-attach} nil nil nil], :name "IDE Controller", :bus :ide}), :network-type :local, :boot-mount-point ["IDE Controller" 0], :memory-size 512}
+2013-03-23 08:34:53,232 DEBUG [clojure-agent-send-off-pool-9] v.v.machine-config Configuring storage for machine mygroup-vbox-0: clojure.lang.LazySeq@bbafb1fd
+2013-03-23 08:34:53,232 DEBUG [clojure-agent-send-off-pool-9] v.v.machine-config Configuring controller for {:devices [{:device-type :hard-disk, :location "/home/tony/.vmfest/models/vmfest-ubuntu-12.04.vdi", :attachment-type :multi-attach} nil nil nil], :name "IDE Controller", :bus :ide}
+2013-03-23 08:34:53,388 DEBUG [clojure-agent-send-off-pool-9] v.v.machine-config configure-controller: Configuring controller for machine 'mygroup-vbox-0': {:devices [{:device-type :hard-disk, :location "/home/tony/.vmfest/models/vmfest-ubuntu-12.04.vdi", :attachment-type :multi-attach} nil nil nil], :name "IDE Controller", :bus :ide}
+2013-03-23 08:34:53,388 DEBUG [clojure-agent-send-off-pool-9] v.v.machine-config add-storage-controller: m=org.virtualbox_4_2.IMachine@cc19332 name='IDE Controller' storage-bus IDE
+2013-03-23 08:34:53,391 DEBUG [clojure-agent-send-off-pool-9] v.v.machine-config attach-devices: Attaching devices to mygroup-vbox-0 in controller IDE Controller: [{:device-type :hard-disk, :location "/home/tony/.vmfest/models/vmfest-ubuntu-12.04.vdi", :attachment-type :multi-attach} nil nil nil]
+2013-03-23 08:34:53,392 DEBUG [clojure-agent-send-off-pool-9] v.v.machine-config attach-device: Attaching {:device-type :hard-disk, :location "/home/tony/.vmfest/models/vmfest-ubuntu-12.04.vdi", :attachment-type :multi-attach} in controller IDE Controller slot 0 port 0 for machine mygroup-vbox-0
+2013-03-23 08:34:54,952 DEBUG [clojure-agent-send-off-pool-9] v.v.virtualbox find-vb-m: found machine '70b4771e-2166-42a3-b1a9-092a5a905dd2': org.virtualbox_4_2.IMachine@491a6367
+2013-03-23 08:34:54,980 DEBUG [clojure-agent-send-off-pool-9] v.v.machine start: Starting session for VM 70b4771e-2166-42a3-b1a9-092a5a905dd2...
+2013-03-23 08:34:55,346 DEBUG [clojure-agent-send-off-pool-9] v.v.machine start: VM 70b4771e-2166-42a3-b1a9-092a5a905dd2 started with result code 0
+2013-03-23 08:53:57,338 INFO [operate-48] v.v.machine unregister: unregistering machine with name mygroup-vbox-0 with cleanup DetachAllReturnHardDisksOnly
+2013-03-23 08:53:57,433 INFO [operate-48] v.v.machine delete: deleting machine mygroup-vbox-0 and it's media
+#+end_src
