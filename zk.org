@@ -1,0 +1,25 @@
+#+title: zk - the four-letter words
+
+#+begin_src txt
+|--------------------+---------+------------------------------------------------------------------------------------------------------------------------------------|
+| Category           | Command | Description                                                                                                                        |
+|--------------------+---------+------------------------------------------------------------------------------------------------------------------------------------|
+| Server status      | ruok    | Prints imok if the server is running and not in an error state.                                                                    |
+|                    | conf    | Print the server configuration (from zoo.cfg).                                                                                     |
+|                    | envi    | Print the server environment, including ZooKeeper version, Java version and other system properties.                               |
+|                    | srvr    | Print server statistics, including latency statistics, the number of znodes, and the server mode (standalone, leader or follower). |
+|                    | stat    | Print server statistics and connected clients.                                                                                     |
+|                    | srst    | Reset server statistics.                                                                                                           |
+|                    | isro    | Shows if the server is in read-only (ro) mode (due to a network partition), or read-write mode (rw).                               |
+|--------------------+---------+------------------------------------------------------------------------------------------------------------------------------------|
+| Client connections | dump    | List all the sessions and ephemeral znodes for the ensemble. You must connect to the leader (see srvr) for this command.           |
+|                    | cons    | List connection statistics for all the server’s clients.                                                                           |
+|                    | crst    | Reset connection statistics.                                                                                                       |
+|--------------------+---------+------------------------------------------------------------------------------------------------------------------------------------|
+| Watches            | wchs    | List summary information for the server’s watches.                                                                                 |
+|                    | wchc    | List all the server’s watches by connection. Caution: may impact server performance for large number of watches.                   |
+|                    | wchp    | List all the server’s watches by znode path. Caution: may impact server performance for large number of watches.                   |
+|--------------------+---------+------------------------------------------------------------------------------------------------------------------------------------|
+| Monitoring         | mntr    | Lists server statistics in Java Properties format, suitable as a source for monitoring systems like Ganglia and Nagios             |
+|--------------------+---------+------------------------------------------------------------------------------------------------------------------------------------|
+#+end_src
