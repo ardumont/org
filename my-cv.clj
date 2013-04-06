@@ -17,21 +17,20 @@
                   :phone       (reverse ["03" "79" "08" "99" "06"])}
 
    :jobs         {:current     :sfeir
-                  :sfeir       {:as     "software engineer/developer"
+                  :sfeir       {:as     "software engineer/developer/devops"
                                 :period "2011 - now"}
                   :sopra-group {:as     "software engineer"
                                 :period "2007-2011"}}
 
    :experience   :contact-me-for-that
 
-   :technologies {:languages                ["clojure" "ruby" "*sh" "c" "java" "php" "*sql" "xhtml" "etc..."]
+   :technologies {:languages                ["clojure" "haskell" "ruby" "*sh" "c" "php" "*sql" "xhtml" "java" "etc..."]
                   :other-languages          ["emacs-lisp" "common-lisp" "clojurescript" "objective-c" "arduino programming language"]
                   :dvcs                     ["git"]
-                  :tools                    ["GNU/Linux" "emacs" "leiningen" "eclipse" "intellij-idea" "maven" "ant" "make" "*sh"]
+                  :tools                    ["GNU/Linux" "emacs" "leiningen" "eclipse" "maven" "ant" "Makefile" "*sh"]
                   :configuration-management ["puppet"]
-                  :nosql-databases          ["hadoop"]
-                  :sql-databases            ["mysql" "postgresql" "oracle" "mssql"]
-                  :ui                       ["noir" "compojure" "GWT" "struts" "spring-mvc" "jsp"]}
+                  :nosql-databases          ["hadoop" "datomic"]
+                  :sql-databases            ["mysql" "postgresql" "oracle"]}
 
    :profiles     {:github            "https://github.com/ardumont"
                   :twitter           "http://twitter.com/@ardumont"
