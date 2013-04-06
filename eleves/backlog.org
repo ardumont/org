@@ -1,0 +1,16 @@
+#+title: backlog to redo gestioneleves with clojure pedestal
+#+author: Antoine R. Dumont
+
+* IN-PROGRESS learn pedestal [0%]
+** TODO read http://pedestal.io/documentation/
+** TODO helloworld
+* TODO gestioneleves reloaded [40%]
+** TODO Jenkins [0%]
+*** TODO install
+*** TODO setup
+** DONE create a pedestal application + repository git
+CLOSED: [2013-04-06 sam. 16:44]
+** DONE migrate mysql data to datomic data
+CLOSED: [2013-04-06 sam. 16:44]
+** IN-PROGRESS develop resources
+** IN-PROGRESS develop frontend using pedestal's clojurescript.
