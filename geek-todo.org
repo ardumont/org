@@ -664,9 +664,9 @@ CLOSED: [2013-03-03 dim. 00:06]
 
 ** DONE make a decent cpug-vm/Vagrantfile startup
 CLOSED: [2013-03-03 dim. 01:45]
-* TODO curriculum [33%]
-** IN-PROGRESS update cv
-** TODO update blog
+* TODO curriculum [71%]
+** DONE update blog
+CLOSED: [2013-04-07 dim. 12:56]
 ** DONE create a curriculum site in clojurescript
 CLOSED: [2013-04-07 dim. 11:54]
 https://github.com/ardumont/glowing-octo-archer.git
@@ -674,7 +674,24 @@ https://github.com/ardumont/glowing-octo-archer.git
 ** DONE make it printable
 CLOSED: [2013-04-07 dim. 11:54]
 
-** TODO deploy it
-find how to deploy clojurescript app.
+** DONE deploy it
+CLOSED: [2013-04-07 dim. 12:28]
+find how to deploy clojurescript app
 
-** TODO make links to it from everywhere (gravatar, linkedin, viadeo, blog, etc...)
+At the moment deploying via sftp.
+
+http://adumont.fr/cv/curriculum-app.html
+
+** DONE make links to it from everywhere (gravatar, linkedin, viadeo, blog, etc...) [100%]
+CLOSED: [2013-04-07 dim. 12:56]
+*** DONE blog
+CLOSED: [2013-04-07 dim. 12:30]
+http://adumont.fr/blog/about/ the link "my resume" is updated.
+*** DONE gravatar
+CLOSED: [2013-04-07 dim. 12:46]
+*** DONE linkedin
+CLOSED: [2013-04-07 dim. 12:56]
+*** DONE viadeo
+CLOSED: [2013-04-07 dim. 12:56]
+** IN-PROGRESS find old cv used for sfeir
+** IN-PROGRESS update cv

@@ -42,6 +42,6 @@ The technologies are innovative : GWT, Android, NoSQL, etc...
 ** [[http://adumont.fr][blog]]
 ** [[http://j.mp/ibIAVM][viadeo]]
 ** [[http://j.mp/dWMPPr][linkedin]]
-** [[http://j.mp/gkImOH][My student resume]] (Need to be updated some day)
+** [[http://adumont.fr/cv/curriculum-app.html][My resume]]
 
 #+./resources/tux-clj.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-tux-clj.png
