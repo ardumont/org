@@ -664,3 +664,17 @@ CLOSED: [2013-03-03 dim. 00:06]
 
 ** DONE make a decent cpug-vm/Vagrantfile startup
 CLOSED: [2013-03-03 dim. 01:45]
+* TODO curriculum [33%]
+** IN-PROGRESS update cv
+** TODO update blog
+** DONE create a curriculum site in clojurescript
+CLOSED: [2013-04-07 dim. 11:54]
+https://github.com/ardumont/glowing-octo-archer.git
+
+** DONE make it printable
+CLOSED: [2013-04-07 dim. 11:54]
+
+** TODO deploy it
+find how to deploy clojurescript app.
+
+** TODO make links to it from everywhere (gravatar, linkedin, viadeo, blog, etc...)
