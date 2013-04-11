@@ -664,7 +664,7 @@ CLOSED: [2013-03-03 dim. 00:06]
 
 ** DONE make a decent cpug-vm/Vagrantfile startup
 CLOSED: [2013-03-03 dim. 01:45]
-* TODO curriculum [71%]
+* PENDING curriculum [85%]
 ** DONE update blog
 CLOSED: [2013-04-07 dim. 12:56]
 ** DONE create a curriculum site in clojurescript
@@ -693,5 +693,6 @@ CLOSED: [2013-04-07 dim. 12:46]
 CLOSED: [2013-04-07 dim. 12:56]
 *** DONE viadeo
 CLOSED: [2013-04-07 dim. 12:56]
-** IN-PROGRESS find old cv used for sfeir
-** IN-PROGRESS update cv
+** DONE find old cv used for sfeir
+CLOSED: [2013-04-07 dim. 13:05]
+** PENDING update cv according to those
