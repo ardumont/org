@@ -3,14 +3,15 @@
 #+STARTUP: indent
 #+STARTUP: hidestars odd
 
-* TODO dehors [0/4]
-*** TODO cote droit [6/12]
+* PENDING dehors [1/4]
+*** PENDING cote droit [7/12]
 ******* DONE Retirer toutes les mauvaises herbes
 ******* DONE Planter du gazon
 l'herbe est magnifique
 ******* DONE Faire couper l'arbre
 ******* DONE Mettre en place les composteurs
-******* TODO Laisser secher les buches restantes
+******* DONE Laisser secher les buches restantes
+CLOSED: [2013-04-11 jeu. 09:33]
 ******* TODO Couper les buches restantes
 ******* TODO Couper/Abattre l'abricotier malade.
 Trop pres du mur de separation.
@@ -23,8 +24,8 @@ CLOSED: [2011-09-12 lun. 13:09]
 ******* DONE Retirer les dalles
 CLOSED: [2011-09-12 lun. 13:09]
 
-
-*** TODO cote gauche [11/11]
+*** DONE cote gauche [11/11]
+CLOSED: [2013-04-11 jeu. 09:34]
 ******* DONE Retirer toutes les mauvaises herbes
 ******* DONE Retirer toute la tranchee d'arbustes (~10)
 J'en ai soupe de l'arbuste
@@ -41,7 +42,7 @@ CLOSED: [2011-09-12 lun. 13:09]
 CLOSED: [2011-09-12 lun. 13:09]
 ******* DONE Retirer les dalles
 CLOSED: [2011-09-12 lun. 13:09]
-*** TODO devant [8/10]
+*** PENDING devant [9/10]
 ***** DONE parterres de fleurs [4/4]
 ******* DONE Detruire le parterre de marguerite qui prend trop de place dans le jardin.
 ******* DONE Aplanir tous les parterres de fleurs.
@@ -53,50 +54,57 @@ CLOSED: [2011-09-12 lun. 13:09]
 ***** DONE Faire couper les arbres de devant
 ***** DONE Mettre en place des barrieres de securite le long de l'allee de descente dans le garage.
 ***** DONE Evacuer tous les dechets suites a toutes les actions du jardins
-***** TODO Tailler le noisetier de devant.
+***** DONE Tailler le noisetier de devant.
+CLOSED: [2013-04-11 jeu. 09:34]
 ***** TODO Deraciner les arbustes restant de devant (pour les planter derriere)
 ***** DONE Replanter l'herbe
 CLOSED: [2011-09-12 lun. 13:10]
-*** TODO derriere [3/4]
+*** PENDING derriere [3/4]
 ***** DONE Retirer le lierre
 ***** DONE Tailler la haie de derriere
 ***** DONE Reparer la partie de la barriere tombee a cause du lierre
 Merci papy Claude
 ***** TODO Replanter les arbustes de devant pour combler le trou dans la haie de derriere
-* TODO dedans [2/12]
-*** TODO Relatif a l'exterieur [2/3]
+* PENDING dedans [4/14]
+*** DONE Relatif a l'exterieur [3/3]
+CLOSED: [2013-04-11 jeu. 09:35]
 ***** DONE Tailler les arbustes en morceaux pour pouvoir les rentrer dans le garage
 ***** DONE Rentrer les morceaux dans le garage
-***** TODO Bruler les morceaux d'arbustes dans la cheminee [1/2]
-******* DONE 9/10
-******* TODO 1/10
-*** TODO Encombrants [3/8]
+***** DONE Bruler les morceaux d'arbustes dans la cheminee [1/1]
+CLOSED: [2013-04-11 jeu. 09:35]
+******* DONE 10/10
+*** PENDING Encombrants [6/8]
 ***** DONE vieux frigo
 ***** DONE vieux four
 ***** DONE Grosse armoire du bureau
-***** TODO rameur
-***** TODO pneu
+***** DONE rameur
+CLOSED: [2013-04-11 jeu. 09:35]
+***** DONE pneu
+CLOSED: [2013-04-11 jeu. 09:35]
 ***** TODO armoires metalliques (piece du ballon d'eau chaude)
 ***** TODO cartons
-***** TODO grosses pieces de verre
-*** TODO Piece de jeux pour les enfants [3/7]
+***** DONE grosses pieces de verre
+CLOSED: [2013-04-11 jeu. 09:35]
+*** PENDING Piece de jeux pour les enfants [5/7]
 ***** DONE Retirer la grosse armoire du bureau
 ***** DONE Retirer le crepis
-***** TODO Enduit de rebouchage 
-***** TODO Enduit de lissage
+***** DONE Enduit de rebouchage
+CLOSED: [2013-04-11 jeu. 09:36]
+***** DONE Enduit de lissage
+CLOSED: [2013-04-11 jeu. 09:36]
 ***** TODO Poser la toile de renovation
 ***** TODO Poser le papier peint/Peindre
 ***** DONE Ranger la piece
 CLOSED: [2011-10-31 lun. 10:10]
-*** TODO Cuisine [3/7]
-***** DONE Degager le vieux frigo 
+*** PENDING Cuisine [3/7]
+***** DONE Degager le vieux frigo
 ***** DONE Refaire les prises de courant
 ***** DONE Retirer le crepis
 ***** TODO Enduit de rebouchage
 ***** TODO Enduit de lissage
 ***** TODO Poser la toile de renovation
 ***** TODO Poser le papier peint/Peindre
-*** TODO Couloir [7/9]
+*** PENDING Couloir [7/9]
 ***** DONE Changer les portes de l'armoire
 Merci papy Claude
 ***** DONE Retirer le papier peint du plafond
@@ -111,7 +119,7 @@ Merci Papy Claude
 Merci Papy Claude
 ***** TODO Poser la toile de renovation
 ***** TODO Poser le papier peint/Peindre
-*** TODO Salon [7/9]
+*** PENDING Salon [7/9]
 ***** DONE Retirer le papier peint du plafond
 ***** DONE Retirer le crepis
 ***** DONE Reparer la fissure de la cheminee
@@ -126,7 +134,7 @@ Merci Papy Claude
 Merci Papy Claude
 ***** TODO Poser la toile de renovation
 ***** TODO Poser le papier peint/Peindre
-*** TODO Escalier salon-1er [6/9]
+*** PENDING Escalier salon-1er [7/9]
 ***** DONE Retirer le crepis
 ***** DONE Enduit de lissage
 CLOSED: [2011-10-31 lun. 10:11]
@@ -138,13 +146,11 @@ CLOSED: [2011-10-31 lun. 10:11]
 CLOSED: [2011-10-31 lun. 19:34]
 ***** DONE Lessivage/nettoyage
 CLOSED: [2011-10-31 lun. 19:35]
-***** TODO Passer la sous-couche. [1/2]
-******* DONE 60%
-CLOSED: [2011-10-31 lun. 19:35]
-******* TODO 40%
+***** DONE Passer la sous-couche. [0/1]
+CLOSED: [2013-04-11 jeu. 09:37]
 ***** TODO Poser la toile de renovation
 ***** TODO Poser le papier peint/Peindre
-*** TODO Couloir du haut [10/12]
+*** PENDING Couloir du haut [10/12]
 ***** DONE Retirer le crepis
 ***** DONE Retirer le papier peint
 ***** DONE Enduit
@@ -196,7 +202,7 @@ Merci Papy Claude
 Merci Papy Claude
 ***** DONE Decoration
 Merci Chris
-*** TODO Chambre de nous [0/7]
+*** PENDING Chambre parentale [2/9]
 ***** TODO Retirer le crepis
 ***** TODO Enduit de rebouchage
 ***** TODO Enduit de lissage
@@ -204,6 +210,10 @@ Merci Chris
 ***** TODO Passer la sous-couche.
 ***** TODO Poser la toile de renovation
 ***** TODO Poser le papier peint/Peindre
+***** DONE Changer le siphon du lavabo
+CLOSED: [2013-04-11 jeu. 09:39]
+***** DONE Changer le robinet de la douche
+CLOSED: [2013-04-11 jeu. 09:39]
 *** TODO Bureau [0/9]
 ***** TODO Retirer le crepis
 ***** TODO Enduit de rebouchage
@@ -214,3 +224,11 @@ Merci Chris
 ***** TODO Poser la toile de renovation
 ***** TODO Poser le papier peint/Peindre
 ***** TODO Ranger la piece
+*** TODO Toilletes du bas [0%]
+***** TODO Changer les toilettes
+*** DONE Toilettes du haut [100%]
+CLOSED: [2013-04-11 jeu. 09:40]
+***** DONE Changer les toilettes
+CLOSED: [2013-04-11 jeu. 09:40]
+***** DONE Changer les tuyaux
+CLOSED: [2013-04-11 jeu. 09:40]
