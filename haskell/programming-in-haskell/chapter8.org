@@ -24,28 +24,28 @@ Anyway, here are the needed definitions for tinkering with parsers in your repl:
 import Control.Monad
 import Data.Char(isDigit, isUpper, isLower, isAlpha, isAlphaNum, isSpace)
 
-newtype Parser a              =  P (String -> [(a,String)])
+newtype Parser a  =  P (String -> [(a,String)])
 
-parse                         :: Parser a -> String -> [(a,String)]
-parse (P p) inp               =  p inp
+parse             :: Parser a -> String -> [(a,String)]
+parse (P p) inp   =  p inp
 
 instance Monad Parser where
   -- return parser: always succeeds by returning the result value
   -- v without consuming the input
-    return v                   =  P (\inp -> [(v,inp)])
+    return v      =  P (\inp -> [(v,inp)])
 
   -- bind
-    p >>= f                    =  P (\inp -> case parse p inp of
-                                                []        -> []
-                                                [(v,out)] -> parse (f v) out)
+    p >>= f       =  P (\inp -> case parse p inp of
+                       []        -> []
+                       [(v,out)] -> parse (f v) out)
 
 instance MonadPlus Parser where
   -- fail
-    mzero                      =  P (\_ -> [])
+    mzero         =  P (\_ -> [])
   -- choice
-    p `mplus` q                =  P (\inp -> case parse p inp of
-                                        []        -> parse q inp
-                                        [(v,out)] -> [(v,out)])
+    p `mplus` q   =  P (\inp -> case parse p inp of
+                       []        -> parse q inp
+                       [(v,out)] -> [(v,out)])
 
 #+end_src
 
@@ -105,7 +105,7 @@ We have a 'choice' between parsing a negative natural number (beginning with '-'
 int :: Parser Int
 int = do symbol "-"
          n <- natural
-         return -n
+         return (-n)
          +++ natural
 #+end_src
 
