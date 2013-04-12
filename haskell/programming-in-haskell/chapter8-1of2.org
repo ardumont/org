@@ -1,7 +1,6 @@
 #+BLOG: tony-blog
 #+POSTID: 997
 #+DATE: [2013-04-12 ven. 11:59]
-#+BLOG: tony-blog
 #+TITLE: PIH - ch8 1/2 - Functional parsers - exercises
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
@@ -16,7 +15,6 @@ At last, here it is:
 
 I did encounter some troubles for this.
 The definition used in this chapter and the reality were slightly changed.
-I do not know why but this did slow me.
 
 Anyway, here are the needed definitions for tinkering with parsers in your repl:
 
@@ -48,6 +46,7 @@ instance MonadPlus Parser where
                        [(v,out)] -> [(v,out)])
 
 #+end_src
+I will not enter into details here because monads will be presented in another late chapter.
 
 As always, you'll find the [[https://github.com/ardumont/my-haskell-lab/blob/master/src/ch8.hs][sources on github]].
 
