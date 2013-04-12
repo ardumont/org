@@ -23,6 +23,29 @@ The library file also defines a parser =int :: Parser Int= for an integer. Witho
 Hint: an integer is either a minus symbol followed by a natural number, or a natural number.
 #+END_QUOTE
 
+We have a 'choice' between parsing a negative natural number (beginning with '-') or a positive natural number.
+#+begin_src haskell
+int :: Parser Int
+int = do symbol "-"
+         n <- natural
+         return -n
+         +++ natural
+#+end_src
+
+Examples:
+#+begin_src haskell
+*Parsers> parse int "-1"
+[(-1,"")]
+*Parsers> parse int "-10"
+[(-10,"")]
+*Parsers> parse int "-101"
+[(-101,"")]
+*Parsers> parse int "101"
+[(101,"")]
+*Parsers> parse int " - 101"
+[(-101,"")]
+#+end_src
+
 * comment :: Parser ()
 #+begin_quote
 Define a parser =comment :: Parser ()= for ordinary Haskell comments that begin with the symbol -- and extend to the end of the current line, which is represented by the control character ’\n’.
