@@ -1,4 +1,7 @@
 #+BLOG: tony-blog
+#+POSTID: 997
+#+DATE: [2013-04-12 ven. 11:59]
+#+BLOG: tony-blog
 #+TITLE: Programming in haskell - ch8 - Functional parsers - exercises
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
