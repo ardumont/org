@@ -2,7 +2,7 @@
 #+POSTID: 997
 #+DATE: [2013-04-12 ven. 11:59]
 #+BLOG: tony-blog
-#+TITLE: Programming in haskell - ch8 - Functional parsers - exercises
+#+TITLE: PIH - ch8 1/2 - Functional parsers - exercises
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
 #+TAGS: haskell, exercises, functional-programming
@@ -188,43 +188,4 @@ Using our second grammar for arithmetic expressions, draw the two possible parse
 * Draw Tree 2/2
 #+begin_quote
 Using our third grammar for arithmetic expressions, draw the parse trees for the expressions =2 + 3=, =2 ∗ 3 ∗ 4= and =(2 + 3) + 4=.
-#+end_quote
-
-* Efficiency
-#+begin_quote
-Explain why the final simplification of the grammar for arithmetic expressions has a dramatic effect on the efficiency of the resulting parser.
-
-Hint: Begin by considering how an expression comprising a single number would be parsed if this step had not been made.
-#+end_quote
-
-* Complete parser 1/2
-#+begin_quote
-Extend the parser for arithmetic expressions to support subtraction and division, based upon the following extensions to the grammar:
-#+end_quote
-
-#+begin_src txt
-expr ::= term (+ expr | − expr | empty)
-term ::= factor (∗ term | / term | empty)
-#+end_src
-
-* Complete parser 2/2
-#+begin_quote
-Further extend the grammar and parser for arithmetic expressions to support exponentiation, which is assumed to associate to the right and have higher priority than multiplication and division, but lower priority than parentheses and numbers.
-For example, =2 ↑ 3 ∗ 4= means =(2 ↑ 3) ∗ 4=.
-
-Hint: The new level of priority requires a new rule in the grammar.
-#+end_quote
-
-* Grammar
-#+begin_quote
-Consider expressions built up from natural numbers using a subtraction operator that is assumed to associate to the left.
-(a) Define a natural grammar for such expressions.
-
-(b) Translate this grammar into a parser expr :: Parser Int.
-
-(c) What is the problem with this parser?
-
-(d) Show how it can be fixed.
-
-Hint: Rewrite the parser using the repetition primitive many and the library function foldl.
 #+end_quote
