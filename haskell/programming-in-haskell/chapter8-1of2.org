@@ -10,12 +10,8 @@
 #+STARTUP: indent
 #+STARTUP: hidestars odd
 
-It has been a moment since I post some haskell exercises.
-At last, here it is:
-
-I did encounter some troubles for this.
+I did encounter some troubles for this chapter, that's why it took me so long before posting anything.
 The definition used in this chapter and the reality were slightly changed.
-
 Anyway, here are the needed definitions for tinkering with parsers in your repl:
 
 #+begin_src haskell
