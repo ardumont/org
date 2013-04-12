@@ -7,3 +7,69 @@
 #+DESCRIPTION: Learning haskell and solving problems using reasoning and 'repl'ing
 #+STARTUP: indent
 #+STARTUP: hidestars odd
+
+It has been a moment since I post some haskell exercises.
+At last, here it is:
+
+As always, you'll find the [[https://github.com/ardumont/my-haskell-lab/blob/master/src/ch8.hs][sources on github]].
+
+* int :: Parser Int
+#+BEGIN_QUOTE
+The library file also defines a parser =int :: Parser Int= for an integer. Without looking at this definition, define int.
+
+Hint: an integer is either a minus symbol followed by a natural number, or a natural number.
+#+END_QUOTE
+
+* comment :: Parser ()
+#+begin_quote
+Define a parser =comment :: Parser ()= for ordinary Haskell comments that begin with the symbol -- and extend to the end of the current line, which is represented by the control character ’\n’.
+#+end_quote
+
+* Draw Tree 1/2
+#+begin_quote
+Using our second grammar for arithmetic expressions, draw the two possible parse trees for the expression =2 + 3 + 4=.
+#+end_quote
+
+* Draw Tree 2/2
+#+begin_quote
+Using our third grammar for arithmetic expressions, draw the parse trees for the expressions =2 + 3=, =2 ∗ 3 ∗ 4= and =(2 + 3) + 4=.
+#+end_quote
+
+* Efficiency
+#+begin_quote
+Explain why the final simplification of the grammar for arithmetic expressions has a dramatic effect on the efficiency of the resulting parser.
+
+Hint: Begin by considering how an expression comprising a single number would be parsed if this step had not been made.
+#+end_quote
+
+* Complete parser 1/2
+#+begin_quote
+Extend the parser for arithmetic expressions to support subtraction and division, based upon the following extensions to the grammar:
+#+end_quote
+
+#+begin_src txt
+expr ::= term (+ expr | − expr | empty)
+term ::= factor (∗ term | / term | empty)
+#+end_src
+
+* Complete parser 2/2
+#+begin_quote
+Further extend the grammar and parser for arithmetic expressions to support exponentiation, which is assumed to associate to the right and have higher priority than multiplication and division, but lower priority than parentheses and numbers.
+For example, =2 ↑ 3 ∗ 4= means =(2 ↑ 3) ∗ 4=.
+
+Hint: The new level of priority requires a new rule in the grammar.
+#+end_quote
+
+* Grammar
+#+begin_quote
+Consider expressions built up from natural numbers using a subtraction operator that is assumed to associate to the left.
+(a) Define a natural grammar for such expressions.
+
+(b) Translate this grammar into a parser expr :: Parser Int.
+
+(c) What is the problem with this parser?
+
+(d) Show how it can be fixed.
+
+Hint: Rewrite the parser using the repetition primitive many and the library function foldl.
+#+end_quote
