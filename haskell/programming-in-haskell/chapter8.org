@@ -128,6 +128,58 @@ Examples:
 Define a parser =comment :: Parser ()= for ordinary Haskell comments that begin with the symbol -- and extend to the end of the current line, which is represented by the control character ’\n’.
 #+end_quote
 
+Here are the functions I will use to answer the question:
+#+begin_src haskell
+
+char :: Char -> Parser Char
+char x = sat (== x)
+
+alphanum :: Parser Char
+alphanum = sat isAlphaNum
+#+end_src
+
+Here is a first naive approach where you specify the characters you can read:
+#+begin_src haskell
+
+comment :: Parser ()
+comment = do symbol "--"
+             many (alphanum +++ char ' ')
+             char '\n'
+             return ()
+#+end_src
+
+#+begin_src haskell
+*Parsers> parse comment "--thisisacommentignoredtill\nnotignored"
+[((),"notignored")]
+*Parsers> parse comment "--this is a comment ignored till\nnotignored"
+[((),"notignored")]
+*Parsers> parse comment "--this is a  comment ignored till\nnotignored"
+[((),"notignored")]
+*Parsers> parse comment "--this is a  comment ignored 23 till\nnotignored"
+[((),"notignored")]
+#+end_src
+
+Indeed, for some edge cases, this won't work:
+#+begin_src haskell
+*Parsers> parse comment "--this is a  comment!@# that breaks\nnotignored"
+[]
+#+end_src
+
+A simpler and better approach would be to parse anything that's not the ending control char '\n':
+
+#+begin_src haskell
+comment :: Parser ()
+comment = do symbol "--"
+             many (sat (/= '\n'))
+             char '\n'
+             return ()
+#+end_src
+
+#+begin_src haskell
+*Parsers> parse comment "--this is a  comment!@# that does not break\nnotignored"
+[((),"notignored")]
+#+end_src
+
 * Draw Tree 1/2
 #+begin_quote
 Using our second grammar for arithmetic expressions, draw the two possible parse trees for the expression =2 + 3 + 4=.
