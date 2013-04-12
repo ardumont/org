@@ -1,5 +1,5 @@
 * Posts
-** [[file:/home/tony/org/haskell/programming-in-haskell/chapter8.org][Programming in haskell - ch8 - Functional parsers - exercises]]
+** [[file:/home/tony/org/haskell/programming-in-haskell/chapter8-1of2.org][PIH - ch8 1/2 - Functional parsers - exercises]]
 :PROPERTIES:
 :POSTID: 997
 :POST_DATE: 20130412T09:59:00+0000

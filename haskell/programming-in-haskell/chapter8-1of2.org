@@ -184,7 +184,26 @@ comment = do symbol "--"
 Using our second grammar for arithmetic expressions, draw the two possible parse trees for the expression =2 + 3 + 4=.
 #+end_quote
 
+The grammar:
+#+begin_src txt
+expr   ::= expr + expr | term
+term   ::= term * term | factor
+factor ::= (expr) | nat
+nat    ::= 0 | 1 | ... |
+#+end_src
+
+=2+3+4= can be read in 2 ways:
+- =(2+3)+4=
+
+[[./resources/ch8-ex3-1.png]]
+
+- =2+(3+4)=
+
+[[./resources/ch8-ex3-2.png]]
 * Draw Tree 2/2
 #+begin_quote
 Using our third grammar for arithmetic expressions, draw the parse trees for the expressions =2 + 3=, =2 ∗ 3 ∗ 4= and =(2 + 3) + 4=.
 #+end_quote
+
+#+./resources/ch8-ex3-1.png http://adumont.fr/blog/wp-content/uploads/2013/04/wpid-ch8-ex3-1.png
+#+./resources/ch8-ex3-2.png http://adumont.fr/blog/wp-content/uploads/2013/04/wpid-ch8-ex3-2.png
