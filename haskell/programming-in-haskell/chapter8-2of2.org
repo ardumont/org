@@ -1,3 +1,6 @@
+#+BLOG: tony-blog
+#+POSTID: 1015
+#+DATE: [2013-04-12 ven. 18:14]
 #+TITLE: PIH - ch8 2/2 - Functional parsers - exercises
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
