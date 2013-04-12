@@ -14,6 +14,41 @@
 It has been a moment since I post some haskell exercises.
 At last, here it is:
 
+I did encounter some troubles for this.
+The definition used in this chapter and the reality were slightly changed.
+I do not know why but this did slow me.
+
+Anyway, here are the needed definitions for tinkering with parsers in your repl:
+
+#+begin_src haskell
+import Control.Monad
+import Data.Char(isDigit, isUpper, isLower, isAlpha, isAlphaNum, isSpace)
+
+newtype Parser a              =  P (String -> [(a,String)])
+
+parse                         :: Parser a -> String -> [(a,String)]
+parse (P p) inp               =  p inp
+
+instance Monad Parser where
+  -- return parser: always succeeds by returning the result value
+  -- v without consuming the input
+    return v                   =  P (\inp -> [(v,inp)])
+
+  -- bind
+    p >>= f                    =  P (\inp -> case parse p inp of
+                                                []        -> []
+                                                [(v,out)] -> parse (f v) out)
+
+instance MonadPlus Parser where
+  -- fail
+    mzero                      =  P (\_ -> [])
+  -- choice
+    p `mplus` q                =  P (\inp -> case parse p inp of
+                                        []        -> parse q inp
+                                        [(v,out)] -> [(v,out)])
+
+#+end_src
+
 As always, you'll find the [[https://github.com/ardumont/my-haskell-lab/blob/master/src/ch8.hs][sources on github]].
 
 * int :: Parser Int
@@ -22,6 +57,48 @@ The library file also defines a parser =int :: Parser Int= for an integer. Witho
 
 Hint: an integer is either a minus symbol followed by a natural number, or a natural number.
 #+END_QUOTE
+
+Used functions:
+#+begin_src haskell
+
+many :: Parser a -> Parser [a]
+many p = many1 p +++ return []
+
+many1 :: Parser a -> Parser [a]
+many1 p = do v  <- p
+             vs <- many p
+             return (v:vs)
+
+sat :: (Char -> Bool) -> Parser Char
+sat p = do x <- item; if p x then return x else Parsers.fail
+
+nat :: Parser Int
+nat = do xs <- many1 digit
+         return (read xs)
+
+space :: Parser ()
+space = do many (sat isSpace)
+           return ()
+
+token :: Parser a -> Parser a
+token p = do space
+             x <- p
+             space
+             return x
+
+natural :: Parser Int
+natural = token nat
+
+string :: String -> Parser String
+string [] = return []
+string (x:xs) = do char x
+                   string xs
+                   return (x:xs)
+
+symbol :: String -> Parser String
+symbol s = token (string s)
+
+#+end_src
 
 We have a 'choice' between parsing a negative natural number (beginning with '-') or a positive natural number.
 #+begin_src haskell
