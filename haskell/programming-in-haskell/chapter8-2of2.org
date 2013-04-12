@@ -27,6 +27,66 @@ expr ::= term (+ expr | − expr | empty)
 term ::= factor (∗ term | / term | empty)
 #+end_src
 
+The existing parsing function with the grammar without - and / operations:
+
+#+begin_src haskell
+expr :: Parser Int
+expr = do t <- term
+          do symbol "+"
+             e <- expr
+             return (t + e)
+             +++ return t
+
+term :: Parser Int
+term = do f <- factor
+          do symbol "*"
+             t <- term
+             return (t * f)
+             +++ return f
+#+end_src
+
+We simply add the - and / operations, we obtain:
+#+begin_src haskell
+expr :: Parser Int
+expr = do t <- term
+          do symbol "+"
+             e <- expr
+             return (t + e)
+             +++ do symbol "-"
+                    e <- expr
+                    return (t - e)
+                 +++ return t
+
+term :: Parser Int
+term = do f <- factor
+          do symbol "*"
+             t <- term
+             return (t * f)
+             +++ do symbol "/"
+                    t <- term
+                    return (t `div` f)
+                    +++ return f
+#+end_src
+
+Examples:
+#+begin_src haskell
+*Parsers> parse expr "1+2/3"
+[(2,"")]
+*Parsers> parse expr "(1+2)/3"
+[(1,"")]
+*Parsers> parse expr "1+(2/3)"
+[(2,"")]
+*Parsers> parse expr "1+(2*3)"
+[(7,"")]
+*Parsers> parse expr "1+2*3"
+[(7,"")]
+*Parsers> parse expr "1+2*3-3"
+[(4,"")]
+*Parsers> parse expr "1+2/3-3"
+[(-1,"")]
+#+end_src
+
+
 * Complete parser 2/2
 #+begin_quote
 Further extend the grammar and parser for arithmetic expressions to support exponentiation, which is assumed to associate to the right and have higher priority than multiplication and division, but lower priority than parentheses and numbers.
