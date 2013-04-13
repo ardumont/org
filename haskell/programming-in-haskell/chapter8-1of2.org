@@ -10,9 +10,7 @@
 #+STARTUP: indent
 #+STARTUP: hidestars odd
 
-I did encounter some troubles for this chapter, that's why it took me so long before posting anything.
-The definition used in this chapter and the reality were slightly changed.
-Anyway, here are the needed definitions for tinkering with parsers in your repl:
+Before being able to foul around on this chapter, here are some pre-requisites:
 
 #+begin_src haskell
 import Control.Monad
@@ -42,7 +40,7 @@ instance MonadPlus Parser where
                        [(v,out)] -> [(v,out)])
 
 #+end_src
-I will not enter into details here because monads will be presented in another late chapter.
+I will not enter into much detail here because [[http://hackage.haskell.org/packages/archive/base/latest/doc/html/Prelude.html#t:Monad][monads]] will be presented later.
 
 As always, you'll find the [[https://github.com/ardumont/my-haskell-lab/blob/master/src/ch8.hs][sources on github]].
 
@@ -50,10 +48,10 @@ As always, you'll find the [[https://github.com/ardumont/my-haskell-lab/blob/mas
 #+BEGIN_QUOTE
 The library file also defines a parser =int :: Parser Int= for an integer. Without looking at this definition, define int.
 
-Hint: an integer is either a minus symbol followed by a natural number, or a natural number.
+_Hint:_ an integer is either a minus symbol followed by a natural number, or a natural number.
 #+END_QUOTE
 
-Used functions:
+The functions I will use for solving the problem:
 #+begin_src haskell
 
 many :: Parser a -> Parser [a]
@@ -95,7 +93,7 @@ symbol s = token (string s)
 
 #+end_src
 
-We have a 'choice' between parsing a negative natural number (beginning with '-') or a positive natural number.
+I have a 'choice' between parsing a negative natural number (beginning with '-') or a positive natural number.
 #+begin_src haskell
 int :: Parser Int
 int = do symbol "-"
@@ -144,19 +142,17 @@ comment = do symbol "--"
 #+end_src
 
 #+begin_src haskell
-*Parsers> parse comment "--thisisacommentignoredtill\nnotignored"
+*Parsers> parse comment "--ignoredcomment\nnotignored"
 [((),"notignored")]
-*Parsers> parse comment "--this is a comment ignored till\nnotignored"
+*Parsers> parse comment "--ignored   comment till\nnotignored"
 [((),"notignored")]
-*Parsers> parse comment "--this is a  comment ignored till\nnotignored"
-[((),"notignored")]
-*Parsers> parse comment "--this is a  comment ignored 23 till\nnotignored"
+*Parsers> parse comment "--42 ignoredcomment till\nnotignored"
 [((),"notignored")]
 #+end_src
 
 Indeed, for some edge cases, this won't work:
 #+begin_src haskell
-*Parsers> parse comment "--this is a  comment!@# that breaks\nnotignored"
+*Parsers> parse comment "-- comment!@# that breaks\nnotignored"
 []
 #+end_src
 
@@ -171,7 +167,7 @@ comment = do symbol "--"
 #+end_src
 
 #+begin_src haskell
-*Parsers> parse comment "--this is a  comment!@# that does not break\nnotignored"
+*Parsers> parse comment "--comment!@# doesnotbreak\nnotignored"
 [((),"notignored")]
 #+end_src
 
