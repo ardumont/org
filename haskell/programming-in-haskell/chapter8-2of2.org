@@ -17,6 +17,45 @@ Explain why the final simplification of the grammar for arithmetic expressions h
 Hint: Begin by considering how an expression comprising a single number would be parsed if this step had not been made.
 #+end_quote
 
+We will try and parse a string with only one number to parse, "9" for example.
+
+With this grammar:
+#+begin_src txt
+expr   ::= expr + expr | expr - expr | term
+term   ::= term * term | term / term | factor
+factor ::= (expr) | nat
+nat    ::= 0 | 1 | ... |
+#+end_src
+
+The resulting parsing with the tryout and failures is:
+
+#+ATTR_HTML: width=250px
+[[./resources/ch8-ex5-1.jpg]]
+
+For each step, recognise the right term in the grammar, will parse and fail each possible definition until finding the rightmose and rightful definition:
+- trying and fail =expr + expr=, same with =expr - expr=, trying and succeed =term=
+- trying and fail =term * term=, same with =term / term=, trying and succeed =factor=
+- trying and fail =(expr)=, trying and succeed =nat=
+- resolve to the right natural
+
+With this factorised grammar:
+#+begin_src txt
+expr   ::= term (+ expr | - expr | empty)
+term   ::= factor (* term | / term | empty)
+factor ::= (expr) | nat
+nat    ::= 0 | 1 | ... |
+#+end_src
+
+The resulting parsing tree is a lot smaller because of less tryout and failtures:
+
+#+ATTR_HTML: width=250px
+[[./resources/ch8-ex5-2.jpg]]
+
+For each step, we try to parse right term in grammar, then the next symbol and fail, thus the first term parsed is the right one, no need to continue.
+
+So with the first grammar, the efficiency of parsing will be proportional on the expression's size.
+With the second left-factorized grammar, the parsing is reduced.
+
 * Complete parser 1/2
 #+begin_quote
 Extend the parser for arithmetic expressions to support subtraction and division, based upon the following extensions to the grammar:
