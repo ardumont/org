@@ -32,7 +32,7 @@ The resulting parsing with the tryout and failures is:
 #+ATTR_HTML: width=250px
 [[./resources/ch8-ex5-1.jpg]]
 
-For each step, recognise the right term in the grammar, will parse and fail each possible definition until finding the rightmose and rightful definition:
+For each step, recognise the right term in the grammar, will parse and fail each possible definition until finding the rightmost (and rightful) definition:
 - trying and fail =expr + expr=, same with =expr - expr=, trying and succeed =term=
 - trying and fail =term * term=, same with =term / term=, trying and succeed =factor=
 - trying and fail =(expr)=, trying and succeed =nat=
@@ -147,3 +147,6 @@ Consider expressions built up from natural numbers using a subtraction operator 
 
 Hint: Rewrite the parser using the repetition primitive many and the library function foldl.
 #+end_quote
+
+#+./resources/ch8-ex5-1.jpg http://adumont.fr/blog/wp-content/uploads/2013/04/wpid-ch8-ex5-1.jpg
+#+./resources/ch8-ex5-2.jpg http://adumont.fr/blog/wp-content/uploads/2013/04/wpid-ch8-ex5-2.jpg
