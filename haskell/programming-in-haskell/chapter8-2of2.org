@@ -139,17 +139,13 @@ Hint: The new level of priority requires a new rule in the grammar.
 
 *** new grammar
 
-The grammar precedence is dealt with the natural order of declaration.
-As this is of lesser priority than the parenthesis but greater than * or /, we place this new rule in between.
+Remark: The grammar's operator precedence follows the declaration order.
 
-Furthermore, the exponentiation associates to the right:
+As:
+- this new rule is of lesser priority than the parenthesis precedence but greater than '*' or '/', we place this new rule in between.
+- the exponentiation associates to the right.
 
-#+begin_src txt
-factor ::= exp (^ factor | epsilon)
-exp    ::= (expr) | nat
-#+end_src
-
-The complete grammar:
+Here is the result:
 #+begin_src txt
 expr   ::= term (+ expr | - expr | epsilon)
 term   ::= factor (* term | / term | epsilon)
