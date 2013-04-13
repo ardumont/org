@@ -1,3 +1,4 @@
+#+DATE: [2013-04-13 sam. 20:13]
 #+BLOG: tony-blog
 #+POSTID: 1015
 #+TITLE: PIH - ch8 2/2 - Functional parsers - exercises
@@ -8,6 +9,9 @@
 #+DESCRIPTION: Learning haskell and solving problems using reasoning and 'repl'ing
 #+STARTUP: indent
 #+STARTUP: hidestars odd
+
+Here is the second part of the exercises from the chapter 8.
+For the first part, go here.
 
 * Efficiency
 #+begin_quote
@@ -108,20 +112,20 @@ term = do f <- factor
 
 Examples:
 #+begin_src haskell
-*Parsers> parse expr "1+2/3"
-[(2,"")]
-*Parsers> parse expr "(1+2)/3"
-[(1,"")]
-*Parsers> parse expr "1+(2/3)"
-[(2,"")]
-*Parsers> parse expr "1+(2*3)"
-[(7,"")]
-*Parsers> parse expr "1+2*3"
-[(7,"")]
-*Parsers> parse expr "1+2*3-3"
-[(4,"")]
-*Parsers> parse expr "1+2/3-3"
-[(-1,"")]
+*Parsers> eval "1+2/3"
+2
+*Parsers> eval "(1+2)/3"
+1
+*Parsers> eval "1+(2/3)"
+2
+*Parsers> eval "1+(2*3)"
+7
+*Parsers> eval "1+2*3"
+7
+*Parsers> eval "1+2*3-3"
+4
+*Parsers> eval "1+2/3-3"
+-1
 #+end_src
 
 
@@ -174,17 +178,18 @@ expo = do symbol "("
 
 Examples:
 #+begin_src haskell
-*Parsers> parse expr "2^3*4"
-[(32,"")]
-*Parsers> parse expr "(2^3)*4"
-[(32,"")]
-*Parsers> parse expr "2^(3*4)"
-[(4096,"")]
+*Parsers> eval "2^3*4"
+32
+*Parsers> eval "(2^3)*4"
+32
+*Parsers> eval "2^(3*4)"
+4096
 #+end_src
 
 * Grammar
 #+begin_quote
 Consider expressions built up from natural numbers using a subtraction operator that is assumed to associate to the left.
+
 (a) Define a natural grammar for such expressions.
 
 (b) Translate this grammar into a parser expr :: Parser Int.
