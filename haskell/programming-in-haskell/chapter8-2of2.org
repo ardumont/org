@@ -17,7 +17,7 @@ For the first part, [[http://adumont.fr/blog/?p=997][go here]].
 #+begin_quote
 Explain why the final simplification of the grammar for arithmetic expressions has a dramatic effect on the efficiency of the resulting parser.
 
-Hint: Begin by considering how an expression comprising a single number would be parsed if this step had not been made.
+_Hint:_ Begin by considering how an expression comprising a single number would be parsed if this step had not been made.
 #+end_quote
 
 We will try and parse a string with only one number to parse, "9" for example.
@@ -134,7 +134,7 @@ Examples:
 Further extend the grammar and parser for arithmetic expressions to support exponentiation, which is assumed to associate to the right and have higher priority than multiplication and division, but lower priority than parentheses and numbers.
 For example, =2 ↑ 3 ∗ 4= means =(2 ↑ 3) ∗ 4=.
 
-Hint: The new level of priority requires a new rule in the grammar.
+_Hint:_ The new level of priority requires a new rule in the grammar.
 #+end_quote
 
 *** new grammar
@@ -203,12 +203,12 @@ Translate this grammar into a parser expr :: Parser Int.
 #+end_quote
 
 #+begin_src haskell
-xpr :: Parser Int
-xpr = do e <- xpr
-         symbol "-"
-         n <- natural
-         return (e - n)
-         +++ natural
+expr :: Parser Int
+expr = do e <- xpr
+          symbol "-"
+          n <- natural
+          return (e - n)
+          +++ natural
 #+end_src
 
 *** Problem
@@ -219,7 +219,7 @@ What is the problem with this parser?
 It loops until the stack blows.
 
 #+begin_src haskell
-*Parsers> parse xpr "1-2"
+*Parsers> parse expr "1-2"
 ***Exception: stack overflow
 #+end_src
 
