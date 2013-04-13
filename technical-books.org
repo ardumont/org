@@ -1,196 +1,215 @@
-#+TITLE: Technical books/tutorials
+#+TITLE: Technical books
 #+author: Antoine Romain Dumont
 #+STARTUP: indent
 #+STARTUP: hidestars odd
 
-* TODO Effective java - second edition
-* TODO Emacs [3/4]
-*** DONE http://www.youtube.com/watch?v=rGVVnDxwJYE&feature=related
+* Later [33%]
+*** CANCELLED GWT [2/3]
+CLOSED: [2013-04-13 sam. 10:17]
+***** DONE GWT Creer des applications web interactives avec Google Web Toolkit (versions 1.7 et 2.0) - Olivier Gerardin - Editions Dunod
+******* DONE Premiere partie - Developper avec GWT [5/5]
+********* DONE Chapitre 1 - De HTML a GWT
+********* DONE Chapitre 2 - Hello GWT
+********* DONE Chapitre 3 - Developper avec GWT
+********* DONE Chapitre 4 - Widgets, Panel etc...
+********* DONE Chapitre 5 - Communiquer avec le serveur
+******* DONE Deuxieme partie - Aller plus loin avec GWT [8/8]
+********* DONE Chapitre 6 - Internationalisation
+********* DONE Chapitre 7 - Mecanismes avances du compilateur
+********* DONE Chap. 8 - Le mecanisme d'historique de GWT
+********* DONE Chap. 9 - Envoyer des requetes http
+********* DONE Chap. Creer ses propres widgets
+********* DONE Chap. 11 - Bibliotheques tierces
+********* DONE Chap. 12 - GWT 2.0
+********* DONE Annexes
+***** TODO Programmation GWT 2 - Developper des applications RIA et Ajax avec Google Web Toolkit - Sami Jaber - Eyrolles
+******* Partie [15/18]
+********* DONE Introduction a GWT
+********* DONE Chapitre 1 - Environnement de developpement
+********* DONE Chapitre 2 - Les controles
+********* DONE Chapitre 3 - Le modele de placement css
+********* DONE Chapitre 4 - Les bibliotheques tierces
+********* DONE Chapitre 5 - L'integration de code javascript
+********* DONE Chapitre 6 - La creation de composants personnalises
+********* DONE Chapitre 7 - Les services RPC
+********* DONE Chapitre 8 - L'integration J2EE
+********* DONE Chapitre 9 - Le chargement a la demande
+********* DONE Chapitre 10 - La liaison differee [7/7] (*2)
+*********** DONE Principe general
+*********** DONE Mise en pratique
+*********** DONE Le script de selection
+*********** DONE Proprietes, regles et conditions [4/4]
+************* DONE Proprietes
+************* DONE Proprietes de configuration
+************* DONE Les proprietes conditionnelles
+************* DONE Regles de liaison
+*********** DONE Generateurs de code [2/2]
+************* DONE Dans la pratique
+************* DONE Deboguer
+*********** DONE Conditions de liaisons
+*********** DONE Conclusion
+********* DONE Chapitre 11 - La gestion des ressources [4/4]
+*********** DONE La problematique des ressources
+*********** DONE Installation et configuration
+*********** DONE Les differents types de ressources [5/5]
+************* DONE Ressources textuelles (TextRessource)
+************* DONE Ressources textuelles asynchrones
+************* DONE Ressources binaires externes
+************* DONE Ressources images
+************* DONE Les options de la liaison differee
+*********** DONE L'injection dynamique css [7/7]
+************* DONE L'injection differee
+************* DONE Les constantes
+************* DONE La substitution a l'execution
+************* DONE Les fonctions de valeur
+************* DONE Les directives conditionnelles
+************* DONE Les prefixes de style
+************* DONE Les sprites d'images
+********* TODO Chapitre 12 - Sous le capot de GWT [0/7]
+*********** TODO Introduction au compilateur [0/1]
+************* TODO Vive les fonctions javascript
+*********** TODO Les etapes du compilateur [0/3]
+************* TODO Lecture des informations de configuration
+************* TODO Creation de l'arbre syntaxique html
+************* TODO La generation de code javascript et les optimisations [0/6]
+*************** TODO La reduction de code (pruning)
+*************** TODO La finalisation de methodes et de classes
+*************** TODO La substitution par appels statiques
+*************** TODO La reduction de type
+*************** TODO L'elimination de code mort
+*************** TODO L'inlining
+*********** TODO Tracer les optimisations
+*********** TODO Les options du compilateur
+*********** TODO Accelerer le temps de compilation
+*********** TODO Les linkers
+*********** TODO La pile d'erreurs en production [0/1]
+************* TODO Table des symboles
+********* TODO Chapitre 13 - L'internationalisation [0/11]
+*********** TODO La problematique [0/2]
+************* TODO Parametrer et definir la locale courante
+************* TODO L'API i18n
+*********** TODO Les dictionnaires a constantes statiques [0/1]
+************* TODO Dictionnaire par recherche dynamique de constantes
+*********** TODO Les messages
+*********** TODO Notion de langue par defaut
+*********** TODO Signification, exemple et description
+*********** TODO Les formes plurielles
+*********** TODO Conversion des types [0/2]
+************* TODO Formats monetaires
+************* TODO Date et formats horaires
+*********** TODO Generation automatique de dictionnaires
+*********** TODO Benefices de l'internationalisation statique
+*********** TODO Externalisation dynamique
+*********** TODO L'outillage [0/2]
+************* TODO i18nCreator
+************* TODO I18nSync
+********* DONE Chapitre 14 - L'environnement de tests [7/7]
+*********** DONE GWT et la problematique des tests [3/3]
+************* DONE La mixite des tests
+************* DONE Creer un test unitaire
+************* DONE Les suites de tests
+*********** DONE Une architecture modulaire et extensible [6/6]
+************* DONE Le style htmlunit
+************* DONE Le style manuel ou interactif
+************* DONE Le style selenium
+************* DONE Le style distant
+************* DONE Le style externe
+************* DONE Synthese des differents options et annotations
+*********** DONE Tests de charge avec la classe Benchmark
+*********** DONE Les compteurs integres de performance
+*********** DONE Tests fonctionnels robotises : scenarios joues
+************* DONE Selenium IDE
+*************** DONE Le module WebDriver
+*********** DONE Les strategies de tests par bouchon (mocking)
+*********** DONE Quel est l'atelier de tests ideal
+********* DONE Chapitre 15 - Les designs patterns GWT [6/6]
+*********** DONE Gestion de la session
+*********** DONE Gestion de l'historique
+*********** DONE Les traitements longs [4/4]
+************* DONE class Timer
+************* DONE class DeferredCommand
+************* DONE class IncrementalCommand
+************* DONE class Scheduler
+*********** DONE Separer presentation et traitement [4/4]
+************* DONE pattern command
+************* DONE MVC
+************* DONE MVP
+************* DONE Pattern Action oriente MVP
+*********** DONE Les failles de securite [4/4]
+************* DONE Injection sql
+************* DONE Cross-site scripting (xss)
+************* DONE Cross-site Request Forgery (CSRF)
+************* DONE les autres attaques
+*********** DONE L'authentification [2/3]
+************* DONE Authentification Basic et Digest
+************* DONE Authentification par formulaire
+************* TODO Les limites de la session HTTP par cookies
+********* TODO Chapitre 16 - La creation d'interfaces avec UIBinder [0/8]
+*********** TODO Presentation
+*********** TODO Styles et ressources [0/2]
+************* TODO Incorporation d'images
+************* TODO Integration des ressources de types de donnees
+*********** TODO Gestionnaire d'evenements
+*********** TODO Integration d'un flux html standard
+*********** TODO Internationalisation [0/2]
+************* TODO Les emplacements [0/1]
+*************** TODO Cas des balises imbriques
+************* TODO Traduire les attributs
+*********** TODO Liaison avec des beans externes
+*********** TODO Modeles composites et constructeurs
+*********** TODO Parseurs personnalises
+********* DONE Chapitre 17 - Le plugin Eclipse pour GWT [6/6]
+*********** DONE Le cas AppEngine
+*********** DONE Le plug-in GWT
+*********** DONE Creation d'un projet GWT
+*********** DONE Les assistants de creation [5/5]
+************* DONE Creation d'un point d'entree
+************* DONE Creation d'un nouveau module
+************* DONE Creation d'une page html hote
+************* DONE Creation d'un squelette ClientBundle
+************* DONE Creation d'un squelette UIBinder
+*********** DONE Aide a la saisie de code JSNI
+*********** DONE Assistants RPC
+***** DONE [[http://www.google.com/events/io/2009/sessions/GoogleWebToolkitBestPractices.html][Google Web Toolkit Architecture: Best Practices For Architecting Your GWT App]]
+*** CANCELLED Gin
+CLOSED: [2013-04-13 sam. 10:17]
+***** TODO [[http://code.google.com/p/google-gin/wiki/GinTutorial][tutorial Gin]]
+*** CANCELLED Effective java - second edition
+CLOSED: [2013-04-13 sam. 10:18]
+*** DELEGATED Guice
+CLOSED: [2013-04-13 sam. 10:18]
+*** PENDING TDD&ATDD for java: http://www.amazon.com/Test-Driven-Acceptance-Java-Developers/dp/1932394850/ref=sr_1_1?ie=UTF8&qid=1318576734&sr=8-1
+*** TODO Growing on system through test: http://www.amazon.com/Growing-Object-Oriented-Software-Guided-Tests/dp/0321503627/ref=sr_1_1?ie=UTF8&qid=1318578148&sr=8-1
+*** TODO Domain driven design
+*** TODO xUnit Test Patterns - Refactoring test code
+*** TODO Domain-Driven Design: Tackling Complexity in the Heart of Software
+*** TODO Enterprise integration patterns
+*** TODO Hadoop, the definitive guide
+*** TODO How to solve it - Polya
+
+* Now [16%]
+*** PENDING Lisp [%]
+***** PENDING The land of lisp
+*** TODO Emacs [3/4]
+***** DONE http://www.youtube.com/watch?v=rGVVnDxwJYE&feature=related
 CLOSED: [2011-10-29 sam. 12:48]
-*** DONE Make a script to deploy it with starter kit.
+***** DONE Make a script to deploy it with starter kit.
 CLOSED: [2011-10-29 sam. 12:49]
-*** DONE A guided tour of emacs - http://www.gnu.org/software/emacs/tour/
+***** DONE A guided tour of emacs - http://www.gnu.org/software/emacs/tour/
 CLOSED: [2011-11-20 dim. 22:40]
-*** TODO gnu-emacs-manual.pdf
-* TODO Clojure [1/2]
-*** DONE practical clojure
-*** TODO The joy of clojure
-* TODO Lisp
-*** TODO The land of lisp
-* TODO GWT [2/3]
-*** DONE GWT Creer des applications web interactives avec Google Web Toolkit (versions 1.7 et 2.0) - Olivier Gerardin - Editions Dunod
-***** DONE Premiere partie - Developper avec GWT [5/5]
-******* DONE Chapitre 1 - De HTML a GWT
-******* DONE Chapitre 2 - Hello GWT
-******* DONE Chapitre 3 - Developper avec GWT
-******* DONE Chapitre 4 - Widgets, Panel etc...
-******* DONE Chapitre 5 - Communiquer avec le serveur
-***** DONE Deuxieme partie - Aller plus loin avec GWT [8/8]
-******* DONE Chapitre 6 - Internationalisation
-******* DONE Chapitre 7 - Mecanismes avances du compilateur
-******* DONE Chap. 8 - Le mecanisme d'historique de GWT
-******* DONE Chap. 9 - Envoyer des requetes http
-******* DONE Chap. Creer ses propres widgets
-******* DONE Chap. 11 - Bibliotheques tierces
-******* DONE Chap. 12 - GWT 2.0
-******* DONE Annexes
-*** TODO Programmation GWT 2 - Developper des applications RIA et Ajax avec Google Web Toolkit - Sami Jaber - Eyrolles
-***** Partie [15/18]
-******* DONE Introduction a GWT
-******* DONE Chapitre 1 - Environnement de developpement
-******* DONE Chapitre 2 - Les controles
-******* DONE Chapitre 3 - Le modele de placement css
-******* DONE Chapitre 4 - Les bibliotheques tierces
-******* DONE Chapitre 5 - L'integration de code javascript
-******* DONE Chapitre 6 - La creation de composants personnalises
-******* DONE Chapitre 7 - Les services RPC
-******* DONE Chapitre 8 - L'integration J2EE
-******* DONE Chapitre 9 - Le chargement a la demande
-******* DONE Chapitre 10 - La liaison differee [7/7] (*2)
-********* DONE Principe general
-********* DONE Mise en pratique
-********* DONE Le script de selection
-********* DONE Proprietes, regles et conditions [4/4]
-*********** DONE Proprietes
-*********** DONE Proprietes de configuration
-*********** DONE Les proprietes conditionnelles
-*********** DONE Regles de liaison
-********* DONE Generateurs de code [2/2]
-*********** DONE Dans la pratique
-*********** DONE Deboguer
-********* DONE Conditions de liaisons
-********* DONE Conclusion
-******* DONE Chapitre 11 - La gestion des ressources [4/4]
-********* DONE La problematique des ressources
-********* DONE Installation et configuration
-********* DONE Les differents types de ressources [5/5]
-*********** DONE Ressources textuelles (TextRessource)
-*********** DONE Ressources textuelles asynchrones
-*********** DONE Ressources binaires externes
-*********** DONE Ressources images
-*********** DONE Les options de la liaison differee
-********* DONE L'injection dynamique css [7/7]
-*********** DONE L'injection differee
-*********** DONE Les constantes
-*********** DONE La substitution a l'execution
-*********** DONE Les fonctions de valeur
-*********** DONE Les directives conditionnelles
-*********** DONE Les prefixes de style
-*********** DONE Les sprites d'images
-******* TODO Chapitre 12 - Sous le capot de GWT [0/7]
-********* TODO Introduction au compilateur [0/1]
-*********** TODO Vive les fonctions javascript
-********* TODO Les etapes du compilateur [0/3]
-*********** TODO Lecture des informations de configuration
-*********** TODO Creation de l'arbre syntaxique html
-*********** TODO La generation de code javascript et les optimisations [0/6]
-************* TODO La reduction de code (pruning)
-************* TODO La finalisation de methodes et de classes
-************* TODO La substitution par appels statiques
-************* TODO La reduction de type
-************* TODO L'elimination de code mort
-************* TODO L'inlining
-********* TODO Tracer les optimisations
-********* TODO Les options du compilateur
-********* TODO Accelerer le temps de compilation
-********* TODO Les linkers
-********* TODO La pile d'erreurs en production [0/1]
-*********** TODO Table des symboles
-******* TODO Chapitre 13 - L'internationalisation [0/11]
-********* TODO La problematique [0/2]
-*********** TODO Parametrer et definir la locale courante
-*********** TODO L'API i18n
-********* TODO Les dictionnaires a constantes statiques [0/1]
-*********** TODO Dictionnaire par recherche dynamique de constantes
-********* TODO Les messages
-********* TODO Notion de langue par defaut
-********* TODO Signification, exemple et description
-********* TODO Les formes plurielles
-********* TODO Conversion des types [0/2]
-*********** TODO Formats monetaires
-*********** TODO Date et formats horaires
-********* TODO Generation automatique de dictionnaires
-********* TODO Benefices de l'internationalisation statique
-********* TODO Externalisation dynamique
-********* TODO L'outillage [0/2]
-*********** TODO i18nCreator
-*********** TODO I18nSync
-******* DONE Chapitre 14 - L'environnement de tests [7/7]
-********* DONE GWT et la problematique des tests [3/3]
-*********** DONE La mixite des tests
-*********** DONE Creer un test unitaire
-*********** DONE Les suites de tests
-********* DONE Une architecture modulaire et extensible [6/6]
-*********** DONE Le style htmlunit
-*********** DONE Le style manuel ou interactif
-*********** DONE Le style selenium
-*********** DONE Le style distant
-*********** DONE Le style externe
-*********** DONE Synthese des differents options et annotations
-********* DONE Tests de charge avec la classe Benchmark
-********* DONE Les compteurs integres de performance
-********* DONE Tests fonctionnels robotises : scenarios joues
-*********** DONE Selenium IDE
-************* DONE Le module WebDriver
-********* DONE Les strategies de tests par bouchon (mocking)
-********* DONE Quel est l'atelier de tests ideal
-******* DONE Chapitre 15 - Les designs patterns GWT [6/6]
-********* DONE Gestion de la session
-********* DONE Gestion de l'historique
-********* DONE Les traitements longs [4/4]
-*********** DONE class Timer
-*********** DONE class DeferredCommand
-*********** DONE class IncrementalCommand
-*********** DONE class Scheduler
-********* DONE Separer presentation et traitement [4/4]
-*********** DONE pattern command
-*********** DONE MVC
-*********** DONE MVP
-*********** DONE Pattern Action oriente MVP
-********* DONE Les failles de securite [4/4]
-*********** DONE Injection sql
-*********** DONE Cross-site scripting (xss)
-*********** DONE Cross-site Request Forgery (CSRF)
-*********** DONE les autres attaques
-********* DONE L'authentification [2/3]
-*********** DONE Authentification Basic et Digest
-*********** DONE Authentification par formulaire
-*********** TODO Les limites de la session HTTP par cookies
-******* TODO Chapitre 16 - La creation d'interfaces avec UIBinder [0/8]
-********* TODO Presentation
-********* TODO Styles et ressources [0/2]
-*********** TODO Incorporation d'images
-*********** TODO Integration des ressources de types de donnees
-********* TODO Gestionnaire d'evenements
-********* TODO Integration d'un flux html standard
-********* TODO Internationalisation [0/2]
-*********** TODO Les emplacements [0/1]
-************* TODO Cas des balises imbriques
-*********** TODO Traduire les attributs
-********* TODO Liaison avec des beans externes
-********* TODO Modeles composites et constructeurs
-********* TODO Parseurs personnalises
-******* DONE Chapitre 17 - Le plugin Eclipse pour GWT [6/6]
-********* DONE Le cas AppEngine
-********* DONE Le plug-in GWT
-********* DONE Creation d'un projet GWT
-********* DONE Les assistants de creation [5/5]
-*********** DONE Creation d'un point d'entree
-*********** DONE Creation d'un nouveau module
-*********** DONE Creation d'une page html hote
-*********** DONE Creation d'un squelette ClientBundle
-*********** DONE Creation d'un squelette UIBinder
-********* DONE Aide a la saisie de code JSNI
-********* DONE Assistants RPC
-*** DONE [[http://www.google.com/events/io/2009/sessions/GoogleWebToolkitBestPractices.html][Google Web Toolkit Architecture: Best Practices For Architecting Your GWT App]]
-* TODO Gin
-*** TODO [[http://code.google.com/p/google-gin/wiki/GinTutorial][tutorial Gin]]
-* TODO TDD&ATDD for java: http://www.amazon.com/Test-Driven-Acceptance-Java-Developers/dp/1932394850/ref=sr_1_1?ie=UTF8&qid=1318576734&sr=8-1
-* TODO Growing on system through test: http://www.amazon.com/Growing-Object-Oriented-Software-Guided-Tests/dp/0321503627/ref=sr_1_1?ie=UTF8&qid=1318578148&sr=8-1
-* TODO Domain driven design
-* TODO xUnit Test Patterns - Refactoring test code
-* TODO Domain-Driven Design: Tackling Complexity in the Heart of Software
-* TODO Enterprise integration patterns
-* TODO Hadoop, the definitive guide
-* TODO How to solve it - Polya
-* TODO Guice
+***** TODO gnu-emacs-manual.pdf
+*** DONE Clojure [4/4]
+CLOSED: [2013-04-13 sam. 10:16]
+***** DONE practical clojure
+***** DONE The joy of clojure
+CLOSED: [2013-04-13 sam. 10:15]
+***** DONE Clojure in action
+CLOSED: [2013-04-13 sam. 10:16]
+***** DONE Clojure programming
+CLOSED: [2013-04-13 sam. 10:15]
+*** TODO clojurescript [0%]
+***** clojurescript up and running
+*** TODO Compiler [%]
+***** TODO Compilers - Principles, Techniques and Tools
+*** IN-PROGRESS Haskell [0%]
+***** IN-PROGRESS Programming in haskell
