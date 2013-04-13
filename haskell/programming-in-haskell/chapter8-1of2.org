@@ -205,8 +205,8 @@ Using our third grammar for arithmetic expressions, draw the parse trees for the
 
 The grammar:
 #+begin_src txt
-expr   ::= term (+ expr | empty)
-term   ::= factor (* term | empty)
+expr   ::= term (+ expr | epsilon)
+term   ::= factor (* term | epsilon)
 factor ::= (expr) | nat
 nat    ::= 0 | 1 | ... |
 #+end_src
