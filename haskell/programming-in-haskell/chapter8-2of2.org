@@ -1,6 +1,5 @@
 #+BLOG: tony-blog
 #+POSTID: 1015
-#+DATE: [2013-04-12 ven. 18:14]
 #+TITLE: PIH - ch8 2/2 - Functional parsers - exercises
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
@@ -40,8 +39,8 @@ For each step, recognise the right term in the grammar, will parse and fail each
 
 With this factorised grammar:
 #+begin_src txt
-expr   ::= term (+ expr | - expr | empty)
-term   ::= factor (* term | / term | empty)
+expr   ::= term (+ expr | - expr | epsilon)
+term   ::= factor (* term | / term | epsilon)
 factor ::= (expr) | nat
 nat    ::= 0 | 1 | ... |
 #+end_src
@@ -62,8 +61,8 @@ Extend the parser for arithmetic expressions to support subtraction and division
 #+end_quote
 
 #+begin_src txt
-expr ::= term (+ expr | − expr | empty)
-term ::= factor (∗ term | / term | empty)
+expr ::= term (+ expr | − expr | epsilon)
+term ::= factor (∗ term | / term | epsilon)
 #+end_src
 
 The existing parsing function with the grammar without - and / operations:
@@ -133,6 +132,55 @@ For example, =2 ↑ 3 ∗ 4= means =(2 ↑ 3) ∗ 4=.
 
 Hint: The new level of priority requires a new rule in the grammar.
 #+end_quote
+
+*** new grammar
+
+The grammar precedence is dealt with the natural order of declaration.
+As this is of lesser priority than the parenthesis but greater than * or /, we place this new rule in between.
+
+Furthermore, the exponentiation associates to the right:
+
+#+begin_src txt
+factor ::= exp (^ factor | epsilon)
+exp    ::= (expr) | nat
+#+end_src
+
+The complete grammar:
+#+begin_src txt
+expr   ::= term (+ expr | - expr | epsilon)
+term   ::= factor (* term | / term | epsilon)
+factor ::= exp (^ factor | epsilon)
+exp    ::= (expr) | nat
+nat    ::= 0 | 1 | ... |
+#+end_src
+
+*** implementation
+
+#+begin_src haskell
+factor :: Parser Int
+factor = do e <- expo
+            do symbol "^"
+               f <- factor
+               return (e ^ f)
+               +++ return e
+
+expo :: Parser Int
+expo = do symbol "("
+          e <- expr
+          symbol ")"
+          return e
+          +++ natural
+#+end_src
+
+Examples:
+#+begin_src haskell
+*Parsers> parse expr "2^3*4"
+[(32,"")]
+*Parsers> parse expr "(2^3)*4"
+[(32,"")]
+*Parsers> parse expr "2^(3*4)"
+[(4096,"")]
+#+end_src
 
 * Grammar
 #+begin_quote
