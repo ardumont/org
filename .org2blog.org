@@ -2,7 +2,7 @@
 ** [[file:/home/tony/org/haskell/programming-in-haskell/chapter8-2of2.org][PIH - ch8 2/2 - Functional parsers - exercises]]
 :PROPERTIES:
 :POSTID: 1015
-:POST_DATE: 20130412T16:14:21+0000
+:POST_DATE: 20130412T16:14:00+0000
 :Published: No
 :END:
 ** [[file:/home/tony/org/haskell/programming-in-haskell/chapter8-1of2.org][PIH - ch8 1/2 - Functional parsers - exercises]]
