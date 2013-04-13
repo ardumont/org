@@ -51,7 +51,7 @@ The library file also defines a parser =int :: Parser Int= for an integer. Witho
 _Hint:_ an integer is either a minus symbol followed by a natural number, or a natural number.
 #+END_QUOTE
 
-The functions I will use for solving the problem:
+The functions I will use to solve the problem:
 #+begin_src haskell
 
 many :: Parser a -> Parser [a]
