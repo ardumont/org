@@ -185,14 +185,47 @@ Examples:
 * Grammar
 #+begin_quote
 Consider expressions built up from natural numbers using a subtraction operator that is assumed to associate to the left.
+#+end_quote
 
-(a) Define a natural grammar for such expressions.
+*** Natural
+#+begin_quote
+Define a natural grammar for such expressions.
+#+end_quote
 
-(b) Translate this grammar into a parser expr :: Parser Int.
+#+begin_src txt
+expr ::= expr - nat | nat
+nat  ::= 0 | 1 | ...
+#+end_src
 
-(c) What is the problem with this parser?
+*** Implementation
+#+begin_quote
+Translate this grammar into a parser expr :: Parser Int.
+#+end_quote
 
-(d) Show how it can be fixed.
+#+begin_src haskell
+xpr :: Parser Int
+xpr = do e <- xpr
+         symbol "-"
+         n <- natural
+         return (e - n)
+         +++ natural
+#+end_src
+
+*** Problem
+#+begin_quote
+What is the problem with this parser?
+#+end_quote
+
+It loops until the stack blows.
+
+#+begin_src haskell
+*Parsers> parse xpr "1-2"
+***Exception: stack overflow
+#+end_src
+
+*** Fix
+#+begin_quote
+Show how it can be fixed.
 
 Hint: Rewrite the parser using the repetition primitive many and the library function foldl.
 #+end_quote
