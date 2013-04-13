@@ -11,7 +11,7 @@
 #+STARTUP: hidestars odd
 
 Here is the second part of the exercises from the chapter 8.
-For the first part, go here.
+For the first part, [[http://adumont.fr/blog/?p=997][go here]].
 
 * Efficiency
 #+begin_quote
