@@ -64,30 +64,13 @@ With the second left-factorized grammar, the parsing is reduced.
 Extend the parser for arithmetic expressions to support subtraction and division, based upon the following extensions to the grammar:
 #+end_quote
 
+Grammar:
 #+begin_src txt
 expr ::= term (+ expr | − expr | epsilon)
 term ::= factor (∗ term | / term | epsilon)
 #+end_src
 
-The existing parsing function with the grammar without - and / operations:
-
-#+begin_src haskell
-expr :: Parser Int
-expr = do t <- term
-          do symbol "+"
-             e <- expr
-             return (t + e)
-             +++ return t
-
-term :: Parser Int
-term = do f <- factor
-          do symbol "*"
-             t <- term
-             return (t * f)
-             +++ return f
-#+end_src
-
-We simply add the - and / operations, we obtain:
+Implementation:
 #+begin_src haskell
 expr :: Parser Int
 expr = do t <- term
@@ -127,7 +110,6 @@ Examples:
 *Parsers> eval "1+2/3-3"
 -1
 #+end_src
-
 
 * Complete parser 2/2
 #+begin_quote
@@ -204,7 +186,7 @@ Translate this grammar into a parser expr :: Parser Int.
 
 #+begin_src haskell
 expr :: Parser Int
-expr = do e <- xpr
+expr = do e <- expr
           symbol "-"
           n <- natural
           return (e - n)
