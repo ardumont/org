@@ -227,8 +227,45 @@ It loops until the stack blows.
 #+begin_quote
 Show how it can be fixed.
 
-Hint: Rewrite the parser using the repetition primitive many and the library function foldl.
+_Hint:_ Rewrite the parser using the repetition primitive =many= and the library function [[http://hackage.haskell.org/packages/archive/base/latest/doc/html/Prelude.html#v:foldl][foldl]].
 #+end_quote
+
+Here is the remainder of the many parser, for a more exhaustive list, see the [[http://adumont.fr/blog/?p=997][previous article]]:
+#+begin_src haskell
+many :: Parser a -> Parser [a]
+many p = many1 p +++ return []
+
+many1 :: Parser a -> Parser [a]
+many1 p = do v  <- p
+             vs <- many p
+             return (v:vs)
+#+end_src
+
+Simply stated:
+- we parse the first expression as =natural=
+- then as long as there is a couple of =-= followed by a =natural=, we extract those =values= as =list=
+- then we execute the substraction using =foldl= with =n= as accumulator and =ns= as list and inject it into the world of parser via the =return= call.
+
+#+begin_src haskell
+expr :: Parser Int
+expr = do n <- natural
+          ns <- many (do symbol "-"
+                         natural)
+          return (foldl (-) n ns)
+#+end_src
+
+Examples:
+#+begin_src haskell
+*Parsers> parse expr "1-2"
+[(-1,"")]
+*Parsers> parse expr "1-2-3"
+[(-4,"")]
+*Parsers> parse expr "1-2-3-5"
+[(-9,"")]
+*Parsers> parse expr "1-2-3-506"
+[(-510,"")]
+#+end_src
+
 
 #+./resources/ch8-ex5-1.jpg http://adumont.fr/blog/wp-content/uploads/2013/04/wpid-ch8-ex5-1.jpg
 #+./resources/ch8-ex5-2.jpg http://adumont.fr/blog/wp-content/uploads/2013/04/wpid-ch8-ex5-2.jpg
