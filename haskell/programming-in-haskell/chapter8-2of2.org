@@ -1,4 +1,4 @@
-#+DATE: [2013-04-13 sam. 20:13]
+#+DATE: [2013-04-14 dim. 17:23]
 #+BLOG: tony-blog
 #+POSTID: 1015
 #+TITLE: PIH - ch8 2/2 - Functional parsers - exercises
