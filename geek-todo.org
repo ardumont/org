@@ -81,6 +81,51 @@ CLOSED: [2013-01-01 mar. 20:09]
 CLOSED: [2013-01-01 mar. 20:10]
 ** DONE ok with mobile
 CLOSED: [2013-01-01 mar. 20:10]
+* DONE emacs-live [100%]
+CLOSED: [2013-04-15 lun. 21:12]
+** DONE merge starter-kit and emacs-live's init.el
+CLOSED: [2013-04-15 lun. 19:59]
+** DONE Use emacs-live and the tony branch to develop my own emacs-live packs
+CLOSED: [2013-04-15 lun. 20:00]
+** DONE Separate my packs from emacs-live's own
+CLOSED: [2013-04-15 lun. 20:00]
+** DONE Create git repositories for each pack [100%]
+CLOSED: [2013-04-15 lun. 21:12]
+*** DONE blog-pack
+CLOSED: [2013-04-15 lun. 20:02]
+*** DONE buffer-pack
+CLOSED: [2013-04-15 lun. 20:02]
+*** DONE install-packages-pack
+CLOSED: [2013-04-15 lun. 21:11]
+*** DONE user-pack
+CLOSED: [2013-04-15 lun. 21:12]
+*** DONE haskell-pack
+CLOSED: [2013-04-15 lun. 21:12]
+*** DONE orgmode-pack
+CLOSED: [2013-04-15 lun. 21:12]
+*** DONE lisp-pack
+CLOSED: [2013-04-15 lun. 21:12]
+*** DONE git-pack
+CLOSED: [2013-04-15 lun. 21:12]
+*** DONE mail-pack
+CLOSED: [2013-04-15 lun. 21:12]
+*** DONE shell-pack
+CLOSED: [2013-04-15 lun. 21:12]
+*** DONE browser-pack
+CLOSED: [2013-04-15 lun. 21:12]
+*** DONE chat-pack
+CLOSED: [2013-04-15 lun. 21:12]
+*** DONE clojure-pack
+CLOSED: [2013-04-15 lun. 21:12]
+*** DONE nrepl-pack
+CLOSED: [2013-04-15 lun. 21:12]
+*** DONE clojurescript-pack
+CLOSED: [2013-04-15 lun. 21:12]
+*** DONE caml-pack
+CLOSED: [2013-04-15 lun. 21:12]
+
+** DONE adding all packs as git submodules to emacs-live-packs
+CLOSED: [2013-04-15 lun. 21:12]
 * PENDING org-mode [80%]
 ** DONE Howto install it?
 CLOSED: [2012-04-21 Sat 11:58]
