@@ -2,8 +2,8 @@
 #+TITLE: Programming in haskell - ch9 - Interactive programs - exercises
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
-#+TAGS: haskell, exercises, functional-programming
-#+CATEGORY: haskell, exercises, functional-programming
+#+TAGS: haskell, exercises, functional-programming, IO, Interactive programs
+#+CATEGORY: haskell, exercises, functional-programming, IO, Integractive programs
 #+DESCRIPTION: Learning haskell and solving problems using reasoning and 'repl'ing
 #+STARTUP: indent
 #+STARTUP: hidestars odd
