@@ -126,7 +126,40 @@ CLOSED: [2013-04-15 lun. 21:12]
 
 ** DONE adding all packs as git submodules to emacs-live-packs
 CLOSED: [2013-04-15 lun. 21:12]
-* PENDING org-mode [80%]
+* DONE curriculum [100%]
+CLOSED: [2013-04-19 ven. 22:40]
+** DONE update blog
+CLOSED: [2013-04-07 dim. 12:56]
+** DONE create a curriculum site in clojurescript
+CLOSED: [2013-04-07 dim. 11:54]
+https://github.com/ardumont/glowing-octo-archer.git
+
+** DONE make it printable
+CLOSED: [2013-04-07 dim. 11:54]
+
+** DONE deploy it
+CLOSED: [2013-04-07 dim. 12:28]
+find how to deploy clojurescript app
+
+At the moment deploying via sftp.
+
+http://adumont.fr/cv/curriculum-app.html
+
+** DONE make links to it from everywhere (gravatar, linkedin, viadeo, blog, etc...) [100%]
+CLOSED: [2013-04-07 dim. 12:56]
+*** DONE blog
+CLOSED: [2013-04-07 dim. 12:30]
+http://adumont.fr/blog/about/ the link "my resume" is updated.
+*** DONE gravatar
+CLOSED: [2013-04-07 dim. 12:46]
+*** DONE linkedin
+CLOSED: [2013-04-07 dim. 12:56]
+*** DONE viadeo
+CLOSED: [2013-04-07 dim. 12:56]
+** DONE find old cv used for sfeir
+CLOSED: [2013-04-07 dim. 13:05]
+** DONE update cv according to those
+CLOSED: [2013-04-19 ven. 22:40]* PENDING org-mode [80%]
 ** DONE Howto install it?
 CLOSED: [2012-04-21 Sat 11:58]
 see =~/bin/setup-emacs24.sh= (in the init.el, there is some emacs-lisp that launches the install of different modes,
@@ -717,38 +750,6 @@ CLOSED: [2013-03-03 dim. 00:06]
 
 ** DONE make a decent cpug-vm/Vagrantfile startup
 CLOSED: [2013-03-03 dim. 01:45]
-* PENDING curriculum [85%]
-** DONE update blog
-CLOSED: [2013-04-07 dim. 12:56]
-** DONE create a curriculum site in clojurescript
-CLOSED: [2013-04-07 dim. 11:54]
-https://github.com/ardumont/glowing-octo-archer.git
-
-** DONE make it printable
-CLOSED: [2013-04-07 dim. 11:54]
-
-** DONE deploy it
-CLOSED: [2013-04-07 dim. 12:28]
-find how to deploy clojurescript app
-
-At the moment deploying via sftp.
-
-http://adumont.fr/cv/curriculum-app.html
-
-** DONE make links to it from everywhere (gravatar, linkedin, viadeo, blog, etc...) [100%]
-CLOSED: [2013-04-07 dim. 12:56]
-*** DONE blog
-CLOSED: [2013-04-07 dim. 12:30]
-http://adumont.fr/blog/about/ the link "my resume" is updated.
-*** DONE gravatar
-CLOSED: [2013-04-07 dim. 12:46]
-*** DONE linkedin
-CLOSED: [2013-04-07 dim. 12:56]
-*** DONE viadeo
-CLOSED: [2013-04-07 dim. 12:56]
-** DONE find old cv used for sfeir
-CLOSED: [2013-04-07 dim. 13:05]
-** PENDING update cv according to those
 * IN-PROGRESS haskell [66%]
 ** DONE setuping environment
 CLOSED: [2013-04-19 ven. 22:33]
