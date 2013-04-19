@@ -1,0 +1,15 @@
+#+title: Do's and don'ts
+#+author: me
+
+#+begin_src txt
+|----------------------------------+----------------------------------|
+| Do's                             | Don'ts                           |
+|----------------------------------+----------------------------------|
+| Measurements!                    | Underestimate the transition     |
+| Platform delivery                | Only software delivery           |
+| Automate the database transition | Focus only on deployment process |
+| Sharing/collaboration            |                                  |
+| Continuous improvments           |                                  |
+| Agile                            |                                  |
+|----------------------------------+----------------------------------|
+#+end_src
