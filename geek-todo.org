@@ -782,3 +782,24 @@ CLOSED: [2013-04-19 ven. 22:32]
 **** DONE http://yannesposito.com/Scratch/en/blog/Haskell-the-Hard-Way/
 CLOSED: [2013-04-19 ven. 22:35]
 **** IN-PROGRESS http://learnyouahaskell.com/input-and-output
+* PENDING (o)caml [50%]
+** DONE setup environment
+CLOSED: [2013-04-19 ven. 22:36]
+** IN-PROGRESS Read
+*** IN-PROGRESS old [27%]
+**** DONE chapter 1
+CLOSED: [2013-04-19 ven. 22:39]
+**** DONE chapter 2
+CLOSED: [2013-04-19 ven. 22:39]
+**** DONE chapter 3
+CLOSED: [2013-04-19 ven. 22:39]
+**** TODO chapter 4
+**** TODO chapter 5
+**** TODO chapter 6
+**** TODO chapter 7
+**** TODO chapter 8
+**** TODO chapter 9
+**** TODO chapter 10
+**** TODO chapter 11
+*** TODO new
+ http://www.dicosmo.org/CourseNotes/pfav/
