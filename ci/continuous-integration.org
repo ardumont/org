@@ -1,0 +1,49 @@
+#+title: Continuous integration
+#+author: me
+
+* What is it?
+Deployment - Create expandable infrastructure from scratch
+
+* why?
+Validation
+
+* Techno
+** os
+
+GNU/Linux (Centos, Debian)
+
+** us
+
+- Puppet
+- Vagrant
+- Jenkins
+
+** other
+
+- Upload jar manually
+- Use Puppet to deliver rpms
+- Capistrano delivering
+
+** use cases
+*** us
+
+git push -> jenkins build -> launch vagrant vm (virtualbox ose) -> installation
+
+*** other
+
+create a simulated vm matching the production env to test.
+
+* keyword
+
+- vmware?
+- vsphere (cost minimal)
+- hypervisor
+  - kvm
+  - xen
+- solaris (container???)
+- eucalyptus???
+
+* origin
+
+private cloud
+using the existing present on the client
