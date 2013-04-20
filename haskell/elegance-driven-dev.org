@@ -1,0 +1,98 @@
+A simple haskell script to add, see or delete entries in a todo file.
+
+I find the args dispatch using HOF elegant!
+And haskell is fast!
+
+#+begin_src haskell
+...
+
+todoDelete :: [String] -> IO ()
+todoDelete (file:index:_) = del file (read index)
+
+todoSee :: [String] -> IO ()
+todoSee (file:_) = view file
+
+todoAdd :: [String] -> IO ()
+todoAdd (file:todo) = add file (unwords todo)
+
+dispatch :: [(String, [String] -> IO ())]
+dispatch = [("del", todoDelete),
+            ("see", todoSee),
+            ("add", todoAdd)]
+
+main :: IO ()
+main = do (command:args) <- getArgs
+          let (Just action) = (lookup command dispatch) in
+            action args
+#+end_src
+
+# Use cases:
+
+
+** See
+#+begin_src sh
+tony@dagobah (0,37,) 18:24:38 ~/repo/perso/my-haskell-lab/src/io (master) $ runhaskell todo see ./resources/todo.org
+* I know *exactly* what you mean.
+
+* Let me tell you why you're here.
+
+* You're here because you know something.
+
+* What you know you can't explain, but you feel it.
+
+* You've felt it your entire life, that there's something wrong with the world.
+
+* You don't know what it is, but it's there, like a splinter in your mind, driving you mad.
+
+* It is this feeling that has brought you to me.
+
+* Do you know what I'm talking about?
+#+end_src
+
+** Add entry
+
+#+begin_src sh
+tony@dagobah (0,41,) 18:24:30 ~/repo/perso/my-haskell-lab/src/io (master) $ runhaskell todo add ./resources/todo.org this is yet another todo
+tony@dagobah (0,37,) 18:24:38 ~/repo/perso/my-haskell-lab/src/io (master) $ runhaskell todo see ./resources/todo.org
+* I know *exactly* what you mean.
+
+* Let me tell you why you're here.
+
+* You're here because you know something.
+
+* What you know you can't explain, but you feel it.
+
+* You've felt it your entire life, that there's something wrong with the world.
+
+* You don't know what it is, but it's there, like a splinter in your mind, driving you mad.
+
+* It is this feeling that has brought you to me.
+
+* Do you know what I'm talking about?
+* This is a new todo
+
+* This is yet another todo
+#+end_src
+
+** Remove entry
+#+begin_src sh
+tony@dagobah (0,35,) 18:24:41 ~/repo/perso/my-haskell-lab/src/io (master) $ runhaskell todo del ./resources/todo.org 0
+tony@dagobah (0,27,) 18:24:56 ~/repo/perso/my-haskell-lab/src/io (master) $ runhaskell todo del ./resources/todo.org 0
+tony@dagobah (0,27,) 18:24:57 ~/repo/perso/my-haskell-lab/src/io (master) $ runhaskell todo see ./resources/todo.org
+* Let me tell you why you're here.
+
+* You're here because you know something.
+
+* What you know you can't explain, but you feel it.
+
+* You've felt it your entire life, that there's something wrong with the world.
+
+* You don't know what it is, but it's there, like a splinter in your mind, driving you mad.
+
+* It is this feeling that has brought you to me.
+
+* Do you know what I'm talking about?
+* This is a new todo
+
+* This is yet another todo
+#+end_src
