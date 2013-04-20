@@ -804,3 +804,5 @@ CLOSED: [2013-04-19 ven. 22:39]
 **** TODO chapter 11
 *** TODO new
  http://www.dicosmo.org/CourseNotes/pfav/
+* TODO riemann
+* TODO clojure data analysis cookbook
