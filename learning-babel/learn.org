@@ -125,3 +125,55 @@ let y=10 in x*x*y
   (setq my-special-password (first (second data)))
   (username, password))
 #+end_src
+
+#+name: directories
+#+begin_src sh :results replace
+  du -sc ~/bin/* | grep -v total
+#+end_src
+
+#+RESULTS: directories
+|  16 | /home/tony/bin/4clojure   |
+|   4 | /home/tony/bin/README     |
+|   8 | /home/tony/bin/app        |
+|  44 | /home/tony/bin/archives   |
+|  24 | /home/tony/bin/brightness |
+|  12 | /home/tony/bin/clj        |
+|  24 | /home/tony/bin/db         |
+| 152 | /home/tony/bin/deploy     |
+|   8 | /home/tony/bin/dev        |
+|   4 | /home/tony/bin/f          |
+|  36 | /home/tony/bin/gentoo     |
+|  88 | /home/tony/bin/git        |
+|   8 | /home/tony/bin/haskell    |
+|   8 | /home/tony/bin/heroku     |
+|  72 | /home/tony/bin/hub        |
+|  12 | /home/tony/bin/ide        |
+|   8 | /home/tony/bin/jvm        |
+|   8 | /home/tony/bin/kbd        |
+|   0 | /home/tony/bin/lein       |
+|  12 | /home/tony/bin/lein1      |
+|  12 | /home/tony/bin/lein2      |
+|  24 | /home/tony/bin/mvn        |
+|   8 | /home/tony/bin/org        |
+|   8 | /home/tony/bin/overtone   |
+|   8 | /home/tony/bin/panel      |
+|   8 | /home/tony/bin/proxy      |
+|   8 | /home/tony/bin/puppet     |
+|   8 | /home/tony/bin/ratpoison  |
+|   8 | /home/tony/bin/scala      |
+|  16 | /home/tony/bin/screen     |
+|   8 | /home/tony/bin/ssh        |
+|  12 | /home/tony/bin/stumpwm    |
+|   8 | /home/tony/bin/tmux       |
+|   8 | /home/tony/bin/update     |
+|  96 | /home/tony/bin/utils      |
+|  12 | /home/tony/bin/wifi       |
+|   8 | /home/tony/bin/xephyr     |
+
+#+name: directory-pie-chart(dirs = directories)
+#+begin_src R :session R-pie-example :file ./dirs.png
+  pie(dirs[,1], labels = dirs[,2])
+#+end_src
+
+#+RESULTS: directory-pie-chart
+[[file:./dirs.png]]
