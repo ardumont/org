@@ -72,3 +72,12 @@
 #+RESULTS:
 : Hello, today's date is Sun Apr 21 22:41:59 2013
 : Two plus two is
+
+#+name: square
+#+header: :var x=100
+#+begin_src python
+return x*x
+#+end_src
+
+#+RESULTS: square
+: 10000
