@@ -16,3 +16,13 @@
 
 #+RESULTS:
 | This file takes up 4,0K | learn.org |
+
+#+begin_src R :colnames yes
+  words <- tolower(scan("learn.org", what="", na.strings=c("|",":")))
+  t(sort(table(words[nchar(words) > 3]), decreasing=TRUE)[1:10])
+#+end_src
+
+#+RESULTS:
+| #+begin_src | #+end_src | file | #+results: | this | 2013-04-21 | 3]), | 4,0k | #+author: | babel |
+|-------------+-----------+------+------------+------+------------+------+------+-----------+-------|
+|           3 |         3 |    2 |          2 |    2 |          1 |    1 |    1 |         1 |     1 |
