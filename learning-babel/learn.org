@@ -26,3 +26,29 @@
 | #+begin_src | #+end_src | file | #+results: | this | 2013-04-21 | 3]), | 4,0k | #+author: | babel |
 |-------------+-----------+------+------------+------+------------+------+------+-----------+-------|
 |           3 |         3 |    2 |          2 |    2 |          1 |    1 |    1 |         1 |     1 |
+
+#+begin_src ditaa :file blue.png :cmdline -r
++---------+
+| cBLU    |
+|         |
+|    +----+
+|    |cPNK|
+|    |    |
++----+----+
+#+end_src
+
+#+RESULTS:
+[[file:blue.png]]
+
+#+begin_src ditaa :file colors.png :cmdline -r
+/-------------+-------------\
+|cRED RED     |cBLU BLU     |
++-------------+-------------+
+|cGRE GRE     |cPNK PNK     |
++-------------+-------------+
+|cBLK BLK     |cYEL YEL     |
+\-------------+-------------/
+#+end_src
+
+#+RESULTS:
+[[file:colors.png]]
