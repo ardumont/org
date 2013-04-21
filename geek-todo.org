@@ -781,10 +781,11 @@ CLOSED: [2013-04-19 ven. 22:32]
 **** TODO chapter 11
 **** TODO chapter 12
 **** TODO chapter 13
-*** IN-PROGRESS Reading articles [50%]
+*** IN-PROGRESS Reading articles [100%]
 **** DONE http://yannesposito.com/Scratch/en/blog/Haskell-the-Hard-Way/
 CLOSED: [2013-04-19 ven. 22:35]
-**** IN-PROGRESS http://learnyouahaskell.com/input-and-output
+**** DONE http://learnyouahaskell.com/input-and-output
+CLOSED: [2013-04-21 dim. 20:34]
 * PENDING (o)caml [50%]
 ** DONE setup environment
 CLOSED: [2013-04-19 ven. 22:36]
