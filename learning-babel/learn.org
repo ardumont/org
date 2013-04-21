@@ -113,3 +113,15 @@ let y=10 in x*x*y
 #+RESULTS: fibonacci-seq
 | 1 | 1 | 2 |  3 |  5 |   8 |  13 |  21 |   34 |   55 |
 | 1 | 3 | 8 | 21 | 55 | 144 | 377 | 987 | 2584 | 6765 |
+
+#+tblname: creds
+| username | john doe |
+| password | abc123   |
+
+#+name: credentials-res(inputs=creds)
+#+begin_src emacs-lisp
+(defun credentials (data)
+  (setq my-special-username (first (first data)))
+  (setq my-special-password (first (second data)))
+  (username, password))
+#+end_src
