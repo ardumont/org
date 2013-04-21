@@ -62,3 +62,13 @@
 
 #+RESULTS:
 : 4
+
+#+begin_src python :results output
+  import time
+  print("Hello, today's date is %s" % time.ctime())
+  print('Two plus two is')
+#+end_src
+
+#+RESULTS:
+: Hello, today's date is Sun Apr 21 22:41:59 2013
+: Two plus two is
