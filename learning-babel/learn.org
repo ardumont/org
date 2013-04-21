@@ -81,3 +81,5 @@ return x*x
 
 #+RESULTS: square
 : 10000
+
+#+call: square(x=6)
