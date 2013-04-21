@@ -1,0 +1,11 @@
+#+title: Learning Babel
+#+author: me
+#+source: http://orgmode.org/worg/org-contrib/babel/intro.html
+
+#+begin_src ruby
+  require 'date'
+  "this file was evaluated on #{Date.today}"
+#+end_src
+
+#+RESULTS:
+: this file was evaluated on 2013-04-21
