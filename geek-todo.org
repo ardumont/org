@@ -265,7 +265,7 @@ CLOSED: [2012-04-22 Sun 11:13]
 #+END_SRC
 Need some setup.
 *** IN-PROGRESS setup it to have access to different languages
-* PENDING emacs [85%]
+* PENDING emacs [75%]
 ** DONE install
 CLOSED: [2012-04-21 Sat 12:02]
 #+BEGIN_SRC sh
@@ -347,6 +347,8 @@ CLOSED: [2012-12-23 Sun 13:18]
 CLOSED: [2012-12-23 Sun 13:18]
 *** DONE update emacs live
 CLOSED: [2013-03-02 sam. 15:50]
+*** DONE organize packs
+CLOSED: [2013-04-21 dim. 18:30]
 ** TODO Reading [0%]
 *** TODO Read emacs manual
 *** TODO A mode to make slides from org
