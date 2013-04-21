@@ -9,3 +9,10 @@
 
 #+RESULTS:
 : this file was evaluated on 2013-04-21
+
+#+begin_src sh
+  echo "This file takes up `du -h learn.org |sed 's/\([0-9k]*\)[ ]*org-babel.org/\1/'`"
+#+end_src
+
+#+RESULTS:
+| This file takes up 4,0K | learn.org |
