@@ -52,3 +52,13 @@
 
 #+RESULTS:
 [[file:colors.png]]
+
+#+begin_src python :results value
+  import time
+  print("Hello, today's date is %s" % time.ctime())
+  print('Two plus two is')
+  return 2 + 2
+#+end_src
+
+#+RESULTS:
+: 4
