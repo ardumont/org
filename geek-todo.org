@@ -786,6 +786,8 @@ CLOSED: [2013-04-19 ven. 22:32]
 CLOSED: [2013-04-19 ven. 22:35]
 **** DONE http://learnyouahaskell.com/input-and-output
 CLOSED: [2013-04-21 dim. 20:34]
+**** DONE http://learnyouahaskell.com/types-and-typeclasses
+CLOSED: [2013-04-22 lun. 18:17]
 * PENDING (o)caml [50%]
 ** DONE setup environment
 CLOSED: [2013-04-19 ven. 22:36]
