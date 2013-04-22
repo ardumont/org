@@ -1,0 +1,27 @@
+#+title: Libraries for emacs
+#+author: me
+#+source: Emacs-Lisp development - John Wiegley - Emacs 2013 conference
+
+* TODO ert (test)
+* TODO edebug (debug)
+* TODO elp (monitoring)
+* TODO redshank (refactoring)
+* TODO (add-hook 'after-save-hook 'check-parens nil t)
+* DONE elint
+CLOSED: [2013-04-22 lun. 19:00]
+* TODO ielm (emacs-lisp repl)
+* DONE yasnippet
+CLOSED: [2013-04-22 lun. 19:00]
+* TODO hightlight-cl
+* TODO info-lookmore
+* TODO backup-each-save
+* DONE ace-jump-mode
+CLOSED: [2013-04-22 lun. 19:00]
+* DONE magit
+CLOSED: [2013-04-22 lun. 19:02]
+* DONE ediff
+CLOSED: [2013-04-22 lun. 19:04]
+* DONE compare-windows (diff tool)
+CLOSED: [2013-04-22 lun. 19:09]
+* DONE speedbar
+CLOSED: [2013-04-22 lun. 19:09]
