@@ -8,32 +8,10 @@
 #+STARTUP: indent
 #+STARTUP: hidestars odd
 
-* readLine
-#+begin_quote
-Define an action =readLine :: IO String= that behaves in the same way as =getLine=, except that it also permits the delete key to be used to remove characters.
+There are some compatibilities issues on this chapter between what's explained and the rendering.
+Furthermore, I'm not interested with the graphical part of haskell yet.
+To sum up, I will concentrate on the *nim* exercise.
 
-_Hint:_ the delete character is ’\DEL’, and the control string for moving the cursor back one character is "\ESC[1D".
-#+end_quote
-
-* Beep -> Error
-#+begin_quote
-Modify the calculator program to indicate the approximate position of an error rather than just sounding a beep, by using the fact that the parser returns the unconsumed part of the input string.
-#+end_quote
-
-* Flicker
-#+begin_quote
-On some systems the game of life may flicker, due to the entire screen being cleared each generation.
-Modify the game to avoid such flicker by only redisplaying positions whose status changes.
-#+end_quote
-* Editor
-#+begin_quote
-Produce an editor that allows the user to interactively create and modify the content of the board in the game of life.
-#+end_quote
-* Graphical calculator
-#+begin_quote
-Produce graphical versions of the calculator and game of life programs, using one of the graphics libraries available from [[www.haskell.org]].
-#+end_quote
-* Nim
 #+begin_quote
 Nim is a game that is played on a board comprising five numbered rows of stars, which is initially set up as follows:
 
