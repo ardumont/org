@@ -1,0 +1,40 @@
+#+BLOG: tony-blog
+#+TITLE: PIH - ch10 - 2/2 - Declaring types and classes - exercises
+#+AUTHOR: Antoine R. Dumont
+#+OPTIONS:
+#+TAGS: haskell, exercises, functional-programming
+#+CATEGORY: haskell, exercises, functional-programming
+#+DESCRIPTION: Learning haskell and solving problems using reasoning and 'repl'ing
+#+STARTUP: indent
+#+STARTUP: hidestars odd
+
+* Tautology
+#+BEGIN_QUOTE
+Extend the tautology checker to support the use of logical disjunction (v) and equivalence (<=>) in propositions.
+#+END_QUOTE
+
+* Interactive tautology checker
+#+BEGIN_QUOTE
+Using the function =isTaut= together with the parsing and interaction libraries from the previous two chapters, define an interactive tautology checker that allows propositions to be entered from the keyboard in a user-friendly syntax.
+
+_Hint:_ Build a parser for propositions by modifying the parser for arithmetic expressions given in chapter 8.
+#+END_QUOTE
+
+* Abstract Machine
+#+BEGIN_QUOTE
+Extend the abstract machine to support the use of multiplication.
+#+END_QUOTE
+
+* Instance
+#+BEGIN_QUOTE
+Complete the following instance declarations:
+=
+instance Monad Maybe where
+···
+instance Monad [ ] where
+···
+=
+In this context, [ ] denotes the list type [ a ] without its parameter.
+
+_Hint:_ First write down the types of =return= and =>>== for each instance.
+#+END_QUOTE
