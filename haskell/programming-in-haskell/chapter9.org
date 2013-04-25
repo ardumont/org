@@ -1,5 +1,6 @@
-#+BLOG: tony-blog
-#+TITLE: Programming in haskell - ch9 - Interactive programs - exercises
+#+DATE: [2013-04-25 jeu. 21:56]
+#+POSTID: 1039
+#+TITLE: PIH - ch9 - Interactive programs - exercises
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
 #+TAGS: haskell, exercises, functional-programming, IO, Interactive programs
@@ -8,9 +9,10 @@
 #+STARTUP: indent
 #+STARTUP: hidestars odd
 
-There are some compatibilities issues on this chapter between what's explained and the rendering.
-Furthermore, I'm not interested with the graphical part of haskell yet.
-To sum up, I will concentrate on the *nim* exercise.
+Here are the exercises from the chapter 9 of the book [[http://www.cs.nott.ac.uk/~gmh/book.html][Programming in Haskell]].
+As there were some compatibilities issues between the content of the book and my realities, We will only concentrate the efforts on the nim one.
+
+Anyway, enough chit chat, here is the exercise:
 
 #+begin_quote
 Nim is a game that is played on a board comprising five numbered rows of stars, which is initially set up as follows:
@@ -32,32 +34,26 @@ Implement the game of nim in Haskell.
 _Hint:_ represent the board as a list comprising the number of stars remaining on each row, with the initial board being =[5, 4, 3, 2, 1]=.
 #+end_quote
 
-I will begin simply by representing a board following the hint.
+We will begin simply by representing a board following the recommandations.
 
 #+begin_src haskell
-rows :: Int
-rows = 5
-
 type Board = [Int]
+#+end_src
 
-board :: Board
-board = makeBoard rows
+I'm creating a utility function to create a board:
 
--- *Ch9> board
--- [5,4,3,2,1]
-
+#+begin_src haskell
 makeBoard :: Int -> Board
 makeBoard n = [n, n-1..1]
 #+end_src
 
 For example:
-
 #+begin_src haskell
 *Ch9> makeBoard 5
 [5,4,3,2,1]
 #+end_src
 
-I will need some functions to transform the digit into the numbers of stars to display:
+We will need some functions to transform the numbers into stars to display:
 
 #+begin_src haskell
 stars :: a -> Int -> [a]
@@ -83,12 +79,14 @@ Example:
 [(0,"*****"),(1,"****"),(2,"***"),(3,"**"),(4,"*")]
 #+end_src
 
+Now, we can show the board:
+
 #+begin_src haskell
 showBoard :: [(Int, String)] -> IO ()
 showBoard b = seqn [writeat (x, 0) (show x ++ ": " ++ s) | (x, s) <- b]
 #+end_src
 
-Here is a possible output:
+Possible output:
 #+begin_src haskell
 *Ch9> showBoard $ computeStars board
 0: *****
@@ -98,7 +96,8 @@ Here is a possible output:
 4: *
 #+end_src
 
-I will also need some utility function to deal silently with error:
+We will also need some utility function to deal silently with error.
+That is if we want to remove more stars than exists, then we no longer have stars.
 
 #+begin_src haskell
 wrap :: Int -> Int
@@ -112,7 +111,7 @@ wrap n = if n >= 0 then n else 0
 0
 #+end_src
 
-Same idea for dealing with stars:
+Same idea for dealing with stars.
 
 #+begin_src haskell
 wrapStars :: Int -> Int -> Int
@@ -131,7 +130,10 @@ Output:
 0
 #+end_src
 
-Now I need some function to help in removing stars:
+Now we need some function to help in removing stars.
+Simply, I split at the index r and retrieve the head of the second list (which then correponds to the value we want to decrement).
+Then we update the new value by decrementing the value by n. We wrap the result to return 0 at the worst case scenario.
+Then we recreate the list with the new value.
 
 #+begin_src haskell
 remove :: Int -> Int -> Board -> Board
@@ -150,7 +152,9 @@ Output:
 [0,4,3,2,1]
 #+end_src
 
-The game is finished if the board no longer has board.
+The game is finished if the board no longer has stars.
+As the board is represented by a list of int, we simply compute the sum of the list.
+It the rest is zero, there is no more stars.
 
 #+begin_src haskell
 win :: Board -> Bool
@@ -234,3 +238,5 @@ main :: IO ()
 main = do (size, player) <- setupGame
           game player (makeBoard size)
 #+end_src
+
+As usual, here is the complete [[https://github.com/ardumont/my-haskell-lab/blob/master/src/ch9.hs#L1][source]].
