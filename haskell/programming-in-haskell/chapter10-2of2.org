@@ -2,8 +2,8 @@
 #+TITLE: PIH - ch10 - 2/2 - Declaring types and classes - exercises
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
-#+TAGS: haskell, exercises, functional-programming
-#+CATEGORY: haskell, exercises, functional-programming
+#+TAGS: haskell, exercises, functional-programming, types, classes
+#+CATEGORY: haskell, exercises, functional-programming, types, classes
 #+DESCRIPTION: Learning haskell and solving problems using reasoning and 'repl'ing
 #+STARTUP: indent
 #+STARTUP: hidestars odd

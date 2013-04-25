@@ -1,12 +1,16 @@
+#+POSTID: 1050
+#+DATE: [2013-04-25 jeu. 22:06]
 #+BLOG: tony-blog
 #+TITLE: PIH - ch10 - 1/2 - Declaring types and classes - exercises
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
-#+TAGS: haskell, exercises, functional-programming
-#+CATEGORY: haskell, exercises, functional-programming
+#+TAGS: haskell, exercises, functional-programming, types, classes
+#+CATEGORY: haskell, exercises, functional-programming, types, classes
 #+DESCRIPTION: Learning haskell and solving problems using reasoning and 'repl'ing
 #+STARTUP: indent
 #+STARTUP: hidestars odd
+
+Here are the first parts of the chapter 10 of the book [[http://www.cs.nott.ac.uk/~gmh/book.html][Programming in Haskell]].
 
 * Natural
 #+BEGIN_QUOTE
@@ -23,15 +27,9 @@ add Zero m     = m
 add (Succ n) m = Succ (add n m)
 #+end_src
 
-Now, the base cases of multiplication:
-- anything that multiplies Zero renders Zero:
+Now, the base cases of multiplication, anything that multiplies Zero renders Zero:
 #+begin_src haskell
 mult Zero _        = Zero
-#+end_src
-
-- 1 multiply anything renders this anything
-#+begin_src haskell
-mult (Succ Zero) m = m
 #+end_src
 
 The recursivity lies in decomposing the multiplication into multiple additions:
@@ -43,6 +41,8 @@ n*m = m + (n-1) * m
     = ...
     = (m + m + m + ... + m) + 0 * m
 #+end_src
+
+This is expressed:
 
 #+begin_src haskell
 mult :: Nat -> Nat -> Nat
