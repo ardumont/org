@@ -354,7 +354,7 @@ CLOSED: [2013-04-21 dim. 18:30]
 https://github.com/relevance/org-html-slideshow
 *** TODO Eval clojure in org-mode file
 http://orgmode.org/worg/org-contrib/babel/languages/ob-doc-clojure.html
-* PENDING Articles [100%]
+* PENDING Articles [95%]
 ** DONE Chroot to save one's GNU/Linux
 CLOSED: [2012-04-21 Sat 18:07]
 http://adumont.fr/blog/chroot-pour-sauver-son-gnulinux/
@@ -482,6 +482,11 @@ http://adumont.fr/blog/pih-ch8-12-functional-parsers-exercises/
 ** DONE Programming in Haskell - chapter 8 - 1/2 - functional parsers exercises
 CLOSED: [2013-04-14 dim. 17:25]
 http://adumont.fr/blog/pih-ch8-22-functional-parsers-exercises/
+** DONE Programming in Haskell - Chapter 9
+CLOSED: [2013-04-25 jeu. 22:00]
+http://adumont.fr/blog/pih-ch9-interactive-programs-exercises/
+** IN-PROGRESS Programming in Haskell - Chapter 10 - 1/2
+** TODO Programming in Haskell - Chaper 10 - 2/2
 * PENDING clojure [28%]
 ** DONE start [100%]
 CLOSED: [2012-04-21 Sat 18:18]
