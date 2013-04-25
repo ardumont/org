@@ -7,3 +7,274 @@
 #+DESCRIPTION: Learning haskell and solving problems using reasoning and 'repl'ing
 #+STARTUP: indent
 #+STARTUP: hidestars odd
+
+* Natural
+#+BEGIN_QUOTE
+Using recursion and the function =add=, define a multiplication function =mult :: Nat -> Nat -> Nat= for natural numbers.
+#+END_QUOTE
+
+Recall:
+
+#+begin_src haskell
+data Nat = Zero | Succ Nat deriving Show
+
+add :: Nat -> Nat -> Nat
+add Zero m     = m
+add (Succ n) m = Succ (add n m)
+#+end_src
+
+Now, the base cases of multiplication:
+- anything that multiplies Zero renders Zero:
+#+begin_src haskell
+mult Zero _        = Zero
+#+end_src
+
+- 1 multiply anything renders this anything
+#+begin_src haskell
+mult (Succ Zero) m = m
+#+end_src
+
+The recursivity lies in decomposing the multiplication into multiple additions:
+
+#+begin_src txt
+n*m = m + (n-1) * m
+    = m + m + (n-2) * m
+    = 2m + (n-2) * m
+    = ...
+    = (m + m + m + ... + m) + 0 * m
+#+end_src
+
+#+begin_src haskell
+mult :: Nat -> Nat -> Nat
+mult Zero _        = Zero
+mult (Succ n) m    = add m $ mult n m
+#+end_src
+
+Examples:
+#+begin_src haskell
+*Nat> mult Zero Zero
+Zero
+*Nat> mult Zero (Succ Zero)
+Zero
+*Nat> mult (Succ Zero) (Succ Zero)
+Succ Zero
+*Nat> mult (Succ Zero) (Succ (Succ Zero))
+Succ (Succ Zero)
+*Nat> mult (Succ (Succ Zero)) (Succ (Succ Zero))
+Succ (Succ (Succ (Succ Zero)))
+*Nat> mult (Succ (Succ (Succ Zero))) (Succ (Succ Zero))
+Succ (Succ (Succ (Succ (Succ (Succ (Succ (Succ Zero)))))))
+*Nat> nat2int $ Succ (Succ (Succ (Succ (Succ (Succ (Succ (Succ Zero)))))))
+8
+#+end_src
+
+* Redefine occurs
+
+1) compare
+#+BEGIN_QUOTE
+Although not included in appendix A, the standard library defines =data Ordering = LT | EQ | GT= together with a function =compare :: Ord a => a -> a -> Ordering=.
+This decides if one value in an ordered type is less than =LT=, equal to =EQ=, or greater than =GT= another such value.
+Using this function, redefine the function =occurs :: Int -> Tree -> Bool= for search trees.
+#+END_QUOTE
+
+Here are some example on how to use the compare function:
+
+1 < 2:
+#+begin_src haskell
+*Tree2> compare 1 2
+LT
+#+end_src
+
+1 < 2:
+#+begin_src haskell
+*Tree2> compare 2 1
+GT
+#+end_src
+
+2 == 2:
+#+begin_src haskell
+*Tree2> compare 2 2
+EQ
+#+end_src
+
+Here the current type Tree:
+#+begin_src haskell
+data Tree a = Leaf a | Node (Tree a) a (Tree a) deriving Show
+#+end_src
+
+The current implementation of the search Tree:
+
+#+begin_src haskell
+occursST :: Ord a => Tree a -> a -> Bool
+occursST (Leaf n)     m = m == n
+occursST (Node l n r) m | m == n    = True
+                        | m < n     = occursST l m
+                        | otherwise = occursST r m
+#+end_src
+
+We can then synthesize the comparison computation in the =occurs= function like this:
+
+#+begin_src haskell
+occursST2 :: Ord a => Tree a -> a -> Bool
+occursST2 (Leaf n) m     = n == m
+occursST2 (Node l n r) m = case (compare m n) of
+  EQ -> True
+  LT -> occursST2 l m
+  GT -> occursST2 r m
+#+end_src
+
+2) Performance
+#+BEGIN_QUOTE
+Why is this new definition more efficient than the original version?
+#+END_QUOTE
+
+In the previous version, we did at most 2 comparisons for each node, in this one, we do it only once.
+
+* Binary Tree
+#+BEGIN_QUOTE
+Consider the following type of binary trees: =data Tree = Leaf Int | Node Tree Tree=
+Let us say that such a tree is /balanced/ if the number of leaves in the left and right subtree of every node differs by at most one, with leaves themselves being trivially balanced.
+Define a function =balanced :: Tree -> Bool= that decides if a tree is balanced or not.
+
+_Hint:_ first define a function that returns the number of leaves in a tree.
+#+END_QUOTE
+
+First, we need a function to compute the number of leaves of a Tree:
+
+#+begin_src haskell
+nbLeaves :: Tree -> Int
+nbLeaves (Leaf _) = 1
+nbLeaves (Node l r) = nbLeaves l + nbLeaves r
+#+end_src
+
+Example:
+#+begin_src haskell
+*Tree2> nbLeaves $ Node (Node (Leaf 1) (Leaf 3)) (Node (Leaf 5) (Leaf 7))
+4
+#+end_src
+
+Now the balanced function, first its type:
+
+#+begin_src haskell
+balanced :: Tree -> Bool
+#+end_src
+
+Second, the base case; /a leaf is trivially balanced/:
+
+#+begin_src haskell
+balanced (Leaf _) = True
+#+end_src
+
+By computing the number of leaves for each branch, we can compute the difference which does not be superior to 1:
+
+#+begin_src haskell
+balanced (Node l r) = let nl = nbLeaves l
+                          nr = nbLeaves r in
+                      abs (nl - nr) <= 1 &&
+#+end_src
+
+Also, the tree l and r must be balanced:
+#+begin_src haskell
+                      balanced l &&
+                      balanced r
+#+end_src
+
+Enough with the speach already!!! Ok, here we go:
+
+#+begin_src haskell
+balanced :: Tree -> Bool
+balanced (Leaf _) = True
+balanced (Node l r) = let nl = nbLeaves l
+                          nr = nbLeaves r in
+                      abs (nl - nr) <= 1 &&
+                      balanced l &&
+                      balanced r
+#+end_src
+
+* Balance
+#+BEGIN_QUOTE
+Define a function =balance :: [Int] -> Tree= that converts a non-empty list of integers into a balanced tree.
+
+_Hint:_ First define a function that splits a list into two halves whose length differs by at most one.
+#+END_QUOTE
+
+First a function to split a list, we'll simply split a list at length divided by 2:
+#+begin_src haskell
+split :: [a] -> ([a], [a])
+split l = splitAt n l where n = (length l) `div` 2
+#+end_src
+
+Examples:
+#+begin_src haskell
+*Tree2> split [1..11]
+([1,2,3,4,5],[6,7,8,9,10,11])
+*Tree2> split [1]
+([],[1])
+*Tree2> split [1,2]
+([1],[2])
+*Tree2> split [1,2,3]
+([1],[2,3])
+#+end_src
+
+Here is the type:
+
+#+begin_src haskell
+balance :: [Int] -> Tree
+#+end_src
+
+The base case:
+#+begin_src haskell
+balance [x]     = Leaf x
+#+end_src
+
+Last, we split the list in two well balanced list, then we dispatch the building of the list:
+#+begin_src haskell
+balance :: [Int] -> Tree
+balance [x]     = Leaf x
+balance ls = let (l, r) = split ls in Node (balance l) (balance r)
+#+end_src
+
+#+begin_src haskell
+*Tree2> map balanced (map balance [ [1..i] | i <- [1..10] ])
+[True,True,True,True,True,True,True,True,True,True]
+*Tree2> map balanced (map balance [ [1..i] | i <- [1..100] ])
+[True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True,True]
+#+end_src
+
+All tree must be balanced, so the result of this snippet must be []
+
+#+begin_src haskell
+*Tree2> filter (== False) (map balanced (map balance [ [1..i] | i <- [1..1000] ]))
+[]
+#+end_src
+
+* Tautology
+#+BEGIN_QUOTE
+Extend the tautology checker to support the use of logical disjunction (v) and equivalence (<=>) in propositions.
+#+END_QUOTE
+
+* Interactive tautology checker
+#+BEGIN_QUOTE
+Using the function =isTaut= together with the parsing and interaction libraries from the previous two chapters, define an interactive tautology checker that allows propositions to be entered from the keyboard in a user-friendly syntax.
+
+_Hint:_ Build a parser for propositions by modifying the parser for arithmetic expressions given in chapter 8.
+#+END_QUOTE
+
+* Abstract Machine
+#+BEGIN_QUOTE
+Extend the abstract machine to support the use of multiplication.
+#+END_QUOTE
+
+* Instance
+#+BEGIN_QUOTE
+Complete the following instance declarations:
+=
+instance Monad Maybe where
+···
+instance Monad [ ] where
+···
+=
+In this context, [ ] denotes the list type [ a ] without its parameter.
+
+_Hint:_ First write down the types of =return= and =>>== for each instance.
+#+END_QUOTE
