@@ -239,4 +239,51 @@ main = do (size, player) <- setupGame
           game player (makeBoard size)
 #+end_src
 
+Here is a sample from a run:
+
+#+begin_src haskell
+*Ch9> main
+What size for the board?
+3
+What player first? (0 or 1)
+1
+0: ***
+1: **
+2: *
+Player 1, on which row do you want to remove stars?
+0
+How many stars?
+3
+0:
+1: **
+2: *
+Player 0, on which row do you want to remove stars?
+1
+How many stars?
+1
+0:
+1: *
+2: *
+Player 1, on which row do you want to remove stars?
+0
+How many stars?
+1
+0:
+1: *
+2: *
+Player 0, on which row do you want to remove stars?
+2
+How many stars?
+1
+0:
+1: *
+2:
+Player 1, on which row do you want to remove stars?
+1
+How many stars?
+1
+p1 won!
+#+end_src
+
+
 As usual, here is the complete [[https://github.com/ardumont/my-haskell-lab/blob/master/src/ch9.hs#L1][source]].
