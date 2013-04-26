@@ -239,7 +239,7 @@ main = do (size, player) <- setupGame
           game player (makeBoard size)
 #+end_src
 
-Here is a sample from a run:
+A sample run:
 
 #+begin_src haskell
 *Ch9> main
@@ -284,6 +284,5 @@ How many stars?
 1
 p1 won!
 #+end_src
-
 
 As usual, here is the complete [[https://github.com/ardumont/my-haskell-lab/blob/master/src/ch9.hs#L1][source]].
