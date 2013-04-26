@@ -13,6 +13,143 @@
 Extend the tautology checker to support the use of logical disjunction (v) and equivalence (<=>) in propositions.
 #+END_QUOTE
 
+Here are the adaptation to the =Prop= definition regarding the logical disjunction, and the equivalence:
+
+#+begin_src haskell
+data Prop = Const Bool
+          | Var Char
+          | Not Prop
+          | And Prop Prop
+          | Imply Prop Prop
+          | Or Prop Prop
+          | Equiv Prop Prop
+          deriving Show
+#+end_src
+
+Here are some examples:
+#+begin_src haskell
+p0 :: Prop
+p0 = And (Var 'A') (Var 'B')
+
+p1 :: Prop
+p1 = And (Var 'A') (Not (Var 'A'))
+
+p2 :: Prop
+p2 = Imply (And (Var 'A') (Var 'B')) (Var 'A')
+
+p3 :: Prop
+p3 = Imply (Var 'A') (And (Var 'A') (Var 'B'))
+
+p4 :: Prop
+p4 = Imply (And (Var 'A') (Imply
+      (Var 'A') (Var 'B'))) (Var 'B')
+
+p5 :: Prop
+p5 = Or (Var 'A') (And (Var 'B') (Var 'C'))
+
+p6 :: Prop
+p6 = Equiv (Var 'a') (Var 'b')
+
+p7 :: Prop
+p7 = Not p6
+
+p8 :: Prop
+p8 = Imply p6 p7
+
+p9 :: Prop
+p9 = Equiv (Var 'A') (And (Var 'B') (Var 'C'))
+#+end_src
+
+This impacts the eval function, we just add the 2 new definitions:
+
+#+begin_src haskell
+type Subst = Assoc Char Bool
+
+eval :: Subst -> Prop -> Bool
+eval _ (Const b)   = b
+eval s (Var v)     = find v s
+eval s (Not b)     = not $ eval s b
+eval s (And a b)   = eval s a && eval s b
+eval s (Imply a b) = eval s a <= eval s b
+eval s (Or a b)    = eval s a || eval s b
+eval s (Equiv a b) = eval s $ And (Imply a b) (Imply b a)
+#+end_src
+
+We also need to compute the possible variables on the Prop:
+
+#+begin_src haskell
+vars :: Prop -> [Char]
+vars (Const _)   = []
+vars (Var v)     = [v]
+vars (Not b)     = vars b
+vars (And a b)   = vars a ++ vars b
+vars (Or a b)    = vars a ++ vars b
+vars (Imply a b) = vars a ++ vars b
+vars (Equiv a b) = vars a ++ vars b
+#+end_src
+
+Some output:
+#+begin_src haskell
+*Ch10> vars p1
+"AA"
+*Ch10> vars p2
+"ABA"
+*Ch10> vars p3
+"AAB"
+*Ch10> vars p4
+"AABB"
+*Prop> vars p5
+"ABC"
+#+end_src
+
+Here is the remaining code:
+#+begin_src haskell
+bools :: Int -> [[Bool]]
+bools 0 = [[]]
+bools 1 = [[True], [False]]
+bools n = map (False:) bn ++ map (True:) bn
+          where bn = bools (n-1)
+
+*Ch10> bools 0
+[]
+*Ch10> bools 1
+[[True],[False]]
+*Ch10> bools 2
+[[False,True],[False,False],[True,True],[True,False]]
+*Ch10> bools 3
+[[False,False,True],[False,False,False],[False,True,True],[False,True,False],[True,False,True],[True,False,False],[True,True,True],[True,True,False]]
+
+substs :: Prop -> [Subst]
+substs p = map (zip vs) (bools (length vs))
+  where vs = rmdups (vars p)
+
+*Prop> substs p1
+[[('A',True)],[('A',False)]]
+*Prop> substs p2
+[[('A',False),('B',True)],[('A',False),('B',False)],[('A',True),('B',True)],[('A',True),('B',False)]]
+*Prop> substs p3
+[[('A',False),('B',True)],[('A',False),('B',False)],[('A',True),('B',True)],[('A',True),('B',False)]]
+*Prop> substs p4
+[[('A',False),('B',True)],[('A',False),('B',False)],[('A',True),('B',True)],[('A',True),('B',False)]]
+
+isTaut :: Prop -> Bool
+isTaut p = and [ eval s p | s <- substs p ]
+#+end_src
+
+Some output examples:
+#+begin_src haskell
+*Prop> isTaut $ Or (Var 'a') (Not (Var 'a'))
+True
+*Prop> isTaut $ Or (Var 'a') (Var 'a')
+False
+*Prop> isTaut $ Equiv (Var 'a') (Not (Var 'a'))
+False
+*Prop> isTaut $ Equiv (Var 'a') (Var 'a')
+True
+*Prop> isTaut $ Equiv (Var 'a') (Var 'b')
+False
+#+end_src
+
 * Interactive tautology checker
 #+BEGIN_QUOTE
 Using the function =isTaut= together with the parsing and interaction libraries from the previous two chapters, define an interactive tautology checker that allows propositions to be entered from the keyboard in a user-friendly syntax.
