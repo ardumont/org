@@ -53,24 +53,11 @@ For example:
 [5,4,3,2,1]
 #+end_src
 
-We will need some functions to transform the numbers into stars to display:
-
-#+begin_src haskell
-stars :: a -> Int -> [a]
-stars e n = replicate n e
-#+end_src
-
-For example:
-#+begin_src haskell
-*Ch9> stars '*' 10
-"**********"
-#+end_src
-
 Now we can compute the stars to display on board:
 
 #+begin_src haskell
 computeStars :: Board -> [(Int, String)]
-computeStars b = zip [0..(length b -1)] (map (stars '*') b)
+computeStars b = zip [0..(length b - 1)] (map (flip replicate '*') b)
 #+end_src
 
 Example:
