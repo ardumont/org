@@ -8,7 +8,7 @@
 ** [[file:/home/tony/org/haskell/programming-in-haskell/chapter10-1of2.org][PIH - ch10 - 1/2 - Declaring types and classes - exercises]]
 :PROPERTIES:
 :POSTID: 1050
-:POST_DATE: 20130427T13:55:15+0000
+:POST_DATE: 20130427T13:55:00+0000
 :Published: Yes
 :END:
 ** [[file:/home/tony/org/haskell/programming-in-haskell/chapter9.org][PIH - ch9 - Interactive programs - exercises]]
