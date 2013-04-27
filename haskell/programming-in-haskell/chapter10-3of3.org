@@ -11,6 +11,9 @@
 #+STARTUP: indent
 #+STARTUP: hidestars odd
 
+The last part of the chapter 10.
+[[http://adumont.fr/blog/?p%3D1050][First]] and [[http://adumont.fr/blog/?p%3D1066][second]].
+
 * Abstract Machine
 #+BEGIN_QUOTE
 Extend the abstract machine to support the use of multiplication.
