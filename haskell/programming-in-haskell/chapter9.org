@@ -70,7 +70,7 @@ Now, we can show the board:
 
 #+begin_src haskell
 showBoard :: [(Int, String)] -> IO ()
-showBoard b = seqn [writeat (x, 0) (show x ++ ": " ++ s) | (x, s) <- b]
+showBoard b = mapM_ putStrLn [ show x ++ ": " ++ s | (x, s) <- b ]
 #+end_src
 
 Possible output:
