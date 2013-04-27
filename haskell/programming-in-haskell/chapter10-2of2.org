@@ -1,6 +1,6 @@
 #+DATE: [2013-04-27 sam. 19:12]
 #+BLOG: tony-blog
-#+TITLE: PIH - ch10 - 2/2 - Declaring types and classes - exercises
+#+TITLE: PIH - ch10 - 2/3 - Declaring types and classes - exercises
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
 #+TAGS: haskell, exercises, functional-programming, types, classes, tautology, parser
@@ -436,22 +436,3 @@ Not a tautology!
 keywords: &, !, t, f, =>, <=>, and any other character
 Enter a Proposition:
 #+end_src
-
-* Abstract Machine
-#+BEGIN_QUOTE
-Extend the abstract machine to support the use of multiplication.
-#+END_QUOTE
-
-* Instance
-#+BEGIN_QUOTE
-Complete the following instance declarations:
-=
-instance Monad Maybe where
-···
-instance Monad [] where
-···
-=
-In this context, [] denotes the list type [a] without its parameter.
-
-_Hint:_ First write down the types of =return= and =>>== for each instance.
-#+END_QUOTE
