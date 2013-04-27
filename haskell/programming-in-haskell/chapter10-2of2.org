@@ -1,3 +1,4 @@
+#+DATE: [2013-04-27 sam. 19:12]
 #+BLOG: tony-blog
 #+TITLE: PIH - ch10 - 2/2 - Declaring types and classes - exercises
 #+AUTHOR: Antoine R. Dumont
@@ -157,6 +158,282 @@ Using the function =isTaut= together with the parsing and interaction libraries 
 _Hint:_ Build a parser for propositions by modifying the parser for arithmetic expressions given in chapter 8.
 #+END_QUOTE
 
+Recall the definition of the Prop type:
+
+#+begin_src haskell
+data Prop = Const Bool
+          | Var Char
+          | Not Prop
+          | And Prop Prop
+          | Imply Prop Prop
+          | Or Prop Prop
+          | Equiv Prop Prop
+          deriving Show
+#+end_src
+
+And now, the program, we first define the module and import the needed library:
+
+#+begin_src haskell
+module PropParsers where
+
+import Parsers
+import Prop
+#+end_src
+
+Then, to solve such problem, we created a parser of type Parser Prop.
+Here is the main parser (as haskell is compiled, we can use the other parsers even though they are not yet defined):
+
+#+begin_src haskell
+prop :: Parser Prop
+prop = propConst +++
+         propVar +++
+         propNot +++
+         propAnd +++
+         propOr  +++
+         propImply +++
+         propEquiv
+#+end_src
+
+To simplify the writing, we define 't' and 'f' as the symbol for True and False:
+#+begin_src haskell
+mapBool :: [(String, Bool)]
+mapBool = [("t", True), ("f", False)]
+
+propConst :: Parser Prop
+propConst = do b <- symbol "t" +++ symbol "f"
+               let bool = (lookup b mapBool) in
+                 case bool of
+                   Just v -> return $ Const v
+#+end_src
+
+Possible output:
+#+begin_src haskell
+*PropParsers> parse propConst "t"
+[(Const True,"")]
+*PropParsers> parse propConst "f"
+[(Const False,"")]
+*PropParsers> parse propConst "a"
+[]
+#+end_src
+
+Var (just a char):
+#+begin_src haskell
+propVar :: Parser Prop
+propVar = do l <- token letter
+             return $ Var l
+#+end_src
+
+Possible output:
+
+#+begin_src haskell
+*PropParsers> parse propVar "a"
+[(Var 'a',"")]
+*PropParsers> parse propVar "t"
+[(Var 't',"")]
+*PropParsers> parse propVar "na"
+[(Var 'n',"a")]
+*PropParsers> parse propVar "1"
+[]
+#+end_src
+
+not (!):
+#+begin_src haskell
+propNot :: Parser Prop
+propNot = do symbol "!"
+             a <- prop
+             return (Not a)
+#+end_src
+
+Output:
+#+begin_src haskell
+*PropParsers> parse propNot "! a"
+[(Not (Var 'a'),"")]
+*PropParsers> parse propNot "! asldfsd"
+[(Not (Var 'a'),"sldfsd")]
+*PropParsers> parse propNot "! t"
+[(Not (Const True),"")]
+*PropParsers> parse propNot " t"
+[]
+#+end_src
+
+and (&):
+#+begin_src haskell
+propAnd :: Parser Prop
+propAnd = do symbol "&"
+             a <- prop
+             b <- prop
+             return (And a b)
+#+end_src
+
+Output:
+#+begin_src haskell
+*PropParsers> parse propAnd "& a b"
+[(And (Var 'a') (Var 'b'),"")]
+*PropParsers> parse propAnd "& a ! b"
+[(And (Var 'a') (Not (Var 'b')),"")]
+*PropParsers> parse propAnd "& a ! t"
+[(And (Var 'a') (Not (Const True)),"")]
+*PropParsers> parse propAnd "& a ! t"
+[(And (Var 'a') (Not (Const True)),"")]
+*PropParsers> parse propAnd "& a "
+[]
+#+end_src
+
+Or (|):
+#+begin_src haskell
+propOr :: Parser Prop
+propOr = do symbol "|"
+            a <- prop
+            b <- prop
+            return (Or a b)
+#+end_src
+
+Output:
+#+begin_src haskell
+*PropParsers> parse propOr "| a "
+[]
+*PropParsers> parse propOr "| a b"
+[(Or (Var 'a') (Var 'b'),"")]
+*PropParsers> parse propOr "| a ! b"
+[(Or (Var 'a') (Not (Var 'b')),"")]
+*PropParsers> parse propOr "| t ! b"
+[(Or (Const True) (Not (Var 'b')),"")]
+*PropParsers> parse propOr "| t ! & a c"
+[(Or (Const True) (Not (And (Var 'a') (Var 'c'))),"")]
+#+end_src
+
+Imply (=>):
+#+begin_src haskell
+propImply :: Parser Prop
+propImply = do symbol "=>"
+               a <- prop
+               b <- prop
+               return (Imply a b)
+#+end_src
+
+Output:
+#+begin_src haskell
+*PropParsers> parse propImply "=> t ! & a c"
+[(Imply (Const True) (Not (And (Var 'a') (Var 'c'))),"")]
+*PropParsers> parse propImply "=> t "
+[]
+#+end_src
+
+Equivalence (<=>):
+#+begin_src haskell
+propEquiv :: Parser Prop
+propEquiv = do symbol "<=>"
+               a <- prop
+               b <- prop
+               return (Equiv a b)
+
+#+end_src
+
+Output:
+#+begin_src haskell
+*PropParsers> parse propEquiv "<=> t "
+[]
+*PropParsers> parse propEquiv "<=> t ! & a c"
+[(Equiv (Const True) (Not (And (Var 'a') (Var 'c'))),"")]
+#+end_src
+
+The main evaluation program that will wrap the resulting of evaluating the expression into a Maybe Prop.
+If the evaluation fails, this will return Nothing.
+Otherwise, return Just the proposition successfully parsed.
+
+#+begin_src haskell
+propEval :: String -> (Maybe Prop)
+propEval s = case parse prop s of
+  [(p, "")] -> Just p
+  _         -> Nothing
+#+end_src
+
+#+begin_src haskell
+*PropParsers> propEval "f"
+Just (Const False)
+*PropParsers> propEval "f"
+Just (Const False)
+*PropParsers> propEval "! f"
+Just (Not (Const False))
+*PropParsers> propEval "! a"
+Just (Not (Var 'a'))
+*PropParsers> propEval "& ! a b"
+Just (And (Not (Var 'a')) (Var 'b'))
+*PropParsers> propEval "& ! a t"
+Just (And (Not (Var 'a')) (Const True))
+*PropParsers> propEval "& ! a <=> t f"
+Just (And (Not (Var 'a')) (Equiv (Const True) (Const False)))
+#+end_src
+
+At last, the main program which is in charge of asking the user for a proposition.
+This will check the input, if incorrect, this will relaunch the main program.
+Or else, this will check if it's a tautology.
+It it is, this will print "tautology!", otherwise "not a tautology!" and relaunch the main program.
+
+#+begin_src haskell
+prompt :: [String]
+prompt = ["keywords: &, !, t, f, =>, <=>, and any other character",
+          "Enter a Proposition:"]
+
+askUser :: IO ()
+askUser =
+    do mapM_ putStrLn prompt
+       p <- getLine
+       let r = propEval p in
+         do putStrLn (case r of
+                         Just v -> (if isTaut v
+                                    then "tautology!"
+                                    else "Not a tautology!")
+                         _    ->  "Invalid input!")
+            askUser
+
+main :: IO ()
+main = askUser
+#+end_src
+
+Here is a run sample output:
+#+begin_src haskell
+*PropParsers> main
+keywords: &, !, t, f, =>, <=>, and any other character
+Enter a Proposition:
+a
+Not a tautology!
+keywords: &, !, t, f, =>, <=>, and any other character
+Enter a Proposition:
+b
+Not a tautology!
+keywords: &, !, t, f, =>, <=>, and any other character
+Enter a Proposition:
+t
+tautology!
+keywords: &, !, t, f, =>, <=>, and any other character
+Enter a Proposition:
+f
+Not a tautology!
+keywords: &, !, t, f, =>, <=>, and any other character
+Enter a Proposition:
+! f
+tautology!
+keywords: &, !, t, f, =>, <=>, and any other character
+Enter a Proposition:
+& t t
+tautology!
+keywords: &, !, t, f, =>, <=>, and any other character
+Enter a Proposition:
+& t ! f
+tautology!
+keywords: &, !, t, f, =>, <=>, and any other character
+Enter a Proposition:
+| a ! a
+tautology!
+keywords: &, !, t, f, =>, <=>, and any other character
+Enter a Proposition:
+| a ! b
+Not a tautology!
+keywords: &, !, t, f, =>, <=>, and any other character
+Enter a Proposition:
+#+end_src
+
 * Abstract Machine
 #+BEGIN_QUOTE
 Extend the abstract machine to support the use of multiplication.
@@ -168,10 +445,10 @@ Complete the following instance declarations:
 =
 instance Monad Maybe where
 ···
-instance Monad [ ] where
+instance Monad [] where
 ···
 =
-In this context, [ ] denotes the list type [ a ] without its parameter.
+In this context, [] denotes the list type [a] without its parameter.
 
 _Hint:_ First write down the types of =return= and =>>== for each instance.
 #+END_QUOTE

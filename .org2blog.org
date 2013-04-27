@@ -1,4 +1,10 @@
 * Posts
+** [[file:/home/tony/org/haskell/programming-in-haskell/chapter10-2of2.org][PIH - ch10 - 2/2 - Declaring types and classes - exercises]]
+:PROPERTIES:
+:POSTID: 1061
+:POST_DATE: 20130427T17:12:01+0000
+:Published: No
+:END:
 ** [[file:/home/tony/org/haskell/programming-in-haskell/chapter10-1of2.org][PIH - ch10 - 1/2 - Declaring types and classes - exercises]]
 :PROPERTIES:
 :POSTID: 1050
