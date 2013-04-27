@@ -110,27 +110,27 @@ bools 1 = [[True], [False]]
 bools n = map (False:) bn ++ map (True:) bn
           where bn = bools (n-1)
 
-*Ch10> bools 0
-[]
-*Ch10> bools 1
-[[True],[False]]
-*Ch10> bools 2
-[[False,True],[False,False],[True,True],[True,False]]
-*Ch10> bools 3
-[[False,False,True],[False,False,False],[False,True,True],[False,True,False],[True,False,True],[True,False,False],[True,True,True],[True,True,False]]
+-- *Ch10> bools 0
+-- []
+-- *Ch10> bools 1
+-- [[True],[False]]
+-- *Ch10> bools 2
+-- [[False,True],[False,False],[True,True],[True,False]]
+-- *Ch10> bools 3
+-- [[False,False,True],[False,False,False],[False,True,True],[False,True,False],[True,False,True],[True,False,False],[True,True,True],[True,True,False]]
 
 substs :: Prop -> [Subst]
 substs p = map (zip vs) (bools (length vs))
   where vs = rmdups (vars p)
 
-*Prop> substs p1
-[[('A',True)],[('A',False)]]
-*Prop> substs p2
-[[('A',False),('B',True)],[('A',False),('B',False)],[('A',True),('B',True)],[('A',True),('B',False)]]
-*Prop> substs p3
-[[('A',False),('B',True)],[('A',False),('B',False)],[('A',True),('B',True)],[('A',True),('B',False)]]
-*Prop> substs p4
-[[('A',False),('B',True)],[('A',False),('B',False)],[('A',True),('B',True)],[('A',True),('B',False)]]
+-- *Prop> substs p1
+-- [[('A',True)],[('A',False)]]
+-- *Prop> substs p2
+-- [[('A',False),('B',True)],[('A',False),('B',False)],[('A',True),('B',True)],[('A',True),('B',False)]]
+-- *Prop> substs p3
+-- [[('A',False),('B',True)],[('A',False),('B',False)],[('A',True),('B',True)],[('A',True),('B',False)]]
+-- *Prop> substs p4
+-- [[('A',False),('B',True)],[('A',False),('B',False)],[('A',True),('B',True)],[('A',True),('B',False)]]
 
 isTaut :: Prop -> Bool
 isTaut p = and [ eval s p | s <- substs p ]
