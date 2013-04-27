@@ -1,6 +1,5 @@
 #+BLOG: tony-blog
 #+POSTID: 1066
-#+BLOG: tony-blog
 #+DATE: [2013-04-27 sam. 19:26]
 #+TITLE: PIH - ch10 - 2/3 - Declaring types and classes - exercises
 #+AUTHOR: Antoine R. Dumont
@@ -18,6 +17,38 @@ The last part of the chapter 10.
 #+BEGIN_QUOTE
 Extend the abstract machine to support the use of multiplication.
 #+END_QUOTE
+
+The code adapted to deal with multiplication:
+#+begin_src haskell
+data Expr = Val Int | Add Expr Expr | Mult Expr Expr deriving Show
+
+data Op = EVALM Expr | EVALA Expr | MUL Int | ADD Int deriving Show
+
+type Cont = [Op]
+
+eval :: Expr -> Cont -> Int
+eval (Val n)    c = exec c n
+eval (Mult x y) c = eval x (EVALM y : c)
+eval (Add x y)  c = eval x (EVALA y : c)
+
+exec :: Cont -> Int -> Int
+exec []            n = n
+exec (EVALM y : c) n = eval y (MUL n : c)
+exec (EVALA y : c) n = eval y (ADD n : c)
+exec (MUL m : c)   n = exec c (n * m)
+exec (ADD m : c)   n = exec c (n + m)
+
+val :: Expr -> Int
+val e = eval e []
+#+end_src
+
+Output:
+#+begin_src haskell
+*AbstractMachine> val (Mult (Val 10) (Val 5))
+50
+*AbstractMachine> val (Add (Mult (Val 10) (Val 5)) (Val 100))
+150
+#+end_src
 
 * Instance
 #+BEGIN_QUOTE
