@@ -1,0 +1,28 @@
+#+BLOG: tony-blog
+#+TITLE: PIH - ch10 - 2/3 - Declaring types and classes - exercises
+#+AUTHOR: Antoine R. Dumont
+#+OPTIONS:
+#+TAGS: haskell, exercises, functional-programming, types, classes, abstract-machine
+#+CATEGORY: haskell, exercises, functional-programming, types, classes, abstract-machine
+#+DESCRIPTION: Tautology extension and interactive tautology checkers
+#+STARTUP: indent
+#+STARTUP: hidestars odd
+
+* Abstract Machine
+#+BEGIN_QUOTE
+Extend the abstract machine to support the use of multiplication.
+#+END_QUOTE
+
+* Instance
+#+BEGIN_QUOTE
+Complete the following instance declarations:
+=
+instance Monad Maybe where
+···
+instance Monad [] where
+···
+=
+In this context, [] denotes the list type [a] without its parameter.
+
+_Hint:_ First write down the types of =return= and =>>== for each instance.
+#+END_QUOTE
