@@ -75,7 +75,7 @@ data May a = Noth | Jus a
 To inject a value into the Maybe world, we wrap this value into a Jus and we're done:
 
 #+begin_src haskell
-         return v = Jus v
+         return = Jus
 #+end_src
 
 *** bind
@@ -93,7 +93,7 @@ Complete definition:
 data May a = Noth | Jus a
 
 instance Monad May where
-         return v = Jus v
+         return = Jus
 
          Noth  >>= _ = Noth
          (Jus x) >>= f = f x
