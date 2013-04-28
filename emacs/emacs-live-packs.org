@@ -1,0 +1,47 @@
+#+DATE: [2013-04-28 dim. 20:41]
+#+OPTIONS: toc:t num:nil todo:nil pri:nil tags:nil ^:nil TeX:nil
+#+CATEGORY: Uncategorized, Hello
+#+TAGS:
+#+DESCRIPTION:
+#+TITLE: emacs-live
+
+Here is a small article about why I love emacs-live.
+
+* emacs
+
+[[https://www.gnu.org/software/emacs/][emacs]] is a powerful text editor.
+
+So what the fuss is all about?
+
+Simply put, I'm a programmer (developer or whatever).
+what I love doing is create applications (yes I'm an artist :D or at least I want to be).
+
+What applications are, are really text.
+Text, which is then transformed into bits and pieces that a computer can interpret accordingly to interact with the end-users.
+
+So, really, emacs is now my predilection choice to develop.
+
+If you setup emacs correctly, you do not have any need for army wars machines IDE (like eclipse, intellij-idea, netscape or whatever).
+But, the setup is really the tricky part.
+
+* emacs-live
+
+So why [[https://github.com/overtone/emacs-live][emacs-live]]?
+
+As the [[http://overtone.github.io/emacs-live/][developers of emacs-live]] put it, [[https://github.com/overtone/emacs-live][emacs-live]] is an opinionated set of defaults for getting started with a specific focus on live coding with [[http://github.com/overtone/overtone][Overtone]] and [[http://github.com/quil/quil][Quil]].
+
+But, fortunately, it's not limited to that.
+
+They made some choices that are way ok for me.
+
+* emacs-live-packs
+
+So why [[https://github.com/ardumont/emacs-live-packs][emacs-live-packs]] then?
+
+emacs-live is a really great tools that extends really well emacs but it's way lisp oriented (clojure, overtone, common, emacs-lisp...).
+
+As usual emacs users, when using emacs, add their own snippets of code that extend emacs.
+
+As I became more experienced with emacs-lisp and emacs-live (every day and still learning), I added the emacs-live way, new snippets.
+
+Those snippets became more and more organized and finally became emacs-live packs.
