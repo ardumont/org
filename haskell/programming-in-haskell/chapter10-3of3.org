@@ -8,7 +8,6 @@
 #+CATEGORY: haskell, exercises, functional-programming, types, classes, abstract-machine
 #+DESCRIPTION: Tautology extension and interactive tautology checkers
 #+STARTUP: indent
-#+STARTUP: hidestars odd
 
 The last part of the chapter 10.
 [[http://adumont.fr/blog/?p%3D1050][First]] and [[http://adumont.fr/blog/?p%3D1066][second]].
