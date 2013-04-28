@@ -63,3 +63,40 @@ In this context, [] denotes the list type [a] without its parameter.
 
 _Hint:_ First write down the types of =return= and =>>== for each instance.
 #+END_QUOTE
+
+** May(be)
+
+*** data
+The data May(be) definition:
+#+begin_src haskell
+data May a = Noth | Jus a
+#+end_src
+
+*** inject
+To inject a value into the Maybe world, we wrap this value into a Jus and we're done:
+
+#+begin_src haskell
+         return v = Jus v
+#+end_src
+
+*** bind
+- Noth binds to anything is Noth.
+- And if it is a value (Jus x)m then we can bind it to the monadic function f (f x).
+
+#+begin_src haskell
+         Noth  >>= _ = Noth
+         (Jus x) >>= f = f x
+#+end_src
+
+*** complete
+Complete definition:
+#+begin_src haskell
+data May a = Noth | Jus a
+
+instance Monad May where
+         return v = Jus v
+
+         Noth  >>= _ = Noth
+         (Jus x) >>= f = f x
+
+#+end_src
