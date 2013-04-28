@@ -99,3 +99,31 @@ instance Monad May where
          (Jus x) >>= f = f x
 
 #+end_src
+
+** []
+*** inject
+To inject a value in the monadic world of list, just create a singleton list with this value:
+#+begin_src haskell
+-- return :: a -> [a]
+return x = [x]
+#+end_src
+
+*** bind
+
+To bind a list to the monadic function f, apply the monadic function f to the content of the list (so concatMap):
+
+#+begin_src haskell
+-- [a] -> (a -> [b]) -> [b]
+l >>= f = concatMap f l
+#+end_src
+
+*** complete
+
+#+begin_src haskell
+instance Monad [] where
+         return v = [v]
+
+         -- m a -> (a -> m b) -> m b
+         -- [a] -> (a -> [b]) -> [b]
+         l >>= f = concatMap f l
+#+end_src
