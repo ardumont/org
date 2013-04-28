@@ -489,6 +489,9 @@ http://adumont.fr/blog/pih-ch9-interactive-programs-exercises/
 CLOSED: [2013-04-27 sam. 15:56]
 ** PENDING Programming in Haskell - Chaper 10 - 2/3
 ** PENDING Programming in Haskell - Chapter 10 - 3/3
+** DONE emacs-live-packs - blog-pack
+CLOSED: [2013-04-29 lun. 01:25]
+http://adumont.fr/blog/emacs-live-pack-blog-pack/
 * PENDING clojure [28%]
 ** DONE start [100%]
 CLOSED: [2012-04-21 Sat 18:18]

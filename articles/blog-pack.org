@@ -1,0 +1,114 @@
+#+BLOG: tony-blog
+#+POSTID: 1069
+#+DATE: [2013-04-29 lun. 00:46]
+#+TITLE: emacs-live pack - blog-pack
+#+AUTHOR: Antoine R. Dumont
+#+OPTIONS:
+#+TAGS: org-mode, emacs, wordpress, blog, org2blog, tools, blog-pack, emacs-live
+#+CATEGORY: org-mode, emacs, wordpress, blog, org2blog, tools, blog-pack, emacs-live
+#+DESCRIPTION: emacs-live pack about org2blog - blog-pack
+#+STARTUP: indent
+
+[[http://adumont.fr/blog/blogging-with-org-mode-and-org2blog-to-publish-on-wordpress/][I already published an article about org2blog]].
+This is another one explaining how to install [[https://github.com/punchagan/org2blog][org2blog]] using simply a =~/.netrc= file.
+
+For this, I developed a simple [[https://github.com/overtone/emacs-live][emacs-live]] pack called [[https://github.com/ardumont/blog-pack][blog-pack]].
+
+* pre-requisite
+- [[https://www.gnu.org/software/emacs/][emacs 24]] installed
+- [[https://github.com/overtone/emacs-live][emacs-live]] installed too.
+- [[https://github.com/ardumont/install-packages-pack][install-packages-pack]] installed too
+
+* install
+** clone
+
+#+begin_src sh
+git clone git@github.com:ardumont/blog-pack.git
+#+end_src
+
+** .emacs-live.el
+
+Create the file =~/.emacs-live.el= and add this line inside:
+#+begin_src emacs-lisp
+(live-add-packs '("/path/to/blog-pack"))
+#+end_src
+
+This file is called by emacs-live's startup routine to load user packs after the emacs-live's standard ones.
+
+** setup
+
+Now we need to setup the blog-pack with your credentials and some other setup regarding your wordpress installation.
+For this, create a =~/.netrc= file.
+
+#+begin_src sh
+touch ~/.netrc
+#+end_src
+
+*** credentials
+
+Add your wordpress credentials in the =~/.netrc= file in a /machine blog/ line:
+
+#+begin_src txt
+machine blog login some-login password some-password
+#+end_src
+
+This is simply key-value pairs inlined in a file:
+
+|----------+------------------------------------------------------------------------------|
+| Entry    | Description                                                                  |
+|----------+------------------------------------------------------------------------------|
+| machine  | blog - A hard-coded line to *blog* to add informations regarding credentials |
+|          |                                                                              |
+| login    | Your wordpress login                                                         |
+|          |                                                                              |
+| password | Your wordpress password                                                      |
+|----------+------------------------------------------------------------------------------|
+
+*Important:* The /machine blog/ pair is mandatory, otherwise, this won't work.
+
+Example:
+
+#+begin_src txt
+machine blog login tony password "(-> (and emacs emacs-live clojure haskell) rock hard)"
+#+end_src
+
+*Note* if your password contains spaces, quote the password with ".
+
+*** description
+
+Now we need to add some description about your blog.
+Add another line with the /machine blog-description/ entry like this:
+
+#+begin_src sh
+machine blog-description blog-name your-blog-name blog-url-rpc http://your-wordpress-blog-url/path/to/xmlrpc.php
+#+end_src
+
+This is again key-value pairs inlined in a file:
+
+|--------------+-----------------------------------------------------------------------------------------------------------------------------------------|
+| Entry        | Description                                                                                                                             |
+|--------------+-----------------------------------------------------------------------------------------------------------------------------------------|
+| machine      | blog-description - A hard-coded line to *blog-description* to add informations about the blog's other setup.                            |
+|              |                                                                                                                                         |
+| blog-name    | The name of the blog used to discriminate between multiple blogs (if you use many)                                                      |
+|              |                                                                                                                                         |
+| blog-url-rpc | The path to the xmlrpc.php page used to send your org-mode exported as html. The form is: http://your-wordpress-blog-url/path/to/xmlrpc |
+|--------------+-----------------------------------------------------------------------------------------------------------------------------------------|
+
+*Important:* The /machine blog-description/ pair is mandatory, otherwise, this won't work.
+
+Example:
+#+begin_src sh
+machine blog-description blog-name tony-blog blog-url-rpc http://tony-blog.fr/blog/xmlrpc.php
+#+end_src
+
+Ok, now you're all ready to go.
+
+* run
+
+Start emacs.
+Open a org-mode file and write whatever you wish.
+
+When ready to publish a draft, hit =C-t d=.
+
+When ready to publish, hit =C-t p=.
