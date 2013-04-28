@@ -1,7 +1,8 @@
 #+BLOG: tony-blog
-#+POSTID: 1066
-#+DATE: [2013-04-27 sam. 19:26]
-#+TITLE: PIH - ch10 - 2/3 - Declaring types and classes - exercises
+#+POSTID: 1068
+#+DATE: [2013-04-28 dim. 21:11]
+#+BLOG: tony-blog
+#+TITLE: PIH - ch10 - 3/3 - Declaring types and classes - exercises
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
 #+TAGS: haskell, exercises, functional-programming, types, classes, abstract-machine
@@ -10,7 +11,7 @@
 #+STARTUP: indent
 
 The last part of the chapter 10.
-[[http://adumont.fr/blog/?p%3D1050][First]] and [[http://adumont.fr/blog/?p%3D1066][second]].
+[[http://adumont.fr/blog/?p%3D1050][First]] and [[http://adumont.fr/blog/?p%3D1064][second]].
 
 * Abstract Machine
 #+BEGIN_QUOTE
