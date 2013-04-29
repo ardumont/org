@@ -1,0 +1,62 @@
+#+DATE: [2013-04-29 lun. 20:09]
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil TeX:nil
+#+CATEGORY: Uncategorized, Hello
+#+TAGS:
+#+DESCRIPTION:
+#+TITLE: Hello, World
+
+So Here we go.
+On this screencast, I will present you how to install my blog-pack.
+For this, you will need as prerequisites, the following installed packages:
+
+- wordpress (up and ready)
+
+The rest I will show you on how to install it.
+I use ubuntu 12.10:
+
+- emacs24 on ubuntu 12.10
+- emacs-live
+- blog-pack
+
+sudo aptitude install -y git emacs24
+
+emacs starts without anything
+
+Now clone emacs-live.git:
+
+git clone git@github.com:overtone/emacs-live.git ~/.emacs.d
+
+And start emacs to show you that emacs-live is now loaded at emacs startup.
+
+emacs
+
+So now clone the different repositories:
+
+git clone git://github.com:ardumont/orgmode-pack.git
+git clone git://github.com:ardumont/install-packages-pack.git
+git clone git://github.com/ardumont/blog-pack.git
+
+Start emacs again before any edition
+
+emacs --daemon
+
+And edit the ~/.emacs-live.el
+
+(live-add-pack '("~/install-packages-pack"
+                 "~/orgmode-pack"
+                 "~/blog-pack"))
+
+Edit the ~/.netrc:
+
+machine blog login admin password "emacs rocks"
+machine blog-description blog-name tony-dummy-blog blog-rpc-url http://localhost/wordpress/xmlrpc.php
+
+Close emacs:
+
+killall emacs
+
+and restart it:
+
+Now create an org-mode file and published it as a draft first.
+
+Ok, now publish as a real article and show the result on your screen.
