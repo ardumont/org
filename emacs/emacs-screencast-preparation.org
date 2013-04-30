@@ -46,6 +46,10 @@ And edit the ~/.emacs-live.el
                  "~/orgmode-pack"
                  "~/blog-pack"))
 
+tweak problem grey background in no-window mode
+
+(set-face-background 'default "color-16")
+
 Edit the ~/.netrc:
 
 machine blog login admin password "emacs rocks"
@@ -60,3 +64,6 @@ and restart it:
 Now create an org-mode file and published it as a draft first.
 
 Ok, now publish as a real article and show the result on your screen.
+
+Result:
+https://www.youtube.com/watch?v=qTYCFu_NEFM
