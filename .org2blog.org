@@ -1,4 +1,10 @@
 * Posts
+** [[file:/home/tony/org/clojure/clj-of-life.org][game of life in clojure + demo]]
+:PROPERTIES:
+:POSTID: 1088
+:POST_DATE: 20130501T15:12:00+0000
+:Published: No
+:END:
 ** [[file:/home/tony/org/test/test.org][Hello, World!]]
 :PROPERTIES:
 :POSTID: 1082

@@ -1,0 +1,184 @@
+#+BLOG: tony-blog
+#+POSTID: 1088
+#+DATE: [2013-05-01 mer. 17:12]
+#+TITLE: game of life in clojure + demo
+#+AUTHOR: Antoine R. Dumont
+#+OPTIONS:
+#+TAGS: clojure, game-of-life, functional-programming
+#+CATEGORY: clojure, game-of-life, functional-programming
+#+DESCRIPTION: Implementing the game of life in clojure
+#+STARTUP: indent
+#+STARTUP: hidestars odd
+
+It has been a while since I implemented this and I thought this was time to show it.
+
+Plus, I will made a little demo in video to show the result.
+
+* Rules
+
+- live cell with 2 or 3 nb stays live
+- live cell with less than 2 dies
+- live cell with more than 3 dies
+- dead cell with 3 comes to life
+
+* Code
+
+** Game
+*** Computations
+
+The usual namespace declaration:
+
+#+begin_src clojure
+(ns clj-of-life.game "A namespace to compute the game of life policy"
+  (:require [clj-of-life.draw :as d]
+            [midje.sweet :as m]));; I like to add my test in the same namespace for documentation in the code
+#+end_src
+
+*** Extension
+
+We create a higher-order function *stepper*, which given a function 'neighbours-fn', return a function computing the new universe given a previous one.
+
+#+begin_src clojure
+(defn stepper
+  "Compute the new universe (of live cells) from the previous one depending on the neighbours-fn function."
+  [neighbours-fn]
+  (fn [universe]
+    (let [freq (frequencies (mapcat neighbours-fn universe))]
+      (set (for [[cell n] freq
+                 :when (or (= n 3)
+                           (and (= n 2)
+                                (universe cell)))]
+             cell)))))
+#+end_src
+
+***** Basic implementation
+
+For this, we will need to be able to compute the neighbours cell of a cell (represented by [x, y] coordinates).
+
+#+begin_src clojure
+(defn neighbours "Compute the neighbours of a cell"
+  [[x y]]
+  (for [dx [-1 0 1] dy [-1 0 1] :when (not= dx dy 0)]
+    [(+ x dx) (+ y dy)]))
+
+(m/fact :simple-check-around-neighbours
+  (neighbours [0 0]) => (contains [-1 -1] [-1 0] [-1 1] [0 -1] [0 1] [1 -1] [1 0] [1 1] :in-any-order)
+  (neighbours [3 1]) => (contains [2 0] [2 1] [2 2] [3 0] [3 2] [4 0] [4 1] [4 2] :in-any-order))
+#+end_src
+
+With the *stepper* function, we can now have a basic game of life implementation using the *neighbours* function:
+
+#+begin_src clojure
+;; one simple game of life implem
+(def next-state-universe (stepper neighbours))
+
+(m/fact
+  (next-state-universe #{[0 1]})  => #{}
+  (next-state-universe #{[0 1] [0 2]}) => #{}
+  (next-state-universe #{[0 1] [0 2] [1 1]}) => #{[0 1] [0 2] [1 1] [1 2]})
+#+end_src
+
+***** Bootstrap
+
+We need to be able to bootstrap a *universe* (random cells smashed together):
+
+#+begin_src clojure
+(defn random-universe "Generate a random universe of live cells"
+  [size]
+  (let [n (rand-int (/ (* size size) 2))]
+    (set (repeatedly n (fn [] [(rand-int size) (rand-int size)])))))
+#+end_src
+
+*** Source
+[[https://github.com/ardumont/clj-of-life/blob/master/src/clj_of_life/game.clj][game.clj]]
+
+** Draw
+*** Graphical
+We'll use clojure's capacity of java interoperability to do some graphical visualisation.
+
+Here is the *draw.clj* namespace:
+
+#+begin_src clojure
+(def *size-cell 10);; size of the cell
+(def *offset 29)   ;; for the border drawn in gnome (do not work under stumpwm)
+#+end_src
+
+Some drawing utility functions:
+#+begin_src clojure
+(defn- get-gfx "Given a width and a height, returns a frame with these dimension"
+  [width height]
+  (.getGraphics
+   (doto (javax.swing.JFrame.)
+     (.setDefaultCloseOperation javax.swing.WindowConstants/DISPOSE_ON_CLOSE)
+     (.setSize width height)
+     (.setVisible true))))
+
+(defn get-drawing-setup "A utility function to retrieve the drawing settings."
+  [rows]
+  (let [wh (* rows *size-cell)]
+    (get-gfx wh wh)))
+
+#+end_src
+
+To draw a cell, we need the color to paint the background of the cell and its coordinates:
+
+#+begin_src clojure
+(defn- draw-cell "Given a color and a cell's coordinate, draw the cell with the color 'col'"
+  [gfx col y x]
+  (.setColor gfx col)
+  (.fillRect gfx
+             (* *size-cell x)
+             (+ *offset (* *size-cell y))
+             *size-cell *size-cell))
+#+end_src
+
+The main function to draw the entire universe:
+
+#+begin_src clojure
+(defn draw "Draw the game of life"
+  [gfx n u]
+  (let [color {:dead java.awt.Color/WHITE
+               :live java.awt.Color/BLACK}
+        r (range n)]
+    (doseq [x r, y r]
+      ;; clear the painting
+      (draw-cell gfx (:dead color) x y)
+      ;; optimisation for display
+      (when (u [x y])
+        ;; draw the new state if needed
+        (draw-cell gfx (:live color) x y)))))
+#+end_src
+
+*** Sources
+
+[[https://github.com/ardumont/clj-of-life/blob/master/src/clj_of_life/draw.clj][draw.clj]]
+
+** Start
+
+Let the game begin:
+
+#+begin_src clojure
+(defn game-of-life "Game of life: Given a number of rows, display a game of life with rows x rows frame."
+  ([rows]
+     (game-of-life rows (random-universe rows)))
+  ([rows universe]
+     (let [gfx (d/get-drawing-setup rows)]
+       (iterate (fn [univ] (let [nxt-universe (next-state-universe univ)]
+                         (do (d/draw gfx rows nxt-universe)
+                             (Thread/sleep 300)
+                             nxt-universe)))
+                universe))))
+#+end_src
+
+*Improvments* Make the game-of-life function a HOF to receive the draw function as parameter.
+This way, we could change the rendering policy at will.
+
+* Run
+
+#+begin_src clojure
+clj-of-life.game> (game-of-life 20) ;; launch a clj-of-life game with 20x20 frame
+#+end_src
+
+* Demo
+
+http://youtu.be/t0VODALOLxw

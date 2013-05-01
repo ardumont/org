@@ -354,7 +354,7 @@ CLOSED: [2013-04-21 dim. 18:30]
 https://github.com/relevance/org-html-slideshow
 *** TODO Eval clojure in org-mode file
 http://orgmode.org/worg/org-contrib/babel/languages/ob-doc-clojure.html
-* PENDING Articles [97%]
+* PENDING Articles [95%]
 ** DONE Chroot to save one's GNU/Linux
 CLOSED: [2012-04-21 Sat 18:07]
 http://adumont.fr/blog/chroot-pour-sauver-son-gnulinux/
@@ -493,6 +493,7 @@ CLOSED: [2013-05-01 mer. 12:51]
 ** DONE emacs-live-packs - blog-pack
 CLOSED: [2013-04-29 lun. 01:25]
 http://adumont.fr/blog/emacs-live-pack-blog-pack/
+** IN-PROGRESS clj-of-life
 * PENDING clojure [28%]
 ** DONE start [100%]
 CLOSED: [2012-04-21 Sat 18:18]
