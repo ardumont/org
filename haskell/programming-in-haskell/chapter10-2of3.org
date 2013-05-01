@@ -1,7 +1,6 @@
+#+DATE: [2013-05-01 mer. 12:49]
 #+BLOG: tony-blog
 #+POSTID: 1064
-#+DATE: [2013-04-27 sam. 19:12]
-#+BLOG: tony-blog
 #+TITLE: PIH - ch10 - 2/3 - Declaring types and classes - exercises
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
