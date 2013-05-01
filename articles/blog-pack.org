@@ -30,6 +30,7 @@ git clone git@github.com:ardumont/blog-pack.git
 
 Create the file =~/.emacs-live.el= and add this line inside:
 #+begin_src emacs-lisp
+;; adding the list of live packs
 (live-add-packs '("/path/to/blog-pack"))
 #+end_src
 
@@ -79,7 +80,7 @@ machine blog login tony password "(-> (and emacs emacs-live clojure haskell) roc
 Now we need to add some description about your blog.
 Add another line with the /machine blog-description/ entry like this:
 
-#+begin_src sh
+#+begin_src txt
 machine blog-description blog-name your-blog-name blog-url-rpc http://your-wordpress-blog-url/path/to/xmlrpc.php
 #+end_src
 
@@ -98,7 +99,7 @@ This is again key-value pairs inlined in a file:
 *Important:* The /machine blog-description/ pair is mandatory, otherwise, this won't work.
 
 Example:
-#+begin_src sh
+#+begin_src txt
 machine blog-description blog-name tony-blog blog-url-rpc http://tony-blog.fr/blog/xmlrpc.php
 #+end_src
 
