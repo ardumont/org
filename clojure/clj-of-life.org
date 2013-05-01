@@ -181,4 +181,4 @@ clj-of-life.game> (game-of-life 20) ;; launch a clj-of-life game with 20x20 fram
 
 * Demo
 
-http://youtu.be/t0VODALOLxw
+https://www.youtube.com/watch?feature=player_detailpage&v=t0VODALOLxw#t=6s
