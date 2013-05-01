@@ -112,3 +112,6 @@ Open a org-mode file and write whatever you wish.
 When ready to publish a draft, hit =C-t d=.
 
 When ready to publish, hit =C-t p=.
+
+* demo
+http://youtu.be/qTYCFu_NEFM
