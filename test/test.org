@@ -1,0 +1,28 @@
+#+BLOG: tony-blog
+#+POSTID: 1082
+#+DATE: [2013-05-01 mer. 14:44]
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil TeX:nil
+#+CATEGORY:
+#+TAGS:
+#+DESCRIPTION: this is a test
+#+TITLE: Hello, World!
+#+STYLE: <style type="text/css">.src-haskell { background: white; } .src-clojure { background: black; }</style>
+
+some haskell
+#+begin_src haskell
+map (\x -> exists' (singleton x) (<= 4)) (filter (set [1..3]) [0..10])
+#+end_src
+
+some clj
+#+begin_src clojure
+(ns duck-hunt
+  (:use :reload-all [clodiuno core firmata])
+  (:import (java.awt Toolkit Color)
+           (java.awt.image BufferedImage)
+           (java.awt.event KeyAdapter)
+           (javax.swing JFrame JPanel)))
+
+(defn screen-size []
+  (let [screen (.getScreenSize (. java.awt.Toolkit getDefaultToolkit))]
+    [(.getWidth screen) (.getHeight screen)]))
+#+end_src
