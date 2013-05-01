@@ -1,0 +1,23 @@
+Hello everyone, ok so it's started.
+Hello everyone, I'm Antoine Dumont, I want to present you my blog-pack, how to use it and what is it.
+It's a wrapper around org2blog and org-mode and wordpress to help you publishing directly form org-mode to wordpress without any extra steps.
+Ok, so for this, you will have to install wordpress, because I won't do it here.
+And the rest, I will show show you how to.
+I will start by installing emacs, emacs24, we need it.
+So let me show you my terminal.
+Is the font sufficiently big?
+Ok, so here we go.
+I said we needed to install emacs. Ok.
+So I'm on ubuntu 12.10 in a virtual machine so here are the way to install it.
+So we also need org-mode packages and git.
+Ok, so while it's installing, I will show my blog, my dummy blog.
+browser, ok.
+So here we are, a dummy-tony-blog where we have a hello world article.
+yes, I will do it with the mouse.
+Destroy... and delete it.
+
+Ok so now, I will go back to the tony-dummy-blog which is installed on the virtual machine too.
+
+We have no more article inside it, ok?
+So we will go back to the terminal and this must be finished.
+Yes, this is finished.
