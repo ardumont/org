@@ -1,0 +1,440 @@
+#+BLOG: tony-blog
+#+POSTID: 1095
+#+DATE: [2013-05-02 jeu. 18:41]
+#+OPTIONS:
+#+CATEGORY: clojure, base64, encode, decode, functional-programming
+#+TAGS: clojure, base64, encode, decode, functional-programming
+#+TITLE: Decode/Encode base64 in Clojure
+#+DESCRIPTION: Learning howto encode and decode string in base64 for fun!
+
+I just wanted to try and learn the algorithm to encode a string in base64 and the other way around.
+
+I used mainly wikipedia's [[https://en.wikipedia.org/wiki/Base64][english]] and [[https://fr.wikipedia.org/wiki/Base64][french]] version as source.
+
+I hope you will enjoy this as much as I did.
+
+Here are the sources and explanations.
+
+* Structure
+
+I use 3 different namespaces.
+
+|-----------+-------------------------------------------------------------------------------------|
+| namespace | description                                                                         |
+|-----------+-------------------------------------------------------------------------------------|
+| base64    | main namespace for the encode and decode function                                   |
+| dico      | the dictionary namespace holding the dictionary to encode and decode the characters |
+| binary    | number to bits and back manipulations                                               |
+|-----------+-------------------------------------------------------------------------------------|
+
+* Code
+We'll go from the simpler to the hardest.
+
+You'll find first the definition of the function and then the *fact(s)* (test from [[https://github.com/marick/midje][Midje]] library) which are tests but also documentation about the use cases of the function.
+
+** Dico
+
+Just holding 2 hashmaps, *base64* to encode an ascii number into a char and *base64-dec* (which is the same map with keys and values transposed) to decode a char into a number.
+
+#+begin_src clojure
+(ns crypto-challenge.dico
+  "A dictionary namespace"
+  (:use [midje.sweet :only [fact future-fact]]))
+
+(def ^{:doc "base64 dictionary to encode in base64"}
+  base64 {0  \A
+          16 \Q
+          32 \g
+          48 \w
+          1  \B
+          17 \R
+          33 \h
+          49 \x
+          2  \C
+          18 \S
+          34 \i
+          50 \y
+          3  \D
+          19 \T
+          35 \j
+          51 \z
+          4  \E
+          20 \U
+          36 \k
+          52 \0
+          5  \F
+          21 \V
+          37 \l
+          53 \1
+          6  \G
+          22 \W
+          38 \m
+          54 \2
+          7  \H
+          23 \X
+          39 \n
+          55 \3
+          8  \I
+          24 \Y
+          40 \o
+          56 \4
+          9  \J
+          25 \Z
+          41 \p
+          57 \5
+          10 \K
+          26 \a
+          42 \q
+          58 \6
+          11 \L
+          27 \b
+          43 \r
+          59 \7
+          12 \M
+          28 \c
+          44 \s
+          60 \8
+          13 \N
+          29 \d
+          45 \t
+          61 \9
+          14 \O
+          30 \e
+          46 \u
+          62 \+
+          15 \P
+          31 \f
+          47 \v
+          63 \/})
+
+(defn- return-map
+  [m]
+  (into {} (map (fn [[k v]] [v k]) m)))
+
+(fact
+  (return-map {:a :b :c :d})              => {:b :a :d :c}
+  (return-map (return-map {:a :b :c :d})) => {:a :b :c :d})
+
+(def ^{:doc "base64 dictionary to decode in base64"}
+  base64-dec (return-map base64))
+
+(fact
+  (return-map base64)     => base64-dec
+  (return-map base64-dec) => base64)
+#+end_src
+
+** Binary
+
+The binary namespace to help in transforming back and forth characters into sequence of bits.
+
+I chose to represent the bits as big endian, so the bits sequence are read from the left to the right (big endian).
+
+_Examples:_
+[0 0 0 0 0 1 1 1] reads 7
+[1 0 0 0 0 0 0 0] reads 128
+
+#+begin_src clojure
+(ns crypto-challenge.binary
+  "A binary namespace to deal with transformation into binary"
+  (:use [midje.sweet :only [fact future-fact]]))
+
+(defn- comp-bit-sequence
+  "Complement a bit sequence by providing the policy through the comp-fn function."
+  [n b comp-fn]
+  (->> (iterate comp-fn b)
+       (drop-while #(not= n (count %)))
+       first))
+
+(fact
+  (comp-bit-sequence 8  [1 1 1]           (partial concat [0])) => [0 0 0 0 0 1 1 1]
+  (comp-bit-sequence 8  [0 0 0 0 1 0 0 0] (partial concat [0])) => [0 0 0 0 1 0 0 0]
+  (comp-bit-sequence 4  [1 1 1]           (partial concat [0])) => [0 1 1 1]
+  (comp-bit-sequence 10 [0 0 0 0 1 0 0 0] (partial concat [0])) => [0 0 0 0 0 0 1 0 0 0]
+  (comp-bit-sequence 8  [1 1 1]           #(concat % [0]))      => [1 1 1 0 0 0 0 0]
+  (comp-bit-sequence 8  [0 0 0 0 1 0 0 0] #(concat % [0]))      => [0 0 0 0 1 0 0 0]
+  (comp-bit-sequence 4  [1 1 1]           #(concat % [0]))      => [1 1 1 0]
+  (comp-bit-sequence 10 [0 0 0 0 1 0 0 0] #(concat % [0]))      => [0 0 0 0 1 0 0 0 0 0])
+
+(defn comp-before
+  "Complement by the most significant side (head) a bit sequence to n bits (if necessary)."
+  [n b]
+  (comp-bit-sequence n b (partial concat [0])))
+
+(fact
+  (comp-before 8 [1 1 1])            => [0 0 0 0 0 1 1 1]
+  (comp-before 8 [0 0 0 0 1 0 0 0])  => [0 0 0 0 1 0 0 0]
+  (comp-before 4 [1 1 1])            => [0 1 1 1]
+  (comp-before 10 [0 0 0 0 1 0 0 0]) => [0 0 0 0 0 0 1 0 0 0])
+
+(defn comp-after
+  "Complement by the least significant side (tail) a bit sequence to n bits (if necessary)."
+  [n b]
+  (comp-bit-sequence n b #(concat % [0])))
+
+(fact
+  (comp-after 10 [1 1 1 1 1 1 1 1])  => [1 1 1 1 1 1 1 1 0 0]
+  (comp-after 8 [1 1 1])            => [1 1 1 0 0 0 0 0]
+  (comp-after 8 [0 0 0 0 1 0 0 0])  => [0 0 0 0 1 0 0 0]
+  (comp-after 4 [1 1 1])            => [1 1 1 0]
+  (comp-after 10 [0 0 0 0 1 0 0 0]) => [0 0 0 0 1 0 0 0 0 0])
+
+(defn- bin
+  "Convert a number into binary sequence (will create as much bits as needed)."
+  [n]
+  (if (= 0 n)
+    []
+    (concat (-> n (/ 2) int bin)
+            [(mod n 2)])))
+
+(fact
+  (bin 97) => [1 1 0 0 0 0 1]
+  (bin 2)  => [1 0])
+
+(defn- to-binary
+  "Given a number, compute a function permitting the translation into a n-bits sequence"
+  [n]
+  (comp (partial comp-before n) bin))
+
+(fact
+  ((to-binary 8) 97) => [0 1 1 0 0 0 0 1]
+  ((to-binary 8) 2)  => [0 0 0 0 0 0 1 0])
+
+(def to-8bits ^{:doc "Given a number, compute its 8-bits representation."}
+  (to-binary 8))
+
+(fact
+  (to-8bits 97) => [0 1 1 0 0 0 0 1]
+  (to-8bits 2)  => [0 0 0 0 0 0 1 0])
+
+(def to-6bits ^{:doc "Given a number, compute its 6-bits representation."}
+  (to-binary 6))
+
+(fact
+  (to-6bits 26) => [0 1 1 0 1 0]
+  (to-6bits 1)  => [0 0 0 0 0 1]
+  (to-6bits 2)  => [0 0 0 0 1 0]
+  (to-6bits 3)  => [0 0 0 0 1 1])
+
+(defn to-num
+  "Convert a bit sequence into a number"
+  [b]
+  (if (= b (repeat 8 0))
+    0
+    (->> (reverse b)
+         (map-indexed (fn [i v] [(Math/pow 2 i) v]))
+         (reduce (fn [a [e n]] (if (= n 1) (+ e a) a)) 0)
+         int)))
+
+(fact
+  (to-num [1 1 0 0 0 0 1]) => 97
+  (to-num [0 1 1 0 0 0 0 1]) => 97
+  (to-num [0 0 0 0 0 0 1 0]) => 2
+  (to-num [0 0 0 0 0 0 0 0]) => 0
+  (to-num [1 1 1 1 1 1 1 1]) => 255
+  (to-num [1 1 1 1 1 1 1 0]) => 254)
+#+end_src
+
+** Base64
+At last, the main namespace holding the functions:
+- encode which takes a string and returns a base64 string
+- decode which takes a base64 string and returns an ascii string.
+*** Encode
+
+**** Utilities
+
+#+begin_src clojure
+(ns crypto-challenge.base64
+  "encode and decode a string in base64"
+  (:use [midje.sweet :only [fact]])
+  (:require [crypto-challenge.dico   :as d]
+            [crypto-challenge.binary :as b]
+            [clojure.string          :as s]))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; encoding
+
+;; Given a partition of 24 bits, compute the complement [partition of multiple 6 bits, list of complement = char]
+(defmulti comp24 count)
+
+;; complement 4 bits to be able to have 2 bytes (12 bits) and we complements with 2 = chars
+(defmethod comp24 8 [b] [(b/comp-after 12 b)
+                         [\= \=]])
+
+(fact
+  (comp24 [1 1 1 1 1 1 1 1]) => [[1 1 1 1 1 1,
+                                  1 1 0 0 0 0]
+                                 [\= \=]])
+
+;; complement 2 bits to be able to have 3 bytes (18 bits) and we complements with 1 = char
+(defmethod comp24 16 [b] [(b/comp-after 18 b)
+                          [\=]])
+
+(fact
+  (comp24 [1 1 1 1 1 1 1 1, 0 0 0 0 0 0 1 1]) => [[1 1 1 1 1 1,
+                                                   1 1 0 0 0 0,
+                                                   0 0 1 1 0 0]
+                                                  [\=]])
+
+;; chunk of 24 remains the same without any complement
+(defmethod comp24 :default [b] [b []])
+
+(fact
+  (comp24 [1 1 1 1 1 1 1 1, 0 0 0 0 0 0 1 1, 1 1 1 1 1 1 1 1]) => [[1 1 1 1 1 1,
+                                                                    1 1 0 0 0 0,
+                                                                    0 0 1 1 1 1,
+                                                                    1 1 1 1 1 1]
+                                                                   []])
+
+(def char2bits ^{:doc "Convert a char into a 8-bits sequence"}
+  (comp b/to-8bits int))
+
+(fact
+  (char2bits \a) => [0 1 1 0 0 0 0 1])
+
+(def bits2char ^{:doc "Convert a 8-bits sequence into a char"}
+  (comp char b/to-num))
+
+(fact
+  (bits2char [0 1 1 0 0 0 0 1]) => \a)
+
+(def to-bits ^{:private true
+               :doc "Transform a string into a list of bits."}
+  (partial mapcat char2bits))
+
+(fact
+  (to-bits [\a \b \c]) => [0 1 1 0 0 0 0 1,
+                           0 1 1 0 0 0 1 0,
+                           0 1 1 0 0 0 1 1]
+  (to-bits "haskell")  => [0 1 1 0 1 0 0 0,
+                           0 1 1 0 0 0 0 1,
+                           0 1 1 1 0 0 1 1,
+                           0 1 1 0 1 0 1 1,
+                           0 1 1 0 0 1 0 1,
+                           0 1 1 0 1 1 0 0,
+                           0 1 1 0 1 1 0 0])
+
+(defn to-base64
+  "Given a 8 or 16 or 24-bits chunk, compute the bits sequence into base64."
+  [b]
+  (let [[part complement] (comp24 b)
+        p24               (->> part
+                               (partition 6)
+                               (map (comp d/base64 b/to-num)))]
+    (concat p24 complement)))
+
+(fact
+  (to-base64 [1 1 1 1 1 1, 1 1 0 0 0 0])                           => [\/ \w]
+  (to-base64 [1 1 1 1 1 1, 1 1 0 0 0 0, 0 0 1 1 0 0])              => [\/ \w \M]
+  (to-base64 [1 1 1 1 1 1, 1 1 0 0 0 0, 0 0 1 1 1 1, 1 1 1 1 1 1]) => [\/ \w \P \/])
+
+#+end_src
+
+**** Algorithm
+
+- Transform the string into 8-bits binary sequence
+- Partition into chunks of 24 bits
+- Encode each 6 bits into base64 (so 3 chars in ascii give 4 chars in base64)
+Beware, there is a subtlety regarding the last chunk which can have 8, 16 (in those case, there is the complement =) or 24 bits.
+- Join the string and you have the result
+
+#+begin_src clojure
+(defn encode
+  "Encode into base64"
+  [s]
+  (->> s
+       to-bits            ;; Transform all chars into 8-bits sequence
+       (partition-all 24) ;; 24-bits chunks
+       (mapcat to-base64) ;; deal with the last chunk of bits (which can be of size 8, 16 or 24)
+       (s/join "")))
+
+(fact
+  (encode "Man is distinguished, not only by his reason, but by this singular passion from other animals, which is a lust of the mind, that by a perseverance of delight in the continued and indefatigable generation of knowledge, exceeds the short vehemence of any carnal pleasure.")
+  => "TWFuIGlzIGRpc3Rpbmd1aXNoZWQsIG5vdCBvbmx5IGJ5IGhpcyByZWFzb24sIGJ1dCBieSB0aGlzIHNpbmd1bGFyIHBhc3Npb24gZnJvbSBvdGhlciBhbmltYWxzLCB3aGljaCBpcyBhIGx1c3Qgb2YgdGhlIG1pbmQsIHRoYXQgYnkgYSBwZXJzZXZlcmFuY2Ugb2YgZGVsaWdodCBpbiB0aGUgY29udGludWVkIGFuZCBpbmRlZmF0aWdhYmxlIGdlbmVyYXRpb24gb2Yga25vd2xlZGdlLCBleGNlZWRzIHRoZSBzaG9ydCB2ZWhlbWVuY2Ugb2YgYW55IGNhcm5hbCBwbGVhc3VyZS4=")
+#+end_src
+*** decode
+
+**** Utility
+#+begin_src clojure
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; decoding
+
+(def decode-b64char ^{:doc "Decode a 8-bit base64 representation into a 6-bits representation."}
+  (comp b/to-6bits d/base64-dec))
+
+(fact
+  (decode-b64char \a) => [0 1 1 0 1 0]
+  (decode-b64char \b) => [0 1 1 0 1 1])
+
+(defn decode4
+  "Decode 4 characters into 3 bytes (24 bits)"
+  [s]
+  (->> s
+       (take-while #(not= \= %))
+       (mapcat decode-b64char)))
+
+(fact
+  (decode4 "ab==") => [0 1 1 0 1 0,
+                       0 1 1 0 1 1]
+  (decode4 "ba==") => [0 1 1 0 1 1,
+                       0 1 1 0 1 0])
+(fact
+  (decode4 "aab=") => [0 1 1 0 1 0,
+                       0 1 1 0 1 0,
+                       0 1 1 0 1 1]
+  (decode4 "abb=") => [0 1 1 0 1 0,
+                       0 1 1 0 1 1,
+                       0 1 1 0 1 1])
+(fact
+  (decode4 "aaaa") => [0 1 1 0 1 0,
+                       0 1 1 0 1 0,
+                       0 1 1 0 1 0,
+                       0 1 1 0 1 0]
+  (decode4 "abaa") => [0 1 1 0 1 0,
+                       0 1 1 0 1 1,
+                       0 1 1 0 1 0,
+                       0 1 1 0 1 0]
+  (decode4 "aaba") => [0 1 1 0 1 0,
+                       0 1 1 0 1 0,
+                       0 1 1 0 1 1,
+                       0 1 1 0 1 0]
+  (decode4 "aaab") => [0 1 1 0 1 0,
+                       0 1 1 0 1 0,
+                       0 1 1 0 1 0,
+                       0 1 1 0 1 1])
+#+end_src
+
+**** Algorithm
+
+- partition the string into chunk of 4 characters
+- decode those chunk into 3 bytes (24 bits sequence).
+Here again, there is the subtlety regarding the = complement character.
+Those = characters are only complements to fill in the gap in the string.
+So for the decoding, we just drop them (see decode-b64char function for more details).
+- partition into 8-bits sequence
+- transform those bits
+
+#+begin_src clojure
+(defn decode
+  "Decode base64 message"
+  [s]
+  (->> s
+       (partition 4)    ;; 4 words (32 bits)
+       (mapcat decode4) ;; decoded into 3 bytes (24 bits)
+       (partition 8)    ;; spliced into byte word (8 bits)
+       (map bits2char)  ;; converted back into char
+       (s/join "")))    ;; then joined to form a string
+
+(fact
+  (decode "TWFuIGlzIGRpc3Rpbmd1aXNoZWQsIG5vdCBvbmx5IGJ5IGhpcyByZWFzb24sIGJ1dCBieSB0aGlzIHNpbmd1bGFyIHBhc3Npb24gZnJvbSBvdGhlciBhbmltYWxzLCB3aGljaCBpcyBhIGx1c3Qgb2YgdGhlIG1pbmQsIHRoYXQgYnkgYSBwZXJzZXZlcmFuY2Ugb2YgZGVsaWdodCBpbiB0aGUgY29udGludWVkIGFuZCBpbmRlZmF0aWdhYmxlIGdlbmVyYXRpb24gb2Yga25vd2xlZGdlLCBleGNlZWRzIHRoZSBzaG9ydCB2ZWhlbWVuY2Ugb2YgYW55IGNhcm5hbCBwbGVhc3VyZS4=")
+  =>  "Man is distinguished, not only by his reason, but by this singular passion from other animals, which is a lust of the mind, that by a perseverance of delight in the continued and indefatigable generation of knowledge, exceeds the short vehemence of any carnal pleasure."
+
+  (decode "YW55IGNhcm5hbCBwbGVhcw==") => "any carnal pleas"
+  (decode "YW55IGNhcm5hbCBwbGVhc3U=") => "any carnal pleasu"
+  (decode "YW55IGNhcm5hbCBwbGVhc3Vy") => "any carnal pleasur")
+#+end_src
+
+* Conclusion
+
+I had fun even playing (again) with bits (surely, I could have reused some code but I wanted to do it myself!)
+
+Coding/Programming/Developing is fun!
+
+To sum up, "Just code it!"

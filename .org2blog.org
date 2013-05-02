@@ -1,4 +1,10 @@
 * Posts
+** [[file:/home/tony/org/crypto/base64-decode-encode-in-clojure.org][Decode/Encode base64 in Clojure]]
+:PROPERTIES:
+:POSTID: 1095
+:POST_DATE: 20130502T16:41:00+0000
+:Published: No
+:END:
 ** [[file:/home/tony/org/clojure/clj-of-life.org][game of life in clojure + demo]]
 :PROPERTIES:
 :POSTID: 1088
