@@ -37,7 +37,7 @@ You'll find first the definition of the function and then the *fact(s)* (test fr
 Just holding 2 hashmaps, *base64* to encode an ascii number into a char and *base64-dec* (which is the same map with keys and values transposed) to decode a char into a number.
 
 #+begin_src clojure
-(ns crypto-challenge.dico
+(ns crypto.dico
   "A dictionary namespace"
   (:use [midje.sweet :only [fact future-fact]]))
 
@@ -134,7 +134,7 @@ _Examples:_
 [1 0 0 0 0 0 0 0] reads 128
 
 #+begin_src clojure
-(ns crypto-challenge.binary
+(ns crypto.binary
   "A binary namespace to deal with transformation into binary"
   (:use [midje.sweet :only [fact future-fact]]))
 
@@ -243,7 +243,7 @@ At last, the main namespace holding the functions:
 **** Utilities
 
 #+begin_src clojure
-(ns crypto-challenge.base64
+(ns crypto.base64
   "encode and decode a string in base64"
   (:use [midje.sweet :only [fact]])
   (:require [crypto-challenge.dico   :as d]
