@@ -431,6 +431,10 @@ So for the decoding, we just drop them (see decode-b64char function for more det
   (decode "YW55IGNhcm5hbCBwbGVhc3Vy") => "any carnal pleasur")
 #+end_src
 
+* Sources
+
+[[https://github.com/ardumont/cloaked-hipster][sources]]
+
 * Conclusion
 
 I had fun even playing (again) with bits (surely, I could have reused some code but I wanted to do it myself!)
