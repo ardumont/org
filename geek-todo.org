@@ -354,7 +354,7 @@ CLOSED: [2013-04-21 dim. 18:30]
 https://github.com/relevance/org-html-slideshow
 *** TODO Eval clojure in org-mode file
 http://orgmode.org/worg/org-contrib/babel/languages/ob-doc-clojure.html
-* PENDING Articles [97%]
+* PENDING Articles [91%]
 ** DONE Chroot to save one's GNU/Linux
 CLOSED: [2012-04-21 Sat 18:07]
 http://adumont.fr/blog/chroot-pour-sauver-son-gnulinux/
@@ -496,6 +496,9 @@ http://adumont.fr/blog/emacs-live-pack-blog-pack/
 ** DONE clj-of-life
 CLOSED: [2013-05-01 mer. 17:55]
 http://adumont.fr/blog/game-of-life-in-clojure-demo/
+** PENDING Decode/Encode base64 in Clojure
+** TODO Fun with Sets in Haskell
+** TODO BinarySearchTree in Haskell
 * PENDING clojure [28%]
 ** DONE start [100%]
 CLOSED: [2012-04-21 Sat 18:18]
