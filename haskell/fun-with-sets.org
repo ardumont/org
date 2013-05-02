@@ -1,0 +1,196 @@
+#+BLOG: tony-blog
+#+POSTID: 1110
+#+DATE: [2013-05-02 jeu. 20:16]
+#+OPTIONS:
+#+CATEGORY: haskell, sets, functional-programming
+#+TAGS: haskell, sets, functional-programming
+#+TITLE: Fun with sets
+#+DESCRIPTION: Having fun implementing some sets functions
+
+So, the idea is to implement a bunch of functions relative to the mathematical notion of Set.
+
+_Note:_ To avoid repetition, I will associate some examples computed from the REPL into haskell block of code directly after the function definition.
+
+
+* sets
+** Type
+The set has to be defined using a specific type, it must be a function:
+
+#+begin_src haskell
+type Set a = a -> Bool
+#+end_src
+** NewEmpty
+We'll begin by implementing a simple function which will return a function that always return False:
+#+begin_src haskell
+newEmpty :: Set a
+newEmpty = \_ -> False
+
+*FunSet> newEmpty []
+False
+*FunSet> newEmpty 1
+False
+#+end_src
+** Add
+Given an already existing set and a new entry, return a new set.
+#+begin_src haskell
+add :: Eq a => Set a -> a -> Set a
+add s e = \i -> (e == i) || contains s i
+
+*FunSet> ((add newEmpty 1) 1)
+True
+*FunSet> ((add newEmpty 1) 2)
+False
+#+end_src
+
+** Contains
+Given a set and an entry, is this entry in the set?
+#+begin_src haskell
+contains :: Set a -> a -> Bool
+contains s e = s e
+
+*FunSet> contains newEmpty 1
+False
+*FunSet> contains (add newEmpty 1) 1
+True
+*FunSet> contains (add newEmpty 1) 2
+False
+#+end_src
+
+** Singleton
+Another simple set creation given an entry.
+#+begin_src haskell
+singleton :: Eq a => a -> Set a
+singleton a = \e -> (a == e)
+
+*FunSet> contains (singleton 1) 1
+True
+*FunSet> contains (singleton 1) 3
+False
+#+end_src
+
+** Union
+#+begin_src haskell
+union :: Set a -> Set a -> Set a
+union a b = \e -> a e || b e
+
+*FunSet> (union (singleton 1) (singleton 2)) 1
+True
+*FunSet> (union (singleton 1) (singleton 2)) 2
+True
+*FunSet> (union (singleton 1) (singleton 2)) 3
+False
+#+end_src
+** Intersect
+#+begin_src haskell
+intersect :: Set a -> Set a -> Set a
+intersect a b = \e -> a e && b e
+
+*FunSet> (intersect (union (singleton 1) (singleton 2)) (singleton 1)) 2
+False
+*FunSet> (intersect (union (singleton 1) (singleton 2)) (singleton 1)) 1
+True
+
+#+end_src
+
+** Difference
+#+begin_src haskell
+diff :: Set a -> Set a -> Set a
+diff a b = \e -> a e && not (b e)
+
+*FunSet> (diff (union (singleton 1) (singleton 2)) (union (singleton 1) (singleton 3))) 1
+False
+*FunSet> (diff (union (singleton 1) (singleton 2)) (union (singleton 1) (singleton 3))) 2
+True
+*FunSet> (diff (union (singleton 1) (singleton 2)) (union (singleton 1) (singleton 3))) 3
+False
+#+end_src
+
+** Filter
+Given a predicate and a set, return a set that satisfies both the predicate and the existing set.
+This reminds me of something...
+
+#+begin_src haskell
+filter' :: (a -> Bool) -> Set a -> Set a
+filter' = intersect
+
+*FunSet> (filter' (== 2) (union (union (singleton 1) (singleton 2)) (union (singleton 1) (singleton 3)))) 3
+False
+*FunSet> (filter' (== 3) (union (union (singleton 1) (singleton 2)) (union (singleton 1) (singleton 3)))) 3
+True
+*FunSet> (filter' (>= 1) (union (union (singleton 1) (singleton 2)) (union (singleton 1) (singleton 3)))) 3
+True
+*FunSet> (filter' (>= 1) (union (union (singleton 1) (singleton 2)) (union (singleton 1) (singleton 3)))) 1
+True
+*FunSet> (filter' (>= 1) (union (union (singleton 1) (singleton 2)) (union (singleton 1) (singleton 3)))) 2
+True
+*FunSet> (filter' (>= 1) (union (union (singleton 1) (singleton 2)) (union (singleton 1) (singleton 3)))) 10
+False
+#+end_src
+
+** Remove
+Given an entry and a set, remove the entry from the set.
+#+begin_src haskell
+remove :: Eq a => a -> Set a -> Set a
+remove e s = \i -> (diff s (singleton e)) i
+
+*FunSet> (remove 1 (union (union (singleton 1) (singleton 2)) (union (singleton 1) (singleton 3)))) 1
+False
+*FunSet> (remove 1 (union (union (singleton 1) (singleton 2)) (union (singleton 1) (singleton 3)))) 2
+True
+*FunSet> (remove 1 (union (union (singleton 1) (singleton 2)) (union (singleton 1) (singleton 3)))) 3
+True
+#+end_src
+
+** set creation
+At this level, I was fed up to type so much to make a set, so I created a utility function to create set from a list.
+#+begin_src haskell
+set :: Eq a => [a] -> Set a
+set [] = newEmpty
+set (x:xs) = add (set xs) x
+
+*FunSet> map (set [1,2,3]) [0..4]
+[False,True,True,True,False]
+#+end_src
+
+** Exists
+Is there any element in Set that satisfies the predicate?
+#+begin_src haskell
+exists' :: (Enum a, Num a, Ord a) => Set a -> (a -> Bool) -> Bool
+exists' s p = or $ map ( \x -> contains s x && p x ) [-1000..1000]
+
+*FunSet> exists' (set [1..3]) (== 1)
+True
+*FunSet> exists' (set [1..3]) (== 0)
+False
+#+end_src
+
+** Map
+Given a function and a set, return a new set.
+#+begin_src haskell
+map' :: (Enum a, Num a, Ord a, Eq a, Eq b) => (a -> b) -> Set a -> Set b
+map' f s = \y -> exists' s (\x -> f x == y)
+
+*FunSet> map (set [1,2,3]) [0..4]
+[False,True,True,True,False]
+*FunSet> map (map' (+1) (set [1,2,3])) [0..4]
+[False,False,True,True,True]
+
+#+end_src
+
+** All
+Checks if the content of all the set satisfy the predicate.
+#+begin_src haskell
+all' :: (Enum a, Num a, Ord a) => Set a -> (a -> Bool)-> Bool
+all' s p = and $ map p (filter s [-1000..1000])
+
+*FunSet> all' (set [1..3]) (<= 4)
+True
+*FunSet> all' (set [1..3]) (<= 3)
+True
+*FunSet> all' (set [1..3]) (<= 2)
+False
+#+end_src
+
+* sources
+
+[[https://github.com/ardumont/my-haskell-lab/blob/master/src/FunSet.hs][FunSet.hs]]

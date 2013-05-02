@@ -497,7 +497,7 @@ http://adumont.fr/blog/emacs-live-pack-blog-pack/
 CLOSED: [2013-05-01 mer. 17:55]
 http://adumont.fr/blog/game-of-life-in-clojure-demo/
 ** PENDING Decode/Encode base64 in Clojure
-** TODO Fun with Sets in Haskell
+** PENDING Fun with Sets in Haskell
 ** TODO BinarySearchTree in Haskell
 * PENDING clojure [28%]
 ** DONE start [100%]
