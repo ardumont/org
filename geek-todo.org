@@ -768,13 +768,25 @@ CLOSED: [2013-03-03 dim. 00:06]
 
 ** DONE make a decent cpug-vm/Vagrantfile startup
 CLOSED: [2013-03-03 dim. 01:45]
-* IN-PROGRESS haskell [66%]
+* IN-PROGRESS challenges [0%]
+** IN-PROGRESS matasano [25%]
+*** DONE 1
+CLOSED: [2013-05-03 ven. 18:12]
+*** DONE 2
+CLOSED: [2013-05-03 ven. 18:12]
+*** TODO 3
+*** TODO 4
+*** TODO 5
+*** TODO 6
+*** TODO 7
+*** TODO 8
+* IN-PROGRESS haskell [50%]
 ** DONE setuping environment
 CLOSED: [2013-04-19 ven. 22:33]
 ** DONE blogging about haskell
 CLOSED: [2013-04-19 ven. 22:33]
 ** IN-PROGRESS Learn haskell [50%]
-*** IN-PROGRESS Programming in haskell book [61%]
+*** IN-PROGRESS Programming in haskell book [76%]
 **** DONE chapter 1
 CLOSED: [2013-04-19 ven. 22:32]
 **** DONE chapter 2
@@ -791,19 +803,28 @@ CLOSED: [2013-04-19 ven. 22:32]
 CLOSED: [2013-04-19 ven. 22:32]
 **** DONE chapter 8
 CLOSED: [2013-04-19 ven. 22:32]
-**** IN-PROGRESS chapter 9
-**** TODO chapter 10
-
+**** DONE chapter 9
+CLOSED: [2013-05-03 ven. 18:14]
+**** DONE chapter 10
+CLOSED: [2013-05-03 ven. 18:14]
 **** TODO chapter 11
 **** TODO chapter 12
 **** TODO chapter 13
-*** IN-PROGRESS Reading articles [100%]
+*** DONE Reading articles [100%]
+CLOSED: [2013-05-03 ven. 18:14]
 **** DONE http://yannesposito.com/Scratch/en/blog/Haskell-the-Hard-Way/
 CLOSED: [2013-04-19 ven. 22:35]
 **** DONE http://learnyouahaskell.com/input-and-output
 CLOSED: [2013-04-21 dim. 20:34]
 **** DONE http://learnyouahaskell.com/types-and-typeclasses
 CLOSED: [2013-04-22 lun. 18:17]
+** IN-PROGRESS Collection implementations [50%]
+*** DONE set
+CLOSED: [2013-05-03 ven. 18:13]
+*** DONE binary search tree
+CLOSED: [2013-05-03 ven. 18:13]
+*** TODO AVL
+*** TODO Red-Black tree
 * PENDING (o)caml [50%]
 ** DONE setup environment
 CLOSED: [2013-04-19 ven. 22:36]
