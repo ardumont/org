@@ -1,11 +1,11 @@
 #+BLOG: tony-blog
-#+POSTID: 1095
-#+DATE: [2013-05-02 jeu. 18:41]
+#+POSTID: 1117
+#+DATE: [2013-05-04 sam. 16:35]
 #+OPTIONS:
 #+CATEGORY: clojure, base64, encode, decode, functional-programming
 #+TAGS: clojure, base64, encode, decode, functional-programming
 #+TITLE: Decode/Encode base64 in Clojure
-#+DESCRIPTION: Learning howto encode and decode string in base64 for fun!
+#+DESCRIPTION: Learning how to encode and decode string in base64 for fun!
 
 I just wanted to try and learn the algorithm to encode a string in base64 and the other way around.
 
@@ -39,7 +39,8 @@ Just holding 2 hashmaps, *base64* to encode an ascii number into a char and *bas
 #+begin_src clojure
 (ns crypto.dico
   "A dictionary namespace"
-  (:use [midje.sweet :only [fact future-fact]]))
+  (:require [midje.sweet :as m]
+            [clojure.set :as set]))
 
 (def ^{:doc "base64 dictionary to encode in base64"}
   base64 {0  \A
@@ -107,20 +108,12 @@ Just holding 2 hashmaps, *base64* to encode an ascii number into a char and *bas
           47 \v
           63 \/})
 
-(defn- return-map
-  [m]
-  (into {} (map (fn [[k v]] [v k]) m)))
-
-(fact
-  (return-map {:a :b :c :d})              => {:b :a :d :c}
-  (return-map (return-map {:a :b :c :d})) => {:a :b :c :d})
-
 (def ^{:doc "base64 dictionary to decode in base64"}
   base64-dec (return-map base64))
 
-(fact
-  (return-map base64)     => base64-dec
-  (return-map base64-dec) => base64)
+(m/fact
+  (set/map-invert base64)     => base64-dec
+  (set/map-invert base64-dec) => base64)
 #+end_src
 
 ** Binary
@@ -218,15 +211,13 @@ _Examples:_
 (defn to-num
   "Convert a bit sequence into a number"
   [b]
-  (if (= b (repeat 8 0))
-    0
-    (->> (reverse b)
-         (map-indexed (fn [i v] [(Math/pow 2 i) v]))
-         (reduce (fn [a [e n]] (if (= n 1) (+ e a) a)) 0)
-         int)))
+  (->> (reverse b)
+       (map-indexed (fn [i v] [(Math/pow 2 i) v]))
+       (reduce (fn [a [e n]] (if (= n 1) (+ e a) a)) 0)
+       int))
 
 (fact
-  (to-num [1 1 0 0 0 0 1]) => 97
+  (to-num [1 1 0 0 0 0 1])   => 97
   (to-num [0 1 1 0 0 0 0 1]) => 97
   (to-num [0 0 0 0 0 0 1 0]) => 2
   (to-num [0 0 0 0 0 0 0 0]) => 0
@@ -437,7 +428,7 @@ So for the decoding, we just drop them (see decode-b64char function for more det
 
 * Conclusion
 
-I had fun even playing (again) with bits (surely, I could have reused some code but I wanted to do it myself!)
+I had fun even playing (again) with bits (surely, I could have reused some code that I'm not aware of!)
 
 Coding/Programming/Developing is fun!
 
