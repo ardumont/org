@@ -109,7 +109,7 @@ Just holding 2 hashmaps, *base64* to encode an ascii number into a char and *bas
           63 \/})
 
 (def ^{:doc "base64 dictionary to decode in base64"}
-  base64-dec (return-map base64))
+  base64-dec (set/map-invert base64))
 
 (m/fact
   (set/map-invert base64)     => base64-dec
