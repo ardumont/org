@@ -1,7 +1,5 @@
-#+BLOG: tony-blog
+#+DATE: [2013-05-08 mer. 10:40]
 #+POSTID: 1068
-#+DATE: [2013-04-28 dim. 21:11]
-#+BLOG: tony-blog
 #+TITLE: PIH - ch10 - 3/3 - Declaring types and classes - exercises
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
@@ -10,8 +8,10 @@
 #+DESCRIPTION: Tautology extension and interactive tautology checkers
 #+STARTUP: indent
 
-The last part of the chapter 10.
-[[http://adumont.fr/blog/?p%3D1050][First]] and [[http://adumont.fr/blog/?p%3D1064][second]].
+Here is the last part of the chapter 10's exercises.
+Previous part:
+- [[http://adumont.fr/blog/?p%3D1050][First]]
+- [[http://adumont.fr/blog/?p%3D1064][Second]]
 
 * Abstract Machine
 #+BEGIN_QUOTE
