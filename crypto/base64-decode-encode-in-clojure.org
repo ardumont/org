@@ -149,9 +149,9 @@ _Examples:_
   (comp-bit-sequence 10 [0 0 0 0 1 0 0 0] #(concat % [0]))      => [0 0 0 0 1 0 0 0 0 0])
 
 (defn comp-before
-  "Complement by the most significant side (head) a bit sequence to n bits (if necessary)."
+  "Complement by the most significant side (head) a bits sequence to n bits (if necessary)."
   [n b]
-  (comp-bit-sequence n b (partial concat [0])))
+  (comp-bits-sequence n b (partial cons 0)))
 
 (fact
   (comp-before 8 [1 1 1])            => [0 0 0 0 0 1 1 1]
@@ -172,12 +172,11 @@ _Examples:_
   (comp-after 10 [0 0 0 0 1 0 0 0]) => [0 0 0 0 1 0 0 0 0 0])
 
 (defn- bin
-  "Convert a number into binary sequence (will create as much bits as needed)."
-  [n]
-  (if (= 0 n)
+  "Convert a byte into binary sequence (will create as much bits as needed)."
+  [b]
+  (if (= 0 b)
     []
-    (concat (-> n (/ 2) int bin)
-            [(mod n 2)])))
+    (conj (-> b (/ 2) int bin) (mod b 2))))
 
 (fact
   (bin 97) => [1 1 0 0 0 0 1]
