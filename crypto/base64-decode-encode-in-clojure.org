@@ -131,22 +131,24 @@ _Examples:_
   "A binary namespace to deal with transformation into binary"
   (:use [midje.sweet :only [fact future-fact]]))
 
-(defn- comp-bit-sequence
-  "Complement a bit sequence by providing the policy through the comp-fn function."
-  [n b comp-fn]
-  (->> (iterate comp-fn b)
-       (drop-while #(not= n (count %)))
-       first))
+(defn- comp-bits-sequence
+  "Complement a bits sequence by providing the policy through the complement-fn function."
+  [n b complement-fn]
+  (let [c (Math/abs (- n (count b)))]
+    (if (= 0 c)
+      b
+      (->> (repeat c 0)
+           (complement-fn b)))))
 
-(fact
-  (comp-bit-sequence 8  [1 1 1]           (partial concat [0])) => [0 0 0 0 0 1 1 1]
-  (comp-bit-sequence 8  [0 0 0 0 1 0 0 0] (partial concat [0])) => [0 0 0 0 1 0 0 0]
-  (comp-bit-sequence 4  [1 1 1]           (partial concat [0])) => [0 1 1 1]
-  (comp-bit-sequence 10 [0 0 0 0 1 0 0 0] (partial concat [0])) => [0 0 0 0 0 0 1 0 0 0]
-  (comp-bit-sequence 8  [1 1 1]           #(concat % [0]))      => [1 1 1 0 0 0 0 0]
-  (comp-bit-sequence 8  [0 0 0 0 1 0 0 0] #(concat % [0]))      => [0 0 0 0 1 0 0 0]
-  (comp-bit-sequence 4  [1 1 1]           #(concat % [0]))      => [1 1 1 0]
-  (comp-bit-sequence 10 [0 0 0 0 1 0 0 0] #(concat % [0]))      => [0 0 0 0 1 0 0 0 0 0])
+(m/fact
+  (comp-bits-sequence 8  [1 1 1]           #(concat %2 %)) => [0 0 0 0 0 1 1 1]
+  (comp-bits-sequence 8  [0 0 0 0 1 0 0 0] #(concat %2 %)) => [0 0 0 0 1 0 0 0]
+  (comp-bits-sequence 4  [1 1 1]           #(concat %2 %)) => [0 1 1 1]
+  (comp-bits-sequence 10 [0 0 0 0 1 0 0 0] #(concat %2 %)) => [0 0 0 0 0 0 1 0 0 0]
+  (comp-bits-sequence 8  [1 1 1]           concat)         => [1 1 1 0 0 0 0 0]
+  (comp-bits-sequence 8  [0 0 0 0 1 0 0 0] concat)         => [0 0 0 0 1 0 0 0]
+  (comp-bits-sequence 4  [1 1 1]           concat)         => [1 1 1 0]
+  (comp-bits-sequence 10 [0 0 0 0 1 0 0 0] concat)         => [0 0 0 0 1 0 0 0 0 0])
 
 (defn comp-before
   "Complement by the most significant side (head) a bits sequence to n bits (if necessary)."
