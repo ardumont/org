@@ -1,0 +1,282 @@
+#+BLOG: tony-blog
+#+POSTID: 1130
+#+DATE: [2013-05-11 sam. 10:37]
+#+CATEGORY: clojure, crypto, euler-project, exercises, xor
+#+TAGS: clojure, crypto, euler-project, exercises, xor
+#+DESCRIPTION: XOR decryption in Clojure
+#+TITLE: XOR decryption - Euler 59 in Clojure
+
+It has been some time since I try and succeed in solving an [[https://projecteuler.net/][euler project]] problem.
+As I'm learning stuff around cryptography, I'm thinking mastering the basis is important.
+So here is the xor decryption [[http://projecteuler.net/problem%3D59][euler 59]] in clojure.
+
+_Disclaimer:_
+If you read this post, you will have a solution to the [[http://projecteuler.net/problem%3D59][euler 59 problem]].
+Don't go and blame me for posting the solution.
+If you want to solve this problem alone then stop reading now and do it yourself :D.
+Then go back here and confront your solution with mine.
+
+* Problem
+
+#+begin_quote
+Each character on a computer is assigned a unique code and the preferred standard is ASCII (American Standard Code for Information Interchange).
+For example, uppercase A = 65, asterisk (*) = 42, and lowercase k = 107.
+A modern encryption method is to take a text file, convert the bytes to ASCII, then XOR each byte with a given value, taken from a secret key.
+The advantage with the XOR function is that using the same encryption key on the cipher text, restores the plain text; for example, 65 XOR 42 = 107, then 107 XOR 42 = 65.
+For unbreakable encryption, the key is the same length as the plain text message, and the key is made up of random bytes.
+The user would keep the encrypted message and the encryption key in different locations, and without both "halves", it is impossible to decrypt the message.
+Unfortunately, this method is impractical for most users, so the modified method is to use a password as a key.
+If the password is shorter than the message, which is likely, the key is repeated cyclically throughout the message.
+The balance for this method is using a sufficiently long password key for security, but short enough to be memorable.
+Your task has been made easy, as the encryption key consists of three lower case characters. Using cipher1.txt (right click and 'Save Link/Target As...'), a file containing the encrypted ASCII codes, and the knowledge that the plain text must contain common English words, decrypt the message and find the sum of the ASCII values in the original text.
+#+end_quote
+
+* Solution
+** Data
+
+First we need to load the file and "clojurify" it.
+The content of the file is simply a list of comma separated bytes.
+
+So we need simply to load the file and replace every ',' or 'newline' character with a =space= character, enclose the string into =[= =]= and let the clojure reader do it's magic.
+This will return a byte vector that we can manipulate in the rest of the article to solve the problem.
+
+#+begin_src clojure
+(defn load-csv
+  "Compute a comma separated bytes values into a clojure byte vector."
+  [s]
+  (read-string (str "[" (string/replace s #",|\n" " ") "]")))
+
+(m/fact
+  (load-csv "1, 2, 4, 8") => [1 2 4 8])
+
+(defn load-f "Load the file"
+  [filepath]
+  (-> filepath
+      slurp
+      load-csv))
+
+(def ascii-encrypted (load-f "./resources/euler-59-cipher"))
+#+end_src
+
+[[https://github.com/ardumont/cloaked-hipster/blob/master/src/crypto/euler59.clj][euler59.clj]]
+
+** Cipher
+
+Now that we loaded the data, we need to decrypt the text.
+For this we need to:
+- compute the key
+- decipher the text using the key
+
+*** Key
+Here is the main call to compute the key:
+#+begin_src clojure
+(def key-cipher (key/compute-key ascii-encrypted 3))
+#+end_src
+
+**** compute-key
+
+We do not need to determine the keysize, so we can skip the first arity (=[byte-input]=) and concentrate on the arity (=[byte-input key-size]=).
+The idea is:
+- as we know the keysize, it means that each byte at a position =n mod keysize= encipher the same character.
+Don't forget this problem sentence "If the password is shorter than the message, which is likely, the key is repeated cyclically throughout the message.".
+- so we can break the byte vector into block of the same to-decrypt characters
+- then brute force each block to determine the better key character (using frequency attack underneath).
+- at last, join each found character into a string and there we have the key.
+
+#+begin_src clojure
+(defn compute-key
+  "Given a byte-input, compute its keysize and try and compute the key by transposing block of keysize."
+  ([byte-input]
+     (->> (range 2 40)
+          (keysize byte-input)
+          (compute-key byte-input)))
+  ([byte-input key-size]
+     (->> (block/transpose byte-input key-size)
+          (map (comp first xor/decrypt-brute-force))
+          (string/join ""))))
+
+(m/fact
+  (let [msg-to-encrypt "Let's continue our assumption that this text file is written in English. Therefore, we know which words are the most common in this language. We also know that each byte represents a character that stands for a letter or punctuation mark in the text. So it has a meaning. Because in every text different parts and words appear multiple times, we can use an algorithm that applies XOR until we get a meaningful text-file. This stands for a text file that does not contain gibberish."]
+    (-> {:key "secret"
+         :msg msg-to-encrypt}
+        xor/encrypt-bytes
+        (compute-key (count "secret"))) => "secret"
+    (-> {:key "secret"
+         :msg msg-to-encrypt}
+        xor/encrypt-bytes
+        compute-key)                    => "secret"))
+#+end_src
+[[https://github.com/ardumont/cloaked-hipster/blob/master/src/crypto/key.clj#L45][key.clj]]
+
+**** block/transpose
+
+The =block/transpose= function to help in slicing the bytes vector into the same enciphered character block:
+
+#+begin_src clojure
+(defn transpose
+  "Given a data vector v and a size n, return the data vector transposed in row, column vector."
+  [v n]
+  (->> v
+       (reduce
+        (fn [[i m] b]
+          (let [idx (if (zero? i) 0 (mod i n))]
+            [(+ 1 i) (update-in m [idx] conj b)]))
+        [0 (sorted-map)])
+       second
+       (map (comp reverse second))))
+
+(m/fact
+  (transpose [0  1  2  3,
+              4  5  6  7,
+              8  9 10  11,
+              12 13 14 15,
+              16 17 18 19] 4) => [[0 4 8 12 16]
+                                  [1 5 9 13 17]
+                                  [2 6 10 14 18]
+                                  [3 7 11 15 19]])
+#+end_src
+[[https://github.com/ardumont/cloaked-hipster/blob/master/src/crypto/block.clj#L20][block.clj]]
+
+**** decrypt-brute-force
+The brute force algorithm's basis is the frequency of the english letters:
+- for each possible character in the range 0 to 255 (sure I could use less here), make it a key
+- compute the xor operation on the byte character with the key
+- compute the frequency difference with the english frequency table
+- the one with the less difference is the one (in this algo anyway)
+#+begin_src clojure
+(defn decrypt-brute-force
+  "Decrypt by brute forcing"
+  [byte-secret]
+  (->> (range 0 255)                                ;; generate all possible characters
+       (map (fn [k] [k (xor byte-secret [k])]))     ;; compute xor it with the fixed hex encrypted secret
+       (reduce
+        (fn [m [k x :as r]]
+           (assoc m (frequency/compute-diff x) r)) ;; compute the frequency for each possible xor'd results into a sorted map (by its key)
+        (sorted-map))
+       first                                       ;; first element is the smallest frequency difference
+       (#(let [[comp-diff [key secret]] %]         ;; use destructuring to go and fetch what we want (I let other stuff to explain)
+           [((comp str char) key)
+            (byte/to-ascii secret)]))))            ;; key + decoded secret key in ascii
+
+(m/fact
+  (decrypt-brute-force (hex/to-bytes "1b37373331363f78151b7f2b783431333d78397828372d363c78373e783a393b3736"))
+  => ["X" "Cooking MC's like a pound of bacon"])
+#+end_src
+[[https://github.com/ardumont/cloaked-hipster/blob/master/src/crypto/xor.clj#L97][xor.clj]]
+
+**** xor
+The xor operation:
+#+begin_src clojure
+(defn bitxor
+  "Apply bit-xor to the seq using key as the key"
+  [seq key]
+  (map bit-xor seq key))
+
+(m/fact
+  (bitxor [0 0 0 0 1 1 1 1] [0 0 0 0 1 1 1 1])         => [0 0 0 0 0 0 0 0]
+  (bitxor [0 0 0 0 1 1 1 1] [1 1 1 1 1 1 1 1])         => [1 1 1 1 0 0 0 0]
+  (bitxor [0 0 0 0 1 1 1 1] [1 1 1 1 0 0 0 0])         => [1 1 1 1 1 1 1 1]
+  (bitxor [1 1 1 1 1 1 1 1] [1 1 1 1 0 0 0 0])         => [0 0 0 0 1 1 1 1]
+  (apply bitxor [[0 0 0 0 1 1 1 1] [1 1 1 1 1 1 1 1]]) => [1 1 1 1 0 0 0 0])
+
+(defn- xor-byte
+  "Compute the xor between the input by (byte) and the key key (byte). No check on key."
+  [by0 by1]
+  (->> [by0 by1]
+       (map byte/to-bits)
+       (apply bitxor)
+       (partition 8)
+       (map binary/to-bytes)))
+
+(m/fact :one-way-and-back
+  (xor-byte [0 1 2 3 4 5] [0 1 2 3 4 5]) => [0 0 0 0 0 0]
+  (xor-byte [0 0 0 0 0 0] [0 1 2 3 4 5]) => [0 1 2 3 4 5])
+
+(defn xor
+  "Compute the xor between the input by (byte) and the key key (byte). The key is repeated if need be."
+  [by key]
+  (->> key
+       cycle
+       (take (count by))
+       (xor-byte by)))
+
+(m/fact
+  (xor (hex/to-bytes "abcd") (hex/to-bytes "de"))                                                                   => (hex/to-bytes "7513")
+  (xor (hex/to-bytes "1c0111001f010100061a024b53535009181c") (hex/to-bytes "686974207468652062756c6c277320657965")) => (hex/to-bytes "746865206b696420646f6e277420706c6179")
+  (xor (hex/to-bytes "746865206b696420646f6e277420706c6179") (hex/to-bytes "686974207468652062756c6c277320657965")) => (hex/to-bytes "1c0111001f010100061a024b53535009181c"))
+#+end_src
+[[https://github.com/ardumont/cloaked-hipster/blob/master/src/crypto/xor.clj#L35][xor.clj]]
+
+**** frequency/compute-diff
+
+The compute-diff function simply compute the frequency in the word w and compute the difference with the frequency map of the english language:
+
+#+begin_src clojure
+(def ^{:doc "English letter frequency - http://www.math.cornell.edu/~mec/2003-2004/cryptography/subs/frequencies.html"}
+  frequency
+  (into {} [[\e 12.02] [\E 12.02] [\t 9.10] [\T 9.10] [\a 8.12] [\A 8.12] [\o 7.68] [\O 7.68]
+            [\i 7.31] [\I 7.31] [\n 6.95] [\N 6.95] [\s 6.28] [\S 6.28] [\r 6.02] [\R 6.02]
+            [\h 5.92] [\H 5.92] [\d 4.32] [\D 4.32] [\l 3.98] [\L 3.98] [\u 2.88] [\U 2.88]
+            [\c 2.71] [\C 2.71] [\m 2.61] [\M 2.61] [\f 2.30] [\F 2.30] [\y 2.11] [\Y 2.11]
+            [\w 2.09] [\W 2.09] [\g 2.03] [\G 2.03] [\p 1.82] [\P 1.82] [\b 1.49] [\B 1.49]
+            [\v 1.11] [\V 1.11] [\k 0.69] [\K 0.69] [\x 0.17] [\X 0.17] [\q 0.11] [\Q 0.11]
+            [\j 0.10] [\J 0.10] [\z 0.07] [\Z 0.07]
+            [\space 12.03] ;; space is slightly more frequent than \e
+            ]))
+
+...
+
+(defn compute-diff
+  "Given a hexadecimal encoded word, compute the difference frequency from the standard english frequency map."
+  [w]
+  (->> w
+       compute-freq
+       (diff-freq byte-freq)
+       sum-diff-map))
+
+(m/fact
+  (compute-diff (crypto.ascii/to-bytes "hello")) => 211.0099999850989)
+#+end_src
+[[https://github.com/ardumont/cloaked-hipster/blob/master/src/crypto/frequency.clj#L10][frequency.clj]]
+
+*** Decipher
+
+Now that we have the key, we can decipher the message:
+
+#+begin_src clojure
+(def ascii-decrypted (xor/decrypt {:key key-cipher
+                                   :msg ascii-encrypted}))
+#+end_src
+The =xor/decrypt= function:
+#+begin_src clojure
+(defn decrypt
+  "Given a map {:key 'ascii key' :msg 'hex encoded message'}, decode the encrypted message into ascii."
+  [m]
+  (-> m
+      decrypt-bytes
+      byte/to-ascii))
+
+(m/fact
+  (decrypt {:key "X"
+            :msg (encrypt {:key "X"
+                           :msg "Cooking MC's like a pound of bacon"})})
+  => "Cooking MC's like a pound of bacon"
+  (decrypt {:key "a"
+            :msg (encrypt {:key "a"
+                           :msg "There are some trouble in paradise, the sentence needs to be very long for it to be decrypted"})})
+  => "There are some trouble in paradise, the sentence needs to be very long for it to be decrypted")
+#+end_src
+[[https://github.com/ardumont/cloaked-hipster/blob/master/src/crypto/xor.clj#L80][xor.clj]]
+
+** Finale
+
+The original problem was to compute the sum of the bytes decrypted.
+#+begin_src clojure
+(m/fact
+  (->> ascii-decrypted
+       crypto.ascii/to-bytes
+       (apply +)) => 107359)
+#+end_src
+* Conclusion
+
+Yet again a clojure victory!
