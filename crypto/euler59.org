@@ -6,15 +6,16 @@
 #+DESCRIPTION: XOR decryption in Clojure
 #+TITLE: XOR decryption - Euler 59 in Clojure
 
-It has been some time since I try and succeed in solving an [[https://projecteuler.net/][euler project]] problem.
-As I'm learning stuff around cryptography, I'm thinking mastering the basis is important.
-So here is the xor decryption [[http://projecteuler.net/problem%3D59][euler 59]] in clojure.
+It has been some time since I solved an [[https://projecteuler.net/][euler project]] problem.
+As I'm learning stuff around cryptography, I thought this was about the right time to solve the xor decryption [[http://projecteuler.net/problem%3D59][euler 59]] in clojure.
 
 _Disclaimer:_
-If you read this post, you will have a solution to the [[http://projecteuler.net/problem%3D59][euler 59 problem]].
-Don't go and blame me for posting the solution.
-If you want to solve this problem alone then stop reading now and do it yourself :D.
-Then go back here and confront your solution with mine.
+If you read this post, you will have a solution to the [[http://projecteuler.net/problem%3D59][euler 59 problem]]. Don't come and blame me for posting the solution.
+A more constructive approach would be to try and solve the problem yourself and then come back to confront your solution against mine.
+
+_Note:_
+As usual, you will find =fact= just below the code that are tests using the midje testing library.
+This gives documentation about use cases of the functions.
 
 * Problem
 
@@ -69,19 +70,26 @@ For this we need to:
 
 *** Key
 Here is the main call to compute the key:
+
 #+begin_src clojure
 (def key-cipher (key/compute-key ascii-encrypted 3))
 #+end_src
 
 **** compute-key
 
-We do not need to determine the keysize, so we can skip the first arity (=[byte-input]=) and concentrate on the arity (=[byte-input key-size]=).
+The compute-key function has 2 arities:
+- (=[byte-input]=): This one will first compute the keysize and then the key.
+-  (=[byte-input key-size]=): This will simply compute the key.
+
+
+As we do not need to determine the keysize, so we can concentrate on the second arity (=[byte-input key-size]=).
+
 The idea is:
-- as we know the keysize, it means that each byte at a position =n mod keysize= encipher the same character.
+- as we know the keysize, it means that each byte at a position =n mod keysize= is a different character enciphered by the same character key.
 Don't forget this problem sentence "If the password is shorter than the message, which is likely, the key is repeated cyclically throughout the message.".
-- so we can break the byte vector into block of the same to-decrypt characters
-- then brute force each block to determine the better key character (using frequency attack underneath).
-- at last, join each found character into a string and there we have the key.
+- so we can create a byte vector of all characters enciphered by the same character key
+- then brute force each 'key-character-to-determine block' (we will be using frequency attack underneath).
+- at last, join each character key found into a string and there we have the key (as we kept the block in character order).
 
 #+begin_src clojure
 (defn compute-key
@@ -126,10 +134,10 @@ The =block/transpose= function to help in slicing the bytes vector into the same
        (map (comp reverse second))))
 
 (m/fact
-  (transpose [0  1  2  3,
-              4  5  6  7,
-              8  9 10  11,
-              12 13 14 15,
+  (transpose [0  1  2  3
+              4  5  6  7
+              8  9 10  11
+              12 13 14 15
               16 17 18 19] 4) => [[0 4 8 12 16]
                                   [1 5 9 13 17]
                                   [2 6 10 14 18]
@@ -138,11 +146,13 @@ The =block/transpose= function to help in slicing the bytes vector into the same
 [[https://github.com/ardumont/cloaked-hipster/blob/master/src/crypto/block.clj#L20][block.clj]]
 
 **** decrypt-brute-force
+
 The brute force algorithm's basis is the frequency of the english letters:
-- for each possible character in the range 0 to 255 (sure I could use less here), make it a key
-- compute the xor operation on the byte character with the key
-- compute the frequency difference with the english frequency table
-- the one with the less difference is the one (in this algo anyway)
+- for each possible character in the range 0 to 255 (sure I could use less here), we elect it as a potential key character
+- compute the xor operation on the byte block with the key
+- compute the frequency difference to the result with the english frequency table
+- the one character of all tested with the less difference is the one
+
 #+begin_src clojure
 (defn decrypt-brute-force
   "Decrypt by brute forcing"
@@ -154,7 +164,7 @@ The brute force algorithm's basis is the frequency of the english letters:
            (assoc m (frequency/compute-diff x) r)) ;; compute the frequency for each possible xor'd results into a sorted map (by its key)
         (sorted-map))
        first                                       ;; first element is the smallest frequency difference
-       (#(let [[comp-diff [key secret]] %]         ;; use destructuring to go and fetch what we want (I let other stuff to explain)
+       (#(let [[comp-diff [key secret]] %]         ;; use destructuring to go and fetch what we want (I use let other her to explicit the result even if it's not needed)
            [((comp str char) key)
             (byte/to-ascii secret)]))))            ;; key + decoded secret key in ascii
 
@@ -166,6 +176,7 @@ The brute force algorithm's basis is the frequency of the english letters:
 
 **** xor
 The xor operation:
+
 #+begin_src clojure
 (defn bitxor
   "Apply bit-xor to the seq using key as the key"
@@ -224,6 +235,25 @@ The compute-diff function simply compute the frequency in the word w and compute
             [\space 12.03] ;; space is slightly more frequent than \e
             ]))
 
+(m/fact
+  (->> (crypto.util/rng-char \a \z)
+       (map frequency))
+  => [8.12 1.49 2.71 4.32 12.02 2.30 2.03 5.92 7.31 0.10 0.69 3.98 2.61 6.95 7.68 1.82 0.11 6.02 6.28 9.10 2.88 1.11 2.09 0.17 2.11 0.07]
+  (->> (crypto.util/rng-char \A \Z)
+       (map frequency))
+  => [8.12 1.49 2.71 4.32 12.02 2.30 2.03 5.92 7.31 0.10 0.69 3.98 2.61 6.95 7.68 1.82 0.11 6.02 6.28 9.10 2.88 1.11 2.09 0.17 2.11 0.07])
+
+(def byte-freq ^{:doc "frequency of english, key are encoded in bytes."}
+  (reduce (fn [m [k v]] (assoc m (int k) v)) {} frequency))
+
+(m/fact
+  (->> (crypto.util/rng \a \z)
+       (map (comp byte-freq int)))
+  => [8.12 1.49 2.71 4.32 12.02 2.30 2.03 5.92 7.31 0.10 0.69 3.98 2.61 6.95 7.68 1.82 0.11 6.02 6.28 9.10 2.88 1.11 2.09 0.17 2.11 0.07]
+    (->> (crypto.util/rng \A \Z)
+         (map (comp byte-freq int)))
+  => [8.12 1.49 2.71 4.32 12.02 2.30 2.03 5.92 7.31 0.10 0.69 3.98 2.61 6.95 7.68 1.82 0.11 6.02 6.28 9.10 2.88 1.11 2.09 0.17 2.11 0.07])
+
 ...
 
 (defn compute-diff
@@ -247,8 +277,30 @@ Now that we have the key, we can decipher the message:
 (def ascii-decrypted (xor/decrypt {:key key-cipher
                                    :msg ascii-encrypted}))
 #+end_src
-The =xor/decrypt= function:
+The =xor/decrypt= and =xor/encrypt= functions:
+
 #+begin_src clojure
+(defn encrypt-bytes
+  "Given a map {:key 'ascii key' :msg 'ascii message'}, encrypt the msg with the hex key and return a byte sequence."
+  [{:keys [key msg]}]
+  (->> [msg key]
+       (map ascii/to-bytes)
+       (apply xor)))
+
+(m/fact
+  (encrypt-bytes {:key "X"
+                  :msg "Cooking MC's like a pound of bacon"}) => [27 55 55 51 49 54 63 120 21 27 127 43 120 52 49 51 61 120 57 120 40 55 45 54 60 120 55 62 120 58 57 59 55 54] )
+
+(defn encrypt
+  "Given a map {:key 'ascii key' :msg 'ascii message'}, encode the message with the key key and return the byte encoded result."
+  [m]
+  (encrypt-bytes m))
+
+(m/fact
+  (byte/to-hex
+   (encrypt {:key "X"
+             :msg "Cooking MC's like a pound of bacon"})) => "1b37373331363f78151b7f2b783431333d78397828372d363c78373e783a393b3736")
+
 (defn decrypt
   "Given a map {:key 'ascii key' :msg 'hex encoded message'}, decode the encrypted message into ascii."
   [m]
@@ -271,12 +323,14 @@ The =xor/decrypt= function:
 ** Finale
 
 The original problem was to compute the sum of the bytes decrypted.
+
 #+begin_src clojure
 (m/fact
   (->> ascii-decrypted
        crypto.ascii/to-bytes
        (apply +)) => 107359)
 #+end_src
+
 * Conclusion
 
 Yet again a clojure victory!
