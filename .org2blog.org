@@ -3,7 +3,7 @@
 :PROPERTIES:
 :POSTID: 1130
 :POST_DATE: 20130511T08:37:00+0000
-:Published: No
+:Published: Yes
 :END:
 ** [[file:/home/tony/org/binary-search-trees-in-haskell.org][Binary Search Trees]]
 :PROPERTIES:
