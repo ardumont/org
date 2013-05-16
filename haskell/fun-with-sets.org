@@ -15,7 +15,7 @@ To avoid repetition, I will associate some examples computed from the REPL into 
 
 * sets
 ** Type
-The set has to be defined using a specific type, it must be a function:
+The set has to be defined using a specific type, it must be a function.
 
 #+begin_src haskell
 type Set a = a -> Bool
@@ -45,6 +45,7 @@ False
 
 ** Contains
 Is this parameter in the set?
+
 #+begin_src haskell
 contains :: Set a -> a -> Bool
 contains s e = s e
@@ -58,6 +59,7 @@ False
 #+end_src
 
 ** Singleton
+
 Another simple set creation given an entry.
 #+begin_src haskell
 singleton :: Eq a => a -> Set a
@@ -70,6 +72,8 @@ False
 #+end_src
 
 ** Union
+The standard union set definition - all which is a or b (or both).
+
 #+begin_src haskell
 union :: Set a -> Set a -> Set a
 union a b = \e -> a e || b e
@@ -82,6 +86,8 @@ True
 False
 #+end_src
 ** Intersect
+The standard intersection definition - all which is in a and b.
+
 #+begin_src haskell
 intersect :: Set a -> Set a -> Set a
 intersect a b = \e -> a e && b e
@@ -94,6 +100,7 @@ True
 #+end_src
 
 ** Difference
+The standard difference definition set - all which is in a but not in b.
 #+begin_src haskell
 diff :: Set a -> Set a -> Set a
 diff a b = \e -> a e && not (b e)
@@ -108,7 +115,7 @@ False
 
 ** Filter
 Given a predicate and a set, return a set that satisfies both the predicate and the existing set.
-This reminds me of something...
+This reminds me of something... Indeed, if we see the predicate as a set, the filter is then simply the intersect function.
 
 #+begin_src haskell
 filter' :: (a -> Bool) -> Set a -> Set a
@@ -130,6 +137,7 @@ False
 
 ** Remove
 Given an entry and a set, remove the entry from the set.
+
 #+begin_src haskell
 remove :: Eq a => a -> Set a -> Set a
 remove e s = \i -> (diff s (singleton e)) i
@@ -144,6 +152,7 @@ True
 
 ** set creation
 At this level, I was fed up to type so much to make a set, so I created a utility function to create set from a list.
+
 #+begin_src haskell
 set :: Eq a => [a] -> Set a
 set [] = newEmpty
@@ -167,6 +176,7 @@ False
 
 ** Map
 Given a function and a set, return a new set.
+
 #+begin_src haskell
 map' :: (Enum a, Num a, Ord a, Eq a, Eq b) => (a -> b) -> Set a -> Set b
 map' f s = \y -> exists' s (\x -> f x == y)

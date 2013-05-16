@@ -20,7 +20,7 @@
 ** [[file:/home/tony/org/haskell/fun-with-sets.org][Fun with sets]]
 :PROPERTIES:
 :POSTID: 1110
-:POST_DATE: 20130516T20:30:25+0000
+:POST_DATE: 20130516T20:30:00+0000
 :Published: No
 :END:
 ** [[file:/home/tony/org/crypto/base64-decode-encode-in-clojure.org][Decode/Encode base64 in Clojure]]
