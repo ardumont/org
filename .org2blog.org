@@ -1,4 +1,10 @@
 * Posts
+** [[file:/home/tony/org/haskell/fun-with-binary-search-tree.org][Fun with Binary Search Tree]]
+:PROPERTIES:
+:POSTID: 1156
+:POST_DATE: 20130516T20:38:00+0000
+:Published: No
+:END:
 ** [[file:/home/tony/org/crypto/euler59.org][XOR decryption - Euler 59 in Clojure]]
 :PROPERTIES:
 :POSTID: 1130
