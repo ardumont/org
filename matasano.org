@@ -4,7 +4,7 @@
 Hi, here are my solutions for the first batch of 8 problems.
 Language: Clojure
 
-I'm permitting myself to send you this email in html formatted for you to better understand the snippet of code (cf. attachments if your mail reader does not render it or the org-mode file for emacs).
+I'm permitting myself to send you this html-formatted email for you to better understand the snippet of code (cf. attachments if your mail reader does not render it or the org-mode file for emacs).
 You will see in this email the upper layer code and the integration tests formalizing the examples you gave me.
 
 * Namespace
@@ -148,11 +148,11 @@ So here I reuse and add some basic function adding the transcoding layer (byte t
 ** 6
 
 This one, I had difficulties.
-I sent you multiple emails to clarify some points and never have any answer.
-I used another way to compute the keysize (based on frequency).
+I sent you multiple emails to ask for clarifications about some points and never had any answer.
+I finally used another way to compute the keysize (based on frequency).
 I shifted the text and xor it against itself then computed the character frequencies. Those below 0.6 were multiple of keysize and else considered noise.
-Then only computing the gcd of all the multiple gave me the key of the text (29).
-From this on, I computed (as explained) blocks of characters encoded with the same character of the key and brute force each characters of the keys, revealing the keys.
+Then computing the gcd of all the multiple successfully computed previously gave me the key of the text (29).
+From this on, I computed (as explained) blocks of characters encoded with the same key character and brute force each characters of the keys (as one-key xor encrypted), revealing the key.
 Then deciphered the text.
 
 #+begin_src clojure
