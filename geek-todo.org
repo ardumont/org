@@ -354,7 +354,7 @@ CLOSED: [2013-04-21 dim. 18:30]
 https://github.com/relevance/org-html-slideshow
 *** TODO Eval clojure in org-mode file
 http://orgmode.org/worg/org-contrib/babel/languages/ob-doc-clojure.html
-* PENDING Articles [97%]
+* PENDING Articles [96%]
 ** DONE Chroot to save one's GNU/Linux
 CLOSED: [2012-04-21 Sat 18:07]
 http://adumont.fr/blog/chroot-pour-sauver-son-gnulinux/
@@ -504,6 +504,7 @@ CLOSED: [2013-05-16 jeu. 22:54]
 ** PENDING BinarySearchTree in Haskell
 ** DONE XOR decryption - euler 59
 CLOSED: [2013-05-11 sam. 15:50]
+** TODO euler 26
 * PENDING clojure [28%]
 ** DONE start [100%]
 CLOSED: [2012-04-21 Sat 18:18]
@@ -773,18 +774,28 @@ CLOSED: [2013-03-03 dim. 00:06]
 
 ** DONE make a decent cpug-vm/Vagrantfile startup
 CLOSED: [2013-03-03 dim. 01:45]
-* IN-PROGRESS challenges [0%]
-** IN-PROGRESS matasano [25%]
+* IN-PROGRESS challenges [50%]
+** DONE matasano 1-8 [100%]
+CLOSED: [2013-05-17 ven. 04:59]
 *** DONE 1
 CLOSED: [2013-05-03 ven. 18:12]
 *** DONE 2
 CLOSED: [2013-05-03 ven. 18:12]
-*** TODO 3
-*** TODO 4
-*** TODO 5
-*** TODO 6
-*** TODO 7
-*** TODO 8
+*** DONE 3
+CLOSED: [2013-05-17 ven. 04:55]
+*** DONE 4
+CLOSED: [2013-05-17 ven. 04:55]
+*** DONE 5
+CLOSED: [2013-05-17 ven. 04:55]
+*** DONE 6
+CLOSED: [2013-05-17 ven. 04:55]
+*** DONE 7
+CLOSED: [2013-05-17 ven. 04:55]
+*** DONE 8
+CLOSED: [2013-05-17 ven. 04:55]
+*** DONE send mail
+CLOSED: [2013-05-17 ven. 04:59]
+** TODO matasano suite
 * IN-PROGRESS haskell [50%]
 ** DONE setuping environment
 CLOSED: [2013-04-19 ven. 22:33]
