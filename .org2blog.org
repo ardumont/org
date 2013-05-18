@@ -11,7 +11,7 @@
 :POST_DATE: 20130511T08:37:00+0000
 :Published: Yes
 :END:
-** [[file:/home/tony/org/haskell/fun-with-sets.org][Fun with sets]]
+** [[file:/home/tony/org/haskell/fun-with-sets.org][Fun with sets in Haskell]]
 :PROPERTIES:
 :POSTID: 1110
 :POST_DATE: 20130516T20:30:00+0000

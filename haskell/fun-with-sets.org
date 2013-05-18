@@ -4,8 +4,8 @@
 #+OPTIONS:
 #+CATEGORY: haskell, sets, functional-programming
 #+TAGS: haskell, sets, functional-programming
-#+TITLE: Fun with sets
-#+DESCRIPTION: Having fun implementing some sets functions
+#+TITLE: Fun with sets in Haskell
+#+DESCRIPTION: Having fun implementing some sets functions in Haskell
 
 So, the idea is to implement a bunch of functions relative to the mathematical notion of Set.
 But, the Set must be implemented as a function.
