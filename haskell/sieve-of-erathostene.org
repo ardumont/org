@@ -1,6 +1,6 @@
+#+DATE: [2013-05-18 sam. 20:41]
 #+BLOG: tony-blog
 #+POSTID: 632
-#+DATE: [2012-12-23 Sun 18:52]
 #+TITLE: Sieve of Erathostenes
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
