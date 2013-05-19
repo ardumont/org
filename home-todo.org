@@ -85,17 +85,34 @@ CLOSED: [2013-04-11 jeu. 09:35]
 ***** TODO cartons
 ***** DONE grosses pieces de verre
 CLOSED: [2013-04-11 jeu. 09:35]
-*** PENDING Piece de jeux pour les enfants [5/7]
+*** PENDING Piece de jeux des enfants [14/15]
 ***** DONE Retirer la grosse armoire du bureau
 ***** DONE Retirer le crepis
 ***** DONE Enduit de rebouchage
 CLOSED: [2013-04-11 jeu. 09:36]
 ***** DONE Enduit de lissage
 CLOSED: [2013-04-11 jeu. 09:36]
-***** TODO Poser la toile de renovation
-***** TODO Poser le papier peint/Peindre
 ***** DONE Ranger la piece
 CLOSED: [2011-10-31 lun. 10:10]
+***** DONE Ranger la piece
+CLOSED: [2013-05-19 dim. 18:42]
+***** DONE Enduit de rebouchage mur
+CLOSED: [2013-05-19 dim. 18:41]
+***** DONE lessiver plafond
+CLOSED: [2013-05-19 dim. 18:41]
+***** DONE Enduit de rebouchage plafond
+CLOSED: [2013-05-19 dim. 18:41]
+***** DONE poncer le plafond pour lisser l'enduit
+CLOSED: [2013-05-19 dim. 18:42]
+***** DONE depoussierer le plafond
+CLOSED: [2013-05-19 dim. 18:42]
+***** DONE Demonter le placard
+CLOSED: [2013-05-19 dim. 18:43]
+***** DONE Enduit de rebouchage placard
+CLOSED: [2013-05-19 dim. 18:43]
+***** DONE sous-couche dans le placard
+CLOSED: [2013-05-19 dim. 18:43]
+***** TODO Poser le papier peint/Peindre
 *** PENDING Cuisine [3/7]
 ***** DONE Degager le vieux frigo
 ***** DONE Refaire les prises de courant
