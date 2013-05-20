@@ -425,7 +425,7 @@ So for the decoding, we just drop them (see decode-b64char function for more det
 
 * Sources
 
-[[https://github.com/ardumont/cloaked-hipster/tree/95276307cff3f98326745f8bf6ff3699129640b7][sources]]
+[[https://github.com/ardumont/crypto/tree/95276307cff3f98326745f8bf6ff3699129640b7][sources]]
 
 * Conclusion
 

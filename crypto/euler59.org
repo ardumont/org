@@ -59,7 +59,7 @@ This will return a byte vector that we can manipulate in the rest of the article
 (def ascii-encrypted (load-f "./resources/euler-59-cipher"))
 #+end_src
 
-[[https://github.com/ardumont/cloaked-hipster/blob/master/src/crypto/euler59.clj][euler59.clj]]
+[[https://github.com/ardumont/crypto/blob/master/src/crypto/euler59.clj][euler59.clj]]
 
 ** Cipher
 
@@ -114,7 +114,7 @@ Don't forget this problem sentence "If the password is shorter than the message,
         xor/encrypt-bytes
         compute-key)                    => "secret"))
 #+end_src
-[[https://github.com/ardumont/cloaked-hipster/blob/master/src/crypto/key.clj#L45][key.clj]]
+[[https://github.com/ardumont/crypto/blob/master/src/crypto/key.clj#L45][key.clj]]
 
 **** block/transpose
 
@@ -143,7 +143,7 @@ The =block/transpose= function to help in slicing the bytes vector into the same
                                   [2 6 10 14 18]
                                   [3 7 11 15 19]])
 #+end_src
-[[https://github.com/ardumont/cloaked-hipster/blob/master/src/crypto/block.clj#L20][block.clj]]
+[[https://github.com/ardumont/crypto/blob/master/src/crypto/block.clj#L20][block.clj]]
 
 **** decrypt-brute-force
 
@@ -172,7 +172,7 @@ The brute force algorithm's basis is the frequency of the english letters:
   (decrypt-brute-force (hex/to-bytes "1b37373331363f78151b7f2b783431333d78397828372d363c78373e783a393b3736"))
   => ["X" "Cooking MC's like a pound of bacon"])
 #+end_src
-[[https://github.com/ardumont/cloaked-hipster/blob/master/src/crypto/xor.clj#L97][xor.clj]]
+[[https://github.com/ardumont/crypto/blob/master/src/crypto/xor.clj#L97][xor.clj]]
 
 **** xor
 The xor operation:
@@ -216,7 +216,7 @@ The xor operation:
   (xor (hex/to-bytes "1c0111001f010100061a024b53535009181c") (hex/to-bytes "686974207468652062756c6c277320657965")) => (hex/to-bytes "746865206b696420646f6e277420706c6179")
   (xor (hex/to-bytes "746865206b696420646f6e277420706c6179") (hex/to-bytes "686974207468652062756c6c277320657965")) => (hex/to-bytes "1c0111001f010100061a024b53535009181c"))
 #+end_src
-[[https://github.com/ardumont/cloaked-hipster/blob/master/src/crypto/xor.clj#L35][xor.clj]]
+[[https://github.com/ardumont/crypto/blob/master/src/crypto/xor.clj#L35][xor.clj]]
 
 **** frequency/compute-diff
 
@@ -267,7 +267,7 @@ The compute-diff function simply compute the frequency in the word w and compute
 (m/fact
   (compute-diff (crypto.ascii/to-bytes "hello")) => 211.0099999850989)
 #+end_src
-[[https://github.com/ardumont/cloaked-hipster/blob/master/src/crypto/frequency.clj#L10][frequency.clj]]
+[[https://github.com/ardumont/crypto/blob/master/src/crypto/frequency.clj#L10][frequency.clj]]
 
 *** Decipher
 
@@ -318,7 +318,7 @@ The =xor/decrypt= and =xor/encrypt= functions:
                            :msg "There are some trouble in paradise, the sentence needs to be very long for it to be decrypted"})})
   => "There are some trouble in paradise, the sentence needs to be very long for it to be decrypted")
 #+end_src
-[[https://github.com/ardumont/cloaked-hipster/blob/master/src/crypto/xor.clj#L80][xor.clj]]
+[[https://github.com/ardumont/crypto/blob/master/src/crypto/xor.clj#L80][xor.clj]]
 
 ** Finale
 
