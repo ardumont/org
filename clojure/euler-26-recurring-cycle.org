@@ -147,9 +147,9 @@ The number 983 is the number with the longest recurring-cycle 982.
   "Given a limit l, return the couple [longest-recurring-cycle number] from 1 to (l-1), which corresponds to the number for which 1/number has the longest recurring cycle."
   [l]
   (->> (range 1 l)
-       (reduce (fn [m n] (assoc m (recurring-cycle n) n)) (sorted-map))
+       (map (juxt recurring-cycle identity))
+       (into (sorted-map))
        last))
-
 (m/fact
   (max-recurring-cycle 1000) => [982 983])
 #+end_src
