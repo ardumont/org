@@ -501,12 +501,15 @@ http://adumont.fr/blog/game-of-life-in-clojure-demo/
 CLOSED: [2013-05-04 sam. 16:40]
 ** DONE Fun with Sets in Haskell
 CLOSED: [2013-05-16 jeu. 22:54]
-** PENDING BinarySearchTree in Haskell
 ** DONE XOR decryption - euler 59
 CLOSED: [2013-05-11 sam. 15:50]
-** PENDING euler 26
+** DONE euler 26
+CLOSED: [2013-05-20 lun. 10:50]
 ** DONE Sieve of Eratosthenes
 CLOSED: [2013-05-20 lun. 10:43]
+** PENDING BinarySearchTree in Haskell
+
+** TODO AVL in Haskell
 * PENDING clojure [28%]
 ** DONE start [100%]
 CLOSED: [2012-04-21 Sat 18:18]
