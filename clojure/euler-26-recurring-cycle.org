@@ -3,7 +3,7 @@
 #+DATE: [2013-05-20 lun. 10:42]
 #+CATEGORY: clojure, functional-programming, recurring-cycles, euler-project
 #+TAGS: clojure, functional-programming, recurring-cycles, euler-project
-#+DESCRIPTION:
+#+DESCRIPTION: Counting the greatest recurring cycles inside a fraction - euler 26.
 #+TITLE: Euler 26 - recurring cycles
 
 Another euler problem about counting the greatest recurring cycle inside a fraction.
