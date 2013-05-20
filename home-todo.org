@@ -85,7 +85,7 @@ CLOSED: [2013-04-11 jeu. 09:35]
 ***** TODO cartons
 ***** DONE grosses pieces de verre
 CLOSED: [2013-04-11 jeu. 09:35]
-*** PENDING Piece de jeux des enfants [14/15]
+*** PENDING Piece de jeux des enfants [19/20]
 ***** DONE Retirer la grosse armoire du bureau
 ***** DONE Retirer le crepis
 ***** DONE Enduit de rebouchage
@@ -112,7 +112,17 @@ CLOSED: [2013-05-19 dim. 18:43]
 CLOSED: [2013-05-19 dim. 18:43]
 ***** DONE sous-couche dans le placard
 CLOSED: [2013-05-19 dim. 18:43]
-***** TODO Poser le papier peint/Peindre
+***** DONE peinture plafond
+CLOSED: [2013-05-20 lun. 19:13]
+***** DONE peinture placard
+CLOSED: [2013-05-20 lun. 19:13]
+***** DONE peinture porte
+CLOSED: [2013-05-20 lun. 19:13]
+***** DONE peinture plinthes
+CLOSED: [2013-05-20 lun. 19:13]
+***** DONE peinture cadre porte
+CLOSED: [2013-05-20 lun. 19:13]
+***** TODO Poser le papier peint
 *** PENDING Cuisine [3/7]
 ***** DONE Degager le vieux frigo
 ***** DONE Refaire les prises de courant
