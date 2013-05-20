@@ -1,8 +1,8 @@
 #+BLOG: tony-blog
 #+POSTID: 1182
 #+DATE: [2013-05-20 lun. 10:42]
-#+CATEGORY: clojure, functional-programming, recurring-cycles, euler
-#+TAGS: clojure, functional-programming, recurring-cycles, euler
+#+CATEGORY: clojure, functional-programming, recurring-cycles, euler-project
+#+TAGS: clojure, functional-programming, recurring-cycles, euler-project
 #+DESCRIPTION:
 #+TITLE: Euler 26 - recurring cycles
 
@@ -26,18 +26,9 @@ Find the value of d < 1000 for which 1/d contains the longest recurring cycle in
 
 As usual, we will add facts just below the functions to document the function.
 
-* Namespace
-
-#+begin_src clojure
-(ns euler-lab.core26
-  (:require [clojure.string :as string]
-            [midje.sweet    :as m]))
-#+end_src
-
-* take-while
-We need to be able to capture the first element from which the predicate became false.
-So for this, we will use the standard take-while which takes every element which satisfies the predicate.
-Here we will do that plus we will take the first element which falsify the predicate. It's a kind of take-while and 1.
+* take-while and 1
+We need to be able to capture elements that satisfies the first element plus the first element which falsifies the predicate.
+So for this, we will use the standard take-while and add the next element. It's a take-while and 1.
 
 #+begin_src clojure
 (defn tw
@@ -50,9 +41,10 @@ Here we will do that plus we will take the first element which falsify the predi
   (tw even? [0 2 4 6 8 9 10 11 12]) => [0 2 4 6 8 9]
   (tw even? [1 2 3 4])              => [1])
 #+end_src
+
 * division
 We compute the division as we learnt it in elementary school.
-This one uses lazy sequence.
+We'll use the iterate function to benefit from lazyness.
 
 #+begin_src clojure
 (defn division
@@ -87,7 +79,7 @@ This one uses lazy sequence.
 
 #+end_src
 * recurring-cycle-count
-Now I want to be able to count the recurring cycles.
+Now I want to be able to count the recurring cycles inside a sequence.
 
 #+begin_src clojure
 (defn recurring-cycle-count
@@ -113,10 +105,9 @@ Now I want to be able to count the recurring cycles.
 #+end_src
 
 * recurring-cycle
-We have a way to infinitely divide a number by another and a function to compute the recurring-cycle count.
-Now we can compute what we want and check using the facts in the problem.
+Now that We have a way to infinitely divide a number by another and a function to compute the recurring-cycle count, we can compute what we want and ensure it's ok according to the problem's facts.
 
-So we can create a function which will divide the number by 1, then retrieve the sequence of rest from that division and compute the recurring cycle count from this sequence.
+For this, we can create a function which will divide the number by 1, then retrieve the sequence of rest from that division and compute the recurring cycle count from this sequence.
 
 #+begin_src clojure
 (def recurring-cycle ^{:doc "Compute the recurring cycle from a division by 1"}
