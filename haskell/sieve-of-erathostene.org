@@ -102,7 +102,7 @@ Now that we have make it this far, we can make a little more and transform such 
 main :: IO ()
 main = do (num:_) <- getArgs
           let n = read num :: Int in
-            putStrLn $ show . prime n
+            putStrLn $ (show . prime) n
 #+end_src
 
 Now we can execute from the shell:
