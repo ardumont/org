@@ -14,8 +14,8 @@ In this post, following the same idea from the [[http://adumont.fr/blog/?p%3D111
 
 A [[https://en.wikipedia.org/wiki/Binary_search_tree][binary search tree]] is a tree data structure with properties:
 - every node owns a value
-- which is superior or equals to every value presents in its left branch
-- and strictly inferior to every value presents in its right branch
+- which is superior or equals to every value present in its left branch
+- and strictly inferior to every value present in its right branch
 - no duplicated node inside the tree
 
 #+begin_src haskell
@@ -23,13 +23,13 @@ data Tree a = Empty | Node a (Tree a) (Tree a) deriving (Eq, Show)
 #+end_src
 
 ** Example
-given a small utility function to create leaf:
+Given a small utility function to create leaf:
 #+begin_src haskell
 leaf :: a -> Tree a
 leaf x = Node x Empty Empty
 #+end_src
 
-Here comes some samples:
+we can create some samples to help in checking:
 #+begin_src haskell
 t1 :: Tree Int
 t1 = Node 4 (leaf 3) (Node 7 (leaf 5) (leaf 10))
@@ -42,7 +42,7 @@ t2 = Node 20 (Node 15 (Node 8 (leaf 7) (leaf 11)) (leaf 18))
 #+end_src
 
 ** Pretty-print
-To display a much more convenient utility function could be this:
+To display a much more convenient display, a simple utility function could be used:
 
 #+begin_src haskell
 pp :: Show a => Tree a -> IO ()
@@ -59,7 +59,7 @@ pp = (mapM_ putStrLn) . treeIndent
 
 #+end_src
 
-Which simplifies the reading
+Which simplifies the reading of trees:
 #+begin_src haskell
 *BinarySearchTree> pp t1
 --4
@@ -104,7 +104,7 @@ Which simplifies the reading
 * Functions
 ** size
 
-The size of the tree is taken to be the number n of internal nodes (those with two children).
+The size of the tree is taken to be the number of internal nodes (those with two children).
 
 #+begin_src haskell
 size :: Num a => Tree b -> a
@@ -197,7 +197,7 @@ True
 ** greatValue
 
 Returns the greatest value in the the given Tree
-Symmetrically, we continue the computation from the right branch.
+Symmetrically with the previous function, we continue the computation from the right branch.
 When no right branch remains, we have the greatest value.
 
 #+begin_src haskell
@@ -236,7 +236,7 @@ Node 20 (Node 118 (Node 166 Empty Empty) (Node 35 (Node 49 (Node 60 Empty Empty)
 
 ** contains
 
-Returns whether the given Tree contains the given element or not
+Returns whether the given Tree contains the given element or not.
 
 #+begin_src haskell
 contains :: Ord a => Tree a -> a -> Bool
@@ -264,7 +264,7 @@ False
 
 ** rightSon
 
-Returns the right son of the given Tree
+Returns the right son of the given Tree.
 
 #+begin_src haskell
 rightSon :: Tree a -> Tree a
@@ -283,7 +283,7 @@ Node 118 (Node 35 (Leaf 33) (Node 49 (Leaf 48) (Leaf 60))) (Leaf 166)
 
 ** leftSon
 
-Returns the left son of the given Tree
+Returns the left son of the given Tree.
 
 #+begin_src haskell
 leftSon :: Tree a -> Tree a
@@ -396,9 +396,9 @@ removed with this one
 
 ** Remove
 Remove an element from the tree.
-This must only delete the node targeted and not all the branch from the node.
+This must only delete the node targeted and not all the branches from the node.
 Forcefully, then, when we hit the node to delete, we retrieve by convention the max from the left branch and make it the new node.
-We could have also choose to take the min value from the right node.
+We could have also chosen to take the min value from the right node.
 This way, we keep the binary search tree properties regarding the order.
 
 #+begin_src haskell
@@ -426,6 +426,6 @@ Node 4 (Node 3 Empty Empty) (Node 5 Empty (Node 10 Empty Empty))
 
 * Conclusion
 
-Just the pleasure to work again with data structure - the basics.
+Just the pleasure to work again with basic data structures.
 
 Next we'll see how to implement [[https://en.wikipedia.org/wiki/AVL_tree][an AVL - a self-balancing binary search tree]].
