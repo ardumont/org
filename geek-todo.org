@@ -510,7 +510,7 @@ CLOSED: [2013-05-20 lun. 10:43]
 ** PENDING BinarySearchTree in Haskell
 
 ** TODO AVL in Haskell
-* PENDING clojure [28%]
+* IN-PROGRESS clojure [28%]
 ** DONE start [100%]
 CLOSED: [2012-04-21 Sat 18:18]
 *** DONE install
@@ -533,204 +533,249 @@ CLOSED: [2012-04-21 Sat 18:20]
 *** PENDING clojure in action
 *** DONE Clojure programming
 CLOSED: [2012-12-23 Sun 13:24]
-** PENDING exercises [0%]
-*** PENDING euler [66%]
-**** DONE register
-CLOSED: [2012-04-21 Sat 18:20]
-**** DONE Do some exercises
-CLOSED: [2012-04-21 Sat 18:21]
-25/374
+** IN-PROGRESS exercises [0%]
+*** IN-PROGRESS euler 27/427 [96%]
+**** DONE 1 - Multiples of 3 and 5
+CLOSED: [2013-05-23 Thu 10:59]
+**** DONE 2 - Even Fibonacci numbers
+CLOSED: [2013-05-23 Thu 10:54]
+**** DONE 3 - Largest prime factor
+CLOSED: [2013-05-23 Thu 10:54]
+**** DONE 4 - Largest palindrome product
+CLOSED: [2013-05-23 Thu 10:54]
+**** DONE 5 - Smallest multiple
+CLOSED: [2013-05-23 Thu 10:54]
+**** DONE 6 - Sum square difference
+CLOSED: [2013-05-23 Thu 10:54]
+**** DONE 7 - 10001st prime
+CLOSED: [2013-05-23 Thu 10:54]
+**** DONE 8 - Largest product in a series
+CLOSED: [2013-05-23 Thu 10:54]
+**** DONE 9 - Special Pythagorean triplet
+CLOSED: [2013-05-23 Thu 10:54]
+**** DONE 10 - Summation of primes
+CLOSED: [2013-05-23 Thu 10:54]
+**** DONE 11 - Largest product in a grid
+CLOSED: [2013-05-23 Thu 10:54]
+**** DONE 12 - Highly divisible triangular number
+CLOSED: [2013-05-23 Thu 10:54]
+**** DONE 13 - Large sum
+CLOSED: [2013-05-23 Thu 10:54]
+**** DONE 14 - Longest Collatz sequence
+CLOSED: [2013-05-23 Thu 10:54]
+**** DONE 15 - Lattice paths
+CLOSED: [2013-05-23 Thu 10:54]
+**** DONE 16 - Power digit sum
+CLOSED: [2013-05-23 Thu 10:54]
+**** DONE 17 - Number letter counts
+CLOSED: [2013-05-23 Thu 10:54]
+**** DONE 18 - Maximum path sum I
+CLOSED: [2013-05-23 Thu 10:54]
+**** DONE 19 - Counting Sundays
+CLOSED: [2013-05-23 Thu 10:54]
+**** DONE 20 - Factorial digit sum
+CLOSED: [2013-05-23 Thu 10:54]
+**** DONE 21 - Amicable numbers
+CLOSED: [2013-05-23 Thu 10:54]
+**** DONE 22 - Names scores
+CLOSED: [2013-05-23 Thu 10:54]
+**** DONE 23 - Non-abundant sums
+CLOSED: [2013-05-23 Thu 10:54]
+**** DONE 24 - Lexicographic permutations
+CLOSED: [2013-05-23 Thu 10:54]
+**** DONE 25 - 1000-digit Fibonacci number
+CLOSED: [2013-05-23 Thu 10:54]
+**** DONE 26 - nReciprocal cycles
+CLOSED: [2013-05-23 Thu 10:54]
+**** DONE 59 - XOR decryption
+CLOSED: [2013-05-23 Thu 10:55]
 **** PENDING Finish the other exercises
-*** IN-PROGRESS 4clojure [66%]
-**** DONE register
-CLOSED: [2012-04-21 Sat 17:49]
-http://www.4clojure.com/users 93/6042
-**** DONE Top 100
-CLOSED: [2012-04-21 Sat 17:49]
+*** IN-PROGRESS 4clojure [98%]
+http://www.4clojure.com/users
 http://www.4clojure.com/user/ardumont
-130/146
-67/6190
-**** TODO problems [100%]
-***** DONE 21
+144/153
+99/14837
+**** DONE 21
 CLOSED: [2012-04-23 lun. 12:39]
-***** DONE 22
+**** DONE 22
 CLOSED: [2012-04-23 lun. 12:39]
-***** DONE 23
+**** DONE 23
 CLOSED: [2012-04-23 lun. 12:40]
-***** DONE 26
+**** DONE 26
 CLOSED: [2012-04-23 lun. 12:40]
-***** DONE 27
+**** DONE 27
 CLOSED: [2012-04-23 lun. 12:40]
-***** DONE 28
+**** DONE 28
 CLOSED: [2012-04-23 lun. 12:40]
-***** DONE 30
+**** DONE 30
 CLOSED: [2012-04-23 lun. 12:40]
-***** DONE 31
+**** DONE 31
 CLOSED: [2012-04-23 lun. 12:40]
-***** DONE 32
+**** DONE 32
 CLOSED: [2012-04-23 lun. 12:40]
-***** DONE 33
+**** DONE 33
 CLOSED: [2012-04-23 lun. 12:40]
-***** DONE 34
+**** DONE 34
 CLOSED: [2012-04-23 lun. 12:40]
-***** DONE 38
+**** DONE 38
 CLOSED: [2012-04-23 lun. 12:40]
-***** DONE 39
+**** DONE 39
 CLOSED: [2012-04-23 lun. 12:40]
-***** DONE 40
+**** DONE 40
 CLOSED: [2012-04-23 lun. 12:40]
-***** DONE 41
+**** DONE 41
 CLOSED: [2012-04-23 lun. 12:40]
-***** DONE 42
+**** DONE 42
 CLOSED: [2012-04-23 lun. 12:40]
-***** DONE 43
+**** DONE 43
 CLOSED: [2012-04-23 lun. 12:40]
-***** DONE 44
+**** DONE 44
 CLOSED: [2012-04-23 lun. 12:40]
-***** DONE 46
+**** DONE 46
 CLOSED: [2012-04-23 lun. 12:40]
-***** DONE 50
+**** DONE 50
 CLOSED: [2012-04-23 lun. 12:42]
-***** DONE 53
+**** DONE 53
 CLOSED: [2012-04-23 lun. 12:42]
-***** DONE 54
+**** DONE 54
 CLOSED: [2012-04-23 lun. 12:42]
-***** DONE 55
+**** DONE 55
 CLOSED: [2012-04-23 lun. 12:42]
-***** DONE 56
+**** DONE 56
 CLOSED: [2012-04-23 lun. 12:42]
-***** DONE 58
+**** DONE 58
 CLOSED: [2012-04-23 lun. 12:42]
-***** DONE 59
+**** DONE 59
 CLOSED: [2012-04-23 lun. 12:42]
-***** DONE 60
+**** DONE 60
 CLOSED: [2012-04-23 lun. 12:42]
-***** DONE 61
+**** DONE 61
 CLOSED: [2012-04-23 lun. 12:42]
-***** DONE 62
+**** DONE 62
 CLOSED: [2012-04-23 lun. 12:42]
-***** DONE 63
+**** DONE 63
 CLOSED: [2012-04-23 lun. 12:42]
-***** DONE 65
+**** DONE 65
 CLOSED: [2012-04-23 lun. 12:42]
-***** DONE 66
+**** DONE 66
 CLOSED: [2012-04-23 lun. 12:42]
-***** DONE 67
+**** DONE 67
 CLOSED: [2012-04-23 lun. 12:42]
-***** DONE 69
+**** DONE 69
 CLOSED: [2012-04-23 lun. 12:42]
-***** DONE 70
+**** DONE 70
 CLOSED: [2012-04-23 lun. 12:42]
-***** DONE 73
+**** DONE 73
 CLOSED: [2012-04-23 lun. 12:43]
-***** DONE 74
+**** DONE 74
 CLOSED: [2012-04-23 lun. 12:43]
-***** DONE 75
+**** DONE 75
 CLOSED: [2012-04-23 lun. 12:43]
-***** DONE 77
+**** DONE 77
 CLOSED: [2012-04-23 lun. 12:43]
-***** DONE 78
+**** DONE 78
 CLOSED: [2012-04-23 lun. 12:43]
-***** DONE 79 - Triangle minimal path
+**** DONE 79 - Triangle minimal path
 CLOSED: [2012-05-01 mar. 18:36]
-***** DONE 80
+**** DONE 80
 CLOSED: [2012-04-23 lun. 12:43]
-***** DONE 81
+**** DONE 81
 CLOSED: [2012-04-23 lun. 12:43]
-***** DONE 83
+**** DONE 83
 CLOSED: [2012-04-23 lun. 12:43]
-***** DONE 85
+**** DONE 85
 CLOSED: [2012-04-23 lun. 12:43]
-***** DONE 86
+**** DONE 86
 CLOSED: [2012-04-23 lun. 12:43]
-***** DONE 90
+**** DONE 90
 CLOSED: [2012-04-23 lun. 12:43]
-***** DONE 91
+**** DONE 91
 CLOSED: [2012-04-23 lun. 12:43]
-***** DONE 92
+**** DONE 92
 CLOSED: [2012-04-23 lun. 12:43]
-***** DONE 93
+**** DONE 93
 CLOSED: [2012-04-23 lun. 12:43]
-***** DONE 94
+**** DONE 94
 CLOSED: [2012-04-23 lun. 12:43]
-***** DONE 95
+**** DONE 95
 CLOSED: [2012-04-23 lun. 12:43]
-***** DONE 96
+**** DONE 96
 CLOSED: [2012-04-23 lun. 12:43]
-***** DONE 97
+**** DONE 97
 CLOSED: [2012-04-23 lun. 12:43]
-***** DONE 98
+**** DONE 98
 CLOSED: [2012-04-23 lun. 12:43]
-***** DONE 99
+**** DONE 99
 CLOSED: [2012-04-23 lun. 12:43]
-***** DONE 100
+**** DONE 100
 CLOSED: [2012-04-23 lun. 12:43]
-***** DONE 102
+**** DONE 102
 CLOSED: [2012-04-23 lun. 12:43]
-***** DONE 103
+**** DONE 103
 CLOSED: [2012-04-23 lun. 12:43]
-***** DONE 104
+**** DONE 104
 CLOSED: [2012-04-23 lun. 12:43]
-***** DONE 105
+**** DONE 105
 CLOSED: [2012-04-23 lun. 12:43]
-***** DONE 108
+**** DONE 108
 CLOSED: [2012-04-23 lun. 12:43]
-***** DONE 110
+**** DONE 110
 CLOSED: [2012-04-23 lun. 12:43]
-***** DONE 112
+**** DONE 112
 CLOSED: [2012-04-23 lun. 12:43]
-***** DONE 114
+**** DONE 114
 CLOSED: [2012-04-23 lun. 12:43]
-***** DONE 115
+**** DONE 115
 CLOSED: [2012-04-23 lun. 12:43]
-***** DONE 116
+**** DONE 116
 CLOSED: [2012-04-23 lun. 12:43]
-***** DONE 118
+**** DONE 118
 CLOSED: [2012-04-23 lun. 12:43]
-***** DONE 120
+**** DONE 120
 CLOSED: [2012-04-23 lun. 12:43]
-***** DONE 121
+**** DONE 121
 CLOSED: [2012-04-23 lun. 12:43]
-***** DONE 122
+**** DONE 122
 CLOSED: [2012-04-23 lun. 12:43]
-***** DONE 128
+**** DONE 128
 CLOSED: [2012-04-23 lun. 12:43]
-***** DONE 131
+**** DONE 131
 CLOSED: [2012-04-23 lun. 12:43]
-***** DONE 132
+**** DONE 132
 CLOSED: [2012-04-23 lun. 12:43]
-***** DONE 135
+**** DONE 135
 CLOSED: [2012-04-23 lun. 12:43]
-***** DONE 137
+**** DONE 137
 CLOSED: [2012-04-23 lun. 12:43]
-***** DONE 143
+**** DONE 143
 CLOSED: [2012-04-23 lun. 12:43]
-***** DONE 144
+**** DONE 144
 CLOSED: [2012-04-23 lun. 12:43]
-***** DONE 146
+**** DONE 146
 CLOSED: [2012-04-23 lun. 12:43]
-***** DONE 147
+**** DONE 147
 CLOSED: [2012-04-23 lun. 12:43]
-***** DONE 148
+**** DONE 148
 CLOSED: [2012-04-23 lun. 12:43]
-***** DONE 150 - Palindromic number
+**** DONE 150 - Palindromic number
 CLOSED: [2012-04-27 ven. 13:22]
-***** DONE 153 - Pairwise disjoint cells
+**** DONE 153 - Pairwise disjoint cells
 CLOSED: [2012-04-23 lun. 11:44]
 http://www.4clojure.com/problem/153
 https://github.com/ardumont/my-4clojure-lab/blob/master/src/my_4clojure_lab/199/core153.clj
-***** DONE 82 - Word Chains
+**** DONE 82 - Word Chains
 CLOSED: [2012-04-30 lun. 15:05]
-***** DONE 156 - Map defaults
+**** DONE 156 - Map defaults
 CLOSED: [2012-04-30 lun. 15:05]
-***** DONE 157 - Indexing sequence
+**** DONE 157 - Indexing sequence
 CLOSED: [2012-04-30 lun. 15:05]
-***** DONE 141 - Tricky card games
+**** DONE 141 - Tricky card games
 CLOSED: [2012-05-01 mar. 20:45]
-***** DONE 113 - Making data dance
+**** DONE 113 - Making data dance
 CLOSED: [2013-05-23 Thu 10:45]
-***** DONE 117 - For science!
+**** DONE 117 - For science!
 CLOSED: [2013-05-23 Thu 10:45]
+**** PENDING Finish the other exercises
 *** TODO code kata
 http://codekata.pragprog.com/2007/01/code_kata_backg.html#more
 ** DONE Create a basic rss reader
