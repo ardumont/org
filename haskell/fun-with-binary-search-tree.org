@@ -1,11 +1,10 @@
-#+BLOG: tony-blog
+#+DATE: [2013-05-23 jeu. 19:42]
 #+POSTID: 1156
-#+DATE: [2013-05-16 jeu. 22:38]
 #+BLOG: tony-blog
 #+OPTIONS:
 #+CATEGORY: haskell, binary-search-tree, functional-programming
 #+TAGS: haskell, binary-search-tree, functional-programming
-#+TITLE: Fun with Binary Search Tree
+#+TITLE: Binary Search Tree in Haskell
 #+DESCRIPTION: Having fun implementing some binary search tree functions
 
 In this post, following the same idea from the [[http://adumont.fr/blog/?p%3D1110][previous post about sets]], we will walk through some functions relative to [[https://en.wikipedia.org/wiki/Binary_search_tree][binary search trees]].

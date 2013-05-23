@@ -11,11 +11,11 @@
 :POST_DATE: 20130518T18:41:00+0000
 :Published: Yes
 :END:
-** [[file:/home/tony/org/haskell/fun-with-binary-search-tree.org][Fun with Binary Search Tree]]
+** [[file:/home/tony/org/haskell/fun-with-binary-search-tree.org][Binary Search Tree in Haskell]]
 :PROPERTIES:
 :POSTID: 1156
-:POST_DATE: 20130516T20:38:00+0000
-:Published: No
+:POST_DATE: 20130523T17:42:19+0000
+:Published: Yes
 :END:
 ** [[file:/home/tony/org/crypto/euler59.org][XOR decryption - Euler 59 in Clojure]]
 :PROPERTIES:
