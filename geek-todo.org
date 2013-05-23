@@ -727,6 +727,10 @@ CLOSED: [2012-04-30 lun. 15:05]
 CLOSED: [2012-04-30 lun. 15:05]
 ***** DONE 141 - Tricky card games
 CLOSED: [2012-05-01 mar. 20:45]
+***** DONE 113 - Making data dance
+CLOSED: [2013-05-23 Thu 10:45]
+***** DONE 117 - For science!
+CLOSED: [2013-05-23 Thu 10:45]
 *** TODO code kata
 http://codekata.pragprog.com/2007/01/code_kata_backg.html#more
 ** DONE Create a basic rss reader
