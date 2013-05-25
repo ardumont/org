@@ -1,9 +1,43 @@
 #+BLOG: tony-blog
-#+TITLE: Programming in haskell - ch11 - The countdown problem - exercises
+#+TITLE: PIH - ch11 - The countdown problem - exercises
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
-#+TAGS: haskell, exercises, functional-programming
-#+CATEGORY: haskell, exercises, functional-programming
-#+DESCRIPTION: Learning haskell and solving problems using reasoning and 'repl'ing
+#+TAGS: haskell, exercises, functional-programming, countdown-problem
+#+CATEGORY: haskell, exercises, functional-programming, countdown-problem
+#+DESCRIPTION: The countdown problem (from 'Des chiffres et des Lettres')
 #+STARTUP: indent
 #+STARTUP: hidestars odd
+
+* choices
+#+begin_quote
+Redefine the combinatorial function choices using a list comprehension rather than the library functions concat and map.
+#+end_quote
+* isChoice
+#+begin_quote
+Define a recursive function =isChoice :: Eq a ⇒ [ a ] → [ a ] → Bool= that decides if one list is chosen from another, without using the combinatorial functions perms and subs.
+
+_Hint:_ start by defining a function that removes the first occurrence of a value from a list.
+#+end_quote
+
+* split
+#+begin_quote
+What effect would generalising the function split to also return pairs containing the empty list have on the behaviour of solutions?
+#+end_quote
+
+* checks
+#+begin_quote
+Using choices, exprs, and eval, verify that there are 33, 665, 406 possible expressions over the numbers 1, 3, 7, 10, 25, 50, and that only 4, 672, 540 of these expressions evaluate successfully.
+#+end_quote
+* checks 2
+#+begin_quote
+Similarly, verify that the number of expressions that evaluate successfully increases to 10, 839, 369 if the numeric domain is generalised to arbitrary integers.
+
+_Hint:_ modify the definition of valid .
+#+end_quote
+* modifications
+#+begin_quote
+Modify the final program to:
+- allow the use of exponentiation in expressions;
+- produce the nearest solutions if no exact solution is possible;
+- order the solutions using a suitable measure of simplicity.
+#+end_quote

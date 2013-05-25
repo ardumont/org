@@ -1,5 +1,5 @@
 #+BLOG: tony-blog
-#+TITLE: Programming in haskell - ch12 - Lazy evaluation - exercises
+#+TITLE: PIH - ch12 - Lazy evaluation - exercises
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
 #+TAGS: haskell, exercises, functional-programming
