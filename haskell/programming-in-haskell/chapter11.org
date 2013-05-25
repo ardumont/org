@@ -12,6 +12,25 @@
 #+begin_quote
 Redefine the combinatorial function choices using a list comprehension rather than the library functions concat and map.
 #+end_quote
+
+Recall the first definition:
+
+#+begin_src haskell
+choices :: [a] -> [[a]]
+choices = (concatMap perms) . subs
+#+end_src
+
+Using list comprehension:
+#+begin_src haskell
+choices :: [a] -> [[a]]
+choices xs = [ p | s <- subs xs, p <- perms s]
+
+*Problem> choices [1,2,3]
+[[],[3],[2],[2,3],[3,2],[1],[1,3],[3,1],[1,2],[2,1],[1,2,3],[2,1,3],[2,3,1],[1,3,2],[3,1,2],[3,2,1]]
+*Problem> choices [1,2,3,4]
+[[],[4],[3],[3,4],[4,3],[2],[2,4],[4,2],[2,3],[3,2],[2,3,4],[3,2,4],[3,4,2],[2,4,3],[4,2,3],[4,3,2],[1],[1,4],[4,1],[1,3],[3,1],[1,3,4],[3,1,4],[3,4,1],[1,4,3],[4,1,3],[4,3,1],[1,2],[2,1],[1,2,4],[2,1,4],[2,4,1],[1,4,2],[4,1,2],[4,2,1],[1,2,3],[2,1,3],[2,3,1],[1,3,2],[3,1,2],[3,2,1],[1,2,3,4],[2,1,3,4],[2,3,1,4],[2,3,4,1],[1,3,2,4],[3,1,2,4],[3,2,1,4],[3,2,4,1],[1,3,4,2],[3,1,4,2],[3,4,1,2],[3,4,2,1],[1,2,4,3],[2,1,4,3],[2,4,1,3],[2,4,3,1],[1,4,2,3],[4,1,2,3],[4,2,1,3],[4,2,3,1],[1,4,3,2],[4,1,3,2],[4,3,1,2],[4,3,2,1]]
+#+end_src
+
 * isChoice
 #+begin_quote
 Define a recursive function =isChoice :: Eq a ⇒ [ a ] → [ a ] → Bool= that decides if one list is chosen from another, without using the combinatorial functions perms and subs.
