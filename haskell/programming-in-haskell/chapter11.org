@@ -1,4 +1,7 @@
 #+BLOG: tony-blog
+#+POSTID: 1196
+#+DATE: [2013-05-26 dim. 01:39]
+#+BLOG: tony-blog
 #+TITLE: PIH - ch11 - The countdown problem - exercises
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
@@ -8,12 +11,17 @@
 #+STARTUP: indent
 #+STARTUP: hidestars odd
 
+It has been a while since I read some programming in haskell books (matasano, euler, and so on kept me busy).
+So here it goes, the chapter 11 exercises was about the countdown problem.
+
+Given a list of number and a result, find the operations permitting to solve the equations.
+
 * choices
 #+begin_quote
-Redefine the combinatorial function choices using a list comprehension rather than the library functions concat and map.
+Redefine the combinatorial function =choices= using a list comprehension rather than the library functions =concat= and =map=.
 #+end_quote
 
-Recall the first definition:
+My first point-free implementation:
 
 #+begin_src haskell
 choices :: [a] -> [[a]]
@@ -33,25 +41,93 @@ choices xs = [ p | s <- subs xs, p <- perms s]
 
 * isChoice
 #+begin_quote
-Define a recursive function =isChoice :: Eq a ⇒ [ a ] → [ a ] → Bool= that decides if one list is chosen from another, without using the combinatorial functions perms and subs.
+Define a recursive function =isChoice :: Eq a ⇒ [a] → [a] → Bool= that decides if one list is chosen from another, without using the combinatorial functions =perms= and =subs=.
 
 _Hint:_ start by defining a function that removes the first occurrence of a value from a list.
 #+end_quote
 
+We'll follow the hint and implement the function =remove1=:
+
+#+begin_src haskell
+remove1 :: Eq a => a -> [a] -> [a]
+remove1 _ [] = []
+remove1 x (y:ys)
+  | x == y = ys
+  | otherwise = y:remove1 x ys
+
+*Problem> remove1 1 [3,2..1]
+[3,2]
+*Problem> remove1 1 [9,8..1]
+[9,8,7,6,5,4,3,2]
+*Problem> remove1 1 [9,8..0]
+[9,8,7,6,5,4,3,2,0]
+*Problem> remove1 1 [9,8..0] ++ [1]
+[9,8,7,6,5,4,3,2,0,1]
+#+end_src
+
+Now, we can use it to help us implement the =isChoice= function
+
+#+begin_src haskell
+isChoice :: Eq a => [a] -> [a] -> Bool
+isChoice [] _     = True
+isChoice _ []     = False
+isChoice (x:xs) l = elem x l && isChoice xs (remove1 x l)
+
+*problem> isChoice [11] [1..10]
+False
+*Problem> isChoice [2..3] [1..10]
+True
+*Problem> isChoice [] [1..10]
+True
+*Problem> isChoice [] []
+True
+*Problem> isChoice [1..2] []
+False
+#+end_src
+
 * split
 #+begin_quote
-What effect would generalising the function split to also return pairs containing the empty list have on the behaviour of solutions?
+What effect would generalising the function =split= to also return pairs containing the empty list have on the behaviour of solutions?
 #+end_quote
+
+Here is the =split= function:
+#+begin_src haskell
+split :: [a] -> [([a], [a])]
+split []     = []
+split [_]    = []
+split (x:xs) = ([x], xs) : [(x: ls, rs) | (ls, rs) <- split xs]
+
+*Problem> split [1,3,7,10,25,50]
+[([1],[3,7,10,25,50]),([1,3],[7,10,25,50]),([1,3,7],[10,25,50]),([1,3,7,10],[25,50]),([1,3,7,10,25],[50])]
+#+end_src
+
+And the client call:
+#+begin_src haskell
+exprs :: [Int] -> [Expr]
+exprs []  = []
+exprs [x] = [Val x]
+exprs xs  = [ x | (ls, rs) <- split xs,
+                  l        <- exprs ls,
+                  r        <- exprs rs,
+                  x        <- combine l r]
+
+Problem> exprs [1, 10]
+[App Mul (Val 1) (Val 10),App Add (Val 1) (Val 10),App Sub (Val 1) (Val 10),App Div (Val 1) (Val 10)]
+#+end_src
+
+Adding the empty pairs to the existing result, =[[], l], [l, []]= (l is the initial list), would result in =exprs= to never reduce the size of the list when calling recursively =exprs=.
+Thus breaking.
 
 * checks
 #+begin_quote
-Using choices, exprs, and eval, verify that there are 33, 665, 406 possible expressions over the numbers 1, 3, 7, 10, 25, 50, and that only 4, 672, 540 of these expressions evaluate successfully.
+Using =choices=, =exprs=, and =eval=, verify that there are 33, 665, 406 possible expressions over the numbers 1, 3, 7, 10, 25, 50, and that only 4, 672, 540 of these expressions evaluate successfully.
 #+end_quote
+
 * checks 2
 #+begin_quote
 Similarly, verify that the number of expressions that evaluate successfully increases to 10, 839, 369 if the numeric domain is generalised to arbitrary integers.
 
-_Hint:_ modify the definition of valid .
+_Hint:_ modify the definition of valid.
 #+end_quote
 * modifications
 #+begin_quote

@@ -1,4 +1,10 @@
 * Posts
+** [[file:/home/tony/org/haskell/programming-in-haskell/chapter11.org][PIH - ch11 - The countdown problem - exercises]]
+:PROPERTIES:
+:POSTID: 1196
+:POST_DATE: 20130525T23:39:00+0000
+:Published: No
+:END:
 ** [[file:/home/tony/org/clojure/euler-26-recurring-cycle.org][Euler 26 - recurring cycles]]
 :PROPERTIES:
 :POSTID: 1182
