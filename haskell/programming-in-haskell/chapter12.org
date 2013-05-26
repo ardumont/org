@@ -1,9 +1,185 @@
 #+BLOG: tony-blog
+#+POSTID: 1213
+#+DATE: [2013-05-26 dim. 16:19]
+#+BLOG: tony-blog
 #+TITLE: PIH - ch12 - Lazy evaluation - exercises
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
-#+TAGS: haskell, exercises, functional-programming
-#+CATEGORY: haskell, exercises, functional-programming
+#+TAGS: haskell, exercises, functional-programming, lazyness
+#+CATEGORY: haskell, exercises, functional-programming, lazyness
 #+DESCRIPTION: Learning haskell and solving problems using reasoning and 'repl'ing
 #+STARTUP: indent
 #+STARTUP: hidestars odd
+
+* best evaluation
+#+begin_quote
+Show why outermost evaluation is preferable to innermost for the purposes of evaluating the expression fst (1 + 2, 2 + 3).
+#+end_quote
+
+We do not need to evaluate the result of the innermost redex (2+3) for having the result (1+2) entry (which is what we want).
+So evaluation by name is more interesting here. We avoid one resolution.
+
+* evaluation
+#+begin_quote
+Given the definition mult = λx → (λy → x ∗ y), show how the evaluation of =mult 3 4= can be broken down into four separate steps.
+#+end_quote
+
+Using apply-by-name (outermost):
+
+#+begin_src haskell
+mult 3 4 = (\x -> (\y -> x * y)) 3 4
+         = (\y -> 3 * y) 4
+         = 3 * 4
+         = 12
+#+end_src
+
+* fibonacci
+#+begin_quote
+Using a list comprehension, define an expression =fibs :: [ Integer ]= that generates the infinite sequence of Fibonacci numbers 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, ... using the following simple procedure:
+- the first two numbers are 0 and 1;
+- the next is the sum of the previous two;
+- return to the second step.
+
+_Hint:_ make use of the library functions =zip= and =tail=.
+Note that numbers in the Fibonacci sequence quickly become large, hence the use of the type Integer of arbitrary-precision integers above.
+#+end_quote
+
+First implementing fibonacci using simple recursion to have the feel of it:
+#+begin_src haskell
+fibo :: [Integer]
+fibo = fibonacci [0,1]
+       where
+         fibonacci (x:y:xs) = x:fibonacci (y:x+y:xs)
+
+*C12> take 20 fibo
+[0,1,1,2,3,5,8,13,21,34,55,89,144,233,377,610,987,1597,2584,4181]
+#+end_src
+
+Then, some playing around with zip and tail to make some dumb sum can be a good treat:
+#+begin_src haskell
+*C12> let xs = [1..10] in [ (x,y,x+y) | (x,y) <- zip xs (tail xs)]
+[(1,2,3),(2,3,5),(3,4,7),(4,5,9),(5,6,11),(6,7,13),(7,8,15),(8,9,17),(9,10,19)]
+#+end_src
+
+Now we are talking:
+
+#+begin_src haskell
+fibo :: [Integer]
+fibo = 0:1:[ x+y | (x,y) <- zip fibo (tail fibo)]
+
+-- *C12> take 20 fibo
+-- [0,1,1,2,3,5,8,13,21,34,55,89,144,233,377,610,987,1597,2584,4181]
+#+end_src
+
+* fibonacci 2
+#+begin_quote
+Using fibs, define a function =fib :: Int → Integer= that returns the nth Fibonnaci number (counting from zero), and an expression that calculates the first Fibonacci number greater than one thousand.
+#+end_quote
+
+First, we will take the nth fibonacci number.
+
+#+begin_src haskell
+fibs :: Int -> Integer
+fibs n = fibo !! n
+
+*C12> fibs 10
+34
+*C12> fibs 100
+218922995834555169026
+*C12> fibs 101
+354224848179261915075
+#+end_src
+
+Finding the first fibonacci number greater than one thousand.
+
+In other word, we can drop the numbers as long as they are below one thousand.
+We want the first one which satisfies the predicate:
+#+begin_src haskell
+*C12> head . dropWhile (<= 1000) fibo
+1597
+#+end_src
+
+* appropriate version
+#+begin_quote
+Define appropriate versions of the library functions
+=repeat :: a -> [a]=
+=repeat x = x : repeat x=
+
+=take :: Int -> [a] -> [a]=
+=take 0 _        = []=
+=take _ []       = []=
+=take n (x : xs) = x : take (n-1) xs=
+
+=replicate :: Int -> a -> [a]=
+=replicate n = (take n) . repeat=
+
+for the following type of binary trees:
+=data Tree a = Leaf | Node (Tree a) a (Tree a)=
+#+end_quote
+
+First a little function to help in displaying the tree.
+#+begin_src haskell
+p :: Show a => Tree a -> IO ()
+p = (mapM_ putStrLn) . treeIndent
+  where
+    treeIndent Leaf          = ["-- /-"]
+    treeIndent (Node lb v rb) =
+      ["--" ++ (show v)] ++
+      map ("  |" ++) ls ++
+      ("  `" ++ r) : map ("   " ++) rs
+      where
+        (r:rs) = treeIndent $ rb
+        ls     = treeIndent $ lb
+
+#+end_src
+
+And now the function asked for.
+
+#+begin_src haskell
+repeatTree :: a -> Tree a
+repeatTree v =
+  Node t v t
+  where t = repeatTree v
+
+takeTree :: Int -> Tree a -> Tree a
+takeTree 0 _     = Leaf
+takeTree _ Leaf  = Leaf
+takeTree n (Node l x r) = Node (takeTree (n-1) l) x (takeTree (n-1) r)
+
+*C12> p $ takeTree 3 (repeatTree 0)
+--0
+  |--0
+  |  |--0
+  |  |  |-- /-
+  |  |  `-- /-
+  |  `--0
+  |     |-- /-
+  |     `-- /-
+  `--0
+     |--0
+     |  |-- /-
+     |  `-- /-
+     `--0
+        |-- /-
+        `-- /-
+
+replicateTree :: Int -> a -> Tree a
+replicateTree n = (takeTree n) . repeatTree
+
+*C12> p $ replicateTree 3 0
+--0
+  |--0
+  |  |--0
+  |  |  |-- /-
+  |  |  `-- /-
+  |  `--0
+  |     |-- /-
+  |     `-- /-
+  `--0
+     |--0
+     |  |-- /-
+     |  `-- /-
+     `--0
+        |-- /-
+        `-- /-
+#+end_src
