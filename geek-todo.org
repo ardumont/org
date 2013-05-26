@@ -354,7 +354,7 @@ CLOSED: [2013-04-21 dim. 18:30]
 https://github.com/relevance/org-html-slideshow
 *** TODO Eval clojure in org-mode file
 http://orgmode.org/worg/org-contrib/babel/languages/ob-doc-clojure.html
-* PENDING Articles [98%]
+* PENDING Articles [96%]
 ** DONE Chroot to save one's GNU/Linux
 CLOSED: [2012-04-21 Sat 18:07]
 http://adumont.fr/blog/chroot-pour-sauver-son-gnulinux/
@@ -510,7 +510,8 @@ CLOSED: [2013-05-20 lun. 10:43]
 ** DONE BinarySearchTree in Haskell
 CLOSED: [2013-05-23 jeu. 19:42]
 
-** TODO AVL in Haskell
+** PENDING AVL in Haskell
+** IN-PROGRESS PIH - ch11 - The countdown problem - exercises
 * IN-PROGRESS clojure [28%]
 ** DONE start [100%]
 CLOSED: [2012-04-21 Sat 18:18]
