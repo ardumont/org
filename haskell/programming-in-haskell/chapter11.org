@@ -144,6 +144,21 @@ Evaluating those valid expressions renders:
 245644
 #+end_src
 
+which differs from the problem.
+
+Using the basic implementation for =valid=, we obtain indeed the same number.
+
+#+begin_src haskell
+valid :: Op -> Int -> Int -> Bool
+valid Add _ _ = True
+valid Sub x y = x > y
+valid Mul _ _ = True
+valid Div x y = y /= 0 && x `mod` y == 0
+
+*Problem> length [ es | cs <- choices [1,3,7,10,25,50], es <- exprs cs, eval es /= []]
+4672540
+#+end_src
+
 * Checks 2
 #+begin_quote
 Similarly, verify that the number of expressions that evaluate successfully increases to 10839369 if the numeric domain is generalised to arbitrary integers.
