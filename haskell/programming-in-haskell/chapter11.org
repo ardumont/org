@@ -120,15 +120,52 @@ Thus breaking.
 
 * checks
 #+begin_quote
-Using =choices=, =exprs=, and =eval=, verify that there are 33, 665, 406 possible expressions over the numbers 1, 3, 7, 10, 25, 50, and that only 4, 672, 540 of these expressions evaluate successfully.
+Using =choices=, =exprs=, and =eval=, verify that there are 33665406 possible expressions over the numbers 1, 3, 7, 10, 25, 50, and that only 4672540 of these expressions evaluate successfully.
 #+end_quote
+
+Computing all possible expressions from all possible choices from the list [1, 3, 7, 10, 25, 50] renders:
+#+begin_src haskell
+*Problem> length [ es | cs <- choices [1,3,7,10,25,50], es <- exprs cs]
+33665406
+#+end_src
+
+With the current definition of a valid expression:
+#+begin_src haskell
+valid :: Op -> Int -> Int -> Bool
+valid Add x y = x <= y
+valid Sub x y = x > y
+valid Mul x y = x <= y && x /= 1 && y /= 1
+valid Div x y = y /= 1 && x `mod` y == 0
+#+end_src
+
+Evaluating those valid expressions renders:
+#+begin_src haskell
+*Problem> length [ es | cs <- choices [1,3,7,10,25,50], es <- exprs cs, eval es /= []]
+245644
+#+end_src
 
 * checks 2
 #+begin_quote
-Similarly, verify that the number of expressions that evaluate successfully increases to 10, 839, 369 if the numeric domain is generalised to arbitrary integers.
+Similarly, verify that the number of expressions that evaluate successfully increases to 10839369 if the numeric domain is generalised to arbitrary integers.
 
 _Hint:_ modify the definition of valid.
 #+end_quote
+
+Now modifying the signature of valid to permit no particular filter on those numbers:
+#+begin_src haskell
+valid :: Op -> Int -> Int -> Bool
+valid Add _ _ = True
+valid Sub _ _ = True
+valid Mul _ _ = True
+valid Div x y = y /= 0 && x `mod` y == 0
+#+end_src
+
+We obtain:
+#+begin_src haskell
+*Problem> length [ es | cs <- choices [1,3,7,10,25,50], es <- exprs cs, eval es /= []]
+10839369
+#+end_src
+
 * modifications
 #+begin_quote
 Modify the final program to:
@@ -136,3 +173,55 @@ Modify the final program to:
 - produce the nearest solutions if no exact solution is possible;
 - order the solutions using a suitable measure of simplicity.
 #+end_quote
+
+We first need to add the exp operation in the data Op:
+#+begin_src haskell
+-- operation
+data Op = Add | Sub | Mul | Div | Exp deriving (Show)
+#+end_src
+
+Then update the definition of valid expression.
+We will follow the same guideline, that is no negative exponent and as =a ^ 1 == a=, we will refuse any exponent 1.
+Thus the following definition:
+
+#+begin_src haskell
+valid :: Op -> Int -> Int -> Bool
+valid Add x y = x <= y
+valid Sub x y = x > y
+valid Mul x y = x <= y && x /= 1 && y /= 1
+valid Div x y = y > 1 && x `mod` y == 0
+valid Exp _ y = y == 0 || y > 1
+
+*Problem> valid Exp 10 2
+True
+*Problem> valid Exp 10 (-1)
+False
+*Problem> valid Exp 10 1
+False
+#+end_src
+
+Then updating the =apply= function to add the evaluation part of the Exp operation:
+#+begin_src haskell
+apply :: Op -> Int -> Int -> Int
+apply Add x y = x + y
+apply Sub x y = x - y
+apply Mul x y = x * y
+apply Div x y = x `div` y
+apply Exp x y = x ^ y
+
+*Problem> apply Exp 10 2
+100
+#+end_src
+
+At last, updating the ops function to add Exp to the possible operations:
+#+begin_src haskell
+ops :: [Op]
+ops = [Mul, Add, Sub, Div, Exp]
+#+end_src
+
+Now everything is good to be able to compute possible expressions.
+For example, with 1, 2, 10, and a solution 100, we only have the expression 10 ^ 2:
+#+begin_src haskell
+*Problem> solutions' [1,2,10] 100
+[App Exp (Val 10) (Val 2)]
+#+end_src
