@@ -3,7 +3,7 @@
 :PROPERTIES:
 :POSTID: 1196
 :POST_DATE: 20130525T23:39:00+0000
-:Published: No
+:Published: Yes
 :END:
 ** [[file:/home/tony/org/clojure/euler-26-recurring-cycle.org][Euler 26 - recurring cycles]]
 :PROPERTIES:
