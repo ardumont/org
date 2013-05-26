@@ -65,7 +65,7 @@ CLOSED: [2011-09-12 lun. 13:10]
 ***** DONE Reparer la partie de la barriere tombee a cause du lierre
 Merci papy Claude
 ***** TODO Replanter les arbustes de devant pour combler le trou dans la haie de derriere
-* PENDING dedans [4/14]
+* PENDING dedans [4/15]
 *** DONE Relatif a l'exterieur [3/3]
 CLOSED: [2013-04-11 jeu. 09:35]
 ***** DONE Tailler les arbustes en morceaux pour pouvoir les rentrer dans le garage
@@ -85,7 +85,7 @@ CLOSED: [2013-04-11 jeu. 09:35]
 ***** TODO cartons
 ***** DONE grosses pieces de verre
 CLOSED: [2013-04-11 jeu. 09:35]
-*** PENDING Piece de jeux des enfants [19/20]
+*** PENDING Piece de jeux des enfants [20/28]
 ***** DONE Retirer la grosse armoire du bureau
 ***** DONE Retirer le crepis
 ***** DONE Enduit de rebouchage
@@ -122,7 +122,16 @@ CLOSED: [2013-05-20 lun. 19:13]
 CLOSED: [2013-05-20 lun. 19:13]
 ***** DONE peinture cadre porte
 CLOSED: [2013-05-20 lun. 19:13]
-***** TODO Poser le papier peint
+***** DONE Poser le papier peint bleu
+CLOSED: [2013-05-26 dim. 23:59]
+***** TODO Poser le papier peint vert
+***** TODO nettoyer le sol
+***** TODO poser le parquet
+***** TODO nouveau radiateur
+***** TODO poser le sticker
+***** TODO eclairage
+***** TODO finition de la porte
+***** TODO amenagement du placard
 *** PENDING Cuisine [3/7]
 ***** DONE Degager le vieux frigo
 ***** DONE Refaire les prises de courant
@@ -259,3 +268,6 @@ CLOSED: [2013-04-11 jeu. 09:40]
 CLOSED: [2013-04-11 jeu. 09:40]
 ***** DONE Changer les tuyaux
 CLOSED: [2013-04-11 jeu. 09:40]
+
+*** TODO garage [0%]
+***** TODO ranger
