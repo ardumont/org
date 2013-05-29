@@ -265,3 +265,54 @@ ok.
 #+begin_quote
 Given the equation =comp' e c = comp e ++ c=, show how to construct the recursive definition for comp', by induction on e.
 #+end_quote
+
+Recall the definition of expression:
+#+begin_src haskell
+data Expr = Val Int | Add Expr Expr
+
+eval :: Expr -> Int
+eval (Val x)   = x
+eval (Add x y) = eval x + eval y
+
+type Stack = [Int]
+type Code = [Op]
+data Op = PUSH Int | ADD deriving (Show)
+
+exec :: Code -> Stack -> Stack
+exec [] s             = s
+exec (PUSH x:c) s     = exec c (x:s)
+exec (ADD:c) (x:y:xs) = exec c (x+y:xs)
+
+-- *C12> exec [PUSH 1,PUSH 2,ADD] []
+-- [3]
+-- *C12> exec [PUSH 10,PUSH 11,PUSH 12,ADD,ADD] []
+-- [33]
+
+comp :: Expr -> Code
+comp (Val x)   = [PUSH x]
+comp (Add l r) = (comp l) ++ (comp r) ++ [ADD]
+#+end_src
+
+Now the construction.
+
+base case:
+#+begin_src haskell
+comp' (Val x) c = comp (Val x) ++ c
+                = [PUSH x] ++ c
+                = (PUSH x:c)
+#+end_src
+
+inductive case:
+#+begin_src haskell
+comp' (Add l r) c = comp (Add l r) ++ c
+                  = (comp l) ++ (comp r) ++ [ADD] ++ c
+                  = comp l ++ (comp r ++ (ADD:c))
+                  = comp l ++ (comp' r (ADD:c))
+                  = comp' l (comp' r (ADD:c))
+#+end_src
+
+We obtain the definition of comp':
+#+begin_src haskell
+comp' (Val x) c = (PUSH x:c)
+comp' (Add l r) c = comp' l (comp' r (ADD:c))
+#+end_src
