@@ -23,6 +23,33 @@ null (_ : _) = False
 #+begin_quote
 Show that =add n (Succ m) = Succ (add n m)=, by induction on n.
 #+end_quote
+
+Recall the definition:
+
+#+begin_src haskell
+data Nat = Zero | Succ Nat
+
+add :: Nat -> Nat -> Nat
+add Zero m = m                  -- (1)
+add (Succ n) m = Succ (add n m) -- (2)
+#+end_src
+
+To prove by induction on n the asked properties, we'll begin by the base case:
+
+#+begin_src haskell
+add Zero (Succ m) = Succ m            -- by definition of (1)
+                  = Succ (add Zero m) -- (2)
+#+end_src
+Ok, the base case is sound.
+
+Now, we can focus on the inductive case:
+#+begin_src haskell
+add (Succ n) (Succ m) = Succ (add n (Succ m)) -- using the induction hypothesis
+                      = Succ (Succ (add n m))
+                      = Succ (add (Succ n) m)
+#+end_src
+So the property holds.
+
 * Proof by induction 2
 #+begin_quote
 Using this property, together with =add n Zero = n=, show that addition is commutative, =add n m = add m n=, by induction on n.
