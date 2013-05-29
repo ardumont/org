@@ -220,10 +220,46 @@ ok.
 
 * Tree
 #+begin_quote
-Given the type declaration =data Tree = Leaf Int | Node Tree Tree=, show that the number of leaves in a such a tree is always one greater than the number of nodes, by induction on trees.
+Given the type declaration =data Tree = Leaf Int | Node Tree Tree=, show that the number of leaves in such a tree is always one greater than the number of nodes, by induction on trees.
 
 _Hint:_ start by defining functions that count the number of leaves and nodes in a tree.
 #+end_quote
+
+First the definitions:
+#+begin_src haskell
+leaves :: Tree -> Int
+leaves (Leaf _) = 1
+leaves (Node l r) = leaves l + leaves r
+
+*C12> leaves (Node (Node (Leaf 0) (Node (Leaf 1) (Leaf 2))) (Leaf 3))
+4
+
+nodes :: Tree -> Int
+nodes (Leaf _) = 0
+nodes (Node l r) = 1 + nodes l + nodes r
+
+*C12> nodes (Node (Node (Leaf 0) (Node (Leaf 1) (Leaf 2))) (Leaf 3))
+3
+#+end_src
+
+Now, we must prove that the relation between the number of nodes and leaves is the following:
+=(leaves t) - (nodes t) = 1=
+
+Beginning with base case:
+#+begin_src haskell
+leaves (Leaf x) - nodes (Leaf x) = 1 - 0 -- following the definitions
+                                 = 1
+#+end_src
+ok.
+
+Inductive case:
+#+begin_src haskell
+leaves (Node l r) - nodes (Node l r) = (leaves l + leaves r) - (1 + nodes l + nodes r)
+                                     = (leaves l - nodes l) + (leaves r - nodes r) - 1 -- by induction hypothesis
+                                     = 1 + 1 - 1
+                                     = 1
+#+end_src
+ok.
 
 * comp
 #+begin_quote
