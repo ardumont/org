@@ -73,7 +73,7 @@ The property holds.
 The base case is ok and the inductive case holds the property.
 So by induction, the hypothesis is sound, add is commutative.
 
-* Proof of correctness
+* all true
 #+begin_quote
 Using the following definition for the library function that decides if all elements of a list satisfy a predicate:
 
@@ -85,6 +85,29 @@ Complete the proof of the correctness of =replicate= by showing that it produces
 
 _Hint:_ show that the property is always True.
 #+end_quote
+
+Recall replicate's definition:
+#+begin_src haskell
+replicate :: Int -> a -> [a]
+replicate 0 _ = []
+replicate n x = x:replicate (n-1) x
+#+end_src
+
+base case:
+#+begin_src haskell
+all (== x) (replicate 0 x) = all (== x) [] -- by definition of replicate
+                           = True          -- by definition of all
+#+end_src
+ok.
+
+Inductive case:
+#+begin_src haskell
+all (== x) (replicate (n+1) x) = all (== x) (x:replicate n x)             -- by definition of all
+                               = ((== x) x) && all (== x) (replicate n x)
+                               = True && all (== x) (replicate n x)       -- by hypothesis
+                               = True
+#+end_src
+ok.
 
 * Checks
 #+begin_quote
