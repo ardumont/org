@@ -1,0 +1,266 @@
+#+title: compute engine discovery
+#+author: Antoine R. Dumont
+
+sources:
+- https://developers.google.com/compute/docs/gcutil
+- https://developers.google.com/compute/docs/gcutil/tips
+* register on compute-engine
+* enable billing
+* install gcutil
+** dl
+#+begin_src sh
+wget https://code.google.com/p/google-compute-engine-tools/downloads/detail?name=gcutil-1.8.0.tar.gz
+tar xvf gcutil-1.8.0.tar.gz -C ~/applications/
+cd ~/applications && ln -s gcutil-1.8.0 gcutil
+echo "export PATH=~/applications/gcutil:$PATH" >> ~/.bashrc
+#+end_src
+
+** setup
+
+#+begin_src sh
+gcutil auth --project=<project-id>
+#+end_src
+
+Follow the link generated
+Authorize the application
+Copy the token given to you inside the gcutil prompt (still waiting for you).
+
+** optional setup
+Add your project as the one by default (generated inside ~/.gcutil.flags)
+#+begin_src sh
+gcutil getproject --project=<project-id> --cache_flag_values
+#+end_src
+
+* Use
+** list instances
+
+those running:
+#+begin_src sh
+gcutil (--project=<project-id>) listinstances (--filter="status eq RUNNING")
+#+end_src
+
+** Check auth
+#+begin_src sh
+gcutil --project=<project-id> auth --just_check_auth
+#+end_src
+** List zones
+
+#+begin_src sh
+gcutil listzones
+#+end_src
+
+Output:
+#+begin_src txt
+vagrant@tony(0.00,) 10:49:27 ~ $ gcutil listzones
++----------------+----------------+--------+-------------+-------------------------------+-----------------+------------+-------------+----------------------+
+|      name      |  description   | status | deprecation |    next-maintenance-window    | instances-usage | cpus-usage | disks-usage | disks-total-gb-usage |
++----------------+----------------+--------+-------------+-------------------------------+-----------------+------------+-------------+----------------------+
+| europe-west1-a | europe-west1-a | UP     |             | 2013-08-03T12:00:00.000-07:00 | 1.0/8.0         | 1.0/8.0    | 1.0/8.0     | 10.0/1024.0          |
+| europe-west1-b | europe-west1-b | UP     |             | 2013-09-28T12:00:00.000-07:00 | 0.0/8.0         | 0.0/8.0    | 0.0/8.0     | 0.0/1024.0           |
+| us-central1-a  | us-central1-a  | UP     |             | 2013-08-17T12:00:00.000-07:00 | 0.0/8.0         | 0.0/8.0    | 0.0/8.0     | 0.0/1024.0           |
+| us-central1-b  | us-central1-b  | UP     |             | 2013-10-26T12:00:00.000-07:00 | 0.0/8.0         | 0.0/8.0    | 0.0/8.0     | 0.0/1024.0           |
+| us-central2-a  | us-central2-a  | UP     |             | 2013-10-12T12:00:00.000-07:00 | 0.0/8.0         | 0.0/8.0    | 0.0/8.0     | 0.0/1024.0           |
++----------------+----------------+--------+-------------+-------------------------------+-----------------+------------+-------------+----------------------+
+#+end_src
+
+** create node
+Possible output
+
+#+begin_src sh
+gcutil addinstance <image-name> --persistent_boot_disk --wait_until_running --machine_type=<machine-type> --zone=<zone> --image=<image-name>
+#+end_src
+
+Example:
+
+#+begin_src sh
+gcutil addinstance <image-name> --persistent_boot_disk --wait_until_running --machine_type=f1-micro --zone=europe-west1-a --image=projects/debian-cloud/global/images/debian-7-wheezy-v20130515
+#+end_src
+
+Possible output:
+#+begin_src sh
+vagrant@tony (0.08,) 10:44:57 ~ $ gcutil addinstance adu-fst-instance --persistent_boot_disk
+1: europe-west1-a
+2: europe-west1-b
+3: us-central1-a
+4: us-central1-b
+5: us-central2-a
+>>> 1
+1: n1-standard-1        1 vCPU, 3.75 GB RAM
+2: n1-standard-1-d      1 vCPU, 3.75 GB RAM, 1 scratch disk (420 GB)
+3: n1-standard-2        2 vCPUs, 7.5 GB RAM
+4: n1-standard-2-d      2 vCPUs, 7.5 GB RAM, 1 scratch disk (870 GB)
+5: n1-standard-4        4 vCPUs, 15 GB RAM
+6: n1-standard-4-d      4 vCPUs, 15 GB RAM, 1 scratch disk (1770 GB)
+7: n1-standard-8        8 vCPUs, 30 GB RAM
+8: n1-standard-8-d      8 vCPUs, 30 GB RAM, 2 scratch disks (1770 GB, 1770 GB)
+9: n1-highcpu-2 2 vCPUs, 1.8 GB RAM
+10: n1-highcpu-2-d      2 vCPUs, 1.8 GB RAM, 1 scratch disk (870 GB)
+11: n1-highcpu-4        4 vCPUs, 3.6 GB RAM
+12: n1-highcpu-4-d      4 vCPUS, 3.6 GB RAM, 1 scratch disk (1770 GB)
+13: n1-highcpu-8        8 vCPUs, 7.2 GB RAM
+14: n1-highcpu-8-d      8 vCPUS, 7.2 GB RAM, 2 scratch disks (1770 GB, 1770 GB)
+15: n1-highmem-2        2 vCPUs, 13 GB RAM
+16: n1-highmem-2-d      2 vCPUs, 13 GB RAM, 1 scratch disk (870 GB)
+17: n1-highmem-4        4 vCPUs, 26 GB RAM
+18: n1-highmem-4-d      4 vCPUs, 26 GB RAM, 1 scratch disk (1770 GB)
+19: n1-highmem-8        8 vCPUs, 52 GB RAM
+20: n1-highmem-8-d      8 vCPUs, 52 GB RAM, 2 scratch disks (1770 GB, 1770 GB)
+21: f1-micro    1 vCPU (shared physical core) and 0.6 GB RAM
+22: g1-small    1 vCPU (shared physical core) and 1.7 GB RAM
+>>> 21
+1: projects/centos-cloud/global/images/centos-6-v20130515
+2: projects/debian-cloud/global/images/debian-6-squeeze-v20130515
+3: projects/debian-cloud/global/images/debian-7-wheezy-v20130515
+>>> 3
+INFO: Preparing boot disk [boot-adu-fst-instance] for instance [adu-fst-instance] from disk image [https://www.googleapis.com/compute/v1beta15/projects/debian-cloud/global/images/debian-7-wheezy-v20130515].
+INFO: Waiting for insert of disk boot-adu-fst-instance. Sleeping for 3s.
+INFO: Waiting for insert of disk boot-adu-fst-instance. Sleeping for 3s.
+INFO: Waiting for insert of disk boot-adu-fst-instance. Sleeping for 3s.
+INFO: Waiting for insert of disk boot-adu-fst-instance. Sleeping for 3s.
+INFO: Waiting for insert of disk boot-adu-fst-instance. Sleeping for 3s.
+INFO: Waiting for insert of disk boot-adu-fst-instance. Sleeping for 3s.
+INFO: Waiting for insert of disk boot-adu-fst-instance. Sleeping for 3s.
+INFO: Waiting for insert of disk boot-adu-fst-instance. Sleeping for 3s.
+WARNING: You don't have an ssh key for Google Compute Engine. Creating one now...
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+INFO: Waiting for insert of instance adu-fst-instance. Sleeping for 3s.
+INFO: Waiting for insert of instance adu-fst-instance. Sleeping for 3s.
+INFO: Waiting for insert of instance adu-fst-instance. Sleeping for 3s.
+INFO: Waiting for insert of instance adu-fst-instance. Sleeping for 3s.
+INFO: Waiting for insert of instance adu-fst-instance. Sleeping for 3s.
+
+Table of resources:
+
++------------------+--------------+-------+---------+--------------+----------------+-----------------------+----------------+---------+----------------+
+|       name       | machine-type | image | network |  network-ip  |  external-ip   |         disks         |      zone      | status  | status-message |
++------------------+--------------+-------+---------+--------------+----------------+-----------------------+----------------+---------+----------------+
+| adu-fst-instance | f1-micro     |       | default | 10.240.2.148 | 192.158.30.139 | boot-adu-fst-instance | europe-west1-a | RUNNING |                |
++------------------+--------------+-------+---------+--------------+----------------+-----------------------+----------------+---------+----------------+
+
+Table of operations:
+
++------------------------------------------------+--------+----------------+--------+----------------+------------------+-------------------------------+----------------+-------+---------------+---------+
+|                      name                      | region |      zone      | status | status-message |      target      |          insert-time          | operation-type | error | error-message | warning |
++------------------------------------------------+--------+----------------+--------+----------------+------------------+-------------------------------+----------------+-------+---------------+---------+
+| operation-1369824552405-4ddd921d6beb1-36d87fb0 |        | europe-west1-a | DONE   |                | adu-fst-instance | 2013-05-29T03:49:12.405-07:00 | insert         |       |               |         |
++------------------------------------------------+--------+----------------+--------+----------------+------------------+-------------------------------+----------------+-------+---------------+---------+
+
+#+end_src
+
+** Check instance status
+
+#+begin_src sh
+gcutil getinstance <instance-name> (--zone=<zone>)
+#+end_src
+
+Output:
+#+begin_src sh
+vagrant@tony (0.03,) 10:50:42 ~ $ gcutil getinstance adu-fst-instance
+INFO: Zone for 'adu-fst-instance' detected as u'europe-west1-a'.
+WARNING: Consider passing '--zone=europe-west1-a' to avoid the unnecessary zone lookup which requires extra API calls.
++------------------------+------------------------------------------------------------------------------------------------------------------+
+|        property        |                                                      value                                                       |
++------------------------+------------------------------------------------------------------------------------------------------------------+
+| name                   | adu-fst-instance                                                                                                 |
+| description            |                                                                                                                  |
+| creation-time          | 2013-05-29T03:49:12.666-07:00                                                                                    |
+| machine                | f1-micro                                                                                                         |
+| image                  |                                                                                                                  |
+| zone                   | europe-west1-a                                                                                                   |
+| tags-fingerprint       | 42WmSpB8rSM=                                                                                                     |
+| metadata-fingerprint   | 42WmSpB8rSM=                                                                                                     |
+| status                 | RUNNING                                                                                                          |
+| status-message         |                                                                                                                  |
+|                        |                                                                                                                  |
+| disk                   | 0                                                                                                                |
+|   type                 | PERSISTENT                                                                                                       |
+|   mode                 | READ_WRITE                                                                                                       |
+|   deviceName           | boot-adu-fst-instance                                                                                            |
+|   source               | https://www.googleapis.com/compute/v1beta15/projects/sfeir-test/zones/europe-west1-a/disks/boot-adu-fst-instance |
+|   boot                 | True                                                                                                             |
+|                        |                                                                                                                  |
+| network-interface      |                                                                                                                  |
+|   network              | default                                                                                                          |
+|   ip                   | 10.240.2.148                                                                                                     |
+|   access-configuration | External NAT                                                                                                     |
+|     type               | ONE_TO_ONE_NAT                                                                                                   |
+|     external-ip        | 192.158.30.139                                                                                                   |
+|                        |                                                                                                                  |
+| metadata               |                                                                                                                  |
+| fingerprint            | 42WmSpB8rSM=                                                                                                     |
+|                        |                                                                                                                  |
+| tags                   |                                                                                                                  |
+| fingerprint            | 42WmSpB8rSM=                                                                                                     |
++------------------------+------------------------------------------------------------------------------------------------------------------+
+#+end_src
+** connect
+
+#+begin_src sh
+gcutil ssh <instance-name> --zone=<zone>
+#+end_src
+
+Output:
+#+begin_src sh
+vagrant@tony(0.07,) 11:01:58 (2) ~ $ gcutil ssh adu-fst-instance
+INFO: Zone for 'adu-fst-instance' detected as u'europe-west1-a'.
+WARNING: Consider passing '--zone=europe-west1-a' to avoid the unnecessary zone lookup which requires extra API calls.
+INFO: Running command line: ssh -o UserKnownHostsFile=/dev/null -o CheckHostIP=no -o StrictHostKeyChecking=no -i /home/vagrant/.ssh/google_compute_engine -A -p 22 vagrant@192.158.30.139 --
+Warning: Permanently added '192.158.30.139' (ECDSA) to the list of known hosts.
+Linux adu-fst-instance 3.3.8-gcg-201304231037 #7 SMP Tue Apr 23 10:38:59 PDT 2013 x86_64
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+Last login: Wed May 29 11:01:41 2013 from 195.114.85.3
+vagrant@adu-fst-instance:~$
+#+end_src
+
+
+** destroy
+#+begin_src sh
+gcutil deleteinstance <instance-name>
+#+end_src
+
+Output:
+#+begin_src txt
+vagrant@tony (0.03,) 11:03:00 ~ $ gcutil deleteinstance adu-fst-instance
+Delete instance adu-fst-instance? [y/N]
+>>> y
+INFO: Zone for 'adu-fst-instance' detected as u'europe-west1-a'.
+WARNING: Consider passing '--zone=europe-west1-a' to avoid the unnecessary zone lookup which requires extra API calls.
+INFO: Waiting for delete of instance adu-fst-instance. Sleeping for 3s.
+INFO: Waiting for delete of instance adu-fst-instance. Sleeping for 3s.
+INFO: Waiting for delete of instance adu-fst-instance. Sleeping for 3s.
+INFO: Waiting for delete of instance adu-fst-instance. Sleeping for 3s.
+INFO: Waiting for delete of instance adu-fst-instance. Sleeping for 3s.
+INFO: Waiting for delete of instance adu-fst-instance. Sleeping for 3s.
+INFO: Waiting for delete of instance adu-fst-instance. Sleeping for 3s.
+INFO: Waiting for delete of instance adu-fst-instance. Sleeping for 3s.
++------------------------------------------------+--------+----------------+--------+----------------+------------------+-------------------------------+----------------+-------+---------------+---------+
+|                      name                      | region |      zone      | status | status-message |      target      |          insert-time          | operation-type | error | error-message | warning |
++------------------------------------------------+--------+----------------+--------+----------------+------------------+-------------------------------+----------------+-------+---------------+---------+
+| operation-1369825398801-4ddd9544c2a11-b028f574 |        | europe-west1-a | DONE   |                | adu-fst-instance | 2013-05-29T04:03:18.801-07:00 | delete         |       |               |         |
++------------------------------------------------+--------+----------------+--------+----------------+------------------+-------------------------------+----------------+-------+---------------+---------+
+#+end_src
+
+** delete disk
+
+#+begin_src sh
+gcutil deletedisk <instance-name> --zone=<zone>
+#+end_src
+
+Output:
+#+begin_src sh
+vagrant@tony (0.01,) 11:04:28 (1) ~ $ gcutil deletedisk adu-fst-instance --zone=europe-west1-a
+Delete disk adu-fst-instance? [y/N]
+>>> y
++------+-------------+------+--------+-----------------+---------+
+| name | description | zone | status | source-snapshot | size-gb |
++------+-------------+------+--------+-----------------+---------+
++------+-------------+------+--------+-----------------+---------+
+Error: The resource 'projects/sfeir-test/zones/europe-west1-a/disks/adu-fst-instance' was not found
+#+end_src
