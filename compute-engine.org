@@ -327,3 +327,157 @@ Table of operations:
 | operation-1369834040620-4dddb576258d1-506e10ab |        |      | DONE   |                | ring   | 2013-05-29T06:27:20.620-07:00 | insert         |       |               |         |
 +------------------------------------------------+--------+------+--------+----------------+--------+-------------------------------+----------------+-------+---------------+---------+
 #+end_src
+
+** snapshots
+*** take
+#+begin_src sh
+gcutil addsnapshot <snapshot-name> (--zone=<zone>) --source_disk=<source-disk> --project=<project-id>
+#+end_src
+
+Output:
+#+begin_src sh
+vagrant@tony(0.00,) 13:39:11 (1) ~ $ gcutil addsnapshot web2front-web2back-ready --zone=europe-west1-a --source_disk=boot-ard-fst-instance
+INFO: Waiting for createSnapshot of disk boot-ard-fst-instance. Sleeping for 3s.
+INFO: Waiting for createSnapshot of disk boot-ard-fst-instance. Sleeping for 3s.
+INFO: Waiting for createSnapshot of disk boot-ard-fst-instance. Sleeping for 3s.
+INFO: Waiting for createSnapshot of disk boot-ard-fst-instance. Sleeping for 3s.
+INFO: Waiting for createSnapshot of disk boot-ard-fst-instance. Sleeping for 3s.
+INFO: Waiting for createSnapshot of disk boot-ard-fst-instance. Sleeping for 3s.
+INFO: Waiting for createSnapshot of disk boot-ard-fst-instance. Sleeping for 3s.
+INFO: Waiting for createSnapshot of disk boot-ard-fst-instance. Sleeping for 3s.
+INFO: Waiting for createSnapshot of disk boot-ard-fst-instance. Sleeping for 3s.
+INFO: Waiting for createSnapshot of disk boot-ard-fst-instance. Sleeping for 3s.
+INFO: Waiting for createSnapshot of disk boot-ard-fst-instance. Sleeping for 3s.
+INFO: Waiting for createSnapshot of disk boot-ard-fst-instance. Sleeping for 3s.
+INFO: Waiting for createSnapshot of disk boot-ard-fst-instance. Sleeping for 3s.
+INFO: Waiting for createSnapshot of disk boot-ard-fst-instance. Sleeping for 3s.
+INFO: Waiting for createSnapshot of disk boot-ard-fst-instance. Sleeping for 3s.
+INFO: Waiting for createSnapshot of disk boot-ard-fst-instance. Sleeping for 3s.
+INFO: Waiting for createSnapshot of disk boot-ard-fst-instance. Sleeping for 3s.
+INFO: Waiting for createSnapshot of disk boot-ard-fst-instance. Sleeping for 3s.
+INFO: Waiting for createSnapshot of disk boot-ard-fst-instance. Sleeping for 3s.
+INFO: Waiting for createSnapshot of disk boot-ard-fst-instance. Sleeping for 3s.
+INFO: Waiting for createSnapshot of disk boot-ard-fst-instance. Sleeping for 3s.
+INFO: Waiting for createSnapshot of disk boot-ard-fst-instance. Sleeping for 3s.
+INFO: Waiting for createSnapshot of disk boot-ard-fst-instance. Sleeping for 3s.
+INFO: Waiting for createSnapshot of disk boot-ard-fst-instance. Sleeping for 3s.
+INFO: Waiting for createSnapshot of disk boot-ard-fst-instance. Sleeping for 3s.
+INFO: Waiting for createSnapshot of disk boot-ard-fst-instance. Sleeping for 3s.
+INFO: Waiting for createSnapshot of disk boot-ard-fst-instance. Sleeping for 3s.
+INFO: Waiting for createSnapshot of disk boot-ard-fst-instance. Sleeping for 3s.
+INFO: Waiting for createSnapshot of disk boot-ard-fst-instance. Sleeping for 3s.
+INFO: Waiting for createSnapshot of disk boot-ard-fst-instance. Sleeping for 3s.
+INFO: Waiting for createSnapshot of disk boot-ard-fst-instance. Sleeping for 3s.
+INFO: Waiting for createSnapshot of disk boot-ard-fst-instance. Sleeping for 3s.
+INFO: Waiting for createSnapshot of disk boot-ard-fst-instance. Sleeping for 3s.
+
+Table of resources:
+
++-----------------------+------------------------------------------------------------------+-------------------------------+--------+--------------+-------------+
+|         name          |                           description                            |         creation-time         | status | disk-size-gb | source-disk |
++-----------------------+------------------------------------------------------------------+-------------------------------+--------+--------------+-------------+
+| boot-ard-fst-instance | Persistent boot disk created fr..ages/debian-7-wheezy-v20130515. | 2013-05-29T05:36:08.238-07:00 | READY  |              |             |
++-----------------------+------------------------------------------------------------------+-------------------------------+--------+--------------+-------------+
+
+Table of operations:
+
++------------------------------------------------+--------+----------------+--------+----------------+-----------------------+-------------------------------+----------------+-------+---------------+---------+
+|                      name                      | region |      zone      | status | status-message |        target         |          insert-time          | operation-type | error | error-message | warning |
++------------------------------------------------+--------+----------------+--------+----------------+-----------------------+-------------------------------+----------------+-------+---------------+---------+
+| operation-1369834760574-4dddb824ccff9-b7090d07 |        | europe-west1-a | DONE   |                | boot-ard-fst-instance | 2013-05-29T06:39:20.574-07:00 | createSnapshot |       |               |         |
++------------------------------------------------+--------+----------------+--------+----------------+-----------------------+-------------------------------+----------------+-------+---------------+---------+
+#+end_src
+
+*** list
+#+begin_src sh
+gcutil listsnapshots (--project=<project-id>)
+#+end_src
+
+Output:
+#+begin_src sh
+vagrant@tony(0.00,) 13:41:16 ~ $ gcutil listsnapshots
++--------------------------+-------------+-------------------------------+--------+--------------+------------------------------------------------------------------+
+|           name           | description |         creation-time         | status | disk-size-gb |                           source-disk                            |
++--------------------------+-------------+-------------------------------+--------+--------------+------------------------------------------------------------------+
+| web2front-web2back-ready |             | 2013-05-29T06:39:20.943-07:00 | READY  | 10           | projects/sfeir-test/zones/europ..1-a/disks/boot-ard-fst-instance |
++--------------------------+-------------+-------------------------------+--------+--------------+------------------------------------------------------------------+
+#+end_src
+*** delete
+#+begin_src sh
+gcutil deletesnapshot <snapshot-name> --project=<project-id>
+#+end_src
+
+** disks
+*** list
+
+#+begin_src sh
+gcutil listdisks --zone=<zone>
+#+end_src
+
+#+begin_src sh
+vagrant@tony(0.00,) 13:47:30 ~ $ gcutil listdisks --zone=europe-west1-a
++-----------------------+------------------------------------------------------------------+----------------+--------+-----------------+---------+
+|         name          |                           description                            |      zone      | status | source-snapshot | size-gb |
++-----------------------+------------------------------------------------------------------+----------------+--------+-----------------+---------+
+| boot-ard-fst-instance | Persistent boot disk created fr..ages/debian-7-wheezy-v20130515. | europe-west1-a | READY  |                 | 10      |
++-----------------------+------------------------------------------------------------------+----------------+--------+-----------------+---------+
+#+end_src
+
+*** info
+
+Retrieve data around disk:
+#+begin_src sh
+gcutil getdisk <disk-name> (--zone=<zone>)
+#+end_src
+
+Output:
+#+begin_src sh
+vagrant@tony(0.00,) 13:49:07 (1) ~ $ gcutil getdisk boot-ard-fst-instance --zone=europe-west1-a
++-----------------+------------------------------------------------------------------+
+|    property     |                              value                               |
++-----------------+------------------------------------------------------------------+
+| name            | boot-ard-fst-instance                                            |
+| description     | Persistent boot disk created fr..ages/debian-7-wheezy-v20130515. |
+| creation-time   | 2013-05-29T05:36:08.238-07:00                                    |
+| zone            | europe-west1-a                                                   |
+| status          | READY                                                            |
+| source-snapshot |                                                                  |
+| size-gb         | 10                                                               |
++-----------------+------------------------------------------------------------------+
+
+#+end_src
+*** delete
+
+#+begin_src sh
+gcutil deletedisk <disk-name>
+#+end_src
+
+** File
+*** push
+#+begin_src sh
+gcutil push (--zone=<zone>) <instance-name> <file> <file2>... <dest>
+#+end_src
+
+Output:
+#+begin_src sh
+vagrant@tony(0.05,) 13:56:43 ~/web2print ((ref: re...)) $ gcutil push --zone=europe-west1-a ard-fst-instance install.sh ~
+INFO: Running command line: scp -o UserKnownHostsFile=/dev/null -o CheckHostIP=no -o StrictHostKeyChecking=no -i /home/vagrant/.ssh/google_compute_engine -r -P 22 -- install.sh vagrant@192.158.30.139:/home/vagrant
+Warning: Permanently added '192.158.30.139' (ECDSA) to the list of known hosts.
+install.sh                                                                                                                            100%  339     0.3KB/s   00:00
+
+#+end_src
+
+
+*** pull
+
+#+begin_src sh
+gcutil pull (--zone=<zone>) <instance-name> <file> <file2>... <dest>
+#+end_src
+
+Output
+#+begin_src sh
+vagrant@tony(0.04,) 13:56:59 ~/web2print ((ref: re...)) $ gcutil pull --zone=europe-west1-a ard-fst-instance install.sh ~
+INFO: Running command line: scp -o UserKnownHostsFile=/dev/null -o CheckHostIP=no -o StrictHostKeyChecking=no -i /home/vagrant/.ssh/google_compute_engine -r -P 22 -- vagrant@192.158.30.139:install.sh /home/vagrant
+Warning: Permanently added '192.158.30.139' (ECDSA) to the list of known hosts.
+install.sh                                                                                                                            100%  339     0.3KB/s   00:00
+#+end_src
