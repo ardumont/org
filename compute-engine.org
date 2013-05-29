@@ -231,18 +231,17 @@ WARNING: Consider passing '--zone=europe-west1-a' to avoid the unnecessary zone 
 #+end_src
 ** connect
 
+Connect to the instance via ssh:
 #+begin_src sh
-gcutil ssh <instance-name> --zone=<zone>
+gcutil ssh (--zone=<zone>) <instance-name>
 #+end_src
 
 Output:
 #+begin_src sh
-vagrant@tony(0.07,) 11:01:58 (2) ~ $ gcutil ssh adu-fst-instance
-INFO: Zone for 'adu-fst-instance' detected as u'europe-west1-a'.
-WARNING: Consider passing '--zone=europe-west1-a' to avoid the unnecessary zone lookup which requires extra API calls.
+vagrant@tony (0.00,) 12:41:43 ~ $ gcutil ssh --zone=europe-west1-a ard-fst-instance
 INFO: Running command line: ssh -o UserKnownHostsFile=/dev/null -o CheckHostIP=no -o StrictHostKeyChecking=no -i /home/vagrant/.ssh/google_compute_engine -A -p 22 vagrant@192.158.30.139 --
 Warning: Permanently added '192.158.30.139' (ECDSA) to the list of known hosts.
-Linux adu-fst-instance 3.3.8-gcg-201304231037 #7 SMP Tue Apr 23 10:38:59 PDT 2013 x86_64
+Linux ard-fst-instance 3.3.8-gcg-201304231037 #7 SMP Tue Apr 23 10:38:59 PDT 2013 x86_64
 
 The programs included with the Debian GNU/Linux system are free software;
 the exact distribution terms for each program are described in the
@@ -250,10 +249,9 @@ individual files in /usr/share/doc/*/copyright.
 
 Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
 permitted by applicable law.
-Last login: Wed May 29 11:01:41 2013 from 195.114.85.3
-vagrant@adu-fst-instance:~$
+Last login: Wed May 29 12:41:39 2013 from 195.114.85.3
+vagrant@ard-fst-instance:~$
 #+end_src
-
 
 ** destroy
 #+begin_src sh
