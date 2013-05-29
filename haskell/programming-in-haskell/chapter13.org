@@ -147,11 +147,6 @@ Inductive case:
 #+end_src
 ok.
 
-* Why?
-#+begin_quote
-The equation =reverse (reverse xs) = xs= can also be proved using a single auxiliary result, =reverse(xs ++ [x]) = x:reverse xs=, which can itself be verified by induction on xs.
-Why might the proof using three auxiliary results as in this chapter be viewed as preferable?
-#+end_quote
 * Proof on map and composition of functions
 #+begin_quote
 Using the definitions
