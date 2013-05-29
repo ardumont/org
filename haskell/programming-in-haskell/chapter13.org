@@ -6,9 +6,11 @@
 #+OPTIONS:
 #+TAGS: haskell, exercises, functional-programming, induction, proof
 #+CATEGORY: haskell, exercises, functional-programming, induction, proof
-#+DESCRIPTION: Learning haskell and solving problems using reasoning and 'repl'ing
+#+DESCRIPTION: The last chapter of programming in haskell - exercises.
 #+STARTUP: indent
 #+STARTUP: hidestars odd
+
+At last, the last chapter exercises.
 
 * Overlapping patterns
 #+begin_quote
