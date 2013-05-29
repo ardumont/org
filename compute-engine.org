@@ -145,7 +145,42 @@ Table of operations:
 +------------------------------------------------+--------+----------------+--------+----------------+------------------+-------------------------------+----------------+-------+---------------+---------+
 | operation-1369824552405-4ddd921d6beb1-36d87fb0 |        | europe-west1-a | DONE   |                | adu-fst-instance | 2013-05-29T03:49:12.405-07:00 | insert         |       |               |         |
 +------------------------------------------------+--------+----------------+--------+----------------+------------------+-------------------------------+----------------+-------+---------------+---------+
+#+end_src
 
+Another possible output:
+#+begin_src sh
+vagrant@tony (0.08,) 11:04:50 (1) ~ $ gcutil addinstance ard-fst-instance --persistent_boot_disk --wait_until_running --machine_type=f1-micro --zone=europe-west1-a --image=debian-7-wheezy-v20130515
+INFO: Resolved debian-7-wheezy-v20130515 to projects/debian-cloud/global/images/debian-7-wheezy-v20130515
+INFO: Preparing boot disk [boot-ard-fst-instance] for instance [ard-fst-instance] from disk image [https://www.googleapis.com/compute/v1beta15/projects/debian-cloud/global/images/debian-7-wheezy-v20130515].
+INFO: Waiting for insert of disk boot-ard-fst-instance. Sleeping for 3s.
+INFO: Waiting for insert of disk boot-ard-fst-instance. Sleeping for 3s.
+INFO: Waiting for insert of disk boot-ard-fst-instance. Sleeping for 3s.
+INFO: Waiting for insert of disk boot-ard-fst-instance. Sleeping for 3s.
+INFO: Waiting for insert of disk boot-ard-fst-instance. Sleeping for 3s.
+INFO: Waiting for insert of disk boot-ard-fst-instance. Sleeping for 3s.
+INFO: Waiting for insert of disk boot-ard-fst-instance. Sleeping for 3s.
+INFO: Waiting for insert of disk boot-ard-fst-instance. Sleeping for 3s.
+INFO: Waiting for insert of instance ard-fst-instance. Sleeping for 3s.
+INFO: Waiting for insert of instance ard-fst-instance. Sleeping for 3s.
+INFO: Waiting for insert of instance ard-fst-instance. Sleeping for 3s.
+INFO: Waiting for insert of instance ard-fst-instance. Sleeping for 3s.
+INFO: Ensuring ard-fst-instance is running.  Will wait to start for: 240 seconds.
+
+Table of resources:
+
++------------------+--------------+-------+---------+----------------+----------------+-----------------------+----------------+---------+----------------+
+|       name       | machine-type | image | network |   network-ip   |  external-ip   |         disks         |      zone      | status  | status-message |
++------------------+--------------+-------+---------+----------------+----------------+-----------------------+----------------+---------+----------------+
+| ard-fst-instance | f1-micro     |       | default | 10.240.228.194 | 192.158.30.139 | boot-ard-fst-instance | europe-west1-a | RUNNING |                |
++------------------+--------------+-------+---------+----------------+----------------+-----------------------+----------------+---------+----------------+
+
+Table of operations:
+
++------------------------------------------------+--------+----------------+--------+----------------+------------------+-------------------------------+----------------+-------+---------------+---------+
+|                      name                      | region |      zone      | status | status-message |      target      |          insert-time          | operation-type | error | error-message | warning |
++------------------------------------------------+--------+----------------+--------+----------------+------------------+-------------------------------+----------------+-------+---------------+---------+
+| operation-1369830997618-4dddaa2012a49-ae410882 |        | europe-west1-a | DONE   |                | ard-fst-instance | 2013-05-29T05:36:37.618-07:00 | insert         |       |               |         |
++------------------------------------------------+--------+----------------+--------+----------------+------------------+-------------------------------+----------------+-------+---------------+---------+
 #+end_src
 
 ** Check instance status
