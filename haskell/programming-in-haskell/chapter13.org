@@ -201,6 +201,23 @@ show that =take n xs ++ drop n xs = xs= , by simultaneous induction on the integ
 _Hint:_ there are three cases, one for each pattern of arguments in the definitions of =take= and =drop=.
 #+end_quote
 
+base cases:
+#+begin_src haskell
+take 0 xs ++ drop 0 xs = [] ++ [] -- by definition of take and drop
+                       = []       -- this is true for all xs, including []
+
+take n [] ++ drop n [] = [] ++ []
+                       = []
+#+end_src
+
+inductive cases:
+#+begin_src haskell
+take (n+1) (x:xs) ++ drop (n+1) (x:xs) = (x:take n xs) ++ (drop n xs)   -- by definition of take and drop
+                                       = x:((take n xs) ++ (drop n xs)) -- by induction hypothesis
+                                       = (x:xs)
+#+end_src
+ok.
+
 * Tree
 #+begin_quote
 Given the type declaration =data Tree = Leaf Int | Node Tree Tree=, show that the number of leaves in a such a tree is always one greater than the number of nodes, by induction on trees.
