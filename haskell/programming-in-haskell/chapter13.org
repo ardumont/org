@@ -50,10 +50,29 @@ add (Succ n) (Succ m) = Succ (add n (Succ m)) -- using the induction hypothesis
 #+end_src
 So the property holds.
 
-* Proof by induction 2
+* commutativity
 #+begin_quote
 Using this property, together with =add n Zero = n=, show that addition is commutative, =add n m = add m n=, by induction on n.
 #+end_quote
+
+Again, base case first:
+#+begin_src haskell
+add Zero m = m
+           = add m Zero -- property of add in the previous exercise.
+#+end_src
+ok.
+
+Now, inductive case:
+#+begin_src haskell
+add (Succ n) m = Succ (add n m) -- by hypothesis
+               = Succ (add m n)
+               = add m (Succ n) -- using property add n (Succ m) = Succ (add n m)
+#+end_src
+The property holds.
+
+The base case is ok and the inductive case holds the property.
+So by induction, the hypothesis is sound, add is commutative.
+
 * Proof of correctness
 #+begin_quote
 Using the following definition for the library function that decides if all elements of a list satisfy a predicate:
