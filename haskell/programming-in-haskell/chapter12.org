@@ -1,6 +1,5 @@
-#+BLOG: tony-blog
+#+DATE: [2013-05-29 mer. 20:21]
 #+POSTID: 1213
-#+DATE: [2013-05-26 dim. 16:19]
 #+BLOG: tony-blog
 #+TITLE: PIH - ch12 - Lazy evaluation - exercises
 #+AUTHOR: Antoine R. Dumont
@@ -11,7 +10,7 @@
 #+STARTUP: indent
 #+STARTUP: hidestars odd
 
-* best evaluation
+* Best evaluation
 #+begin_quote
 Show why outermost evaluation is preferable to innermost for the purposes of evaluating the expression fst (1 + 2, 2 + 3).
 #+end_quote
@@ -19,7 +18,7 @@ Show why outermost evaluation is preferable to innermost for the purposes of eva
 We do not need to evaluate the result of the innermost redex (2+3) for having the result (1+2) entry (which is what we want).
 So evaluation by name is more interesting here. We avoid one resolution.
 
-* evaluation
+* Evaluation
 #+begin_quote
 Given the definition mult = λx → (λy → x ∗ y), show how the evaluation of =mult 3 4= can be broken down into four separate steps.
 #+end_quote
@@ -33,7 +32,7 @@ mult 3 4 = (\x -> (\y -> x * y)) 3 4
          = 12
 #+end_src
 
-* fibonacci
+* Fibonacci
 #+begin_quote
 Using a list comprehension, define an expression =fibs :: [ Integer ]= that generates the infinite sequence of Fibonacci numbers 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, ... using the following simple procedure:
 - the first two numbers are 0 and 1;
@@ -44,7 +43,7 @@ _Hint:_ make use of the library functions =zip= and =tail=.
 Note that numbers in the Fibonacci sequence quickly become large, hence the use of the type Integer of arbitrary-precision integers above.
 #+end_quote
 
-First implementing fibonacci using simple recursion to have the feel of it:
+First implementing fibonacci using simple recursion:
 #+begin_src haskell
 fibo :: [Integer]
 fibo = fibonacci [0,1]
@@ -61,8 +60,7 @@ Then, some playing around with zip and tail to make some dumb sum can be a good 
 [(1,2,3),(2,3,5),(3,4,7),(4,5,9),(5,6,11),(6,7,13),(7,8,15),(8,9,17),(9,10,19)]
 #+end_src
 
-Now we are talking:
-
+Now we can implementing using a list comprehension
 #+begin_src haskell
 fibo :: [Integer]
 fibo = 0:1:[ x+y | (x,y) <- zip fibo (tail fibo)]

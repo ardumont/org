@@ -8,8 +8,8 @@
 ** [[file:/home/tony/org/haskell/programming-in-haskell/chapter12.org][PIH - ch12 - Lazy evaluation - exercises]]
 :PROPERTIES:
 :POSTID: 1213
-:POST_DATE: 20130526T14:19:00+0000
-:Published: No
+:POST_DATE: 20130529T18:21:00+0000
+:Published: Yes
 :END:
 ** [[file:/home/tony/org/haskell/programming-in-haskell/chapter11.org][PIH - ch11 - The countdown problem - exercises]]
 :PROPERTIES:

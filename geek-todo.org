@@ -513,7 +513,9 @@ CLOSED: [2013-05-23 jeu. 19:42]
 ** PENDING AVL in Haskell
 ** DONE PIH - ch11 - The countdown problem - exercises
 CLOSED: [2013-05-26 dim. 13:18]
-** IN-PROGRESS PIH - ch12 - lazyness - exercises
+** DONE PIH - ch12 - lazyness - exercises
+CLOSED: [2013-05-29 mer. 20:24]
+** IN-PROGRESS PIH - ch13 - Reasoning about programs - exercises
 * IN-PROGRESS clojure [28%]
 ** DONE start [100%]
 CLOSED: [2012-04-21 Sat 18:18]
