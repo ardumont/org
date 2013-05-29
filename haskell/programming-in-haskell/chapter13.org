@@ -197,12 +197,14 @@ Using the definition for =++= given above, together with:
 =drop n (_:xs) = drop (n-1) xs=
 
 show that =take n xs ++ drop n xs = xs= , by simultaneous induction on the integer n ≥ 0 and the list xs.
+
 _Hint:_ there are three cases, one for each pattern of arguments in the definitions of =take= and =drop=.
 #+end_quote
 
 * Tree
 #+begin_quote
 Given the type declaration =data Tree = Leaf Int | Node Tree Tree=, show that the number of leaves in a such a tree is always one greater than the number of nodes, by induction on trees.
+
 _Hint:_ start by defining functions that count the number of leaves and nodes in a tree.
 #+end_quote
 
