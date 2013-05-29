@@ -297,3 +297,33 @@ Delete disk adu-fst-instance? [y/N]
 +------+-------------+------+--------+-----------------+---------+
 Error: The resource 'projects/sfeir-test/zones/europe-west1-a/disks/adu-fst-instance' was not found
 #+end_src
+
+** Adding firewall rules
+
+Adding rules to permit connection on instance or network.
+#+begin_src sh
+gcutil addfirewall <name-of-rule> --description=<description-of-rule> --allowed="<tcp|udp>:<port>"
+#+end_src
+
+#+begin_src txt
+vagrant@tony(0.00,) 13:26:43 ~ $ gcutil addfirewall ring --description="Incoming on port 3000 allowed." --allowed="tcp:3000"
+INFO: Waiting for insert of firewall ring. Sleeping for 3s.
+INFO: Waiting for insert of firewall ring. Sleeping for 3s.
+INFO: Waiting for insert of firewall ring. Sleeping for 3s.
+
+Table of resources:
+
++------+--------------------------------+---------+------------+-------------+-------------+
+| name |          description           | network | source-ips | source-tags | target-tags |
++------+--------------------------------+---------+------------+-------------+-------------+
+| ring | Incoming on port 3000 allowed. | default | 0.0.0.0/0  |             |             |
++------+--------------------------------+---------+------------+-------------+-------------+
+
+Table of operations:
+
++------------------------------------------------+--------+------+--------+----------------+--------+-------------------------------+----------------+-------+---------------+---------+
+|                      name                      | region | zone | status | status-message | target |          insert-time          | operation-type | error | error-message | warning |
++------------------------------------------------+--------+------+--------+----------------+--------+-------------------------------+----------------+-------+---------------+---------+
+| operation-1369834040620-4dddb576258d1-506e10ab |        |      | DONE   |                | ring   | 2013-05-29T06:27:20.620-07:00 | insert         |       |               |         |
++------------------------------------------------+--------+------+--------+----------------+--------+-------------------------------+----------------+-------+---------------+---------+
+#+end_src
