@@ -1,3 +1,6 @@
+#+BLOG: tony-blog
+#+POSTID: 1218
+#+DATE: [2013-05-29 mer. 19:25]
 #+TITLE: PIH - ch13 - Reasoning about programs - exercises
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
@@ -159,6 +162,23 @@ Using the definitions
 
 show that =map f (map g xs) = map (f . g) xs=, by induction on xs.
 #+end_quote
+
+base case:
+#+begin_src haskell
+map f (map g []) = map f []       -- by definition of map
+                 = []             -- by definition of map
+                 = map (f . g) []
+#+end_src
+
+inductive case:
+#+begin_src haskell
+map f (map g (x:xs)) = map f ((g x):(map g xs))    -- by definition of map
+                     = f (g x):(map f (map g xs))  -- by hypothesis
+                     = f (g x):(map (f . g) xs)    -- by definition of (f . g)
+                     = (f . g) x):(map (f . g) xs) -- by definition of map
+                     = map (f . g) (x:xs)
+#+end_src
+ok.
 
 * take'n drop
 #+begin_quote
