@@ -11,6 +11,14 @@
 #+begin_quote
 Give an example of a function from the standard library in appendix A that is defined using overlapping patterns.
 #+end_quote
+
+Example using overlapping patterns:
+#+begin_src haskell
+null :: [a] -> Bool
+null [] = True
+null (_ : _) = False
+#+end_src
+
 * Proof by induction
 #+begin_quote
 Show that =add n (Succ m) = Succ (add n m)=, by induction on n.
