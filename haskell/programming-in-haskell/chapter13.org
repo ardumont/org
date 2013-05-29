@@ -113,9 +113,9 @@ ok.
 #+begin_quote
 Using the definition
 
-=[] ++ ys = ys=
+=[] ++ ys = ys= (1)
 
-=(x:xs) ++ ys = x:(xs ++ ys)=
+=(x:xs) ++ ys = x:(xs ++ ys)= (2)
 
 verify the following two properties, by induction on xs:
 
@@ -125,6 +125,27 @@ verify the following two properties, by induction on xs:
 
 _Hint:_ the proofs are similar to those for the add function.
 #+end_quote
+
+base case:
+#+begin_src haskell
+[] ++ [] = []                       -- using 1)
+
+[] ++ (ys ++ zs) = ys ++ zs         -- using 1)
+                 = ([] ++ ys) ++ zs
+#+end_src
+ok
+
+Inductive case:
+#+begin_src haskell
+(x:xs) ++ [] = x:(xs ++ []) -- using induction hypothesis
+             = (x:xs)
+
+(x:xs) ++ (ys ++ zs) = x:(xs ++ (ys ++ zs)) -- induction hypothesis
+                     = x:((xs ++ ys) ++ zs
+                     = (x:(xs ++ ys) ++ zs
+                     = ((x:xs) ++ ys) ++ zs
+#+end_src
+ok.
 
 * Why?
 #+begin_quote
