@@ -7,7 +7,7 @@ sources:
 * register on compute-engine
 * enable billing
 * install gcutil
-** dl
+** download
 #+begin_src sh
 wget https://code.google.com/p/google-compute-engine-tools/downloads/detail?name=gcutil-1.8.0.tar.gz
 tar xvf gcutil-1.8.0.tar.gz -C ~/applications/
@@ -34,7 +34,7 @@ gcutil getproject --project=<project-id> --cache_flag_values
 * Use
 ** list instances
 
-those running:
+List running instances:
 #+begin_src sh
 gcutil (--project=<project-id>) listinstances (--filter="status eq RUNNING")
 #+end_src
