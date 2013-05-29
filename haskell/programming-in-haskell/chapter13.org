@@ -1,9 +1,99 @@
-#+BLOG: tony-blog
 #+TITLE: PIH - ch13 - Reasoning about programs - exercises
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
-#+TAGS: haskell, exercises, functional-programming
-#+CATEGORY: haskell, exercises, functional-programming
+#+TAGS: haskell, exercises, functional-programming, induction, proof
+#+CATEGORY: haskell, exercises, functional-programming, induction, proof
 #+DESCRIPTION: Learning haskell and solving problems using reasoning and 'repl'ing
 #+STARTUP: indent
 #+STARTUP: hidestars odd
+
+* Overlapping patterns
+#+begin_quote
+Give an example of a function from the standard library in appendix A that is defined using overlapping patterns.
+#+end_quote
+* Proof by induction
+#+begin_quote
+Show that =add n (Succ m) = Succ (add n m)=, by induction on n.
+#+end_quote
+* Proof by induction 2
+#+begin_quote
+Using this property, together with =add n Zero = n=, show that addition is commutative, =add n m = add m n=, by induction on n.
+#+end_quote
+* Proof of correctness
+#+begin_quote
+Using the following definition for the library function that decides if all elements of a list satisfy a predicate:
+
+=all p [] = True=
+
+=all p (x : xs) = p x && all p xs=
+
+Complete the proof of the correctness of =replicate= by showing that it produces a list with identical elements, =all (== x) (replicate n x)=, by induction on n ≥ 0.
+
+_Hint:_ show that the property is always True.
+#+end_quote
+
+* Checks
+#+begin_quote
+Using the definition
+
+=[] ++ ys = ys=
+
+=(x:xs) ++ ys = x:(xs ++ ys)=
+
+verify the following two properties, by induction on xs:
+
+=xs ++ [] = xs=
+
+=xs ++ (ys ++ zs) = (xs ++ ys) ++ zs=
+
+_Hint:_ the proofs are similar to those for the add function.
+#+end_quote
+
+* Why?
+#+begin_quote
+The equation =reverse (reverse xs) = xs= can also be proved using a single auxiliary result, =reverse(xs ++ [x]) = x:reverse xs=, which can itself be verified by induction on xs.
+Why might the proof using three auxiliary results as in this chapter be viewed as preferable?
+#+end_quote
+* Proof on map and composition of functions
+#+begin_quote
+Using the definitions
+
+=map f [] = []=
+
+=map f (x : xs) = f x : map f xs=
+
+=(f . g) x = f (g x)=
+
+show that =map f (map g xs) = map (f . g) xs=, by induction on xs.
+#+end_quote
+
+* take'n drop
+#+begin_quote
+Using the definition for =++= given above, together with:
+
+=take 0 _ = []=
+
+=take _ [] = []=
+
+=take n (x:xs) = x:take (n-1) xs=
+
+=drop 0 xs = xs=
+
+=drop _ [] = []=
+
+=drop n (_:xs) = drop (n-1) xs=
+
+show that =take n xs ++ drop n xs = xs= , by simultaneous induction on the integer n ≥ 0 and the list xs.
+_Hint:_ there are three cases, one for each pattern of arguments in the definitions of =take= and =drop=.
+#+end_quote
+
+* Tree
+#+begin_quote
+Given the type declaration =data Tree = Leaf Int | Node Tree Tree=, show that the number of leaves in a such a tree is always one greater than the number of nodes, by induction on trees.
+_Hint:_ start by defining functions that count the number of leaves and nodes in a tree.
+#+end_quote
+
+* comp
+#+begin_quote
+Given the equation =comp' e c = comp e ++ c=, show how to construct the recursive definition for comp', by induction on e.
+#+end_quote
