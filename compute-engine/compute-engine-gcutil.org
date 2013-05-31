@@ -1,5 +1,7 @@
-#+title: compute engine discovery
+#+title: Google Compute Engine - gcutil
 #+author: Antoine R. Dumont
+
+Use with gcutil.
 
 sources:
 - https://developers.google.com/compute/docs/gcutil
