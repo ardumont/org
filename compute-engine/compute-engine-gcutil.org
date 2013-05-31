@@ -285,19 +285,22 @@ INFO: Waiting for delete of instance adu-fst-instance. Sleeping for 3s.
 ** delete disk
 
 #+begin_src sh
-gcutil deletedisk <instance-name> --zone=<zone>
+gcutil deletedisk <instance-name> (--zone=<zone>)
 #+end_src
 
 Output:
 #+begin_src sh
-vagrant@tony (0.01,) 11:04:28 (1) ~ $ gcutil deletedisk adu-fst-instance --zone=europe-west1-a
-Delete disk adu-fst-instance? [y/N]
+vagrant@tony (0.00,) 12:14:20 ~/web2print ((ref: re...)) $ gcutil deletedisk boot-ard-snd-instance
+Delete disk boot-ard-snd-instance? [y/N]
 >>> y
-+------+-------------+------+--------+-----------------+---------+
-| name | description | zone | status | source-snapshot | size-gb |
-+------+-------------+------+--------+-----------------+---------+
-+------+-------------+------+--------+-----------------+---------+
-Error: The resource 'projects/sfeir-test/zones/europe-west1-a/disks/adu-fst-instance' was not found
+INFO: Zone for 'boot-ard-snd-instance' detected as u'europe-west1-a'.
+WARNING: Consider passing '--zone=europe-west1-a' to avoid the unnecessary zone lookup which requires extra API calls.
+INFO: Waiting for delete of disk boot-ard-snd-instance. Sleeping for 3s.
++------------------------------------------------+--------+----------------+--------+----------------+-----------------------+-------------------------------+----------------+-------+---------------+---------+
+|                      name                      | region |      zone      | status | status-message |        target         |          insert-time          | operation-type | error | error-message | warning |
++------------------------------------------------+--------+----------------+--------+----------------+-----------------------+-------------------------------+----------------+-------+---------------+---------+
+| operation-1370002479806-4de028f258bd1-1a780a46 |        | europe-west1-a | DONE   |                | boot-ard-snd-instance | 2013-05-31T05:14:39.806-07:00 | delete         |       |               |         |
++------------------------------------------------+--------+----------------+--------+----------------+-----------------------+-------------------------------+----------------+-------+---------------+---------+
 #+end_src
 
 ** Adding firewall rules
