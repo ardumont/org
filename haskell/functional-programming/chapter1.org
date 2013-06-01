@@ -150,3 +150,37 @@ tail [1,2,3]            -- [2,3]
 drop 4 [1,2,3,4,5]      -- [5]
 [1,2,3,4] !! 2          -- 3
 #+end_src
+
+* functions
+#+begin_quote
+Write Haskell functions for:
+a) computing the average value of a list of numbers;
+b) selecting the middle element in a list (assuming an odd-length list).
+#+end_quote
+
+a)
+#+begin_src haskell
+avg :: [Int] -> Int
+avg xs | null xs   = 0
+       | otherwise = (sum xs) `div` (length xs)
+
+*Ch1> avg [1..10]
+5
+*Ch1> avg []
+0
+#+end_src
+
+b)
+#+begin_src haskell
+mdl :: [a] -> Maybe a
+mdl xs | null xs   = Nothing
+       | otherwise = Just (xs !! p)
+                     where p = ((subtract 1) . (`div` 2) . length) xs
+
+*Ch1> mdl [1..10]
+Just 5
+*Ch1> mdl [1..20]
+Just 10
+*Ch1> mdl []
+Nothing
+#+end_src
