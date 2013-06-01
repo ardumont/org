@@ -459,3 +459,22 @@ maxi x y | x >= y = x
 
 sumAtoB a b = sum [a..b]
 #+end_src
+
+We must be able to compute the multiplication on x, so this must be of type Num.
+#+begin_src haskell
+cube :: Num a => a -> a
+cube x = x * x * x
+#+end_src
+
+We must be able to compare the number, so type Ord.
+#+begin_src haskell
+maxi :: (Ord a) => a -> a -> a
+maxi x y | x >= y = x
+         | otherwise = y
+#+end_src
+
+We must be able to compute the sum, so Num type and use a list comprehension, so Enum type.
+#+begin_src haskell
+sumAtoB :: (Num a, Enum a) => a -> a -> a
+sumAtoB a b = sum [a..b]
+#+end_src
