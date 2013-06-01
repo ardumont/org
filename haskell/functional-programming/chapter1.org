@@ -1,0 +1,38 @@
+#+TITLE: Functional Approach in haskell - Ch1
+#+AUTHOR: Antoine R. Dumont
+#+OPTIONS:
+#+TAGS: haskell, exercises, functional-programming
+#+CATEGORY: haskell, programming, functional-programming
+#+DESCRIPTION: Learning algorithms using haskell
+#+STARTUP: indent
+#+STARTUP: hidestars odd
+
+Now that i know a little more about haskell, I can go and refresh my memory about algorithms but the functional way.
+So, I came accross functional approach in haskell which does exactly that.
+
+Here are the first exercises (focused on haskell for the moment).
+
+* Simple
+#+begin_quote
+Using a haskell interpreter, evaluate the following expressions (try to predict the result):
+(1+2)
+if (2 > 9) then "hello" else "bye"
+let x=(sqrt 16) in x+1
+#+end_quote
+
+#+begin_src haskell
+(1+2)                               - 3
+if (2 > 9) then "hello" else "bye"  - "bye"
+let x=(sqrt 16) in x+1              -  5.0
+
+#+end_src
+
+Interpreter:
+#+begin_src haskell
+*Ch1> 1 + 2
+3
+*Ch1> if (2 > 9) then "hello" else "bye"
+"bye"
+*Ch1> let x=(sqrt 16) in x+1
+5.0
+#+end_src
