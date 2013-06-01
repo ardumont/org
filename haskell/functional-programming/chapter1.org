@@ -36,3 +36,48 @@ Interpreter:
 *Ch1> let x=(sqrt 16) in x+1
 5.0
 #+end_src
+
+*
+#+begin_quote
+Define and load the following function:
+=fact 1 = 1=
+=fact n = n * fact (n-1)=
+
+a) Using the interpreter, evaluate the expression =fact 5=
+b) What happens when you try to evaluate =fact 0=? Alter the above definition to solve this definition.
+c) Modify your definition such that the value -1 is returned when an attempt is made to compute the factorial of a negative value.
+#+end_quote
+
+a)
+#+begin_src haskell
+*Ch1> fact 5
+120
+#+end_src
+
+b)
+- the function does not terminate
+- alter:
+#+begin_src haskell
+fact :: Int -> Int
+fact 0 = 1
+fact n = n * fact (n-1)
+#+end_src
+
+c)
+Compute factorial of a negative value must render -1:
+#+begin_src haskell
+fact :: Int -> Int
+fact n
+  | n < 0     = -1
+  | n == 0    = 1
+  | otherwise = n * fact (n-1)
+
+*Ch1> fact 0
+1
+*Ch1> fact 1
+1
+*Ch1> fact 5
+120
+*Ch1> fact (-10)
+-1
+#+end_src
