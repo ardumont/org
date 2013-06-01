@@ -285,3 +285,6 @@ QuickCheck gave us the number it elected, for the curious, we can see those resu
 *Problem> length $ solutions' [1, 3, 7, 10, 25, 50] 332
 145
 #+end_src
+
+* Source
+[[https://github.com/ardumont/haskell-lab/blob/master/src/countdown/problem.hs][countdown/problem.hs]]
