@@ -99,3 +99,34 @@ What is wrong with the following expressions? Can you change them to make them v
 *Ch1> "hello" ++ "world"
 "helloworld"
 #+end_src
+
+* reverse
+#+begin_quote
+Given the following function:
+#+end_quote
+#+begin_src haskell
+f l = reverse (f' l [])
+      where f' [] r     = r
+            f' (x:xs) r = (2*x) : (f' xs r)
+#+end_src
+#+begin_quote
+What is the value of =f [1,2,3,4])= ?
+Check your answer with the haskell interpreter.
+#+end_quote
+
+Answer step by step:
+#+begin_src haskell
+f [1,2,3,4] = reverse (f' [1,2,3,4] [])
+            = reverse ((2*1) : (f' [2,3,4] []))
+            = reverse (2 : (2*2) : (f' [3,4] []))
+            = reverse (2 : 4 : (2*3) : (f' [4] []))
+            = reverse (2 : 4 : 6 : (4*2) : (f' [] []))
+            = reverse (2 : 4 : 6 : 8 : [])
+            = [8,6,4,2]
+#+end_src
+
+Interpreter:
+#+begin_src haskell
+*Ch1> f [1..4]
+[8,6,4,2]
+#+end_src
