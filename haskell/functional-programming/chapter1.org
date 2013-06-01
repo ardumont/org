@@ -1,3 +1,6 @@
+#+BLOG: tony-blog
+#+POSTID: 1238
+#+DATE: [2013-06-01 sam. 17:11]
 #+TITLE: Functional Approach in haskell - Ch1
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:

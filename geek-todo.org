@@ -354,7 +354,7 @@ CLOSED: [2013-04-21 dim. 18:30]
 https://github.com/relevance/org-html-slideshow
 *** TODO Eval clojure in org-mode file
 http://orgmode.org/worg/org-contrib/babel/languages/ob-doc-clojure.html
-* PENDING Articles [96%]
+* PENDING Articles [94%]
 ** DONE Chroot to save one's GNU/Linux
 CLOSED: [2012-04-21 Sat 18:07]
 http://adumont.fr/blog/chroot-pour-sauver-son-gnulinux/
@@ -516,6 +516,7 @@ CLOSED: [2013-05-26 dim. 13:18]
 ** DONE PIH - ch12 - lazyness - exercises
 CLOSED: [2013-05-29 mer. 20:24]
 ** PENDING PIH - ch13 - Reasoning about programs - exercises
+** IN-PROGRESS Functional approach in haskell - chapter 2
 * IN-PROGRESS clojure [28%]
 ** DONE start [100%]
 CLOSED: [2012-04-21 Sat 18:18]

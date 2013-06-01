@@ -1,4 +1,10 @@
 * Posts
+** [[file:/home/tony/org/haskell/functional-programming/chapter1.org][Functional Approach in haskell - Ch1]]
+:PROPERTIES:
+:POSTID: 1238
+:POST_DATE: 20130601T15:11:00+0000
+:Published: No
+:END:
 ** [[file:/home/tony/repo/perso/my-org-files/haskell/programming-in-haskell/chapter13.org][PIH - ch13 - Reasoning about programs - exercises]]
 :PROPERTIES:
 :POSTID: 1218
