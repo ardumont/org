@@ -398,6 +398,40 @@ What is the type of the following function?
 =compose f g x = f (g x)=
 #+end_quote
 
+As we can see from the definition of compose:
+- f and g takes one parameter each.
+- f takes the output type of g as input.
+
+We can sum up the definition of g and f:
+#+begin_src haskell
+g :: a -> b
+f :: b -> c
+#+end_src
+
+Thus:
+#+begin_src haskell
+compose :: (b -> c) -> (a -> b) -> a -> c
+#+end_src
+
+Check:
+
+#+begin_src haskell
+compose :: (b -> c) -> (a -> b) -> a -> c
+compose f g x = f (g x)
+#+end_src
+
+Using =compose=, we could redefine the =string2int= function from earlier:
+#+begin_src haskell
+string2int' :: String -> Int
+string2int' xs = sum [ compose (* u) digitToInt x | (u, x) <- zip unit (reverse xs)]
+                 where unit = iterate (* 10) 1
+#+end_src
+
+The standard composition function is (.)
+#+begin_src haskell
+*Ch1> :t (.)
+(.) :: (b -> c) -> (a -> b) -> a -> c
+#+end_src
 
 * matrix
 #+begin_quote
