@@ -273,11 +273,28 @@ rep n = [ y | x <- [1..n], y <- replicate x x]
 
 * string2int
 #+begin_quote
-Define a function string2int that converts a string of digits into the corresponding integer.
+Define a function =string2int= that converts a string of digits into the corresponding integer.
 For example:
 string2int "3454" = 3454
 string2int "76"   = 76
 #+end_quote
+
+#+begin_src haskell
+string2int :: String -> Int
+string2int xs = sum [ ((* u) . digitToInt) x | (u, x) <- zip unit (reverse xs)]
+                where unit = iterate (* 10) 1
+
+*Ch1> string2int "123"
+123
+*Ch1> string2int "3434"
+3434
+*Ch1> string2int "3454"
+3454
+*Ch1> string2int "76"
+76
+#+end_src
+
+Or we could use the standard function =read :: Read a => String -> a=
 
 * Predict
 #+begin_quote
