@@ -327,4 +327,4 @@ encode n cs = [shift n c | c <- cs]
 #+end_src
 
 * Source
-[[https://github.com/ardumont/my-haskell-lab/blob/master/src/ch5.hs][ch5.hs]]
+[[https://github.com/ardumont/haskell-lab/blob/master/src/programming-in-haskell/ch5.hs][ch5.hs]]

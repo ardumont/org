@@ -10,7 +10,7 @@
 #+STARTUP: indent
 #+STARTUP: hidestars odd
 
-Before being able to foul around on this chapter, here are some pre-requisites:
+Before being able to fool around on this chapter, here are some pre-requisites:
 
 #+begin_src haskell
 import Control.Monad
@@ -42,7 +42,7 @@ instance MonadPlus Parser where
 #+end_src
 I will not enter into much detail here because [[http://hackage.haskell.org/packages/archive/base/latest/doc/html/Prelude.html#t:Monad][monads]] will be presented later.
 
-As always, you'll find the [[https://github.com/ardumont/my-haskell-lab/blob/master/src/ch8.hs][sources on github]].
+As always, you'll find the [[https://github.com/ardumont/haskell-lab/blob/master/src/Parsers.hs][sources on github]].
 
 * int :: Parser Int
 #+BEGIN_QUOTE

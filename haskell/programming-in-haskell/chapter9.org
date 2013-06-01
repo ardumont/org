@@ -272,4 +272,4 @@ How many stars?
 p1 won!
 #+end_src
 
-As usual, here is the complete [[https://github.com/ardumont/my-haskell-lab/blob/master/src/ch9.hs#L1][source]].
+As usual, here is the complete [[https://github.com/ardumont/haskell-lab/blob/master/src/Nim.hs][source]].

@@ -233,4 +233,4 @@ Executing in the haskell repl:
 
 #+END_SRC
 * Source
-[[https://github.com/ardumont/my-haskell-lab/blob/master/src/ch4.hs][ch4.hs]]
+[[https://github.com/ardumont/haskell-lab/blob/master/src/programming-in-haskell/ch4.hs][ch4.hs]]

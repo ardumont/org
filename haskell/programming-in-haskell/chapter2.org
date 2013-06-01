@@ -119,4 +119,4 @@ init3 :: [a] -> [a]
 init3 xs  = reverse (tail (reverse xs))
 #+END_SRC
 * Source
-[[https://github.com/ardumont/my-haskell-lab/blob/master/src/ch2.hs][ch2.hs]]
+[[https://github.com/ardumont/haskell-lab/blob/master/src/programming-in-haskell/ch2.hs][ch2.hs]]

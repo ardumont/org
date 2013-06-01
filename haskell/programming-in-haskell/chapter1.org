@@ -147,4 +147,4 @@ qsort [2,2,3,1,1] = qsort [1] ++ [2] ++ qsort [3]
                   = [1,2,3]
 #+END_SRC
 * Source
-[[https://github.com/ardumont/my-haskell-lab/blob/master/src/ch1.hs][ch1.hs]]
+[[https://github.com/ardumont/haskell-lab/blob/master/src/programming-in-haskell/ch1.hs][ch1.hs]]

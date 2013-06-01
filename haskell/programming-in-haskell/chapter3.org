@@ -90,4 +90,4 @@ Two functions of the same type are equal if they always return equal results for
 
 If we work with functions that takes as input a small finite set of data, this can be possible.
 * Source
-[[https://github.com/ardumont/my-haskell-lab/blob/master/src/ch3.hs][ch3.hs]]
+[[https://github.com/ardumont/haskell-lab/blob/master/src/programming-in-haskell/ch3.hs][ch3.hs]]
