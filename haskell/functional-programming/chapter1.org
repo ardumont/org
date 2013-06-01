@@ -130,3 +130,23 @@ Interpreter:
 *Ch1> f [1..4]
 [8,6,4,2]
 #+end_src
+
+* Predict
+#+begin_quote
+Try to predict the value of the following expressions:
+=[1,2,3] ++ [4]=
+=1:(2:(3:[4]))=
+=head [1,2,3]=
+=tail [1,2,3]=
+=drop 4 [1,2,3,4,5]=
+=[1,2,3,4] !! 2=
+#+end_quote
+
+#+begin_src haskell
+[1,2,3] ++ [4]          -- [1,2,3,4]
+1:(2:(3:[4]))           -- [1,2,3,4]
+head [1,2,3]            -- 1
+tail [1,2,3]            -- [2,3]
+drop 4 [1,2,3,4,5]      -- [5]
+[1,2,3,4] !! 2          -- 3
+#+end_src
