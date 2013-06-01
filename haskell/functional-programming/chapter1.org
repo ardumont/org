@@ -310,11 +310,94 @@ map fst [(1,2), (3,8), (0,6), (3,1)]
 foldr (++) [] [[1,2,3], [4,5,6], [], [7]]
 #+end_src
 
+a)
+
+Recall the definition of:
+#+begin_src haskell
+fst :: (a,b) -> a
+fst (x,_) = x
+
+map :: (a -> b) -> [a] -> [b]
+map _ []     = []
+map f (x:xs) = f x : map f xs
+
+-- or using list comprehension:
+map f xs = [ f x | x <- xs]
+#+end_src
+
+We can then conclude:
+#+begin_src haskell
+map fst [(1,2), (3,8), (0,6), (3,1)] = [1,3,0,3]
+#+end_src
+
+b)
+Again recall the definition of foldr:
+#+begin_src haskell
+foldr :: (a -> b -> b) -> b -> [a] -> b
+foldr _ x []     = x
+foldr f x (y:ys) = f y $ foldr f x ys
+#+end_src
+
+Thus:
+#+begin_src haskell
+foldr f 0 l = foldr f 0 [6,9,8,3,10]
+            = f 6 (foldr f 0 [9,8,3,10])
+            = f 6 (f 9 (foldr f 0 [8,3,10]))
+            = ...
+            = f 6 (f 9 (f 8 (f 3 (f 10 0))))
+            = f 6 (f 9 (f 8 (f 3 (10+0 `div` 2))))
+            = f 6 (f 9 (f 8 (f 3 5)))
+            = f 6 (f 9 (f 8 (3 + 4 `div` 2)))
+            = f 6 (f 9 (f 8 3))
+            = f 6 (f 9 5)
+            = f 6 7
+            = 6
+#+end_src
+
+Now the right operand, using foldl as operations:
+#+begin_src haskell
+foldl :: (a -> b -> a) -> a -> [b] -> a
+foldl _ x []     = x
+foldl f x (y:ys) = foldl f (f x y) ys
+#+end_src
+
+Thus (I do not forget that haskell is lazy, just bear with me)
+#+begin_src haskell
+foldl f 0 l = foldl f 0        [6,9,8,3,10]
+            = foldl f (f 0 6)  [9,8,3,10]
+            = foldl f (f 1 9)  [8,3,10]
+            = foldl f (f 5 8)  [3,10]
+            = foldl f (f 6 3)  [10]
+            = foldl f (f 5 10) []
+            = foldl f 7        []
+            = 7
+#+end_src
+
+to conclude:
+#+begin_src haskell
+(foldr f 0 l, foldl f 0 l)
+  where l = [6,9,8,3,10]
+        f x y = (x+y) `div` 2 -- (6,7)
+
+#+end_src
+
+Indeed:
+#+begin_src haskell
+tmp :: (Integer, Integer)
+tmp = (foldr f 0 l, foldl f 0 l)
+  where l = [6,9,8,3,10]
+        f x y = (x+y) `div` 2
+
+*Ch1> tmp
+(6,7)
+#+end_src
+
 * type
 #+begin_quote
 What is the type of the following function?
 =compose f g x = f (g x)=
 #+end_quote
+
 
 * matrix
 #+begin_quote
