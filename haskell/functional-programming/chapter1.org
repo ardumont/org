@@ -232,3 +232,93 @@ Answer:
 *Ch1> [ if odd x then -1 * x else x | x <- [2..11]]
 [2,-3,4,-5,6,-7,8,-9,10,-11]
 #+end_src
+
+* list comprehension
+#+begin_quote
+a) Using a list comprehension, define a function neg that counts the number of negative values in a list. For example:
+=neg [1, -9, 5, 4, -6, 0] = 3=
+b) Using a list comprehension, define the function rep that takes an argument n and returns a list in which 1 occurs one time, 2 occurs 2 two and so one until n occurs n time. For example:
+=rep 4 => [1,2,2,3,3,3,4,4,4,4]
+#+end_quote
+
+a)
+
+#+begin_src haskell
+neg :: [Int] -> Int
+neg xs = sum [1 | x <- xs, x < 0 ]
+
+*Ch1> neg [1, -9, -5, 4, -6, 0]
+3
+#+end_src
+
+b)
+#+begin_src haskell
+rep :: Int -> [Int]
+rep n = [ y | x <- [1..n], y <- replicate x x]
+
+*Ch1> rep 0
+[]
+*Ch1> rep 1
+[1]
+*Ch1> rep 2
+[1,2,2]
+*Ch1> rep 3
+[1,2,2,3,3,3]
+*Ch1> rep 4
+[1,2,2,3,3,3,4,4,4,4]
+#+end_src
+
+* string2int
+#+begin_quote
+Define a function string2int that converts a string of digits into the corresponding integer.
+For example:
+string2int "3454" = 3454
+string2int "76"   = 76
+#+end_quote
+
+* Predict
+#+begin_quote
+Try to predict the values of the following expressions:
+#+end_quote
+#+begin_src haskell
+map fst [(1,2), (3,8), (0,6), (3,1)]
+
+(foldr f 0 l, foldl f 0 l)
+  where l = [6,9,8,3,10]
+        f x y = (x+y) `div` 2
+
+foldr (++) [] [[1,2,3], [4,5,6], [], [7]]
+#+end_src
+
+* type
+#+begin_quote
+What is the type of the following function?
+=compose f g x = f (g x)=
+#+end_quote
+
+* matrix
+#+begin_quote
+Given the matrix:
+| 2 3 4  |
+| 5 6 7  |
+| 8 9 10 |
+a) Define this matrix by enumerating all values
+b) Define this matrix using an array comprehension
+c) Define a function that transposes a square matrix of size 3.
+If applied to the previous matrix, the result should be:
+| 2 5 8  |
+| 3 6 9  |
+| 4 7 10 |
+d) Extends this definition for a matrix of any size
+#+end_quote
+
+* type
+Determine the type definitions (with the context) of the following functions:
+#+begin_src haskell
+cube x = x * x * x
+
+maxi x y | x >= y = x
+         | otherwise = y
+
+sumAtoB a b = sum [a..b]
+#+end_src
