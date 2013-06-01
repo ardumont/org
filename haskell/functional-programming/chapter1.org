@@ -81,3 +81,21 @@ fact n
 *Ch1> fact (-10)
 -1
 #+end_src
+
+* wrong
+#+begin_quote
+What is wrong with the following expressions? Can you change them to make them valid?
+
+1:2:3
+[ [2,3] ++ [], [2,3]:[] ]
+"hello" : "world"
+#+end_quote
+
+#+begin_src haskell
+*Ch1> (1:2:3:[])
+[1,2,3]
+*Ch1> [[[2,3] ++ []], ([2,3]:[])]
+[[[2,3]],[[2,3]]]
+*Ch1> "hello" ++ "world"
+"helloworld"
+#+end_src
