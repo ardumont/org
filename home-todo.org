@@ -85,7 +85,7 @@ CLOSED: [2013-04-11 jeu. 09:35]
 ***** TODO cartons
 ***** DONE grosses pieces de verre
 CLOSED: [2013-04-11 jeu. 09:35]
-*** PENDING Piece de jeux des enfants [20/28]
+*** PENDING Piece de jeux des enfants [21/28]
 ***** DONE Retirer la grosse armoire du bureau
 ***** DONE Retirer le crepis
 ***** DONE Enduit de rebouchage
@@ -124,7 +124,8 @@ CLOSED: [2013-05-20 lun. 19:13]
 CLOSED: [2013-05-20 lun. 19:13]
 ***** DONE Poser le papier peint bleu
 CLOSED: [2013-05-26 dim. 23:59]
-***** TODO Poser le papier peint vert
+***** DONE Poser le papier peint vert
+CLOSED: [2013-06-02 dim. 11:54]
 ***** TODO nettoyer le sol
 ***** TODO poser le parquet
 ***** TODO nouveau radiateur
