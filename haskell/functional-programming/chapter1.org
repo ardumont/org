@@ -439,15 +439,34 @@ Given the matrix:
 | 2 3 4  |
 | 5 6 7  |
 | 8 9 10 |
-a) Define this matrix by enumerating all values
-b) Define this matrix using an array comprehension
-c) Define a function that transposes a square matrix of size 3.
+a) Define a function that transposes a square matrix of size 3.
 If applied to the previous matrix, the result should be:
 | 2 5 8  |
 | 3 6 9  |
 | 4 7 10 |
-d) Extends this definition for a matrix of any size
+b) Extends this definition for a matrix of any size
 #+end_quote
+
+a)
+#+begin_src haskell
+transpose3 :: [[a]] -> [[a]]
+transpose3 xs = map (\ n -> map (!! n) xs) [0..2]
+
+*Ch1> transpose3 [[1,2,3], [4,5,6], [7,8,9]]
+[[1,4,7],[2,5,8],[3,6,9]]
+#+end_src
+
+b)
+#+begin_src haskell
+transpose :: [[a]] -> [[a]]
+transpose xs = map (\ n -> map (!! n) xs) [0..l]
+               where l = length xs - 1
+
+*Ch1> transpose [[1,2,3], [4,5,6], [7,8,9]]
+[[1,4,7],[2,5,8],[3,6,9]]
+*Ch1> transpose [[1,2,3,4], [5,6,7,8], [9,10,11,12], [13,14,15,16]]
+[[1,5,9,13],[2,6,10,14],[3,7,11,15],[4,8,12,16]]
+#+end_src
 
 * type
 Determine the type definitions (with the context) of the following functions:
