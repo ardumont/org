@@ -1,0 +1,113 @@
+#+title: Google OAuth2 understanding
+#+author: Antoine R. Dumont
+
+Sources:
+- https://developers.google.com/accounts/docs/OAuth2
+- https://developers.google.com/oauthplayground/
+
+* Applications
+Different types of applications exists:
+- installed applications (runs on a desktop computer) or device applications (like Android or iPhone)
+- limited devices (game, printers, etc...)
+- web (Accessed by web browsers over a network)
+- client
+- service (Calls Google APIs on behalf of your application instead of an end-user)
+
+* Basic steps
+** register applications
+- register through the api Console
+- result into values that both google and the application registered knows (client_id, client_secret, redirect_url, etc...)
+
+** obtain an access token from an authorization server
+Access token: grant access to an api (limited). Degrees of resources access varies according to scope in the access token request
+
+** send access token to an api
+through query parameter or in request headers.
+
+** refresh the access token (optional)
+refresh token
+
+* Simple example
+
+Login:
+#+begin_src url
+https://accounts.google.com/o/oauth2/auth
+  ?scope=https://www.googleapis.com/auth/userinfo.email+https://www.googleapis.com/auth/userinfo.profile
+  &response_type=code
+  &redirect_uri=https://oauth2-login-demo.appspot.com/code&approval_prompt=force
+  &state=/profile
+  &client_id=812741506391.apps.googleusercontent.com
+  &hl=fr
+  &from_login=1
+  &as=-2dd7cd4e9b848c34
+#+end_src
+
+Non merci.
+#+begin_src url
+https://oauth2-login-demo.appspot.com/code
+  ?error=access_denied
+  &state=/profile
+#+end_src
+
+Autoriser l'acces:
+#+begin_src url
+https://oauth2-login-demo.appspot.com/profile
+#+end_src
+
+* Scenarios
+
+** login
+
+User login
+Browser redirects to a google url (with predisposed query string parameters)
+Google deals with account selection (if need be)
+User choose his/her account (if multiple)
+User grants the application the rights it needs (or not) - "user consent"
+Application receive access token
+Application requests informations with the access token (query parameter or header)
+Application receives data
+
+** web server (java, etc...)
+
+browser redirection to a google url (with predisposed query string parameters regarding rights for the API)
+Google deals with account selection (if need be)
+User choose his/her account (if multiple)
+User consents
+App receives its authorization code
+App exchange authorization code for an access token
+Application requests informations with the access token (query parameter or header)
+
+/Question? Is this exchange takes place every time or once?/
+
+** client-side app
+
+browser redirection to a google url (with predisposed query string parameters regarding rights for the API)
+Google deals with account selection (if need be)
+User choose his/her account (if multiple)
+User consents
+App receives its token
+App validate its token against the google oauth2 server response
+validation response ok
+Application requests informations with the access token (query parameter or header)
+
+
+** installed app
+** devices
+** service
+
+Different workflow as before since we do not need to have user access.
+Service will act on behalf of an application.
+
+Thus the preparation step:
+- creation of service account
+- download of a private key (to store in a safe location)
+- access to the client id associated with the private key.
+- we need both those data
+- create a JWT and sign it with the private key
+
+workflow:
+- create an access token request in the appropriate format
+- app sends the token request to the google oauth 2.0 authorization server
+- access token is returned
+- application can access the api after receiving the access token/
+- when the access token expires, the application repeats the process
