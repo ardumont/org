@@ -1,2 +1,100 @@
 #+title: Google Compute Engine - java client api
 #+author: Antoine R. Dumont
+
+* Log into your account
+* Add compute-engine to your engine
+* Generate identifier
+* Play with samples
+
+No instance initially:
+#+begin_src sh
+tony@job (0,19,) 13:55:41 ~/google-api-java-client-samples/compute-engine-cmdline-sample (master) $ mvn compile exec:java -q
+================== Listing Compute Engine Instances ==================
+No instances found. Sign in to the Google APIs Console and create an instance at: code.google.com/apis/console
+#+end_src
+
+Creating a node:
+#+begin_src txt
+vagrant@tony (0.01,) 12:09:00 (1) ~/web2print ((ref: re...)) $ gcutil addinstance ard-snd-instance --persistent_boot_disk --wait_until_running --machine_type=f1-micro --zone=europe-west1-a
+1: projects/centos-cloud/global/images/centos-6-v20130522
+2: projects/debian-cloud/global/images/debian-6-squeeze-v20130522
+3: projects/debian-cloud/global/images/debian-7-wheezy-v20130522
+>>> 3
+INFO: Preparing boot disk [boot-ard-snd-instance] for instance [ard-snd-instance] from disk image [https://www.googleapis.com/compute/v1beta15/projects/debian-cloud/global/images/debian-7-wheezy-v20130522].
+INFO: Waiting for insert of disk boot-ard-snd-instance. Sleeping for 3s.
+INFO: Waiting for insert of disk boot-ard-snd-instance. Sleeping for 3s.
+INFO: Waiting for insert of disk boot-ard-snd-instance. Sleeping for 3s.
+INFO: Waiting for insert of disk boot-ard-snd-instance. Sleeping for 3s.
+
+INFO: Waiting for insert of disk boot-ard-snd-instance. Sleeping for 3s.
+INFO: Waiting for insert of disk boot-ard-snd-instance. Sleeping for 3s.
+INFO: Waiting for insert of disk boot-ard-snd-instance. Sleeping for 3s.
+INFO: Waiting for insert of disk boot-ard-snd-instance. Sleeping for 3s.
+INFO: Waiting for insert of instance ard-snd-instance. Sleeping for 3s.
+INFO: Waiting for insert of instance ard-snd-instance. Sleeping for 3s.
+INFO: Waiting for insert of instance ard-snd-instance. Sleeping for 3s.
+INFO: Waiting for insert of instance ard-snd-instance. Sleeping for 3s.
+INFO: Ensuring ard-snd-instance is running.  Will wait to start for: 240 seconds.
+
+Table of resources:
+
++------------------+--------------+-------+---------+---------------+----------------+-----------------------+----------------+---------+----------------+
+|       name       | machine-type | image | network |  network-ip   |  external-ip   |         disks         |      zone      | status  | status-message |
++------------------+--------------+-------+---------+---------------+----------------+-----------------------+----------------+---------+----------------+
+| ard-snd-instance | f1-micro     |       | default | 10.240.76.226 | 192.158.30.139 | boot-ard-snd-instance | europe-west1-a | RUNNING |                |
++------------------+--------------+-------+---------+---------------+----------------+-----------------------+----------------+---------+----------------+
+
+Table of operations:
+
++------------------------------------------------+--------+----------------+--------+----------------+------------------+-------------------------------+----------------+-------+---------------+---------+
+|                      name                      | region |      zone      | status | status-message |      target      |          insert-time          | operation-type | error | error-message | warning |
++------------------------------------------------+--------+----------------+--------+----------------+------------------+-------------------------------+----------------+-------+---------------+---------+
+| operation-1370002199983-4de027e765239-25610af1 |        | europe-west1-a | DONE   |                | ard-snd-instance | 2013-05-31T05:09:59.983-07:00 | insert         |       |               |         |
++------------------------------------------------+--------+----------------+--------+----------------+------------------+-------------------------------+----------------+-------+---------------+---------+
+#+end_src
+
+Now listing:
+#+begin_src sh
+tony@job (0,87,) 14:07:13 ~/google-api-java-client-samples/compute-engine-cmdline-sample (master) $ mvn compile exec:java -q
+================== Listing Compute Engine Instances ==================
+{
+"canIpForward" : false,
+"creationTimestamp" : "2013-05-31T05:10:00.595-07:00",
+"description" : "",
+"disks" : [ {
+            "boot" : true,
+            "deviceName" : "boot-ard-snd-instance",
+            "index" : 0,
+            "kind" : "compute#attachedDisk",
+            "mode" : "READ_WRITE",
+            "source" : "https://www.googleapis.com/compute/v1beta14/projects/sfeir-test/zones/europe-west1-a/disks/boot-ard-snd-instance",
+            "type" : "PERSISTENT"
+            }],
+"id" : "3544492466429260151",
+"kernel" : "https://www.googleapis.com/compute/v1beta14/projects/google/global/kernels/gce-v20135022",
+"kind" : "compute#instance",
+"machineType" : "https://www.googleapis.com/compute/v1beta14/projects/sfeir-test/global/machineTypes/f1-micro",
+"metadata" : {
+"fingerprint" : "42WmSp8BrMS=",
+"kind" : "compute#metadata"
+},
+"name" : "ard-snd-instance",
+"networkInterfaces" : [ {
+                        "accessConfigs" : [ {
+                                            "kind" : "compute#accessConfig",
+                                            "name" : "External NAT",
+                                            "natIP" : "192.158.30.139",
+                                            "type" : "ONE_TO_ONE_NAT"
+                                            }],
+                        "name" : "nic0",
+                        "network" : "https://www.googleapis.com/compute/v1beta14/projects/sfeir-test/global/networks/default",
+                        "networkIP" : "10.204.67.226"
+                        }],
+"selfLink" : "https://www.googleapis.com/compute/v1beta14/projects/sfeir-test/zones/europe-west1-a/instances/ard-snd-instance",
+"status" : "RUNNING",
+"tags" : {
+"fingerprint" : "42WmSp8BrMS="
+},
+"zone" : "https://www.googleapis.com/compute/v1beta14/projects/sfeir-test/zones/europe-west1-a"
+}
+#+end_src
