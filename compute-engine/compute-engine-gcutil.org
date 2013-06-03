@@ -486,3 +486,241 @@ INFO: Running command line: scp -o UserKnownHostsFile=/dev/null -o CheckHostIP=n
 Warning: Permanently added '192.158.30.139' (ECDSA) to the list of known hosts.
 install.sh                                                                                                                            100%  339     0.3KB/s   00:00
 #+end_src
+** Create image
+- create an instance
+- update as you want the machine
+- make the image:
+#+begin_src sh
+/usr/share/imagebundle/image_create.py -r / -o /tmp/ --log_file=image-create.log
+#+end_src
+- upload to google-storage using gsutil - https://cloud.google.com/console#c=cloudstorage&pid=597650555480&gcsh=web2print%2F
+- deconnect from the instance
+- add the image to your project:
+#+begin_src sh
+gcutil addimage <name-of-the-image> <uri-of-the-image> --preferred_kernel=projects/google/global/kernels/<kernel-name>
+#+end_src
+
+Possible output:
+#+begin_src sh
+vagrant@tony(0.00,) 12:49:53 (1) ~ $ gcutil addimage phantomjs-ready http://commondatastorage.googleapis.com/web2print%2F56bf28fdbbfdefaa152af0c62766eb0afcd06863.image.tar.gz
+1: projects/google/global/kernels/gce-v20130522
+2: projects/google/global/kernels/gce-20120621 (DEPRECATED)
+>>> 1
+INFO: Waiting for insert of image phantomjs-ready. Sleeping for 3s.
+
+Table of resources:
+
++-----------------+-------------+-------------+--------+
+|      name       | description | deprecation | status |
++-----------------+-------------+-------------+--------+
+| phantomjs-ready |             |             | READY  |
++-----------------+-------------+-------------+--------+
+
+Table of operations:
+
++------------------------------------------------+--------+------+--------+----------------+-----------------+-------------------------------+----------------+-------+---------------+---------+
+|                      name                      | region | zone | status | status-message |     target      |          insert-time          | operation-type | error | error-message | warning |
++------------------------------------------------+--------+------+--------+----------------+-----------------+-------------------------------+----------------+-------+---------------+---------+
+| operation-1370263862436-4de3f6abf81a1-3576c198 |        |      | DONE   |                | phantomjs-ready | 2013-06-03T05:51:02.436-07:00 | insert         |       |               |         |
++------------------------------------------------+--------+------+--------+----------------+-----------------+-------------------------------+----------------+-------+---------------+---------+
+vagrant@tony(0.00,) 12:51:22 ~ $
+#+end_src
+
+- create instance from image:
+
+Add the =--image=<image-name>= flag to the =gcutil addinstance= call:
+#+begin_src sh
+vagrant@tony (0.00,) 13:00:24 (1) ~ $ gcutil addinstance --image=phantomjs-ready ardinstance-fromimage --zone=europe-west1-a --machine_type=f1-micro --persistent_boot_disk --wait_until_running
+INFO: Resolved phantomjs-ready to phantomjs-ready
+INFO: Preparing boot disk [boot-ardinstance-fromimage] for instance [ardinstance-fromimage] from disk image [https://www.googleapis.com/compute/v1beta15/projects/sfeir-test/global/images/phantomjs-ready].
+INFO: Waiting for insert of disk boot-ardinstance-fromimage. Sleeping for 3s.
+INFO: Waiting for insert of disk boot-ardinstance-fromimage. Sleeping for 3s.
+INFO: Waiting for insert of disk boot-ardinstance-fromimage. Sleeping for 3s.
+INFO: Waiting for insert of disk boot-ardinstance-fromimage. Sleeping for 3s.
+INFO: Waiting for insert of disk boot-ardinstance-fromimage. Sleeping for 3s.
+INFO: Waiting for insert of disk boot-ardinstance-fromimage. Sleeping for 3s.
+INFO: Waiting for insert of disk boot-ardinstance-fromimage. Sleeping for 3s.
+INFO: Waiting for insert of disk boot-ardinstance-fromimage. Sleeping for 3s.
+INFO: Waiting for insert of disk boot-ardinstance-fromimage. Sleeping for 3s.
+INFO: Waiting for insert of disk boot-ardinstance-fromimage. Sleeping for 3s.
+INFO: Waiting for insert of disk boot-ardinstance-fromimage. Sleeping for 3s.
+INFO: Waiting for insert of disk boot-ardinstance-fromimage. Sleeping for 3s.
+INFO: Waiting for insert of instance ardinstance-fromimage. Sleeping for 3s.
+INFO: Waiting for insert of instance ardinstance-fromimage. Sleeping for 3s.
+INFO: Waiting for insert of instance ardinstance-fromimage. Sleeping for 3s.
+INFO: Waiting for insert of instance ardinstance-fromimage. Sleeping for 3s.
+INFO: Waiting for insert of instance ardinstance-fromimage. Sleeping for 3s.
+INFO: Ensuring ardinstance-fromimage is running.  Will wait to start for: 240 seconds.
+
+Table of resources:
+
++-----------------------+--------------+-------+---------+----------------+----------------+----------------------------+----------------+---------+----------------+
+|         name          | machine-type | image | network |   network-ip   |  external-ip   |           disks            |      zone      | status  | status-message |
++-----------------------+--------------+-------+---------+----------------+----------------+----------------------------+----------------+---------+----------------+
+| ardinstance-fromimage | f1-micro     |       | default | 10.240.154.184 | 192.158.30.213 | boot-ardinstance-fromimage | europe-west1-a | RUNNING |                |
++-----------------------+--------------+-------+---------+----------------+----------------+----------------------------+----------------+---------+----------------+
+
+Table of operations:
+
++------------------------------------------------+--------+----------------+--------+----------------+-----------------------+-------------------------------+----------------+-------+---------------+---------+
+|                      name                      | region |      zone      | status | status-message |        target         |          insert-time          | operation-type | error | error-message | warning |
++------------------------------------------------+--------+----------------+--------+----------------+-----------------------+-------------------------------+----------------+-------+---------------+---------+
+| operation-1370264478098-4de3f8f74c0f1-3d5af587 |        | europe-west1-a | DONE   |                | ardinstance-fromimage | 2013-06-03T06:01:18.098-07:00 | insert         |       |               |         |
++------------------------------------------------+--------+----------------+--------+----------------+-----------------------+-------------------------------+----------------+-------+---------------+---------+
+vagrant@tony (0.00,) 13:01:36 ~ $
+#+end_src
+
+** List machine types
+#+begin_src sh
+vagrant@tony (0.00,) 13:44:05 (1) ~ $ gcutil listmachinetypes
+
+
+Items in zones/us-central1-a:
+
++-----------------+---------------------------------------------------------+---------------+------+-----------+----------------------+---------+----------------------+-------------+
+|      name       |                       description                       |     zone      | cpus | memory-mb | scratch-disk-size-gb | max-pds | max-total-pd-size-gb | deprecation |
++-----------------+---------------------------------------------------------+---------------+------+-----------+----------------------+---------+----------------------+-------------+
+| n1-highmem-4-d  | 4 vCPUs, 26 GB RAM, 1 scratch disk (1770 GB)            | us-central1-a | 4    | 26624     | 1770                 | 16      | 10240                |             |
+| n1-highcpu-2    | 2 vCPUs, 1.8 GB RAM                                     | us-central1-a | 2    | 1843      |                      | 16      | 10240                |             |
+| n1-highmem-2    | 2 vCPUs, 13 GB RAM                                      | us-central1-a | 2    | 13312     |                      | 16      | 10240                |             |
+| n1-highmem-8    | 8 vCPUs, 52 GB RAM                                      | us-central1-a | 8    | 53248     |                      | 16      | 10240                |             |
+| n1-standard-2   | 2 vCPUs, 7.5 GB RAM                                     | us-central1-a | 2    | 7680      |                      | 16      | 10240                |             |
+| n1-standard-1   | 1 vCPU, 3.75 GB RAM                                     | us-central1-a | 1    | 3840      |                      | 16      | 10240                |             |
+| n1-highcpu-4-d  | 4 vCPUS, 3.6 GB RAM, 1 scratch disk (1770 GB)           | us-central1-a | 4    | 3686      | 1770                 | 16      | 10240                |             |
+| g1-small        | 1 vCPU (shared physical core) and 1.7 GB RAM            | us-central1-a | 1    | 1740      |                      | 4       | 3072                 |             |
+| n1-standard-4   | 4 vCPUs, 15 GB RAM                                      | us-central1-a | 4    | 15360     |                      | 16      | 10240                |             |
+| n1-standard-2-d | 2 vCPUs, 7.5 GB RAM, 1 scratch disk (870 GB)            | us-central1-a | 2    | 7680      | 870                  | 16      | 10240                |             |
+| n1-standard-4-d | 4 vCPUs, 15 GB RAM, 1 scratch disk (1770 GB)            | us-central1-a | 4    | 15360     | 1770                 | 16      | 10240                |             |
+| n1-highcpu-4    | 4 vCPUs, 3.6 GB RAM                                     | us-central1-a | 4    | 3686      |                      | 16      | 10240                |             |
+| n1-highcpu-8-d  | 8 vCPUS, 7.2 GB RAM, 2 scratch disks (1770 GB, 1770 GB) | us-central1-a | 8    | 7373      | 1770,1770            | 16      | 10240                |             |
+| n1-highmem-2-d  | 2 vCPUs, 13 GB RAM, 1 scratch disk (870 GB)             | us-central1-a | 2    | 13312     | 870                  | 16      | 10240                |             |
+| n1-highcpu-8    | 8 vCPUs, 7.2 GB RAM                                     | us-central1-a | 8    | 7373      |                      | 16      | 10240                |             |
+| f1-micro        | 1 vCPU (shared physical core) and 0.6 GB RAM            | us-central1-a | 1    | 614       |                      | 4       | 3072                 |             |
+| n1-standard-1-d | 1 vCPU, 3.75 GB RAM, 1 scratch disk (420 GB)            | us-central1-a | 1    | 3840      | 420                  | 16      | 10240                |             |
+| n1-highmem-4    | 4 vCPUs, 26 GB RAM                                      | us-central1-a | 4    | 26624     |                      | 16      | 10240                |             |
+| n1-highmem-8-d  | 8 vCPUs, 52 GB RAM, 2 scratch disks (1770 GB, 1770 GB)  | us-central1-a | 8    | 53248     | 1770,1770            | 16      | 10240                |             |
+| n1-highcpu-2-d  | 2 vCPUs, 1.8 GB RAM, 1 scratch disk (870 GB)            | us-central1-a | 2    | 1843      | 870                  | 16      | 10240                |             |
+| n1-standard-8-d | 8 vCPUs, 30 GB RAM, 2 scratch disks (1770 GB, 1770 GB)  | us-central1-a | 8    | 30720     | 1770,1770            | 16      | 10240                |             |
+| n1-standard-8   | 8 vCPUs, 30 GB RAM                                      | us-central1-a | 8    | 30720     |                      | 16      | 10240                |             |
++-----------------+---------------------------------------------------------+---------------+------+-----------+----------------------+---------+----------------------+-------------+
+
+
+Items in zones/us-central1-b:
+
++-----------------+---------------------------------------------------------+---------------+------+-----------+----------------------+---------+----------------------+-------------+
+|      name       |                       description                       |     zone      | cpus | memory-mb | scratch-disk-size-gb | max-pds | max-total-pd-size-gb | deprecation |
++-----------------+---------------------------------------------------------+---------------+------+-----------+----------------------+---------+----------------------+-------------+
+| g1-small        | 1 vCPU (shared physical core) and 1.7 GB RAM            | us-central1-b | 1    | 1740      |                      | 4       | 3072                 |             |
+| n1-standard-1-d | 1 vCPU, 3.75 GB RAM, 1 scratch disk (420 GB)            | us-central1-b | 1    | 3840      | 420                  | 16      | 10240                |             |
+| n1-highcpu-4-d  | 4 vCPUS, 3.6 GB RAM, 1 scratch disk (1770 GB)           | us-central1-b | 4    | 3686      | 1770                 | 16      | 10240                |             |
+| n1-highmem-4    | 4 vCPUs, 26 GB RAM                                      | us-central1-b | 4    | 26624     |                      | 16      | 10240                |             |
+| n1-highmem-8-d  | 8 vCPUs, 52 GB RAM, 2 scratch disks (1770 GB, 1770 GB)  | us-central1-b | 8    | 53248     | 1770,1770            | 16      | 10240                |             |
+| n1-highcpu-8-d  | 8 vCPUS, 7.2 GB RAM, 2 scratch disks (1770 GB, 1770 GB) | us-central1-b | 8    | 7373      | 1770,1770            | 16      | 10240                |             |
+| n1-standard-2   | 2 vCPUs, 7.5 GB RAM                                     | us-central1-b | 2    | 7680      |                      | 16      | 10240                |             |
+| n1-highcpu-2-d  | 2 vCPUs, 1.8 GB RAM, 1 scratch disk (870 GB)            | us-central1-b | 2    | 1843      | 870                  | 16      | 10240                |             |
+| n1-standard-4-d | 4 vCPUs, 15 GB RAM, 1 scratch disk (1770 GB)            | us-central1-b | 4    | 15360     | 1770                 | 16      | 10240                |             |
+| n1-highcpu-8    | 8 vCPUs, 7.2 GB RAM                                     | us-central1-b | 8    | 7373      |                      | 16      | 10240                |             |
+| n1-standard-4   | 4 vCPUs, 15 GB RAM                                      | us-central1-b | 4    | 15360     |                      | 16      | 10240                |             |
+| n1-standard-2-d | 2 vCPUs, 7.5 GB RAM, 1 scratch disk (870 GB)            | us-central1-b | 2    | 7680      | 870                  | 16      | 10240                |             |
+| n1-highmem-2    | 2 vCPUs, 13 GB RAM                                      | us-central1-b | 2    | 13312     |                      | 16      | 10240                |             |
+| n1-highcpu-4    | 4 vCPUs, 3.6 GB RAM                                     | us-central1-b | 4    | 3686      |                      | 16      | 10240                |             |
+| n1-highmem-8    | 8 vCPUs, 52 GB RAM                                      | us-central1-b | 8    | 53248     |                      | 16      | 10240                |             |
+| n1-highcpu-2    | 2 vCPUs, 1.8 GB RAM                                     | us-central1-b | 2    | 1843      |                      | 16      | 10240                |             |
+| n1-highmem-4-d  | 4 vCPUs, 26 GB RAM, 1 scratch disk (1770 GB)            | us-central1-b | 4    | 26624     | 1770                 | 16      | 10240                |             |
+| f1-micro        | 1 vCPU (shared physical core) and 0.6 GB RAM            | us-central1-b | 1    | 614       |                      | 4       | 3072                 |             |
+| n1-standard-1   | 1 vCPU, 3.75 GB RAM                                     | us-central1-b | 1    | 3840      |                      | 16      | 10240                |             |
+| n1-highmem-2-d  | 2 vCPUs, 13 GB RAM, 1 scratch disk (870 GB)             | us-central1-b | 2    | 13312     | 870                  | 16      | 10240                |             |
+| n1-standard-8-d | 8 vCPUs, 30 GB RAM, 2 scratch disks (1770 GB, 1770 GB)  | us-central1-b | 8    | 30720     | 1770,1770            | 16      | 10240                |             |
+| n1-standard-8   | 8 vCPUs, 30 GB RAM                                      | us-central1-b | 8    | 30720     |                      | 16      | 10240                |             |
++-----------------+---------------------------------------------------------+---------------+------+-----------+----------------------+---------+----------------------+-------------+
+
+
+Items in zones/europe-west1-a:
+
++-----------------+---------------------------------------------------------+----------------+------+-----------+----------------------+---------+----------------------+-------------+
+|      name       |                       description                       |      zone      | cpus | memory-mb | scratch-disk-size-gb | max-pds | max-total-pd-size-gb | deprecation |
++-----------------+---------------------------------------------------------+----------------+------+-----------+----------------------+---------+----------------------+-------------+
+| n1-standard-1   | 1 vCPU, 3.75 GB RAM                                     | europe-west1-a | 1    | 3840      |                      | 16      | 10240                |             |
+| n1-highcpu-4-d  | 4 vCPUS, 3.6 GB RAM, 1 scratch disk (1770 GB)           | europe-west1-a | 4    | 3686      | 1770                 | 16      | 10240                |             |
+| n1-highcpu-2    | 2 vCPUs, 1.8 GB RAM                                     | europe-west1-a | 2    | 1843      |                      | 16      | 10240                |             |
+| n1-highmem-2    | 2 vCPUs, 13 GB RAM                                      | europe-west1-a | 2    | 13312     |                      | 16      | 10240                |             |
+| n1-standard-2   | 2 vCPUs, 7.5 GB RAM                                     | europe-west1-a | 2    | 7680      |                      | 16      | 10240                |             |
+| n1-highmem-2-d  | 2 vCPUs, 13 GB RAM, 1 scratch disk (870 GB)             | europe-west1-a | 2    | 13312     | 870                  | 16      | 10240                |             |
+| n1-highmem-8-d  | 8 vCPUs, 52 GB RAM, 2 scratch disks (1770 GB, 1770 GB)  | europe-west1-a | 8    | 53248     | 1770,1770            | 16      | 10240                |             |
+| g1-small        | 1 vCPU (shared physical core) and 1.7 GB RAM            | europe-west1-a | 1    | 1740      |                      | 4       | 3072                 |             |
+| n1-highmem-4    | 4 vCPUs, 26 GB RAM                                      | europe-west1-a | 4    | 26624     |                      | 16      | 10240                |             |
+| n1-highmem-4-d  | 4 vCPUs, 26 GB RAM, 1 scratch disk (1770 GB)            | europe-west1-a | 4    | 26624     | 1770                 | 16      | 10240                |             |
+| n1-standard-1-d | 1 vCPU, 3.75 GB RAM, 1 scratch disk (420 GB)            | europe-west1-a | 1    | 3840      | 420                  | 16      | 10240                |             |
+| n1-standard-2-d | 2 vCPUs, 7.5 GB RAM, 1 scratch disk (870 GB)            | europe-west1-a | 2    | 7680      | 870                  | 16      | 10240                |             |
+| n1-highcpu-4    | 4 vCPUs, 3.6 GB RAM                                     | europe-west1-a | 4    | 3686      |                      | 16      | 10240                |             |
+| n1-highcpu-2-d  | 2 vCPUs, 1.8 GB RAM, 1 scratch disk (870 GB)            | europe-west1-a | 2    | 1843      | 870                  | 16      | 10240                |             |
+| n1-standard-4-d | 4 vCPUs, 15 GB RAM, 1 scratch disk (1770 GB)            | europe-west1-a | 4    | 15360     | 1770                 | 16      | 10240                |             |
+| n1-highmem-8    | 8 vCPUs, 52 GB RAM                                      | europe-west1-a | 8    | 53248     |                      | 16      | 10240                |             |
+| n1-standard-4   | 4 vCPUs, 15 GB RAM                                      | europe-west1-a | 4    | 15360     |                      | 16      | 10240                |             |
+| n1-highcpu-8    | 8 vCPUs, 7.2 GB RAM                                     | europe-west1-a | 8    | 7373      |                      | 16      | 10240                |             |
+| f1-micro        | 1 vCPU (shared physical core) and 0.6 GB RAM            | europe-west1-a | 1    | 614       |                      | 4       | 3072                 |             |
+| n1-highcpu-8-d  | 8 vCPUS, 7.2 GB RAM, 2 scratch disks (1770 GB, 1770 GB) | europe-west1-a | 8    | 7373      | 1770,1770            | 16      | 10240                |             |
+| n1-standard-8-d | 8 vCPUs, 30 GB RAM, 2 scratch disks (1770 GB, 1770 GB)  | europe-west1-a | 8    | 30720     | 1770,1770            | 16      | 10240                |             |
+| n1-standard-8   | 8 vCPUs, 30 GB RAM                                      | europe-west1-a | 8    | 30720     |                      | 16      | 10240                |             |
++-----------------+---------------------------------------------------------+----------------+------+-----------+----------------------+---------+----------------------+-------------+
+
+
+Items in zones/europe-west1-b:
+
++-----------------+---------------------------------------------------------+----------------+------+-----------+----------------------+---------+----------------------+-------------+
+|      name       |                       description                       |      zone      | cpus | memory-mb | scratch-disk-size-gb | max-pds | max-total-pd-size-gb | deprecation |
++-----------------+---------------------------------------------------------+----------------+------+-----------+----------------------+---------+----------------------+-------------+
+| n1-highcpu-8    | 8 vCPUs, 7.2 GB RAM                                     | europe-west1-b | 8    | 7373      |                      | 16      | 10240                |             |
+| g1-small        | 1 vCPU (shared physical core) and 1.7 GB RAM            | europe-west1-b | 1    | 1740      |                      | 4       | 3072                 |             |
+| n1-standard-4-d | 4 vCPUs, 15 GB RAM, 1 scratch disk (1770 GB)            | europe-west1-b | 4    | 15360     | 1770                 | 16      | 10240                |             |
+| n1-highcpu-4    | 4 vCPUs, 3.6 GB RAM                                     | europe-west1-b | 4    | 3686      |                      | 16      | 10240                |             |
+| n1-standard-1-d | 1 vCPU, 3.75 GB RAM, 1 scratch disk (420 GB)            | europe-west1-b | 1    | 3840      | 420                  | 16      | 10240                |             |
+| n1-highcpu-8-d  | 8 vCPUS, 7.2 GB RAM, 2 scratch disks (1770 GB, 1770 GB) | europe-west1-b | 8    | 7373      | 1770,1770            | 16      | 10240                |             |
+| n1-highmem-8-d  | 8 vCPUs, 52 GB RAM, 2 scratch disks (1770 GB, 1770 GB)  | europe-west1-b | 8    | 53248     | 1770,1770            | 16      | 10240                |             |
+| n1-highcpu-2    | 2 vCPUs, 1.8 GB RAM                                     | europe-west1-b | 2    | 1843      |                      | 16      | 10240                |             |
+| n1-highmem-4-d  | 4 vCPUs, 26 GB RAM, 1 scratch disk (1770 GB)            | europe-west1-b | 4    | 26624     | 1770                 | 16      | 10240                |             |
+| n1-highmem-2    | 2 vCPUs, 13 GB RAM                                      | europe-west1-b | 2    | 13312     |                      | 16      | 10240                |             |
+| f1-micro        | 1 vCPU (shared physical core) and 0.6 GB RAM            | europe-west1-b | 1    | 614       |                      | 4       | 3072                 |             |
+| n1-highcpu-2-d  | 2 vCPUs, 1.8 GB RAM, 1 scratch disk (870 GB)            | europe-west1-b | 2    | 1843      | 870                  | 16      | 10240                |             |
+| n1-highmem-2-d  | 2 vCPUs, 13 GB RAM, 1 scratch disk (870 GB)             | europe-west1-b | 2    | 13312     | 870                  | 16      | 10240                |             |
+| n1-highcpu-4-d  | 4 vCPUS, 3.6 GB RAM, 1 scratch disk (1770 GB)           | europe-west1-b | 4    | 3686      | 1770                 | 16      | 10240                |             |
+| n1-standard-2   | 2 vCPUs, 7.5 GB RAM                                     | europe-west1-b | 2    | 7680      |                      | 16      | 10240                |             |
+| n1-standard-4   | 4 vCPUs, 15 GB RAM                                      | europe-west1-b | 4    | 15360     |                      | 16      | 10240                |             |
+| n1-standard-1   | 1 vCPU, 3.75 GB RAM                                     | europe-west1-b | 1    | 3840      |                      | 16      | 10240                |             |
+| n1-highmem-4    | 4 vCPUs, 26 GB RAM                                      | europe-west1-b | 4    | 26624     |                      | 16      | 10240                |             |
+| n1-highmem-8    | 8 vCPUs, 52 GB RAM                                      | europe-west1-b | 8    | 53248     |                      | 16      | 10240                |             |
+| n1-standard-2-d | 2 vCPUs, 7.5 GB RAM, 1 scratch disk (870 GB)            | europe-west1-b | 2    | 7680      | 870                  | 16      | 10240                |             |
+| n1-standard-8   | 8 vCPUs, 30 GB RAM                                      | europe-west1-b | 8    | 30720     |                      | 16      | 10240                |             |
+| n1-standard-8-d | 8 vCPUs, 30 GB RAM, 2 scratch disks (1770 GB, 1770 GB)  | europe-west1-b | 8    | 30720     | 1770,1770            | 16      | 10240                |             |
++-----------------+---------------------------------------------------------+----------------+------+-----------+----------------------+---------+----------------------+-------------+
+
+
+Items in zones/us-central2-a:
+
++-----------------+---------------------------------------------------------+---------------+------+-----------+----------------------+---------+----------------------+-------------+
+|      name       |                       description                       |     zone      | cpus | memory-mb | scratch-disk-size-gb | max-pds | max-total-pd-size-gb | deprecation |
++-----------------+---------------------------------------------------------+---------------+------+-----------+----------------------+---------+----------------------+-------------+
+| n1-highcpu-4-d  | 4 vCPUS, 3.6 GB RAM, 1 scratch disk (1770 GB)           | us-central2-a | 4    | 3686      | 1770                 | 16      | 10240                |             |
+| n1-highmem-2    | 2 vCPUs, 13 GB RAM                                      | us-central2-a | 2    | 13312     |                      | 16      | 10240                |             |
+| f1-micro        | 1 vCPU (shared physical core) and 0.6 GB RAM            | us-central2-a | 1    | 614       |                      | 4       | 3072                 |             |
+| n1-highmem-8    | 8 vCPUs, 52 GB RAM                                      | us-central2-a | 8    | 53248     |                      | 16      | 10240                |             |
+| n1-highcpu-8    | 8 vCPUs, 7.2 GB RAM                                     | us-central2-a | 8    | 7373      |                      | 16      | 10240                |             |
+| g1-small        | 1 vCPU (shared physical core) and 1.7 GB RAM            | us-central2-a | 1    | 1740      |                      | 4       | 3072                 |             |
+| n1-highmem-4    | 4 vCPUs, 26 GB RAM                                      | us-central2-a | 4    | 26624     |                      | 16      | 10240                |             |
+| n1-standard-2-d | 2 vCPUs, 7.5 GB RAM, 1 scratch disk (870 GB)            | us-central2-a | 2    | 7680      | 870                  | 16      | 10240                |             |
+| n1-highcpu-8-d  | 8 vCPUS, 7.2 GB RAM, 2 scratch disks (1770 GB, 1770 GB) | us-central2-a | 8    | 7373      | 1770,1770            | 16      | 10240                |             |
+| n1-standard-2   | 2 vCPUs, 7.5 GB RAM                                     | us-central2-a | 2    | 7680      |                      | 16      | 10240                |             |
+| n1-standard-4-d | 4 vCPUs, 15 GB RAM, 1 scratch disk (1770 GB)            | us-central2-a | 4    | 15360     | 1770                 | 16      | 10240                |             |
+| n1-highcpu-4    | 4 vCPUs, 3.6 GB RAM                                     | us-central2-a | 4    | 3686      |                      | 16      | 10240                |             |
+| n1-highcpu-2-d  | 2 vCPUs, 1.8 GB RAM, 1 scratch disk (870 GB)            | us-central2-a | 2    | 1843      | 870                  | 16      | 10240                |             |
+| n1-standard-4   | 4 vCPUs, 15 GB RAM                                      | us-central2-a | 4    | 15360     |                      | 16      | 10240                |             |
+| n1-standard-1-d | 1 vCPU, 3.75 GB RAM, 1 scratch disk (420 GB)            | us-central2-a | 1    | 3840      | 420                  | 16      | 10240                |             |
+| n1-highcpu-2    | 2 vCPUs, 1.8 GB RAM                                     | us-central2-a | 2    | 1843      |                      | 16      | 10240                |             |
+| n1-highmem-2-d  | 2 vCPUs, 13 GB RAM, 1 scratch disk (870 GB)             | us-central2-a | 2    | 13312     | 870                  | 16      | 10240                |             |
+| n1-standard-1   | 1 vCPU, 3.75 GB RAM                                     | us-central2-a | 1    | 3840      |                      | 16      | 10240                |             |
+| n1-highmem-8-d  | 8 vCPUs, 52 GB RAM, 2 scratch disks (1770 GB, 1770 GB)  | us-central2-a | 8    | 53248     | 1770,1770            | 16      | 10240                |             |
+| n1-highmem-4-d  | 4 vCPUs, 26 GB RAM, 1 scratch disk (1770 GB)            | us-central2-a | 4    | 26624     | 1770                 | 16      | 10240                |             |
+| n1-standard-8   | 8 vCPUs, 30 GB RAM                                      | us-central2-a | 8    | 30720     |                      | 16      | 10240                |             |
+| n1-standard-8-d | 8 vCPUs, 30 GB RAM, 2 scratch disks (1770 GB, 1770 GB)  | us-central2-a | 8    | 30720     | 1770,1770            | 16      | 10240                |             |
++-----------------+---------------------------------------------------------+---------------+------+-----------+----------------------+---------+----------------------+-------------+
+#+end_src
