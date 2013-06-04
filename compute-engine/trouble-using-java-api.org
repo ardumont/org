@@ -1,0 +1,188 @@
+#+title: Problem creating instance in compute engine using java client api
+#+author: Antoine R. Dumont
+
+# Goal
+
+Create an instance through the compute engine java api.
+
+# Problem
+
+I do succeed in listing instances but do not succeed in creating instances through the java api (1.15.0-rc).
+
+# Context
+
+I successfully listed instances using the java api for compute-engine.
+I am using the https://developers.google.com/accounts/docs/OAuth2ServiceAccount strategy to authenticate.
+
+java dependencies:
+
+        <dependencies>
+          <dependency>
+            <groupId>com.google.http-client</groupId>
+            <artifactId>google-http-client-jackson2</artifactId>
+            <version>${project.http.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>com.google.oauth-client</groupId>
+            <artifactId>google-oauth-client-jetty</artifactId>
+            <version>${project.oauth.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>com.google.apis</groupId>
+            <artifactId>google-api-services-compute</artifactId>
+            <version>v1beta14-rev20-1.15.0-rc</version>
+          </dependency>
+       </dependencies>
+        <properties>
+          <project.http.version>1.15.0-rc</project.http.version>
+          <project.oauth.version>1.15.0-rc</project.oauth.version>
+          <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        </properties>
+
+Here is the authentication snippet I use (which works for listing the instances):
+
+    private static final List<String> SCOPES = Arrays.asList(ComputeScopes.COMPUTE);
+    ...
+
+    String accountEmail = "accountEmail";
+    // change this
+    File key = new File("/path/to/key.p12");
+
+    // service account credential (uncomment setServiceAccountUser for domain-wide delegation)
+    GoogleCredential credential = new GoogleCredential.Builder().setTransport(HTTP_TRANSPORT)
+        .setJsonFactory(JSON_FACTORY)
+        .setServiceAccountId(accountEmail)  // sets the service account ID (typically an e-mail address) or null for none
+        .setServiceAccountScopes(SCOPES)    // sets the space-separated OAuth scopes to use with the service account
+                                            // flow or null for none
+        .setServiceAccountPrivateKeyFromP12File(key)
+        .build();
+
+Here is the instance creation snippet:
+
+    private static final String zoneName = "europe-west1-a";
+    ...
+
+    // create instance description
+    Instance instance = new Instance();
+    instance.setName("ard-4th-instance");
+    instance.setMachineType("https://www.googleapis.com/compute/v1beta15/projects/app-test/zones/europe-west1-a/machineTypes/f1-micro");
+
+    AttachedDisk disk = new AttachedDisk();
+    disk.setType("PERSISTENT");
+    disk.setBoot(true);
+    disk.setSource("https://www.googleapis.com/compute/v1beta15/projects/app-test/zones/europe-west1-a/disks/boot-ard-fst-instance");
+    ArrayList<AttachedDisk> disks = new ArrayList<AttachedDisk>();
+    disks.add(disk);
+    instance.setDisks(disks);
+
+    // build
+    Compute.Instances.Insert instances = compute.instances().insert(projectId, zoneName, instance);
+    instances.execute();
+
+When executing such code, here's the answer:
+
+    com.google.api.client.googleapis.json.GoogleJsonResponseException: 400 Bad Request
+    {
+      "code" : 400,
+      "errors" : [ {
+        "domain" : "global",
+        "message" : "Invalid value for field 'resource.machineType': 'https://www.googleapis.com/compute/v1beta15/projects/app-test/zones/europe-west1-a/machineTypes/f1-micro'
+    .  Must be a URL to a Compute resource in the same zone.",
+        "reason" : "invalid"
+      }, {
+        "domain" : "global",
+        "message" : "Invalid value for field 'resource.disks[0].source': 'https://www.googleapis.com/compute/v1beta15/projects/app-test/zones/europe-west1-a/disks/boot-ard-fst
+    -instance'.  Must be a URL to a Compute resource in the same zone.",
+        "reason" : "invalid"
+      } ],
+      "message" : "Invalid value for field 'resource.machineType': 'https://www.googleapis.com/compute/v1beta15/projects/app-test/zones/europe-west1-a/machineTypes/f1-micro'.
+     Must be a URL to a Compute resource in the same zone."
+    }
+
+From what I understand, I must ensure resources from the same zone which is europe-west1-a.
+Ok, but from my standpoint, this is what I do.
+
+One remark:
+I can see that the /v1beta15/ version of the rest api (inside url) is not the same as the java client api (1.15.0-rc from the
+pom).
+
+# Notes
+
+Using the api test tooling (thanks for that btw), I successfully built a request (which seems pretty similar to the java one):
+
+    {
+      "machineType":
+    "https://www.googleapis.com/compute/v1beta15/projects/app-test/zones/europe-west1-a/machineTypes/f1-micro",
+      "name": "testapi",
+      "disks":
+      [
+        {
+          "type": "PERSISTENT",
+          "source":
+    "https://www.googleapis.com/compute/v1beta15/projects/app-test/zones/europe-west1-a/disks/boot-ard-fst-instance",
+          "boot": true
+        }
+      ],
+      "networkInterfaces":
+      [
+        {
+          "network":
+    "https://www.googleapis.com/compute/v1beta15/projects/app-test/global/networks/default"
+        }
+      ]
+    }
+
+Here is the successful answer:
+
+    POST https://www.googleapis.com/compute/v1beta15/projects/app-test/zones/europe-west1-a/instances?key={YOUR_API_KEY}
+
+    Content-Type:  application/json
+    Authorization:  Bearer ya29.xxxxxxxxxxHEXoyIzXZR4VGI2Iv_yyyyyyhgHb27Zzzzzz
+    X-JavaScript-User-Agent:  Google APIs Explorer
+
+    {
+    "machineType": "https://www.googleapis.com/compute/v1beta15/projects/app-test/zones/europe-west1-a/machineTypes/f1-micro",
+    "name": "testapi",
+    "disks": [
+    {
+    "type": "PERSISTENT",
+    "source": "https://www.googleapis.com/compute/v1beta15/projects/app-test/zones/europe-west1-a/disks/boot-ard-fst-instance",
+    "boot": true
+    }
+    ],
+    "networkInterfaces": [
+    {
+    "network": "https://www.googleapis.com/compute/v1beta15/projects/app-test/global/networks/default"
+    }
+    ]
+    }
+
+The response:
+
+    200 OK
+
+    - Show headers -
+
+    {
+    "kind": "compute#operation",
+    "id": "xxxx3793wwww779zzzz",
+    "name": "operation-aaaa342bbbb46-cccc1c80dddd1-eeeeeeee",
+    "zone": "https://www.googleapis.com/compute/v1beta15/projects/app-test/zones/europe-west1-a",
+    "operationType": "insert",
+    "targetLink": "https://www.googleapis.com/compute/v1beta15/projects/app-test/zones/europe-west1-a/instances/testapi",
+    "status": "PENDING",
+    "user": "user@mail.com",
+    "progress": 0,
+    "insertTime": "2013-06-04T03:45:36.946-07:00",
+    "startTime": "2013-06-04T03:45:37.005-07:00",
+    "selfLink": "https://www.googleapis.com/compute/v1beta15/projects/app-test/zones/europe-west1-a/operations/operation-yyyy342736946-xxxx1c80cbd71-dff64dea"
+    }
+
+# Question
+
+Does someone has any hints regarding what is wrong, please?
+
+Thanks for any help shedding some light on this.
+
+Regards,
+Antoine R. Dumont
