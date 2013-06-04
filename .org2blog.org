@@ -14,8 +14,8 @@
 ** [[file:/home/tony/org/haskell/programming-in-haskell/chapter13.org][PIH - ch13 - Reasoning about programs - exercises]]
 :PROPERTIES:
 :POSTID: 1218
-:POST_DATE: 20130529T17:25:00+0000
-:Published: No
+:POST_DATE: 20130604T18:30:20+0000
+:Published: Yes
 :END:
 ** [[file:/home/tony/org/haskell/programming-in-haskell/chapter12.org][PIH - ch12 - Lazy evaluation - exercises]]
 :PROPERTIES:
