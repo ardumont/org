@@ -1,12 +1,12 @@
 #+BLOG: tony-blog
 #+POSTID: 1238
 #+DATE: [2013-06-01 sam. 17:11]
-#+TITLE: Functional Approach in haskell - Ch1
+#+TITLE: Functional Approach in haskell - Ch2 - Exercises
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
 #+TAGS: haskell, exercises, functional-programming
 #+CATEGORY: haskell, programming, functional-programming
-#+DESCRIPTION: Learning algorithms using haskell
+#+DESCRIPTION: Chapter 2 - Functional programming in Haskell - exercises
 #+STARTUP: indent
 #+STARTUP: hidestars odd
 
