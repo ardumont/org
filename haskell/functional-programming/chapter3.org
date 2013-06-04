@@ -4,7 +4,7 @@
 #+OPTIONS:
 #+TAGS: haskell, exercises, functional-programming
 #+CATEGORY: haskell, programming, functional-programming
-#+DESCRIPTION: Chapter 3 - The efficiency of functional programs
+#+DESCRIPTION: Functional Approach in Haskell - Ch. 3 - The efficiency of functional programs
 #+STARTUP: indent
 #+STARTUP: hidestars odd
 

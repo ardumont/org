@@ -6,7 +6,7 @@
 #+OPTIONS:
 #+TAGS: haskell, exercises, functional-programming
 #+CATEGORY: haskell, programming, functional-programming
-#+DESCRIPTION: Chapter 2 - Functional programming in Haskell - exercises
+#+DESCRIPTION: Functional Approach in Haskell - Ch. 2 - Functional programming in Haskell - exercises
 #+STARTUP: indent
 #+STARTUP: hidestars odd
 
