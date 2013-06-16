@@ -128,7 +128,7 @@ CLOSED: [2013-05-26 dim. 23:59]
 CLOSED: [2013-06-02 dim. 11:54]
 ***** DONE nettoyer le sol
 CLOSED: [2013-06-14 ven. 22:11]
-***** DONE poser la sous-couche anti-humidite
+***** DONE poser la sous-couche resiliente (anti-humidite)
 CLOSED: [2013-06-15 sam. 20:27]
 ***** TODO poser la sous-couche anti-bruit
 ***** TODO poser le parquet
