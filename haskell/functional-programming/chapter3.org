@@ -10,8 +10,24 @@
 
 * Strict evaluation
 #+begin_quote
-Considering the function call =f a b=, how would you force the strict evaluation of a only, b only, and both a and b?
+Considering the function call =f a b=, how would you force the strict evaluation of =a only=, =b only=, and =both a and b=?
 #+end_quote
+
+- a only
+#+begin_src haskell
+f !a b
+#+end_src
+
+- b only
+#+begin_src haskell
+f a !b
+#+end_src
+
+- a and b
+#+begin_src haskell
+f !a !b
+#+end_src
+
 
 * power
 #+begin_quote
