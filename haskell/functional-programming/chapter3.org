@@ -28,7 +28,6 @@ f a !b
 f !a !b
 #+end_src
 
-
 * power
 #+begin_quote
 Computing the power of a number x can be achieved using the following function:
@@ -44,6 +43,42 @@ power x k = if k == 0
 #+begin_quote
 Perform a simple time and space efficiency analysis of the function.
 #+end_quote
+
+First a rewriting which does not impact the analysis asked for.
+#+begin_src haskell
+power' :: (Integral a1, Num a) => a -> a1 -> a
+power' _ 0 = 1
+power' x k
+  | (k `mod` 2) == 0 = power' (x*x) (k `div` 2)
+  | otherwise        = x * power' (x*x) (k `div` 2)
+#+end_src
+
+Example of solution:
+- 2^3:
+#+begin_src haskell
+power 2 3 = 2 * power' (2*2) (3 `div` 2)     -- 3 `mod` 2 /= 0
+          = 2 * power' 4 1
+          = 2 * 4 * power' (4*4) (1 `div` 2)
+          = 2 * 4 * power' 16 0
+          = 2 * 4 * 1                        -- by definition
+          = 8
+#+end_src
+
+- 10^2
+#+begin_src haskell
+power 10 2 = power' (10*10) (2 `div` 2)         -- 2 `mod` 2 == 0
+           = power' 100 1
+           = 100 * power' (100*100) (1 `div` 2)
+           = 100 * power' 10000 0
+           = 100 * 1                            -- by definition
+           = 100
+#+end_src
+
+- time efficiency analysis
+
+O(k), with k the exponent
+
+- space efficiency analysis
 * steps
 #+begin_quote
 Assume a list of length n in which every item requires O(m) steps to be computed.
