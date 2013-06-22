@@ -85,7 +85,7 @@ CLOSED: [2013-04-11 jeu. 09:35]
 ***** TODO cartons
 ***** DONE grosses pieces de verre
 CLOSED: [2013-04-11 jeu. 09:35]
-*** PENDING Piece de jeux des enfants [26/32]
+*** PENDING Piece de jeux des enfants [27/32]
 ***** DONE Retirer la grosse armoire du bureau
 ***** DONE Retirer le crepis
 ***** DONE Enduit de rebouchage
@@ -136,7 +136,8 @@ CLOSED: [2013-06-16 dim. 11:03]
 CLOSED: [2013-06-16 dim. 19:20]
 ***** DONE poser le parquet
 CLOSED: [2013-06-16 dim. 22:02]
-***** TODO finition du parquet
+***** DONE finition du parquet - quart de rond
+CLOSED: [2013-06-22 sam. 16:08]
 ***** TODO nouveau radiateur
 ***** TODO eclairage
 ***** TODO raboter la porte
