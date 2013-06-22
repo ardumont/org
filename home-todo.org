@@ -1,289 +1,288 @@
 #+Title: TODO maison
 #+author: Antoine Romain Dumont
 #+STARTUP: indent
-#+STARTUP: hidestars odd
 
 * PENDING dehors [1/4]
-*** PENDING cote droit [7/12]
-******* DONE Retirer toutes les mauvaises herbes
-******* DONE Planter du gazon
+** PENDING cote droit [7/12]
+*** DONE Retirer toutes les mauvaises herbes
+*** DONE Planter du gazon
 l'herbe est magnifique
-******* DONE Faire couper l'arbre
-******* DONE Mettre en place les composteurs
-******* DONE Laisser secher les buches restantes
+*** DONE Faire couper l'arbre
+*** DONE Mettre en place les composteurs
+*** DONE Laisser secher les buches restantes
 CLOSED: [2013-04-11 jeu. 09:33]
-******* TODO Couper les buches restantes
-******* TODO Couper/Abattre l'abricotier malade.
+*** TODO Couper les buches restantes
+*** TODO Couper/Abattre l'abricotier malade.
 Trop pres du mur de separation.
-******* TODO Couper/Abattre le noisetier
+*** TODO Couper/Abattre le noisetier
 Trop pres du mur de separation.
-******* TODO Cimenter les trous du mur
-******* TODO Repeindre le mur
-******* DONE Replanter l'herbe
+*** TODO Cimenter les trous du mur
+*** TODO Repeindre le mur
+*** DONE Replanter l'herbe
 CLOSED: [2011-09-12 lun. 13:09]
-******* DONE Retirer les dalles
+*** DONE Retirer les dalles
 CLOSED: [2011-09-12 lun. 13:09]
 
-*** DONE cote gauche [11/11]
+** DONE cote gauche [11/11]
 CLOSED: [2013-04-11 jeu. 09:34]
-******* DONE Retirer toutes les mauvaises herbes
-******* DONE Retirer toute la tranchee d'arbustes (~10)
+*** DONE Retirer toutes les mauvaises herbes
+*** DONE Retirer toute la tranchee d'arbustes (~10)
 J'en ai soupe de l'arbuste
-******* DONE Planter du gazon
+*** DONE Planter du gazon
 l'herbe est magnifique
-******* DONE Commencer un potager (tomate, framboise, menthe...)
-******* DONE Tailler la haie du fond
-******* DONE Deplacer les lauriers
-******* DONE Detruire les arbres a boules blanches qui attirent trop d'abeilles et guepes
-******* DONE Replacer les dalles mal placees
-******* DONE Aplanir le sol du cote du potager.
+*** DONE Commencer un potager (tomate, framboise, menthe...)
+*** DONE Tailler la haie du fond
+*** DONE Deplacer les lauriers
+*** DONE Detruire les arbres a boules blanches qui attirent trop d'abeilles et guepes
+*** DONE Replacer les dalles mal placees
+*** DONE Aplanir le sol du cote du potager.
 CLOSED: [2011-09-12 lun. 13:09]
-******* DONE Replanter l'herbe
+*** DONE Replanter l'herbe
 CLOSED: [2011-09-12 lun. 13:09]
-******* DONE Retirer les dalles
+*** DONE Retirer les dalles
 CLOSED: [2011-09-12 lun. 13:09]
-*** PENDING devant [9/10]
-***** DONE parterres de fleurs [4/4]
-******* DONE Detruire le parterre de marguerite qui prend trop de place dans le jardin.
-******* DONE Aplanir tous les parterres de fleurs.
-******* DONE Ramasser toutes les briques de parpaing
-******* DONE Les ranger sous l'escalier de l'entree
-***** DONE Couper l'arbre de l'entree du cote droit.
-***** DONE Finir de detruire la racine restante de l'arbre
-***** DONE Faire couper la haie
-***** DONE Faire couper les arbres de devant
-***** DONE Mettre en place des barrieres de securite le long de l'allee de descente dans le garage.
-***** DONE Evacuer tous les dechets suites a toutes les actions du jardins
-***** DONE Tailler le noisetier de devant.
+** PENDING devant [9/10]
+*** DONE parterres de fleurs [4/4]
+***** DONE Detruire le parterre de marguerite qui prend trop de place dans le jardin.
+***** DONE Aplanir tous les parterres de fleurs.
+***** DONE Ramasser toutes les briques de parpaing
+***** DONE Les ranger sous l'escalier de l'entree
+*** DONE Couper l'arbre de l'entree du cote droit.
+*** DONE Finir de detruire la racine restante de l'arbre
+*** DONE Faire couper la haie
+*** DONE Faire couper les arbres de devant
+*** DONE Mettre en place des barrieres de securite le long de l'allee de descente dans le garage.
+*** DONE Evacuer tous les dechets suites a toutes les actions du jardins
+*** DONE Tailler le noisetier de devant.
 CLOSED: [2013-04-11 jeu. 09:34]
-***** TODO Deraciner les arbustes restant de devant (pour les planter derriere)
-***** DONE Replanter l'herbe
+*** TODO Deraciner les arbustes restant de devant (pour les planter derriere)
+*** DONE Replanter l'herbe
 CLOSED: [2011-09-12 lun. 13:10]
-*** PENDING derriere [3/4]
-***** DONE Retirer le lierre
-***** DONE Tailler la haie de derriere
-***** DONE Reparer la partie de la barriere tombee a cause du lierre
+** PENDING derriere [3/4]
+*** DONE Retirer le lierre
+*** DONE Tailler la haie de derriere
+*** DONE Reparer la partie de la barriere tombee a cause du lierre
 Merci papy Claude
-***** TODO Replanter les arbustes de devant pour combler le trou dans la haie de derriere
+*** TODO Replanter les arbustes de devant pour combler le trou dans la haie de derriere
 * PENDING dedans [3/15]
-*** DONE Relatif a l'exterieur [3/3]
+** DONE Relatif a l'exterieur [3/3]
 CLOSED: [2013-04-11 jeu. 09:35]
-***** DONE Tailler les arbustes en morceaux pour pouvoir les rentrer dans le garage
-***** DONE Rentrer les morceaux dans le garage
-***** DONE Bruler les morceaux d'arbustes dans la cheminee [1/1]
+*** DONE Tailler les arbustes en morceaux pour pouvoir les rentrer dans le garage
+*** DONE Rentrer les morceaux dans le garage
+*** DONE Bruler les morceaux d'arbustes dans la cheminee [1/1]
 CLOSED: [2013-04-11 jeu. 09:35]
-******* DONE 10/10
-*** PENDING Encombrants [6/8]
-***** DONE vieux frigo
-***** DONE vieux four
-***** DONE Grosse armoire du bureau
-***** DONE rameur
+***** DONE 10/10
+** PENDING Encombrants [6/8]
+*** DONE vieux frigo
+*** DONE vieux four
+*** DONE Grosse armoire du bureau
+*** DONE rameur
 CLOSED: [2013-04-11 jeu. 09:35]
-***** DONE pneu
+*** DONE pneu
 CLOSED: [2013-04-11 jeu. 09:35]
-***** TODO armoires metalliques (piece du ballon d'eau chaude)
-***** TODO cartons
-***** DONE grosses pieces de verre
+*** TODO armoires metalliques (piece du ballon d'eau chaude)
+*** TODO cartons
+*** DONE grosses pieces de verre
 CLOSED: [2013-04-11 jeu. 09:35]
-*** PENDING Piece de jeux des enfants [27/30]
-***** DONE Retirer la grosse armoire du bureau
-***** DONE Retirer le crepis
-***** DONE Enduit de rebouchage
+** PENDING Piece de jeux des enfants [27/30]
+*** DONE Retirer la grosse armoire du bureau
+*** DONE Retirer le crepis
+*** DONE Enduit de rebouchage
 CLOSED: [2013-04-11 jeu. 09:36]
-***** DONE Enduit de lissage
+*** DONE Enduit de lissage
 CLOSED: [2013-04-11 jeu. 09:36]
-***** DONE Ranger la piece
+*** DONE Ranger la piece
 CLOSED: [2011-10-31 lun. 10:10]
-***** DONE Ranger la piece
+*** DONE Ranger la piece
 CLOSED: [2013-05-19 dim. 18:42]
-***** DONE Enduit de rebouchage mur
+*** DONE Enduit de rebouchage mur
 CLOSED: [2013-05-19 dim. 18:41]
-***** DONE lessiver plafond
+*** DONE lessiver plafond
 CLOSED: [2013-05-19 dim. 18:41]
-***** DONE Enduit de rebouchage plafond
+*** DONE Enduit de rebouchage plafond
 CLOSED: [2013-05-19 dim. 18:41]
-***** DONE poncer le plafond pour lisser l'enduit
+*** DONE poncer le plafond pour lisser l'enduit
 CLOSED: [2013-05-19 dim. 18:42]
-***** DONE depoussierer le plafond
+*** DONE depoussierer le plafond
 CLOSED: [2013-05-19 dim. 18:42]
-***** DONE Demonter le placard
+*** DONE Demonter le placard
 CLOSED: [2013-05-19 dim. 18:43]
-***** DONE Enduit de rebouchage placard
+*** DONE Enduit de rebouchage placard
 CLOSED: [2013-05-19 dim. 18:43]
-***** DONE sous-couche dans le placard
+*** DONE sous-couche dans le placard
 CLOSED: [2013-05-19 dim. 18:43]
-***** DONE peinture plafond
+*** DONE peinture plafond
 CLOSED: [2013-05-20 lun. 19:13]
-***** DONE peinture placard
+*** DONE peinture placard
 CLOSED: [2013-05-20 lun. 19:13]
-***** DONE peinture porte
+*** DONE peinture porte
 CLOSED: [2013-05-20 lun. 19:13]
-***** DONE peinture plinthes
+*** DONE peinture plinthes
 CLOSED: [2013-05-20 lun. 19:13]
-***** DONE peinture cadre porte
+*** DONE peinture cadre porte
 CLOSED: [2013-05-20 lun. 19:13]
-***** DONE Poser le papier peint bleu
+*** DONE Poser le papier peint bleu
 CLOSED: [2013-05-26 dim. 23:59]
-***** DONE Poser le papier peint vert
+*** DONE Poser le papier peint vert
 CLOSED: [2013-06-02 dim. 11:54]
-***** DONE nettoyer le sol
+*** DONE nettoyer le sol
 CLOSED: [2013-06-14 ven. 22:11]
-***** DONE poser la sous-couche resiliente (anti-humidite)
+*** DONE poser la sous-couche resiliente (anti-humidite)
 CLOSED: [2013-06-15 sam. 20:27]
-***** DONE poser la sous-couche anti-bruit
+*** DONE poser la sous-couche anti-bruit
 CLOSED: [2013-06-16 dim. 11:03]
-***** DONE poser le sticker
+*** DONE poser le sticker
 CLOSED: [2013-06-16 dim. 19:20]
-***** DONE poser le parquet
+*** DONE poser le parquet
 CLOSED: [2013-06-16 dim. 22:02]
-***** DONE finition du parquet - quart de rond
+*** DONE finition du parquet - quart de rond
 CLOSED: [2013-06-22 sam. 16:08]
-***** TODO raboter la porte
-***** TODO barre de seuil
-***** TODO nouveau radiateur
-***** TODO eclairage
-***** TODO amenagement du placard
-*** PENDING Cuisine [3/7]
-***** DONE Degager le vieux frigo
-***** DONE Refaire les prises de courant
-***** DONE Retirer le crepis
-***** TODO Enduit de rebouchage
-***** TODO Enduit de lissage
-***** TODO Poser la toile de renovation
-***** TODO Poser le papier peint/Peindre
-*** PENDING Couloir [7/9]
-***** DONE Changer les portes de l'armoire
+*** TODO raboter la porte
+*** TODO barre de seuil
+*** TODO nouveau radiateur
+*** TODO eclairage
+*** TODO amenagement du placard
+** PENDING Cuisine [3/7]
+*** DONE Degager le vieux frigo
+*** DONE Refaire les prises de courant
+*** DONE Retirer le crepis
+*** TODO Enduit de rebouchage
+*** TODO Enduit de lissage
+*** TODO Poser la toile de renovation
+*** TODO Poser le papier peint/Peindre
+** PENDING Couloir [7/9]
+*** DONE Changer les portes de l'armoire
 Merci papy Claude
-***** DONE Retirer le papier peint du plafond
-***** DONE Retirer le crepis
-***** DONE Reparer les fissures du plafond
+*** DONE Retirer le papier peint du plafond
+*** DONE Retirer le crepis
+*** DONE Reparer les fissures du plafond
 Merci Papy Claude
-***** DONE Reboucher les trous (enduit)
+*** DONE Reboucher les trous (enduit)
 Merci Papy Claude
-***** DONE Lessivage/nettoyage
+*** DONE Lessivage/nettoyage
 Merci Papy Claude
-***** DONE Passer la sous-couche.
+*** DONE Passer la sous-couche.
 Merci Papy Claude
-***** TODO Poser la toile de renovation
-***** TODO Poser le papier peint/Peindre
-*** PENDING Salon [7/9]
-***** DONE Retirer le papier peint du plafond
-***** DONE Retirer le crepis
-***** DONE Reparer la fissure de la cheminee
+*** TODO Poser la toile de renovation
+*** TODO Poser le papier peint/Peindre
+** PENDING Salon [7/9]
+*** DONE Retirer le papier peint du plafond
+*** DONE Retirer le crepis
+*** DONE Reparer la fissure de la cheminee
 Merci Papy Claude
-***** DONE Reparer les fissures du plafond
+*** DONE Reparer les fissures du plafond
 Mercy Papy Claude
-***** DONE Reboucher les trous (enduit)
+*** DONE Reboucher les trous (enduit)
 Merci Papy Claude
-***** DONE Lessivage/nettoyage
+*** DONE Lessivage/nettoyage
 Merci Papy Claude
-***** DONE Passer la sous-couche.
+*** DONE Passer la sous-couche.
 Merci Papy Claude
-***** TODO Poser la toile de renovation
-***** TODO Poser le papier peint/Peindre
-*** PENDING Escalier salon-1er [7/9]
-***** DONE Retirer le crepis
-***** DONE Enduit de lissage
+*** TODO Poser la toile de renovation
+*** TODO Poser le papier peint/Peindre
+** PENDING Escalier salon-1er [7/9]
+*** DONE Retirer le crepis
+*** DONE Enduit de lissage
 CLOSED: [2011-10-31 lun. 10:11]
-***** DONE Poncer
+*** DONE Poncer
 CLOSED: [2011-10-31 lun. 10:11]
-***** DONE Retirer le papier peint
+*** DONE Retirer le papier peint
 CLOSED: [2011-10-31 lun. 10:11]
-***** DONE Enduit de lissage
+*** DONE Enduit de lissage
 CLOSED: [2011-10-31 lun. 19:34]
-***** DONE Lessivage/nettoyage
+*** DONE Lessivage/nettoyage
 CLOSED: [2011-10-31 lun. 19:35]
-***** DONE Passer la sous-couche. [0/1]
+*** DONE Passer la sous-couche. [0/1]
 CLOSED: [2013-04-11 jeu. 09:37]
-***** TODO Poser la toile de renovation
-***** TODO Poser le papier peint/Peindre
-*** PENDING Couloir du haut [10/12]
-***** DONE Retirer le crepis
-***** DONE Retirer le papier peint
-***** DONE Enduit
-***** DONE Reboucher les fissures
-***** DONE Poncage
+*** TODO Poser la toile de renovation
+*** TODO Poser le papier peint/Peindre
+** PENDING Couloir du haut [10/12]
+*** DONE Retirer le crepis
+*** DONE Retirer le papier peint
+*** DONE Enduit
+*** DONE Reboucher les fissures
+*** DONE Poncage
 CLOSED: [2011-10-29 sam. 12:50]
-***** DONE Enduit
-***** DONE Poncage
+*** DONE Enduit
+*** DONE Poncage
 CLOSED: [2011-10-29 sam. 12:51]
-***** DONE Enduit
+*** DONE Enduit
 CLOSED: [2011-10-31 lun. 10:12]
-***** DONE Lessivage/nettoyage
+*** DONE Lessivage/nettoyage
 CLOSED: [2011-10-31 lun. 19:36]
-***** DONE Passer la sous-couche.
+*** DONE Passer la sous-couche.
 CLOSED: [2011-10-31 lun. 19:36]
-***** TODO Poser la toile de renovation
-***** TODO Poser le papier peint/Peindre
-*** DONE Chambre de Chloe [9/9]
-***** DONE Retirer le papier peint de la porte
-***** DONE Retirer le papier peint des armoires
-***** DONE Finalement remplacer les portes d'armoire
+*** TODO Poser la toile de renovation
+*** TODO Poser le papier peint/Peindre
+** DONE Chambre de Chloe [9/9]
+*** DONE Retirer le papier peint de la porte
+*** DONE Retirer le papier peint des armoires
+*** DONE Finalement remplacer les portes d'armoire
 Merci Papy Claude
-***** DONE Retirer le papier peint
-***** DONE Retirer le papier peint des portes
-***** DONE Lessivage/nettoyage
+*** DONE Retirer le papier peint
+*** DONE Retirer le papier peint des portes
+*** DONE Lessivage/nettoyage
 Merci Papy Claude
-***** DONE Passer la sous-couche.
+*** DONE Passer la sous-couche.
 Merci Papy Claude
-***** DONE Peindre
+*** DONE Peindre
 Merci Papy Claude
-***** DONE Decoration
+*** DONE Decoration
 Merci Chris
-*** DONE Chambre de Theo [10/10]
-***** DONE Retirer le papier peint de la porte
-***** DONE Retirer le papier peint des armoires
-***** DONE Finalement remplacer les portes d'armoire
+** DONE Chambre de Theo [10/10]
+*** DONE Retirer le papier peint de la porte
+*** DONE Retirer le papier peint des armoires
+*** DONE Finalement remplacer les portes d'armoire
 Merci Papy Claude
-***** DONE Retirer la peinture "3d" (poncer)
+*** DONE Retirer la peinture "3d" (poncer)
 Merci Papy Claude
-***** DONE Poncer le plafond
+*** DONE Poncer le plafond
 Merci Papy Claude
-***** DONE Peindre le plafond
+*** DONE Peindre le plafond
 Merci Papy Claude
-***** DONE Changer la prise de courant
+*** DONE Changer la prise de courant
 Merci Papy Claude
-***** DONE Lessivage/nettoyage
+*** DONE Lessivage/nettoyage
 Merci Papy Claude
-***** DONE Peindre la chambre
+*** DONE Peindre la chambre
 Merci Papy Claude
-***** DONE Decoration
+*** DONE Decoration
 Merci Chris
-*** PENDING Chambre parentale [2/9]
-***** TODO Retirer le crepis
-***** TODO Enduit de rebouchage
-***** TODO Enduit de lissage
-***** TODO Lessivage/nettoyage
-***** TODO Passer la sous-couche.
-***** TODO Poser la toile de renovation
-***** TODO Poser le papier peint/Peindre
-***** DONE Changer le siphon du lavabo
+** PENDING Chambre parentale [2/9]
+*** TODO Retirer le crepis
+*** TODO Enduit de rebouchage
+*** TODO Enduit de lissage
+*** TODO Lessivage/nettoyage
+*** TODO Passer la sous-couche.
+*** TODO Poser la toile de renovation
+*** TODO Poser le papier peint/Peindre
+*** DONE Changer le siphon du lavabo
 CLOSED: [2013-04-11 jeu. 09:39]
-***** DONE Changer le robinet de la douche
+*** DONE Changer le robinet de la douche
 CLOSED: [2013-04-11 jeu. 09:39]
-*** TODO Bureau [0/9]
-***** TODO Retirer le crepis
-***** TODO Enduit de rebouchage
-***** TODO Enduit de lissage
-***** TODO Poncage
-***** TODO Lessivage/nettoyage
-***** TODO Passer la sous-couche.
-***** TODO Poser la toile de renovation
-***** TODO Poser le papier peint/Peindre
-***** TODO Ranger la piece
-*** TODO Toilettes du bas [0%]
-***** TODO Changer les toilettes
-***** TODO retirer le crepis
-*** PENDING Toilettes du haut [66%]
-***** DONE Changer les toilettes
+** TODO Bureau [0/9]
+*** TODO Retirer le crepis
+*** TODO Enduit de rebouchage
+*** TODO Enduit de lissage
+*** TODO Poncage
+*** TODO Lessivage/nettoyage
+*** TODO Passer la sous-couche.
+*** TODO Poser la toile de renovation
+*** TODO Poser le papier peint/Peindre
+*** TODO Ranger la piece
+** TODO Toilettes du bas [0%]
+*** TODO Changer les toilettes
+*** TODO retirer le crepis
+** PENDING Toilettes du haut [66%]
+*** DONE Changer les toilettes
 CLOSED: [2013-04-11 jeu. 09:40]
-***** DONE Changer les tuyaux
+*** DONE Changer les tuyaux
 CLOSED: [2013-04-11 jeu. 09:40]
 
-***** TODO retirer le crepis
-*** TODO garage [66%]
-***** DONE Evacuer le casier a plan
+*** TODO retirer le crepis
+** TODO garage [66%]
+*** DONE Evacuer le casier a plan
 CLOSED: [2013-06-22 sam. 16:12]
-***** DONE Installer une pompe pour evacuer l'eau a l'exterieur
+*** DONE Installer une pompe pour evacuer l'eau a l'exterieur
 CLOSED: [2013-06-22 sam. 16:13]
-***** TODO ranger
+*** TODO ranger
