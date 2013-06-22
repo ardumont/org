@@ -65,7 +65,7 @@ CLOSED: [2011-09-12 lun. 13:10]
 ***** DONE Reparer la partie de la barriere tombee a cause du lierre
 Merci papy Claude
 ***** TODO Replanter les arbustes de devant pour combler le trou dans la haie de derriere
-* PENDING dedans [4/15]
+* PENDING dedans [3/15]
 *** DONE Relatif a l'exterieur [3/3]
 CLOSED: [2013-04-11 jeu. 09:35]
 ***** DONE Tailler les arbustes en morceaux pour pouvoir les rentrer dans le garage
@@ -271,14 +271,19 @@ CLOSED: [2013-04-11 jeu. 09:39]
 ***** TODO Poser la toile de renovation
 ***** TODO Poser le papier peint/Peindre
 ***** TODO Ranger la piece
-*** TODO Toilletes du bas [0%]
+*** TODO Toilettes du bas [0%]
 ***** TODO Changer les toilettes
-*** DONE Toilettes du haut [100%]
-CLOSED: [2013-04-11 jeu. 09:40]
+***** TODO retirer le crepis
+*** PENDING Toilettes du haut [66%]
 ***** DONE Changer les toilettes
 CLOSED: [2013-04-11 jeu. 09:40]
 ***** DONE Changer les tuyaux
 CLOSED: [2013-04-11 jeu. 09:40]
 
-*** TODO garage [0%]
+***** TODO retirer le crepis
+*** TODO garage [66%]
+***** DONE Evacuer le casier a plan
+CLOSED: [2013-06-22 sam. 16:12]
+***** DONE Installer une pompe pour evacuer l'eau a l'exterieur
+CLOSED: [2013-06-22 sam. 16:13]
 ***** TODO ranger
