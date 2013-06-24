@@ -119,4 +119,4 @@ sys     0m0.044s
 #+end_src
 
 * Source
-[[https://github.com/ardumont/my-haskell-lab/blob/master/src/primes/prime.hs][prime.hs]]
+[[https://github.com/ardumont/haskell-lab/blob/master/src/primes/primes.hs][primes.hs]]
