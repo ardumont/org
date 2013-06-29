@@ -53,7 +53,7 @@ power' x k
   | otherwise        = x * power' (x*x) (k `div` 2)
 #+end_src
 
-Example of solution:
+Example of strict resolution:
 - 2^3:
 #+begin_src haskell
 power 2 3 = 2 * power' (2*2) (3 `div` 2)     -- 3 `mod` 2 /= 0
