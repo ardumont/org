@@ -76,6 +76,15 @@ power 10 2 = power' (10*10) (2 `div` 2)         -- 2 `mod` 2 == 0
 
 - time efficiency analysis
 
+Step counting analysis:
+
+#+begin_src haskell
+Tpower _ 0 = 1
+Tpower x k
+  | (k `mod` 2) == 0 = 1 + T_x*x + T_kdiv2 + T_power(x*x) (k `div` 2)                         = 1 + 1 + 1 + Tpower
+  | otherwise        = T_x*x + T_kdiv2 + T_power(x*x) (k `div` 2) + Tx*power(x*x) (k `div` 2) = 1 + 1 + 1 + Tpower
+#+end_src
+
 O(k), with k the exponent
 
 - space efficiency analysis
