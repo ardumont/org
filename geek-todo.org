@@ -362,7 +362,7 @@ CLOSED: [2013-07-07 dim. 10:00]
 CLOSED: [2013-07-07 dim. 10:00]
 *** DONE jabber-pack
 CLOSED: [2013-07-07 dim. 10:00]
-* IN-PROGRESS org-trello [80%]
+* IN-PROGRESS org-trello [66%]
 minor mode to sync trello and org-mode
 ** DONE v0.0.1
 CLOSED: [2013-07-07 dim. 09:58]
@@ -373,10 +373,9 @@ CLOSED: [2013-07-07 dim. 09:58]
 fix pb in 0.0.1
 ** DONE Deploy in melpa
 CLOSED: [2013-07-07 dim. 09:58]
-** Deploy in marmalade
-
+** TODO Deploy in marmalade
 ** TODO v0.0.3
-* PENDING Articles [96%]
+* PENDING Articles [94%]
 ** DONE Chroot to save one's GNU/Linux
 CLOSED: [2012-04-21 Sat 18:07]
 http://adumont.fr/blog/chroot-pour-sauver-son-gnulinux/
@@ -539,9 +538,13 @@ CLOSED: [2013-05-26 dim. 13:18]
 CLOSED: [2013-05-29 mer. 20:24]
 ** DONE PIH - ch13 - Reasoning about programs - exercises
 CLOSED: [2013-06-04 mar. 20:29]
-** IN-PROGRESS Functional approach in haskell - Ch. 2
-** Functional Approach in Haskell - Ch. 3 - The efficiency of functional programs
-* IN-PROGRESS clojure [28%]
+** PENDING Functional approach in haskell - Ch. 2
+** PENDING Functional Approach in Haskell - Ch. 3 - The efficiency of functional programs
+** TODO org-trello [0%]
+*** TODO article
+*** TODO blog
+*** TODO tweet
+* PENDING clojure [35%]
 ** DONE start [100%]
 CLOSED: [2012-04-21 Sat 18:18]
 *** DONE install
@@ -557,11 +560,14 @@ CLOSED: [2012-04-21 Sat 18:18]
 *** DONE play with it
 CLOSED: [2012-04-21 Sat 12:09]
 
-** PENDING Reading [50%]
+** DONE Reading [100%]
+CLOSED: [2013-07-07 dim. 10:04]
 *** DONE practical clojure
 CLOSED: [2012-04-21 Sat 18:20]
-*** PENDING joy of clojure
-*** PENDING clojure in action
+*** DONE joy of clojure
+CLOSED: [2013-07-07 dim. 10:04]
+*** DONE clojure in action
+CLOSED: [2013-07-07 dim. 10:04]
 *** DONE Clojure programming
 CLOSED: [2012-12-23 Sun 13:24]
 ** IN-PROGRESS exercises [0%]
@@ -817,7 +823,7 @@ library to manage environment settings from a number of different sources
 
 ** DONE clj-ssh
 CLOSED: [2013-03-02 sam. 15:12]
-** TODO projects [%]
+** TODO projects [0%]
 *** PENDING twitalyse
 *** PENDING fnx
 *** PENDING hmdb
@@ -949,23 +955,3 @@ CLOSED: [2013-04-19 ven. 22:39]
  http://www.dicosmo.org/CourseNotes/pfav/
 * TODO riemann
 * TODO clojure data analysis cookbook
-* TODO org-mode - trello synchronisation [%]
-** TODO learning trello api (clojure scratch)
-*** DONE authentication
-CLOSED: [2013-06-23 dim. 12:31]
-**** DONE basics
-CLOSED: [2013-06-23 dim. 12:30]
-***** DONE clojure
-CLOSED: [2013-06-23 dim. 12:31]
-***** DONE emacs
-CLOSED: [2013-06-23 dim. 12:31]
-**** DONE oauth
-CLOSED: [2013-06-23 dim. 12:30]
-***** DONE clojure
-CLOSED: [2013-06-23 dim. 12:31]
-***** FAIL emacs
-CLOSED: [2013-06-23 dim. 12:31]
-*** TODO add task
-*** TODO delete task
-*** TODO todo
-*** TODO done
