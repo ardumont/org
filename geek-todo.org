@@ -264,7 +264,7 @@ CLOSED: [2012-04-22 Sun 11:13]
 #+END_SRC
 Need some setup.
 *** IN-PROGRESS setup it to have access to different languages
-* PENDING emacs [75%]
+* IN-PROGRESS emacs [77%]
 ** DONE install
 CLOSED: [2012-04-21 Sat 12:02]
 #+BEGIN_SRC sh
@@ -348,12 +348,34 @@ CLOSED: [2012-12-23 Sun 13:18]
 CLOSED: [2013-03-02 sam. 15:50]
 *** DONE organize packs
 CLOSED: [2013-04-21 dim. 18:30]
-** TODO Reading [0%]
-*** TODO Read emacs manual
+** PENDING Reading [0%]
+*** PENDING Read emacs manual
 *** TODO A mode to make slides from org
 https://github.com/relevance/org-html-slideshow
 *** TODO Eval clojure in org-mode file
 http://orgmode.org/worg/org-contrib/babel/languages/ob-doc-clojure.html
+** DONE Improve packs for them not to break at startup time
+CLOSED: [2013-07-07 dim. 09:59]
+*** DONE blog-pack
+CLOSED: [2013-07-07 dim. 10:00]
+*** DONE mail-pack
+CLOSED: [2013-07-07 dim. 10:00]
+*** DONE jabber-pack
+CLOSED: [2013-07-07 dim. 10:00]
+* IN-PROGRESS org-trello [80%]
+minor mode to sync trello and org-mode
+** DONE v0.0.1
+CLOSED: [2013-07-07 dim. 09:58]
+** DONE Deploy in melpa
+CLOSED: [2013-07-07 dim. 09:58]
+** DONE v0.0.2
+CLOSED: [2013-07-07 dim. 09:58]
+fix pb in 0.0.1
+** DONE Deploy in melpa
+CLOSED: [2013-07-07 dim. 09:58]
+** Deploy in marmalade
+
+** TODO v0.0.3
 * PENDING Articles [96%]
 ** DONE Chroot to save one's GNU/Linux
 CLOSED: [2012-04-21 Sat 18:07]
@@ -837,7 +859,7 @@ CLOSED: [2013-03-03 dim. 00:06]
 
 ** DONE make a decent cpug-vm/Vagrantfile startup
 CLOSED: [2013-03-03 dim. 01:45]
-* IN-PROGRESS challenges [50%]
+* PENDING challenges [50%]
 ** DONE matasano 1-8 [100%]
 CLOSED: [2013-05-17 ven. 04:59]
 *** DONE 1
@@ -859,7 +881,7 @@ CLOSED: [2013-05-17 ven. 04:55]
 *** DONE send mail
 CLOSED: [2013-05-17 ven. 04:59]
 ** TODO matasano suite
-* IN-PROGRESS haskell [50%]
+* PENDING haskell [50%]
 ** DONE setuping environment
 CLOSED: [2013-04-19 ven. 22:33]
 ** DONE blogging about haskell
