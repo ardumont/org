@@ -362,7 +362,7 @@ CLOSED: [2013-07-07 dim. 10:00]
 CLOSED: [2013-07-07 dim. 10:00]
 *** DONE jabber-pack
 CLOSED: [2013-07-07 dim. 10:00]
-* IN-PROGRESS org-trello [66%]
+* IN-PROGRESS org-trello [85%]
 minor mode to sync trello and org-mode
 ** DONE v0.0.1
 CLOSED: [2013-07-07 dim. 09:58]
@@ -373,8 +373,11 @@ CLOSED: [2013-07-07 dim. 09:58]
 fix pb in 0.0.1
 ** DONE Deploy in melpa
 CLOSED: [2013-07-07 dim. 09:58]
-** TODO Deploy in marmalade
-** TODO v0.0.3
+** DONE Deploy in marmalade
+CLOSED: [2013-07-12 ven. 22:25]
+** DONE v0.0.3
+CLOSED: [2013-07-12 ven. 22:25]
+** IN-PROGRESS v0.0.4
 * PENDING Articles [94%]
 ** DONE Chroot to save one's GNU/Linux
 CLOSED: [2012-04-21 Sat 18:07]
@@ -540,10 +543,8 @@ CLOSED: [2013-05-29 mer. 20:24]
 CLOSED: [2013-06-04 mar. 20:29]
 ** PENDING Functional approach in haskell - Ch. 2
 ** PENDING Functional Approach in Haskell - Ch. 3 - The efficiency of functional programs
-** TODO org-trello [0%]
-*** TODO article
-*** TODO blog
-*** TODO tweet
+** DONE org-trello
+CLOSED: [2013-07-12 ven. 22:25]
 * PENDING clojure [35%]
 ** DONE start [100%]
 CLOSED: [2012-04-21 Sat 18:18]
