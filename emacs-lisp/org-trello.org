@@ -1,0 +1,30 @@
+#+BLOG: tony-blog
+#+POSTID: 1247
+#+DATE: [2013-07-12 ven. 21:45]
+#+OPTIONS: toc:t
+#+CATEGORY: org-trello, org-mode, emacs, trello, tools
+#+TAGS: org-trello, org-mode, emacs, trello, tools
+#+DESCRIPTION: Synchronize your trello board from emacs
+#+TITLE: org-trello - Sync your org-mode file to trello
+
+So It was a long time since I blogged.
+Recently, I learned some new Lisp! Emacs-lisp.
+And I did my first emacs-lisp extension, org-trello.
+
+# Demo!
+
+[[http://youtu.be/e3NzllAHbHY][Install org-trello]]
+
+[[http://youtu.be/ReUp1Wn5scc%0A][Setup key and token]]
+
+[[http://youtu.be/2PT8K1HG-eY%0A][Attach org-mode file to one trello board]]
+
+[[http://youtu.be/ILPs74L5LFU%0A][Synchronize one entity]]
+
+[[http://youtu.be/H8DXm5BLaD0%0A][Synchronize one complete entity and move entity according to status]]
+
+[[http://youtu.be/d6SATWzhQhs%0A][Synchronize from org-mode file to trello]]
+
+[[http://youtu.be/-ldo8gvhaTY%0A][Synchronize from trello to org-mode files]]
+
+[[http://youtu.be/6k4zRm6t8ZY%0A][Create board and sync]]
