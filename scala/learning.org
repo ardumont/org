@@ -1,20 +1,24 @@
 #+title: programming in scala - 2nd edition
 
-* DONE introduction
+* IN-PROGRESS Programming in scala
+** IN-PROGRESS chapters
+*** DONE introduction
 CLOSED: [2013-07-11 jeu. 12:36]
-* DONE Ch. 1 - A scalable language
+*** DONE Ch. 1 - A scalable language
 CLOSED: [2013-07-11 jeu. 12:36]
-* DONE Ch. 2 - First steps in scala
+*** DONE Ch. 2 - First steps in scala
 CLOSED: [2013-07-12 ven. 16:11]
-* DONE Ch. 3 - Next steps in scala
+*** DONE Ch. 3 - Next steps in scala
 CLOSED: [2013-07-12 ven. 16:11]
-* DONE Ch. 4 - Classes and objects
+*** DONE Ch. 4 - Classes and objects
 CLOSED: [2013-07-12 ven. 16:11]
-* IN-PROGRESS Ch. 5 - Basic types and operations
-* TODO Ch. 6 - Functional objects
-* TODO Ch. 7 - Buit-in control structures
-* TODO Ch. 8 - Functions and closures
-* TODO Ch. 9 - Control abstraction
-* TODO Ch. 10 - Composition and inheritance
-* TODO Ch. 11 - Scala's hierarchy
-* TODO Ch. 12 - Traits
+*** DONE Ch. 5 - Basic types and operations
+CLOSED: [2013-07-12 ven. 17:10]
+*** TODO Ch. 6 - Functional objects
+*** TODO Ch. 7 - Buit-in control structures
+*** TODO Ch. 8 - Functions and closures
+*** TODO Ch. 9 - Control abstraction
+*** TODO Ch. 10 - Composition and inheritance
+*** TODO Ch. 11 - Scala's hierarchy
+*** TODO Ch. 12 - Traits
+*** ...
