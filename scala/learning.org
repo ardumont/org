@@ -4,10 +4,13 @@
 CLOSED: [2013-07-11 jeu. 12:36]
 * DONE Ch. 1 - A scalable language
 CLOSED: [2013-07-11 jeu. 12:36]
-* IN-PROGRESS Ch. 2 - First steps in scala
-* TODO Ch. 3 - Next steps in scala
-* TODO Ch. 4 - Classes and objects
-* TODO Ch. 5 - Basic types and operations
+* DONE Ch. 2 - First steps in scala
+CLOSED: [2013-07-12 ven. 16:11]
+* DONE Ch. 3 - Next steps in scala
+CLOSED: [2013-07-12 ven. 16:11]
+* DONE Ch. 4 - Classes and objects
+CLOSED: [2013-07-12 ven. 16:11]
+* IN-PROGRESS Ch. 5 - Basic types and operations
 * TODO Ch. 6 - Functional objects
 * TODO Ch. 7 - Buit-in control structures
 * TODO Ch. 8 - Functions and closures
