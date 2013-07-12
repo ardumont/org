@@ -3,7 +3,7 @@
 :PROPERTIES:
 :POSTID: 1238
 :POST_DATE: 20130601T15:11:00+0000
-:Published: No
+:Published: Yes
 :END:
 ** [[file:/home/tony/repo/perso/my-org-files/haskell/programming-in-haskell/chapter13.org][PIH - ch13 - Reasoning about programs - exercises]]
 :PROPERTIES:
@@ -491,7 +491,7 @@
 :POST_DATE: 20121222T13:20:00+0000
 :Published: Yes
 :END:
-** [[file:/home/tony/org/emacs-lisp/org-trello.org][org-trello - Sync your org-mode file to trello]]
+** [[file:/home/tony/org/emacs-lisp/org-trello.org][org-trello - Sync your org file to trello]]
 :PROPERTIES:
 :POSTID:   1247
 :POST_DATE: 20130712T19:45:00+0000

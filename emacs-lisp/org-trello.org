@@ -5,26 +5,54 @@
 #+CATEGORY: org-trello, org-mode, emacs, trello, tools
 #+TAGS: org-trello, org-mode, emacs, trello, tools
 #+DESCRIPTION: Synchronize your trello board from emacs
-#+TITLE: org-trello - Sync your org-mode file to trello
+#+TITLE: org-trello - Sync your org file to trello
 
 So It was a long time since I blogged.
 Recently, I learned some new Lisp! Emacs-lisp.
 And I did my first emacs-lisp extension, org-trello.
 
-# Demo!
+* Why
 
-[[http://youtu.be/e3NzllAHbHY][Install org-trello]]
+I use org-mode for my self-organisation.
+Some team use trello for organisation.
+So, as trello exposes their public api, it was nice to try and do something about it.
 
-[[http://youtu.be/ReUp1Wn5scc%0A][Setup key and token]]
+* Demo!
 
-[[http://youtu.be/2PT8K1HG-eY%0A][Attach org-mode file to one trello board]]
+Install org-trello
 
-[[http://youtu.be/ILPs74L5LFU%0A][Synchronize one entity]]
+http://youtu.be/e3NzllAHbHY
 
-[[http://youtu.be/H8DXm5BLaD0%0A][Synchronize one complete entity and move entity according to status]]
+Setup key and token
 
-[[http://youtu.be/d6SATWzhQhs%0A][Synchronize from org-mode file to trello]]
+http://youtu.be/ReUp1Wn5scc
 
-[[http://youtu.be/-ldo8gvhaTY%0A][Synchronize from trello to org-mode files]]
+Attach org-mode file to one trello board
 
-[[http://youtu.be/6k4zRm6t8ZY%0A][Create board and sync]]
+http://youtu.be/2PT8K1HG-eY
+
+Synchronize one entity
+
+http://youtu.be/ILPs74L5LFU
+
+Synchronize one complete entity and move entity accordint to status
+
+http://youtu.be/H8DXm5BLaD0
+
+Synchronize from org-mode file to trello
+
+http://youtu.be/d6SATWzhQhs
+
+Synchronize from trello to org-mode file
+
+http://youtu.be/-ldo8gvhaTY
+
+Create board and sync
+
+http://youtu.be/6k4zRm6t8ZY
+
+* Sources
+
+[[https://github.com/ardumont/org-trello][source]]
+
+Released on marmalade - http://www.marmalade-repo.org/packages/org-trello (stable) and melpa - http://melpa.milkbox.net/ (snapshot)
