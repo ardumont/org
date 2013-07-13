@@ -30,7 +30,7 @@ http://youtu.be/e3NzllAHbHY
 
 http://youtu.be/ReUp1Wn5scc
 
-** Attach org-mode file to one trello board
+** Setup org-mode file to work with one trello board
 
 http://youtu.be/2PT8K1HG-eY
 
