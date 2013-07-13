@@ -5,49 +5,52 @@
 #+CATEGORY: org-trello, org-mode, emacs, trello, tools
 #+TAGS: org-trello, org-mode, emacs, trello, tools
 #+DESCRIPTION: Synchronize your trello board from emacs
-#+TITLE: org-trello - Sync your org file to trello
+#+TITLE: org-trello - Sync org-mode file and trello
 
-So It was a long time since I blogged.
-Recently, I learned some new Lisp! Emacs-lisp.
-And I did my first emacs-lisp extension, org-trello.
+For some time now, I wanted to learn [[https://www.gnu.org/software/emacs/manual/html_node/elisp/index.html][Emacs-lisp]] some [[https://github.com/ardumont/emacs-live-packs][more than I already did]].
+As I dayly use emacs, I think it was the logical course of action.
 
-* Why
+And, as I:
+- already use [[http://orgmode.org/][org-mode]] a lot (even for blogging this very moment)
+- kept encountering [[https://trello.com/][trello]] for team organisation
+- don't like to duplicate informations
+- can't expect everybody to try and learn [[https://www.gnu.org/software/emacs/][emacs]] and [[%20%5B%5Bhttp://orgmode.org/%5D%5Borg-mode%5D%5D%20][org-mode]]
+- [[https://trello.com/][trello]] exposes a [[https://trello.com/docs/][public API]]
 
-I use org-mode for my self-organisation.
-Some team use trello for organisation.
-So, as trello exposes their public api, it was nice to try and do something about it.
+I thought "what the hell, let's do this!".
+And here is the result: [[https://github.com/ardumont/org-trello][org-trello]], an [[http://orgmode.org/][org-mode]] [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Minor-Modes.html][minor-mode]] to permit the synchronization between a [[https://trello.com/][trello]] board and an [[http://orgmode.org/][org-mode]] file (and vice versa).
 
 * Demo!
 
-Install org-trello
+** Install org-trello
 
 http://youtu.be/e3NzllAHbHY
 
-Setup key and token
+** Setup key and token
 
 http://youtu.be/ReUp1Wn5scc
 
-Attach org-mode file to one trello board
+** Attach org-mode file to one trello board
 
 http://youtu.be/2PT8K1HG-eY
 
-Synchronize one entity
+** Synchronize one entity
 
 http://youtu.be/ILPs74L5LFU
 
-Synchronize one complete entity and move entity accordint to status
+** Synchronize one complete entity and move entity accordint to status
 
 http://youtu.be/H8DXm5BLaD0
 
-Synchronize from org-mode file to trello
+** Synchronize from org-mode file to trello
 
 http://youtu.be/d6SATWzhQhs
 
-Synchronize from trello to org-mode file
+** Synchronize from trello to org-mode file
 
 http://youtu.be/-ldo8gvhaTY
 
-Create board and sync
+** Create board and sync
 
 http://youtu.be/6k4zRm6t8ZY
 
@@ -55,4 +58,8 @@ http://youtu.be/6k4zRm6t8ZY
 
 [[https://github.com/ardumont/org-trello][source]]
 
-Released on marmalade - http://www.marmalade-repo.org/packages/org-trello (stable) and melpa - http://melpa.milkbox.net/ (snapshot)
+* Releases
+
+Released on:
+- marmalade - http://www.marmalade-repo.org/packages/org-trello (stable)
+- melpa - http://melpa.milkbox.net/ (snapshot)

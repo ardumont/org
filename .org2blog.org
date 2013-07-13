@@ -491,9 +491,9 @@
 :POST_DATE: 20121222T13:20:00+0000
 :Published: Yes
 :END:
-** [[file:/home/tony/org/emacs-lisp/org-trello.org][org-trello - Sync your org file to trello]]
+** [[file:/home/tony/org/emacs-lisp/org-trello.org][org-trello - Sync org-mode file and trello]]
 :PROPERTIES:
 :POSTID:   1247
 :POST_DATE: 20130712T19:45:00+0000
-:Published: No
+:Published: Yes
 :END:
