@@ -1,0 +1,35 @@
+#+title: Notes on cryptography
+#+author: Antoine R. Dumont
+
+* keywords
+confidentiality
+integrity
+* crypto is everywhere
+** web traffic -> https (SSL/TLS)
+** wireless -> 802.11i wpa2, bluetooth
+** protecting file on disk
+** dvd -> Content Scrambling System
+** blu-ray -> AACS
+** user authentication
+* public key crypto
+* protecting file
+metaphor about files: store a file is like sending a message to oneself in the future
+* symmetric encryption
+E(k, m) = c
+
+D(k, c) = m
+
+E encrypting
+D decrypting
+k key
+m message
+c cipher
+
+All encryption algorithms are publicly known!
+The only secret is the key!
+
+Note: Never use a proprietary encryption algorithm
+
+* Use cases
+** single use -> to encrypt only one message (for email for example)
+** multiple use -> to encrypt file system
