@@ -1,7 +1,7 @@
 #+title: Notes on cryptography
 #+author: Antoine R. Dumont
 
-* intro
+* Intro
 ** keywords
 confidentiality
 integrity
@@ -35,7 +35,7 @@ Note: Never use a proprietary encryption algorithm
 *** single use -> to encrypt only one message (for email for example)
 *** multiple use -> to encrypt file system
 
-* what is cryptography
+* What is cryptography
 ** goal
 - secret key establishment
 - secure comm
@@ -62,3 +62,49 @@ theorem: Anything that you can compute with the private authority, can be done w
 *** precisely specify threat model
 *** propose a construction
 *** prove that breaking construction under threat model will solve an underlaying hard problem
+* History of cryptography
+** symmetric ciphers
+is called symmetric because the 2 persons (Alice and Bob) communicating use the same key
+** Example of broken symmetric ciphers
+- substitution cipher
+- caesar cipher (substitution cipher with a fixed substitution, shift by 3)
+** how to break a substition cipher
+- What's the size of the key space?
+- frequency attack possible (letter, digrams, trigrams, etc...)
+** Vigener cipher (Renaissance)
+E(k, m) = c:
+Given a key k, repeat the key as much as needed to have the same size of the text.
+Transpose the repeated key beside the text to encrypt.
+Compute the sum of the letter of the text with its side key character `mod` 26.
+The result is the cipher.
+
+Breaking:
+To break it, we need to know the length of the key l.
+Then, slice the ciphered text into l blocks.
+Now we will look at the first character of each block, all those charaters are ciphered with the same letter of the key.
+As we suppose the text is in english and the most common letter in english is 'e'
+The most common letter amongst the first letter is likely to be 'e'.
+So substracting such letter to 'e' will give the key's first character.
+
+And so on and so forth to retrieve the key.
+** Rotor machine (mechanical age)
+Like a typewriter but the output is encrypted.
+Every time you input a character, the character is enciphered with an embedded dictionary encryption (inside a physical disk), which then rotates according to the previous input.
+*** Hebern machine
+1 rotor with a 1 frequency rotation
+very weak
+
+*** the Enigma
+3-5 rotors with different frequency rotations.
+The initial states of the rotors gives a different key.
+As there are 26 characters, you've got potentially 26^n, with n the number of rotors (n in [3..5])
+
+** Data Encryption Standard (digital age)
+Government puts up an official demand
+IBM 1974
+
+keys: 2^56, encrypts 8 characters at a time (= 64 bits) contrary to rotor (only 1 character)
+Weak.
+
+** AES
+encrypts 16 characters, 128 bits
