@@ -1,5 +1,6 @@
 #+title: Notes on cryptography
 #+author: Antoine R. Dumont
+#+STYLE: <SCRIPT SRC="/usr/share/jsmath/easy/load.js"></SCRIPT>
 
 * Intro
 ** keywords
@@ -108,3 +109,41 @@ Weak.
 
 ** AES
 encrypts 16 characters, 128 bits
+* Discrete probability crash course
+
+** Definitions
+U universe is a finite set, for example \( U: {0,1}^n \)
+
+def: Probability distribution P over U is such that:
+
+\( P: U → [0,1] \)
+
+\( ∑_{x ∈ U} P(x) = 1 \)
+
+*** Uniform distribution
+
+\( ∀ x ∈ U, P(x) = \frac{1}{|U|} \)
+
+*** Point distribution at x0:
+
+\( P(x_0) = 1 \)
+
+\( ∀ x ≠ x_0, P(x) = 0 \)
+
+*** Events
+
+A a set
+
+\( A ⊆ U, Pr[A] = ∑_{x ∈ A} P(x) \in [0, 1] \)
+
+*Note:* Pr[U] = 1
+
+A is an event
+
+
+*** the union bound
+
+\( A_1, A_2 ⊂ U, Pr [ A_1 ⋃ A_2 ] ≤ Pr [ A_1 ] + Pr [ A_2 ] \)
+
+*Note*:
+\( A_1 ⋂ A_2 = ∅ ⇒ Pr [ A_1 ⋃ A_2 ] = Pr [ A_1 ] + Pr [ A_2 ] \)
