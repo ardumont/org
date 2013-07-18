@@ -1,20 +1,21 @@
 #+title: Notes on cryptography
 #+author: Antoine R. Dumont
 
-* keywords
+* intro
+** keywords
 confidentiality
 integrity
-* crypto is everywhere
-** web traffic -> https (SSL/TLS)
-** wireless -> 802.11i wpa2, bluetooth
-** protecting file on disk
-** dvd -> Content Scrambling System
-** blu-ray -> AACS
-** user authentication
-* public key crypto
-* protecting file
+** crypto is everywhere
+*** web traffic -> https (SSL/TLS)
+*** wireless -> 802.11i wpa2, bluetooth
+*** protecting file on disk
+*** dvd -> Content Scrambling System
+*** blu-ray -> AACS
+*** user authentication
+** public key crypto
+** protecting file
 metaphor about files: store a file is like sending a message to oneself in the future
-* symmetric encryption
+** symmetric encryption
 E(k, m) = c
 
 D(k, c) = m
@@ -30,6 +31,34 @@ The only secret is the key!
 
 Note: Never use a proprietary encryption algorithm
 
-* Use cases
-** single use -> to encrypt only one message (for email for example)
-** multiple use -> to encrypt file system
+** Use cases
+*** single use -> to encrypt only one message (for email for example)
+*** multiple use -> to encrypt file system
+
+* what is cryptography
+** goal
+- secret key establishment
+- secure comm
+
+for confidentiality and integrity
+** digital signature
+In the real world, as a person, we sign multiple documents with one signature
+
+In the digital world, we cannot do a signature with just one because if it's stolen, everybody can act as us.
+So the digital signature contract is the same as in reality but its implementation differs.
+
+Implementation Idea: the digital signature is a FUNCTION of the content being signed!
+** anonymous communication
+
+** anonymous digital cash
+
+** protocols
+*** elections
+*** private auctions
+*** private authority
+theorem: Anything that you can compute with the private authority, can be done without it.
+** a rigorous science
+3 steps
+*** precisely specify threat model
+*** propose a construction
+*** prove that breaking construction under threat model will solve an underlaying hard problem
