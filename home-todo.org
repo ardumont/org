@@ -154,7 +154,7 @@ Merci Chris et papy
 *** TODO Enduit de lissage
 *** TODO Poser la toile de renovation
 *** TODO Poser le papier peint/Peindre
-** PENDING Couloir [7/9]
+** PENDING Couloir [10/13]
 *** DONE Changer les portes de l'armoire
 Merci papy Claude
 *** DONE Retirer le papier peint du plafond
@@ -167,6 +167,13 @@ Merci Papy Claude
 Merci Papy Claude
 *** DONE Passer la sous-couche.
 Merci Papy Claude
+*** DONE Demonter ancien placard
+CLOSED: [2013-07-20 sam. 20:16]
+*** DONE Lessiver mur placard
+CLOSED: [2013-07-20 sam. 20:16]
+*** DONE Enduit de rebouchage
+CLOSED: [2013-07-20 sam. 20:17]
+*** TODO Sous-couche
 *** TODO Poser la toile de renovation
 *** TODO Poser le papier peint/Peindre
 ** PENDING Salon [7/9]
