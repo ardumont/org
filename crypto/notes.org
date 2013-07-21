@@ -2,6 +2,7 @@
 #+author: Antoine R. Dumont
 #+STYLE: <SCRIPT SRC="/usr/share/jsmath/easy/load.js"></SCRIPT>
 
+#+COLUMNS:
 * Intro
 ** keywords
 confidentiality
@@ -147,3 +148,26 @@ A is an event
 
 *Note*:
 \( A_1 ⋂ A_2 = ∅ ⇒ Pr [ A_1 ⋃ A_2 ] = Pr [ A_1 ] + Pr [ A_2 ] \)
+* Discrete probability crash course 2/2
+** Random variable
+A random variable is a function \( X: U \rightarrow@ → V \)
+X takes values in V and defines a distribution on V
+
+** Indenpendence
+Def: A, B events, \( A ∐ B ⇔ Pr [ A and B ] = Pr[A] × Pr[B] \)
+
+random variables X, Y taking values in V are independent if:
+
+\( ∀ a,b ∈ V, Pr[ X=a and Y=b ] = Pr[ X=a ] × Pr[ Y=b ] \)
+
+** Xor
+
+|---+---+---|
+| ⊕ | 1 | 0 |
+|---+---+---|
+| 1 | 0 | 1 |
+| 0 | 1 | 0 |
+|---+---+---|
+
+Thm: Y a random variable over {0,1}^n, X an independent uniform variable on {0,1}^n
+Then Z:=Y ⊕ X is a uniform variable on {0,1}^n
