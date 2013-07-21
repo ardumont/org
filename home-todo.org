@@ -64,7 +64,7 @@ CLOSED: [2011-09-12 lun. 13:10]
 *** DONE Reparer la partie de la barriere tombee a cause du lierre
 Merci papy Claude
 *** TODO Replanter les arbustes de devant pour combler le trou dans la haie de derriere
-* PENDING dedans [3/15]
+* PENDING dedans [2/13]
 ** DONE Relatif a l'exterieur [3/3]
 CLOSED: [2013-04-11 jeu. 09:35]
 *** DONE Tailler les arbustes en morceaux pour pouvoir les rentrer dans le garage
@@ -72,7 +72,8 @@ CLOSED: [2013-04-11 jeu. 09:35]
 *** DONE Bruler les morceaux d'arbustes dans la cheminee [1/1]
 CLOSED: [2013-04-11 jeu. 09:35]
 ***** DONE 10/10
-** PENDING Encombrants [6/8]
+** DONE Encombrants [8/8]
+CLOSED: [2013-07-21 dim. 10:51]
 *** DONE vieux frigo
 *** DONE vieux four
 *** DONE Grosse armoire du bureau
@@ -80,10 +81,46 @@ CLOSED: [2013-04-11 jeu. 09:35]
 CLOSED: [2013-04-11 jeu. 09:35]
 *** DONE pneu
 CLOSED: [2013-04-11 jeu. 09:35]
-*** TODO armoires metalliques (piece du ballon d'eau chaude)
-*** TODO cartons
+*** DONE armoires metalliques (piece du ballon d'eau chaude)
+CLOSED: [2013-07-21 dim. 10:51]
+*** DONE cartons
+CLOSED: [2013-07-21 dim. 10:51]
 *** DONE grosses pieces de verre
 CLOSED: [2013-04-11 jeu. 09:35]
+** DONE Chambre de Chloe [9/9]
+*** DONE Retirer le papier peint de la porte
+*** DONE Retirer le papier peint des armoires
+*** DONE Finalement remplacer les portes d'armoire
+Merci Papy Claude
+*** DONE Retirer le papier peint
+*** DONE Retirer le papier peint des portes
+*** DONE Lessivage/nettoyage
+Merci Papy Claude
+*** DONE Passer la sous-couche.
+Merci Papy Claude
+*** DONE Peindre
+Merci Papy Claude
+*** DONE Decoration
+Merci Chris
+** DONE Chambre de Theo [10/10]
+*** DONE Retirer le papier peint de la porte
+*** DONE Retirer le papier peint des armoires
+*** DONE Finalement remplacer les portes d'armoire
+Merci Papy Claude
+*** DONE Retirer la peinture "3d" (poncer)
+Merci Papy Claude
+*** DONE Poncer le plafond
+Merci Papy Claude
+*** DONE Peindre le plafond
+Merci Papy Claude
+*** DONE Changer la prise de courant
+Merci Papy Claude
+*** DONE Lessivage/nettoyage
+Merci Papy Claude
+*** DONE Peindre la chambre
+Merci Papy Claude
+*** DONE Decoration
+Merci Chris
 ** PENDING Piece de jeux des enfants [30/32]
 *** DONE Retirer la grosse armoire du bureau
 *** DONE Retirer le crepis
@@ -171,9 +208,9 @@ Merci Papy Claude
 CLOSED: [2013-07-20 sam. 20:16]
 *** DONE Lessiver mur placard
 CLOSED: [2013-07-20 sam. 20:16]
-*** DONE Enduit de rebouchage
+*** DONE Enduit de rebouchage placard
 CLOSED: [2013-07-20 sam. 20:17]
-*** TODO Sous-couche
+*** TODO Sous-couche placard
 *** TODO Poser la toile de renovation
 *** TODO Poser le papier peint/Peindre
 ** PENDING Salon [7/9]
@@ -225,40 +262,6 @@ CLOSED: [2011-10-31 lun. 19:36]
 CLOSED: [2011-10-31 lun. 19:36]
 *** TODO Poser la toile de renovation
 *** TODO Poser le papier peint/Peindre
-** DONE Chambre de Chloe [9/9]
-*** DONE Retirer le papier peint de la porte
-*** DONE Retirer le papier peint des armoires
-*** DONE Finalement remplacer les portes d'armoire
-Merci Papy Claude
-*** DONE Retirer le papier peint
-*** DONE Retirer le papier peint des portes
-*** DONE Lessivage/nettoyage
-Merci Papy Claude
-*** DONE Passer la sous-couche.
-Merci Papy Claude
-*** DONE Peindre
-Merci Papy Claude
-*** DONE Decoration
-Merci Chris
-** DONE Chambre de Theo [10/10]
-*** DONE Retirer le papier peint de la porte
-*** DONE Retirer le papier peint des armoires
-*** DONE Finalement remplacer les portes d'armoire
-Merci Papy Claude
-*** DONE Retirer la peinture "3d" (poncer)
-Merci Papy Claude
-*** DONE Poncer le plafond
-Merci Papy Claude
-*** DONE Peindre le plafond
-Merci Papy Claude
-*** DONE Changer la prise de courant
-Merci Papy Claude
-*** DONE Lessivage/nettoyage
-Merci Papy Claude
-*** DONE Peindre la chambre
-Merci Papy Claude
-*** DONE Decoration
-Merci Chris
 ** PENDING Chambre parentale [2/9]
 *** TODO Retirer le crepis
 *** TODO Enduit de rebouchage
@@ -291,9 +294,9 @@ CLOSED: [2013-04-11 jeu. 09:40]
 CLOSED: [2013-04-11 jeu. 09:40]
 
 *** TODO retirer le crepis
-** TODO garage [66%]
+** PENDING garage [66%]
 *** DONE Evacuer le casier a plan
 CLOSED: [2013-06-22 sam. 16:12]
 *** DONE Installer une pompe pour evacuer l'eau a l'exterieur
 CLOSED: [2013-06-22 sam. 16:13]
-**** TODO ranger
+*** TODO Ranger davantage le bordel
