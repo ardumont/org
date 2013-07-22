@@ -1,4 +1,4 @@
-#+title: Scala
+#+title: Functional programming principles in Scala
 #+author: Antoine R. Dumont
 
 * DONE Tools Setup for linux
@@ -385,7 +385,247 @@ We can also let the compiler infer the type
 
 #+end_src
 
-* TODO Currying
+* DONE Currying
+CLOSED: [2013-07-22 lun. 18:24]
+
+** Can we remove the redundant bounds parameters?
+Yes
+
+by redefining the `sum` function to return another function which takes the 2 bounds parameters:
+#+begin_src scala
+  def sum(fn: Int => Int): (Int, Int) => Int = {
+
+    @tailrec
+    def sumTR(a: Int, b: Int, r: Int): Int =
+      if(a > b) r else sumTR(a + 1, b, fn(a) + r)
+
+    (a, b) => sumTR(a, b, 0)
+  }
+#+end_src
+
+Thus, this simplifies the definition of the functions that rely on `sum`:
+#+begin_src scala
+  def sumInts = sum(identity)
+  def sumCubes = sum(x => x * x * x)
+  def sumFactorials = sum(w2.factorial)
+#+end_src
+
+Complete package:
+#+begin_src scala
+package coursera
+
+import scala.annotation.tailrec
+
+object w3 {
+  def sum(fn: Int => Int): (Int, Int) => Int = {
+
+    @tailrec
+    def sumTR(a: Int, b: Int, r: Int): Int =
+      if(a > b) r else sumTR(a + 1, b, fn(a) + r)
+
+    (a, b) => sumTR(a, b, 0)
+  }
+
+  // sum of the integers between a and b
+  def sumInts = sum(identity)
+
+  def sumCubes = sum(x => x * x * x)
+
+  def sumFactorials = sum(w2.factorial)
+
+  def main(args: Array[String]) = {
+    val values = List(Tuple2(1, 10),
+                      Tuple2(10, 20))
+
+    val functions : Map[String, (Int, Int) => Int] =
+      Map("sumInts"       -> sumInts,
+          "sumCubes"      -> sumCubes,
+          "sumFactorials" -> sumFactorials)
+
+    def displayResult(fnName: String, a: Int, b: Int, r: Int): String =
+      fnName + "(" + a + ", " + b + ") = " + r
+
+    functions.foreach { case (fnName, fn) =>
+      (for ((a, b) <- values)
+         println(displayResult(fnName, a, b, fn(a, b))))
+    }
+
+    w2.title("end")
+  }
+}
+
+// [info] Running coursera.w3
+// sumInts(1, 10) = 55
+// sumInts(10, 20) = 165
+// sumCubes(1, 10) = 3025
+// sumCubes(10, 20) = 42075
+// sumFactorials(1, 10) = 4037913
+// sumFactorials(10, 20) = 267631616
+
+// ######### end
+
+// [success] Total time: 1 s, completed 22 juil. 2013 16:04:58
+#+end_src
+
+** Can we remove the middlemen function?
+Yes!
+
+#+begin_src scala
+package coursera
+
+import scala.annotation.tailrec
+
+object w3 {
+  def sum(fn: Int => Int): (Int, Int) => Int = {
+
+    @tailrec
+    def sumTR(a: Int, b: Int, r: Int): Int =
+      if(a > b) r else sumTR(a + 1, b, fn(a) + r)
+
+    (a, b) => sumTR(a, b, 0)
+  }
+
+  def main(args: Array[String]) = {
+    val values = List(Tuple2(1, 10),
+                      Tuple2(10, 20))
+
+    val functions : Map[String, (Int, Int) => Int] =
+      Map("sumInts"       -> sum(identity),
+          "sumCubes"      -> sum(x => x * x * x),
+          "sumFactorials" -> sum(w2.factorial))
+
+    def displayResult(fnName: String, a: Int, b: Int, r: Int): String =
+      fnName + "(" + a + ", " + b + ") = " + r
+
+    functions.foreach { case (fnName, fn) =>
+      (for ((a, b) <- values)
+         println(displayResult(fnName, a, b, fn(a, b))))
+    }
+
+    w2.title("end")
+  }
+}
+
+// [info] Running coursera.w3
+// sumInts(1, 10) = 55
+// sumInts(10, 20) = 165
+// sumCubes(1, 10) = 3025
+// sumCubes(10, 20) = 42075
+// sumFactorials(1, 10) = 4037913
+// sumFactorials(10, 20) = 267631616
+
+// ######### end
+
+// [success] Total time: 0 s, completed 22 juil. 2013 16:10:28
+#+end_src
+
+** Simplification over the definition of function that returns function
+#+begin_src scala
+  def sum(fn: Int => Int) (a: Int, b: Int): Int = {
+
+    @tailrec
+    def sumTR(a: Int, r: Int): Int =
+      if(a > b) r else sumTR(a + 1, fn(a) + r)
+
+    sumTR(a, 0)
+  }
+#+end_src
+
+** Exercises
+1. Write a product function `pdt` that calculates the product of the values of a function for the points on a given interval
+
+#+begin_src scala
+  def pdt(fn: Int => Int) (a: Int, b: Int): Int = {
+    @tailrec
+    def loop(a: Int, r: Int): Int =
+      if(a > b) r else loop(a + 1, fn(a) * r)
+
+    loop(a, 1)
+  }
+#+end_src
+
+2. Write factorial in terms of `pdt`
+
+#+begin_src scala
+  def factorial(n: Int) = pdt(identity)(1, n)
+#+end_src
+
+3. Can you write a more general function, which generalizes both `sum` and `pdt`?
+
+#+begin_src scala
+package coursera
+
+import scala.annotation.tailrec
+
+object w3 {
+  def fold(fn: Int => Int, op: (Int, Int) => Int, initial: Int)(a: Int, b: Int): Int = {
+    @tailrec
+    def loop(a: Int, r: Int): Int =
+      if(a > b) r else loop(a + 1, op(fn(a), r))
+
+    loop(a, initial)
+  }
+
+  def sum(fn: Int => Int) (a: Int, b: Int): Int = fold(fn, (x, y) => x + y, 0)(a, b)
+  def pdt(fn: Int => Int) (a: Int, b: Int): Int = fold(fn, (x, y) => x * y, 1)(a, b)
+
+  def factorial(n: Int) = pdt(identity)(1, n)
+
+  def main(args: Array[String]) = {
+    w2.title("sum of a function values (cube, factorial, etc...)")
+
+    val values = List(Tuple2(1, 10),
+                      Tuple2(10, 20))
+
+    val functions : Map[String, (Int, Int) => Int] =
+      Map("sumInts"       -> sum(identity),
+          "sumCubes"      -> sum(x => x * x * x),
+          "sumFactorials" -> sum(factorial))
+
+    def displayResult(fnName: String, a: Int, b: Int, r: Int): String =
+      fnName + "(" + a + ", " + b + ") = " + r
+
+    functions.foreach { case (fnName, fn) =>
+      (for ((a, b) <- values)
+         println(displayResult(fnName, a, b, fn(a, b))))
+    }
+
+    w2.title("factorial")
+
+    val fvalues = List(1,2,3,4,5,6,7,8,9)
+
+    fvalues.map(factorial).map(println)
+
+    w2.title("end")
+  }
+}
+
+// ######### sum of a function values (cube, factorial, etc...)
+
+// sumInts(1, 10) = 55
+// sumInts(10, 20) = 165
+// sumCubes(1, 10) = 3025
+// sumCubes(10, 20) = 42075
+// sumFactorials(1, 10) = 4037913
+// sumFactorials(10, 20) = 267631616
+
+// ######### factorial
+
+// 1
+// 2
+// 6
+// 24
+// 120
+// 720
+// 5040
+// 40320
+// 362880
+
+// ######### end
+
+// [success] Total time: 1 s, completed 22 juil. 2013 18:19:56
+#+end_src
+
 * TODO Example finding fixed points
 * TODO scala syntax summary
 * TODO functions and data
