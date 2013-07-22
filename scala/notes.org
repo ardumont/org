@@ -255,7 +255,135 @@ Define a tail-recursive version of the factorial
 ...
 #+end_src
 
-* TODO Higher-order functions
+* DONE Higher-order functions
+CLOSED: [2013-07-22 lun. 15:53]
+** definition
+- functions as first-class values:
+  - functions can be passed as parameters to function
+  - functions can be returned as result of function
+- functions that takes functions as parameters are called Higher-order functions.
+
+Provides flexible way to compose programs
+** Examples
+#+begin_src scala
+package coursera
+
+object w3 {
+  // sum of the integers between a and b
+  def sumInts(a: Int, b: Int): Int =
+    if(a > b) 0 else a + sumInts(a + 1, b)
+
+  def sumCubes(a: Int, b: Int) :Int = {
+    def cube(a: Int): Int = a * a * a
+
+    def sum(a: Int, b: Int): Int =
+      if(a > b) 0 else cube(a) + sum(a + 1, b)
+
+    sum(a, b)
+  }
+
+  def sumFactorials(a: Int, b: Int): Int =
+    if(a > b) 0 else w2.factorial(a) + sumFactorials(a + 1, b)
+
+  def main(args: Array[String]) = {
+    println(sumInts(1, 10))
+    println(sumCubes(1, 10))
+    println(sumFactorials(1, 10))
+  }
+}
+
+// [info] Running coursera.w3
+// 55
+// 3025
+// 4037913
+// [success] Total time: 0 s, completed 22 juil. 2013 15:08:24
+#+end_src
+
+** Factor out common patterns?
+
+#+begin_src scala
+package coursera
+
+object w3 {
+  def sum(a: Int, b: Int, fn: Int => Int): Int =
+    if(a > b) 0 else fn(a) + sum(a + 1, b, fn)
+
+  // sum of the integers between a and b
+  def sumInts(a: Int, b: Int): Int =
+    sum(a, b, identity)
+
+  def sumCubes(a: Int, b: Int) :Int = {
+    def cube(a: Int): Int = a * a * a
+
+    sum(a, b, cube)
+  }
+
+  def sumFactorials(a: Int, b: Int): Int =
+    sum(a, b, w2.factorial)
+
+  def main(args: Array[String]) = {
+    val values = List(Tuple2(1, 10),
+                      Tuple2(10, 20))
+
+    val functions : Map[String, (Int, Int) => Int] =
+      Map("sumInts"       -> sumInts,
+          "sumCubes"      -> sumCubes,
+          "sumFactorials" -> sumFactorials)
+
+    def displayResult(fnName: String, a: Int, b: Int, r: Int): String =
+      fnName + "(" + a + ", " + b + ") = " + r
+
+    functions.foreach { case (fnName, fn) =>
+      (for ((a, b) <- values)
+         println(displayResult(fnName, a, b, fn(a, b))))
+    }
+
+    w2.title("end")
+  }
+}
+
+// [info] Running coursera.w3
+// sumInts(1, 10) = 55
+// sumInts(10, 20) = 165
+// sumCubes(1, 10) = 3025
+// sumCubes(10, 20) = 42075
+// sumFactorials(1, 10) = 4037913
+// sumFactorials(10, 20) = 267631616
+
+// ######### end
+
+// [success] Total time: 2 s, completed 22 juil. 2013 15:38:09
+#+end_src
+
+
+** Anonymous function
+syntactic sugar
+
+We can for example avoid 'def'ining the `cube` version:
+#+begin_src scala
+  def sumCubes(a: Int, b: Int) :Int =
+    sum(a, b, (x: Int) => x * x * x)
+#+end_src
+
+We can also let the compiler infer the type
+#+begin_src scala
+  def sumCubes(a: Int, b: Int) :Int =
+    sum(a, b, x => x * x * x)
+#+end_src
+
+** define the tail recursive version of the sum function
+
+#+begin_src scala
+  def sum(a: Int, b: Int, fn: Int => Int): Int = {
+
+    @tailrec
+    def sumTR(x: Int, r: Int): Int =
+      if(x > b) r else sumTR(x + 1, fn(x) + r)
+
+    sumTR(a, 0)
+  }
+
+#+end_src
 
 * TODO Currying
 * TODO Example finding fixed points
