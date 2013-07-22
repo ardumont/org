@@ -1,0 +1,266 @@
+#+title: Scala
+#+author: Antoine R. Dumont
+
+* DONE Tools Setup for linux
+CLOSED: [2013-07-22 Mon 09:09]
+* DONE Tutorial working on the programming assignments
+CLOSED: [2013-07-22 Mon 09:09]
+* DONE Programming paradigms
+CLOSED: [2013-07-22 Mon 09:09]
+* DONE Elements of programming
+CLOSED: [2013-07-22 Mon 09:09]
+* DONE Evaluation strategies and termination
+CLOSED: [2013-07-22 Mon 09:09]
+Call By Name ->
+Call By Value -> evaluate first the parameters
+
+if CBV terminates then CBN terminates
+Not true for the other way around
+
+Scala defaults to CBV, you can force the evaluation strategy to CBN by adding =>
+* DONE Conditionals and value definition
+CLOSED: [2013-07-22 lun. 11:22]
+** if-else
+#+begin_src scala
+def abs(x: Int) = if (x>=0) x else -x
+#+end_src
+** boolean expressions
+#+begin_src scala
+true
+false
+!b
+b && b
+b || b
+e <= e
+...
+#+end_src
+
+short-circuit evaluation (&& ||)
+** value definitions
+- def function definition by name
+- val/var variable/form definition by value
+
+Exemple:
+#+begin_src scala
+def x = loop
+#+end_src
+
+#+begin_src scala
+val x = loop
+#+end_src
+ko, will never render the hand
+
+** Exercise
+
+By value:
+#+begin_src scala
+def and(x: Boolean, y: Boolean) = if x y else False
+#+end_src
+
+But, this =and(x, loop)= will break as scala is by value by default.
+
+Redefining, by defining the y by name:
+
+#+begin_src scala
+def and(x: Boolean, y: => Boolean) = if x y else False
+#+end_src
+
+this will be ok and do not try to evaluate the loop expression.
+
+* DONE Example square roots with Newton's method
+CLOSED: [2013-07-22 lun. 12:00]
+Successive approximations
+- Start with an initial estimate y (y = 1 for starter)
+- Repeatedly improve the estimate by taking the mean of y and x/y
+
+#+begin_src scala
+package coursera
+
+import math.abs
+
+object session {
+
+  def sqrtIter(guess: Double, x: Double): Double =
+    if (isGoodEnough(guess, x)) guess
+    else sqrtIter(improve(guess, x), x)
+
+  def isGoodEnough(guess: Double, x: Double) =
+    abs(guess * guess - x) / x < 0.001
+
+  def improve(guess: Double, x: Double) =
+    (guess + x/guess) / 2
+
+  def sqrt(x: Double) = sqrtIter(1.0, x)
+
+  def main(args: Array[String]) = {
+    val values = List(2.0, 4.0, 1e-6, 0.001, 0.1e-20, 1.0e20/*, 1.0e50*/)
+
+    val squareValues = values.map(v => List(v, sqrt(v)))
+
+    squareValues.foreach(println)
+  }
+}
+
+// [info] Running coursera.session 4
+// List(2.0, 1.4142156862745097)
+// List(4.0, 2.0000000929222947)
+// List(1.0E-6, 0.031260655525445276)
+// List(0.001, 0.04124542607499115)
+// List(1.0E-21, 0.03125)
+// List(1.0E20, 1.0E10)
+// sqrt(1.0E20): 1.0E10
+// ^D^D  C-c C-c^C
+// Process sbt exited abnormally with code 130
+#+end_src
+
+1. the =isGoodEnough= test is not very precise for small numbers and can lead to non-termination for very large numbers. Explain why.
+
+- takes absolute difference
+- small numbers: the threshold value 0.001 might be too huge
+- large numbers: further apart than this absolute value (distance might be larger than the threshold)
+- we can make test proportional to x
+
+
+2. Design a different version of =isGoodEnough= that does not have these problems.
+
+3. Test your version with some very very small and large numbers e.g.
+0.001
+0.1e-20
+1.0e20
+1.0e50
+
+#+begin_src scala
+package coursera
+
+import math.abs
+
+object session {
+
+  def sqrtIter(guess: Double, x: Double): Double =
+    if (isGoodEnough(guess, x)) guess
+    else sqrtIter(improve(guess, x), x)
+
+  def isGoodEnough(guess: Double, x: Double) =
+    abs(guess * guess - x) / x < 0.001
+
+  def improve(guess: Double, x: Double) =
+    (guess + x/guess) / 2
+
+  def sqrt(x: Double) = sqrtIter(1.0, x)
+
+  def main(args: Array[String]) = {
+    val values = List(2.0, 4.0, 1e-6, 0.001, 0.1e-20, 1.0e20, 1.0e50)
+
+    val squareValues = values.map(v => List(v, sqrt(v)))
+
+    squareValues.foreach(println)
+  }
+}
+
+// [info] Running coursera.session
+// List(2.0, 1.4142156862745097)
+// List(4.0, 2.000609756097561)
+// List(1.0E-6, 0.0010000001533016628)
+// List(0.001, 0.03162278245070105)
+// List(1.0E-21, 3.1633394544890125E-11)
+// List(1.0E20, 1.0000021484861237E10)
+// List(1.0E50, 1.0000003807575104E25)
+// [success] Total time: 1 s, completed 22 juil. 2013 11:43:47
+#+end_src
+
+* DONE Blocks and lexical scope
+CLOSED: [2013-07-22 lun. 12:22]
+** nested functions
+- split up task into many small functions
+- avoid namespace pollution
+- to do this in scala, put those private functions into the main function
+
+For example, for the sqrt sample:
+#+begin_src scala
+package coursera
+
+import math.abs
+
+object session {
+
+  def sqrt(x: Double) = {
+    def sqrtIter(guess: Double, x: Double): Double =
+      if (isGoodEnough(guess, x)) guess
+      else sqrtIter(improve(guess, x), x)
+
+    def isGoodEnough(guess: Double, x: Double) =
+      abs(guess * guess - x) / x < 0.001
+
+    def improve(guess: Double, x: Double) =
+      (guess + x/guess) / 2
+
+    sqrtIter(1.0, x)
+  }
+
+  def main(args: Array[String]) = {
+    val values = List(2.0, 4.0, 1e-6, 0.001, 0.1e-20, 1.0e20, 1.0e50)
+
+    val squareValues = values.map(v => List(v, sqrt(v)))
+
+    squareValues.foreach(println)
+  }
+}
+
+// [info] Running coursera.session
+// List(2.0, 1.4142156862745097)
+// List(4.0, 2.000609756097561)
+// List(1.0E-6, 0.0010000001533016628)
+// List(0.001, 0.03162278245070105)
+// List(1.0E-21, 3.1633394544890125E-11)
+// List(1.0E20, 1.0000021484861237E10)
+// List(1.0E50, 1.0000003807575104E25)
+// [success] Total time: 1 s, completed 22 juil. 2013 11:58:50
+#+end_src
+
+For this, we use a block.
+** scope rules
+Inside a block, as long as not shadowed, the function/variables defined are visibles inside nested blocks.
+
+* DONE Tail recursion
+CLOSED: [2013-07-22 lun. 14:57]
+Application rewriting rule
+substitution of all occurences of parameters by their corresponding values
+
+Ex:
+
+Tail recursion:
+#+begin_src scala
+  def gcd(a: Int, b: Int): Int =
+    if (b == 0) a else gcd(b, a % b)
+#+end_src
+
+No tail recursion as there exists some operations to be done after the recursion call.
+#+begin_src scala
+  def factorial(n: Int): Int =
+    if (n == 0) 1 else n * factorial (n-1)
+#+end_src
+
+Tail recursion -> if a function calls itself as its last action, the function's stack frame can be reused.
+
+Define a tail-recursive version of the factorial
+#+begin_src scala
+...
+  def factorial(n: Int): Int = {
+    @tailrec
+    def fact(n: Int, r: Int): Int =
+      if (n == 0) r else fact(n-1, n*r)
+
+    fact(n, 1)
+  }
+...
+#+end_src
+
+* TODO Higher-order functions
+
+* TODO Currying
+* TODO Example finding fixed points
+* TODO scala syntax summary
+* TODO functions and data
+* TODO More fun with rationals
+* TODO Evaluation and operators
+* TODO Class hierarchies
