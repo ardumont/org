@@ -1624,7 +1624,62 @@ object ConsListSession {
 
 #+end_src
 
-* TODO More functions on lists
+* DONE More functions on lists
+CLOSED: [2013-07-23 mar. 16:32]
+
+** Standard
+|-----------+-------------------------------------------|
+| xs.length | length of the list                        |
+| xs.last   | last element of the list                  |
+| xs.init   | all elements except the last one          |
+| xs take n | first n elements of the list              |
+| xs drop n | xs minus the first n elements of the list |
+| xs(n)     | xs !! n                                   |
+|-----------+-------------------------------------------|
+
+** Creating new list
+
+|-------------------+----------------------------------------------------------------|
+| xs ++ ys          | new list consisting of xs elements followed by the ys elements |
+| xs.reverse        | reverse the current xs list                                    |
+| xs updated (n, x) | update the nth element in xs with x                            |
+|-------------------+----------------------------------------------------------------|
+
+** Finding elements
+
+|---------------+---------------------------------------------------------------------------|
+| xs indexOf x  | index of the first element in xs which is equal to x or -1 if x not found |
+| xs contains x | does xs contain x?                                                        |
+|---------------+---------------------------------------------------------------------------|
+
+
+** Misc Implementation
+#+begin_src scala
+    def last[T](xs: List[T]): T = xs match {
+        case List()  => throw new Error("last of empty list")
+        case List(x) => x
+        case y :: ys => last(ys)
+      }
+
+     def init[T](xs: List[T]): T = xs match {
+        case List()  => throw new Error("init of empty list")
+        case List(x) => List()
+        case y :: ys => y :: init(ys)
+      }
+
+    def concat[T](xs: List[T], ys: List[T]) = xs match {
+        case List() => ys
+        case x :: zs => x :: concat(zs, ys)
+      }
+
+    def reverse[T](xs: List[T]): List[T] = xs match {
+        case List() => xs
+        case y :: ys => reverse(ys) ++ List(y)
+      }
+#+end_src
+
+
+
 * TODO Pairs and Tuples
 * TODO Implicit Parameters
 * TODO Higher-Order List Functions
