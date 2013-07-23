@@ -697,9 +697,85 @@ object w1 {
 
 #+end_src
 
+* DONE Scala syntax summary
+CLOSED: [2013-07-23 mar. 09:14]
+Review the language constructs we have seen so far
+** Language elements seen so far
+Context-free syntax in Extended Backus-Naur form (EBNF)
 
-* TODO scala syntax summary
-* TODO functions and data
+Syntax:
+| alternative
+[...] option (0 or 1)
+{...} repetition (0 or more)
+
+** Types
+
+#+begin_src grammar
+Type         = SimpleType | FunctionType
+FunctionType = SimpleType '=>' Type
+            | '(' [Types] ')' ' =>' Type
+SimpleType  = Ident
+Types       = Type {',' Type}
+#+end_src
+
+type:
+- numeric type: Int, Double, Byte, Short, Char, Long, Float
+- Boolean
+- String
+
+function type example: Int => Int, (Int, Int) => Int
+
+
+** Expressions
+#+begin_src grammar
+Expr         = InfixExpr | FunctionExpr | if '(' Expr ')' Expr else Expr
+InfixExpr    = PrefixExpr | InfixExpr Operator InfixExpr
+Operator     = Ident
+PrefixExpr   = ['+' | '-' | '!' | '~'] SimpleExpr
+SimpleExpr   = Ident | literal | SimpleExpr '.' ident | Block
+FunctionExpr = Bindings '=>' Expr
+Bindings     = ident [':' SimpleType] | '(' [Binding {',' Binding}] ')'
+Binding      = ident [':' Type]
+Block        = '{' {Def ';'}' Expr '}'
+#+end_src
+
+expression examples:
+|------------------------+--------------------------------|
+| identifier             | isGoodEnough                   |
+| literal                | 0, 1.0, "abc"                  |
+| function application   | sqrt(x)                        |
+| operator application   | -x, y + x                      |
+| selection              | math.abs                       |
+| conditional expression | if (x < 0) -x else x           |
+| block                  | { val x = math.abs(y); x * 2 } |
+| anonymous function     | x => x + 1                     |
+|------------------------+--------------------------------|
+
+** TODO Definitions
+
+#+begin_src grammar
+Def        = FunDef | ValDef
+FunDef     = def ident { '(' [Parameters] ')' } [':' Type] '=' Expr
+ValDef     = val ident [':' Type] '=' Expr
+Parameter  = ident ':' [ '=>' ] Type
+Parameters = Parameter {',' Parameter }
+#+end_src
+
+a definition can be:
+- a function definition:
+#+begin_src scala
+def square(x: Int) = x * x
+#+end_src
+- a value definition:
+#+begin_src scala
+val y = square(2)
+#+end_src
+
+a parameter can be:
+- a CBV parameter: =(x: Int)=
+- a CBN parameter: =(x: => Int)=
+
+* TODO Functions and data
 * TODO More fun with rationals
 * TODO Evaluation and operators
 * TODO Class hierarchies
