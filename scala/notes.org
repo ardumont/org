@@ -898,6 +898,163 @@ object Rational {
 #+end_src
 
 -79/4
-* TODO More fun with rationals
+* DONE More fun with rationals
+CLOSED: [2013-07-23 mar. 11:06]
+Rational are not in their simple form, here is the adaptation code:
+#+begin_src scala
+package coursera
+
+import scala.annotation.tailrec
+
+class Rational(x: Int, y: Int) {
+  private val g = w2.gcd(x, y)
+
+  def numer = x / g
+  def denom = y / g
+
+  def add(r: Rational): Rational =
+    new Rational(r.numer * denom + numer * r.denom, r.denom * denom)
+
+  def neg(): Rational = new Rational(-numer, denom)
+
+  def sub(r: Rational): Rational = add(r.neg)
+
+  override def toString(): String = numer + "/" + denom
+}
+
+object Rational {
+  def main(args: Array[String]) = {
+    val x = new Rational(1, 3)
+    val y = new Rational(5, 7)
+    val z = new Rational(3, 2)
+
+    println(x.add(y))
+    println(y.neg)
+    println(x.sub(x))
+    println(x.sub(y).sub(z))
+    println(y.add(y))
+  }
+}
+
+// [info] Running coursera.Rational
+// 22/21
+// 5/-7
+// 0/1
+// -79/42
+// 10/7
+// [success] Total time: 1 s, completed 23 juil. 2013 10:23:26
+#+end_src
+
+** private member or method
+Private member or methods are defined using the `private` keyword.
+
+** Requirement
+Requirement are tests runned at class construction time, e.g:
+#+begin_src scala
+class Rational(x: Int, y: Int) {
+  require(y != 0, "denominator must be non zero")
+...
+#+end_src
+
+If requirement is not respected, this will throw an IllegalArgumentException with the message setuped:
+#+begin_src scala
+[error] (run-main) java.lang.IllegalArgumentException: requirement failed: denominator must be non zero
+java.lang.IllegalArgumentException: requirement failed: denominator must be non zero
+	at scala.Predef$.require(Predef.scala:214)
+	at coursera.Rational.<init>(Rational.scala:6)
+	at coursera.Rational$.main(Rational.scala:42)
+	at coursera.Rational.main(Rational.scala)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+[trace] Stack trace suppressed: run last compile:run for the full output.
+java.lang.RuntimeException: Nonzero exit code: 1
+	at scala.sys.package$.error(package.scala:27)
+[trace] Stack trace suppressed: run last compile:run for the full output.
+[error] (compile:run) Nonzero exit code: 1
+#+end_src
+
+Require is used to enforce a precondition on the caller of a function.
+
+To sum up, if a requirement fails, it's not the function/method's fault, there has been a problem when calling the function/method.
+
+** Assertions
+assert is used to check the code of the function itself.
+If not respected, this will throw AssertionError.
+
+Example:
+#+begin_src scala
+val x = sqrt(y)
+assert(x >= 0)
+#+end_src
+
+To sum up, if an assertion fails, it's not the caller's fault. There has been trouble in the function/method itself.
+
+** Constructor
+a class implicitely introduces a constructor. This one is called the primary constructor.
+it:
+- takes the parameters of the class
+- executes all statements in the class body (require, form assigment, etc...)
+** Multiple constructor possible
+We can extend the class by adding other constructors:
+For example:
+#+begin_src scala
+class Rational(x: Int, y: Int) {
+  require(y != 0, "denominator must be non zero")
+
+  def this(x: Int) = this(x, 1)
+...
+#+end_src
+
+Thus the calling:
+#+begin_src scala
+    val a = new Rational(2)
+    println(a)
+#+end_src
+
+renders:
+#+begin_src scala
+2/1
+#+end_src
+** Exercise
+Modify the rational class so that rational numbers are kept unsimplified internally, but the simplification is applied when numbers are converted to strings.
+#+begin_src scala
+  override def toString(): String = {
+    val g = w2.gcd(numer, denom)
+    numer / g + "/" + denom / g
+  }
+
+#+end_src
+
 * TODO Evaluation and operators
 * TODO Class hierarchies
+* TODO How classes are organized
+* TODO Polymorphism
+* TODO More functions on lists
+* TODO Pairs and Tuples
+* TODO Implicit Parameters
+* TODO Higher-Order List Functions
+* TODO Reduction of Lists
+* TODO Reasoning About Concat
+* TODO A Larger Equational Proof on Lists
+* TODO Functions as Objects
+* TODO Objects Everywhere
+* TODO Subtyping and Generics
+* TODO Variance
+* TODO Decomposition
+* TODO Pattern Matching
+* TODO Lists
+* TODO Other Collections
+* TODO Combinatorial Search and For-Expressions
+* TODO Combinatorial Search Example
+* TODO Queries with For
+* TODO Translation of For
+* TODO Maps
+* TODO Putting the Pieces Together
+* TODO Structural Induction on Trees
+* TODO Streams
+* TODO Lazy Evaluation
+* TODO Computing with Infinite Sequences
+* TODO Case Study the Water Pouring Problem
+* TODO Course Conclusion
