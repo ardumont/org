@@ -1183,7 +1183,218 @@ a + b ^? c ?^ d less a ==> b | c
 
 ((a + b) ^? (c ?^ d)) less ((a ==> b) | c)
 
-* TODO Class hierarchies
+* DONE Class hierarchies
+CLOSED: [2013-07-23 mar. 12:37]
+
+** Abstract classes
+- can contain members which are missing an implementation
+#+begin_src scala
+abstract class IntSet {
+  def incl(x: Int): IntSet
+  def contains(x: Int): Boolean
+}
+#+end_src
+- consequently no instances of an abstract class can be created with the operator new.
+
+** IntSets
+Implementing sets as binary trees:
+
+#+begin_src scala
+package coursera
+
+abstract class IntSet {
+  /**
+    * to include an element in the set
+    */
+  def incl(x: Int): IntSet
+  /**
+    * is the element contains in the set
+    */
+  def contains(x: Int): Boolean
+}
+
+class Empty extends IntSet {
+  def contains(x: Int): Boolean = false
+  def incl(x: Int): IntSet = new Leaf(x, new Empty, new Empty)
+
+  override def toString = "."
+}
+
+class Leaf(elem: Int, l: IntSet, r: IntSet) extends IntSet {
+
+  def contains(x: Int): Boolean =
+    if      (x < elem) l contains x
+    else if (elem < x) r contains x
+    else true
+
+  def incl(x: Int): IntSet =
+    if      (x < elem) new Leaf(elem, l incl x, r)
+    else if (elem < x) new Leaf(elem, l,        r incl x)
+    else this
+
+  override def toString = "{" + l + elem + r + "}"
+}
+
+object IntSet {
+  def main(args: Array[String]) = {
+    val t1 = new Leaf(7,
+                      new Leaf(5, new Empty, new Empty),
+                      new Leaf(8, new Empty, new Empty))
+
+    println(t1)
+  }
+}
+
+// [info] Running coursera.IntSet
+// {{.5.}7{.8.}}
+// [success] Total time: 1 s, completed 23 juil. 2013 12:01:16
+
+#+end_src
+
+persistent data structure
+
+
+** Base classes and subclasses
+
+- IntSet -> superclass Empty and Leaf
+- Empty, Leaf -> subclasses of IntSet
+- no superclass is given, the standard java.lang.Object java class is assumed
+- direct or indirect superclasses are called base classes
+- base classes of Empty and Leaf are Object and IntSet
+** Implementations and Overriding
+
+singleton
+#+begin_src scala
+package coursera
+
+abstract class IntSet {
+  /**
+    * to include an element in the set
+    */
+  def incl(x: Int): IntSet
+  /**
+    * is the element contains in the set
+    */
+  def contains(x: Int): Boolean
+}
+
+object Empty extends IntSet {
+  def contains(x: Int): Boolean = false
+  def incl(x: Int): IntSet = new Leaf(x, Empty, Empty)
+
+  override def toString = "."
+}
+
+class Leaf(elem: Int, l: IntSet, r: IntSet) extends IntSet {
+
+  def contains(x: Int): Boolean =
+    if      (x < elem) l contains x
+    else if (elem < x) r contains x
+    else true
+
+  def incl(x: Int): IntSet =
+    if      (x < elem) new Leaf(elem, l incl x, r)
+    else if (elem < x) new Leaf(elem, l,        r incl x)
+    else this
+
+  override def toString = "{" + l + elem + r + "}"
+}
+
+object IntSet {
+  def main(args: Array[String]) = {
+    val t1 = new Leaf(7,
+                      new Leaf(5, Empty, Empty),
+                      new Leaf(8, Empty, Empty))
+
+    println(t1)
+  }
+}
+
+// [info] Running coursera.IntSet
+// {{.5.}7{.8.}}
+// [success] Total time: 4 s, completed 23 juil. 2013 12:13:08
+
+#+end_src
+** Exercise
+Write a method union for forming the union of two sets. You should implement the following abstract class
+#+begin_src scala
+abstract class IntSet {
+  def incl(x: Int): IntSet
+  def contains(x: Int): Boolean
+  def union(other: IntSet): IntSet
+}
+#+end_src
+
+solution:
+#+begin_src scala
+package coursera
+
+abstract class IntSet {
+  /**
+    * to include an element in the set
+    */
+  def incl(x: Int): IntSet
+  /**
+    * is the element contains in the set
+    */
+  def contains(x: Int): Boolean
+  /**
+    * Union of 2 sets
+    */
+  def union(other: IntSet): IntSet
+}
+
+object Empty extends IntSet {
+  def contains(x: Int): Boolean = false
+  def incl(x: Int): IntSet = new Leaf(x, Empty, Empty)
+  def union(other: IntSet): IntSet = other
+  override def toString = "."
+}
+
+class Leaf(elem: Int, l: IntSet, r: IntSet) extends IntSet {
+
+  def contains(x: Int): Boolean =
+    if      (x < elem) l contains x
+    else if (elem < x) r contains x
+    else true
+
+  def incl(x: Int): IntSet =
+    if      (x < elem) new Leaf(elem, l incl x, r)
+    else if (elem < x) new Leaf(elem, l,        r incl x)
+    else this
+
+  def union(other: IntSet): IntSet =
+    ((l union r) union other) incl elem
+
+  override def toString = "{" + l + elem + r + "}"
+}
+
+object IntSet {
+  def main(args: Array[String]) = {
+    val t1 = new Leaf(7,
+                      new Leaf(5, Empty, Empty),
+                      new Leaf(8, Empty, Empty))
+
+    println(t1)
+    println(t1 union t1)
+
+    val t2 = new Leaf(12,
+                      new Leaf(5, Empty, Empty),
+                      Empty)
+
+    println(t1 union t2)
+  }
+}
+
+// [info] Running coursera.IntSet
+// {{.5.}7{.8.}}
+// {{.5.}7{.8.}}
+// {{.5{{.7.}8.}}12.}
+// [success] Total time: 3 s, completed 23 juil. 2013 12:31:03
+
+#+end_src
+
+
 * TODO How classes are organized
 * TODO Polymorphism
 * TODO More functions on lists
