@@ -1027,7 +1027,162 @@ Modify the rational class so that rational numbers are kept unsimplified interna
 
 #+end_src
 
-* TODO Evaluation and operators
+* DONE Evaluation and operators
+CLOSED: [2013-07-23 mar. 11:37]
+
+** Classes and substitutions
+- Instantiation of the class new C(e_1, ..., e_m) is evaluated like the arguments of a normal function.
+- new C(e_1, ..., e_m).f(w_1, ..., w_n) Instantiation?
+3 substitutions:
+  - first the formal parameters w_1, ..., w_n of the function are replaced by the arguments w_1, etc...
+  - second the parameters of the constructor
+  - lastly the eventual 'this' is replaced by the instance (value) of the class in the body definition
+
+** Operators
+
+- infix notation: any method with a parameter can be used like an infix operator
+#+begin_src scala
+
+object Rational {
+  def main(args: Array[String]) = {
+    val x = new Rational(1, 3)
+    val y = new Rational(5, 7)
+    val z = new Rational(3, 2)
+
+    println(x add y)
+    println(y neg)
+    println(x sub x)
+    println(x sub y sub z)
+    println(y add y)
+    println(x less y)
+    println(y less x)
+    println(x max y)
+    println(y max x)
+
+    val a = new Rational(2)
+    println(a)
+  }
+}
+
+// [info] Running coursera.Rational
+// 22/21
+// 5/-7
+// 0/1
+// -79/42
+// 10/7
+// true
+// false
+// 5/7
+// 5/7
+// 2/1
+// [success] Total time: 0 s, completed 23 juil. 2013 11:20:56
+#+end_src
+
+- Operators can be used as identifiers
+  - alphanum
+  - symbolic (starting with an operator symbol, followed by other operator symbols)
+  - _ counts as a letter
+  - alphanumeric identifiers can also end in an underscore followed by some operator symbols
+Examples:
+#+begin_src scala
+x1
+*,
++?%&,
+vector_++
+counter_=
+#+end_src
+
+Simplifying the Rational class:
+#+begin_src scala
+package coursera
+
+import scala.annotation.tailrec
+
+class Rational(x: Int, y: Int) {
+  require(y != 0, "denominator must be non zero")
+
+  def this(x: Int) = this(x, 1)
+
+  val numer = x
+  val denom = y
+
+  def +(r: Rational): Rational =
+    new Rational(r.numer * denom + numer * r.denom, r.denom * denom)
+
+  def unary_-(): Rational = new Rational(-numer, denom)
+
+  def -(r: Rational): Rational = this + -r
+
+  def < (r: Rational): Boolean = numer * r.denom < r.numer * denom
+
+  def max(r: Rational): Rational = if (this < r) r else this
+
+  override def toString(): String = {
+    val g = w2.gcd(numer, denom)
+    numer / g + "/" + denom / g
+  }
+}
+
+object Rational {
+  def main(args: Array[String]) = {
+    val x = new Rational(1, 3)
+    val y = new Rational(5, 7)
+    val z = new Rational(3, 2)
+
+    println(x + y)
+    println(-y)
+    println(x + x)
+    println(x - y - z)
+    println(y + y)
+    println(x < y)
+    println(y < x)
+    println(x max y)
+    println(y max x)
+
+    val a = new Rational(2)
+    println(a)
+  }
+}
+
+// [info] Running coursera.Rational
+// 22/21
+// 5/-7
+// 2/3
+// -79/42
+// 10/7
+// true
+// false
+// 5/7
+// 5/7
+// 2/1
+// [success] Total time: 1 s, completed 23 juil. 2013 11:30:15
+#+end_src
+
+
+** Precedence rules
+determined by its first character.
+following table lists the characters in increasing order of priority precedence:
+
+|--------------------------------|
+| (all letters)                  |
+| pipe \                         |
+| ^                              |
+| &                              |
+| < >                            |
+| \= !                           |
+| :                              |
+| + -                            |
+| * / %                          |
+| (all other special characters) |
+|--------------------------------|
+
+** Exercise
+Provide a fully parenthesized version of:
+a + b ^? c ?^ d less a ==> b | c
+(binary operation be put in parentheses)
+
+((a + b) ^? (c ?^ d)) less ((a ==> b) | c)
+
 * TODO Class hierarchies
 * TODO How classes are organized
 * TODO Polymorphism
