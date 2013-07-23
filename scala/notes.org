@@ -775,7 +775,129 @@ a parameter can be:
 - a CBV parameter: =(x: Int)=
 - a CBN parameter: =(x: => Int)=
 
-* TODO Functions and data
+* DONE Functions and data
+CLOSED: [2013-07-23 mar. 10:12]
+We've seen functions so far, first-class functions, HOF, currying, etc...
+
+data: introducing objects and classes... WTF!!!
+
+** functions create and encapsulate data structure
+Example:
+Rational Numbers.
+
+Problematic: Design a package for doing rational arithmetic.
+
+Definition: A rational number is defined such as: \( \frac{x}{y}, x,y ∈ \mathbf{N}^2 \)
+x is the numerator, y is the denominator
+
+** Rational addition
+Odersky's Claim:
+- difficult to manage the parameters numerator, denominator for each function definition
+- better choice to combine the numerator and denominator in a data structure (by this he means class!!!)
+
+** Classes
+#+begin_src scala
+class Rational(x: Int, y: Int) {
+  def numer = x
+  def denom = y
+}
+#+end_src
+
+introduces:
+- a new type Rational
+- a constructor Rational to create elements of this type
+
+Separation in namespaces between names of types and values (so no conflict between the type and the constructor)
+
+** Objects
+Objects: elements of a class type
+
+Creation: using the keyword `new`
+
+#+begin_src scala
+new Rational(1, 2)
+#+end_src
+
+
+** Implementing
+
+Using a function addRational:
+#+begin_src scala
+package coursera
+
+class Rational(x: Int, y: Int) {
+  def numer = x
+  def denom = y
+
+  def addRational(r: Rational, s: Rational): Rational =
+    new Rational(r.numer * s.denom + s.numer * r.denom, r.denom * s.denom)
+
+  def makeString(r: Rational): String = r.numer + "/" + r.denom
+
+  override def toString(): String = makeString(this)
+}
+
+object Rational {
+  def main(args: Array[String]) = {
+    val r0 = new Rational(1, 2)
+    val r1 = new Rational(2, 3)
+
+    println(r0.addRational(r0, r1))
+  }
+}
+
+// [info] Running coursera.Rational
+// 7/6
+// [success] Total time: 2 s, completed 23 juil. 2013 09:46:35
+#+end_src
+
+Defining a method in the Rational class:
+
+#+begin_src scala
+package coursera
+
+class Rational(x: Int, y: Int) {
+  def numer = x
+  def denom = y
+
+  def add(r: Rational): Rational =
+    new Rational(r.numer * denom + numer * r.denom, r.denom * denom)
+
+  override def toString(): String = numer + "/" + denom
+}
+
+object Rational {
+  def main(args: Array[String]) = {
+    val r0 = new Rational(1, 2)
+    val r1 = new Rational(2, 3)
+
+    println(r0.add(r1))
+  }
+}
+
+// [info] Running coursera.Rational
+// 7/6
+// [success] Total time: 2 s, completed 23 juil. 2013 09:52:37
+#+end_src
+
+** Exercises
+1. add a method neg to class Rational used like this: x.neg
+#+begin_src scala
+  def neg(): Rational = new Rational(-numer, denom)
+#+end_src
+
+2. Add a method sub to substract two rational numbers
+#+begin_src scala
+  def sub(r: Rational): Rational = add(r.neg)
+#+end_src
+
+3. With the values of x, y, z as given in the previous slide, what is the result of =x - y - z= ?
+
+#+begin_src scala
+    println(x.sub(y).sub(z))
+#+end_src
+
+-79/4
 * TODO More fun with rationals
 * TODO Evaluation and operators
 * TODO Class hierarchies
