@@ -1490,7 +1490,140 @@ throw Exc
 ** Exercise
 What is the type of =if (true) 1 else false=? AnyVal
 
-* TODO Polymorphism
+* DONE Polymorphism
+CLOSED: [2013-07-23 mar. 15:19]
+
+** Cons-Lists
+immutable linked-list formed of 2 blocks:
+- Nil - the empty list
+- Cons - a cell containing and element and the remainder of the list (pointer)
+
+Examples:
+List(1, 2, 3)
+List(List(true, false), List(3))
+** Cons-Lists in Scala
+
+Beginning:
+#+begin_src scala
+trait IntList {}
+class Nil extends IntList {}
+class Cons(val head: Int, val tail: IntList) extends IntList {}
+#+end_src
+
+This will do but for each primitive type, we'd need to declare it again and again.
+Instead, we will use generic type:
+#+begin_src scala
+trait List[T] {}
+class Nil[T] extends List[T] {}
+class Cons[T](val head: T, val tail: List[T]) extends List[T] {}
+#+end_src
+
+Implementation:
+#+begin_src scala
+package coursera
+
+trait List[T] {
+  def isEmpty: Boolean
+  def head: T
+  def tail: List[T]
+}
+
+class Nil[T] extends List[T] {
+  def isEmpty = true
+  def head = throw new NoSuchElementException("Nil.head")
+  def tail = throw new NoSuchElementException("Nil.tail")
+}
+
+class Cons[T](val head: T, val tail: List[T]) extends List[T] {
+  def isEmpty = false
+}
+#+end_src
+
+** Polymorphism
+a function type comes "in many forms".
+In programming:
+- function can be applied to arguments of many Types
+- the type can have instances of many types
+
+2 principals forms of Polymorphism:
+- Subtyping: instances of a subclass can be passed to a base class
+- generics: instances of a function or class are created by type parameterization
+** Exercise
+
+Write a function nth that takes an integer n and a list and selects the nth elements of the lists.
+Elements are numbered from 0.
+If index is outside the range from 0 up to the length of the list minus one, an IndexOutOfBoundsException should be thrown.
+
+#+begin_src scala
+package coursera
+
+trait List[T] {
+  def isEmpty: Boolean
+  def head: T
+  def tail: List[T]
+
+  def toString: String
+}
+
+class Nil[T] extends List[T] {
+  def isEmpty: Boolean = true
+  def head: Nothing = throw new NoSuchElementException("Nil.head")
+  def tail: Nothing = throw new NoSuchElementException("Nil.tail")
+
+  override def toString: String = "."
+}
+
+class Cons[T](val head: T, val tail: List[T]) extends List[T] {
+  def isEmpty: Boolean = false
+
+  override def toString: String = "(" + head + ", " + tail.toString + ")"
+}
+
+object ConsListSession {
+  def main(args: Array[String]) = {
+    def singleton[T](elem: T) = new Cons[T](elem, new Nil[T])
+
+    def nth[T](n: Int, l: List[T]): T =
+      if (n < 0 || l.isEmpty) throw new IndexOutOfBoundsException("Out of range")
+      else if (n == 0) l.head
+      else nth(n-1, l.tail)
+
+    def catchAndPrint[T](index: Int, l: List[T]) =
+      try {
+        nth(index, l)
+      } catch {
+        case e: IndexOutOfBoundsException => println("exception caught as expected: " + e)
+      }
+
+    println(singleton[Int](1))
+    println(singleton[Boolean](true))
+
+    val listTypes = new Cons[Int](1, new Cons[Int](2, new Nil[Int]))
+    println(listTypes)
+
+    println(nth(0, listTypes))
+    println(nth(1, listTypes))
+
+    catchAndPrint[Int](-1, listTypes)
+    catchAndPrint[Int](3, listTypes)
+
+    println("end")
+  }
+}
+
+// [info] Running coursera.ConsListSession
+// (1, .)
+// (true, .)
+// (1, (2, .))
+// 1
+// 2
+// exception caught as expected: java.lang.IndexOutOfBoundsException: Out of range
+// exception caught as expected: java.lang.IndexOutOfBoundsException: Out of range
+// end
+// [success] Total time: 2 s, completed 23 juil. 2013 15:15:15
+
+#+end_src
+
 * TODO More functions on lists
 * TODO Pairs and Tuples
 * TODO Implicit Parameters
