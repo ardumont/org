@@ -626,7 +626,78 @@ object w3 {
 // [success] Total time: 1 s, completed 22 juil. 2013 18:19:56
 #+end_src
 
-* TODO Example finding fixed points
+* DONE Example finding fixed points
+CLOSED: [2013-07-23 mar. 08:47]
+a number x is called a fixed point of a function if f(x) = x
+
+for some functions f, we can locate the fixed points by starting with an initial estimate and then by applying f in a repetitive way: iterate f x
+
+until the value does not vary anymore (or the changes is sufficiently small)
+#+begin_src scala
+package coursera
+
+import math.abs
+
+object w32 {
+  val tolerance = 0.0001
+
+  def isCloseEnough(x: Double, y: Double): Boolean =
+    abs((x - y) / x) / x < tolerance
+
+  def fixedPoint(f: Double => Double) (firstGuess: Double) = {
+    def iterate(guess: Double): Double = {
+      val next = averageDamp(f)(guess)
+      if(isCloseEnough(guess, next)) next else iterate(next)
+    }
+    iterate(firstGuess)
+  }
+
+  def averageDamp(f: Double => Double)(x: Double) :Double =
+    (x + f(x)) / 2
+
+  def main(args: Array[String]) = {
+    println(fixedPoint(x => 1 + x/2)(1))
+  }
+}
+
+// [info] Running coursera.w32
+// 1.999755859375
+// [success] Total time: 3 s, completed 22 juil. 2013 18:44:11
+#+end_src
+
+Revisiting the square root:
+
+#+begin_src scala
+package coursera
+
+import math.abs
+
+object w1 {
+
+  def sqrt(x: Double) = w32.fixedPoint(y => x/y)(1.0)
+
+  def main(args: Array[String]) = {
+    val values = List(2.0, 4.0, 1e-6, 0.001, 0.1e-20, 1.0e20, 1.0e50)
+
+    val squareValues = values.map(v => List(v, sqrt(v)))
+
+    squareValues.foreach(println)
+  }
+}
+
+// [info] Running coursera.w1
+// List(2.0, 1.4142135623746899)
+// List(4.0, 2.000000000000002)
+// List(1.0E-6, 0.001)
+// List(0.001, 0.03162277660168433)
+// List(1.0E-21, 3.162277660168379E-11)
+// List(1.0E20, 2.5E19)
+// List(1.0E50, 2.5E49)
+// [success] Total time: 2 s, completed 22 juil. 2013 18:52:31
+
+#+end_src
+
+
 * TODO scala syntax summary
 * TODO functions and data
 * TODO More fun with rationals
