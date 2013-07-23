@@ -1394,8 +1394,102 @@ object IntSet {
 
 #+end_src
 
+* DONE How classes are organized
+CLOSED: [2013-07-23 mar. 14:24]
+** Packages
+Classes and objects are organized in packages
+To place a class or object inside a package, use a package clause at the top of your source file
+#+begin_src scala
+package progfun.examples
+object Hello {...}
+#+end_src
 
-* TODO How classes are organized
+Fully qualified name: progfun.examples.Hello
+#+begin_src sh
+scala progfun.examples.Hello
+#+end_src
+
+** Import clauses
+
+#+begin_src scala
+import week3.Rational           // named import
+import week3.{Rational, Hello}  // named import
+import week3._                  // wildcard import
+#+end_src
+
+Import from either a package or an object.
+** Automatic import
+- package scala
+- package java.lang
+- all members of the singleton object scala.Predef.
+- FQN:
+  - scala.Int
+  - scala.Boolean
+  - java.lang.Object
+  - scala.Predef.require
+  - scala.Predef.assert
+** scaladoc
+http://www.scala-lang.org/api/current/index.html#package
+
+** Traits
+- scala, java -> one superclass (single inheritance)
+- what if class has multiple natural supertypes?
+=> here comes traits, declared like abstract class
+
+#+begin_src scala
+trait Planar {
+  def height: Int
+  def width: Int
+  def surface = height * width
+}
+#+end_src
+
+Classes, objects can inherit from at most one class
+but can inherit from many Traits
+
+#+begin_src scala
+class Square extends Shape with Planar
+                           with Movable...
+#+end_src
+
+java interface <<~ trait
+trait can contain:
+- fields
+- concrete methods
+** scala's class hierarchy
+[[./scala-class-hierarchy.png]]
+
+** Top Types
+|--------+-------------------------------------|
+| Type   | Description                         |
+|--------+-------------------------------------|
+| Any    | base type of all types              |
+|        | \==, !=, equals, hashCode, toString |
+|--------+-------------------------------------|
+| AnyRef | base type of all reference Types    |
+|        | alias of java.lang.Object           |
+|--------+-------------------------------------|
+| AnyVal | base type of all primitive Types    |
+|--------+-------------------------------------|
+
+** Nothing
+- subtype of every other type
+- no value of type Nothing
+- to signal abnormal termination
+- element type of empty collection
+** Exceptions
+same as java
+#+begin_src scala
+throw Exc
+#+end_src
+
+** null
+- Every reference class type also has null as a value
+- Null is a subtype of every class that inherits from Object; it is incompatible with subtypes of AnyVal
+
+** Exercise
+What is the type of =if (true) 1 else false=? AnyVal
+
 * TODO Polymorphism
 * TODO More functions on lists
 * TODO Pairs and Tuples
