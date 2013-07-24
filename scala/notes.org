@@ -2002,7 +2002,11 @@ object sessionReduceList {
 ** Difference
 for operators that are associative or commutative, left and right reduce are equivalent (even with performance difference).
 
-* TODO Reasoning About Concat
+* DONE Reasoning About Concat
+CLOSED: [2013-07-24 mer. 15:50]
+** Natural Induction
+** Referential transparency
+** Structural Induction
 * TODO A Larger Equational Proof on Lists
 * TODO Functions as Objects
 * TODO Objects Everywhere
