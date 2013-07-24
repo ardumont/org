@@ -2007,7 +2007,9 @@ CLOSED: [2013-07-24 mer. 15:50]
 ** Natural Induction
 ** Referential transparency
 ** Structural Induction
-* TODO A Larger Equational Proof on Lists
+* DONE A Larger Equational Proof on Lists
+CLOSED: [2013-07-24 mer. 16:00]
+
 * TODO Functions as Objects
 * TODO Objects Everywhere
 * TODO Subtyping and Generics
