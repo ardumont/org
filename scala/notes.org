@@ -1822,7 +1822,140 @@ object sessionPairTuple {
 
 #+end_src
 
-* TODO Higher-Order List Functions
+* DONE Higher-Order List Functions
+CLOSED: [2013-07-24 mer. 12:20]
+** Recurring patterns for computations on Lists
+- transforming each elt in a list in a certain way         -> map
+- retrieving a list of all elements satisfying a criterion -> filter
+- combining the elements of a list using an operator       -> fold/reduce
+** Applying a function of elements of a list
+map
+#+begin_src scala
+object sessionHOFList {
+  def main(args: Array[String]) = {
+    val elems = List(1.0, 1.5, 2.9, 4.5)
+    val elemsMap = elems map (x => x * 0.5)
+
+    println(elemsMap)
+  }
+}
+
+// [info] Running sessionHOFList
+// List(0.5, 0.75, 1.45, 2.25)
+// [success] Total time: 6 s, completed 24 juil. 2013 11:22:39
+#+end_src
+** Exercise
+
+Consider a function to square each element of a list, and return the result.
+Complete the 2 following equivalent definitions of squareList:
+
+#+begin_src scala
+    def squareList(xs: List[Int]): List[Int] = xs match {
+      case Nil     => xs
+      case y :: ys => y * y :: squareList(ys)
+    }
+
+    def mapSquare(xs: List[Int]): List[Int] = xs map (x => x * x)
+#+end_src
+
+Output:
+#+begin_src scala
+// [info] Running sessionHOFList
+// List(0.5, 0.75, 1.45, 2.25)
+// List(1, 9, 25, 49)
+// List(1, 9, 25, 49)
+// [success] Total time: 3 s, completed 24 juil. 2013 11:26:25
+#+end_src
+
+** Filtering
+Select elements that satisfy a predicate
+#+begin_src scala
+    val nlems = List(-1, 1, 10, -2, 45)
+    println(nlems filter (x => x > 0))
+
+// List(1, 10, 45)
+#+end_src
+
+** Variations of filter
+- filterNot
+#+begin_src scala
+    val nlems = List(-1, 1, 10, -2, 45)
+    println(nlems filter    (x => x > 0))
+    println(nlems filterNot (x => x > 0))
+
+// List(1, 10, 45)
+// List(-1, -2)
+#+end_src
+
+- partition
+#+begin_src scala
+    println(nlems partition (x => x > 0))
+
+// (List(1, 10, 45),List(-1, -2))
+#+end_src
+
+- takeWhile
+#+begin_src scala
+    println(nlems takeWhile (x => x < 0))
+
+// List(-1)
+#+end_src
+
+- dropWhile
+#+begin_src scala
+    println(nlems dropWhile (x => x < 0))
+
+// List(1, 10, -2, 45)
+#+end_src
+
+- span
+#+begin_src scala
+    println(nlems span      (x => x < 0))
+
+// (List(-1),List(1, 10, -2, 45))
+#+end_src
+
+
+** Exercise
+Write a function pack that packs consecutive duplicates of list elements into sublists. For instance:
+=pack(List("a", "a", "a", "b", "c", "c", "a"))=
+
+should give:
+=List(List("a", "a", "a"), List("b"), List("c", "c"), List("a"))=
+
+#+begin_src scala
+    def pack[T](xs: List[T]): List[List[T]] = xs match {
+        case Nil     => Nil
+        case y :: ys => {
+          val (yss, rss) = xs span (x => x == y)
+          yss :: pack(rss)
+        }
+      }
+
+    val listToPack = List("a", "a", "a", "b", "c", "c", "a")
+    println(pack(listToPack))
+
+// List(List(a, a, a), List(b), List(c, c), List(a))
+#+end_src
+
+
+** Exercise
+
+Using pack, write a function encode that produces the run-length encoding a list.
+The idea is to encode n consecutive duplicates of an element x as a pair (x, n).
+For instance,
+=encode(List("a", "a", "a", "b", "c", "c", "a"))=
+should give
+=List(("a", 3), ("b", 1), ("c", 2), ("a", 1))=
+
+#+begin_src scala
+    def encode[T](xs: List[T]): List[(T, Int)] = pack(xs) map (x => (x.head, x.length))
+    println(encode(listToPack))
+
+// List((a,3), (b,1), (c,2), (a,1))
+#+end_src
+
+
 * TODO Reduction of Lists
 * TODO Reasoning About Concat
 * TODO A Larger Equational Proof on Lists
