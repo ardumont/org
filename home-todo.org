@@ -191,7 +191,7 @@ Merci Chris et papy
 *** TODO Enduit de lissage
 *** TODO Poser la toile de renovation
 *** TODO Poser le papier peint/Peindre
-** PENDING Couloir [19/28]
+** PENDING Couloir [29/30]
 *** DONE Changer les portes de l'armoire
 Merci papy Claude
 *** DONE Retirer le papier peint du plafond
@@ -214,32 +214,44 @@ CLOSED: [2013-07-20 sam. 20:17]
 CLOSED: [2013-07-21 dim. 12:02]
 *** DONE cadre de porte petite piece - couloir couche 1
 CLOSED: [2013-07-24 mer. 18:58]
-*** TODO cadre de porte petite piece - couloir couche 2
+*** DONE cadre de porte petite piece - couloir couche 2
+CLOSED: [2013-07-24 mer. 19:00]
 *** DONE cadre de porte petite piece - cuisine couche 1
 CLOSED: [2013-07-24 mer. 18:59]
-*** TODO cadre de porte petite piece - cuisine couche 2
+*** DONE cadre de porte petite piece - cuisine couche 2
+CLOSED: [2013-07-24 mer. 19:00]
 *** DONE cadre de porte petite piece - toilette couche 1
 CLOSED: [2013-07-24 mer. 18:59]
-*** TODO cadre de porte petite piece - toilette couche 2
+*** DONE cadre de porte petite piece - toilette couche 2
+CLOSED: [2013-07-24 mer. 19:00]
 *** DONE cadre de porte petite piece - salon couche 1
 CLOSED: [2013-07-24 mer. 18:59]
-*** TODO cadre de porte petite piece - salon couche 2
+*** DONE cadre de porte petite piece - salon couche 2
+CLOSED: [2013-07-24 mer. 19:00]
 *** DONE peindre la porte de la petite piece qui donne sur le couloir - couche 1
 CLOSED: [2013-07-23 mar. 20:05]
 
-*** TODO peindre la porte de la petite piece qui donne sur le couloir - couche 2
+*** DONE peindre la porte de la petite piece qui donne sur le couloir - couche 2
+CLOSED: [2013-07-24 mer. 19:00]
 *** DONE peindre la porte de la cuisine qui donne sur le couloir - couche 1
 CLOSED: [2013-07-23 mar. 20:05]
 
-*** TODO peindre la porte de la cuisine qui donne sur le couloir - couche 2
+*** DONE peindre la porte de la cuisine qui donne sur le couloir - couche 2
+CLOSED: [2013-07-24 mer. 19:00]
 *** DONE peindre la porte des toilettes qui donne sur le couloir - couche 1
 CLOSED: [2013-07-23 mar. 20:06]
 
-*** TODO peindre la porte des toilettes qui donne sur le couloir - couche 2
+*** DONE peindre la porte des toilettes qui donne sur le couloir - couche 2
+CLOSED: [2013-07-24 mer. 19:00]
 *** DONE peindre la paire de portes du salon qui donne sur le couloir - couche 1
 CLOSED: [2013-07-23 mar. 20:06]
 
-*** TODO peindre la paire de portes du salon qui donne sur le couloir - couche 2
+*** DONE peindre la paire de portes du salon qui donne sur le couloir - couche 2
+CLOSED: [2013-07-24 mer. 19:00]
+*** DONE Cadre placard couche 1
+CLOSED: [2013-07-24 mer. 19:00]
+*** DONE Cadre placard couche 2
+CLOSED: [2013-07-24 mer. 19:00]
 *** TODO Poser le papier peint/Peindre
 ** PENDING Salon [7/9]
 *** DONE Retirer le papier peint du plafond
