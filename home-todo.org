@@ -191,7 +191,7 @@ Merci Chris et papy
 *** TODO Enduit de lissage
 *** TODO Poser la toile de renovation
 *** TODO Poser le papier peint/Peindre
-** PENDING Couloir [15/21]
+** PENDING Couloir [15/20]
 *** DONE Changer les portes de l'armoire
 Merci papy Claude
 *** DONE Retirer le papier peint du plafond
@@ -228,7 +228,6 @@ CLOSED: [2013-07-23 mar. 20:06]
 CLOSED: [2013-07-23 mar. 20:06]
 
 *** TODO peindre la paire de portes du salon qui donne sur le couloir - couche 2
-*** TODO Poser la toile de renovation
 *** TODO Poser le papier peint/Peindre
 ** PENDING Salon [7/9]
 *** DONE Retirer le papier peint du plafond
