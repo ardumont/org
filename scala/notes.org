@@ -1955,8 +1955,53 @@ should give
 // List((a,3), (b,1), (c,2), (a,1))
 #+end_src
 
+* DONE Reduction of Lists
+CLOSED: [2013-07-24 mer. 13:00]
+Another common operation on list is to combine the elements of a list using a given operator -> fold/reduce
+** ReduceLeft
+#+begin_src scala
+object sessionReduceList {
+  def main(args: Array[String]) = {
+    def sum(xs: List[Int]): Int = (0 :: xs) reduceLeft (_ + _)
+    def pdt(xs: List[Int]): Int = (1 :: xs) reduceLeft (_ * _)
 
-* TODO Reduction of Lists
+    val elems = List(1, 3, 5, 7)
+    println(sum(elems))
+    println(pdt(elems))
+  }
+}
+
+// [info] Running sessionReduceList
+// 16
+// 105
+// [success] Total time: 0 s, completed 24 juil. 2013 12:29:44
+#+end_src
+
+** FoldLeft
+#+begin_src scala
+object sessionReduceList {
+  def main(args: Array[String]) = {
+    def sum(xs: List[Int]): Int = (xs foldLeft 0) (_ + _)
+    def pdt(xs: List[Int]): Int = (xs foldLeft 1) (_ * _)
+
+    val elems = List(1, 3, 5, 7)
+    println(sum(elems))
+    println(pdt(elems))
+  }
+}
+
+// [info] Running sessionReduceList
+// 16
+// 105
+// [success] Total time: 1 s, completed 24 juil. 2013 12:31:35
+
+#+end_src
+
+** ReduceRight
+** FoldRight
+** Difference
+for operators that are associative or commutative, left and right reduce are equivalent (even with performance difference).
+
 * TODO Reasoning About Concat
 * TODO A Larger Equational Proof on Lists
 * TODO Functions as Objects
