@@ -2010,7 +2010,68 @@ CLOSED: [2013-07-24 mer. 15:50]
 * DONE A Larger Equational Proof on Lists
 CLOSED: [2013-07-24 mer. 16:00]
 
-* TODO Functions as Objects
+* DONE Functions as Objects
+CLOSED: [2013-07-24 mer. 16:12]
+** Function as object
+Function type A => B is an abbreviation for the class scala.Function1[A, B]
+
+This is translated:
+#+begin_src scala
+package scala
+
+trait Function1[A, B] {
+  def apply(x: A): B
+}
+#+end_src
+
+So functions are objects with method apply.
+
+There are Function2, Function3, etc... up until Function22 depending on the number of parameters.
+
+** Expansion of funtion values
+#+begin_src scala
+(x: Int) => x * x
+#+end_src
+
+expands to
+
+#+begin_src scala
+{ class AnonFun extends Function1[Int, Int] {
+    def apply(x: Int) = x * x
+  }
+  new AnonFun
+}
+#+end_src
+
+or, shorter one, using anonymous class syntax:
+
+#+begin_src scala
+new Function1[Int, Int] {
+  def apply(x: Int) = x * x
+}
+#+end_src
+
+** Expansion of function calls
+=f(a, b)= is expanded to =f.apply(a, b)=
+
+So:
+
+#+begin_src scala
+val f = (x: Int) => x * x
+#+end_src
+
+expands to
+
+#+begin_src scala
+val f = new Function1[Int, Int] {
+  def apply(x: Int) = x * x
+}
+f.apply(a, b)
+#+end_src
+
+** Functions and methods
+eta-expansion
+
 * TODO Objects Everywhere
 * TODO Subtyping and Generics
 * TODO Variance
