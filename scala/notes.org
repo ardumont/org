@@ -2663,8 +2663,179 @@ object sessionListManipulation {
 
 #+end_src
 
+* DONE Other Collections/Sequences
+CLOSED: [2013-07-25 jeu. 14:59]
+** List
+- immutable
+- Lists are linear.
+- Access to the first element is much faster than access to the middle or the end of the list.
+** Vector
+- immutable
+- Representend are "very very shallow trees"
+- More evenly balanced access patterns.
+- proportional to the depth of the vector (log_32(n) with n the size of the vector)
+- very good for bulk operations (chunk of 32 adjacent entries)
+- operations are the same as list except for cons (::)
+- insertion log_32(n) with n the number of creation
+** Collection hierarchy
+Array, String, List, Vector, Range <: Sequence <: Iterable
+Set <: Iterable
+Map <: Iterable
+** Ranges
+sequence of evenly spaced integers.
 
-* TODO Other Collections
+#+begin_src scala
+package coursera
+
+object sessionSequence {
+  def main(args: Array[String]) = {
+    println(1 until 5)
+    println(1 to 5)
+    println(1 to 10 by 3)
+    println(6 to 1 by -2)
+  }
+
+}
+
+// [info] Running coursera.sessionSequence
+// Range(1, 2, 3, 4)
+// Range(1, 2, 3, 4, 5)
+// Range(1, 4, 7, 10)
+// Range(6, 4, 2)
+// [success] Total time: 6 s, completed 25 juil. 2013 14:29:56
+
+#+end_src
+
+** Some more sequence operations
+
+|--------------+----------------------------------------------------------------------------------------|
+| function     | Description                                                                            |
+|--------------+----------------------------------------------------------------------------------------|
+| xs exists p  | true if there is an element x of xs such that p(x) holds, false otherwise              |
+|--------------+----------------------------------------------------------------------------------------|
+| xs forall p  | true if all the elements of xs holds, false otherwise                                  |
+|--------------+----------------------------------------------------------------------------------------|
+| xs zip ys    | A sequence of pairs drawn from corresponding elements of sequence xs and ys            |
+|--------------+----------------------------------------------------------------------------------------|
+| xs unzip ys  | Splits a sequence of pairs xs into 2 sequences consisting of the first, respectively   |
+|              | second halves of all pairs                                                             |
+|--------------+----------------------------------------------------------------------------------------|
+| xs flatmap f | Applies collection-valued function f to all elements of xs and concatenates the result |
+|--------------+----------------------------------------------------------------------------------------|
+| xs.sum       | sum of all elements                                                                    |
+|--------------+----------------------------------------------------------------------------------------|
+| xs.product   | product of all elements                                                                |
+|--------------+----------------------------------------------------------------------------------------|
+| xs.max       | max of all elements in xs                                                              |
+|--------------+----------------------------------------------------------------------------------------|
+| xs.max       | min of all elements in xs                                                              |
+|--------------+----------------------------------------------------------------------------------------|
+-
+- xs forall p
+- xs zip ys
+
+** Example
+- Combinations
+To list all combinations of numbers x and y where x is drawn from 1..M and y is drawn from 1..N
+
+#+begin_src scala
+  def main(args: Array[String]) = {
+    def combi(m: Int, n: Int) = {
+      (1 to m) flatMap (x => (1 to n) map (y => (x, y)))
+    }
+
+// Vector((1,1), (1,2), (1,3), (1,4), (1,5), (1,6), (1,7), (1,8), (1,9), (1,10), (2,1), (2,2), (2,3), (2,4), (2,5), (2,6), (2,7), (2,8), (2,9), (2,10))
+#+end_src
+
+- scalar product
+#+begin_src scala
+package coursera
+
+object sessionVectorManipulation {
+
+  def main(args: Array[String]) = {
+    def combi(m: Int, n: Int) = {
+      (1 to m) flatMap (x => (1 to n) map (y => (x, y)))
+    }
+
+    def scalarPdt(xs: Vector[Int], ys: Vector[Int]): Int =
+//    (xs zip ys) map (xy => xy._1 * xy._2) sum
+      (xs zip ys) map { case (x, y) => x * y } sum
+
+    val nums = Vector(1, 2, 3, -88)
+    val names = Vector("one", "two", "three", "minus eighty eight")
+
+    val nums2 = Vector(2, 3, 4, 0)
+
+    println(nums)
+    println(names)
+    println(names zip nums)
+    println(combi(2, 10))
+
+    println(scalarPdt(nums, nums2))
+  }
+
+}
+
+// [info] Running coursera.sessionVectorManipulation
+// Vector(1, 2, 3, -88)
+// Vector(one, two, three, minus eighty eight)
+// Vector((one,1), (two,2), (three,3), (minus eighty eight,-88))
+// Vector((1,1), (1,2), (1,3), (1,4), (1,5), (1,6), (1,7), (1,8), (1,9), (1,10), (2,1), (2,2), (2,3), (2,4), (2,5), (2,6), (2,7), (2,8), (2,9), (2,10))
+// 20
+// [success] Total time: 1 s, completed 25 juil. 2013 14:47:56
+
+#+end_src
+
+** Exercise
+A number n is prime if the only divisors of n are 1 and n itself.
+Test primality of a number (value conciseness over efficiency)?
+
+#+begin_src scala
+package coursera
+
+object sessionVectorManipulation {
+
+  def main(args: Array[String]) = {
+    def combi(m: Int, n: Int) = {
+      (1 to m) flatMap (x => (1 to n) map (y => (x, y)))
+    }
+
+    def scalarPdt(xs: Vector[Int], ys: Vector[Int]): Int =
+      (xs zip ys) map { case (x, y) => x * y } sum
+
+    def isPrime(n: Int): Boolean =
+      (2 until n) forall (x => n % x != 0)
+
+    val nums = Vector(1, 2, 3, -88)
+    val names = Vector("one", "two", "three", "minus eighty eight")
+
+    val nums2 = Vector(2, 3, 4, 0)
+
+    println(nums)
+    println(names)
+    println(names zip nums)
+    println(combi(2, 10))
+
+    println(scalarPdt(nums, nums2))
+
+    println((2 to 100) filter isPrime)
+  }
+
+}
+
+// [info] Running coursera.sessionVectorManipulation
+// Vector(1, 2, 3, -88)
+// Vector(one, two, three, minus eighty eight)
+// Vector((one,1), (two,2), (three,3), (minus eighty eight,-88))
+// Vector((1,1), (1,2), (1,3), (1,4), (1,5), (1,6), (1,7), (1,8), (1,9), (1,10), (2,1), (2,2), (2,3), (2,4), (2,5), (2,6), (2,7), (2,8), (2,9), (2,10))
+// 20
+// Vector(2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97)
+// [success] Total time: 1 s, completed 25 juil. 2013 14:58:20
+
+#+end_src
+
+
 * TODO Combinatorial Search and For-Expressions
 * TODO Combinatorial Search Example
 * TODO Queries with For
