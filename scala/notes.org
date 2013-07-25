@@ -2937,7 +2937,8 @@ CLOSED: [2013-07-25 jeu. 16:00]
 syntax of for (list comprehension) is closely related to the HOF map, flatMap and filter.
 In reality, it's the for writing which is translated in terms of map, flatMap and lazy version of filter.
 
-* TODO Maps
+* DONE Maps
+CLOSED: [2013-07-25 jeu. 16:49]
 * TODO Putting the Pieces Together
 * TODO Structural Induction on Trees
 * TODO Streams
