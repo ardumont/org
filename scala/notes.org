@@ -2584,7 +2584,86 @@ object sessionExpressions {
 // [success] Total time: 1 s, completed 25 juil. 2013 13:02:15
 #+end_src
 
-* TODO Lists
+* DONE Lists
+CLOSED: [2013-07-25 jeu. 13:39]
+fundamental data structure in functional programming
+Examples:
+val fruit = List("apple", "oranges", "pears")
+
+2 important differences between lists and arrays
+- lists are immutable (elements of the list cannot be changed)
+- and recursive (while arrays are flat)
+** The List type
+#+begin_src scala
+package coursera
+
+object sessionListManipulation {
+  def main(args: Array[String]) = {
+    val fruits = List("apples", "oranges", "pears")
+      println(fruits)
+
+    val fruits2 = "apples" :: ("oranges" :: ("pears" :: Nil))
+      println(fruits2)
+  }
+}
+
+// [info] Running coursera.sessionListManipulation
+// List(apples, oranges, pears)
+// List(apples, oranges, pears)
+// [success] Total time: 4 s, completed 25 juil. 2013 13:22:05
+
+#+end_src
+
+** Operations on the List
+- head (NoSuchElementException when trying to take the head of the empty list)
+- tail
+- isEmpty
+
+** List Pattern
+- Nil
+- x :: xs
+- x :: y :: ys
+** Exercise
+
+Insertion sort
+
+#+begin_src scala
+package coursera
+
+object sessionListManipulation {
+
+  def main(args: Array[String]) = {
+    def insert(x: Int, xs: List[Int]): List[Int] = xs match {
+        case Nil => x :: Nil
+        case y :: ys => if (x < y) x :: insert(y, ys)
+                        else       y :: insert(x, ys)
+      }
+
+    def isort(xs: List[Int]): List[Int] = xs match {
+        case Nil => Nil
+        case y :: ys => insert(y, isort(ys))
+      }
+
+    val fruits = List("apples", "oranges", "pears")
+      println(fruits)
+
+    val fruits2 = "apples" :: "oranges" :: "pears" :: Nil
+      println(fruits2)
+
+    val listToSort = List(10, 8, 100, 0)
+      println(isort(listToSort))
+  }
+}
+
+// [info] Running coursera.sessionListManipulation
+// List(apples, oranges, pears)
+// List(apples, oranges, pears)
+// List(0, 8, 10, 100)
+// [success] Total time: 1 s, completed 25 juil. 2013 13:34:48
+
+#+end_src
+
+
 * TODO Other Collections
 * TODO Combinatorial Search and For-Expressions
 * TODO Combinatorial Search Example
