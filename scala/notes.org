@@ -2099,7 +2099,40 @@ class Succ(n: Nat) extends Nat {
 }
 #+end_src
 
-* TODO Subtyping and Generics
+* DONE Subtyping and Generics
+CLOSED: [2013-07-25 jeu. 09:22]
+** Polymorphism
+- Subtyping
+- Generics
+** Type bounds
+- S <: T -> S is a subtype of T
+- S >: T -> S is a supertype of T (or T is a subtype of S)
+** Lower bound
+for a type variable
+
+for example:
+[S :> NonEmpty] => introduces a type parameter S that can range only over supertypes of NonEmpty, Here S can be of NonEmpty, IntSet, AnyRef or Any
+
+** Mixed bound
+mix lower and upper bound
+
+For example:
+[ S >: NonEmpty <: IntSet ] => Here S is bound to the interval NonEmpty and IntSet (but it could be more)
+
+** Covariance
+What is applicable for A is applicable for AnyType[A].
+
+We call types for which the relashionship holds covariant because their subtyping relationship varies with the type parameter.
+
+*Note*
+- java Array are covariant.
+- scala Array are not.
+** Liskov substitution principle
+
+~if A <: B then everything one can do to with a value of type B, one should also be able to do with a value of type A.
+
+Let q(x) be a property provable about objects x of type B. Then q(y) should be provable for objects y of type A where A <: B.
+
 * TODO Variance
 * TODO Decomposition
 * TODO Pattern Matching
