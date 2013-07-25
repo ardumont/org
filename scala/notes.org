@@ -2939,7 +2939,8 @@ In reality, it's the for writing which is translated in terms of map, flatMap an
 
 * DONE Maps
 CLOSED: [2013-07-25 jeu. 16:49]
-* TODO Putting the Pieces Together
+* DONE Putting the Pieces Together
+CLOSED: [2013-07-25 jeu. 16:58]
 * TODO Structural Induction on Trees
 * TODO Streams
 * TODO Lazy Evaluation
