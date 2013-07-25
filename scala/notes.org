@@ -2930,7 +2930,9 @@ object sessionNQueens {
 
 #+end_src
 
-* TODO Queries with For
+* DONE Queries with For
+CLOSED: [2013-07-25 jeu. 15:51]
+
 * TODO Translation of For
 * TODO Maps
 * TODO Putting the Pieces Together
