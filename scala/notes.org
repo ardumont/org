@@ -2335,7 +2335,115 @@ List1[NonEmpty] <: List1[IntSet]
 
 So the result type is List1[IntSet].
 
-* TODO Decomposition
+* DONE Decomposition
+CLOSED: [2013-07-25 jeu. 12:04]
+Problem: Write a small interpreter for arithmetic expressions.
+
+** Basic
+#+begin_src scala
+package coursera
+
+trait Expr {
+  def isNumber: Boolean
+  def isSum: Boolean
+  def numValue: Int
+  def leftOp: Expr
+  def rightOp: Expr
+}
+
+class Number(n: Int) extends Expr {
+  def isNumber: Boolean = true
+  def isSum: Boolean = false
+  def numValue: Int = n
+  def leftOp: Expr = throw new Error("Number.leftOp")
+  def rightOp: Expr = throw new Error("Number.rightOp")
+}
+
+class Sum(e1: Expr, e2: Expr) extends Expr {
+  def isNumber: Boolean = false
+  def isSum: Boolean = true
+  def numValue: Int = throw new Error("Sum.numValue")
+  def leftOp: Expr = e1
+  def rightOp: Expr = e2
+}
+
+object sessionExpressions {
+  def main(args: Array[String]) = {
+    def eval(e: Expr): Int = {
+      if(e.isNumber) e.numValue
+      else if(e.isSum) eval(e.leftOp) + eval(e.rightOp)
+      else throw new Error("Unknown Expression " + e)
+    }
+
+    println(eval(new Sum(new Number(10), new Number(-5))))
+  }
+
+}
+
+// [info] Running coursera.sessionExpressions
+// 5
+// [success] Total time: 6 s, completed 25 juil. 2013 11:45:39
+
+#+end_src
+Adding new Expr becomes problematic as the number of methods to add grows quadratically.
+
+** No solution
+
+- isInstanceOf[T]
+- asInstanceOf[T]
+
+|--------------------------------------------------------------------------------------------+----------------------------------|
+| Pros                                                                                       | Cons                             |
+|--------------------------------------------------------------------------------------------+----------------------------------|
+| No need for classification method, access methods only for classes where values is defined | Low level and potentially unsafe |
+|--------------------------------------------------------------------------------------------+----------------------------------|
+
+So no go
+
+** Better solution
+*** Object oriented Decomposition
+
+#+begin_src scala
+package coursera
+
+trait Expr {
+  def eval: Int
+}
+
+class Number(n: Int) extends Expr {
+  def eval: Int = n
+}
+
+class Sum(e1: Expr, e2: Expr) extends Expr {
+  def eval: Int = e1.eval + e2.eval
+}
+
+class Pdt(e1: Expr, e2: Expr) extends Expr {
+  def eval: Int = e1.eval * e2.eval
+}
+
+object sessionExpressions {
+  def main(args: Array[String]) = {
+    println(new Sum(new Number(10), new Number(-5)).eval)
+    println(new Pdt(new Sum(new Number(10), new Number(-5)), new Number(2)).eval)
+  }
+
+}
+
+// [info] Running coursera.sessionExpressions
+// 5
+// 10
+// [success] Total time: 2 s, completed 25 juil. 2013 12:00:08
+#+end_src
+
+Limitations:
+- adding a method will impact every expression
+- what if you want to simplify the expressions?
+For example, using the rule: a*b+a*c -> a*(b+c)
+
+this is a non local simplification. It cannot be encapsulated in the method of a single object.
+=> Back to square one, need to test and access methods for all the different subclasses
+
 * TODO Pattern Matching
 * TODO Lists
 * TODO Other Collections
