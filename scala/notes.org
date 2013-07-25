@@ -2678,7 +2678,7 @@ CLOSED: [2013-07-25 jeu. 14:59]
 - operations are the same as list except for cons (::)
 - insertion log_32(n) with n the number of creation
 ** Collection hierarchy
-Array, String, List, Vector, Range <: Sequence <: Iterable
+Array, String, List, Vector, Range <: Seq <: Iterable
 Set <: Iterable
 Map <: Iterable
 ** Ranges
@@ -2835,8 +2835,30 @@ object sessionVectorManipulation {
 
 #+end_src
 
+* DONE Combinatorial Search and For-Expressions
+CLOSED: [2013-07-25 jeu. 15:22]
+Given a positive integer n, find all pairs of positive integers i and j, with 1 <= j < i < n such that i + j is prime.
 
-* TODO Combinatorial Search and For-Expressions
+List comprehension:
+#+begin_src scala
+    def pairsPrime(n: Int) = {
+      for { i <- 1 until n
+            j <- 1 until i
+            if isPrime(i + j)
+      } yield (i, j)
+    }
+
+#+end_src
+
+** Exercise
+Rewrite the scalarPdt function using the list comprehension.
+
+#+begin_src scala
+    def scalarPdt(xs: Vector[Int], ys: Vector[Int]): Int =
+      (for ((x, y) <- (xs zip ys)) yield (x * y)) sum
+
+#+end_src
+
 * TODO Combinatorial Search Example
 * TODO Queries with For
 * TODO Translation of For
