@@ -2084,7 +2084,7 @@ abstract class Nat {
   def -(that: Nat): Nat
 }
 
-object Zero extends Nat {
+object Zero ext.....Nat {
   def isZero = true
   def predecessor = throw new Error("zero has no predecessor")
   def +(that: Nat) = that
@@ -2338,7 +2338,6 @@ So the result type is List1[IntSet].
 * DONE Decomposition
 CLOSED: [2013-07-25 jeu. 12:04]
 Problem: Write a small interpreter for arithmetic expressions.
-
 ** Basic
 #+begin_src scala
 package coursera
@@ -2444,7 +2443,147 @@ For example, using the rule: a*b+a*c -> a*(b+c)
 this is a non local simplification. It cannot be encapsulated in the method of a single object.
 => Back to square one, need to test and access methods for all the different subclasses
 
-* TODO Pattern Matching
+* DONE Pattern Matching
+CLOSED: [2013-07-25 jeu. 13:05]
+Task to solve: find a general and convenient way to access objects in a extensible class hierarchy.
+
+** Pattern matching
+#+begin_src scala
+package coursera
+
+trait Expr
+
+case class Number(n: Int) extends Expr
+case class Sum(e1: Expr, e2: Expr) extends Expr
+case class Pdt(e1: Expr, e2: Expr) extends Expr
+
+object sessionExpressions {
+
+  def eval(e: Expr): Int = e match {
+      case Number(n)   => n
+      case Sum(e1, e2) => eval(e1) + eval(e2)
+      case Pdt(e1, e2) => eval(e1) * eval(e2)
+  }
+
+  def main(args: Array[String]) = {
+    println(eval(new Sum(new Number(10), new Number(-5))))
+    println(eval(new Pdt(new Sum(new Number(10), new Number(-5)), new Number(2))))
+  }
+
+}
+
+// [info] Running coursera.sessionExpressions
+// 5
+// 10
+// [success] Total time: 2 s, completed 25 juil. 2013 12:09:00
+
+#+end_src
+
+Using the companion object implicitely created by the case class, we can either simplify the instanciation of Expr like this:
+
+#+begin_src scala
+  def main(args: Array[String]) = {
+    println(eval(Sum(Number(10), Number(-5))))
+    println(eval(Pdt(Sum(Number(10), Number(-5)), Number(2))))
+  }
+
+// [info] Running coursera.sessionExpressions
+// 5
+// 10
+// [success] Total time: 2 s, completed 25 juil. 2013 12:13:08
+
+#+end_src
+
+** Match syntax
+- match is followed by a sequence of cases, pat => expr
+- each case associates an expression expr with a pattern pat
+- MatchError exception is thrown if no pattern matches the value of the selector
+** Forms of Patterns
+Patterns are constructed from:
+- constructors, e.g. Number, Sum, etc...
+- variables, e.g. n, e1, e2
+- wildcard patterns _
+- constants, e.g. 1, true, etc...
+
+** Pattern matching and Methods
+#+begin_src scala
+package coursera
+
+trait Expr {
+  def eval: Int = this match {
+      case Number(n)   => n
+      case Sum(e1, e2) => e1.eval + e2.eval
+      case Pdt(e1, e2) => e1.eval * e2.eval
+  }
+}
+
+case class Number(n: Int) extends Expr
+case class Sum(e1: Expr, e2: Expr) extends Expr
+case class Pdt(e1: Expr, e2: Expr) extends Expr
+
+object sessionExpressions {
+
+  def main(args: Array[String]) = {
+    println(Sum(Number(10), Number(-5)).eval)
+    println(Pdt(Sum(Number(10), Number(-5)), Number(2)).eval)
+  }
+
+}
+
+// [info] Running coursera.sessionExpressions
+// 5
+// 10
+// [success] Total time: 3 s, completed 25 juil. 2013 12:52:17
+
+#+end_src
+
+** Exercise
+1. Write a function show that uses pattern matching to return the representation of a given expression as a String.
+
+#+begin_src scala
+def show(e: Expr): String
+#+end_src
+
+Solution:
+#+begin_src scala
+package coursera
+
+trait Expr {
+  def eval: Int = this match {
+      case Number(n)   => n
+      case Sum(e1, e2) => e1.eval + e2.eval
+      case Pdt(e1, e2) => e1.eval * e2.eval
+  }
+
+  def show: String = this match {
+      case Number(n)   => n.toString
+      case Sum(e1, e2) => "(" + e1.show + " + " + e2.show + ")"
+      case Pdt(e1, e2) => "(" + e1.show + " * " + e2.show + ")"
+    }
+}
+
+case class Number(n: Int) extends Expr
+case class Sum(e1: Expr, e2: Expr) extends Expr
+case class Pdt(e1: Expr, e2: Expr) extends Expr
+
+object sessionExpressions {
+
+  def main(args: Array[String]) = {
+    val e1 = Sum(Number(10), Number(-5))
+    val e2 = Pdt(Sum(Number(10), Number(-5)), Number(2))
+
+    println(e1.show + ": " + e1.eval)
+    println(e2.show + ": " + e2.eval)
+  }
+
+}
+
+// [info] Running coursera.sessionExpressions
+// (10 + -5): 5
+// ((10 + -5) * 2): 10
+// [success] Total time: 1 s, completed 25 juil. 2013 13:02:15
+#+end_src
+
 * TODO Lists
 * TODO Other Collections
 * TODO Combinatorial Search and For-Expressions
