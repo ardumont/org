@@ -2932,8 +2932,11 @@ object sessionNQueens {
 
 * DONE Queries with For
 CLOSED: [2013-07-25 jeu. 15:51]
+* DONE Translation of For
+CLOSED: [2013-07-25 jeu. 16:00]
+syntax of for (list comprehension) is closely related to the HOF map, flatMap and filter.
+In reality, it's the for writing which is translated in terms of map, flatMap and lazy version of filter.
 
-* TODO Translation of For
 * TODO Maps
 * TODO Putting the Pieces Together
 * TODO Structural Induction on Trees
