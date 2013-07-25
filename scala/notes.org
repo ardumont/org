@@ -2859,7 +2859,77 @@ Rewrite the scalarPdt function using the list comprehension.
 
 #+end_src
 
-* TODO Combinatorial Search Example
+* DONE Combinatorial Search Example
+CLOSED: [2013-07-25 jeu. 15:42]
+** Sets
+#+begin_src scala
+val fruit = Set("apple", "banana", "pear")
+val s = (1 to 6).toSet
+#+end_src
+
+- Sets are unordered
+- no duplicate elements
+- fundamental operation on sets is contains
+
+** N-Queens
+The 8 queens problem is to place 8 queens on a chessboard so that no queen is threatened by another.
+In other words, there can't be 2 queens in the same row, column or diagonal.
+
+Problem must work for chessboard of any size.
+
+#+begin_src scala
+package coursera
+
+object sessionNQueens {
+  def main(args: Array[String]) = {
+
+    def queens(n: Int): Set[List[Int]] = {
+
+      def isSafe(col: Int, queens: List[Int]): Boolean = {
+        val row = queens.length
+        val queensWithRow = (row - 1 to 0 by -1) zip queens
+        queensWithRow forall {
+          case (r, c) => col != c && math.abs(col - c) != row - r
+        }
+      }
+
+      def placeQueens(k: Int): Set[List[Int]] =
+        if (k == 0) Set(Nil)
+        else
+          for {
+            queens <- placeQueens(k - 1)
+            col <- 0 until n
+            if isSafe(col, queens)
+          } yield col :: queens
+
+      placeQueens(n)
+    }
+
+    def show(queens: List[Int]) = {
+      val lines = for (col <- queens.reverse)
+                  yield Vector.fill(queens.length)("* ").updated(col, "X "). mkString
+      "\n" + (lines mkString "\n")
+    }
+
+    println(queens(4) map show mkString "\n")
+  }
+}
+
+// [info] Running coursera.sessionNQueens
+
+// * * X *
+// X * * *
+// * * * X
+// * X * *
+
+// * X * *
+// * * * X
+// X * * *
+// * * X *
+// [success] Total time: 1 s, completed 25 juil. 2013 15:42:20
+
+#+end_src
+
 * TODO Queries with For
 * TODO Translation of For
 * TODO Maps
