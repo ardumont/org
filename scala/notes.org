@@ -2941,7 +2941,12 @@ In reality, it's the for writing which is translated in terms of map, flatMap an
 CLOSED: [2013-07-25 jeu. 16:49]
 * DONE Putting the Pieces Together
 CLOSED: [2013-07-25 jeu. 16:58]
-* TODO Structural Induction on Trees
+* DONE Structural Induction on Trees
+CLOSED: [2013-07-26 ven. 09:18]
+not limited to list.
+To prove a property P(t) for all trees t of a certain type:
+- show that P(l) holds for all leaves l of a tree
+- for each type of internal node t with subtrees s1, ..., sn, show that P(s_1) && P(s_2) && ... && P(s_n) implies P(t)
 * TODO Streams
 * TODO Lazy Evaluation
 * TODO Computing with Infinite Sequences
