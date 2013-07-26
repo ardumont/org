@@ -191,7 +191,7 @@ Merci Chris et papy
 *** TODO Enduit de lissage
 *** TODO Poser la toile de renovation
 *** TODO Poser le papier peint/Peindre
-** PENDING Couloir [29/30]
+** PENDING Couloir [30/31]
 *** DONE Changer les portes de l'armoire
 Merci papy Claude
 *** DONE Retirer le papier peint du plafond
@@ -252,6 +252,8 @@ CLOSED: [2013-07-24 mer. 19:00]
 CLOSED: [2013-07-24 mer. 19:00]
 *** DONE Cadre placard couche 2
 CLOSED: [2013-07-24 mer. 19:00]
+*** DONE peindre le plafond
+CLOSED: [2013-07-26 ven. 19:08]
 *** TODO Poser le papier peint/Peindre
 ** PENDING Salon [7/9]
 *** DONE Retirer le papier peint du plafond
@@ -284,7 +286,7 @@ CLOSED: [2011-10-31 lun. 19:35]
 CLOSED: [2013-04-11 jeu. 09:37]
 *** TODO Poser la toile de renovation
 *** TODO Poser le papier peint/Peindre
-** PENDING Couloir du haut [10/12]
+** PENDING Couloir du haut [17/24]
 *** DONE Retirer le crepis
 *** DONE Retirer le papier peint
 *** DONE Enduit
@@ -300,8 +302,28 @@ CLOSED: [2011-10-31 lun. 10:12]
 CLOSED: [2011-10-31 lun. 19:36]
 *** DONE Passer la sous-couche.
 CLOSED: [2011-10-31 lun. 19:36]
-*** TODO Poser la toile de renovation
-*** TODO Poser le papier peint/Peindre
+*** DONE porte chambre de theo - couloir + tour de porte couche 1
+CLOSED: [2013-07-26 ven. 19:10]
+*** TODO porte chambre de theo - couloir + tour de porte couche 2
+*** DONE porte bureau - couloir + tour de porte couche 1
+CLOSED: [2013-07-26 ven. 19:11]
+*** TODO porte bureau - couloir + tour de porte couche 2
+*** DONE porte chloe - couloir + tour de porte couche 1
+CLOSED: [2013-07-26 ven. 19:11]
+*** TODO porte chloe - couloir + tour de porte couche 2
+*** DONE porte chambre parentale - couloir + tour de porte couche 1
+CLOSED: [2013-07-26 ven. 19:11]
+*** TODO porte chambre parentale - couloir + tour de porte couche 2
+*** DONE porte toilette - couloir + tour de porte couche 1
+CLOSED: [2013-07-26 ven. 19:11]
+*** TODO porte toilette - couloir + tour de porte couche 2
+
+*** DONE porte salle de bain - couloir + tour de porte couche 1
+CLOSED: [2013-07-26 ven. 19:11]
+*** TODO porte salle de bain - couloir + tour de porte couche 2
+*** DONE Peindre le plafond
+CLOSED: [2013-07-26 ven. 19:09]
+*** TODO Poser le papier peint sur les murs
 ** PENDING Chambre parentale [2/9]
 *** TODO Retirer le crepis
 *** TODO Enduit de rebouchage
