@@ -2959,7 +2959,6 @@ Streams are like list but their tail are evaluated on demand.
 Stream.empty
 Stream.cons
 
-
 ** Stream Ranges
 #+begin_src scala
 package coursera
@@ -3056,7 +3055,14 @@ for example:
         else lo #:: streamRange(lo + 1, hi)
 #+end_src
 
-* TODO Lazy Evaluation
+* DONE Lazy Evaluation
+CLOSED: [2013-07-26 ven. 10:31]
+- by value (or strict): parameters of function first
+- by-name: computation of parameters is delayed and the function definition is first folded. In this case, every computation of parameters is delayed and gets recomputed each time they appear
+- lazy: computed once and by referential transparency, we keep the value for the other reference. This improve the by-name evaluation
+** Evaluation by default in scala
+strict evaluation
+Can use the lazy evaluation using the keyword: lazy
 * TODO Computing with Infinite Sequences
 * TODO Case Study the Water Pouring Problem
 * TODO Course Conclusion
