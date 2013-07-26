@@ -380,6 +380,16 @@ CLOSED: [2013-07-07 dim. 10:00]
 CLOSED: [2013-07-07 dim. 10:00]
 *** DONE jabber-pack
 CLOSED: [2013-07-07 dim. 10:00]
+
+* IN-PROGRESS scala [75%]
+** DONE scala-pack
+CLOSED: [2013-07-26 ven. 12:15]
+
+** DONE coursera online courses
+CLOSED: [2013-07-26 ven. 12:15]
+** DONE play basic tutorial
+CLOSED: [2013-07-26 ven. 12:16]
+** TODO scala koans
 * PENDING Articles [94%]
 ** DONE Chroot to save one's GNU/Linux
 CLOSED: [2012-04-21 Sat 18:07]
