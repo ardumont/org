@@ -2947,7 +2947,115 @@ not limited to list.
 To prove a property P(t) for all trees t of a certain type:
 - show that P(l) holds for all leaves l of a tree
 - for each type of internal node t with subtrees s1, ..., sn, show that P(s_1) && P(s_2) && ... && P(s_n) implies P(t)
-* TODO Streams
+* DONE Streams
+CLOSED: [2013-07-26 ven. 10:15]
+** Delayed evalutation
+Avoid computing the tail of a sequence until it is needed for the evaluation result (which might be never)
+
+class Stream
+Streams are like list but their tail are evaluated on demand.
+
+** Defining Streams
+Stream.empty
+Stream.cons
+
+
+** Stream Ranges
+#+begin_src scala
+package coursera
+
+object sessionStream {
+  def main(args: Array[String]) = {
+    def streamRange(lo: Int, hi: Int): Stream[Int] =
+        if (lo >= hi) Stream.empty
+        else Stream.cons(lo, streamRange(lo + 1, hi))
+
+    def listRange(lo: Int, hi: Int): List[Int] =
+        if (lo >= hi) Nil
+        else lo :: listRange(lo + 1, hi)
+
+    val xs = Stream.cons(1, Stream.cons(2, Stream.empty))
+    val ys = Stream(10, 20, 30)
+
+    println("Tail not consumed: " + xs)
+    println("Tail not consumed: " + ys)
+
+    val xxs = xs map (_ + 1)
+    println("Tail not consumed    : " +  xxs)
+
+    println("stream: " + streamRange(0, 10))
+    println("list: " + listRange(0, 10))
+  }
+}
+
+// [info] Running coursera.sessionStream
+// Tail not consumed: Stream(1, ?)
+// Tail not consumed: Stream(10, ?)
+// Tail not consumed    : Stream(2, ?)
+// stream: Stream(0, ?)
+// list: List(0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
+// [success] Total time: 1 s, completed 26 juil. 2013 09:47:32
+#+end_src
+
+** Methods on streams
+
+#+begin_src scala
+package coursera
+
+object sessionStream {
+  def main(args: Array[String]) = {
+    def streamRange(lo: Int, hi: Int): Stream[Int] =
+        if (lo >= hi) Stream.empty
+        else Stream.cons(lo, streamRange(lo + 1, hi))
+
+    def listRange(lo: Int, hi: Int): List[Int] =
+        if (lo >= hi) Nil
+        else lo :: listRange(lo + 1, hi)
+
+    val xs = Stream.cons(1, Stream.cons(2, Stream.empty))
+    val ys = Stream(10, 20, 30)
+
+    println("Tail not consumed: " + xs)
+    println("Tail not consumed: " + ys)
+
+    val xxs = xs map (_ + 1)
+    println("Tail not consumed    : " +  xxs)
+
+    println("stream: " + streamRange(0, 10))
+    println("list: " + listRange(0, 10))
+
+    val secondprimeWithList = ((1000 to 10000) filter Prime.isPrime)(1)
+    val secondprimeWithStream = ((1000 to 10000).toStream filter Prime.isPrime)(1)
+
+    println("second prime number between [1000,10000] - list: " + secondprimeWithList)
+    println("second prime number between [1000,10000] - list: " + secondprimeWithStream)
+  }
+}
+
+// [info] Running coursera.sessionStream
+// Tail not consumed: Stream(1, ?)
+// Tail not consumed: Stream(10, ?)
+// Tail not consumed    : Stream(2, ?)
+// stream: Stream(0, ?)
+// list: List(0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
+// second prime number between [1000,10000] - list: 1013
+// second prime number between [1000,10000] - list: 1013
+// [success] Total time: 1 s, completed 26 juil. 2013 09:58:20
+
+#+end_src
+
+** Stream cons operator
+
+:: is for List, not Stream
+#:: for Stream
+
+for example:
+#+begin_src scala
+    def streamRange(lo: Int, hi: Int): Stream[Int] =
+        if (lo >= hi) Stream.empty
+        else lo #:: streamRange(lo + 1, hi)
+#+end_src
+
 * TODO Lazy Evaluation
 * TODO Computing with Infinite Sequences
 * TODO Case Study the Water Pouring Problem
