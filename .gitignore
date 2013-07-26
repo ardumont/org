@@ -2,3 +2,4 @@
 \#*
 wikeo-*/
 *.html
+/scala/libpeerconnection.log
