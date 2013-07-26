@@ -3259,4 +3259,23 @@ object WaterPouringProblem {
 // [success] Total time: 2 s, completed 26 juil. 2013 11:37:54
 #+end_src
 
-* TODO Course Conclusion
+* DONE Course Conclusion
+CLOSED: [2013-07-26 ven. 12:05]
+** Traits of functional programming
+- HOF
+- case classes and pattern matching
+- immutable collections
+- absence of mutable state
+- flexible evaluation strategies: strict/lazy/by name
+** More materials
+- scala ref card
+- [[http://twitter.github.io/scala_school/][scala school]]
+- programming in scala book
+- scala meetup
+- typesafe
+- akka, play
+- cakesolutions blog
+** What remains to be covered
+- functional programming and state (mutable state? ...)
+- parallelism (exploit immutability for parallel execution)
+- Domain Specific languages  (high-level libraries as embedded DSLs, interpretation techniques for external DSLs)
