@@ -286,7 +286,7 @@ CLOSED: [2011-10-31 lun. 19:35]
 CLOSED: [2013-04-11 jeu. 09:37]
 *** TODO Poser la toile de renovation
 *** TODO Poser le papier peint/Peindre
-** PENDING Couloir du haut [17/24]
+** PENDING Couloir du haut [24/25]
 *** DONE Retirer le crepis
 *** DONE Retirer le papier peint
 *** DONE Enduit
@@ -304,23 +304,32 @@ CLOSED: [2011-10-31 lun. 19:36]
 CLOSED: [2011-10-31 lun. 19:36]
 *** DONE porte chambre de theo - couloir + tour de porte couche 1
 CLOSED: [2013-07-26 ven. 19:10]
-*** TODO porte chambre de theo - couloir + tour de porte couche 2
+*** DONE porte chambre de theo - couloir + tour de porte couche 2
+CLOSED: [2013-07-28 dim. 14:14]
 *** DONE porte bureau - couloir + tour de porte couche 1
 CLOSED: [2013-07-26 ven. 19:11]
-*** TODO porte bureau - couloir + tour de porte couche 2
+*** DONE porte bureau - couloir + tour de porte couche 2
+CLOSED: [2013-07-28 dim. 14:14]
 *** DONE porte chloe - couloir + tour de porte couche 1
 CLOSED: [2013-07-26 ven. 19:11]
-*** TODO porte chloe - couloir + tour de porte couche 2
+*** DONE porte chloe - couloir + tour de porte couche 2
+CLOSED: [2013-07-28 dim. 14:14]
 *** DONE porte chambre parentale - couloir + tour de porte couche 1
 CLOSED: [2013-07-26 ven. 19:11]
-*** TODO porte chambre parentale - couloir + tour de porte couche 2
+*** DONE porte chambre parentale - couloir + tour de porte couche 2
+CLOSED: [2013-07-28 dim. 14:14]
 *** DONE porte toilette - couloir + tour de porte couche 1
 CLOSED: [2013-07-26 ven. 19:11]
-*** TODO porte toilette - couloir + tour de porte couche 2
+*** DONE porte toilette - couloir + tour de porte couche 2
+CLOSED: [2013-07-28 dim. 14:14]
 
 *** DONE porte salle de bain - couloir + tour de porte couche 1
 CLOSED: [2013-07-26 ven. 19:11]
-*** TODO porte salle de bain - couloir + tour de porte couche 2
+*** DONE porte salle de bain - couloir + tour de porte couche 2
+CLOSED: [2013-07-28 dim. 14:15]
+*** DONE peindre porte de bureau couche 1
+CLOSED: [2013-07-28 dim. 14:15]
+*** peindre porte de bureau couche 2
 *** DONE Peindre le plafond
 CLOSED: [2013-07-26 ven. 19:09]
 *** TODO Poser le papier peint sur les murs
