@@ -183,14 +183,15 @@ CLOSED: [2013-07-20 sam. 20:15]
 Merci Chris et papy
 *** TODO nouveau radiateur
 *** TODO eclairage
-** PENDING Cuisine [3/7]
+** PENDING Cuisine [4/7]
 *** DONE Degager le vieux frigo
 *** DONE Refaire les prises de courant
 *** DONE Retirer le crepis
+*** DONE Poncer les murs
+CLOSED: [2013-07-28 dim. 17:52]
 *** TODO Enduit de rebouchage
 *** TODO Enduit de lissage
-*** TODO Poser la toile de renovation
-*** TODO Poser le papier peint/Peindre
+*** TODO Poser le papier peint ou peindre
 ** PENDING Couloir [30/31]
 *** DONE Changer les portes de l'armoire
 Merci papy Claude
