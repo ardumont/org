@@ -55,7 +55,7 @@ To help choose:
 ** Lesson 1 assignment
 Am
 E
-* IN-PROGRESS week 2 [33%]
+* IN-PROGRESS week 2 [50%]
 ** DONE String names and numbers
 CLOSED: [2013-07-28 dim. 20:20]
 BOTTOM
@@ -74,7 +74,18 @@ tuning
 - raise/lower the pitch
 - flat, sharp
 
-** TODO Tuning your guitar by matching
+** DONE Tuning your guitar by matching
+CLOSED: [2013-07-28 dim. 20:56]
+Fret a note and check according to the same note on the adjacent chord
+E 6 -> 5th fret (A), fret this chord and check against the A (5) chord
+A 5 -> 5th fret (D), fret this chord and check against the D (4) chord
+D 4 -> 5th fret (G), fret this chord and check against the G (3) chord
+G 3 -> 4th fret (B), against the B (2) chord
+B 2 -> 5th fret (E), against the E (1) chord
+
+starting pitch:
+- tuner - A 440 Hz
+- tuning fork
 ** TODO Picking techniques
 ** TODO Finger Picking
 ** TODO Strumming the guitar
