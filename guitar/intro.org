@@ -55,7 +55,7 @@ To help choose:
 ** Lesson 1 assignment
 Am
 E
-* IN-PROGRESS week 2 [16%]
+* IN-PROGRESS week 2 [33%]
 ** DONE String names and numbers
 CLOSED: [2013-07-28 dim. 20:20]
 BOTTOM
@@ -67,7 +67,13 @@ B 2
 E 1
 TOP
 
-** TODO Tuning your guitar with a tuner
+** DONE Tuning your guitar with a tuner
+CLOSED: [2013-07-28 dim. 20:36]
+tuning
+- harmony
+- raise/lower the pitch
+- flat, sharp
+
 ** TODO Tuning your guitar by matching
 ** TODO Picking techniques
 ** TODO Finger Picking
