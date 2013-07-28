@@ -1,19 +1,21 @@
 #+title: Introduction to guitar
 #+author: Antoine R. Dumont
 
-* Choosing acoutic or electric guitar
+* DONE week 1
+CLOSED: [2013-07-28 dim. 20:05]
+** Choosing acoutic or electric guitar
 To help choose:
 - influenced or inspired by the artist's instrument
 - acoustic physically slightly harder
 - acoustic is a complete package though
 - electric guitar needs other tools: amplifier, cable, tuner, etc...
-* Choosing the right guitar right-handed vs left-handed
+** Choosing the right guitar right-handed vs left-handed
 - professional quality (good working part, stay in tuned)
 - love your instrument (esthetic, cosmetic, etc...)
 - do not sacrifice the quality for the estetic
 - Left or right?
-* Parts of the guitar (electric and acoustic)
-** electric (strato)
+** Parts of the guitar (electric and acoustic)
+*** electric (strato)
 - strings
 - (locking) tuners
 - nut (~chevalet)
@@ -27,7 +29,7 @@ To help choose:
 - controls (tone, volume)
 - truss-rode adjustment area (hole at the top of the neck of the guitar) -> control the bow and in effect the height of the string above the fretboard.
 - pickguard (cover and protect the guitar)
-* Essential accessories for acoustic guitar
+** Essential accessories for acoustic guitar
 - case (to protect your instrument)
 - guitar strap
 - extra strings
@@ -37,7 +39,7 @@ To help choose:
 - a string winder (to help retune rapidly the string)
 - humidifier
 - capo (~ movable nut) - play any open position chords on your fretboard
-* Essential accessories for electric guitar
+** Essential accessories for electric guitar
 - case (gig bag, soft)
 - guitar cable (transmit the sound from the guitar's pickup to the amplifier) - good quality is important
 - strap lock (to avoid the strap to slip and you drop the guitar)
@@ -46,10 +48,27 @@ To help choose:
 - metronome
 - guitar pick (a lot)
 
-* Chord block diagrams and fretboard maps
+** Chord block diagrams and fretboard maps
 - chord block -> partial view to concentrate on the chord
 - fretboard map -> full view of the fretboard
 
-* Lesson 1 assignment
+** Lesson 1 assignment
 Am
 E
+* IN-PROGRESS week 2 [16%]
+** DONE String names and numbers
+CLOSED: [2013-07-28 dim. 20:20]
+BOTTOM
+E 6 (2 octaves lower than E on the first chord)
+A 5
+D 4
+G 3
+B 2
+E 1
+TOP
+
+** TODO Tuning your guitar with a tuner
+** TODO Tuning your guitar by matching
+** TODO Picking techniques
+** TODO Finger Picking
+** TODO Strumming the guitar
