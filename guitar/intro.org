@@ -55,7 +55,7 @@ To help choose:
 ** Lesson 1 assignment
 Am
 E
-* IN-PROGRESS week 2 [50%]
+* IN-PROGRESS week 2 [57%]
 ** DONE String names and numbers
 CLOSED: [2013-07-28 dim. 20:20]
 BOTTOM
@@ -86,6 +86,16 @@ B 2 -> 5th fret (E), against the E (1) chord
 starting pitch:
 - tuner - A 440 Hz
 - tuning fork
+** DONE Tuning your guitar with harmonics
+CLOSED: [2013-07-28 dim. 21:13]
+- starting pitch -> A
+- fret in harmonics
+E (6) + A (5)'s 5th frets, fret and check against the 7th fret of the A (5) + D (4)
+A (5) + D (4)'s 5th frets, fret and check against the 7th fret of the D (4) + G (3)
+A (5) + G (4)'s 12th frets, fret and check against the 2nd fret of the G (3)
+A (5) + D (4)'s 5th frets, fret and check against the 5th fret of the B (2)
+A (5) + D (4)'s 5th frets, fret and check against the open string E (1)
+
 ** TODO Picking techniques
 ** TODO Finger Picking
 ** TODO Strumming the guitar
