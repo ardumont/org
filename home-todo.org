@@ -64,7 +64,7 @@ CLOSED: [2011-09-12 lun. 13:10]
 *** DONE Reparer la partie de la barriere tombee a cause du lierre
 Merci papy Claude
 *** TODO Replanter les arbustes de devant pour combler le trou dans la haie de derriere
-* PENDING dedans [4/15]
+* PENDING dedans [4/17]
 ** DONE Relatif a l'exterieur [3/3]
 CLOSED: [2013-04-11 jeu. 09:35]
 *** DONE Tailler les arbustes en morceaux pour pouvoir les rentrer dans le garage
@@ -183,7 +183,7 @@ CLOSED: [2013-07-20 sam. 20:15]
 Merci Chris et papy
 *** TODO nouveau radiateur
 *** TODO eclairage
-** PENDING Cuisine [7/15]
+** PENDING Cuisine [12/20]
 *** DONE Degager le vieux frigo
 *** DONE Refaire les prises de courant
 *** DONE Retirer le crepis
@@ -195,6 +195,17 @@ CLOSED: [2013-07-28 dim. 18:49]
 CLOSED: [2013-07-29 lun. 18:55]
 *** DONE Sous-couche 1/2
 CLOSED: [2013-07-29 lun. 18:55]
+*** DONE Lessiver le plafond
+CLOSED: [2013-07-30 mar. 21:45]
+*** DONE Sous-couche cadre de porte cuisine/cave
+CLOSED: [2013-07-30 mar. 21:45]
+*** DONE Sous-couche cadre de porte cuisine/couloir
+CLOSED: [2013-07-30 mar. 21:45]
+
+*** DONE Sous-couche porte cuisine/cave
+CLOSED: [2013-07-30 mar. 21:45]
+*** DONE Sous-couche porte cuisine/couloir
+CLOSED: [2013-07-30 mar. 21:45]
 *** TODO Sous-couche 2/2
 *** TODO Lessiver plafond
 *** TODO Peindre le plafond
@@ -282,6 +293,19 @@ Merci Papy Claude
 Merci Papy Claude
 *** TODO Poser la toile de renovation
 *** TODO Poser le papier peint/Peindre
+** PENDING Buanderie [4/8]
+*** DONE Sous-couche porte buanderie/couloir
+CLOSED: [2013-07-30 mar. 21:47]
+*** DONE Sous-couche porte buanderie/toilette
+CLOSED: [2013-07-30 mar. 21:47]
+*** DONE Sous-couche cadre de porte buanderie/couloir
+CLOSED: [2013-07-30 mar. 21:47]
+*** DONE Sous-couche cadre de porte buanderie/toilette
+CLOSED: [2013-07-30 mar. 21:47]
+*** TODO Retirer le crepis
+*** TODO Enduit de rebouchage
+*** TODO Sous-couche
+*** TODO Peinture
 ** PENDING Escalier salon-1er [7/9]
 *** DONE Retirer le crepis
 *** DONE Enduit de lissage
@@ -357,12 +381,16 @@ CLOSED: [2013-07-26 ven. 19:09]
 CLOSED: [2013-04-11 jeu. 09:39]
 *** DONE Changer le robinet de la douche
 CLOSED: [2013-04-11 jeu. 09:39]
-** TODO Bureau [2/11]
+** PENDING Bureau [4/14]
 *** DONE Enduit de rebouchage porte
 CLOSED: [2013-07-29 lun. 18:57]
 *** DONE Peindre la porte couche 1/2
 CLOSED: [2013-07-29 lun. 18:57]
-*** TODO Peindre la porte couche 2/2
+*** DONE Peindre la porte couche 2/2
+CLOSED: [2013-07-30 mar. 21:49]
+*** DONE Sous-couche cadre de porte bureau/couloir
+CLOSED: [2013-07-30 mar. 21:49]
+*** TODO Peindre cadre de porte bureau/couloir
 *** TODO Retirer le crepis
 *** TODO Enduit de rebouchage
 *** TODO Enduit de lissage
@@ -372,17 +400,36 @@ CLOSED: [2013-07-29 lun. 18:57]
 *** TODO Poser la toile de renovation
 *** TODO Poser le papier peint/Peindre
 *** TODO Ranger la piece
-** TODO Toilettes du bas [0%]
+** PENDING Toilettes du bas [1/3]
+*** DONE Sous-couche porte
+CLOSED: [2013-07-30 mar. 21:46]
 *** TODO Changer les toilettes
 *** TODO retirer le crepis
-** PENDING Toilettes du haut [66%]
+** PENDING Toilettes du haut [4/9]
 *** DONE Changer les toilettes
 CLOSED: [2013-04-11 jeu. 09:40]
 *** DONE Changer les tuyaux
 CLOSED: [2013-04-11 jeu. 09:40]
 
+*** DONE Sous-couche porte
+CLOSED: [2013-07-30 mar. 21:50]
+*** DONE Sous-couche cadre de porte
+CLOSED: [2013-07-30 mar. 21:50]
+*** TODO Peindre porte
+*** TODO Peindre cadre de porte
 *** TODO retirer le crepis
-** PENDING garage [66%]
+*** TODO Enduit de rebouchage
+*** TODO Peindre
+** PENDING Salle d'eau [2/6]
+*** DONE Sous-couche cadre de porte
+CLOSED: [2013-07-30 mar. 21:51]
+*** DONE Sous-couche porte
+CLOSED: [2013-07-30 mar. 21:51]
+*** TODO Retirer le crepis
+*** TODO Enduit de rebouchage
+*** TODO Sous-couche
+*** TODO Peinture
+** PENDING garage [2/3]
 *** DONE Evacuer le casier a plan
 CLOSED: [2013-06-22 sam. 16:12]
 *** DONE Installer une pompe pour evacuer l'eau a l'exterieur
