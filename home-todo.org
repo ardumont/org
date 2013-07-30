@@ -121,7 +121,7 @@ Merci Papy Claude
 Merci Papy Claude
 *** DONE Decoration
 Merci Chris
-** PENDING Piece de jeux des enfants [30/32]
+** PENDING Piece de jeux des enfants [30/31]
 *** DONE Retirer la grosse armoire du bureau
 *** DONE Retirer le crepis
 *** DONE Enduit de rebouchage
@@ -181,8 +181,9 @@ CLOSED: [2013-06-22 sam. 18:45]
 *** DONE amenagement du placard
 CLOSED: [2013-07-20 sam. 20:15]
 Merci Chris et papy
+*** DONE eclairage
+CLOSED: [2013-07-30 mar. 21:57]
 *** TODO nouveau radiateur
-*** TODO eclairage
 ** PENDING Cuisine [12/20]
 *** DONE Degager le vieux frigo
 *** DONE Refaire les prises de courant
