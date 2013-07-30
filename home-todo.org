@@ -184,16 +184,18 @@ Merci Chris et papy
 *** DONE eclairage
 CLOSED: [2013-07-30 mar. 21:57]
 *** TODO nouveau radiateur
-** PENDING Cuisine [12/20]
+** PENDING Cuisine [14/21]
 *** DONE Degager le vieux frigo
 *** DONE Refaire les prises de courant
 *** DONE Retirer le crepis
 *** DONE Poncer les murs
 CLOSED: [2013-07-28 dim. 17:52]
-*** DONE Enduit de rebouchage 1/2
+*** DONE Enduit de rebouchage 1/3
 CLOSED: [2013-07-28 dim. 18:49]
-*** DONE Enduit de rebouchage 2/2
+*** DONE Enduit de rebouchage 2/3
 CLOSED: [2013-07-29 lun. 18:55]
+*** DONE Enduit de rebouchage 2/3
+CLOSED: [2013-07-30 mar. 21:58]
 *** DONE Sous-couche 1/2
 CLOSED: [2013-07-29 lun. 18:55]
 *** DONE Lessiver le plafond
@@ -207,15 +209,16 @@ CLOSED: [2013-07-30 mar. 21:45]
 CLOSED: [2013-07-30 mar. 21:45]
 *** DONE Sous-couche porte cuisine/couloir
 CLOSED: [2013-07-30 mar. 21:45]
+*** DONE Lessiver plafond
+CLOSED: [2013-07-30 mar. 21:58]
 *** TODO Sous-couche 2/2
-*** TODO Lessiver plafond
 *** TODO Peindre le plafond
 *** TODO Peindre le cadre + la porte de la cuisine - couloir - couche 1/2
 *** TODO Peindre le cadre + la porte de la cuisine - couloir - couche 1/2
 *** TODO Peindre le cadre + la porte de la cuisine - cave - couche 1/2
 *** TODO Peindre le cadre + porte de la cuisine - cave - couche 1/2
-*** TODO Poser le papier peint ou peindre
-** PENDING Couloir [30/31]
+*** TODO Peinture
+** PENDING Couloir [30/33]
 *** DONE Changer les portes de l'armoire
 Merci papy Claude
 *** DONE Retirer le papier peint du plafond
@@ -278,8 +281,10 @@ CLOSED: [2013-07-24 mer. 19:00]
 CLOSED: [2013-07-24 mer. 19:00]
 *** DONE peindre le plafond
 CLOSED: [2013-07-26 ven. 19:08]
-*** TODO Poser le papier peint/Peindre
-** PENDING Salon [7/9]
+*** TODO Poser le papier peint
+*** TODO Lampe
+*** TODO Interrupteur
+** PENDING Salon [7/10]
 *** DONE Retirer le papier peint du plafond
 *** DONE Retirer le crepis
 *** DONE Reparer la fissure de la cheminee
@@ -292,8 +297,9 @@ Merci Papy Claude
 Merci Papy Claude
 *** DONE Passer la sous-couche.
 Merci Papy Claude
-*** TODO Poser la toile de renovation
-*** TODO Poser le papier peint/Peindre
+*** TODO Peindre le plafond
+*** TODO Poser le papier peint
+*** TODO Cheminee a remplacer par un poele
 ** PENDING Buanderie [4/8]
 *** DONE Sous-couche porte buanderie/couloir
 CLOSED: [2013-07-30 mar. 21:47]
@@ -307,7 +313,7 @@ CLOSED: [2013-07-30 mar. 21:47]
 *** TODO Enduit de rebouchage
 *** TODO Sous-couche
 *** TODO Peinture
-** PENDING Escalier salon-1er [7/9]
+** PENDING Escalier salon-1er [7/10]
 *** DONE Retirer le crepis
 *** DONE Enduit de lissage
 CLOSED: [2011-10-31 lun. 10:11]
@@ -323,7 +329,8 @@ CLOSED: [2011-10-31 lun. 19:35]
 CLOSED: [2013-04-11 jeu. 09:37]
 *** TODO Poser la toile de renovation
 *** TODO Poser le papier peint/Peindre
-** PENDING Couloir du haut [24/25]
+*** TODO Faux-plafond
+** PENDING Couloir du haut [25/26]
 *** DONE Retirer le crepis
 *** DONE Retirer le papier peint
 *** DONE Enduit
@@ -366,9 +373,10 @@ CLOSED: [2013-07-26 ven. 19:11]
 CLOSED: [2013-07-28 dim. 14:15]
 *** DONE peindre porte de bureau couche 1
 CLOSED: [2013-07-28 dim. 14:15]
-*** peindre porte de bureau couche 2
 *** DONE Peindre le plafond
 CLOSED: [2013-07-26 ven. 19:09]
+*** DONE peindre porte de bureau couche 2
+CLOSED: [2013-07-30 mar. 22:00]
 *** TODO Poser le papier peint sur les murs
 ** PENDING Chambre parentale [2/9]
 *** TODO Retirer le crepis
@@ -401,11 +409,13 @@ CLOSED: [2013-07-30 mar. 21:49]
 *** TODO Poser la toile de renovation
 *** TODO Poser le papier peint/Peindre
 *** TODO Ranger la piece
-** PENDING Toilettes du bas [1/3]
+** PENDING Toilettes du bas [1/5]
 *** DONE Sous-couche porte
 CLOSED: [2013-07-30 mar. 21:46]
 *** TODO Changer les toilettes
-*** TODO retirer le crepis
+*** TODO Retirer le crepis
+*** TODO Enduit de rebouchage
+*** TODO Peinture
 ** PENDING Toilettes du haut [4/9]
 *** DONE Changer les toilettes
 CLOSED: [2013-04-11 jeu. 09:40]
@@ -418,7 +428,7 @@ CLOSED: [2013-07-30 mar. 21:50]
 CLOSED: [2013-07-30 mar. 21:50]
 *** TODO Peindre porte
 *** TODO Peindre cadre de porte
-*** TODO retirer le crepis
+*** TODO Retirer le crepis
 *** TODO Enduit de rebouchage
 *** TODO Peindre
 ** PENDING Salle d'eau [2/6]
