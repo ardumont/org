@@ -184,7 +184,7 @@ Merci Chris et papy
 *** DONE eclairage
 CLOSED: [2013-07-30 mar. 21:57]
 *** TODO nouveau radiateur
-** PENDING Cuisine [18/19]
+** PENDING Cuisine [21/24]
 *** DONE Degager le vieux frigo
 *** DONE Refaire les prises de courant
 *** DONE Retirer le crepis
@@ -219,9 +219,15 @@ CLOSED: [2013-07-31 mer. 13:18]
 CLOSED: [2013-07-31 mer. 04:36]
 *** DONE Peindre le cadre + porte de la cuisine - cave - couche 1/2
 CLOSED: [2013-07-31 mer. 13:18]
-*** TODO Sous-couche 2/2
-*** TODO Peindre le plafond
-*** TODO Peinture
+*** DONE Peindre le plafond 1/2
+CLOSED: [2013-07-31 mer. 21:49]
+*** DONE Peinture murs blanc
+CLOSED: [2013-07-31 mer. 21:49]
+*** DONE Peinture murs chocolat 1/2
+CLOSED: [2013-07-31 mer. 21:49]
+*** TODO Peindre le cadre de porte de la cuisine - cave - couche 2/2
+*** TODO Peindre le plafond 2/2
+*** TODO Peindre murs chocolat 2/2
 ** PENDING Couloir [30/33]
 *** DONE Changer les portes de l'armoire
 Merci papy Claude
