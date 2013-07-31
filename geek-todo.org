@@ -288,6 +288,8 @@ CLOSED: [2013-07-26 ven. 12:13]
 CLOSED: [2013-07-26 ven. 12:13]
 ** DONE v0.0.7
 CLOSED: [2013-07-26 ven. 12:13]
+** DONE v0.0.8
+CLOSED: [2013-07-31 mer. 02:37]
 * IN-PROGRESS emacs [100%]
 ** DONE install
 CLOSED: [2012-04-21 Sat 12:02]
@@ -389,12 +391,12 @@ CLOSED: [2013-07-26 ven. 12:15]
 CLOSED: [2013-07-26 ven. 12:15]
 ** DONE play basic tutorial
 CLOSED: [2013-07-26 ven. 12:16]
-** IN-PROGRESS scala koans [%]
+** IN-PROGRESS scala koans [66%]
 *** DONE Install
 CLOSED: [2013-07-27 sam. 09:33]
 *** DONE create repo locally to push progress
 CLOSED: [2013-07-27 sam. 09:33]
-*** TODO koans
+*** IN-PROGRESS koans
 * PENDING Articles [94%]
 ** DONE Chroot to save one's GNU/Linux
 CLOSED: [2012-04-21 Sat 18:07]
