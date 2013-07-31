@@ -184,7 +184,7 @@ Merci Chris et papy
 *** DONE eclairage
 CLOSED: [2013-07-30 mar. 21:57]
 *** TODO nouveau radiateur
-** PENDING Cuisine [16/21]
+** PENDING Cuisine [18/19]
 *** DONE Degager le vieux frigo
 *** DONE Refaire les prises de courant
 *** DONE Retirer le crepis
@@ -211,14 +211,16 @@ CLOSED: [2013-07-30 mar. 21:45]
 CLOSED: [2013-07-30 mar. 21:45]
 *** DONE Lessiver plafond
 CLOSED: [2013-07-30 mar. 21:58]
-*** TODO Sous-couche 2/2
-*** TODO Peindre le plafond
 *** DONE Peindre le cadre + la porte de la cuisine - couloir - couche 1/2
 CLOSED: [2013-07-31 mer. 04:36]
-*** TODO Peindre le cadre + la porte de la cuisine - couloir - couche 1/2
+*** DONE Peindre le cadre + la porte de la cuisine - couloir - couche 1/2
+CLOSED: [2013-07-31 mer. 13:18]
 *** DONE Peindre le cadre + la porte de la cuisine - cave - couche 1/2
 CLOSED: [2013-07-31 mer. 04:36]
-*** TODO Peindre le cadre + porte de la cuisine - cave - couche 1/2
+*** DONE Peindre le cadre + porte de la cuisine - cave - couche 1/2
+CLOSED: [2013-07-31 mer. 13:18]
+*** TODO Sous-couche 2/2
+*** TODO Peindre le plafond
 *** TODO Peinture
 ** PENDING Couloir [30/33]
 *** DONE Changer les portes de l'armoire
@@ -286,7 +288,7 @@ CLOSED: [2013-07-26 ven. 19:08]
 *** TODO Poser le papier peint
 *** TODO Lampe
 *** TODO Interrupteur
-** PENDING Salon [7/10]
+** PENDING Salon [7/13]
 *** DONE Retirer le papier peint du plafond
 *** DONE Retirer le crepis
 *** DONE Reparer la fissure de la cheminee
@@ -299,10 +301,13 @@ Merci Papy Claude
 Merci Papy Claude
 *** DONE Passer la sous-couche.
 Merci Papy Claude
+*** TODO Peindre porte salon / couloir
+*** TODO Peindre cadre de porte salon / couloir 1/2
+*** TODO Peindre cadre de porte salon / couloir 2/2
 *** TODO Peindre le plafond
 *** TODO Poser le papier peint
 *** TODO Cheminee a remplacer par un poele
-** PENDING Buanderie [6/12]
+** PENDING Buanderie [8/12]
 *** DONE Sous-couche porte buanderie/couloir
 CLOSED: [2013-07-30 mar. 21:47]
 *** DONE Sous-couche porte buanderie/toilette
@@ -313,10 +318,12 @@ CLOSED: [2013-07-30 mar. 21:47]
 CLOSED: [2013-07-30 mar. 21:47]
 *** DONE Peindre la porte buanderie/couloir 1/2
 CLOSED: [2013-07-31 mer. 04:37]
-*** TODO Peindre la porte buanderie/couloir 2/2
+*** DONE Peindre la porte buanderie/couloir 2/2
+CLOSED: [2013-07-31 mer. 13:19]
 *** DONE Peindre le cadre de porte buanderie/couloir 1/2
 CLOSED: [2013-07-31 mer. 04:37]
-*** TODO Peindre le cadre de porte buanderie/couloir 2/2
+*** DONE Peindre le cadre de porte buanderie/couloir 2/2
+CLOSED: [2013-07-31 mer. 13:19]
 *** TODO Retirer le crepis
 *** TODO Enduit de rebouchage
 *** TODO Sous-couche
@@ -386,7 +393,16 @@ CLOSED: [2013-07-26 ven. 19:09]
 *** DONE peindre porte de bureau couche 2
 CLOSED: [2013-07-30 mar. 22:00]
 *** TODO Poser le papier peint sur les murs
-** PENDING Chambre parentale [2/9]
+** PENDING Chambre parentale [4/12]
+*** DONE Changer le siphon du lavabo
+CLOSED: [2013-04-11 jeu. 09:39]
+*** DONE Changer le robinet de la douche
+CLOSED: [2013-04-11 jeu. 09:39]
+*** DONE Peindre porte
+CLOSED: [2013-07-31 mer. 13:21]
+*** DONE Peindre cadre de porte 1/2
+CLOSED: [2013-07-31 mer. 13:21]
+*** TODO Peindre cadre de porte 2/2
 *** TODO Retirer le crepis
 *** TODO Enduit de rebouchage
 *** TODO Enduit de lissage
@@ -394,10 +410,6 @@ CLOSED: [2013-07-30 mar. 22:00]
 *** TODO Passer la sous-couche.
 *** TODO Poser la toile de renovation
 *** TODO Poser le papier peint/Peindre
-*** DONE Changer le siphon du lavabo
-CLOSED: [2013-04-11 jeu. 09:39]
-*** DONE Changer le robinet de la douche
-CLOSED: [2013-04-11 jeu. 09:39]
 ** PENDING Bureau [4/14]
 *** DONE Enduit de rebouchage porte
 CLOSED: [2013-07-29 lun. 18:57]
@@ -417,12 +429,11 @@ CLOSED: [2013-07-30 mar. 21:49]
 *** TODO Poser la toile de renovation
 *** TODO Poser le papier peint/Peindre
 *** TODO Ranger la piece
-** PENDING Toilettes du bas [3/9]
+** PENDING Toilettes du bas [3/8]
 *** DONE Sous-couche porte
 CLOSED: [2013-07-30 mar. 21:46]
-*** DONE Peindre porte 1/2
+*** DONE Peindre porte
 CLOSED: [2013-07-31 mer. 04:36]
-*** TODO Peindre porte 2/2
 *** DONE Peindre cadre de porte 1/2
 CLOSED: [2013-07-31 mer. 04:36]
 *** TODO Peindre cadre de porte 2/2
@@ -430,7 +441,7 @@ CLOSED: [2013-07-31 mer. 04:36]
 *** TODO Retirer le crepis
 *** TODO Enduit de rebouchage
 *** TODO Peinture
-** PENDING Toilettes du haut [4/9]
+** PENDING Toilettes du haut [6/10]
 *** DONE Changer les toilettes
 CLOSED: [2013-04-11 jeu. 09:40]
 *** DONE Changer les tuyaux
@@ -440,16 +451,24 @@ CLOSED: [2013-04-11 jeu. 09:40]
 CLOSED: [2013-07-30 mar. 21:50]
 *** DONE Sous-couche cadre de porte
 CLOSED: [2013-07-30 mar. 21:50]
-*** TODO Peindre porte
-*** TODO Peindre cadre de porte
+*** DONE Peindre porte
+CLOSED: [2013-07-31 mer. 13:19]
+*** DONE Peindre cadre de porte 1/2
+CLOSED: [2013-07-31 mer. 13:19]
+*** TODO Peindre cadre de porte 2/2
 *** TODO Retirer le crepis
 *** TODO Enduit de rebouchage
 *** TODO Peindre
-** PENDING Salle d'eau [2/6]
+** PENDING Salle d'eau [4/9]
 *** DONE Sous-couche cadre de porte
 CLOSED: [2013-07-30 mar. 21:51]
 *** DONE Sous-couche porte
 CLOSED: [2013-07-30 mar. 21:51]
+*** DONE Peindre porte
+CLOSED: [2013-07-31 mer. 13:20]
+*** DONE Peindre cadre de porte 1/2
+CLOSED: [2013-07-31 mer. 13:20]
+*** TODO Peindre cadre de porte 2/2
 *** TODO Retirer le crepis
 *** TODO Enduit de rebouchage
 *** TODO Sous-couche
