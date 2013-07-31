@@ -383,7 +383,7 @@ CLOSED: [2013-07-07 dim. 10:00]
 *** DONE jabber-pack
 CLOSED: [2013-07-07 dim. 10:00]
 
-* IN-PROGRESS scala [75%]
+* IN-PROGRESS scala [100%]
 ** DONE scala-pack
 CLOSED: [2013-07-26 ven. 12:15]
 
@@ -391,12 +391,15 @@ CLOSED: [2013-07-26 ven. 12:15]
 CLOSED: [2013-07-26 ven. 12:15]
 ** DONE play basic tutorial
 CLOSED: [2013-07-26 ven. 12:16]
-** IN-PROGRESS scala koans [66%]
+** DONE scala koans [100%]
+CLOSED: [2013-07-31 mer. 13:59]
 *** DONE Install
 CLOSED: [2013-07-27 sam. 09:33]
 *** DONE create repo locally to push progress
 CLOSED: [2013-07-27 sam. 09:33]
-*** IN-PROGRESS koans
+*** DONE koans
+CLOSED: [2013-07-31 mer. 13:59]
+
 * PENDING Articles [94%]
 ** DONE Chroot to save one's GNU/Linux
 CLOSED: [2012-04-21 Sat 18:07]
