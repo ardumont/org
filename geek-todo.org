@@ -290,7 +290,7 @@ CLOSED: [2013-07-26 ven. 12:13]
 CLOSED: [2013-07-26 ven. 12:13]
 ** DONE v0.0.8
 CLOSED: [2013-07-31 mer. 02:37]
-* IN-PROGRESS emacs [100%]
+* IN-PROGRESS Emacs [100%]
 ** DONE install
 CLOSED: [2012-04-21 Sat 12:02]
 #+BEGIN_SRC sh
@@ -383,7 +383,7 @@ CLOSED: [2013-07-07 dim. 10:00]
 *** DONE jabber-pack
 CLOSED: [2013-07-07 dim. 10:00]
 
-* IN-PROGRESS scala [100%]
+* IN-PROGRESS Scala [44%]
 ** DONE scala-pack
 CLOSED: [2013-07-26 ven. 12:15]
 
@@ -400,6 +400,13 @@ CLOSED: [2013-07-27 sam. 09:33]
 *** DONE koans
 CLOSED: [2013-07-31 mer. 13:59]
 
+** PENDING Improve tooling
+- http://aemoncannon.github.io/ensime/index.html
+- scala-pack
+** TODO [[http://aperiodic.net/phil/scala/s-99/][99 problems in scala]]
+** TODO Akka
+** TODO Iteratee
+** TODO Play
 * PENDING Articles [94%]
 ** DONE Chroot to save one's GNU/Linux
 CLOSED: [2012-04-21 Sat 18:07]
@@ -567,7 +574,7 @@ CLOSED: [2013-06-04 mar. 20:29]
 ** PENDING Functional Approach in Haskell - Ch. 3 - The efficiency of functional programs
 ** DONE org-trello
 CLOSED: [2013-07-12 ven. 22:25]
-* PENDING clojure [35%]
+* PENDING Clojure [31%]
 ** DONE start [100%]
 CLOSED: [2012-04-21 Sat 18:18]
 *** DONE install
@@ -877,6 +884,8 @@ CLOSED: [2013-03-02 sam. 20:06]
 ** TODO Incanter
 ** TODO xml
 ** TODO [[https://github.com/ztellman/aleph][Aleph]]
+** TODO [[https://github.com/clojure/core.logic][core.logic]]
+** TODO [[https://github.com/clojure/core.async][core.async]]
 * PENDING CPUG [80%]
 ** DONE make a vm to ease the beginning for newbies
 CLOSED: [2013-03-03 dim. 00:05]
@@ -976,5 +985,15 @@ CLOSED: [2013-04-19 ven. 22:39]
 **** TODO chapter 11
 *** TODO new
  http://www.dicosmo.org/CourseNotes/pfav/
-* TODO riemann
-* TODO clojure data analysis cookbook
+* TODO [[Http://riemann.io/index.html][riemann]] - monitors distributed systems
+* TODO [[http://www.docker.io/][docker]] - an open source project to pack, ship and run any application as a lightweight container
+* TODO [[http://www.packer.io/][packer]] - a tool for creating identical machine images for multiple platforms from a single source configuration.
+* TODO [[http://www.opscode.com/chef/][Chef]] - infrastructure automation and configuration management framework - infrastructure as code
+* TODO Clojure data analysis cookbook
+* TODO Parallel and concurrent programming in haskell
+* TODO Structure and Interpretation of Computer Programs
+* TODO How to Design Programs: An Introduction to Programming and Computing
+* TODO Domain Driven Design
+* TODO The Little Schemer
+* TODO The Seasoned Schemer
+* TODO The Reasoned Schemer
