@@ -1,0 +1,26 @@
+#+title: Structure and Interpretation of computer programs
+#+author: Antoine R. Dumont
+#+STYLE: <SCRIPT SRC="/usr/share/jsmath/easy/load.js"></SCRIPT>
+
+* Declarative knowledge - "what is true"
+
+\( √x = y ⇔ ∃ y, 0 ≤ y, x = y^2 \)
+
+* Imperative knowledge - "how to"
+
+A method, a process.
+
+Example:
+Find an approximation of \( √ x \):
+- make a guess g
+- improve the guess by averaging g and \( \frac{x}{g} \)
+- keep improving the guess until it is good enough
+* LISP
+* Techniques for controlling complexity
+* Black box abstraction
+* Fixed point
+Fixed point of a function f is a value y, so that f(y)=y:
+- Start with a guess of y
+- keep applying f over and over until the result doesn't change very much
+
+Example: sqrt \( √ x \), find a fixed point of the function y (average y and \( \frac{x}{y} \) )
