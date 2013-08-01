@@ -401,8 +401,9 @@ CLOSED: [2013-07-27 sam. 09:33]
 CLOSED: [2013-07-31 mer. 13:59]
 
 ** PENDING Improve tooling
-- http://aemoncannon.github.io/ensime/index.html
-- scala-pack
+*** [[http://aemoncannon.github.io/ensime/index.html][ensime doc]]
+*** [[https://github.com/ardumont/scala-pack][scala-pack]]
+*** [[https://github.com/rickynils/scalacheck][scalacheck]]
 ** TODO [[http://aperiodic.net/phil/scala/s-99/][99 problems in scala]]
 ** TODO Akka
 ** TODO Iteratee
