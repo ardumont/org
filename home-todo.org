@@ -182,7 +182,7 @@ Merci Chris et papy
 ** DONE eclairage
 CLOSED: [2013-07-30 mar. 21:57]
 ** TODO nouveau radiateur
-* IN-PROGRESS Cuisine [23/25]
+* IN-PROGRESS Cuisine [24/25]
 ** DONE Degager le vieux frigo
 ** DONE Refaire les prises de courant
 ** DONE Retirer le crepis
@@ -227,8 +227,9 @@ CLOSED: [2013-07-31 mer. 21:49]
 CLOSED: [2013-08-01 jeu. 19:24]
 ** DONE Peindre la porte cuisine / couloir - 2/2
 CLOSED: [2013-08-01 jeu. 19:25]
+** DONE Peindre murs chocolat 2/2
+CLOSED: [2013-08-02 ven. 18:43]
 ** TODO Peindre le plafond 2/2
-** TODO Peindre murs chocolat 2/2
 * PENDING Couloir [30/33]
 ** DONE Changer les portes de l'armoire
 Merci papy Claude
