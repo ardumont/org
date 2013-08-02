@@ -55,7 +55,7 @@ To help choose:
 ** Lesson 1 assignment
 Am
 E
-* IN-PROGRESS week 2 [71%]
+* IN-PROGRESS week 2 [85%]
 ** DONE String names and numbers
 CLOSED: [2013-07-28 dim. 20:20]
 BOTTOM
@@ -109,5 +109,28 @@ CLOSED: [2013-08-02 ven. 19:35]
   - alternate picking - 3 notes per string (down, up, down) and keep the current stroke to the next
   - alternate picking - 4 notes per string
 
-** TODO Finger Picking
+** DONE Finger Picking
+CLOSED: [2013-08-02 ven. 19:45]
+*** Fundamental finger style
+- thumb         - cover 3 basses 6-5-4 strings
+- ring finger   - E 1
+- middle finger - B 2
+- index finger  - G 3
+exercise:
+- nothing else matters beginning
+- same but thumb cover each bass after the 3 string are fretted
+- same exercise with metronome
+
+*** Alternate finger picking
+alternate between index and second finger on the same string
+*** Exercise
+- Am - twice
+- E  - twice
+- finger picking as describe early
 ** TODO Strumming the guitar
+
+* week 3
+** Twelve frets and twelve half steps
+** Notes on the fretboard
+** Rhythm basis
+** Music notation and tablature
