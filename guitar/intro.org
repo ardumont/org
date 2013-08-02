@@ -55,7 +55,7 @@ To help choose:
 ** Lesson 1 assignment
 Am
 E
-* IN-PROGRESS week 2 [85%]
+* IN-PROGRESS week 2 [77%]
 ** DONE String names and numbers
 CLOSED: [2013-07-28 dim. 20:20]
 BOTTOM
@@ -127,9 +127,17 @@ alternate between index and second finger on the same string
 - Am - twice
 - E  - twice
 - finger picking as describe early
-** TODO Strumming the guitar
-
-* week 3
+** DONE Strumming the guitar
+CLOSED: [2013-08-02 ven. 19:52]
+Pick or fingers
+70 bpm
+*** Down strokes
+| Am _ _ _ | E _ _ _ |
+*** Up/Down
+| Am _ _ _ | E _ _ _ |
+** TODO quizzes
+** TODO assignments
+* TODO week 3
 ** Twelve frets and twelve half steps
 ** Notes on the fretboard
 ** Rhythm basis
