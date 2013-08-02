@@ -55,7 +55,7 @@ To help choose:
 ** Lesson 1 assignment
 Am
 E
-* IN-PROGRESS week 2 [57%]
+* IN-PROGRESS week 2 [71%]
 ** DONE String names and numbers
 CLOSED: [2013-07-28 dim. 20:20]
 BOTTOM
@@ -96,6 +96,18 @@ A (5) + G (4)'s 12th frets, fret and check against the 2nd fret of the G (3)
 A (5) + D (4)'s 5th frets, fret and check against the 5th fret of the B (2)
 A (5) + D (4)'s 5th frets, fret and check against the open string E (1)
 
-** TODO Picking techniques
+** DONE Picking techniques
+CLOSED: [2013-08-02 ven. 19:35]
+- heavy/light/medium pick
+- pick determine the tone you end up with
+- different ways to use pick
+- picking techniques:
+  - use metronome (60 bpm to start) and down stroke in rythm
+  - down stroke (6 -> 1; 1 -> 6)
+  - up stroke
+  - alternate picking - 2 notes (down, up)
+  - alternate picking - 3 notes per string (down, up, down) and keep the current stroke to the next
+  - alternate picking - 4 notes per string
+
 ** TODO Finger Picking
 ** TODO Strumming the guitar
