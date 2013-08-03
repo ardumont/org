@@ -238,7 +238,7 @@ Merci Chris et papy
 ** DONE eclairage
 CLOSED: [2013-07-30 mar. 21:57]
 ** TODO nouveau radiateur
-* PENDING Couloir [30/33]
+* PENDING Couloir [36/37]
 ** DONE Changer les portes de l'armoire
 Merci papy Claude
 ** DONE Retirer le papier peint du plafond
@@ -301,9 +301,19 @@ CLOSED: [2013-07-24 mer. 19:00]
 CLOSED: [2013-07-24 mer. 19:00]
 ** DONE peindre le plafond
 CLOSED: [2013-07-26 ven. 19:08]
-** IN-PROGRESS Poser le papier peint
-** TODO Lampe
-** TODO Interrupteurs
+** DONE Poser le papier peint
+CLOSED: [2013-08-03 sam. 19:23]
+** DONE Interrupteurs salon
+CLOSED: [2013-08-03 sam. 21:10]
+** DONE Interrupteur dehors/couloir
+CLOSED: [2013-08-03 sam. 21:10]
+** DONE Interrupteurs couloir
+CLOSED: [2013-08-03 sam. 21:11]
+** DONE Interrupteurs toilette
+CLOSED: [2013-08-03 sam. 21:32]
+** DONE Interphone
+CLOSED: [2013-08-03 sam. 21:33]
+** TODO Plafonnier
 * PENDING Salon [11/14]
 ** DONE Retirer le papier peint du plafond
 ** DONE Retirer le crepis
@@ -325,6 +335,8 @@ CLOSED: [2013-08-01 jeu. 19:26]
 CLOSED: [2013-08-01 jeu. 19:26]
 ** DONE Peindre cadre de porte salon / couloir 2/2
 CLOSED: [2013-08-01 jeu. 19:26]
+** DONE Interrupteurs salon/escalier
+CLOSED: [2013-08-03 sam. 21:11]
 ** TODO Peindre le plafond
 ** TODO Poser le papier peint
 ** TODO Cheminee a remplacer par un poele
