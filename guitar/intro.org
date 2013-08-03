@@ -167,7 +167,7 @@ CLOSED: [2013-08-03 sam. 09:05]
 *** DONE finger picking
 CLOSED: [2013-08-03 sam. 09:06]
 [[https://soundcloud.com/ardumont/finger-picking][finger picking]]
-* IN-PROGRESS week 3 [50%]
+* IN-PROGRESS week 3 [66%]
 ** DONE Twelve frets and twelve half steps
 CLOSED: [2013-08-03 sam. 09:26]
 - In western music, we have 12 half steps
@@ -213,7 +213,26 @@ dividing measure into notse
 | sixteenth |     1/4 | 1/16 whole |
 |-----------+---------+------------|
 
-** TODO Music notation and tablature
+** DONE Music notation and tablature
+CLOSED: [2013-08-03 sam. 10:19]
+*** Music notation
+- staff (portee in french)
+- clef (treble clef for guitar - cle de sol, bass clef for bass player to specify the lower range of the note on its instrument)
+- piano use both bass and treble clefs
+[[./img/guitar-on-staff.png]]
+
+[[./img/f.a.c.e.png]]
+
+[[./img/e.g.d.b.f.png]]
+
+[[./img/a.c.e-g.b.d.png]]
+
+[[./img/d.b.g.e.c.a.f.png]]
+
+FACE
+FUDGE
+*** Tablature
+
 ** TODO Quizzes [0%]
 *** TODO Twelve Frets and Twelve Half Steps
 *** TODO Notes on the Fretboard
