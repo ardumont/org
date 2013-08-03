@@ -167,7 +167,7 @@ CLOSED: [2013-08-03 sam. 09:05]
 *** DONE finger picking
 CLOSED: [2013-08-03 sam. 09:06]
 [[https://soundcloud.com/ardumont/finger-picking][finger picking]]
-* IN-PROGRESS week 3 [66%]
+* IN-PROGRESS week 3 [83%]
 ** DONE Twelve frets and twelve half steps
 CLOSED: [2013-08-03 sam. 09:26]
 - In western music, we have 12 half steps
@@ -233,9 +233,14 @@ FACE
 FUDGE
 *** Tablature
 
-** TODO Quizzes [0%]
-*** TODO Twelve Frets and Twelve Half Steps
-*** TODO Notes on the Fretboard
-*** TODO Rhythm Basics
-*** TODO Music Notation and Tablature
+** DONE Quizzes [100%]
+CLOSED: [2013-08-03 sam. 11:02]
+*** DONE Twelve Frets and Twelve Half Steps 15/16
+CLOSED: [2013-08-03 sam. 11:01]
+*** DONE Notes on the Fretboard 12/12
+CLOSED: [2013-08-03 sam. 11:01]
+*** DONE Rhythm Basics 8/8
+CLOSED: [2013-08-03 sam. 11:02]
+*** DONE Music Notation and Tablature 32/32
+CLOSED: [2013-08-03 sam. 11:02]
 ** TODO Assignments [%]
