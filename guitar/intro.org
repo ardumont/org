@@ -167,8 +167,26 @@ CLOSED: [2013-08-03 sam. 09:05]
 *** DONE finger picking
 CLOSED: [2013-08-03 sam. 09:06]
 [[https://soundcloud.com/ardumont/finger-picking][finger picking]]
-* TODO week 3
-** Twelve frets and twelve half steps
-** Notes on the fretboard
-** Rhythm basis
-** Music notation and tablature
+* IN-PROGRESS week 3 [16%]
+** DONE Twelve frets and twelve half steps
+CLOSED: [2013-08-03 sam. 09:26]
+- In western music, we have 12 half steps
+- In the guitar, each step correspond to a fret
+- 12 half steps higher on another E (same in another octave) ->
+- ladder name corresponds to a step (A, B, ...)
+[[./img/guitar-alphabet.png]]
+
+... (G# Ab) A (A# Bb) B C (C# Db) D (D# Eb) E F (F# Gb) G (G# Ab) A ...
+
+- b Flat  -> going lower
+- # Sharp -> going higher
+
+** TODO Notes on the fretboard
+** TODO Rhythm basis
+** TODO Music notation and tablature
+** TODO Quizzes [0%]
+*** TODO Twelve Frets and Twelve Half Steps
+*** TODO Notes on the Fretboard
+*** TODO Rhythm Basics
+*** TODO Music Notation and Tablature
+** TODO Assignments [%]
