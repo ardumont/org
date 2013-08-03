@@ -404,10 +404,41 @@ CLOSED: [2013-07-31 mer. 13:59]
 *** [[http://aemoncannon.github.io/ensime/index.html][ensime doc]]
 *** [[https://github.com/ardumont/scala-pack][scala-pack]]
 *** [[https://github.com/rickynils/scalacheck][scalacheck]]
-** TODO [[http://aperiodic.net/phil/scala/s-99/][99 problems in scala]]
+** IN-PROGRESS [[http://aperiodic.net/phil/scala/s-99/][99 problems in scala]]
 ** TODO Akka
 ** TODO Iteratee
-** TODO Play
+** IN-PROGRESS Play
+* IN-PROGRESS guitar [40%]
+** DONE coursera - week 1
+CLOSED: [2013-08-03 sam. 10:17]
+** DONE coursera - week 2
+CLOSED: [2013-08-03 sam. 10:17]
+** IN-PROGRESS coursera - week 3
+** TODO lilypond (music notation)
+** TODO ob-lilypond (music notation on emacs org-mode)
+* IN-PROGRESS crypto [33%]
+** IN-PROGRESS coursera
+** DONE matasano 1-8 [100%]
+CLOSED: [2013-05-17 ven. 04:59]
+**** DONE 1
+CLOSED: [2013-05-03 ven. 18:12]
+**** DONE 2
+CLOSED: [2013-05-03 ven. 18:12]
+**** DONE 3
+CLOSED: [2013-05-17 ven. 04:55]
+**** DONE 4
+CLOSED: [2013-05-17 ven. 04:55]
+**** DONE 5
+CLOSED: [2013-05-17 ven. 04:55]
+**** DONE 6
+CLOSED: [2013-05-17 ven. 04:55]
+**** DONE 7
+CLOSED: [2013-05-17 ven. 04:55]
+**** DONE 8
+CLOSED: [2013-05-17 ven. 04:55]
+**** DONE send mail
+CLOSED: [2013-05-17 ven. 04:59]
+** TODO matasano 9-48 suite
 * PENDING Articles [94%]
 ** DONE Chroot to save one's GNU/Linux
 CLOSED: [2012-04-21 Sat 18:07]
@@ -898,28 +929,6 @@ CLOSED: [2013-03-03 dim. 00:06]
 
 ** DONE make a decent cpug-vm/Vagrantfile startup
 CLOSED: [2013-03-03 dim. 01:45]
-* PENDING challenges [50%]
-** DONE matasano 1-8 [100%]
-CLOSED: [2013-05-17 ven. 04:59]
-*** DONE 1
-CLOSED: [2013-05-03 ven. 18:12]
-*** DONE 2
-CLOSED: [2013-05-03 ven. 18:12]
-*** DONE 3
-CLOSED: [2013-05-17 ven. 04:55]
-*** DONE 4
-CLOSED: [2013-05-17 ven. 04:55]
-*** DONE 5
-CLOSED: [2013-05-17 ven. 04:55]
-*** DONE 6
-CLOSED: [2013-05-17 ven. 04:55]
-*** DONE 7
-CLOSED: [2013-05-17 ven. 04:55]
-*** DONE 8
-CLOSED: [2013-05-17 ven. 04:55]
-*** DONE send mail
-CLOSED: [2013-05-17 ven. 04:59]
-** TODO matasano suite
 * PENDING haskell [50%]
 ** DONE setuping environment
 CLOSED: [2013-04-19 ven. 22:33]
