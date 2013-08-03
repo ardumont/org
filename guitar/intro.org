@@ -167,7 +167,7 @@ CLOSED: [2013-08-03 sam. 09:05]
 *** DONE finger picking
 CLOSED: [2013-08-03 sam. 09:06]
 [[https://soundcloud.com/ardumont/finger-picking][finger picking]]
-* IN-PROGRESS week 3 [33%]
+* IN-PROGRESS week 3 [50%]
 ** DONE Twelve frets and twelve half steps
 CLOSED: [2013-08-03 sam. 09:26]
 - In western music, we have 12 half steps
@@ -196,7 +196,23 @@ Fretboard:
 | 1 | E      | F     | F#/Gb | G     | G#/Ab | A | A#/Bb | B     | C     | C#/Db | D  | D#/Eb | E  |
 |---+--------+-------+-------+-------+-------+---+-------+-------+-------+-------+----+-------+----+
 
-** TODO Rhythm basis
+** DONE Rhythm basis
+CLOSED: [2013-08-03 sam. 09:51]
+western music: 4 - 4 time signature (4 beats, 4 measures) - 1, 2, 3, 4
+subdivided in measure
+dividing rhythm into measure
+dividing measure into notse
+
+|-----------+---------+------------|
+| Note      | # beats | relation   |
+|-----------+---------+------------|
+| whole     |       4 |            |
+| half      |       2 | 1/2 whole  |
+| quarter   |       1 | 1/4 whole  |
+| eighth    |     1/2 | 1/8 whole  |
+| sixteenth |     1/4 | 1/16 whole |
+|-----------+---------+------------|
+
 ** TODO Music notation and tablature
 ** TODO Quizzes [0%]
 *** TODO Twelve Frets and Twelve Half Steps
