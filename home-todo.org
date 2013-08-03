@@ -361,7 +361,7 @@ CLOSED: [2013-07-31 mer. 13:19]
 ** TODO Enduit de rebouchage
 ** TODO Sous-couche
 ** TODO Peinture
-* PENDING Escalier salon-1er [7/10]
+* PENDING Escalier salon-1er [8/11]
 ** DONE Retirer le crepis
 ** DONE Enduit de lissage
 CLOSED: [2011-10-31 lun. 10:11]
@@ -375,10 +375,12 @@ CLOSED: [2011-10-31 lun. 19:34]
 CLOSED: [2011-10-31 lun. 19:35]
 ** DONE Passer la sous-couche. [0/1]
 CLOSED: [2013-04-11 jeu. 09:37]
+** DONE Interrupteur escalier/couloir du haut
+CLOSED: [2013-08-03 sam. 22:22]
 ** TODO Poser la toile de renovation
 ** TODO Poser le papier peint/Peindre
 ** TODO Faux-plafond
-* PENDING Couloir du haut [25/26]
+* PENDING Couloir du haut [26/29]
 ** DONE Retirer le crepis
 ** DONE Retirer le papier peint
 ** DONE Enduit
@@ -425,6 +427,10 @@ CLOSED: [2013-07-28 dim. 14:15]
 CLOSED: [2013-07-26 ven. 19:09]
 ** DONE peindre porte de bureau couche 2
 CLOSED: [2013-07-30 mar. 22:00]
+** DONE Interrupteur couloir
+CLOSED: [2013-08-03 sam. 22:22]
+** TODO Interrupteur salle de bain
+** TODO Plafonnier
 ** TODO Poser le papier peint sur les murs
 * PENDING Chambre parentale [5/12]
 ** DONE Changer le siphon du lavabo
