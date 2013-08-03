@@ -55,7 +55,8 @@ To help choose:
 ** Lesson 1 assignment
 Am
 E
-* IN-PROGRESS week 2 [77%]
+* DONE week 2 [100%]
+CLOSED: [2013-08-03 sam. 09:07]
 ** DONE String names and numbers
 CLOSED: [2013-07-28 dim. 20:20]
 BOTTOM
@@ -135,8 +136,37 @@ Pick or fingers
 | Am _ _ _ | E _ _ _ |
 *** Up/Down
 | Am _ _ _ | E _ _ _ |
-** TODO quizzes
-** TODO assignments
+** DONE quizzes [100%]
+CLOSED: [2013-08-03 sam. 09:07]
+*** DONE String Names and Numbers
+CLOSED: [2013-08-03 sam. 09:07]
+*** DONE Tuning Your Guitar
+CLOSED: [2013-08-03 sam. 09:07]
+*** DONE Finger Picking
+CLOSED: [2013-08-03 sam. 09:07]
+** DONE assignments [100%]
+CLOSED: [2013-08-03 sam. 09:06]
+*** DONE Down
+CLOSED: [2013-08-03 sam. 09:02]
+[[https://soundcloud.com/ardumont][down]]
+*** DONE Up-down
+CLOSED: [2013-08-03 sam. 09:02]
+[[https://soundcloud.com/ardumont/down-1][up-down]]
+*** DONE Up-down-up
+CLOSED: [2013-08-03 sam. 09:03]
+[[https://soundcloud.com/ardumont/up-down-up][up-down-up]]
+*** DONE Up-down-up-down
+CLOSED: [2013-08-03 sam. 09:03]
+[[https://soundcloud.com/ardumont/up-down-up-down][up-down-up-down]]
+*** DONE chord Am-E downstroke
+CLOSED: [2013-08-03 sam. 09:05]
+[[https://soundcloud.com/ardumont/down-chords-am-e][down-chords-Am-E]]
+*** DONE chord Am-E down-up
+CLOSED: [2013-08-03 sam. 09:05]
+[[https://soundcloud.com/ardumont/down-up-chords-am-e][down-up-chords-Am-E]]
+*** DONE finger picking
+CLOSED: [2013-08-03 sam. 09:06]
+[[https://soundcloud.com/ardumont/finger-picking][finger picking]]
 * TODO week 3
 ** Twelve frets and twelve half steps
 ** Notes on the fretboard
