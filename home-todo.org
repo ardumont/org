@@ -432,7 +432,7 @@ CLOSED: [2013-08-03 sam. 22:22]
 ** TODO Interrupteur salle de bain
 ** TODO Plafonnier
 ** TODO Poser le papier peint sur les murs
-* PENDING Chambre parentale [5/12]
+* PENDING Chambre parentale [5/14]
 ** DONE Changer le siphon du lavabo
 CLOSED: [2013-04-11 jeu. 09:39]
 ** DONE Changer le robinet de la douche
@@ -443,6 +443,8 @@ CLOSED: [2013-07-31 mer. 13:21]
 CLOSED: [2013-07-31 mer. 13:21]
 ** DONE Peindre cadre de porte 2/2
 CLOSED: [2013-08-01 jeu. 19:27]
+** TODO Interrupteur 1
+** TODO Interrupteur 2
 ** TODO Retirer le crepis
 ** TODO Enduit de rebouchage
 ** TODO Enduit de lissage
@@ -450,7 +452,7 @@ CLOSED: [2013-08-01 jeu. 19:27]
 ** TODO Passer la sous-couche.
 ** TODO Poser la toile de renovation
 ** TODO Poser le papier peint/Peindre
-* PENDING Bureau [6/15]
+* PENDING Bureau [6/16]
 ** DONE Enduit de rebouchage porte
 CLOSED: [2013-07-29 lun. 18:57]
 ** DONE Peindre la porte couche 1/2
@@ -463,6 +465,7 @@ CLOSED: [2013-07-30 mar. 21:49]
 CLOSED: [2013-08-01 jeu. 19:27]
 ** DONE Peindre cadre de porte bureau/couloir 2/2
 CLOSED: [2013-08-01 jeu. 19:28]
+** TODO Interrupteur
 ** TODO Retirer le crepis
 ** TODO Enduit de rebouchage
 ** TODO Enduit de lissage
@@ -472,7 +475,7 @@ CLOSED: [2013-08-01 jeu. 19:28]
 ** TODO Poser la toile de renovation
 ** TODO Poser le papier peint/Peindre
 ** TODO Ranger la piece
-* PENDING Toilettes du bas [4/8]
+* PENDING Toilettes du bas [4/9]
 ** DONE Sous-couche porte
 CLOSED: [2013-07-30 mar. 21:46]
 ** DONE Peindre porte
@@ -481,11 +484,12 @@ CLOSED: [2013-07-31 mer. 04:36]
 CLOSED: [2013-07-31 mer. 04:36]
 ** DONE Peindre cadre de porte 2/2
 CLOSED: [2013-08-01 jeu. 19:25]
+** TODO Interrupteur
 ** TODO Changer les toilettes
 ** TODO Retirer le crepis
 ** TODO Enduit de rebouchage
 ** TODO Peinture
-* PENDING Toilettes du haut [7/10]
+* PENDING Toilettes du haut [7/11]
 ** DONE Changer les toilettes
 CLOSED: [2013-04-11 jeu. 09:40]
 ** DONE Changer les tuyaux
@@ -501,10 +505,11 @@ CLOSED: [2013-07-31 mer. 13:19]
 CLOSED: [2013-07-31 mer. 13:19]
 ** DONE Peindre cadre de porte 2/2
 CLOSED: [2013-08-01 jeu. 19:27]
+** TODO Interrupteur
 ** TODO Retirer le crepis
 ** TODO Enduit de rebouchage
 ** TODO Peindre
-* PENDING Salle d'eau [5/9]
+* PENDING Salle d'eau [5/10]
 ** DONE Sous-couche cadre de porte
 CLOSED: [2013-07-30 mar. 21:51]
 ** DONE Sous-couche porte
@@ -515,6 +520,7 @@ CLOSED: [2013-07-31 mer. 13:20]
 CLOSED: [2013-07-31 mer. 13:20]
 ** DONE Peindre cadre de porte 2/2
 CLOSED: [2013-08-01 jeu. 19:27]
+** TODO Interrupteur
 ** TODO Retirer le crepis
 ** TODO Enduit de rebouchage
 ** TODO Sous-couche
