@@ -294,6 +294,49 @@ CLOSED: [2013-08-01 jeu. 19:27]
 ** TODO Retirer le crepis
 ** TODO Enduit de rebouchage
 ** TODO Peindre
+* IN-PROGRESS Chambre parentale [5/14]
+** DONE Changer le siphon du lavabo
+CLOSED: [2013-04-11 jeu. 09:39]
+** DONE Changer le robinet de la douche
+CLOSED: [2013-04-11 jeu. 09:39]
+** DONE Peindre porte
+CLOSED: [2013-07-31 mer. 13:21]
+** DONE Peindre cadre de porte 1/2
+CLOSED: [2013-07-31 mer. 13:21]
+** DONE Peindre cadre de porte 2/2
+CLOSED: [2013-08-01 jeu. 19:27]
+** TODO Interrupteur 1
+** TODO Interrupteur 2
+** TODO Retirer le crepis
+** TODO Enduit de rebouchage
+** TODO Enduit de lissage
+** TODO Lessivage/nettoyage
+** TODO Passer la sous-couche.
+** TODO Poser la toile de renovation
+** TODO Poser le papier peint/Peindre
+* IN-PROGRESS Bureau [6/16]
+** DONE Enduit de rebouchage porte
+CLOSED: [2013-07-29 lun. 18:57]
+** DONE Peindre la porte couche 1/2
+CLOSED: [2013-07-29 lun. 18:57]
+** DONE Peindre la porte couche 2/2
+CLOSED: [2013-07-30 mar. 21:49]
+** DONE Sous-couche cadre de porte bureau/couloir
+CLOSED: [2013-07-30 mar. 21:49]
+** DONE Peindre cadre de porte bureau/couloir 1/2
+CLOSED: [2013-08-01 jeu. 19:27]
+** DONE Peindre cadre de porte bureau/couloir 2/2
+CLOSED: [2013-08-01 jeu. 19:28]
+** TODO Interrupteur
+** TODO Retirer le crepis
+** TODO Enduit de rebouchage
+** TODO Enduit de lissage
+** TODO Poncage
+** TODO Lessivage/nettoyage
+** TODO Passer la sous-couche.
+** TODO Poser la toile de renovation
+** TODO Poser le papier peint/Peindre
+** TODO Ranger la piece
 * PENDING cote droit [7/12]
 ** DONE Retirer toutes les mauvaises herbes
 ** DONE Planter du gazon
@@ -468,49 +511,6 @@ CLOSED: [2013-08-03 sam. 22:22]
 ** TODO Poser la toile de renovation
 ** TODO Poser le papier peint/Peindre
 ** TODO Faux-plafond
-* PENDING Chambre parentale [5/14]
-** DONE Changer le siphon du lavabo
-CLOSED: [2013-04-11 jeu. 09:39]
-** DONE Changer le robinet de la douche
-CLOSED: [2013-04-11 jeu. 09:39]
-** DONE Peindre porte
-CLOSED: [2013-07-31 mer. 13:21]
-** DONE Peindre cadre de porte 1/2
-CLOSED: [2013-07-31 mer. 13:21]
-** DONE Peindre cadre de porte 2/2
-CLOSED: [2013-08-01 jeu. 19:27]
-** TODO Interrupteur 1
-** TODO Interrupteur 2
-** TODO Retirer le crepis
-** TODO Enduit de rebouchage
-** TODO Enduit de lissage
-** TODO Lessivage/nettoyage
-** TODO Passer la sous-couche.
-** TODO Poser la toile de renovation
-** TODO Poser le papier peint/Peindre
-* PENDING Bureau [6/16]
-** DONE Enduit de rebouchage porte
-CLOSED: [2013-07-29 lun. 18:57]
-** DONE Peindre la porte couche 1/2
-CLOSED: [2013-07-29 lun. 18:57]
-** DONE Peindre la porte couche 2/2
-CLOSED: [2013-07-30 mar. 21:49]
-** DONE Sous-couche cadre de porte bureau/couloir
-CLOSED: [2013-07-30 mar. 21:49]
-** DONE Peindre cadre de porte bureau/couloir 1/2
-CLOSED: [2013-08-01 jeu. 19:27]
-** DONE Peindre cadre de porte bureau/couloir 2/2
-CLOSED: [2013-08-01 jeu. 19:28]
-** TODO Interrupteur
-** TODO Retirer le crepis
-** TODO Enduit de rebouchage
-** TODO Enduit de lissage
-** TODO Poncage
-** TODO Lessivage/nettoyage
-** TODO Passer la sous-couche.
-** TODO Poser la toile de renovation
-** TODO Poser le papier peint/Peindre
-** TODO Ranger la piece
 * PENDING Salle d'eau [5/10]
 ** DONE Sous-couche cadre de porte
 CLOSED: [2013-07-30 mar. 21:51]
