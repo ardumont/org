@@ -40,7 +40,7 @@ CLOSED: [2011-09-12 lun. 13:09]
 CLOSED: [2011-09-12 lun. 13:09]
 ** DONE Retirer les dalles
 CLOSED: [2011-09-12 lun. 13:09]
-* PENDING devant [9/10]
+* PENDING devant [9/11]
 ** DONE parterres de fleurs [4/4]
 **** DONE Detruire le parterre de marguerite qui prend trop de place dans le jardin.
 **** DONE Aplanir tous les parterres de fleurs.
@@ -54,9 +54,11 @@ CLOSED: [2011-09-12 lun. 13:09]
 ** DONE Evacuer tous les dechets suites a toutes les actions du jardins
 ** DONE Tailler le noisetier de devant.
 CLOSED: [2013-04-11 jeu. 09:34]
-** TODO Deraciner les arbustes restant de devant (pour les planter derriere)
 ** DONE Replanter l'herbe
 CLOSED: [2011-09-12 lun. 13:10]
+** TODO Deraciner les arbustes restant de devant (pour les planter derriere)
+
+** TODO Faire elaguer/couper les erables
 * PENDING derriere [3/4]
 ** DONE Retirer le lierre
 ** DONE Tailler la haie de derriere
