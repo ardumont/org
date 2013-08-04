@@ -76,7 +76,7 @@ Merci Papy Claude
 Merci Papy Claude
 ** DONE Decoration
 Merci Chris
-* IN-PROGRESS Cuisine [28/31]
+* IN-PROGRESS Cuisine [30/31]
 ** DONE Degager le vieux frigo
 ** DONE Refaire les prises de courant
 ** DONE Retirer le crepis
@@ -131,10 +131,12 @@ CLOSED: [2013-08-03 sam. 18:25]
 CLOSED: [2013-08-03 sam. 18:25]
 ** DONE Lampe
 CLOSED: [2013-08-03 sam. 19:22]
-** TODO poignee porte cave/cuisine
-** TODO poignee porte cuisine/couloir
+** DONE poignee porte cave/cuisine
+CLOSED: [2013-08-04 dim. 19:42]
+** DONE poignee porte cuisine/couloir
+CLOSED: [2013-08-04 dim. 19:42]
 ** TODO changer radiateur
-* IN-PROGRESS Couloir [37/40]
+* IN-PROGRESS Couloir [39/40]
 ** DONE Changer les portes de l'armoire
 Merci papy Claude
 ** DONE Retirer le papier peint du plafond
@@ -211,9 +213,11 @@ CLOSED: [2013-08-03 sam. 21:32]
 CLOSED: [2013-08-03 sam. 21:33]
 ** DONE Plafonnier
 CLOSED: [2013-08-04 dim. 15:17]
-** TODO poignee couloir/piece de jeux
+** DONE poignee couloir/piece de jeux
+CLOSED: [2013-08-04 dim. 19:42]
+** DONE poignee couloir/salon
+CLOSED: [2013-08-04 dim. 19:42]
 ** TODO poignee couloir/buanderie
-** TODO poignee couloir/salon
 * IN-PROGRESS Couloir du haut [28/29]
 ** DONE Retirer le crepis
 ** DONE Retirer le papier peint
@@ -268,7 +272,7 @@ CLOSED: [2013-08-04 dim. 15:17]
 ** DONE Plafonnier
 CLOSED: [2013-08-04 dim. 15:17]
 ** TODO Poser le papier peint sur les murs
-* IN-PROGRESS Toilettes du bas [5/9]
+* IN-PROGRESS Toilettes du bas [6/10]
 ** DONE Sous-couche porte
 CLOSED: [2013-07-30 mar. 21:46]
 ** DONE Peindre porte
@@ -279,6 +283,8 @@ CLOSED: [2013-07-31 mer. 04:36]
 CLOSED: [2013-08-01 jeu. 19:25]
 ** DONE Interrupteur
 CLOSED: [2013-08-04 dim. 15:17]
+** DONE Poignee toilette/buanderie
+CLOSED: [2013-08-04 dim. 20:29]
 ** TODO Changer les toilettes
 ** TODO Retirer le crepis
 ** TODO Enduit de rebouchage
