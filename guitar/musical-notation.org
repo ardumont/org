@@ -1,11 +1,22 @@
 #+title: Music notation tryouts
 #+author: Antoine R. Dumont
 
-#+begin_src lilypond  :file Mixolydian.png
-\relative c’ {
-g a b c d e f g f e d c b a g a b c d e f g f e d c b a g1
+Standard scale:
+#+begin_src lilypond :file standard-scale.png
+\relative c' {
+  c d e f g a b c
+}
+#+end_src
+
+Some more advanced example:
+#+begin_src lilypond :file more-advanced-sample.png
+\relative c' {
+  \time 4/4
+  \clef treble
+  f g a f | g g g g | f4 |
+  <a e a c e> r1 r2 r4 r8 r16 |
 }
 #+end_src
 
 #+RESULTS:
-[[file:Mixolydian.png]]
+[[file:more-advanced-sample.png]]

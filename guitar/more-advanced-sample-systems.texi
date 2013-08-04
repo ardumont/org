@@ -1,0 +1,2 @@
+@image{more-advanced-sample-1}
+@c eof
