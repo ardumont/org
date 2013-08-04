@@ -167,7 +167,8 @@ CLOSED: [2013-08-03 sam. 09:05]
 *** DONE finger picking
 CLOSED: [2013-08-03 sam. 09:06]
 [[https://soundcloud.com/ardumont/finger-picking][finger picking]]
-* IN-PROGRESS week 3 [83%]
+* DONE week 3 [100%]
+CLOSED: [2013-08-04 dim. 06:58]
 ** DONE Twelve frets and twelve half steps
 CLOSED: [2013-08-03 sam. 09:26]
 - In western music, we have 12 half steps
@@ -243,4 +244,21 @@ CLOSED: [2013-08-03 sam. 11:01]
 CLOSED: [2013-08-03 sam. 11:02]
 *** DONE Music Notation and Tablature 32/32
 CLOSED: [2013-08-03 sam. 11:02]
-** TODO Assignments [%]
+** DONE Assignments [100%]
+CLOSED: [2013-08-04 dim. 06:58]
+*** DONE 1
+CLOSED: [2013-08-04 dim. 06:57]
+[[./img/intro_guitar_assign3_part1.png]]
+https://soundcloud.com/ardumont/lesson-3-assignment-1
+*** DONE 2
+CLOSED: [2013-08-04 dim. 06:57]
+[[./img/intro_guitar_assign3_part2.png]]
+https://soundcloud.com/ardumont/lesson-3-assignment-2
+*** DONE 3
+CLOSED: [2013-08-04 dim. 06:57]
+[[./img/intro_guitar_assign3_part3.png]]
+https://soundcloud.com/ardumont/lesson-3-assignment-3
+*** DONE 4
+CLOSED: [2013-08-04 dim. 06:58]
+[[./img/intro_guitar_assign3_part4.png]]
+https://soundcloud.com/ardumont/lesson-3-assignment-4
