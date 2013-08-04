@@ -408,14 +408,18 @@ CLOSED: [2013-07-31 mer. 13:59]
 ** TODO Akka
 ** TODO Iteratee
 ** IN-PROGRESS Play
-* IN-PROGRESS guitar [40%]
+* IN-PROGRESS guitar [37%]
 ** DONE coursera - week 1
 CLOSED: [2013-08-03 sam. 10:17]
 ** DONE coursera - week 2
 CLOSED: [2013-08-03 sam. 10:17]
-** IN-PROGRESS coursera - week 3
-** TODO lilypond (music notation)
-** TODO ob-lilypond (music notation on emacs org-mode)
+** DONE coursera - week 3
+CLOSED: [2013-08-04 dim. 07:06]
+** TODO coursera - week 4
+** TODO coursera - week 5
+** TODO coursera - week 6
+** IN-PROGRESS lilypond (music notation)
+** IN-PROGRESS ob-lilypond (music notation on emacs org-mode)
 * IN-PROGRESS crypto [33%]
 ** IN-PROGRESS coursera
 ** DONE matasano 1-8 [100%]
