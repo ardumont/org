@@ -76,8 +76,7 @@ Merci Papy Claude
 Merci Papy Claude
 ** DONE Decoration
 Merci Chris
-* DONE Cuisine [28/28]
-CLOSED: [2013-08-03 sam. 19:22]
+* IN-PROGRESS Cuisine [28/31]
 ** DONE Degager le vieux frigo
 ** DONE Refaire les prises de courant
 ** DONE Retirer le crepis
@@ -132,7 +131,10 @@ CLOSED: [2013-08-03 sam. 18:25]
 CLOSED: [2013-08-03 sam. 18:25]
 ** DONE Lampe
 CLOSED: [2013-08-03 sam. 19:22]
-* IN-PROGRESS Couloir [36/37]
+** TODO poignee porte cave/cuisine
+** TODO poignee porte cuisine/couloir
+** TODO changer radiateur
+* IN-PROGRESS Couloir [37/40]
 ** DONE Changer les portes de l'armoire
 Merci papy Claude
 ** DONE Retirer le papier peint du plafond
@@ -207,8 +209,12 @@ CLOSED: [2013-08-03 sam. 21:11]
 CLOSED: [2013-08-03 sam. 21:32]
 ** DONE Interphone
 CLOSED: [2013-08-03 sam. 21:33]
-** TODO Plafonnier
-* IN-PROGRESS Couloir du haut [26/29]
+** DONE Plafonnier
+CLOSED: [2013-08-04 dim. 15:17]
+** TODO poignee couloir/piece de jeux
+** TODO poignee couloir/buanderie
+** TODO poignee couloir/salon
+* IN-PROGRESS Couloir du haut [28/29]
 ** DONE Retirer le crepis
 ** DONE Retirer le papier peint
 ** DONE Enduit
@@ -257,10 +263,12 @@ CLOSED: [2013-07-26 ven. 19:09]
 CLOSED: [2013-07-30 mar. 22:00]
 ** DONE Interrupteur couloir
 CLOSED: [2013-08-03 sam. 22:22]
-** TODO Interrupteur salle de bain
-** TODO Plafonnier
+** DONE Interrupteur salle de bain
+CLOSED: [2013-08-04 dim. 15:17]
+** DONE Plafonnier
+CLOSED: [2013-08-04 dim. 15:17]
 ** TODO Poser le papier peint sur les murs
-* IN-PROGRESS Toilettes du bas [4/9]
+* IN-PROGRESS Toilettes du bas [5/9]
 ** DONE Sous-couche porte
 CLOSED: [2013-07-30 mar. 21:46]
 ** DONE Peindre porte
@@ -269,12 +277,13 @@ CLOSED: [2013-07-31 mer. 04:36]
 CLOSED: [2013-07-31 mer. 04:36]
 ** DONE Peindre cadre de porte 2/2
 CLOSED: [2013-08-01 jeu. 19:25]
-** TODO Interrupteur
+** DONE Interrupteur
+CLOSED: [2013-08-04 dim. 15:17]
 ** TODO Changer les toilettes
 ** TODO Retirer le crepis
 ** TODO Enduit de rebouchage
 ** TODO Peinture
-* IN-PROGRESS Toilettes du haut [7/11]
+* IN-PROGRESS Toilettes du haut [8/11]
 ** DONE Changer les toilettes
 CLOSED: [2013-04-11 jeu. 09:40]
 ** DONE Changer les tuyaux
@@ -290,11 +299,12 @@ CLOSED: [2013-07-31 mer. 13:19]
 CLOSED: [2013-07-31 mer. 13:19]
 ** DONE Peindre cadre de porte 2/2
 CLOSED: [2013-08-01 jeu. 19:27]
-** TODO Interrupteur
+** DONE Interrupteur
+CLOSED: [2013-08-04 dim. 15:18]
 ** TODO Retirer le crepis
 ** TODO Enduit de rebouchage
 ** TODO Peindre
-* IN-PROGRESS Chambre parentale [5/14]
+* IN-PROGRESS Chambre parentale [6/13]
 ** DONE Changer le siphon du lavabo
 CLOSED: [2013-04-11 jeu. 09:39]
 ** DONE Changer le robinet de la douche
@@ -305,8 +315,8 @@ CLOSED: [2013-07-31 mer. 13:21]
 CLOSED: [2013-07-31 mer. 13:21]
 ** DONE Peindre cadre de porte 2/2
 CLOSED: [2013-08-01 jeu. 19:27]
-** TODO Interrupteur 1
-** TODO Interrupteur 2
+** DONE Interrupteur
+CLOSED: [2013-08-04 dim. 15:18]
 ** TODO Retirer le crepis
 ** TODO Enduit de rebouchage
 ** TODO Enduit de lissage
@@ -314,7 +324,7 @@ CLOSED: [2013-08-01 jeu. 19:27]
 ** TODO Passer la sous-couche.
 ** TODO Poser la toile de renovation
 ** TODO Poser le papier peint/Peindre
-* IN-PROGRESS Bureau [6/16]
+* IN-PROGRESS Bureau [7/16]
 ** DONE Enduit de rebouchage porte
 CLOSED: [2013-07-29 lun. 18:57]
 ** DONE Peindre la porte couche 1/2
@@ -327,7 +337,8 @@ CLOSED: [2013-07-30 mar. 21:49]
 CLOSED: [2013-08-01 jeu. 19:27]
 ** DONE Peindre cadre de porte bureau/couloir 2/2
 CLOSED: [2013-08-01 jeu. 19:28]
-** TODO Interrupteur
+** DONE Interrupteur
+CLOSED: [2013-08-04 dim. 15:18]
 ** TODO Retirer le crepis
 ** TODO Enduit de rebouchage
 ** TODO Enduit de lissage
