@@ -1,20 +1,31 @@
 #+title: Music notation tryouts
 #+author: Antoine R. Dumont
 
-Standard scale:
+Standard scale using standard notation:
 #+begin_src lilypond :file standard-scale.png
 \relative c' {
   c d e f g a b c
 }
 #+end_src
 
-Some more advanced example:
+' to up the scale
+, to lower the scale
+
+Standard scale from lower scale to upper scale:
+#+begin_src lilypond :file standard-scale-changing-octave-using-quotes-and-commas.png
+\relative c' {
+  c, d e f g a b c d e f g a b c d e f g a b
+}
+#+end_src
+
+Once a duration has been provided, you need to provide the duration for every other because the last one is taken as the default one for each future note.
+
+Some more advanced examples:
 #+begin_src lilypond :file more-advanced-sample.png
 \relative c' {
   \time 4/4
   \clef treble
-  f g a f | g g g g | f4 |
-  <a e a c e> r1 r2 r4 r8 r16 |
+  f g a16 a16 a16 a16 f8 f8 | g4 g4 g4. g8 | f1 | <a c e>4 <c e g>4 <c e g>4. <c e g>8  | r1 | r2 r2
 }
 #+end_src
 

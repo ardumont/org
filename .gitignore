@@ -3,3 +3,8 @@
 wikeo-*/
 *.html
 libpeerconnection.log
+*.eps
+*.count
+*.tex
+*.texi
+*.pdf
