@@ -1,2 +1,0 @@
-@image{standard-scale-1}
-@c eof
