@@ -25,9 +25,15 @@ Some more advanced examples:
 \relative c' {
   \time 4/4
   \clef treble
-  f g a16 a16 a16 a16 f8 f8 | g4 g4 g4. g8 | f1 | <a c e>4 <c e g>4 <c e g>4. <c e g>8  | r1 | r2 r2
+  f g a16 a16 a16 a16 f8 f8 | g4 g4 g4. g8 | f1 | <a c e>4 <c e g>4 <c e g>4. <c e g>8 | r1 | r2 r2
 }
 #+end_src
 
-#+RESULTS:
-[[file:more-advanced-sample.png]]
+Tablature is possible!
+
+#+begin_src lilypond :file tablature-tryout.png
+\new TabStaff \relative c' {
+  a,8 a' <c e> a
+  d,8 a' <d f> a
+}
+#+end_src
