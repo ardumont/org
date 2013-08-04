@@ -2,26 +2,6 @@
 #+author: Antoine Romain Dumont
 #+STARTUP: indent
 
-* PENDING cote droit [7/12]
-** DONE Retirer toutes les mauvaises herbes
-** DONE Planter du gazon
-l'herbe est magnifique
-** DONE Faire couper l'arbre
-** DONE Mettre en place les composteurs
-** DONE Laisser secher les buches restantes
-CLOSED: [2013-04-11 jeu. 09:33]
-** TODO Couper les buches restantes
-** TODO Couper/Abattre l'abricotier malade.
-Trop pres du mur de separation.
-** TODO Couper/Abattre le noisetier
-Trop pres du mur de separation.
-** TODO Cimenter les trous du mur
-** TODO Repeindre le mur
-** DONE Replanter l'herbe
-CLOSED: [2011-09-12 lun. 13:09]
-** DONE Retirer les dalles
-CLOSED: [2011-09-12 lun. 13:09]
-
 * DONE cote gauche [11/11]
 CLOSED: [2013-04-11 jeu. 09:34]
 ** DONE Retirer toutes les mauvaises herbes
@@ -40,31 +20,6 @@ CLOSED: [2011-09-12 lun. 13:09]
 CLOSED: [2011-09-12 lun. 13:09]
 ** DONE Retirer les dalles
 CLOSED: [2011-09-12 lun. 13:09]
-* PENDING devant [9/11]
-** DONE parterres de fleurs [4/4]
-**** DONE Detruire le parterre de marguerite qui prend trop de place dans le jardin.
-**** DONE Aplanir tous les parterres de fleurs.
-**** DONE Ramasser toutes les briques de parpaing
-**** DONE Les ranger sous l'escalier de l'entree
-** DONE Couper l'arbre de l'entree du cote droit.
-** DONE Finir de detruire la racine restante de l'arbre
-** DONE Faire couper la haie
-** DONE Faire couper les arbres de devant
-** DONE Mettre en place des barrieres de securite le long de l'allee de descente dans le garage.
-** DONE Evacuer tous les dechets suites a toutes les actions du jardins
-** DONE Tailler le noisetier de devant.
-CLOSED: [2013-04-11 jeu. 09:34]
-** DONE Replanter l'herbe
-CLOSED: [2011-09-12 lun. 13:10]
-** TODO Deraciner les arbustes restant de devant (pour les planter derriere)
-
-** TODO Faire elaguer/couper les erables
-* PENDING derriere [3/4]
-** DONE Retirer le lierre
-** DONE Tailler la haie de derriere
-** DONE Reparer la partie de la barriere tombee a cause du lierre
-Merci papy Claude
-** TODO Replanter les arbustes de devant pour combler le trou dans la haie de derriere
 * DONE Relatif a l'exterieur [3/3]
 CLOSED: [2013-04-11 jeu. 09:35]
 ** DONE Tailler les arbustes en morceaux pour pouvoir les rentrer dans le garage
@@ -177,70 +132,7 @@ CLOSED: [2013-08-03 sam. 18:25]
 CLOSED: [2013-08-03 sam. 18:25]
 ** DONE Lampe
 CLOSED: [2013-08-03 sam. 19:22]
-* PENDING Piece de jeux des enfants [30/31]
-** DONE Retirer la grosse armoire du bureau
-** DONE Retirer le crepis
-** DONE Enduit de rebouchage
-CLOSED: [2013-04-11 jeu. 09:36]
-** DONE Enduit de lissage
-CLOSED: [2013-04-11 jeu. 09:36]
-** DONE Ranger la piece
-CLOSED: [2011-10-31 lun. 10:10]
-** DONE Ranger la piece
-CLOSED: [2013-05-19 dim. 18:42]
-** DONE Enduit de rebouchage mur
-CLOSED: [2013-05-19 dim. 18:41]
-** DONE lessiver plafond
-CLOSED: [2013-05-19 dim. 18:41]
-** DONE Enduit de rebouchage plafond
-CLOSED: [2013-05-19 dim. 18:41]
-** DONE poncer le plafond pour lisser l'enduit
-CLOSED: [2013-05-19 dim. 18:42]
-** DONE depoussierer le plafond
-CLOSED: [2013-05-19 dim. 18:42]
-** DONE Demonter le placard
-CLOSED: [2013-05-19 dim. 18:43]
-** DONE Enduit de rebouchage placard
-CLOSED: [2013-05-19 dim. 18:43]
-** DONE sous-couche dans le placard
-CLOSED: [2013-05-19 dim. 18:43]
-** DONE peinture plafond
-CLOSED: [2013-05-20 lun. 19:13]
-** DONE peinture placard
-CLOSED: [2013-05-20 lun. 19:13]
-** DONE peinture porte
-CLOSED: [2013-05-20 lun. 19:13]
-** DONE peinture plinthes
-CLOSED: [2013-05-20 lun. 19:13]
-** DONE peinture cadre porte
-CLOSED: [2013-05-20 lun. 19:13]
-** DONE Poser le papier peint bleu
-CLOSED: [2013-05-26 dim. 23:59]
-** DONE Poser le papier peint vert
-CLOSED: [2013-06-02 dim. 11:54]
-** DONE nettoyer le sol
-CLOSED: [2013-06-14 ven. 22:11]
-** DONE poser la sous-couche resiliente (anti-humidite)
-CLOSED: [2013-06-15 sam. 20:27]
-** DONE poser la sous-couche anti-bruit
-CLOSED: [2013-06-16 dim. 11:03]
-** DONE poser le sticker
-CLOSED: [2013-06-16 dim. 19:20]
-** DONE poser le parquet
-CLOSED: [2013-06-16 dim. 22:02]
-** DONE finition du parquet - quart de rond
-CLOSED: [2013-06-22 sam. 16:08]
-** DONE barre de seuil
-CLOSED: [2013-06-22 sam. 18:45]
-** DONE raboter la porte
-CLOSED: [2013-06-22 sam. 18:45]
-** DONE amenagement du placard
-CLOSED: [2013-07-20 sam. 20:15]
-Merci Chris et papy
-** DONE eclairage
-CLOSED: [2013-07-30 mar. 21:57]
-** TODO nouveau radiateur
-* PENDING Couloir [36/37]
+* IN-PROGRESS Couloir [36/37]
 ** DONE Changer les portes de l'armoire
 Merci papy Claude
 ** DONE Retirer le papier peint du plafond
@@ -316,6 +208,200 @@ CLOSED: [2013-08-03 sam. 21:32]
 ** DONE Interphone
 CLOSED: [2013-08-03 sam. 21:33]
 ** TODO Plafonnier
+* IN-PROGRESS Couloir du haut [26/29]
+** DONE Retirer le crepis
+** DONE Retirer le papier peint
+** DONE Enduit
+** DONE Reboucher les fissures
+** DONE Poncage
+CLOSED: [2011-10-29 sam. 12:50]
+** DONE Enduit
+** DONE Poncage
+CLOSED: [2011-10-29 sam. 12:51]
+** DONE Enduit
+CLOSED: [2011-10-31 lun. 10:12]
+** DONE Lessivage/nettoyage
+CLOSED: [2011-10-31 lun. 19:36]
+** DONE Passer la sous-couche.
+CLOSED: [2011-10-31 lun. 19:36]
+** DONE porte chambre de theo - couloir + tour de porte couche 1
+CLOSED: [2013-07-26 ven. 19:10]
+** DONE porte chambre de theo - couloir + tour de porte couche 2
+CLOSED: [2013-07-28 dim. 14:14]
+** DONE porte bureau - couloir + tour de porte couche 1
+CLOSED: [2013-07-26 ven. 19:11]
+** DONE porte bureau - couloir + tour de porte couche 2
+CLOSED: [2013-07-28 dim. 14:14]
+** DONE porte chloe - couloir + tour de porte couche 1
+CLOSED: [2013-07-26 ven. 19:11]
+** DONE porte chloe - couloir + tour de porte couche 2
+CLOSED: [2013-07-28 dim. 14:14]
+** DONE porte chambre parentale - couloir + tour de porte couche 1
+CLOSED: [2013-07-26 ven. 19:11]
+** DONE porte chambre parentale - couloir + tour de porte couche 2
+CLOSED: [2013-07-28 dim. 14:14]
+** DONE porte toilette - couloir + tour de porte couche 1
+CLOSED: [2013-07-26 ven. 19:11]
+** DONE porte toilette - couloir + tour de porte couche 2
+CLOSED: [2013-07-28 dim. 14:14]
+
+** DONE porte salle de bain - couloir + tour de porte couche 1
+CLOSED: [2013-07-26 ven. 19:11]
+** DONE porte salle de bain - couloir + tour de porte couche 2
+CLOSED: [2013-07-28 dim. 14:15]
+** DONE peindre porte de bureau couche 1
+CLOSED: [2013-07-28 dim. 14:15]
+** DONE Peindre le plafond
+CLOSED: [2013-07-26 ven. 19:09]
+** DONE peindre porte de bureau couche 2
+CLOSED: [2013-07-30 mar. 22:00]
+** DONE Interrupteur couloir
+CLOSED: [2013-08-03 sam. 22:22]
+** TODO Interrupteur salle de bain
+** TODO Plafonnier
+** TODO Poser le papier peint sur les murs
+* IN-PROGRESS Toilettes du bas [4/9]
+** DONE Sous-couche porte
+CLOSED: [2013-07-30 mar. 21:46]
+** DONE Peindre porte
+CLOSED: [2013-07-31 mer. 04:36]
+** DONE Peindre cadre de porte 1/2
+CLOSED: [2013-07-31 mer. 04:36]
+** DONE Peindre cadre de porte 2/2
+CLOSED: [2013-08-01 jeu. 19:25]
+** TODO Interrupteur
+** TODO Changer les toilettes
+** TODO Retirer le crepis
+** TODO Enduit de rebouchage
+** TODO Peinture
+* IN-PROGRESS Toilettes du haut [7/11]
+** DONE Changer les toilettes
+CLOSED: [2013-04-11 jeu. 09:40]
+** DONE Changer les tuyaux
+CLOSED: [2013-04-11 jeu. 09:40]
+
+** DONE Sous-couche porte
+CLOSED: [2013-07-30 mar. 21:50]
+** DONE Sous-couche cadre de porte
+CLOSED: [2013-07-30 mar. 21:50]
+** DONE Peindre porte
+CLOSED: [2013-07-31 mer. 13:19]
+** DONE Peindre cadre de porte 1/2
+CLOSED: [2013-07-31 mer. 13:19]
+** DONE Peindre cadre de porte 2/2
+CLOSED: [2013-08-01 jeu. 19:27]
+** TODO Interrupteur
+** TODO Retirer le crepis
+** TODO Enduit de rebouchage
+** TODO Peindre
+* PENDING cote droit [7/12]
+** DONE Retirer toutes les mauvaises herbes
+** DONE Planter du gazon
+l'herbe est magnifique
+** DONE Faire couper l'arbre
+** DONE Mettre en place les composteurs
+** DONE Laisser secher les buches restantes
+CLOSED: [2013-04-11 jeu. 09:33]
+** TODO Couper les buches restantes
+** TODO Couper/Abattre l'abricotier malade.
+Trop pres du mur de separation.
+** TODO Couper/Abattre le noisetier
+Trop pres du mur de separation.
+** TODO Cimenter les trous du mur
+** TODO Repeindre le mur
+** DONE Replanter l'herbe
+CLOSED: [2011-09-12 lun. 13:09]
+** DONE Retirer les dalles
+CLOSED: [2011-09-12 lun. 13:09]
+
+* PENDING devant [9/11]
+** DONE parterres de fleurs [4/4]
+**** DONE Detruire le parterre de marguerite qui prend trop de place dans le jardin.
+**** DONE Aplanir tous les parterres de fleurs.
+**** DONE Ramasser toutes les briques de parpaing
+**** DONE Les ranger sous l'escalier de l'entree
+** DONE Couper l'arbre de l'entree du cote droit.
+** DONE Finir de detruire la racine restante de l'arbre
+** DONE Faire couper la haie
+** DONE Faire couper les arbres de devant
+** DONE Mettre en place des barrieres de securite le long de l'allee de descente dans le garage.
+** DONE Evacuer tous les dechets suites a toutes les actions du jardins
+** DONE Tailler le noisetier de devant.
+CLOSED: [2013-04-11 jeu. 09:34]
+** DONE Replanter l'herbe
+CLOSED: [2011-09-12 lun. 13:10]
+** TODO Deraciner les arbustes restant de devant (pour les planter derriere)
+
+** TODO Faire elaguer/couper les erables
+* PENDING derriere [3/4]
+** DONE Retirer le lierre
+** DONE Tailler la haie de derriere
+** DONE Reparer la partie de la barriere tombee a cause du lierre
+Merci papy Claude
+** TODO Replanter les arbustes de devant pour combler le trou dans la haie de derriere
+* PENDING Piece de jeux des enfants [30/31]
+** DONE Retirer la grosse armoire du bureau
+** DONE Retirer le crepis
+** DONE Enduit de rebouchage
+CLOSED: [2013-04-11 jeu. 09:36]
+** DONE Enduit de lissage
+CLOSED: [2013-04-11 jeu. 09:36]
+** DONE Ranger la piece
+CLOSED: [2011-10-31 lun. 10:10]
+** DONE Ranger la piece
+CLOSED: [2013-05-19 dim. 18:42]
+** DONE Enduit de rebouchage mur
+CLOSED: [2013-05-19 dim. 18:41]
+** DONE lessiver plafond
+CLOSED: [2013-05-19 dim. 18:41]
+** DONE Enduit de rebouchage plafond
+CLOSED: [2013-05-19 dim. 18:41]
+** DONE poncer le plafond pour lisser l'enduit
+CLOSED: [2013-05-19 dim. 18:42]
+** DONE depoussierer le plafond
+CLOSED: [2013-05-19 dim. 18:42]
+** DONE Demonter le placard
+CLOSED: [2013-05-19 dim. 18:43]
+** DONE Enduit de rebouchage placard
+CLOSED: [2013-05-19 dim. 18:43]
+** DONE sous-couche dans le placard
+CLOSED: [2013-05-19 dim. 18:43]
+** DONE peinture plafond
+CLOSED: [2013-05-20 lun. 19:13]
+** DONE peinture placard
+CLOSED: [2013-05-20 lun. 19:13]
+** DONE peinture porte
+CLOSED: [2013-05-20 lun. 19:13]
+** DONE peinture plinthes
+CLOSED: [2013-05-20 lun. 19:13]
+** DONE peinture cadre porte
+CLOSED: [2013-05-20 lun. 19:13]
+** DONE Poser le papier peint bleu
+CLOSED: [2013-05-26 dim. 23:59]
+** DONE Poser le papier peint vert
+CLOSED: [2013-06-02 dim. 11:54]
+** DONE nettoyer le sol
+CLOSED: [2013-06-14 ven. 22:11]
+** DONE poser la sous-couche resiliente (anti-humidite)
+CLOSED: [2013-06-15 sam. 20:27]
+** DONE poser la sous-couche anti-bruit
+CLOSED: [2013-06-16 dim. 11:03]
+** DONE poser le sticker
+CLOSED: [2013-06-16 dim. 19:20]
+** DONE poser le parquet
+CLOSED: [2013-06-16 dim. 22:02]
+** DONE finition du parquet - quart de rond
+CLOSED: [2013-06-22 sam. 16:08]
+** DONE barre de seuil
+CLOSED: [2013-06-22 sam. 18:45]
+** DONE raboter la porte
+CLOSED: [2013-06-22 sam. 18:45]
+** DONE amenagement du placard
+CLOSED: [2013-07-20 sam. 20:15]
+Merci Chris et papy
+** DONE eclairage
+CLOSED: [2013-07-30 mar. 21:57]
+** TODO nouveau radiateur
 * PENDING Salon [11/14]
 ** DONE Retirer le papier peint du plafond
 ** DONE Retirer le crepis
@@ -382,58 +468,6 @@ CLOSED: [2013-08-03 sam. 22:22]
 ** TODO Poser la toile de renovation
 ** TODO Poser le papier peint/Peindre
 ** TODO Faux-plafond
-* PENDING Couloir du haut [26/29]
-** DONE Retirer le crepis
-** DONE Retirer le papier peint
-** DONE Enduit
-** DONE Reboucher les fissures
-** DONE Poncage
-CLOSED: [2011-10-29 sam. 12:50]
-** DONE Enduit
-** DONE Poncage
-CLOSED: [2011-10-29 sam. 12:51]
-** DONE Enduit
-CLOSED: [2011-10-31 lun. 10:12]
-** DONE Lessivage/nettoyage
-CLOSED: [2011-10-31 lun. 19:36]
-** DONE Passer la sous-couche.
-CLOSED: [2011-10-31 lun. 19:36]
-** DONE porte chambre de theo - couloir + tour de porte couche 1
-CLOSED: [2013-07-26 ven. 19:10]
-** DONE porte chambre de theo - couloir + tour de porte couche 2
-CLOSED: [2013-07-28 dim. 14:14]
-** DONE porte bureau - couloir + tour de porte couche 1
-CLOSED: [2013-07-26 ven. 19:11]
-** DONE porte bureau - couloir + tour de porte couche 2
-CLOSED: [2013-07-28 dim. 14:14]
-** DONE porte chloe - couloir + tour de porte couche 1
-CLOSED: [2013-07-26 ven. 19:11]
-** DONE porte chloe - couloir + tour de porte couche 2
-CLOSED: [2013-07-28 dim. 14:14]
-** DONE porte chambre parentale - couloir + tour de porte couche 1
-CLOSED: [2013-07-26 ven. 19:11]
-** DONE porte chambre parentale - couloir + tour de porte couche 2
-CLOSED: [2013-07-28 dim. 14:14]
-** DONE porte toilette - couloir + tour de porte couche 1
-CLOSED: [2013-07-26 ven. 19:11]
-** DONE porte toilette - couloir + tour de porte couche 2
-CLOSED: [2013-07-28 dim. 14:14]
-
-** DONE porte salle de bain - couloir + tour de porte couche 1
-CLOSED: [2013-07-26 ven. 19:11]
-** DONE porte salle de bain - couloir + tour de porte couche 2
-CLOSED: [2013-07-28 dim. 14:15]
-** DONE peindre porte de bureau couche 1
-CLOSED: [2013-07-28 dim. 14:15]
-** DONE Peindre le plafond
-CLOSED: [2013-07-26 ven. 19:09]
-** DONE peindre porte de bureau couche 2
-CLOSED: [2013-07-30 mar. 22:00]
-** DONE Interrupteur couloir
-CLOSED: [2013-08-03 sam. 22:22]
-** TODO Interrupteur salle de bain
-** TODO Plafonnier
-** TODO Poser le papier peint sur les murs
 * PENDING Chambre parentale [5/14]
 ** DONE Changer le siphon du lavabo
 CLOSED: [2013-04-11 jeu. 09:39]
@@ -477,40 +511,6 @@ CLOSED: [2013-08-01 jeu. 19:28]
 ** TODO Poser la toile de renovation
 ** TODO Poser le papier peint/Peindre
 ** TODO Ranger la piece
-* PENDING Toilettes du bas [4/9]
-** DONE Sous-couche porte
-CLOSED: [2013-07-30 mar. 21:46]
-** DONE Peindre porte
-CLOSED: [2013-07-31 mer. 04:36]
-** DONE Peindre cadre de porte 1/2
-CLOSED: [2013-07-31 mer. 04:36]
-** DONE Peindre cadre de porte 2/2
-CLOSED: [2013-08-01 jeu. 19:25]
-** TODO Interrupteur
-** TODO Changer les toilettes
-** TODO Retirer le crepis
-** TODO Enduit de rebouchage
-** TODO Peinture
-* PENDING Toilettes du haut [7/11]
-** DONE Changer les toilettes
-CLOSED: [2013-04-11 jeu. 09:40]
-** DONE Changer les tuyaux
-CLOSED: [2013-04-11 jeu. 09:40]
-
-** DONE Sous-couche porte
-CLOSED: [2013-07-30 mar. 21:50]
-** DONE Sous-couche cadre de porte
-CLOSED: [2013-07-30 mar. 21:50]
-** DONE Peindre porte
-CLOSED: [2013-07-31 mer. 13:19]
-** DONE Peindre cadre de porte 1/2
-CLOSED: [2013-07-31 mer. 13:19]
-** DONE Peindre cadre de porte 2/2
-CLOSED: [2013-08-01 jeu. 19:27]
-** TODO Interrupteur
-** TODO Retirer le crepis
-** TODO Enduit de rebouchage
-** TODO Peindre
 * PENDING Salle d'eau [5/10]
 ** DONE Sous-couche cadre de porte
 CLOSED: [2013-07-30 mar. 21:51]
