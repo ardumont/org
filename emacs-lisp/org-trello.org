@@ -22,23 +22,15 @@ And here is the result: [[https://github.com/ardumont/org-trello][org-trello]], 
 
 * Demo!
 
-** Install org-trello
+** Synchronize one entity
 
-http://youtu.be/e3NzllAHbHY
-
-** Setup key and token
-
-http://youtu.be/ReUp1Wn5scc
+http://youtu.be/ILPs74L5LFU
 
 ** Setup org-mode file to work with one trello board
 
 http://youtu.be/2PT8K1HG-eY
 
-** Synchronize one entity
-
-http://youtu.be/ILPs74L5LFU
-
-** Synchronize one complete entity and move entity accordint to status
+** Synchronize one complete entity and move entity according to status
 
 http://youtu.be/H8DXm5BLaD0
 
@@ -46,13 +38,20 @@ http://youtu.be/H8DXm5BLaD0
 
 http://youtu.be/d6SATWzhQhs
 
+** Create board and sync
+
+http://youtu.be/6k4zRm6t8ZY
 ** Synchronize from trello to org-mode file
 
 http://youtu.be/-ldo8gvhaTY
 
-** Create board and sync
+** Install org-trello
 
-http://youtu.be/6k4zRm6t8ZY
+http://youtu.be/e3NzllAHbHY
+
+** Setup key and token
+
+http://youtu.be/ReUp1Wn5scc
 
 * Sources
 
