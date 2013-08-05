@@ -2,11 +2,12 @@
 #+author: Antoine R. Dumont
 #+STYLE: <SCRIPT SRC="/usr/share/jsmath/easy/load.js"></SCRIPT>
 
-* Declarative knowledge - "what is true"
+* Lecture 1A  - MIT 6.001 Structure and Interpretation, 1986
+** Declarative knowledge - "what is true"
 
 \( √x = y ⇔ ∃ y, 0 ≤ y, x = y^2 \)
 
-* Imperative knowledge - "how to"
+** Imperative knowledge - "how to"
 
 A method, a process.
 
@@ -15,12 +16,32 @@ Find an approximation of \( √ x \):
 - make a guess g
 - improve the guess by averaging g and \( \frac{x}{g} \)
 - keep improving the guess until it is good enough
-* LISP
-* Techniques for controlling complexity
-* Black box abstraction
-* Fixed point
+** LISP
+** Techniques for controlling complexity
+** Black box abstraction
+** Fixed point
 Fixed point of a function f is a value y, so that f(y)=y:
 - Start with a guess of y
 - keep applying f over and over until the result doesn't change very much
 
 Example: sqrt \( √ x \), find a fixed point of the function y (average y and \( \frac{x}{y} \) )
+
+* Lecture 1B  - MIT 6.001 Structure and Interpretation, 1986
+* Lecture 2A  - MIT 6.001 Structure and Interpretation, 1986
+* Lecture 2B  - MIT 6.001 Structure and Interpretation, 1986
+* Lecture 3A  - MIT 6.001 Structure and Interpretation, 1986
+* Lecture 3B  - MIT 6.001 Structure and Interpretation, 1986
+* Lecture 4A  - MIT 6.001 Structure and Interpretation, 1986
+* Lecture 4B  - MIT 6.001 Structure and Interpretation, 1986
+* Lecture 5A  - MIT 6.001 Structure and Interpretation, 1986
+* Lecture 5B  - MIT 6.001 Structure and Interpretation, 1986
+* Lecture 6A  - MIT 6.001 Structure and Interpretation, 1986
+* Lecture 6B  - MIT 6.001 Structure and Interpretation, 1986
+* Lecture 7A  - MIT 6.001 Structure and Interpretation, 1986
+* Lecture 7B  - MIT 6.001 Structure and Interpretation, 1986
+* Lecture 8A  - MIT 6.001 Structure and Interpretation, 1986
+* Lecture 8B  - MIT 6.001 Structure and Interpretation, 1986
+* Lecture 9A  - MIT 6.001 Structure and Interpretation, 1986
+* Lecture 9B  - MIT 6.001 Structure and Interpretation, 1986
+* Lecture 10A - MIT 6.001 Structure and Interpretation, 1986
+* Lecture 10B - MIT 6.001 Structure and Interpretation, 1986
