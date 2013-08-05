@@ -40,3 +40,11 @@ http://youtu.be/2OlmPMwtCAs
 * Sources
 
 [[https://github.com/ardumont/org-trello][source]]
+
+* Thanks
+
+Thanks to all contributors of issues!
+
+Please, keep the issues flowing!
+
+Also, [[https://help.github.com/articles/using-pull-requests][PR]] are welcome!
