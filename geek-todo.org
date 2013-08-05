@@ -999,15 +999,16 @@ CLOSED: [2013-04-19 ven. 22:39]
 **** TODO chapter 11
 *** TODO new
  http://www.dicosmo.org/CourseNotes/pfav/
-* TODO [[Http://riemann.io/index.html][riemann]] - monitors distributed systems
-* TODO [[http://www.docker.io/][docker]] - an open source project to pack, ship and run any application as a lightweight container
-* TODO [[http://www.packer.io/][packer]] - a tool for creating identical machine images for multiple platforms from a single source configuration.
-* TODO [[http://www.opscode.com/chef/][Chef]] - infrastructure automation and configuration management framework - infrastructure as code
+* IN-PROGRESS [[www.infoq.com/resource/minibooks/domain-driven-design-quickly/en/pdf/DomainDrivenDesignQuicklyOnline.pdf][DDD quickly]]
+* TODO Domain Driven Design
 * TODO Clojure data analysis cookbook
 * TODO Parallel and concurrent programming in haskell
 * TODO Structure and Interpretation of Computer Programs
 * TODO How to Design Programs: An Introduction to Programming and Computing
-* TODO Domain Driven Design
 * TODO The Little Schemer
 * TODO The Seasoned Schemer
 * TODO The Reasoned Schemer
+* TODO [[Http://riemann.io/index.html][riemann]] - monitors distributed systems
+* TODO [[http://www.docker.io/][docker]] - an open source project to pack, ship and run any application as a lightweight container
+* TODO [[http://www.packer.io/][packer]] - a tool for creating identical machine images for multiple platforms from a single source configuration.
+* TODO [[http://www.opscode.com/chef/][Chef]] - infrastructure automation and configuration management framework - infrastructure as code
