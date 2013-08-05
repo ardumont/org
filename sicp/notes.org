@@ -2,7 +2,8 @@
 #+author: Antoine R. Dumont
 #+STYLE: <SCRIPT SRC="/usr/share/jsmath/easy/load.js"></SCRIPT>
 
-* Lecture 1A  - MIT 6.001 Structure and Interpretation, 1986
+* DONE Lecture 1A  - MIT 6.001 Structure and Interpretation, 1986
+CLOSED: [2013-08-05 lun. 19:07]
 ** Declarative knowledge - "what is true"
 
 \( √x = y ⇔ ∃ y, 0 ≤ y, x = y^2 \)
@@ -26,22 +27,23 @@ Fixed point of a function f is a value y, so that f(y)=y:
 
 Example: sqrt \( √ x \), find a fixed point of the function y (average y and \( \frac{x}{y} \) )
 
-* Lecture 1B  - MIT 6.001 Structure and Interpretation, 1986
-* Lecture 2A  - MIT 6.001 Structure and Interpretation, 1986
-* Lecture 2B  - MIT 6.001 Structure and Interpretation, 1986
-* Lecture 3A  - MIT 6.001 Structure and Interpretation, 1986
-* Lecture 3B  - MIT 6.001 Structure and Interpretation, 1986
-* Lecture 4A  - MIT 6.001 Structure and Interpretation, 1986
-* Lecture 4B  - MIT 6.001 Structure and Interpretation, 1986
-* Lecture 5A  - MIT 6.001 Structure and Interpretation, 1986
-* Lecture 5B  - MIT 6.001 Structure and Interpretation, 1986
-* Lecture 6A  - MIT 6.001 Structure and Interpretation, 1986
-* Lecture 6B  - MIT 6.001 Structure and Interpretation, 1986
-* Lecture 7A  - MIT 6.001 Structure and Interpretation, 1986
-* Lecture 7B  - MIT 6.001 Structure and Interpretation, 1986
-* Lecture 8A  - MIT 6.001 Structure and Interpretation, 1986
-* Lecture 8B  - MIT 6.001 Structure and Interpretation, 1986
-* Lecture 9A  - MIT 6.001 Structure and Interpretation, 1986
-* Lecture 9B  - MIT 6.001 Structure and Interpretation, 1986
-* Lecture 10A - MIT 6.001 Structure and Interpretation, 1986
-* Lecture 10B - MIT 6.001 Structure and Interpretation, 1986
+* DONE Lecture 1B  - MIT 6.001 Structure and Interpretation, 1986
+CLOSED: [2013-08-05 lun. 19:07]
+* TODO Lecture 2A  - MIT 6.001 Structure and Interpretation, 1986
+* TODO Lecture 2B  - MIT 6.001 Structure and Interpretation, 1986
+* TODO Lecture 3A  - MIT 6.001 Structure and Interpretation, 1986
+* TODO Lecture 3B  - MIT 6.001 Structure and Interpretation, 1986
+* TODO Lecture 4A  - MIT 6.001 Structure and Interpretation, 1986
+* TODO Lecture 4B  - MIT 6.001 Structure and Interpretation, 1986
+* TODO Lecture 5A  - MIT 6.001 Structure and Interpretation, 1986
+* TODO Lecture 5B  - MIT 6.001 Structure and Interpretation, 1986
+* TODO Lecture 6A  - MIT 6.001 Structure and Interpretation, 1986
+* TODO Lecture 6B  - MIT 6.001 Structure and Interpretation, 1986
+* TODO Lecture 7A  - MIT 6.001 Structure and Interpretation, 1986
+* TODO Lecture 7B  - MIT 6.001 Structure and Interpretation, 1986
+* TODO Lecture 8A  - MIT 6.001 Structure and Interpretation, 1986
+* TODO Lecture 8B  - MIT 6.001 Structure and Interpretation, 1986
+* TODO Lecture 9A  - MIT 6.001 Structure and Interpretation, 1986
+* TODO Lecture 9B  - MIT 6.001 Structure and Interpretation, 1986
+* TODO Lecture 10A - MIT 6.001 Structure and Interpretation, 1986
+* TODO Lecture 10B - MIT 6.001 Structure and Interpretation, 1986
