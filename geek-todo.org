@@ -1012,3 +1012,4 @@ CLOSED: [2013-04-19 ven. 22:39]
 * TODO [[http://www.docker.io/][docker]] - an open source project to pack, ship and run any application as a lightweight container
 * TODO [[http://www.packer.io/][packer]] - a tool for creating identical machine images for multiple platforms from a single source configuration.
 * TODO [[http://www.opscode.com/chef/][Chef]] - infrastructure automation and configuration management framework - infrastructure as code
+* TODO coding challenge which computes the complexity  - http://codility.com/
