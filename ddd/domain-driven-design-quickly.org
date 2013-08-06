@@ -1,0 +1,93 @@
+#+title: Domain Driven Design Quickly
+#+author: Antoine R. Dumont
+
+source: http://www.infoq.com/resource/minibooks/domain-driven-design-quickly/en/pdf/DomainDrivenDesignQuicklyOnline.pdf
+
+Most of it is due to OOP!
+
+* Ubiquitous language
+- Represent the domain model
+- One-to-one mapping from the domain language and the technical language to represent an understandable model for everyone involved
+- Need to be crafted with the domain expert and the developers
+* Layer architecture - Presentation, Application, Domain, Infrastructure
+Each layer must be dependent of only the layer below and no other.
+
+** Entities (identity)
+- Domain object
+- possible internal state
+** Value objects (no identity)
+- immutable
+- stateless
+** Services
+- Verb/Action
+- Important behaviour of the domain which is cross-domain to many entities.
+- No internal state
+- encapsulate a concept
+- Act as interface which provide operations
+- permits a low degree of coupling between objects
+
+- 3 characteristics, operation performed by the service:
+  - refers to a domain concept which does not naturally belong to an entity or Value object
+  - refers to other objects of the domain
+  - is stateless
+- Service can belong to:
+  - domain layer: if the operation is about domain objects
+  - application layer
+
+** Modules
+- used as a method of organizing related concepts and tasks
+- to reduce complexity
+- understand relations between modules then understand the details inside the module
+- code quality
+- group highly related classes to provide maximum cohesion
+- communication cohesion: parts of the module operate on the same data
+- functional cohesion: all parts of the module work together to perform a well-defined task
+- should have well-defined interfaces which other module consume (to reduce the coupling)
+- Name of module must be part of the Ubiquitous language
+
+** Aggregates
+*** Properties
+- used to define object ownership and boundaries
+- deal with relations between objects
+  - pays off to reduce or remove relations from the model
+  - one-to-one
+  - one-to-many (one object -> One collection if possible)
+  - many-to-many (if bidirectional is optional, make it unidirectional, it simplifies the model)
+- enforce the invariant
+- invariant: rules which have to be maintained whenever data changes
+*** Definition
+Group of associated objects which are considered one unit with regard to data changes.
+Only the root element (entity) has access to such aggregates. It can update the aggregate.
+It enforces the invariant.
+** Factories
+- Encapsultate the process of complex object creation (entity, value object)
+- Deal with aggregate
+- Enforce the invariant creation
+- Atomic creation
+- if problem during creation, exception should be raised
+*** Factory method
+- contains and hide knowledge necessary to create another object
+*** Abstract factory
+*** Constructor
+Use when:
+- construction is not complicated
+- creation of an object does not involve the creation of others and all the attributes are passed via a constructor
+- the client is interested in the implementation
+- the class is the type. No hierarchy involved.
+
+** Repositories
+- Deal with object storage
+- Access to the storage facility
+- Abstract away the storage metadata
+- Strategy
+- Hold reference to objects
+* Refactoring
+- continuous
+- code
+- but also domain!
+- change in model must be reflected in code and vice-versa
+- breakthrough
+- banish implicit concept, they must be exposed!
+- Refactoring must improve and clarify everything
+- Reconcile contradictions
+- Specification (Constraint)
