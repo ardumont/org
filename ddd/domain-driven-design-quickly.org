@@ -95,3 +95,9 @@ Use when:
 * Preserving model integrity
 ** Bounded context
 ** Continuous integration
+*** Customer/supplier
+*** Conformist
+*** Anticorruption layer
+*** Separate ways
+*** Open Host service
+*** distillation
