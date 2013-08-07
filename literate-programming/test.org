@@ -1,0 +1,23 @@
+#+title: Literate programming's primer
+#+author: Antoine R. Dumont
+
+#+name: hello-world-prefix
+#+begin_src sh :exports none
+  echo "/-----------------------------------------------------------\\"
+#+end_src
+
+HTML export of code: In the Org-mode file
+
+#+name: hello-world-postfix
+#+begin_src sh :exports none
+  echo "\-----------------------------------------------------------/"
+#+end_src
+
+#+name: hello-world
+#+begin_src sh :tangle hello.sh :exports none :noweb yes
+  <<hello-world-prefix>>
+  echo "|                       hello world                         |"
+  <<hello-world-postfix>>
+#+end_src
+
+# <<hello-world()>>
