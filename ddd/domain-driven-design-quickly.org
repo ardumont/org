@@ -91,3 +91,7 @@ Use when:
 - Refactoring must improve and clarify everything
 - Reconcile contradictions
 - Specification (Constraint)
+
+* Preserving model integrity
+** Bounded context
+** Continuous integration
