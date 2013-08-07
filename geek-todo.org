@@ -614,6 +614,8 @@ CLOSED: [2013-06-04 mar. 20:29]
 ** PENDING Functional Approach in Haskell - Ch. 3 - The efficiency of functional programs
 ** DONE org-trello
 CLOSED: [2013-07-12 ven. 22:25]
+** DONE org-trello - new feature
+CLOSED: [2013-08-07 mer. 16:00]
 * PENDING Clojure [31%]
 ** DONE start [100%]
 CLOSED: [2012-04-21 Sat 18:18]
