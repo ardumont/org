@@ -140,7 +140,7 @@ CLOSED: [2013-08-04 dim. 19:42]
 ** DONE poignee porte cuisine/couloir
 CLOSED: [2013-08-04 dim. 19:42]
 ** TODO changer radiateur
-* IN-PROGRESS Couloir [39/41]
+* IN-PROGRESS Couloir [40/43]
 ** DONE Changer les portes de l'armoire
 Merci papy Claude
 ** DONE Retirer le papier peint du plafond
@@ -221,7 +221,10 @@ CLOSED: [2013-08-04 dim. 15:17]
 CLOSED: [2013-08-04 dim. 19:42]
 ** DONE poignee couloir/salon
 CLOSED: [2013-08-04 dim. 19:42]
-** TODO poignee couloir/buanderie
+** DONE poignee couloir/buanderie
+CLOSED: [2013-08-08 jeu. 20:34]
+** TODO Etagere
+** TODO Reconstruire meuble placard
 ** TODO changer radiateur
 * IN-PROGRESS Couloir du haut [28/29]
 ** DONE Retirer le crepis
