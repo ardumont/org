@@ -1,0 +1,56 @@
+#+title: guaranteed
+#+author: Eddie Vedder
+
+#+begin_src lilypond :file guaranteed-eddie-vedder.png :version 2.14.2
+symbols = {
+  <g g'> b, d | g g b d
+}
+
+\score {
+  <<
+  \new Staff {
+    \time 4/4
+    \clef "treble_8"
+    \symbols
+  }
+  \new TabStaff {
+    \time 4/4
+    \clef "treble_8"
+    \symbols
+  }
+  >>
+}
+#+end_src
+
+#+RESULTS:
+[[file:guaranteed-eddie-vedder.png]]
+
+on bended knee is no way to be free
+lifting up an empty cup, i ask silently
+all my destinations will accept the one that's me
+so i can breathe
+
+circles they grow and they swallow people whole
+half their lives they say goodnight to wives they'll never know
+a mind full of questions, and a teacher in my soul
+and so it goes
+
+don't come closer or i'll have to go
+holding me like gravity are places that pull
+if ever there was someone to keep me at home
+it would be you
+
+everyone i come across, in cages they bought
+they think of me and my wandering, but i'm never what they thought
+i've got my indignation, but i'm pure in all my thoughts
+i'm alive
+
+wind in my hair, i feel part of everywhere
+underneath my being is a road that disappeared
+late at night i hear the trees, they're singing with the dead
+overhead
+
+leave it to me as i find a way to be
+consider me a satellite, forever orbiting
+i knew all the rules, but the rules did not know me
+guaranteed
