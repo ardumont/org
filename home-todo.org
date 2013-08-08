@@ -42,7 +42,7 @@ CLOSED: [2013-07-21 dim. 10:51]
 CLOSED: [2013-07-21 dim. 10:51]
 ** DONE grosses pieces de verre
 CLOSED: [2013-04-11 jeu. 09:35]
-* DONE Chambre de Chloe [9/9]
+* DONE Chambre de Chloe [10/10]
 ** DONE Retirer le papier peint de la porte
 ** DONE Retirer le papier peint des armoires
 ** DONE Finalement remplacer les portes d'armoire
@@ -57,7 +57,9 @@ Merci Papy Claude
 Merci Papy Claude
 ** DONE Decoration
 Merci Chris
-* DONE Chambre de Theo [10/10]
+** DONE Poignee de porte
+CLOSED: [2013-08-08 jeu. 19:35]
+* DONE Chambre de Theo [11/11]
 ** DONE Retirer le papier peint de la porte
 ** DONE Retirer le papier peint des armoires
 ** DONE Finalement remplacer les portes d'armoire
@@ -76,6 +78,8 @@ Merci Papy Claude
 Merci Papy Claude
 ** DONE Decoration
 Merci Chris
+** DONE Poignee de porte
+CLOSED: [2013-08-08 jeu. 19:36]
 * IN-PROGRESS Cuisine [30/31]
 ** DONE Degager le vieux frigo
 ** DONE Refaire les prises de courant
@@ -308,10 +312,12 @@ CLOSED: [2013-07-31 mer. 13:19]
 CLOSED: [2013-08-01 jeu. 19:27]
 ** DONE Interrupteur
 CLOSED: [2013-08-04 dim. 15:18]
+** DONE Poignee de porte
+CLOSED: [2013-08-08 jeu. 19:35]
 ** TODO Retirer le crepis
 ** TODO Enduit de rebouchage
 ** TODO Peindre
-* IN-PROGRESS Chambre parentale [6/13]
+* IN-PROGRESS Chambre parentale [7/14]
 ** DONE Changer le siphon du lavabo
 CLOSED: [2013-04-11 jeu. 09:39]
 ** DONE Changer le robinet de la douche
@@ -324,6 +330,8 @@ CLOSED: [2013-07-31 mer. 13:21]
 CLOSED: [2013-08-01 jeu. 19:27]
 ** DONE Interrupteur
 CLOSED: [2013-08-04 dim. 15:18]
+** DONE Poignee de porte
+CLOSED: [2013-08-08 jeu. 19:35]
 ** TODO Retirer le crepis
 ** TODO Enduit de rebouchage
 ** TODO Enduit de lissage
@@ -331,7 +339,7 @@ CLOSED: [2013-08-04 dim. 15:18]
 ** TODO Passer la sous-couche.
 ** TODO Poser la toile de renovation
 ** TODO Poser le papier peint/Peindre
-* IN-PROGRESS Bureau [7/16]
+* IN-PROGRESS Bureau [8/17]
 ** DONE Enduit de rebouchage porte
 CLOSED: [2013-07-29 lun. 18:57]
 ** DONE Peindre la porte couche 1/2
@@ -346,6 +354,8 @@ CLOSED: [2013-08-01 jeu. 19:27]
 CLOSED: [2013-08-01 jeu. 19:28]
 ** DONE Interrupteur
 CLOSED: [2013-08-04 dim. 15:18]
+** DONE Poignee de porte
+CLOSED: [2013-08-08 jeu. 19:35]
 ** TODO Retirer le crepis
 ** TODO Enduit de rebouchage
 ** TODO Enduit de lissage
@@ -529,7 +539,7 @@ CLOSED: [2013-08-03 sam. 22:22]
 ** TODO Poser la toile de renovation
 ** TODO Poser le papier peint/Peindre
 ** TODO Faux-plafond
-* PENDING Salle d'eau [5/10]
+* PENDING Salle d'eau [6/11]
 ** DONE Sous-couche cadre de porte
 CLOSED: [2013-07-30 mar. 21:51]
 ** DONE Sous-couche porte
@@ -540,6 +550,8 @@ CLOSED: [2013-07-31 mer. 13:20]
 CLOSED: [2013-07-31 mer. 13:20]
 ** DONE Peindre cadre de porte 2/2
 CLOSED: [2013-08-01 jeu. 19:27]
+** DONE Poignee de porte
+CLOSED: [2013-08-08 jeu. 19:35]
 ** TODO Interrupteur
 ** TODO Retirer le crepis
 ** TODO Enduit de rebouchage
