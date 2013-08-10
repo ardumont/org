@@ -262,3 +262,10 @@ https://soundcloud.com/ardumont/lesson-3-assignment-3
 CLOSED: [2013-08-04 dim. 06:58]
 [[./img/intro_guitar_assign3_part4.png]]
 https://soundcloud.com/ardumont/lesson-3-assignment-4
+* IN-PROGRESS week 4 [0%]
+** IN-PROGRESS 4 - 1 - Position Playing (354)
+** TODO 4 - 2 - The Chromatic Scale on a Single String (729)
+** TODO 4 - 3 - The Chromatic Scale in First Position (806)
+** TODO 4 - 4 - The Chromatic Scale in Other Positions (920)
+** TODO 4 - 5 - Major Scales (929)
+** TODO 4 - 6 - More on Major Scales (657)
