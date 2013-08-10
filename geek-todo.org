@@ -1,269 +1,19 @@
 #+title: Self-organisation
 #+author: tony
 
-* DONE sh [100%]
-CLOSED: [2012-04-21 Sat 12:08]
-** DONE init
-CLOSED: [2012-04-21 Sat 12:21]
-** DONE cleanup
-CLOSED: [2012-04-21 Sat 17:47]
-* DONE stumpwm [100%]
-CLOSED: [2012-04-21 Sat 12:07]
-** DONE install
-CLOSED: [2012-04-21 Sat 12:07]
-** DONE setup
-CLOSED: [2012-04-21 Sat 12:07]
-
-** DONE Updating setup
-CLOSED: [2012-04-21 Sat 17:48]
-* DONE migrate blog [100%]
-CLOSED: [2012-12-30 dim. 15:37]
-** CANCELLED migrate tonys-blog with static and nakkaya [100%]
-CLOSED: [2012-12-23 Sun 13:12]
-*** DONE static [100%]
-CLOSED: [2012-04-21 Sat 12:48]
-**** DONE fork
-CLOSED: [2012-04-21 Sat 11:56]
-**** DONE clone
-CLOSED: [2012-04-21 Sat 11:56]
-**** DONE try and play with it
-CLOSED: [2012-04-19 Thu 11:56]
-*** CANCELLED nakkaya.com -> tonys-blog [80%]
-CLOSED: [2012-12-23 Sun 13:11]
-**** DONE fork
-CLOSED: [2012-04-21 Sat 11:57]
-**** DONE clone
-CLOSED: [2012-04-21 Sat 11:57]
-**** DONE migrate nakkaya.com with tonys-blog
-CLOSED: [2012-04-21 Sat 11:57]
-**** FAIL make it work completely
-CLOSED: [2012-04-21 Sat 12:56]
-The generating emacs-lisp to make emacs export the org-mode files into html does not work!
-**** TODO pb with the emacs generation
-Try and see what's not working
-**** Finish the migration
-** DONE org2blog [100%]
-CLOSED: [2012-12-30 dim. 15:37]
-*** DONE Setup org2blog to be able to edit org-mode file and then push them to wordpress.
-CLOSED: [2012-12-23 Sun 13:12]
-*** DONE publish/sync english articles to wordpress using org2blog [100%]
-CLOSED: [2012-12-23 Sun 13:17]
-**** DONE http://adumont.fr/blog/howto-install-stumpwm-and-little-more/
-CLOSED: [2012-12-23 Sun 13:16]
-**** DONE http://adumont.fr/blog/howto-beamer-with-org-mode/
-CLOSED: [2012-12-23 Sun 13:16]
-**** DONE http://adumont.fr/blog/how-to-install-emacs-24/
-CLOSED: [2012-12-23 Sun 13:16]
-**** DONE http://adumont.fr/blog/how-to-install-the-clojure-development-environment/
-CLOSED: [2012-12-23 Sun 13:17]
-**** DONE http://adumont.fr/blog/how-to-boostrap-a-clojure-project/
-CLOSED: [2012-12-23 Sun 13:17]
-**** DONE http://adumont.fr/blog/one-way-to-solve-a-problem-in-clojure/
-CLOSED: [2012-12-23 Sun 13:17]
-**** DONE http://adumont.fr/blog/my-first-steps-with-arduinoclodiuno/
-CLOSED: [2012-12-23 Sun 13:17]
-**** DONE http://adumont.fr/blog/clodiuno-command-a-led-from-the-repl/
-CLOSED: [2012-12-23 Sun 13:17]
-**** DONE http://adumont.fr/blog/hello-world-in-morse-with-arduinoclodiuno/
-CLOSED: [2012-12-23 Sun 13:17]
-**** DONE http://adumont.fr/blog/video-rich-hikey-are-we-there-yet/
-CLOSED: [2012-12-23 Sun 13:17]
-**** DONE http://adumont.fr/blog/possible-team-workflow-with-git/
-CLOSED: [2012-12-23 Sun 13:17]
-* DONE Modifying theme [100%]
-CLOSED: [2013-01-01 mar. 20:10]
-** DONE find one
-CLOSED: [2013-01-01 mar. 20:09]
-** DONE setup it
-CLOSED: [2013-01-01 mar. 20:09]
-** DONE licence CC-SA
-CLOSED: [2013-01-01 mar. 20:10]
-** DONE ok with mobile
-CLOSED: [2013-01-01 mar. 20:10]
-* DONE emacs-live [100%]
-CLOSED: [2013-04-15 lun. 21:12]
-** DONE merge starter-kit and emacs-live's init.el
-CLOSED: [2013-04-15 lun. 19:59]
-** DONE Use emacs-live and the tony branch to develop my own emacs-live packs
-CLOSED: [2013-04-15 lun. 20:00]
-** DONE Separate my packs from emacs-live's own
-CLOSED: [2013-04-15 lun. 20:00]
-** DONE Create git repositories for each pack [100%]
-CLOSED: [2013-04-15 lun. 21:12]
-*** DONE blog-pack
-CLOSED: [2013-04-15 lun. 20:02]
-*** DONE buffer-pack
-CLOSED: [2013-04-15 lun. 20:02]
-*** DONE install-packages-pack
-CLOSED: [2013-04-15 lun. 21:11]
-*** DONE user-pack
-CLOSED: [2013-04-15 lun. 21:12]
-*** DONE haskell-pack
-CLOSED: [2013-04-15 lun. 21:12]
-*** DONE orgmode-pack
-CLOSED: [2013-04-15 lun. 21:12]
-*** DONE lisp-pack
-CLOSED: [2013-04-15 lun. 21:12]
-*** DONE git-pack
-CLOSED: [2013-04-15 lun. 21:12]
-*** DONE mail-pack
-CLOSED: [2013-04-15 lun. 21:12]
-*** DONE shell-pack
-CLOSED: [2013-04-15 lun. 21:12]
-*** DONE browser-pack
-CLOSED: [2013-04-15 lun. 21:12]
-*** DONE chat-pack
-CLOSED: [2013-04-15 lun. 21:12]
-*** DONE clojure-pack
-CLOSED: [2013-04-15 lun. 21:12]
-*** DONE nrepl-pack
-CLOSED: [2013-04-15 lun. 21:12]
-*** DONE clojurescript-pack
-CLOSED: [2013-04-15 lun. 21:12]
-*** DONE caml-pack
-CLOSED: [2013-04-15 lun. 21:12]
-
-** DONE adding all packs as git submodules to emacs-live-packs
-CLOSED: [2013-04-15 lun. 21:12]
-* DONE curriculum [100%]
-CLOSED: [2013-04-19 ven. 22:40]
-** DONE update blog
-CLOSED: [2013-04-07 dim. 12:56]
-** DONE create a curriculum site in clojurescript
-CLOSED: [2013-04-07 dim. 11:54]
-https://github.com/ardumont/glowing-octo-archer.git
-
-** DONE make it printable
-CLOSED: [2013-04-07 dim. 11:54]
-
-** DONE deploy it
-CLOSED: [2013-04-07 dim. 12:28]
-find how to deploy clojurescript app
-
-At the moment deploying via sftp.
-
-http://adumont.fr/cv/curriculum-app.html
-
-** DONE make links to it from everywhere (gravatar, linkedin, viadeo, blog, etc...) [100%]
-CLOSED: [2013-04-07 dim. 12:56]
-*** DONE blog
-CLOSED: [2013-04-07 dim. 12:30]
-http://adumont.fr/blog/about/ the link "my resume" is updated.
-*** DONE gravatar
-CLOSED: [2013-04-07 dim. 12:46]
-*** DONE linkedin
-CLOSED: [2013-04-07 dim. 12:56]
-*** DONE viadeo
-CLOSED: [2013-04-07 dim. 12:56]
-** DONE find old cv used for sfeir
-CLOSED: [2013-04-07 dim. 13:05]
-** DONE update cv according to those
-CLOSED: [2013-04-19 ven. 22:40]* PENDING org-mode [80%]
-** DONE Howto install it?
-CLOSED: [2012-04-21 Sat 11:58]
-see =~/bin/setup-emacs24.sh= (in the init.el, there is some emacs-lisp that launches the install of different modes,
-including org)
-** DONE basics
-CLOSED: [2012-04-21 Sat 11:58]
-** DONE How to add some keywords (FAIL, PENDING, etc...)
-CLOSED: [2012-04-21 Sat 12:29]
-2 solutions:
-- per file:
-Add a line at the beginning of the file like this
-#+BEGIN_SRC org
-\#+TODO: TODO PENDING | FAIL DONE DELEGATED CANCELLED
-#+END_SRC
-then =C-c C-c= to reload the file in org-mode.
-
-[[http://orgmode.org/manual/Per_002dfile-keywords.html]]
-
-- global to org-mode:
-
-Add this to your ~/.emacs.d/init.el
-#+BEGIN_SRC emacs-lisp
-     (setq org-todo-keywords
-       '((sequence "TODO" "PENDING" "|" "DONE" "FAIL" "DELEGATED" "CANCELLED")))
-#+END_SRC
-
-** DONE Add this in the emacs setup.
-CLOSED: [2012-04-21 Sat 12:31]
-** TODO org-babel [66%]
-*** DONE intro [100%]
-CLOSED: [2012-04-22 Sun 10:33]
-http://orgmode.org/worg/org-contrib/babel/intro.html
-**** DONE Introduction
-CLOSED: [2012-04-22 Sun 10:12]
-- can be used as a meta programming language
-- ultimate litterate programming tools
-- one result of a function in a language can be passed to another language block
-**** DONE Overview
-CLOSED: [2012-04-22 Sun 10:14]
-**** DONE Initial Configuration
-CLOSED: [2012-04-22 Sun 10:14]
-**** DONE Code Blocks [100%]
-CLOSED: [2012-04-22 Sun 10:14]
-***** DONE Code Blocks in Org
-CLOSED: [2012-04-22 Sun 10:15]
-***** DONE Code Blocks in Babel
-CLOSED: [2012-04-22 Sun 10:14]
-**** DONE Source Code Execution [100%]
-CLOSED: [2012-04-22 Sun 10:16]
-***** DONE Capturing the Results of Code Evaluation
-CLOSED: [2012-04-22 Sun 10:15]
-***** DONE Session-based Evaluation
-CLOSED: [2012-04-22 Sun 10:15]
-***** DONE Arguments to Code Blocks
-CLOSED: [2012-04-22 Sun 10:15]
-***** DONE In-line Code Blocks
-CLOSED: [2012-04-22 Sun 10:15]
-***** DONE Code Block Body Expansion
-CLOSED: [2012-04-22 Sun 10:15]
-***** DONE A Meta-programming Language for Org-mode
-CLOSED: [2012-04-22 Sun 10:16]
-**** DONE Using Code Blocks in Org Tables
-CLOSED: [2012-04-22 Sun 10:32]
-**** DONE The Library of Babel
-CLOSED: [2012-04-22 Sun 10:32]
-**** DONE Literate Programming
-CLOSED: [2012-04-22 Sun 10:32]
-**** DONE Reproducible Research
-CLOSED: [2012-04-22 Sun 10:33]
-Not only the thesis but everything that make all the research reproducible.
-*** DONE org-babel, a sample of its power
-CLOSED: [2012-04-22 Sun 10:14]
-
-Add an input table.
-#+tblname: fibonacci-inputs
-| 1 | 2 | 3 | 4 |  5 |  6 |  7 |  8 |  9 | 10 |
-| 2 | 4 | 6 | 8 | 10 | 12 | 14 | 16 | 18 | 20 |
-
-Create a block of code that takes the previous table as input
-#+name: fibonacci-seq(fib-inputs=fibonacci-inputs)
-#+BEGIN_SRC emacs-lisp
-  (defun fibonacci (n)
-    (if (or (= n 0) (= n 1))
-        n
-      (+ (fibonacci (- n 1)) (fibonacci (- n 2)))))
-
-  (mapcar (lambda (row)
-            (mapcar #'fibonacci row)) fib-inputs)
-#+END_SRC
-
-*Note*:
-=C-c C-o= will open another buffer with the result in it.
-
-Hit =C-c C-c= to launch the evaluationm and then, this result table is generated
-#+RESULTS: fibonacci-seq
-| 1 | 1 | 2 |  3 |  5 |   8 |  13 |  21 |   34 |   55 |
-| 1 | 3 | 8 | 21 | 55 | 144 | 377 | 987 | 2584 | 6765 |
-
-CLOSED: [2012-04-22 Sun 11:13]
-#+name: directories
-#+BEGIN_SRC sh :results replace
-  cd ~ && du -sc * |grep -v total
-#+END_SRC
-Need some setup.
-*** IN-PROGRESS setup it to have access to different languages
+* TODO Domain Driven Design
+* TODO Clojure data analysis cookbook
+* TODO Parallel and concurrent programming in haskell
+* TODO Structure and Interpretation of Computer Programs
+* TODO How to Design Programs: An Introduction to Programming and Computing
+* TODO The Little Schemer
+* TODO The Seasoned Schemer
+* TODO The Reasoned Schemer
+* TODO [[Http://riemann.io/index.html][riemann]] - monitors distributed systems
+* TODO [[http://www.docker.io/][docker]] - an open source project to pack, ship and run any application as a lightweight container
+* TODO [[http://www.packer.io/][packer]] - a tool for creating identical machine images for multiple platforms from a single source configuration.
+* TODO [[http://www.opscode.com/chef/][Chef]] - infrastructure automation and configuration management framework - infrastructure as code
+* TODO coding challenge which computes the complexity  - http://codility.com/
 * IN-PROGRESS org-trello [100%]
 minor mode to sync trello and org-mode
 ** DONE v0.0.1
@@ -1005,17 +755,268 @@ CLOSED: [2013-04-19 ven. 22:39]
 **** TODO chapter 11
 *** TODO new
  http://www.dicosmo.org/CourseNotes/pfav/
-* IN-PROGRESS [[www.infoq.com/resource/minibooks/domain-driven-design-quickly/en/pdf/DomainDrivenDesignQuicklyOnline.pdf][DDD quickly]]
-* TODO Domain Driven Design
-* TODO Clojure data analysis cookbook
-* TODO Parallel and concurrent programming in haskell
-* TODO Structure and Interpretation of Computer Programs
-* TODO How to Design Programs: An Introduction to Programming and Computing
-* TODO The Little Schemer
-* TODO The Seasoned Schemer
-* TODO The Reasoned Schemer
-* TODO [[Http://riemann.io/index.html][riemann]] - monitors distributed systems
-* TODO [[http://www.docker.io/][docker]] - an open source project to pack, ship and run any application as a lightweight container
-* TODO [[http://www.packer.io/][packer]] - a tool for creating identical machine images for multiple platforms from a single source configuration.
-* TODO [[http://www.opscode.com/chef/][Chef]] - infrastructure automation and configuration management framework - infrastructure as code
-* TODO coding challenge which computes the complexity  - http://codility.com/
+* DONE sh [100%]
+CLOSED: [2012-04-21 Sat 12:08]
+** DONE init
+CLOSED: [2012-04-21 Sat 12:21]
+** DONE cleanup
+CLOSED: [2012-04-21 Sat 17:47]
+* DONE stumpwm [100%]
+CLOSED: [2012-04-21 Sat 12:07]
+** DONE install
+CLOSED: [2012-04-21 Sat 12:07]
+** DONE setup
+CLOSED: [2012-04-21 Sat 12:07]
+
+** DONE Updating setup
+CLOSED: [2012-04-21 Sat 17:48]
+* DONE migrate blog [100%]
+CLOSED: [2012-12-30 dim. 15:37]
+** CANCELLED migrate tonys-blog with static and nakkaya [100%]
+CLOSED: [2012-12-23 Sun 13:12]
+*** DONE static [100%]
+CLOSED: [2012-04-21 Sat 12:48]
+**** DONE fork
+CLOSED: [2012-04-21 Sat 11:56]
+**** DONE clone
+CLOSED: [2012-04-21 Sat 11:56]
+**** DONE try and play with it
+CLOSED: [2012-04-19 Thu 11:56]
+*** CANCELLED nakkaya.com -> tonys-blog [80%]
+CLOSED: [2012-12-23 Sun 13:11]
+**** DONE fork
+CLOSED: [2012-04-21 Sat 11:57]
+**** DONE clone
+CLOSED: [2012-04-21 Sat 11:57]
+**** DONE migrate nakkaya.com with tonys-blog
+CLOSED: [2012-04-21 Sat 11:57]
+**** FAIL make it work completely
+CLOSED: [2012-04-21 Sat 12:56]
+The generating emacs-lisp to make emacs export the org-mode files into html does not work!
+**** TODO pb with the emacs generation
+Try and see what's not working
+**** Finish the migration
+** DONE org2blog [100%]
+CLOSED: [2012-12-30 dim. 15:37]
+*** DONE Setup org2blog to be able to edit org-mode file and then push them to wordpress.
+CLOSED: [2012-12-23 Sun 13:12]
+*** DONE publish/sync english articles to wordpress using org2blog [100%]
+CLOSED: [2012-12-23 Sun 13:17]
+**** DONE http://adumont.fr/blog/howto-install-stumpwm-and-little-more/
+CLOSED: [2012-12-23 Sun 13:16]
+**** DONE http://adumont.fr/blog/howto-beamer-with-org-mode/
+CLOSED: [2012-12-23 Sun 13:16]
+**** DONE http://adumont.fr/blog/how-to-install-emacs-24/
+CLOSED: [2012-12-23 Sun 13:16]
+**** DONE http://adumont.fr/blog/how-to-install-the-clojure-development-environment/
+CLOSED: [2012-12-23 Sun 13:17]
+**** DONE http://adumont.fr/blog/how-to-boostrap-a-clojure-project/
+CLOSED: [2012-12-23 Sun 13:17]
+**** DONE http://adumont.fr/blog/one-way-to-solve-a-problem-in-clojure/
+CLOSED: [2012-12-23 Sun 13:17]
+**** DONE http://adumont.fr/blog/my-first-steps-with-arduinoclodiuno/
+CLOSED: [2012-12-23 Sun 13:17]
+**** DONE http://adumont.fr/blog/clodiuno-command-a-led-from-the-repl/
+CLOSED: [2012-12-23 Sun 13:17]
+**** DONE http://adumont.fr/blog/hello-world-in-morse-with-arduinoclodiuno/
+CLOSED: [2012-12-23 Sun 13:17]
+**** DONE http://adumont.fr/blog/video-rich-hikey-are-we-there-yet/
+CLOSED: [2012-12-23 Sun 13:17]
+**** DONE http://adumont.fr/blog/possible-team-workflow-with-git/
+CLOSED: [2012-12-23 Sun 13:17]
+* DONE Modifying theme [100%]
+CLOSED: [2013-01-01 mar. 20:10]
+** DONE find one
+CLOSED: [2013-01-01 mar. 20:09]
+** DONE setup it
+CLOSED: [2013-01-01 mar. 20:09]
+** DONE licence CC-SA
+CLOSED: [2013-01-01 mar. 20:10]
+** DONE ok with mobile
+CLOSED: [2013-01-01 mar. 20:10]
+* DONE emacs-live [100%]
+CLOSED: [2013-04-15 lun. 21:12]
+** DONE merge starter-kit and emacs-live's init.el
+CLOSED: [2013-04-15 lun. 19:59]
+** DONE Use emacs-live and the tony branch to develop my own emacs-live packs
+CLOSED: [2013-04-15 lun. 20:00]
+** DONE Separate my packs from emacs-live's own
+CLOSED: [2013-04-15 lun. 20:00]
+** DONE Create git repositories for each pack [100%]
+CLOSED: [2013-04-15 lun. 21:12]
+*** DONE blog-pack
+CLOSED: [2013-04-15 lun. 20:02]
+*** DONE buffer-pack
+CLOSED: [2013-04-15 lun. 20:02]
+*** DONE install-packages-pack
+CLOSED: [2013-04-15 lun. 21:11]
+*** DONE user-pack
+CLOSED: [2013-04-15 lun. 21:12]
+*** DONE haskell-pack
+CLOSED: [2013-04-15 lun. 21:12]
+*** DONE orgmode-pack
+CLOSED: [2013-04-15 lun. 21:12]
+*** DONE lisp-pack
+CLOSED: [2013-04-15 lun. 21:12]
+*** DONE git-pack
+CLOSED: [2013-04-15 lun. 21:12]
+*** DONE mail-pack
+CLOSED: [2013-04-15 lun. 21:12]
+*** DONE shell-pack
+CLOSED: [2013-04-15 lun. 21:12]
+*** DONE browser-pack
+CLOSED: [2013-04-15 lun. 21:12]
+*** DONE chat-pack
+CLOSED: [2013-04-15 lun. 21:12]
+*** DONE clojure-pack
+CLOSED: [2013-04-15 lun. 21:12]
+*** DONE nrepl-pack
+CLOSED: [2013-04-15 lun. 21:12]
+*** DONE clojurescript-pack
+CLOSED: [2013-04-15 lun. 21:12]
+*** DONE caml-pack
+CLOSED: [2013-04-15 lun. 21:12]
+
+** DONE adding all packs as git submodules to emacs-live-packs
+CLOSED: [2013-04-15 lun. 21:12]
+* DONE curriculum [100%]
+CLOSED: [2013-04-19 ven. 22:40]
+** DONE update blog
+CLOSED: [2013-04-07 dim. 12:56]
+** DONE create a curriculum site in clojurescript
+CLOSED: [2013-04-07 dim. 11:54]
+https://github.com/ardumont/glowing-octo-archer.git
+
+** DONE make it printable
+CLOSED: [2013-04-07 dim. 11:54]
+
+** DONE deploy it
+CLOSED: [2013-04-07 dim. 12:28]
+find how to deploy clojurescript app
+
+At the moment deploying via sftp.
+
+http://adumont.fr/cv/curriculum-app.html
+
+** DONE make links to it from everywhere (gravatar, linkedin, viadeo, blog, etc...) [100%]
+CLOSED: [2013-04-07 dim. 12:56]
+*** DONE blog
+CLOSED: [2013-04-07 dim. 12:30]
+http://adumont.fr/blog/about/ the link "my resume" is updated.
+*** DONE gravatar
+CLOSED: [2013-04-07 dim. 12:46]
+*** DONE linkedin
+CLOSED: [2013-04-07 dim. 12:56]
+*** DONE viadeo
+CLOSED: [2013-04-07 dim. 12:56]
+** DONE find old cv used for sfeir
+CLOSED: [2013-04-07 dim. 13:05]
+** DONE update cv according to those
+CLOSED: [2013-04-19 ven. 22:40]* PENDING org-mode [80%]
+** DONE Howto install it?
+CLOSED: [2012-04-21 Sat 11:58]
+see =~/bin/setup-emacs24.sh= (in the init.el, there is some emacs-lisp that launches the install of different modes,
+including org)
+** DONE basics
+CLOSED: [2012-04-21 Sat 11:58]
+** DONE How to add some keywords (FAIL, PENDING, etc...)
+CLOSED: [2012-04-21 Sat 12:29]
+2 solutions:
+- per file:
+Add a line at the beginning of the file like this
+#+BEGIN_SRC org
+\#+TODO: TODO PENDING | FAIL DONE DELEGATED CANCELLED
+#+END_SRC
+then =C-c C-c= to reload the file in org-mode.
+
+[[http://orgmode.org/manual/Per_002dfile-keywords.html]]
+
+- global to org-mode:
+
+Add this to your ~/.emacs.d/init.el
+#+BEGIN_SRC emacs-lisp
+     (setq org-todo-keywords
+       '((sequence "TODO" "PENDING" "|" "DONE" "FAIL" "DELEGATED" "CANCELLED")))
+#+END_SRC
+
+** DONE Add this in the emacs setup.
+CLOSED: [2012-04-21 Sat 12:31]
+** TODO org-babel [66%]
+*** DONE intro [100%]
+CLOSED: [2012-04-22 Sun 10:33]
+http://orgmode.org/worg/org-contrib/babel/intro.html
+**** DONE Introduction
+CLOSED: [2012-04-22 Sun 10:12]
+- can be used as a meta programming language
+- ultimate litterate programming tools
+- one result of a function in a language can be passed to another language block
+**** DONE Overview
+CLOSED: [2012-04-22 Sun 10:14]
+**** DONE Initial Configuration
+CLOSED: [2012-04-22 Sun 10:14]
+**** DONE Code Blocks [100%]
+CLOSED: [2012-04-22 Sun 10:14]
+***** DONE Code Blocks in Org
+CLOSED: [2012-04-22 Sun 10:15]
+***** DONE Code Blocks in Babel
+CLOSED: [2012-04-22 Sun 10:14]
+**** DONE Source Code Execution [100%]
+CLOSED: [2012-04-22 Sun 10:16]
+***** DONE Capturing the Results of Code Evaluation
+CLOSED: [2012-04-22 Sun 10:15]
+***** DONE Session-based Evaluation
+CLOSED: [2012-04-22 Sun 10:15]
+***** DONE Arguments to Code Blocks
+CLOSED: [2012-04-22 Sun 10:15]
+***** DONE In-line Code Blocks
+CLOSED: [2012-04-22 Sun 10:15]
+***** DONE Code Block Body Expansion
+CLOSED: [2012-04-22 Sun 10:15]
+***** DONE A Meta-programming Language for Org-mode
+CLOSED: [2012-04-22 Sun 10:16]
+**** DONE Using Code Blocks in Org Tables
+CLOSED: [2012-04-22 Sun 10:32]
+**** DONE The Library of Babel
+CLOSED: [2012-04-22 Sun 10:32]
+**** DONE Literate Programming
+CLOSED: [2012-04-22 Sun 10:32]
+**** DONE Reproducible Research
+CLOSED: [2012-04-22 Sun 10:33]
+Not only the thesis but everything that make all the research reproducible.
+*** DONE org-babel, a sample of its power
+CLOSED: [2012-04-22 Sun 10:14]
+
+Add an input table.
+#+tblname: fibonacci-inputs
+| 1 | 2 | 3 | 4 |  5 |  6 |  7 |  8 |  9 | 10 |
+| 2 | 4 | 6 | 8 | 10 | 12 | 14 | 16 | 18 | 20 |
+
+Create a block of code that takes the previous table as input
+#+name: fibonacci-seq(fib-inputs=fibonacci-inputs)
+#+BEGIN_SRC emacs-lisp
+  (defun fibonacci (n)
+    (if (or (= n 0) (= n 1))
+        n
+      (+ (fibonacci (- n 1)) (fibonacci (- n 2)))))
+
+  (mapcar (lambda (row)
+            (mapcar #'fibonacci row)) fib-inputs)
+#+END_SRC
+
+*Note*:
+=C-c C-o= will open another buffer with the result in it.
+
+Hit =C-c C-c= to launch the evaluationm and then, this result table is generated
+#+RESULTS: fibonacci-seq
+| 1 | 1 | 2 |  3 |  5 |   8 |  13 |  21 |   34 |   55 |
+| 1 | 3 | 8 | 21 | 55 | 144 | 377 | 987 | 2584 | 6765 |
+
+CLOSED: [2012-04-22 Sun 11:13]
+#+name: directories
+#+BEGIN_SRC sh :results replace
+  cd ~ && du -sc * |grep -v total
+#+END_SRC
+Need some setup.
+*** IN-PROGRESS setup it to have access to different languages
+* DONE [[www.infoq.com/resource/minibooks/domain-driven-design-quickly/en/pdf/DomainDrivenDesignQuicklyOnline.pdf][DDD quickly]]
+CLOSED: [2013-08-10 sam. 10:31]
