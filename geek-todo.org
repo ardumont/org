@@ -15,7 +15,7 @@
 * TODO coding challenge which computes the complexity  - http://codility.com/
 * TODO Structure and Interpretation of Computer Programs
 * IN-PROGRESS Structure and Interpretation of Computer Programs (video courses)
-* IN-PROGRESS org-trello [92%]
+* IN-PROGRESS org-trello [93%]
 minor mode to sync trello and org-mode
 ** DONE v0.0.1
 CLOSED: [2013-07-07 dim. 09:58]
@@ -45,7 +45,9 @@ CLOSED: [2013-07-31 mer. 02:37]
 CLOSED: [2013-08-07 mer. 15:59]
 ** DONE 0.1.0
 CLOSED: [2013-08-07 mer. 15:59]
-** IN-PROGRESS 0.1.1
+** DONE 0.1.1
+CLOSED: [2013-08-11 dim. 13:52]
+** IN-PROGRESS 0.1.2
 * IN-PROGRESS Emacs [100%]
 ** DONE install
 CLOSED: [2012-04-21 Sat 12:02]
