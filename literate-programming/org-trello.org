@@ -1,5 +1,11 @@
+#+BLOG: tony-blog
+#+POSTID: 1289
+#+DATE: [2013-08-11 dim. 14:28]
 #+title: Literate org-trello
 #+author: Antoine R. Dumont
+#+CATEGORY: literate-programming, org-mode, org-trello, emacs, emacs-lisp
+#+TAGS: literate-programming, org-mode, org-trello, emacs, emacs-lisp
+#+DESCRIPTION: literate org-trello tryout
 
 To help improving the maintenance of [[http://ardumont.github.io/org-trello/][org-trello]], we will describe it using [[https://en.wikipedia.org/wiki/Literate_programming][literate programming]].
 For this, we will use [[http://orgmode.org/][org-mode]] and [[http://orgmode.org/worg/org-contrib/babel/intro.html][babel]].
@@ -2915,3 +2921,8 @@ Now let's generate the full code.
 <<org-trello-minor-mode>>
 <<org-trello-provide>>
 #+end_src
+
+* Source
+
+Project: http://ardumont.github.io/org-trello/
+source: [[https://github.com/ardumont/org-trello/blob/master/org-trello.org][org-trello.org]]
