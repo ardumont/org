@@ -1,0 +1,214 @@
+#+title: Questions regarding elnode errors
+#+author: Antoine R. Dumont
+
+Hi,
+
+# context
+
+I am developing org-trello, a minor mode to synchronize between [org-mode](https://github.com/ardumont/org-trello) and [trello](http://trello.com) (through their public API).
+At the moment, all of this is coupled and synchronous (thus blocking emacs for batch sync -- `evil`). The query is built and sent to trello for it to satisfy.
+
+# evolution
+
+I am working on an evolution involving elnode as a `proxy`.
+I kept the same functionality as above but now the idea is to enrich and wrap the query built for trello (with data org needs but trello does not care) and send it to the proxy.
+The proxy unwraps the query and send the query to trello.
+When trello answers, the proxy enrichs the response and bounce it to the client.
+
+This has advantages:
+- evolutivity
+- I can avoid some actual hack regarding marker on the buffer (I can enrich the query with the position and the buffer I want to update)
+- more importantly, I can now exploit some concurrence (this has its own difficulties though :D)
+
+# current state of affairs
+
+Anyway, I succeeded mostly for some basic synchronization but I got some elnode errors that keep poping-up during the process.
+I do not understand those errors as everything seems to work.
+
+Here is some *Message* buffer sample:
+
+```lisp
+elnode-error: filter: handler returned on *elnode-webserver-proc*<1> <127.0.0.1:46186>
+Request to trello server to wrap: #s(hash-table size 65 test equal rehash-size 1.5 rehash-threshold 0.8 data (:method "PUT" :uri "/cards/51e7e60bd23ccba35c00a588" :params (("name" . "yet another fail") ("idList" . "51e538a89c05f1e25c0027c6")) :position 5658 :buffername "TODO-tests.org"))
+Request to proxy wrapped: #s(hash-table size 65 test equal rehash-size 1.5 rehash-threshold 0.8 data (:method "POST" :uri "/" :params #s(hash-table size 65 test equal rehash-size 1.5 rehash-threshold 0.8 data (:method "PUT" :uri "/cards/51e7e60bd23ccba35c00a588" :params (("name" . "yet another fail") ("idList" . "51e538a89c05f1e25c0027c6")) :position 5658 :buffername "TODO-tests.org"))))
+elnode-error: elnode--sentinel 'open from 127.0.0.1.' for process  *elnode-webserver-proc*<1> <127.0.0.1:46188> with buffer nil
+elnode-error: Elnode status: *elnode-webserver-proc*<1> <127.0.0.1:46188> open from 127.0.0.1
+elnode-error: filter: calling handler on *elnode-webserver-proc*<1> <127.0.0.1:46188>
+Proxy server: params -> #<process *elnode-webserver-proc*<1> <127.0.0.1:46188>>
+Blocking call to accept-process-output with quit inhibited!! [2 times]
+callback post/put/delete: ((url . "https://trello.com/c/pwwSdcg0/45-yet-another-fail") (pos . 65535) (name . "yet another fail") (labels . []) (manualCoverAttachment . :json-false) (idAttachmentCover) (idShort . 45) (idMembers . []) (idList . "51e538a89c05f1e25c0027c6") (idChecklists . []) (idBoard . "51d99bbc1e1d8988390047f2") (due) (desc . "") (dateLastActivity . "2013-08-13T23:44:24.347Z") (closed . :json-false) (checkItemStates . []) (badges (due) (description . :json-false) (attachments . 0) (comments . 0) (checkItemsChecked . 0) (checkItems . 0) (fogbugz . "") (subscribed . :json-false) (viewingMemberVoted . :json-false) (votes . 0)) (id . "51e7e60bd23ccba35c00a588")) - position: 5658
+Responding to the proxy's client with ((id . "51e7e60bd23ccba35c00a588") (position . 5658) (buffername . "TODO-tests.org"))
+elnode-error: starting HTTP response on *elnode-webserver-proc*<1> <127.0.0.1:46188>
+elnode-error: elnode--process-send-eof on *elnode-webserver-proc*<1> <127.0.0.1:46188>
+elnode-error: elnode--http-end ending socket *elnode-webserver-proc*<1> <127.0.0.1:46188>
+elnode-error: elnode--sentinel 'deleted.' for process  *elnode-webserver-proc*<1> <127.0.0.1:46188> with buffer  *elnode-request-46188*
+elnode-error: Elnode status: *elnode-webserver-proc*<1> <127.0.0.1:46188> deleted
+orgtrello-query/--update-entity-id-to-buffer-callback: ((buffername . "TODO-tests.org") (position . 5658) (id . "51e7e60bd23ccba35c00a588")) - pos 51e7e60bd23ccba35c00a588 - id 5658
+TRACE: :entry-meta: #s(hash-table size 65 test equal rehash-size 1.5 rehash-threshold 0.8 data (:buffername "TODO-tests.org" :position 5658 :level 1 :keyword "DELEGATED" :title "yet another fail" :id "51e7e60bd23ccba35c00a588" :due nil))
+TRACE: :already-present-id: "51e7e60bd23ccba35c00a588"
+TRACE: :current-name: "yet another fail"
+Entity 'yet another fail' synced with id '51e7e60bd23ccba35c00a588'
+elnode-error: filter: handler returned on *elnode-webserver-proc*<1> <127.0.0.1:46188>
+Request to trello server to wrap: #s(hash-table size 65 test equal rehash-size 1.5 rehash-threshold 0.8 data (:method "PUT" :uri "/cards/51ffe96c32c0ac5e59000850" :params (("name" . "cancelled task") ("idList" . "51e538e6c7a68fa0510014ee")) :position 5746 :buffername "TODO-tests.org"))
+Request to proxy wrapped: #s(hash-table size 65 test equal rehash-size 1.5 rehash-threshold 0.8 data (:method "POST" :uri "/" :params #s(hash-table size 65 test equal rehash-size 1.5 rehash-threshold 0.8 data (:method "PUT" :uri "/cards/51ffe96c32c0ac5e59000850" :params (("name" . "cancelled task") ("idList" . "51e538e6c7a68fa0510014ee")) :position 5746 :buffername "TODO-tests.org"))))
+elnode-error: elnode--sentinel 'open from 127.0.0.1.' for process  *elnode-webserver-proc*<1> <127.0.0.1:46190> with buffer nil
+elnode-error: Elnode status: *elnode-webserver-proc*<1> <127.0.0.1:46190> open from 127.0.0.1
+elnode-error: filter: calling handler on *elnode-webserver-proc*<1> <127.0.0.1:46190>
+Proxy server: params -> #<process *elnode-webserver-proc*<1> <127.0.0.1:46190>>
+Blocking call to accept-process-output with quit inhibited!! [2 times]
+callback post/put/delete: ((url . "https://trello.com/c/smLa9B2J/63-cancelled-task") (pos . 16384) (name . "cancelled task") (labels . []) (manualCoverAttachment . :json-false) (idAttachmentCover) (idShort . 63) (idMembers . []) (idList . "51e538e6c7a68fa0510014ee") (idChecklists . []) (idBoard . "51d99bbc1e1d8988390047f2") (due) (desc . "") (dateLastActivity . "2013-08-13T23:44:25.115Z") (closed . :json-false) (checkItemStates . []) (badges (due) (description . :json-false) (attachments . 0) (comments . 0) (checkItemsChecked . 0) (checkItems . 0) (fogbugz . "") (subscribed . :json-false) (viewingMemberVoted . :json-false) (votes . 0)) (id . "51ffe96c32c0ac5e59000850")) - position: 5746
+Responding to the proxy's client with ((id . "51ffe96c32c0ac5e59000850") (position . 5746) (buffername . "TODO-tests.org"))
+elnode-error: starting HTTP response on *elnode-webserver-proc*<1> <127.0.0.1:46190>
+elnode-error: elnode--process-send-eof on *elnode-webserver-proc*<1> <127.0.0.1:46190>
+elnode-error: elnode--http-end ending socket *elnode-webserver-proc*<1> <127.0.0.1:46190>
+elnode-error: elnode--sentinel 'deleted.' for process  *elnode-webserver-proc*<1> <127.0.0.1:46190> with buffer  *elnode-request-46190*
+elnode-error: Elnode status: *elnode-webserver-proc*<1> <127.0.0.1:46190> deleted
+orgtrello-query/--update-entity-id-to-buffer-callback: ((buffername . "TODO-tests.org") (position . 5746) (id . "51ffe96c32c0ac5e59000850")) - pos 51ffe96c32c0ac5e59000850 - id 5746
+TRACE: :entry-meta: #s(hash-table size 65 test equal rehash-size 1.5 rehash-threshold 0.8 data (:buffername "TODO-tests.org" :position 5746 :level 1 :keyword "CANCELLED" :title "cancelled task" :id "51ffe96c32c0ac5e59000850" :due nil))
+TRACE: :already-present-id: "51ffe96c32c0ac5e59000850"
+TRACE: :current-name: "cancelled task"
+Entity 'cancelled task' synced with id '51ffe96c32c0ac5e59000850'
+elnode-error: filter: handler returned on *elnode-webserver-proc*<1> <127.0.0.1:46190>
+Saving file /home/tony/repositories/perso/org-trello/TODO-tests.org...
+Wrote /home/tony/repositories/perso/org-trello/TODO-tests.org
+ot is on! To begin with, hit C-c o h or M-x 'org-trello/help-describing-bindings
+Org-mode restarted
+Synchronizing org-mode file to the board 'api test board' - done!
+
+```
+
+# version
+
+- GNU Emacs 24.3.1 (x86_64-pc-linux-gnu, X toolkit, Xaw3d scroll bars) of 2013-04-14 on marid, modified by Debian
+- ;; Package-Requires: ((org "8.0.7") (dash "1.5.0") (request "0.2.0") (cl-lib "0.3.0") (json "1.2") (elnode "0.9.9.7.6"))
+
+# some code
+
+If you ever get interested by the code...
+I'm trying a very basic literate approach. As a consequence, this is not necessarily consistent here (but this is in the code or so I think!) -- add link.
+
+Starting elnode:
+
+```lisp
+(defvar *ORGTRELLO-PROXY-HOST* "localhost")
+(defvar *ORGTRELLO-PROXY-PORT* 8009)
+(defvar *ORGTRELLO-PROXY-URL* (format "http://%s:%d/proxy" *ORGTRELLO-PROXY-HOST* *ORGTRELLO-PROXY-PORT*))
+
+(defun orgtrello-proxy/--elnode-proxy (http-con)
+  "A simple handler to extract the params information and make the request to trello."
+  (orgtrello-log/msg 5 "Proxy server: params -> %S" http-con)
+  (let* ((query-map-wrapped (orgtrello-proxy/--extract-trello-query http-con))
+         (position          (assoc-default 'position query-map-wrapped))
+         (buffer-name       (assoc-default 'buffername query-map-wrapped))
+         (query-map         (orgtrello-proxy/--compute-trello-query query-map-wrapped))
+         (method            (orgtrello-query/--method query-map))
+         (fn-dispatch       (orgtrello-proxy/--dispatch-http-query method)))
+    ;; Execute the request to trello (at the moment, synchronous)
+    (funcall fn-dispatch http-con query-map (list position buffer-name) t)))
+
+(defvar orgtrello-query/--app-routes '(;; proxy routine
+                                       ("^localhost//proxy/\\(.*\\)" . orgtrello-proxy/--elnode-proxy)
+                                       ;; whatever...
+                                       ("^.*//\\(.*\\)" . elnode-webserver)))
+
+(defun orgtrello-proxy/--proxy-handler (http-con)
+  "Launch function to start the proxy"
+  (elnode-hostpath-dispatcher http-con orgtrello-query/--app-routes))
+
+(elnode-start 'orgtrello-proxy/--proxy-handler :port *ORGTRELLO-PROXY-PORT* :host *ORGTRELLO-PROXY-HOST*)
+```
+
+The client interface to request:
+
+```lisp
+(defun orgtrello-proxy/http (query-map &optional sync success-callback error-callback)
+  "Query the trello api asynchronously."
+  (orgtrello-log/msg 5 "Request to trello server to wrap: %S" query-map)
+  (let ((query-map-proxy (orgtrello-hash/make-hash "POST" "/" query-map)))
+    (orgtrello-log/msg 5 "Request to proxy wrapped: %S" query-map-proxy)
+    (orgtrello-query/--http *ORGTRELLO-PROXY-URL* query-map-proxy sync success-callback error-callback)))
+```
+
+Dealing with request answer takes place here:
+
+```lisp
+(defun orgtrello-proxy/--response (http-con data)
+  "A response wrapper"
+  (orgtrello-log/msg 5 "Responding to the proxy's client with %S" data)
+  (elnode-http-start http-con 201 '("Content-type" . "application/json"))
+  (elnode-http-return http-con (json-encode data)))
+
+(defun orgtrello-proxy/--standard-get-success-callback (http-connection)
+  (lexical-let ((http-con http-connection))
+    "Return a callback function able to deal with the position."
+    (cl-defun get-some-insignificant-name (&key data &allow-other-keys)
+      "Standard get response will simply relay the information to the client."
+      (orgtrello-log/msg 5 "callback get: %S" data)
+      (orgtrello-proxy/--response http-con data))))
+
+(defun orgtrello-proxy/--standard-post-or-put-or-delete-success-callback (http-connection buffer-metadata)
+  "Return a callback function able to deal with the position."
+  (lexical-let ((http-con http-connection)
+                (position (first buffer-metadata))
+                (buffername (second buffer-metadata)))
+    (cl-defun put-some-insignificant-name (&key data &allow-other-keys)
+      "Will read the information from the response and simply return id and position."
+      (orgtrello-log/msg 5 "callback post/put/delete: %S - position: %s" data position)
+      (let ((orgtrello-query/--identifier (orgtrello-query/--id data)))
+        (orgtrello-proxy/--response http-con `((id . ,orgtrello-query/--identifier)
+                                               (position . ,position)
+                                               (buffername . ,buffername)))))))
+
+```
+
+This is the main query to trello interface (first a dispatch takes place depending on the query method (get, post, put, delete) then the execution).
+
+```lisp
+(defun orgtrello-proxy/--get (http-con query-map &optional buffer-metadata sync)
+  "GET on trello with the callback"
+  (orgtrello-query/http-trello query-map sync (orgtrello-proxy/--standard-get-success-callback http-con)))
+
+(defun orgtrello-proxy/--post-or-put-or-delete (http-con query-map &optional buffer-metadata sync)
+  "POST/PUT/DELETE"
+  (orgtrello-query/http-trello query-map sync (orgtrello-proxy/--standard-post-or-put-or-delete-success-callback http-con buffer-metadata)))
+
+(defun orgtrello-proxy/--dispatch-http-query (method)
+  "Dispach query function depending on the http method input parameter."
+  (cond ((string= "GET" method)         'orgtrello-proxy/--get)
+        ((or (string= "POST" method)
+             (string= "PUT" method)
+             (string= "DELETE" method)) 'orgtrello-proxy/--post-or-put-or-delete)))
+
+```
+
+Extraction function from the query made to the proxy:
+
+```lisp
+(defun orgtrello-proxy/--extract-trello-query (http-con)
+  "Given an httpcon object, extract the params entry which corresponds to the real trello query."
+  (let ((params-proxy-json (caar (elnode-http-params http-con))))
+    (json-read-from-string params-proxy-json)))
+
+(defun orgtrello-proxy/--compute-trello-query (query-map-wrapped)
+  (let ((method  (assoc-default 'method query-map-wrapped))
+        (uri     (assoc-default 'uri query-map-wrapped))
+        (payload (assoc-default 'params query-map-wrapped)))
+    (orgtrello-hash/make-hash method uri payload)))
+
+```
+
+# Ideas?
+
+Do you see if I did something wrong?
+
+# some important irrelevancies to the context
+
+Oh and by the way:
+
+```lisp
+(thanks (and 'elnode 'marmalade 'tutorial-videos))
+```
+
+Thanks again for your time
+
+Cheers,
