@@ -84,8 +84,8 @@ Synchronizing org-mode file to the board 'api test board' - done!
 
 # some code
 
-If you ever get interested by the code...
-I'm trying a very basic literate approach. As a consequence, this is not necessarily consistent here (but this is in the code or so I think!) -- add link.
+If you ever get [[https://github.com/ardumont/org-trello/blob/0.1.2/org-trello.el#L496-L598][interested by the code]]...
+I'm trying a very basic literate approach. As a consequence, this is not necessarily consistent here ([[https://github.com/ardumont/org-trello/blob/0.1.2/org-trello.el#L496-L598][but this is in the code]] or so I think!) -- add link.
 
 Starting elnode:
 
