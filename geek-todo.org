@@ -1010,3 +1010,9 @@ Need some setup.
 *** IN-PROGRESS setup it to have access to different languages
 * DONE [[www.infoq.com/resource/minibooks/domain-driven-design-quickly/en/pdf/DomainDrivenDesignQuicklyOnline.pdf][DDD quickly]]
 CLOSED: [2013-08-10 sam. 10:31]
+* TODO mouseless file manager
+Does not seem to find one!
+Code it!
+* TODO keysnail
+- [ ] swap tab
+- [ ] select text to kill and yank
