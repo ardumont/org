@@ -1,0 +1,8 @@
+#+title: Improvments
+#+author: Antoine R. Dumont
+
+* wish
+- [ ] Let the cycle open for inter-cycle evaluations
+Beginning of the year, teachers may do inter-cycle evaluations to know where the children have retained from the previous cycle (ce1 -> ce2)
+- [ ] A sas to pre-select the skills for the collective evaluation
+- [ ] When skill is filled in the individual evaluation, remove from the list.
