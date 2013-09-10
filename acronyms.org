@@ -1,0 +1,12 @@
+#+title: Acronyms
+
+|---------+--------------------------------------------------------+---------------------------------------------------|
+| Acronym | Name                                                   | Description                                       |
+|---------+--------------------------------------------------------+---------------------------------------------------|
+| JAX-RPC | Java over XML to make Remote Procedure Calls           |                                                   |
+| WSDL    | Web Service Description Language                       | Used to describe the web services's contract      |
+| SOAP    | Simple Object Access Protocol                          | transport protocol to send xml messages over http |
+| UDDI    | Universal Description Discovery & Integration Protocol |                                                   |
+| AXIS    | Apache Extensible Interaction System                   | Apache Axis is a SOAP client/server               |
+|         |                                                        |                                                   |
+|---------+--------------------------------------------------------+---------------------------------------------------|
