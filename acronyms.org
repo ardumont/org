@@ -8,5 +8,9 @@
 | SOAP    | Simple Object Access Protocol                          | transport protocol to send xml messages over http |
 | UDDI    | Universal Description Discovery & Integration Protocol |                                                   |
 | AXIS    | Apache Extensible Interaction System                   | Apache Axis is a SOAP client/server               |
+| AXIOM   | AXIs Object Model                                      |                                                   |
+| DOM     | Document Object Model                                  |                                                   |
+| StAX    | Streaming API for XML                                  |                                                   |
+| ADB     | Axis2 Databinding Framework                            |                                                   |
 |         |                                                        |                                                   |
 |---------+--------------------------------------------------------+---------------------------------------------------|
