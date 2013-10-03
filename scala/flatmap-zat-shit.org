@@ -1,0 +1,20 @@
+#+title: Flatmap that shit - Une alternative a l'AOP
+#+speaker: Francois Sarradin
+
+Clutter the code with specific mechanism to deal with:
+- exceptions
+- asynchronous calls
+- null
+
+ways of avoiding this:
+- AOP (byte-code manipulation at compile time, interceptor, etc...)
+- Monad (Option)
+
+Example:
+- Alice in bank land
+- multiple accounts -> sum?
+
+* Try
+
+Try[T] -> Kind of specialized Option
+Can be used inside a for comprehension
