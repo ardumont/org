@@ -728,13 +728,15 @@ CLOSED: [2013-03-03 dim. 00:06]
 
 ** DONE make a decent cpug-vm/Vagrantfile startup
 CLOSED: [2013-03-03 dim. 01:45]
-* IN-PROGRESS haskell [42%]
+* IN-PROGRESS haskell [33%]
 ** DONE setuping environment
 CLOSED: [2013-04-19 ven. 22:33]
 ** DONE blogging about haskell
 CLOSED: [2013-04-19 ven. 22:33]
 ** DONE Cabal basics
 CLOSED: [2013-10-13 dim. 02:04]
+** DONE QuickCheck intro
+CLOSED: [2013-10-13 dim. 11:19]
 ** IN-PROGRESS Collection implementations [75%]
 *** DONE set
 CLOSED: [2013-05-03 ven. 18:13]
@@ -743,11 +745,13 @@ CLOSED: [2013-05-03 ven. 18:13]
 *** DONE AVL
 CLOSED: [2013-08-10 sam. 10:33]
 *** TODO Red-Black tree
+** IN-PROGRESS Huffman algorithm
+** IN-PROGRESS HUnit - http://hunit.sourceforge.net/HUnit-1.0/Guide.html
+** TODO test-framework - http://batterseapower.github.io/test-framework/
 ** TODO Concurrency/Parallelism
 ** TODO Web services [0%]
 *** TODO Yesod
 *** TODO Snap
-** IN-PROGRESS Huffman algorithm
 * PENDING (o)caml [50%]
 ** DONE setup environment
 CLOSED: [2013-04-19 ven. 22:36]
