@@ -741,6 +741,7 @@ CLOSED: [2013-10-13 dim. 11:19]
 CLOSED: [2013-10-13 dim. 11:25]
 ** DONE Huffman algorithm - https://github.com/ardumont/haskell-lab/blob/master/src/Huffman.hs
 CLOSED: [2013-10-13 dim. 20:05]
+Using HUnit tests - https://github.com/ardumont/haskell-lab/blob/master/src/HuffmanTests.hs
 ** IN-PROGRESS Collection implementations [75%]
 *** DONE set
 CLOSED: [2013-05-03 ven. 18:13]
