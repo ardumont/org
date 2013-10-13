@@ -167,7 +167,7 @@ CLOSED: [2013-07-07 dim. 10:00]
 ** DONE scala-pack
 CLOSED: [2013-07-26 ven. 12:15]
 
-** DONE coursera online courses
+** DONE coursera online courses video
 CLOSED: [2013-07-26 ven. 12:15]
 ** DONE play basic tutorial
 CLOSED: [2013-07-26 ven. 12:16]
@@ -180,14 +180,51 @@ CLOSED: [2013-07-27 sam. 09:33]
 *** DONE koans
 CLOSED: [2013-07-31 mer. 13:59]
 
+** DONE Play intro
+CLOSED: [2013-10-13 dim. 01:33]
 ** PENDING Improve tooling
 *** [[http://aemoncannon.github.io/ensime/index.html][ensime doc]]
 *** [[https://github.com/ardumont/scala-pack][scala-pack]]
 *** [[https://github.com/rickynils/scalacheck][scalacheck]]
-** IN-PROGRESS [[http://aperiodic.net/phil/scala/s-99/][99 problems in scala]]
+** IN-PROGRESS [[http://aperiodic.net/phil/scala/s-99/][99 problems in scala]] [86%]
+- [X] P01 (*) Find the last element of a list.
+- [X] P02 (*) Find the last but one element of a list.
+- [X] P03 (*) Find the Kth element of a list.
+- [X] P04 (*) Find the number of elements of a list.
+- [X] P05 (*) Reverse a list.
+- [X] P06 (*) Find out whether a list is a palindrome.
+- [X] P07 (**) Flatten a nested list structure.
+- [X] P08 (**) Eliminate consecutive duplicates of list elements.
+- [X] P09 (**) Pack consecutive duplicates of list elements into sublists.
+- [X] P10 (*) Run-length encoding of a list.
+- [X] P11 (*) Modified run-length encoding.
+- [X] P12 (**) Decode a run-length encoded list.
+- [X] P13 (**) Run-length encoding of a list (direct solution).
+- [X] P14 (*) Duplicate the elements of a list.
+- [X] P15 (**) Duplicate the elements of a list a given number of times.
+- [X] P16 (**) Drop every Nth element from a list.
+- [X] P17 (*) Split a list into two parts.
+- [X] P18 (**) Extract a slice from a list.
+- [X] P19 (**) Rotate a list N places to the left.
+- [X] P20 (*) Remove the Kth element from a list.
+- [X] P21 (*) Insert an element at a given position into a list.
+- [X] P22 (*) Create a list containing all integers within a given range.
+- [X] P23 (**) Extract a given number of randomly selected elements from a list.
+- [X] P24 (*) Lotto: Draw N different random numbers from the set 1..M.
+- [X] P25 (*) Generate a random permutation of the elements of a list.
+- [ ] P26 (**) Generate the combinations of K distinct objects chosen from the N elements of a list.
+- [ ] P27 (**) Group the elements of a set into disjoint subsets.
+- [ ] P28 (**) Sorting a list of lists according to length of sublists.
+- [ ]
+** IN-PROGRESS coursera's functional programming [83%]
+- [X] example
+- [X] fun with sets
+- [X] recfun
+- [X] objsets
+- [X] patmat
+- [ ] ...
 ** TODO Akka
 ** TODO Iteratee
-** IN-PROGRESS Play
 * IN-PROGRESS guitar [37%]
 ** DONE coursera - week 1
 CLOSED: [2013-08-03 sam. 10:17]
