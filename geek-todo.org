@@ -1094,3 +1094,8 @@ Code it!
 * TODO keysnail
 - [ ] swap tab
 - [ ] select text to kill and yank
+* TODO Arduino [0%]
+- [ ] Get back in touch
+- [ ] Dig more
+* TODO Raspberry-PI [%]
+- [ ] Learn
