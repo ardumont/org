@@ -13,10 +13,9 @@
 * TODO [[http://www.packer.io/][packer]] - a tool for creating identical machine images for multiple platforms from a single source configuration.
 * TODO [[http://www.opscode.com/chef/][Chef]] - infrastructure automation and configuration management framework - infrastructure as code
 * TODO coding challenge which computes the complexity  - http://codility.com/
-* TODO Structure and Interpretation of Computer Programs
 * IN-PROGRESS Structure and Interpretation of Computer Programs - video courses
 * IN-PROGRESS Structure and Interpretation of Computer Programs - books
-* IN-PROGRESS org-trello [93%]
+* IN-PROGRESS org-trello [96%]
 minor mode to sync trello and org-mode
 ** DONE v0.0.1
 CLOSED: [2013-07-07 dim. 09:58]
