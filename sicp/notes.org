@@ -38,7 +38,8 @@ Newton method
 CLOSED: [2013-08-12 lun. 11:16]
 * DONE Lecture 3A  - MIT 6.001 Structure and Interpretation, 1986
 CLOSED: [2013-10-15 mar. 18:39]
-* TODO Lecture 3B  - MIT 6.001 Structure and Interpretation, 1986
+* DONE Lecture 3B  - MIT 6.001 Structure and Interpretation, 1986
+CLOSED: [2013-10-16 mer. 17:58]
 * TODO Lecture 4A  - MIT 6.001 Structure and Interpretation, 1986
 * TODO Lecture 4B  - MIT 6.001 Structure and Interpretation, 1986
 * TODO Lecture 5A  - MIT 6.001 Structure and Interpretation, 1986
