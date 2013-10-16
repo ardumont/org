@@ -1,4 +1,4 @@
-#+title: Structure and Interpretation of computer programs
+#+title: Structure and Interpretation of Computer Programs
 #+author: Antoine R. Dumont
 #+STYLE: <SCRIPT SRC="/usr/share/jsmath/easy/load.js"></SCRIPT>
 
