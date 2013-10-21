@@ -44,7 +44,8 @@ CLOSED: [2013-10-16 mer. 17:58]
 CLOSED: [2013-10-19 sam. 19:06]
 * DONE Lecture 4B  - MIT 6.001 Structure and Interpretation, 1986
 CLOSED: [2013-10-19 sam. 19:06]
-* TODO Lecture 5A  - MIT 6.001 Structure and Interpretation, 1986
+* DONE Lecture 5A  - MIT 6.001 Structure and Interpretation, 1986
+CLOSED: [2013-10-21 lun. 10:20]
 * TODO Lecture 5B  - MIT 6.001 Structure and Interpretation, 1986
 * TODO Lecture 6A  - MIT 6.001 Structure and Interpretation, 1986
 * TODO Lecture 6B  - MIT 6.001 Structure and Interpretation, 1986
