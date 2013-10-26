@@ -1,1 +1,51 @@
 #+title: Learn you a Haskell for great good!
+
+* [[http://learnyouahaskell.com/introduction][Introduction]]
+
+* [[http://learnyouahaskell.com/starting-out][Starting out]]
+
+* DONE [[http://learnyouahaskell.com/types-and-typeclasses][Types and TypeClasses]]
+CLOSED: [2013-10-26 sam. 19:19]
+
+- :: "has type of"
+- a is a type variable
+- functions using type variable are "polymorphic functions"
+Ex:
+#+begin_src haskell
+head :: [a] -> a
+#+end_src
+
+- A typeclass is a sort of interface defining some behavior
+if a type 'a is a part of a typeclass, that means that the type 'a implements the behavior of such typeclass
+
+- class constraint
+Everything before => is a class constraint
+#+begin_src haskell
+*Prelude> :t (==)
+(==) :: Eq a => a -> a -> Bool
+#+end_src
+
+- type annotations :: to explicitely give the expected type
+
+
+* [[http://learnyouahaskell.com/syntax-in-functions][Syntax in functions]]
+
+* [[http://learnyouahaskell.com/recursion][Recursion]]
+
+* [[http://learnyouahaskell.com/higher-order-functions][Higher Order Functions]]
+
+* [[http://learnyouahaskell.com/modules][Modules]]
+
+* [[http://learnyouahaskell.com/making-our-own-types-and-typeclasses][Making our own types and typeclasses]]
+
+* [[http://learnyouahaskell.com/input-and-output][Input and Output]]
+
+* [[http://learnyouahaskell.com/functionally-solving-problems][Functionally solving problems]]
+
+* [[http://learnyouahaskell.com/functors-applicative-functors-and-monoids][Functors, Applicative functors and monoids]]
+
+* [[http://learnyouahaskell.com/a-fistful-of-monads][a fistful of monads]]
+
+* [[http://learnyouahaskell.com/for-a-few-monads-more][For a few monads more]]
+
+* [[http://learnyouahaskell.com/zippers][Zippers]]
