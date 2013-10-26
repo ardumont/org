@@ -38,6 +38,36 @@ Everything before => is a class constraint
 
 * [[http://learnyouahaskell.com/making-our-own-types-and-typeclasses][Making our own types and typeclasses]]
 
+** [[http://learnyouahaskell.com/making-our-own-types-and-typeclasses#the-functor-typeclass][Functor]]
+
+Typeclass to map over something:
+#+begin_src Haskell
+    class Functor f where
+        fmap :: (a -> b) -> f a -> f b
+#+end_src
+f is a type constructor.
+
+Ex:
+- map is a functor specific for list:
+#+begin_src haskell
+map :: (a -> b) -> [a] -> [b]
+#+end_src
+
+[] is the list constructor and here is the map definition of the functor:
+
+#+begin_src haskell
+instance Functor [] where
+  fmap = map
+#+end_src
+
+- Maybe
+
+instance Function Maybe where
+#+begin_src haskell
+  fmap (Just a) = Just (f a)
+  fmap Nothing = Nothing
+#+end_src
+
 * [[http://learnyouahaskell.com/input-and-output][Input and Output]]
 
 * [[http://learnyouahaskell.com/functionally-solving-problems][Functionally solving problems]]
