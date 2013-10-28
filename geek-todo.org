@@ -728,7 +728,7 @@ CLOSED: [2013-03-03 dim. 00:06]
 
 ** DONE make a decent cpug-vm/Vagrantfile startup
 CLOSED: [2013-03-03 dim. 01:45]
-* IN-PROGRESS haskell [58%]
+* IN-PROGRESS haskell [53%]
 ** DONE setuping environment
 CLOSED: [2013-04-19 ven. 22:33]
 ** DONE blogging about haskell
@@ -744,6 +744,7 @@ CLOSED: [2013-10-13 dim. 20:05]
 Using HUnit tests - https://github.com/ardumont/haskell-lab/blob/master/src/HuffmanTests.hs
 ** DONE [[https://www.youtube.com/watch?v%3DZhuHCtR3xq8][Don't fear the monads]]
 CLOSED: [2013-10-28 lun. 10:14]
+** TODO [[http://vimeo.com/72870631#at%3D0][A pragmatic case for static typing with Brian Hurt]]
 ** IN-PROGRESS Collection implementations [75%]
 *** DONE set
 CLOSED: [2013-05-03 ven. 18:13]
