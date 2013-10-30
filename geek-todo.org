@@ -1112,3 +1112,13 @@ Code it!
 - [ ] Deadlocks
 - [ ] Livelocks
 - [ ] Priority inversions
+* Readings
+ - [ ] E. W. Dijkstra             - Go to statement considered harmful                      - Cacm, Mar. 1968
+ - [ ] N. Wirth                   - Program development by Stepwise refinement              - Cacm, April 1971
+ - [ ] D. L. Parnas               - Information distribution Aspects of Design Methodology  - IFIP Congress, 1971
+ - [ ] B. Liskov                  - A design Methodology for Reliable Software Systems      - FJCC, Dec. 1972
+ - [ ] O-J. Dahl & C. A. R. Hoare - Hierarchical Program Structures. Structured Programming - Academic Press, 1972
+ - [ ] J. H. Morris               - Protection in Programming Languages                     - Cacm, Jan. 1973
+ - [ ] W. Wulf & M. Shaw          - Global Variable Considered Harmful                      - Sigplan Notices, 1973
+ - [ ] B. Liskov & S. Zilles      - Programming with Abstract Data Types.                   - ACM conferences on Very High Level Languages, Apr. 1974
+ - [ ] B. Liskov                  - Data abstraction and hierarchy                          - Sigplan notices, May. 1988
