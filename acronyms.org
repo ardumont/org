@@ -12,5 +12,7 @@
 | DOM     | Document Object Model                                  |                                                   |
 | StAX    | Streaming API for XML                                  |                                                   |
 | ADB     | Axis2 Databinding Framework                            |                                                   |
+| ACID    | Atomic - Consistent - Independent - Durable            |                                                   |
+| STM     | Software Transactional Memory                          |                                                   |
 |         |                                                        |                                                   |
 |---------+--------------------------------------------------------+---------------------------------------------------|
