@@ -728,7 +728,7 @@ CLOSED: [2013-03-03 dim. 00:06]
 
 ** DONE make a decent cpug-vm/Vagrantfile startup
 CLOSED: [2013-03-03 dim. 01:45]
-* IN-PROGRESS haskell [58%]
+* IN-PROGRESS haskell [53%]
 ** DONE setuping environment
 CLOSED: [2013-04-19 ven. 22:33]
 ** DONE blogging about haskell
@@ -764,6 +764,10 @@ http://about.travis-ci.org/docs/user/languages/haskell/
 http://www.haskell.org/cabal/
 http://www.haskell.org/haskellwiki/How_to_write_a_Haskell_program#Add_a_build_system
 http://ivanmiljenovic.wordpress.com/2010/03/15/repeat-after-me-cabal-is-not-a-package-manager/
+** TODO Notions [0%]
+- [ ] Monoid
+- [ ] Lenses
+- [ ] Functor
 * PENDING (o)caml [50%]
 ** DONE setup environment
 CLOSED: [2013-04-19 ven. 22:36]
