@@ -1,0 +1,16 @@
+#+title: Advanced Notions
+
+* Monoid
+A monoid is a system which obeys 3 rules:
+- closure: t -> t -> t
+- associativity: ∀a, b, c ∈ t: (a ⊕ b) ⊕ c ⇔ a ⊕ (b ⊕ c), ⊕: t -> t -> t
+- identity: ∀ a ∈ t, a ⊕ 0 = 0 ⊕ a = a
+
+Ex:
+- Integer under the addition (0 is the identity)
+- Integer under the Multiplication (1 is the identity)
+
+* Semigroup
+A semigroup is a system which obeys 3 rules:
+- closure: t -> t -> t
+- associativity: ∀a, b, c ∈ t: (a ⊕ b) ⊕ c ⇔ a ⊕ (b ⊕ c), ⊕: t -> t -> t
