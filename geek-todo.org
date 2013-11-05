@@ -746,6 +746,9 @@ Using HUnit tests - https://github.com/ardumont/haskell-lab/blob/master/src/Huff
 CLOSED: [2013-10-28 lun. 10:14]
 ** DONE [[https://vimeo.com/72870631#at%3D0][A Pragmatic Case for Static Typing with Brian Hurt]]
 CLOSED: [2013-10-30 mer. 10:32]
+** Monoids
+- [ ] [[fsharpforfunandprofit.com/posts/monoids-without-tears/][Monoids without tears]]
+- [ ] [[http://fsharpforfunandprofit.com/posts/monoids-part2/][Monoids in practice]]
 ** IN-PROGRESS Collection implementations [75%]
 *** DONE set
 CLOSED: [2013-05-03 ven. 18:13]
@@ -754,6 +757,7 @@ CLOSED: [2013-05-03 ven. 18:13]
 *** DONE AVL
 CLOSED: [2013-08-10 sam. 10:33]
 *** IN-PROGRESS Red-Black tree
+**
 ** TODO test-framework - http://batterseapower.github.io/test-framework/
 ** TODO Concurrency/Parallelism
 ** TODO Web services [0%]
@@ -766,7 +770,8 @@ http://www.haskell.org/haskellwiki/How_to_write_a_Haskell_program#Add_a_build_sy
 http://ivanmiljenovic.wordpress.com/2010/03/15/repeat-after-me-cabal-is-not-a-package-manager/
 ** TODO Notions [0%]
 - [ ] Monoid
-- [ ] Lenses
+- [ ] Monad
+- [ ] Lens
 - [ ] Functor
 * PENDING (o)caml [50%]
 ** DONE setup environment
