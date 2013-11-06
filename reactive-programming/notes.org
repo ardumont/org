@@ -57,3 +57,6 @@ to get composable event abstractions
 CLOSED: [2013-11-05 mar. 14:16]
 * DONE Recap: Collections
 CLOSED: [2013-11-05 mar. 14:23]
+* DONE Functional random generators
+CLOSED: [2013-11-06 mer. 13:04]
+* TODO Monads
