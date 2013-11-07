@@ -1,0 +1,10 @@
+#+title: Data Structure
+
+* Stack - Heap
+Last-in First-out (Pile in french)
+
+* Queue
+First-in First-out (File in french)
+
+* Priority Queue
+- like a queue - whatever-in minimum out
