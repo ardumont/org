@@ -53,6 +53,7 @@ to get composable event abstractions
 - handlers of events are also first-class
 - complex handlers can be composed from primitive ones
 
+
 * DONE Recap: Functions and Pattern Matching
 CLOSED: [2013-11-05 mar. 14:16]
 * DONE Recap: Collections
