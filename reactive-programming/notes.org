@@ -61,3 +61,44 @@ CLOSED: [2013-11-05 mar. 14:23]
 * DONE Functional random generators
 CLOSED: [2013-11-06 mer. 13:04]
 * TODO Monads
+
+** Def
+monad M is a parametric type M[T] with 2 operations, flatMap (bind) and unit that have to satisfy some laws:
+- associativity
+- left unit
+- right unit
+
+In scala, we can see the monad as a trait:
+
+#+begin_src scala
+trait M[T] {
+  def flatMap[U](f: T => M[U]): M[U]
+}
+
+def unit[T](x: T): M[T]
+#+end_src
+
+Example of monads:
+- List with unit(x) is List(x)
+- Set with unit(x) is Set(x)
+- Option with unit(x) is Some(x)
+- Generator with unit(x) is single(x)
+** Monads and map
+
+map can be defined as a combination between flatMap and unit.
+
+#+begin_src scala
+m map f == m flatMap (f andThen unit)
+#+end_src
+
+** Monad laws
+*** Associativity
+
+(m flatMap f) flatMap g == m flatMap ( x => f(x) flatMap g f)
+
+*** Left unit
+
+unit(x) flatMap f == f(x)
+
+*** Right unit
+m flatMap unit == m
