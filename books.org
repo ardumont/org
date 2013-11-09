@@ -1,81 +1,78 @@
 #+TITLE: Books
 #+author: ardumont
 
-* Pascal Hemingway [1/1]
-** DONE Le vieil homme et la mer
-* H.G. Wells [3/3]
-** DONE L'homme invisible
-** DONE La machine a remonter le temps
-** DONE La guerre des mondes
-* Jules Vernes [3/4]
-** DONE Le tour du monde en 80 jours (*2)
-** DONE Le chateau des Carpathes
-** DONE Vingt milles lieues sous les mers
-** TODO Voyage au centre de la Terre
-* Douglas Adams [1/1]
-** DONE The hitchhikers's guide to the galaxy
-* Philip K. Dick [2/3]
-** DONE Minority Report
-** DONE Blade Runner
-** TODO A scanner Darkly
-* Isaac Asimov [/]
-
-* C.S Lewis [1/1]
-** DONE Le monde de Narnia [7/7]
-*** DONE 1. Le neveu du magicien
-*** DONE 2. Le Lion, la Sorciere Blanche et l'Armoire magique
-*** DONE 3. Le Cheval et son ecuyer
-*** DONE 4. Le Prince Caspian
-*** DONE 5. Le Passeur d'Aurore
-*** DONE 6. Le Fauteuil d'Argent
-*** DONE 7. La derniere Bataille
-* Pierre Boule [1/1]
-** DONE La planete des singes
-* George Orwell [1/1]
-** DONE 1984
-* Barjavel [5/5]
-** DONE La nuit des temps
-** DONE Ravages
-** DONE Le voyageur imprudent
-** DONE Le grand secret
-** DONE Une rose au paradis
-* Bernard Werber [3/5]
-** DONE Les thanatonautes
-** DONE L'ultime secret
-** DONE La trilogie des Fourmis [3/3]
-*** DONE 1. Les Fourmis
-*** DONE 2. Le jour des fourmis
-*** DONE 3. La revolution des fourmis
-** TODO Les Dieux [0/3]
-*** TODO 1. Nous les dieux
-*** TODO 2.
-*** TODO 3.
-** TODO Le mirroir de Cassandre
-* Ray Bradbury [2/2]
-** DONE Farenheit 451
-** DONE Les chroniques martiennes
-* J.K. Rowling [7/7]
-** DONE Harry Potter and the Philosopher's Stone
-** DONE Harry Potter and the Chamber of Secrets
-** DONE Harry Potter and the Prisoner of Azkaban
-** DONE Harry Potter and the Goblet of Fire
-** DONE Harry Potter and the Order of the Phoenix
-** DONE Harry Potter and the Half-Blood Prince
-** DONE Harry Potter and the Deathly Hallows
-* J.R.R Tolkien [2/2]
-** DONE Bilbo the Hobbit
-** DONE Le Seigneur des Anneaux [3/3]
-*** DONE La Communaute de l'Anneau
-*** DONE Les deux Tours
-*** DONE Le retour du Roi
-* Georges R. R. Martin [/]
-** IN-PROGRESS A song of ice and fire [2/5]
-*** DONE A game of thrones
-CLOSED: [2013-11-09 sam. 11:50]
-*** DONE A clash of kings
-CLOSED: [2013-11-09 sam. 11:51]
-*** IN-PROGRESS A storm of swords
-*** TODO A feast for crows
-*** TODO A dance with dragons
-*** The winds of winder
-*** A dream of springs
+* TODO Pascal Hemingway [1/1]
+- [-] Le vieil homme et la mer
+* TODO H.G. Wells [3/3]
+- [-] L'homme invisible
+- [-] La machine a remonter le temps
+- [-] La guerre des mondes
+* TODO Jules Vernes [3/4]
+- [-] Le tour du monde en 80 jours (*2)
+- [-] Le chateau des Carpathes
+- [-] Vingt milles lieues sous les mers
+- [-] Voyage au centre de la Terre
+* TODO Douglas Adams [1/1]
+- [-] The hitchhikers's guide to the galaxy
+* TODO Philip K. Dick [2/3]
+- [-] Minority Report
+- [-] Blade Runner
+- [-] A scanner Darkly
+* TODO Isaac Asimov [/]
+* TODO Pierre Boule [1/1]
+- [-] La planete des singes
+* TODO George Orwell [1/1]
+- [-] 1984
+* TODO Ray Bradbury [2/2]
+- [-] Farenheit 451
+- [-] Les chroniques martiennes
+* TODO J.K. Rowling [7/7]
+- [-] Harry Potter and the Philosopher's Stone
+- [-] Harry Potter and the Chamber of Secrets
+- [-] Harry Potter and the Prisoner of Azkaban
+- [-] Harry Potter and the Goblet of Fire
+- [-] Harry Potter and the Order of the Phoenix
+- [-] Harry Potter and the Half-Blood Prince
+- [-] Harry Potter and the Deathly Hallows
+* TODO J.R.R Tolkien [2/2]
+- [-] Bilbo the Hobbit
+- [-] Le Seigneur des Anneaux [3/3]
+  - [X] La Communaute de l'Anneau
+  - [X] Les deux Tours
+  - [X] Le retour du Roi
+* TODO Georges R. R. Martin [0/1]
+- [-] A song of ice and fire [2/5]
+  - [X] A game of thrones
+  - [X] A clash of kings
+  - [-] A storm of swords
+  - [-] A feast for crows
+  - [-] A dance with dragons
+  - [-] The winds of winder
+  - [-] A dream of springs
+* TODO C.S Lewis [1/1]
+- [-] Le monde de Narnia [7/7]
+  - [X] Le neveu du magicien
+  - [X] 2. Le Lion, la Sorciere Blanche et l'Armoire magique
+  - [X] 3. Le Cheval et son ecuyer
+  - [X] 4. Le Prince Caspian
+  - [X] 5. Le Passeur d'Aurore
+  - [X] 6. Le Fauteuil d'Argent
+  - [X] 7. La derniere Bataille
+* TODO Barjavel [5/5]
+- [-] La nuit des temps
+- [-] Ravages
+- [-] Le voyageur imprudent
+- [-] Le grand secret
+- [-] Une rose au paradis
+* TODO Bernard Werber [3/5]
+- [-] Les thanatonautes
+- [-] L'ultime secret
+- [-] La trilogie des Fourmis [3/3]
+  - [X] 1. Les Fourmis
+  - [X] 2. Le jour des fourmis
+  - [X] 3. La revolution des fourmis
+- [-] Les Dieux [0/3]
+  - [-] 1. Nous les dieux
+  - [-] 2.
+  - [-] 3.
+- [-] Le mirroir de Cassandre
