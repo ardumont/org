@@ -1,5 +1,5 @@
-#+TITLE: Livres
-#+author: Antoine Romain Dumont
+#+TITLE: Books
+#+author: ardumont
 #+STARTUP: indent
 #+STARTUP: hidestars odd
 
@@ -21,7 +21,7 @@
 *** DONE Blade Runner
 *** TODO A scanner Darkly
 * Isaac Asimov [/]
-*** 
+***
 * C.S Lewis [1/1]
 *** DONE Le monde de Narnia [7/7]
 ***** DONE 1. Le neveu du magicien
