@@ -8,3 +8,44 @@ First-in First-out (File in french)
 
 * Priority Queue
 - like a queue - whatever-in minimum out
+* Binary tree
+- Tree data structure
+- each node has at most 2 child node (left | right)
+
+# TODO provide more informations
+
+* Binary Search Tree / Ordered Binary Tree / Sorted Binary tree
+Binary tree with constraints on nodes:
+- left node is a BST whose nodes contain only node with values inferiors to its parent node
+- right node is a BST whose node contains only node with values superiors to the parent's node
+
+# TODO provide more informations
+
+* Adelson-Velskii and Landis Tree
+Self balancing binary search tree.
+
+# TODO provide more informations
+
+* Red-Black Trees
+
+** Definition
+- Each node contains an extra bit to keep track of its color (Red | Black)
+- The coloring ensures that no path on the way to the root of a leaf is more than twice as long as any other path
+
+** Properties
+A RBT is a Binary Search Tree with the following coloring properties:
+- every node is colored either red or black
+- the root is black
+- if a node is red, its children must be black
+- every path from a node to an empty leaf must contain the same number of black nodes
+- empty nodes are considered black node
+
+** Balance
+- Due to the coloring, the height of the tree is at most: 2 lg(n + 1)
+- Search is the same as BST O(lg n)
+- When inserting or removing, the tree must be adjusted so the properties of the red-black tree still holds.
+
+** Re-balancing
+- When inserting and removing, we rebalance the tree by doing rotations and recoloring.
+
+** Right rotate
