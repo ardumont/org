@@ -1,46 +1,46 @@
 #+TITLE: Books
 #+author: ardumont
 
-* TODO Pascal Hemingway [1/1]
-- [-] Le vieil homme et la mer
-* TODO H.G. Wells [3/3]
-- [-] L'homme invisible
-- [-] La machine a remonter le temps
-- [-] La guerre des mondes
-* TODO Jules Vernes [3/4]
-- [-] Le tour du monde en 80 jours (*2)
-- [-] Le chateau des Carpathes
-- [-] Vingt milles lieues sous les mers
-- [-] Voyage au centre de la Terre
-* TODO Douglas Adams [1/1]
-- [-] The hitchhikers's guide to the galaxy
-* TODO Philip K. Dick [2/3]
-- [-] Minority Report
-- [-] Blade Runner
-- [-] A scanner Darkly
-* TODO Isaac Asimov [/]
-* TODO Pierre Boule [1/1]
-- [-] La planete des singes
-* TODO George Orwell [1/1]
-- [-] 1984
-* TODO Ray Bradbury [2/2]
-- [-] Farenheit 451
-- [-] Les chroniques martiennes
-* TODO J.K. Rowling [7/7]
-- [-] Harry Potter and the Philosopher's Stone
-- [-] Harry Potter and the Chamber of Secrets
-- [-] Harry Potter and the Prisoner of Azkaban
-- [-] Harry Potter and the Goblet of Fire
-- [-] Harry Potter and the Order of the Phoenix
-- [-] Harry Potter and the Half-Blood Prince
-- [-] Harry Potter and the Deathly Hallows
-* TODO J.R.R Tolkien [2/2]
-- [-] Bilbo the Hobbit
-- [-] Le Seigneur des Anneaux [3/3]
+* Pascal Hemingway [1/1]
+- [X] Le vieil homme et la mer
+* H.G. Wells [3/3]
+- [X] L'homme invisible
+- [X] La machine a remonter le temps
+- [X] La guerre des mondes
+* Jules Vernes [4/4]
+- [X] Le tour du monde en 80 jours (*2)
+- [X] Le chateau des Carpathes
+- [X] Vingt milles lieues sous les mers
+- [X] Voyage au centre de la Terre
+* Douglas Adams [1/1]
+- [X] The hitchhikers's guide to the galaxy
+* Philip K. Dick [3/3]
+- [X] Minority Report
+- [X] Do android dream of eletric sheep?
+- [X] A scanner Darkly
+* Isaac Asimov [/]
+* Pierre Boule [1/1]
+- [X] La planete des singes
+* George Orwell [1/1]
+- [X] 1984
+* Ray Bradbury [2/2]
+- [X] Farenheit 451
+- [X] Les chroniques martiennes
+* J.K. Rowling [7/7]
+- [X] Harry Potter and the Philosopher's Stone
+- [X] Harry Potter and the Chamber of Secrets
+- [X] Harry Potter and the Prisoner of Azkaban
+- [X] Harry Potter and the Goblet of Fire
+- [X] Harry Potter and the Order of the Phoenix
+- [X] Harry Potter and the Half-Blood Prince
+- [X] Harry Potter and the Deathly Hallows
+* J.R.R Tolkien [2/2]
+- [X] Bilbo the Hobbit
+- [X] Le Seigneur des Anneaux [3/3]
   - [X] La Communaute de l'Anneau
   - [X] Les deux Tours
   - [X] Le retour du Roi
-* TODO Georges R. R. Martin [0/1]
+* Georges R. R. Martin [0/1]
 - [-] A song of ice and fire [2/5]
   - [X] A game of thrones
   - [X] A clash of kings
@@ -49,7 +49,7 @@
   - [-] A dance with dragons
   - [-] The winds of winder
   - [-] A dream of springs
-* TODO C.S Lewis [1/1]
+* C.S Lewis [1/1]
 - [-] Le monde de Narnia [7/7]
   - [X] Le neveu du magicien
   - [X] 2. Le Lion, la Sorciere Blanche et l'Armoire magique
@@ -58,21 +58,21 @@
   - [X] 5. Le Passeur d'Aurore
   - [X] 6. Le Fauteuil d'Argent
   - [X] 7. La derniere Bataille
-* TODO Barjavel [5/5]
-- [-] La nuit des temps
-- [-] Ravages
-- [-] Le voyageur imprudent
-- [-] Le grand secret
-- [-] Une rose au paradis
-* TODO Bernard Werber [3/5]
-- [-] Les thanatonautes
-- [-] L'ultime secret
-- [-] La trilogie des Fourmis [3/3]
+* Barjavel [5/5]
+- [X] La nuit des temps
+- [X] Ravages
+- [X] Le voyageur imprudent
+- [X] Le grand secret
+- [X] Une rose au paradis
+* Bernard Werber [4/5]
+- [X] Les thanatonautes
+- [X] L'ultime secret
+- [X] La trilogie des Fourmis [3/3]
   - [X] 1. Les Fourmis
   - [X] 2. Le jour des fourmis
   - [X] 3. La revolution des fourmis
+- [X] Le mirroir de Cassandre
 - [-] Les Dieux [0/3]
   - [-] 1. Nous les dieux
   - [-] 2.
   - [-] 3.
-- [-] Le mirroir de Cassandre
