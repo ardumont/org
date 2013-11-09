@@ -1,0 +1,34 @@
+#+title: Beautiful concurrency - notes
+#+author: ardumont
+
+* STM
+new approach on programming shared memory parallel processors
+
+* Parallelism / Concurrency
+
+** Parallelism
+
+- employs multiple processors to make programs run faster
+- performance is the main goal
+- ideally idempotency
+- semantics of the programs is unchanged compared to a sequential program (ideally)
+- has to do with implementation
+
+In haskell:
+#+begin_src haskell
+Control.Parallel.par :: a -> b -> b
+#+end_src
+
+** Concurrency
+
+- describes a situation where non-deterministic behaviour, and many things are going on at once, is part of the specification of the programs.
+- must happen even on a uni-processor
+- using forkIO to fork an explicit thread is a signal that a program uses concurrency
+
+Ex:
+- web server with one-thread per client
+- telephone switch
+
+#+begin_src haskell
+Control.Concurrent.forkIO :: IO () -> IO GHC.Conc.Sync.ThreadId
+#+end_src
