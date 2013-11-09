@@ -1,0 +1,19 @@
+#+title: Maths definitions
+#+author: ardumont
+
+* Definitions
+Soit E un ensemble:
+- * est une loi de composition interne sur E si pour tout x, y ∈ E, x * y ∈ E
+- * est associative si pour tout x, y, z ∈ E, (x * y) * z = x * (y * z)
+- * est commutative si pour tout x, y ∈ E, x * y = y * x
+- e est element neutre pour * si pour tout x, e * x = x * e = x
+- y est le symetrique de x si y * x = x * y = e
+
+* Groupe
+(E, *) est un groupe si:
+- * est une loi de composition interne
+- * est associative
+- * possede un element neutre
+- Tout element de E possede un symetrique
+
+Si * est commutative, (E, *) est commutatif (ou abelien)
