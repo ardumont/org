@@ -62,11 +62,20 @@
 ** DONE Harry Potter and the Order of the Phoenix
 ** DONE Harry Potter and the Half-Blood Prince
 ** DONE Harry Potter and the Deathly Hallows
-* J.R.R Tolkien [3/3]
+* J.R.R Tolkien [2/2]
 ** DONE Bilbo the Hobbit
 ** DONE Le Seigneur des Anneaux [3/3]
 *** DONE La Communaute de l'Anneau
 *** DONE Les deux Tours
 *** DONE Le retour du Roi
-** DONE Bilbo the hobbit
-CLOSED: [2013-11-09 sam. 11:43]
+* Georges R. R. Martin [/]
+** IN-PROGRESS A song of ice and fire [2/5]
+*** DONE A game of thrones
+CLOSED: [2013-11-09 sam. 11:50]
+*** DONE A clash of kings
+CLOSED: [2013-11-09 sam. 11:51]
+*** IN-PROGRESS A storm of swords
+*** TODO A feast for crows
+*** TODO A dance with dragons
+*** The winds of winder
+*** A dream of springs
