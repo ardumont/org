@@ -1,7 +1,7 @@
-#+Title: my-org-files README
-#+author: Antoine Romain Dumont
+#+title: README
+#+author: Antoine R. Dumont
 #+Options: num:nil
 #+STARTUP: odd
 #+Style: <style> h1,h2,h3 {font-family: arial, helvetica, sans-serif} </style>
 
-My org-mode files.
+org-mode notes
