@@ -746,8 +746,8 @@ Using HUnit tests - https://github.com/ardumont/haskell-lab/blob/master/src/Huff
 CLOSED: [2013-10-28 lun. 10:14]
 ** DONE [[https://vimeo.com/72870631#at%3D0][A Pragmatic Case for Static Typing with Brian Hurt]]
 CLOSED: [2013-10-30 mer. 10:32]
-** Monoids
-- [ ] [[fsharpforfunandprofit.com/posts/monoids-without-tears/][Monoids without tears]]
+** IN-PROGRESS Monoids [50%]
+- [X] [[fsharpforfunandprofit.com/posts/monoids-without-tears/][Monoids without tears]]
 - [ ] [[http://fsharpforfunandprofit.com/posts/monoids-part2/][Monoids in practice]]
 ** IN-PROGRESS Collection implementations [75%]
 *** DONE set
