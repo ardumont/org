@@ -145,7 +145,7 @@ Merci Chris et papy
 CLOSED: [2013-07-30 mar. 21:57]
 ** DONE nouveau radiateur
 CLOSED: [2013-11-10 dim. 15:19]
-* IN-PROGRESS Cuisine [30/31]
+* IN-PROGRESS Cuisine [31/33]
 ** DONE Degager le vieux frigo
 ** DONE Refaire les prises de courant
 ** DONE Retirer le crepis
@@ -204,6 +204,9 @@ CLOSED: [2013-08-03 sam. 19:22]
 CLOSED: [2013-08-04 dim. 19:42]
 ** DONE poignee porte cuisine/couloir
 CLOSED: [2013-08-04 dim. 19:42]
+** DONE Reamenager le placard de la cuisine
+CLOSED: [2013-11-10 dim. 15:21]
+** TODO Changer la table
 ** TODO changer radiateur
 * IN-PROGRESS Couloir [42/43]
 ** DONE Changer les portes de l'armoire
