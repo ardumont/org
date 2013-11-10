@@ -60,7 +60,8 @@ CLOSED: [2013-11-05 mar. 14:16]
 CLOSED: [2013-11-05 mar. 14:23]
 * DONE Functional random generators
 CLOSED: [2013-11-06 mer. 13:04]
-* TODO Monads
+* DONE Monads
+CLOSED: [2013-11-10 dim. 19:19]
 
 ** Def
 monad M is a parametric type M[T] with 2 operations, flatMap (bind) and unit that have to satisfy some laws:
