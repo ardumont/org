@@ -769,8 +769,9 @@ http://about.travis-ci.org/docs/user/languages/haskell/
 http://www.haskell.org/cabal/
 http://www.haskell.org/haskellwiki/How_to_write_a_Haskell_program#Add_a_build_system
 http://ivanmiljenovic.wordpress.com/2010/03/15/repeat-after-me-cabal-is-not-a-package-manager/
-** TODO Notions [0%]
-- [ ] Monoid
+** TODO Notions [40%]
+- [X] Monoid
+- [X] Group
 - [ ] Monad
 - [ ] Lens
 - [ ] Functor
