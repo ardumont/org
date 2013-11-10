@@ -80,6 +80,71 @@ Merci Papy Claude
 Merci Chris
 ** DONE Poignee de porte
 CLOSED: [2013-08-08 jeu. 19:36]
+* DONE Piece de jeux des enfants [32/32]
+CLOSED: [2013-11-10 dim. 15:20]
+** DONE Retirer la grosse armoire du bureau
+** DONE Retirer le crepis
+** DONE Enduit de rebouchage
+CLOSED: [2013-04-11 jeu. 09:36]
+** DONE Enduit de lissage
+CLOSED: [2013-04-11 jeu. 09:36]
+** DONE Ranger la piece
+CLOSED: [2011-10-31 lun. 10:10]
+** DONE Ranger la piece
+CLOSED: [2013-05-19 dim. 18:42]
+** DONE Enduit de rebouchage mur
+CLOSED: [2013-05-19 dim. 18:41]
+** DONE lessiver plafond
+CLOSED: [2013-05-19 dim. 18:41]
+** DONE Enduit de rebouchage plafond
+CLOSED: [2013-05-19 dim. 18:41]
+** DONE poncer le plafond pour lisser l'enduit
+CLOSED: [2013-05-19 dim. 18:42]
+** DONE depoussierer le plafond
+CLOSED: [2013-05-19 dim. 18:42]
+** DONE Demonter le placard
+CLOSED: [2013-05-19 dim. 18:43]
+** DONE Enduit de rebouchage placard
+CLOSED: [2013-05-19 dim. 18:43]
+** DONE sous-couche dans le placard
+CLOSED: [2013-05-19 dim. 18:43]
+** DONE peinture plafond
+CLOSED: [2013-05-20 lun. 19:13]
+** DONE peinture placard
+CLOSED: [2013-05-20 lun. 19:13]
+** DONE peinture porte
+CLOSED: [2013-05-20 lun. 19:13]
+** DONE peinture plinthes
+CLOSED: [2013-05-20 lun. 19:13]
+** DONE peinture cadre porte
+CLOSED: [2013-05-20 lun. 19:13]
+** DONE Poser le papier peint bleu
+CLOSED: [2013-05-26 dim. 23:59]
+** DONE Poser le papier peint vert
+CLOSED: [2013-06-02 dim. 11:54]
+** DONE nettoyer le sol
+CLOSED: [2013-06-14 ven. 22:11]
+** DONE poser la sous-couche resiliente (anti-humidite)
+CLOSED: [2013-06-15 sam. 20:27]
+** DONE poser la sous-couche anti-bruit
+CLOSED: [2013-06-16 dim. 11:03]
+** DONE poser le sticker
+CLOSED: [2013-06-16 dim. 19:20]
+** DONE poser le parquet
+CLOSED: [2013-06-16 dim. 22:02]
+** DONE finition du parquet - quart de rond
+CLOSED: [2013-06-22 sam. 16:08]
+** DONE barre de seuil
+CLOSED: [2013-06-22 sam. 18:45]
+** DONE raboter la porte
+CLOSED: [2013-06-22 sam. 18:45]
+** DONE amenagement du placard
+CLOSED: [2013-07-20 sam. 20:15]
+Merci Chris et papy
+** DONE eclairage
+CLOSED: [2013-07-30 mar. 21:57]
+** DONE nouveau radiateur
+CLOSED: [2013-11-10 dim. 15:19]
 * IN-PROGRESS Cuisine [30/31]
 ** DONE Degager le vieux frigo
 ** DONE Refaire les prises de courant
@@ -416,69 +481,6 @@ CLOSED: [2011-09-12 lun. 13:10]
 ** DONE Reparer la partie de la barriere tombee a cause du lierre
 Merci papy Claude
 ** TODO Replanter les arbustes de devant pour combler le trou dans la haie de derriere
-* PENDING Piece de jeux des enfants [30/31]
-** DONE Retirer la grosse armoire du bureau
-** DONE Retirer le crepis
-** DONE Enduit de rebouchage
-CLOSED: [2013-04-11 jeu. 09:36]
-** DONE Enduit de lissage
-CLOSED: [2013-04-11 jeu. 09:36]
-** DONE Ranger la piece
-CLOSED: [2011-10-31 lun. 10:10]
-** DONE Ranger la piece
-CLOSED: [2013-05-19 dim. 18:42]
-** DONE Enduit de rebouchage mur
-CLOSED: [2013-05-19 dim. 18:41]
-** DONE lessiver plafond
-CLOSED: [2013-05-19 dim. 18:41]
-** DONE Enduit de rebouchage plafond
-CLOSED: [2013-05-19 dim. 18:41]
-** DONE poncer le plafond pour lisser l'enduit
-CLOSED: [2013-05-19 dim. 18:42]
-** DONE depoussierer le plafond
-CLOSED: [2013-05-19 dim. 18:42]
-** DONE Demonter le placard
-CLOSED: [2013-05-19 dim. 18:43]
-** DONE Enduit de rebouchage placard
-CLOSED: [2013-05-19 dim. 18:43]
-** DONE sous-couche dans le placard
-CLOSED: [2013-05-19 dim. 18:43]
-** DONE peinture plafond
-CLOSED: [2013-05-20 lun. 19:13]
-** DONE peinture placard
-CLOSED: [2013-05-20 lun. 19:13]
-** DONE peinture porte
-CLOSED: [2013-05-20 lun. 19:13]
-** DONE peinture plinthes
-CLOSED: [2013-05-20 lun. 19:13]
-** DONE peinture cadre porte
-CLOSED: [2013-05-20 lun. 19:13]
-** DONE Poser le papier peint bleu
-CLOSED: [2013-05-26 dim. 23:59]
-** DONE Poser le papier peint vert
-CLOSED: [2013-06-02 dim. 11:54]
-** DONE nettoyer le sol
-CLOSED: [2013-06-14 ven. 22:11]
-** DONE poser la sous-couche resiliente (anti-humidite)
-CLOSED: [2013-06-15 sam. 20:27]
-** DONE poser la sous-couche anti-bruit
-CLOSED: [2013-06-16 dim. 11:03]
-** DONE poser le sticker
-CLOSED: [2013-06-16 dim. 19:20]
-** DONE poser le parquet
-CLOSED: [2013-06-16 dim. 22:02]
-** DONE finition du parquet - quart de rond
-CLOSED: [2013-06-22 sam. 16:08]
-** DONE barre de seuil
-CLOSED: [2013-06-22 sam. 18:45]
-** DONE raboter la porte
-CLOSED: [2013-06-22 sam. 18:45]
-** DONE amenagement du placard
-CLOSED: [2013-07-20 sam. 20:15]
-Merci Chris et papy
-** DONE eclairage
-CLOSED: [2013-07-30 mar. 21:57]
-** TODO nouveau radiateur
 * PENDING Salon [11/14]
 ** DONE Retirer le papier peint du plafond
 ** DONE Retirer le crepis
