@@ -728,6 +728,27 @@ CLOSED: [2013-03-03 dim. 00:06]
 
 ** DONE make a decent cpug-vm/Vagrantfile startup
 CLOSED: [2013-03-03 dim. 01:45]
+* PENDING (o)caml [50%]
+** DONE setup environment
+CLOSED: [2013-04-19 ven. 22:36]
+** IN-PROGRESS Read
+*** IN-PROGRESS old [27%]
+**** DONE chapter 1
+CLOSED: [2013-04-19 ven. 22:39]
+**** DONE chapter 2
+CLOSED: [2013-04-19 ven. 22:39]
+**** DONE chapter 3
+CLOSED: [2013-04-19 ven. 22:39]
+**** TODO chapter 4
+**** TODO chapter 5
+**** TODO chapter 6
+**** TODO chapter 7
+**** TODO chapter 8
+**** TODO chapter 9
+**** TODO chapter 10
+**** TODO chapter 11
+*** TODO new
+ http://www.dicosmo.org/CourseNotes/pfav/
 * IN-PROGRESS haskell [53%]
 ** DONE setuping environment
 CLOSED: [2013-04-19 ven. 22:33]
@@ -759,6 +780,7 @@ CLOSED: [2013-08-10 sam. 10:33]
 *** DONE Red-Black tree
 CLOSED: [2013-11-10 dim. 15:16]
 https://github.com/ardumont/haskell-lab/blob/master/src/tree/RBT.hs
+
 ** TODO test-framework - http://batterseapower.github.io/test-framework/
 ** TODO Concurrency/Parallelism
 ** TODO Web services [0%]
@@ -775,27 +797,6 @@ http://ivanmiljenovic.wordpress.com/2010/03/15/repeat-after-me-cabal-is-not-a-pa
 - [ ] Monad
 - [ ] Lens
 - [ ] Functor
-* PENDING (o)caml [50%]
-** DONE setup environment
-CLOSED: [2013-04-19 ven. 22:36]
-** IN-PROGRESS Read
-*** IN-PROGRESS old [27%]
-**** DONE chapter 1
-CLOSED: [2013-04-19 ven. 22:39]
-**** DONE chapter 2
-CLOSED: [2013-04-19 ven. 22:39]
-**** DONE chapter 3
-CLOSED: [2013-04-19 ven. 22:39]
-**** TODO chapter 4
-**** TODO chapter 5
-**** TODO chapter 6
-**** TODO chapter 7
-**** TODO chapter 8
-**** TODO chapter 9
-**** TODO chapter 10
-**** TODO chapter 11
-*** TODO new
- http://www.dicosmo.org/CourseNotes/pfav/
 * DONE practical clojure
 CLOSED: [2012-04-21 Sat 18:20]
 * DONE joy of clojure
