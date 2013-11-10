@@ -1,0 +1,56 @@
+#+title: Machine learning - notes
+
+* DONE 1 - 1 - Welcome
+CLOSED: [2013-11-10 dim. 19:39]
+* DONE 1 - 2 - What is Machine Learning
+CLOSED: [2013-11-10 dim. 19:39]
+* DONE 1 - 3 - Supervised Learning
+CLOSED: [2013-11-10 dim. 19:56]
+Using data set -> feed the right answers
+Regression - learn from passed data experience to try and determine the future
+Classification - multiple dimension properties
+* DONE 1 - 4 - Unsupervised Learning
+CLOSED: [2013-11-10 dim. 20:17]
+a data set without any labels
+clustering algorithms
+
+algo splits alone -> discover segments
+* 2 - 1 - Model Representation
+* 2 - 2 - Cost Function
+* 2 - 3 - Cost Function - Intuition I
+* 2 - 4 - Cost Function - Intuition II
+* 2 - 5 - Gradient Descent
+* 2 - 6 - Gradient Descent Intuition
+* 2 - 7 - Gradient Descent For Linear Regression
+* 2 - 8 - What's Next
+* 3 - 1 - Matrices and Vectors
+* 3 - 2 - Addition and Scalar Multiplication
+* 3 - 3 - Matrix Vector Multiplication
+* 3 - 4 - Matrix Matrix Multiplication
+* 3 - 5 - Matrix Multiplication Properties
+* 3 - 6 - Inverse and Transpose
+* 4 - 1 - Multiple Features
+* 4 - 2 - Gradient Descent for Multiple Variables
+* 4 - 3 - Gradient Descent in Practice I - Feature Scaling
+* 4 - 4 - Gradient Descent in Practice II - Learning Rate
+* 4 - 5 - Features and Polynomial Regression
+* 4 - 6 - Normal Equation
+* 4 - 7 - Normal Equation Noninvertibility (Optional)
+* 5 - 1 - Basic Operations
+* 5 - 2 - Moving Data Around
+* 5 - 3 - Computing on Data
+* 5 - 4 - Plotting Data
+* 5 - 5 - Control Statements_ for, while, if statements
+* 5 - 6 - Vectorization
+* 5 - 7 - Working on and Submitting Programming Exercises
+* 6 - 1 - Classification
+* 6 - 2 - Hypothesis Representation
+* 6 - 3 - Decision Boundary
+* 6 - 4 - Cost Function
+* 6 - 5 - Simplified Cost Function and Gradient Descent
+* 6 - 6 - Advanced Optimization
+* 6 - 7 - Multiclass Classification_ One-vs-all
+* 7 - 1 - The Problem of Overfitting
+* 7 - 2 - Cost Function
+* 7 - 3 - Regularized Linear Regression
+* 7 - 4 - Regularized Logistic Regression
