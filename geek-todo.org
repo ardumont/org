@@ -749,15 +749,16 @@ CLOSED: [2013-10-30 mer. 10:32]
 ** IN-PROGRESS Monoids [50%]
 - [X] [[fsharpforfunandprofit.com/posts/monoids-without-tears/][Monoids without tears]]
 - [ ] [[http://fsharpforfunandprofit.com/posts/monoids-part2/][Monoids in practice]]
-** IN-PROGRESS Collection implementations [75%]
+** IN-PROGRESS Collection implementations [100%]
 *** DONE set
 CLOSED: [2013-05-03 ven. 18:13]
 *** DONE binary search tree
 CLOSED: [2013-05-03 ven. 18:13]
 *** DONE AVL
 CLOSED: [2013-08-10 sam. 10:33]
-*** IN-PROGRESS Red-Black tree
-**
+*** DONE Red-Black tree
+CLOSED: [2013-11-10 dim. 15:16]
+https://github.com/ardumont/haskell-lab/blob/master/src/tree/RBT.hs
 ** TODO test-framework - http://batterseapower.github.io/test-framework/
 ** TODO Concurrency/Parallelism
 ** TODO Web services [0%]
