@@ -104,7 +104,7 @@ unit(x) flatMap f == f(x)
 
 *** Right unit
 m flatMap unit == m
-* IN-PROGRESS week 2 [80%]
+* IN-PROGRESS week 2 [100%]
 ** DONE 4 - 1 - Functions and State
 CLOSED: [2013-11-12 mar. 13:16]
 Without side effect, the concept of time is not important.
@@ -535,8 +535,7 @@ def andGate(in1: Wire, in2: Wire, output: Wire): Unit = {
 }
 #+end_src
 
-
-*** or Gate
+*** Or Gate
 #+begin_src scala
 #+begin_src scala
 def orGate(in1: Wire, in2: Wire, output: Wire): Unit = {
@@ -552,4 +551,94 @@ def orGate(in1: Wire, in2: Wire, output: Wire): Unit = {
 
 #+end_src
 
-** TODO 4 - 7 - Discrete Event Simluation_ Implementation and Test
+** DONE 4 - 7 - Discrete Event Simluation_ Implementation and Test
+CLOSED: [2013-11-13 mer. 00:04]
+*** Simulation trait
+
+#+begin_src scala
+trait Simulation {
+  type Action = () => Unit
+  case class Event(time: Int, action: Action)
+  private type Agenda = List[Event]
+  private var agenda: Agenda = List()
+}
+#+end_src
+
+*** Handling time
+
+*** AfterDelay implem.
+
+#+begin_src scala
+def afterDelay(delay: Int)(block: => Unit): Unit = {
+  val item = Event(currentTime + delay, () => block)
+  agenda = insert(agenda, item)
+}
+
+private def insert(ag: List[Event], item: Event): List[Event] = ag match {
+  case first :: rest if first.time <= item.time =>
+    first :: insert(rest, item)
+  case _ => item :: ag
+}
+#+end_src
+
+
+*** The Event handling Loop
+
+#+begin_src scala
+private def loop(): Unit = agenda match {
+  case first :: rest =>
+    agenda = rest
+    curtime = first.time
+    first.action()
+    loop()
+  case Nil =>
+}
+#+end_src
+
+*** The run method
+
+#+begin_src scala
+def run(): Unit = {
+  afterDelay(0) {
+    println("*** simulation started, time = " + currentTime + " ***")
+  }
+  loop()
+}
+#+end_src
+
+*** Probes
+
+A way to examine the changes of the signals on the wires:
+
+#+begin_src scala
+def probe(name: String, Wire: Wire): Unit = {
+  def probeAction(): Unit = {
+    println(s"$name $currentTime value = ${wire.getSignal}")
+  }
+  wire addAction probeAction
+}
+#+end_src
+
+*** Defining Technology-Dependent Parameters
+
+#+begin_src scala
+trait Parameters {
+  def InverterDelay = 2
+  def AndGateDelay = 3
+  def OrGateDelay = 5
+}
+#+end_src
+
+We can add another trait to the MySimulation:
+#+begin_src scala
+object MySimulation extends Circuits with Parameters
+#+end_src
+
+*** Circuits
+
+#+begin_src scala
+class Circuits extends {
+  def half-adder...
+  def full-adder...
+}
+#+end_src
