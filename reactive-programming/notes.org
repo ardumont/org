@@ -104,7 +104,7 @@ unit(x) flatMap f == f(x)
 
 *** Right unit
 m flatMap unit == m
-* IN-PROGRESS week 2 [60%]
+* IN-PROGRESS week 2 [80%]
 ** DONE 4 - 1 - Functions and State
 CLOSED: [2013-11-12 mar. 13:16]
 Without side effect, the concept of time is not important.
@@ -430,5 +430,126 @@ c = f | g = (a & !b) | (b & !a)
 
 xor
 
-** TODO 4 - 6 - Discrete Event Simulation_ API and Usage
+** DONE 4 - 6 - Discrete Event Simulation_ API and Usage
+CLOSED: [2013-11-12 mar. 23:37]
+*** Discrete event Simulation
+a discrete event simulator performs actions, specified by the user at a given moment.
+
+A action is a function that does not take any parameters and which returns Unit:
+
+#+begin_src scala
+type Action = () => Unit
+#+end_src
+
+The time is simulated, it has nothing to do with actual time.
+
+*** Simulation trait
+
+A concrete simulation happens inside an object that inherits from the trait Simulation:
+
+#+begin_src scala
+trait Simulation {
+  // return the current simulated time
+  def currentTime: Int = ???
+  // registers an action to perform after a certain delay (relative to currentTime)
+  def afterDelay(delay: Int)(block: => Unit): Unit = ???
+  // performs the simulation until there are no more actions waiting
+  def run(): Unit = ???
+}
+#+end_src
+
+*** Class diagram
+
+Simulation
+    |
+Gates           Wire, AND, OR, INV
+    |
+Circuits        HA, ADDER
+    |
+MySimulation
+
+*** The Wire Class
+3 basic operations:
+
+#+begin_src scala
+class Wire extends Simulation {
+  getSignal: Boolean
+  setSignal(sig: Boolean): Unit
+
+  // Attaches the specified procedure to the actions of the wire. All of the attached actions are executed at each change of the transported signal.
+  addAction(a: Action): Unit
+}
+#+end_src
+
+
+*** Wire implem.
+
+#+begin_src scala
+class Wire extends Simulation {
+  private var sigVal = false
+  private var actions: List[Action] = List()
+
+  getSignal: Boolean = sigVal
+
+  setSignal(sig: Boolean): Unit =
+    if (s != sigVal) {
+      sigVal = s
+      actions foreach(_())                        // use foreach because of the signature returning Unit
+    }
+
+  addAction(a: Action): Unit = {
+    actions = a :: actions
+    a()
+  }
+}
+
+#+end_src
+
+*** Inverter
+
+installing an action on its input wire.
+
+#+begin_src scala
+def inverter(input: Wire, output: Wire) = {
+  def invertAction(): Unit = {
+    val inputSig = input.getSignal
+    afterDelay(InverterDelay) { output setSignal !inputSig }
+  }
+
+  input addAction invertAction
+}
+#+end_src
+
+*** And Gate
+
+#+begin_src scala
+def andGate(in1: Wire, in2: Wire, output: Wire): Unit = {
+  def andAction(): Unit = {
+    val in1Sig = in1.getSignal
+    val in2Sig = in2.getSignal
+    afterDelay(AndGateDelay) { output setSignal (in1Sig & in2Sig) }
+  }
+
+  in1 addAction andAction
+  in2 addAction andAction
+}
+#+end_src
+
+
+*** or Gate
+#+begin_src scala
+#+begin_src scala
+def orGate(in1: Wire, in2: Wire, output: Wire): Unit = {
+  def orAction(): Unit = {
+    val in1Sig = in1.getSignal
+    val in2Sig = in2.getSignal
+    afterDelay(OrGateDelay) { output setSignal (in1Sig | in2Sig) }
+  }
+
+  in1 addAction orAction
+  in2 addAction orAction
+}
+
+#+end_src
+
 ** TODO 4 - 7 - Discrete Event Simluation_ Implementation and Test
