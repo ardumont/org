@@ -189,3 +189,101 @@ Are instances of BankAccountProxy stateful objects?
 
 Yes -> same call won't result in the same result each time.
 
+** DONE 4 - 3 - Identity and Change
+CLOSED: [2013-11-12 mar. 13:31]
+*** Assignment poses new problem
+Assignment poses the new problem of deciding whether 2 expressions are the same.
+
+#+begin_src scala
+val x = E; val y = E; // -> safe to assume that x and y are the same (val so no assignment).
+#+end_src
+
+we could also have written:
+
+#+begin_src scala
+val x = E; val y = x;
+#+end_src
+
+-> referential transparency
+
+*** Example
+
+#+begin_src scala
+val x = new BankAccount
+val y = new BankAccount
+#+end_src
+
+Are x and y are the same?
+No
+
+*** What's "being the same"?
+
+property of "operational equivalence" <-> x and y are operationally equivalent if no possible test can distinguish between them.
+
+How:
+- Execute multiple arbitrary definitions on both x and y and check the possible outcomes.
+#+begin_src scala
+val x = new BankAccount
+val y = new BankAccount
+f (x, y)
+#+end_src
+
+- Then execute the definitions with another sequence S obtained by replacing each x occurrence by y
+#+begin_src scala
+val x = new BankAccount
+val y = new BankAccount
+f (x, x)
+#+end_src
+
+- Then create another sequence S' by replace x by y in every sequence of S
+#+begin_src scala
+val x = new BankAccount
+val y = new BankAccount
+f (y, y)
+#+end_src
+
+- if the results are different then the expressions x and y are certainly different
+
+- if all possible pairs of sequences (S, S') produce the same result, then x and y are the same.
+
+*** Example
+
+**** First round
+
+#+begin_src scala
+val x = new BankAccount
+val y = new BankAccount
+x deposit 30  // val res1: Int = 30
+y withdraw 20 // -> error
+#+end_src
+
+**** Second
+#+begin_src scala
+val x = new BankAccount
+val y = new BankAccount
+x deposit 30  // val res1: Int = 30
+x withdraw 20 // val res1: Int = 10
+#+end_src
+
+**** conclusion
+
+The final result is different then x and y are different
+
+*** Another Example
+
+#+begin_src scala
+val x = new BankAccount
+val y = x
+x deposit 30  // val res1: Int = 30
+y withdraw 20 // -> error
+#+end_src
+
+Here, using the same experiment, we obtain the same result so x and y are the same.
+
+*** Assignment and substitution model
+With previous examples, we can see that the substitution model can no longer be used with assignments.
+
+** TODO 4 - 4 - Loops
+** TODO 4 - 5 - Extended Example_ Discrete Event Simulation
+** TODO 4 - 6 - Discrete Event Simulation_ API and Usage
+** TODO 4 - 7 - Discrete Event Simluation_ Implementation and Test
