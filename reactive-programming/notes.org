@@ -104,10 +104,88 @@ unit(x) flatMap f == f(x)
 
 *** Right unit
 m flatMap unit == m
-* IN-PROGRESS week 2 [0%]
-** IN-PROGRESS 4 - 1 - Functions and State
-** 4 - 3 - Identity and Change
-** 4 - 4 - Loops
-** 4 - 5 - Extended Example_ Discrete Event Simulation
-** 4 - 6 - Discrete Event Simulation_ API and Usage
-** 4 - 7 - Discrete Event Simluation_ Implementation and Test
+* IN-PROGRESS week 2 [33%]
+** DONE 4 - 1 - Functions and State
+CLOSED: [2013-11-12 mar. 13:16]
+Without side effect, the concept of time is not important.
+
+Substitution model: programs can be evaluated by rewriting.
+As there is no side effect, only reformulation of one's program by replacing each call by it's definition expanding the values.
+
+*** Remarks
+
+Rewriting can be done anywhere in a term.
+
+All rewritings which terminate lead to the same result -> confluence (a.k.a Church-Rosser theorem)
+
+*** Stateful objects
+Stateful -> changes over the course of time.
+
+"an object has a state if its behavior is influenced by its history"
+
+*** Implementation of state
+
+In scala, every form of mutable state is constructed from variables.
+
+*** State in objects
+
+objects with state -> objects with variable
+
+Example: Bank Account
+
+#+begin_src scala
+ class BankAccount {
+  private var balance = 0
+  def deposit(amount: Int): Unit = {
+    if (amount > 0) balance += amount
+  }
+
+  def withdraw(amount: Int): Int = {
+    if (0 < amount && amount <= balance) {
+      balance -= amount
+        balance
+    }
+  }
+}
+
+val acct = new BankAccount
+acct deposit 50
+acct withdraw 20
+acct withdraw 20
+acct withdraw 15 // -> Error
+
+#+end_src
+
+*** Statefulness and variables
+
+**** Example 1
+#+begin_src scala
+def cons[T](hd: T, tl: => Stream[T]) = new Stream[T] {
+    def head = hd
+    private var tlOpt: Option[Stream[T]] = None
+    def tail: T = tlOpt match {
+      case Some(x) => x
+      case None    => tlOpt = Some(tl); tail
+    }
+}
+#+end_src
+
+Is the result of cons a stateful object?
+
+- No   -> if the tail is pure (without side effect), this is not.
+
+- Yes  -> if the tail is side-effecty, tail will depend on the history so yes
+
+**** Example2
+
+#+begin_src scala
+class BankAccountProxy(ba: BankAccount) {
+  def deposit(amount: Int): Unit = ba.deposit(amount)
+  def withdraw(amount: Int): Int = ba.withdraw(amount)
+}
+#+end_src
+
+Are instances of BankAccountProxy stateful objects?
+
+Yes -> same call won't result in the same result each time.
+
