@@ -104,7 +104,7 @@ unit(x) flatMap f == f(x)
 
 *** Right unit
 m flatMap unit == m
-* IN-PROGRESS week 2 [33%]
+* IN-PROGRESS week 2 [50%]
 ** DONE 4 - 1 - Functions and State
 CLOSED: [2013-11-12 mar. 13:16]
 Without side effect, the concept of time is not important.
@@ -283,7 +283,41 @@ Here, using the same experiment, we obtain the same result so x and y are the sa
 *** Assignment and substitution model
 With previous examples, we can see that the substitution model can no longer be used with assignments.
 
-** TODO 4 - 4 - Loops
+** DONE 4 - 4 - Loops
+CLOSED: [2013-11-12 mar. 14:13]
+With assignment, variables are enough to model all imperative programs.
+Loop is an unnecessary construct.
+
+Example of the "power" method using the useless native while operation.
+
+*** WHILE
+
+WHILE as a functional function:
+
+#+begin_src scala
+def WHILE(condition: => Boolean)(command: => Unit): Unit =
+ if (condition) {
+   command
+   WHILE(condition)(command)
+} else ()
+#+end_src
+
+Note:
+- condition and command must be passed by name so that they're reevaluated in each iteration
+- WHILE is tail-recursive so it can operate with a constant stack size
+
+*** REPEAT
+
+Write a function implementing a repeat loop (Repeat the command until the condition is met).
+
+#+begin_src scala
+def REPEAT(command: => Unit)(condition: => Boolean): Unit = {
+  command
+  if (condition) ()
+  else REPEAT(command)(condition)
+}
+#+end_src
+
 ** TODO 4 - 5 - Extended Example_ Discrete Event Simulation
 ** TODO 4 - 6 - Discrete Event Simulation_ API and Usage
 ** TODO 4 - 7 - Discrete Event Simluation_ Implementation and Test
