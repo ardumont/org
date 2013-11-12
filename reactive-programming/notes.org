@@ -104,7 +104,7 @@ unit(x) flatMap f == f(x)
 
 *** Right unit
 m flatMap unit == m
-* IN-PROGRESS week 2 [50%]
+* IN-PROGRESS week 2 [60%]
 ** DONE 4 - 1 - Functions and State
 CLOSED: [2013-11-12 mar. 13:16]
 Without side effect, the concept of time is not important.
@@ -318,6 +318,117 @@ def REPEAT(command: => Unit)(condition: => Boolean): Unit = {
 }
 #+end_src
 
-** TODO 4 - 5 - Extended Example_ Discrete Event Simulation
+** DONE 4 - 5 - Extended Example - Discrete Event Simulation
+CLOSED: [2013-11-12 mar. 22:54]
+*** Digital circuit
+It's composed of:
+- wires (transport signals)
+- functional components (transform signals)
+
+based components:
+- inverter - output is the inverse of its input
+- AND      - output is the conjunction of the inputs
+- OR       - output is the disjunction of the inputs
+
+Other components are built by combining these base components.
+
+/Note/
+Components have a reaction time (delay). Their outputs do not change immediately after a change of their inputs.
+
+*** Diagram - basic
+
+[[./resources/basic-components.png]]
+
+FIXME crop
+
+*** Diagram - combine
+
+[[./resources/combine-basic-in-half-adder.png]]
+
+FIXME crop
+
+*** Gates
+
+#+begin_src scala
+def inverter(input: Wire, output: Wire): Unit
+def andGate(a1: Wire, a2: Wire, output: Wire): Unit
+def orGate(o1: Wire, o2: Wire, output: Wire): Unit
+#+end_src
+
+*** Constructing Components
+
+**** Half-adder
+
+Definition:
+s = a | b & !(a & b)
+c = a & b
+
+#+begin_src scala
+def halfAdder(a: Wire, b: Wire, s: Wire, c: Wire): Unit = {
+  val d = new Wire
+  val e = new Wire
+
+  orGate(a, b, d)
+  andGate(a, b, c)
+  inverter(c, e)
+  andGate(d, e, s)
+}
+#+end_src
+
+[[./resources/half-adder.png]]
+
+**** Full-adder
+
+composed of 2 full-adders:
+
+#+begin_src scala
+def fullAdder(a: Wire, b: Wire, cin: Wire, sum: Wire, cout: Wire): Unit = {
+  val s = new Wire
+  val c1 = new Wire
+  val c2 = new Wire
+
+  halfAdder(b, cin, s, c1)
+  halfAdder(a, s, sum, c2)
+  orGate(c1, c2, cout)
+}
+#+end_src
+
+[[./resources/full-adder.png]]
+
+
+**** Exercise: Mystery function
+
+#+begin_src scala
+def f(a: Wire, b: Wire, c: Wire): Unit = {
+  val d, e, f, g = Wire
+  inverter(a, d)
+  inverter(b, e)
+  andGate(a, e, f)
+  andGate(b, d, g)
+  orGate(f, g, c)
+}
+#+end_src
+
+Question: What logical function does this program describe?
+
+Answer: a != b (xor)
+
+d = !a
+e = !b
+f = a & !b
+g = b & !a
+c = f | g = (a & !b) | (b & !a)
+
+|---+---+---+--------+--------+---|
+|   | a | b | a & !b | b & !a | c |
+|---+---+---+--------+--------+---|
+|   | 0 | 0 |      0 |      0 | 0 |
+|   | 1 | 0 |      1 |      0 | 1 |
+|   | 0 | 1 |      0 |      1 | 1 |
+|   | 1 | 1 |      0 |      0 | 0 |
+|---+---+---+--------+--------+---|
+
+xor
+
 ** TODO 4 - 6 - Discrete Event Simulation_ API and Usage
 ** TODO 4 - 7 - Discrete Event Simluation_ Implementation and Test
