@@ -1,6 +1,8 @@
 #+title: Reactive programming
 
-* DONE What is reactive programming?
+* DONE week 1 [100%]
+CLOSED: [2013-11-12 mar. 12:52]
+** DONE What is reactive programming?
 CLOSED: [2013-11-05 mar. 14:15]
 
 Reactive: readily responsive to stimulus
@@ -53,17 +55,16 @@ to get composable event abstractions
 - handlers of events are also first-class
 - complex handlers can be composed from primitive ones
 
-
-* DONE Recap: Functions and Pattern Matching
+** DONE Recap: Functions and Pattern Matching
 CLOSED: [2013-11-05 mar. 14:16]
-* DONE Recap: Collections
+** DONE Recap: Collections
 CLOSED: [2013-11-05 mar. 14:23]
-* DONE Functional random generators
+** DONE Functional random generators
 CLOSED: [2013-11-06 mer. 13:04]
-* DONE Monads
+** DONE Monads
 CLOSED: [2013-11-10 dim. 19:19]
 
-** Def
+*** Def
 monad M is a parametric type M[T] with 2 operations, flatMap (bind) and unit that have to satisfy some laws:
 - associativity
 - left unit
@@ -84,7 +85,7 @@ Example of monads:
 - Set with unit(x) is Set(x)
 - Option with unit(x) is Some(x)
 - Generator with unit(x) is single(x)
-** Monads and map
+*** Monads and map
 
 map can be defined as a combination between flatMap and unit.
 
@@ -92,7 +93,7 @@ map can be defined as a combination between flatMap and unit.
 m map f == m flatMap (f andThen unit)
 #+end_src
 
-** Monad laws
+*** Monad laws
 *** Associativity
 
 (m flatMap f) flatMap g == m flatMap ( x => f(x) flatMap g f)
@@ -103,3 +104,10 @@ unit(x) flatMap f == f(x)
 
 *** Right unit
 m flatMap unit == m
+* IN-PROGRESS week 2 [0%]
+** IN-PROGRESS 4 - 1 - Functions and State
+** 4 - 3 - Identity and Change
+** 4 - 4 - Loops
+** 4 - 5 - Extended Example_ Discrete Event Simulation
+** 4 - 6 - Discrete Event Simulation_ API and Usage
+** 4 - 7 - Discrete Event Simluation_ Implementation and Test
