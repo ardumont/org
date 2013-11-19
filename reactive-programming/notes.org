@@ -643,7 +643,7 @@ class Circuits extends {
   def full-adder...
 }
 #+end_src
-* IN-PROGRESS week 3 [25%]
+* IN-PROGRESS week 3 [50%]
 ** DONE 5 - 1 - Monads and Effects
 CLOSED: [2013-11-19 mar. 09:53]
 |--------------+-----------+---------------|
@@ -1002,6 +1002,215 @@ packet.onSuccess {
 How many messages remains in the e-mail queue? 3, 2, 1, or 0
 -> 2
 
-** TODO 5 - 4 - Combinators on Futures
+** DONE 5 - 4 - Combinators on Futures
+CLOSED: [2013-11-19 mar. 14:03]
+
+*** Futures recap
+Future is a monad (flatMap in implem.)
+
+#+begin_src scala
+trait Awaitable[T] extends AnyRef {
+  abstract def ready(atMost: Duration): Unit
+  abstract def result(atMost: Duration): T
+}
+
+trait Future[T] extends Awaitable[T] {
+  def filter(p: T => Boolean): Future[T]
+  def flatMap[S](f: T => Future[S]): Future[U]
+  def map[S](f: T => S): Future[S]
+  def recoverWith(f: PartialFunction[Throwable, Future[T]]): Future[T]
+}
+
+object Future {
+  def apply[T](body: => T): Future[T]
+}
+#+end_src
+
+*** Sending packets using features
+
+THE MESS:
+#+begin_src scala
+val socket = Socket()
+
+val packet: Future[Array[Byte]] = socket.readFromMemory()
+
+packet onComplete {
+  case Success(p) =>
+    val confirmation: Future[Array[Byte]] = socket.sendToEurope(p)
+  case Failure(t) => ...
+}
+#+end_src
+
+*** FlatMap to the rescue
+
+#+begin_src scala
+val socket = Socket()
+
+val packet: Future[Array[Byte]] = socket.readFromMemory()
+
+val confirmation: Future[Array[Byte]] = packet.flatMap(p => socket.sendToEurope(p))
+#+end_src
+
+In scala, flatMap is the hero of every monad.
+
+*** Sending packets using futures under the covers
+
+#+begin_src scala
+import scala.concurrent.ExecutionContext.Implicits.global
+import scala.imaginary.Http._
+
+object Http {
+  def apply(url: URL, req: Request): Future[Response] =
+   // runs the http request asynchronously
+}
+
+def sendToEurope(packet: Array[Byte]): Future[Array[Byte]] =
+  Http.url(URL("mail.server.eu"), Request(packet))
+    .filter(response => response.isOK)
+    .map(response => response.toByteArray)
+#+end_src
+
+Code seems nice but can still break at some point.
+
+*** Sending packets using futures robustly (?)
+
+#+begin_src scala
+def sendTo(url: URL, packet: Array[Byte]): Future[Array[Byte]] =
+  Http.url(url, Request(packet))
+    .filter(response => response.isOK)
+    .map(response => response.toByteArray)
+
+def sendToAndBackup(packet: Array[Byte]): Future[(Array[Byte], Array[Byte])] = {
+  val europeConfirm = sendTo(mailServer.europe, packet)
+  val usaConfirm = sendTo(mailServer.usa, packet)
+  europeConfirm.zip(usaConfirm)
+}
+#+end_src
+
+Not more robust.
+
+*** Send packets using futures robustly
+
+- recover: If future has failed, you can return the throwable containing the error.
+#+begin_src scala
+def recover(f: PartialFunction[Throwable, T]): Future[T]
+#+end_src
+
+- recoverWith: If the future fails, try the second future as fallback.
+#+begin_src scala
+def recoverWith(f: PartialFunction[Throwable, Future[T]]): Future[T]
+#+end_src
+
+*** Send packets using futures robustly
+
+n#+begin_src scala
+def sendTo(url: URL, packet: Array[Byte]): Future[Array[Byte]] =
+  Http.url(url, Request(packet))
+    .filter(response => response.isOK)
+    .map(response => response.toByteArray)
+
+def sendToSafe(packet: Array[Byte]): Future[(Array[Byte], Array[Byte])] =
+  sendTo(mailServer.europe, packet) recoverWith {
+    case europeError => sendTo(mailServer.usa, packet) recover {
+      case usaError => usaError.getMessage.toByteArray
+    }
+  }
+
+#+end_src
+
+Not good yet, because we receive the confirmation from usa even for europe.
+
+*** Better recovery with less matching
+
+#+begin_src scala
+def sendToSafe(packet: Array[Byte]): Future[(Array[Byte], Array[Byte])] =
+  sendTo(mailServer.europe, packet) fallbackTo {
+    sendTo(mailServer.usa, packet)
+  } recover {
+      case europeError => europeError.getMessage.toByteArray
+    }
+  }
+
+def fallbackTo(that: => Future[T]): Future[T] =
+  //... if 'this' future fails take the successful result of 'that' future
+  //... if 'that' future fails too, take the error of 'this' future
+#+end_src
+
+
+*** Fallback implementation
+
+#+begin_src scala
+def sendToSafe(packet: Array[Byte]): Future[(Array[Byte], Array[Byte])] =
+  sendTo(mailServer.europe, packet) fallbackTo {
+    sendTo(mailServer.usa, packet)
+  } recover {
+      case europeError => europeError.getMessage.toByteArray
+    }
+  }
+
+def fallbackTo(that: => Future[T]): Future[T] =
+  this recoverWith {
+    case _ => that recoverWith { case _ => this }
+  }
+
+#+end_src
+
+*** Quiz
+
+#+begin_src scala
+object Try {
+  def apply(f: Future[T]): Future[Try[T]] = ...
+}
+#+end_src
+
+What's the correct implementation?
+
+#+begin_src scala
+object Try {
+  def apply(f: Future[T]): Future[Try[T]] =
+    f map { x => Success(s) } recover { case t => Failure(t) }
+}
+#+end_src
+
+*** Asynchronous where possible, blocking where necessary
+
+#+begin_src scala
+trait Awaitable[T] extends AnyRef {
+  abstract def ready(atMost: Duration): Unit
+  abstract def result(atMost: Duration): T
+}
+#+end_src
+
+Beware with this trait, we can get out of the monad world => DANGEROUS
+
+Never block if unnecessary
+
+*** Asynchronous where possible, blocking where necessary
+
+#+begin_src scala
+val socket = Socket()
+
+val packet: Future[Array[Byte]] = socket.readFromMemory()
+
+val confirmation: Future[Array[Byte]] =
+  packet.flatMap(socket.sendToSafe(_))
+
+val c = Await.result(confirmation, 2 seconds)
+println(c.toText)
+
+#+end_src
+
+*** Duration
+
+#+begin_src scala
+import scala.language.postfixOps
+
+object Duration {
+  def apply(length: Long, unit: TimeUnit): Duration
+}
+
+val fiveYears = 1826 minutes
+#+end_src
+
 ** TODO 5 - 5 - Composing Futures
 ** TODO 5 - 6 - Promises, promises, promises
