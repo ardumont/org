@@ -647,7 +647,8 @@ class Circuits extends {
   def full-adder...
 }
 #+end_src
-* IN-PROGRESS week 3 [75%]
+* DONE week 3 [100%]
+CLOSED: [2013-11-19 mar. 18:32]
 ** DONE 5 - 1 - Monads and Effects
 CLOSED: [2013-11-19 mar. 09:53]
 |--------------+-----------+---------------|
@@ -878,7 +879,7 @@ Future[T] a monad that handles exception and latency
 
 *** Futures asynchronously notify consumers
 
--> futures are computation that completes on the future
+Futures are computation that completes on the future.
 
 #+begin_src scala
 import scala.concurrent._
@@ -1384,4 +1385,145 @@ f             : T => Future[S]
 await         : S
 async         : Future[S]
 
-** TODO 5 - 6 - Promises, promises, promises
+*** Reimplementing filter on Future[T]
+
+#+begin_src scala
+def filter(pred: T => Boolean): Future = {
+  val p = Promise[T]()
+
+  this onComplete {
+    case Failure(e) => p.failure(e)
+    case Success(x) => if (!pred(e)) p.failure(new NoSuchElementException())
+                       else p.success(x)
+  }
+  p.future
+}
+#+end_src
+
+** DONE 5 - 6 - Promises, promises, promises
+CLOSED: [2013-11-19 mar. 18:32]
+*** Promises
+
+A Promise contains a Future.
+
+When creating the promise, you can take the future out of the promise.
+And the future will be notified (its callback will be called) whenever you call complete on the promise!!!
+
+#+begin_src scala
+trait Promise[T] {
+  ...
+  def future: Future[T]
+  def complete(result: Try[T]): Unit
+  def tryComplete(result: Try[T]): Boolean
+  ...
+}
+
+trait Future[T] {
+  ...
+  def onCompleted(f: Try[T] => Unit): Unit
+  ...
+}
+#+end_src
+
+Note:
+- Think of the promise as a mailbox.
+
+- A future is idempotent
+- you can call complete on promise only once (otherwise, "complete" will throw)
+- you can only complete a promise once
+- "tryComplete" will return true once and false the other time
+
+*** Racing
+#+begin_src scala
+import scala.concurrent.ExecutionContext.Implicits.global
+
+def race[T](left: Future[T], right: Future[T]): Future[T] = {
+  val p = Promise[T]()
+  left onComplete { p.tryComplete(_) }
+  right onComplete { p.tryComplete(_) }
+  p.future
+}
+#+end_src
+
+The first future that completes will run the race by setting the value of the future p.
+
+*** Simpler helper methods
+
+#+begin_src scala
+def success(value: T): Unit = this.complete(Success(value))
+
+def failure(t: Throwable): Unit = this.complete(Failure(t))
+#+end_src
+
+*** Reimplementing filter on Future[T]
+
+#+begin_src scala
+def filter(pred: T => Boolean): Future = {
+  val p = Promise[T]()
+
+  this onComplete {
+    case Failure(e) => p.failure(e)
+    case Success(x) => if (!pred(e)) p.failure(new NoSuchElementException())
+                       else p.success(x)
+  }
+  p.future
+}
+#+end_src
+
+*** Reimplementing zip using Promises
+
+#+begin_src scala
+def zip[S, R](that: Future[S], f: (T, S) => R): Future[R] = {
+  val p = Promise[R]()
+
+  this onComplete {
+    case Failure(e) => p.failure(e)
+    case Success(x) => that onComplete {
+        case Failure(e) => p.failure(e)
+        case Success(y) => p.success(f(x,y))
+      }
+  }
+  p.future
+}
+#+end_src
+
+Imbrication is not that beautiful.
+
+*** Reimplementing zip with await
+
+#+begin_src scala
+def zip[S, R](p: Future[S], f: (T, S) => R): Future[R] = async {
+  f(await { this }, await { that })
+}
+#+end_src
+
+Using async/await permits to concentrate on the essence of what we want to implement.
+
+*** Implement sequence with Promise
+#+begin_src scala
+def sequence[T](fs: List[Future[T]]): Future[List[T]] = {
+  val successful = Promise[List[T]]()
+  fs.foldRight(successful.future) {
+    (f, acc) => for { x <- f; xs <- acc } yield x :: xs
+  }
+}
+#+end_src
+
+This is hairy!
+
+*** Implement sequence with await
+
+#+begin_src scala
+def sequence[T](fs: List[Future[T]]): Future[List[T]] = async {
+  var _fs = fs
+  val r = ListBuffer[T]()
+
+  while(_fs != Nil) {
+    r += await { _fs.head }
+    _fs = _fs.tail
+  }
+  f.result
+}
+#+end_src
+
+this is "mapM".
