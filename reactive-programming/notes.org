@@ -19,13 +19,13 @@ Event-driven -> scalable  ->
                           ->
 
 
-** Traditionally
+*** Traditionally
 multiple threads (shared, synchronized state) -> strong coupling, hard to compose
 
-** Now
+*** Now
 composed from loosely coupled event-handlers -> events can be handled asynchronously, without blocking
 
-** scalable
+*** scalable
 an applications is scalable if it can expand according to its usage:
 - scale up: make use of parallelism in multi-core system
 - scale out: make use of multiple server nodes
@@ -34,7 +34,7 @@ important for scalability: minimize shared mutable state
 important for scale out: location transparency, resilience
 
 
-** resilient
+*** resilient
 recover quickly from failure
 
 failures can be:
@@ -44,11 +44,11 @@ failures can be:
 
 it is not an afterthought, it needs to be part of the design from the beginning
 
-** responsive
+*** responsive
 
 rich, real-time interaction with its users even under load and in the presence of failures
 
-** fundamental constructions
+*** fundamental constructions
 to get composable event abstractions
 - events are first-class
 - events are often represented as messages
