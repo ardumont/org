@@ -643,7 +643,7 @@ class Circuits extends {
   def full-adder...
 }
 #+end_src
-* IN-PROGRESS week 3 [50%]
+* IN-PROGRESS week 3 [75%]
 ** DONE 5 - 1 - Monads and Effects
 CLOSED: [2013-11-19 mar. 09:53]
 |--------------+-----------+---------------|
@@ -1212,5 +1212,172 @@ object Duration {
 val fiveYears = 1826 minutes
 #+end_src
 
-** TODO 5 - 5 - Composing Futures
+** DONE 5 - 5 - Composing Futures
+CLOSED: [2013-11-19 mar. 14:44]
+*** FlatMap
+*** Comprehensions
+#+begin_src scala
+val socket = Socket()
+val confirmation: Future[Array[Byte]] = for {
+  packet <- socket.readFromMemory()
+  confirmation <- socket.sendToSafe(packet)
+} yield confirmation
+#+end_src
+*** Retrying to send
+
+#+begin_src scala
+def retry(noTimes: Int)(block: => Future[T]): Future[T] =
+  // retry successfully completing block at most noTimes
+  // and give up after that
+#+end_src
+
+*** Retrying to send implem.
+#+begin_src scala
+def retry(noTimes: Int)(block: => Future[T]): Future[T] =
+  if (noTimes == 0)
+    Future.failed(new Exception("sorry"))
+  else
+    block fallbackTo retry(noTimes - 1)(block)
+#+end_src
+
+Try to avoid recursion and use a more higher level approach (fold)
+
+*** Folding lists
+
+"Northern wind comes from the North" (Richard Bird)
+
+Right comes from the right
+#+BEGIN_QUOTE
+List(a, b, c).foldRight(e)(f) <=> f(a, f(b, f(c, e)))
+#+END_QUOTE
+
+Left comes from the left
+#+BEGIN_QUOTE
+List(a, b, c).foldLeft(e)(f) <=> f(f(f(e, a), b), c)
+#+END_QUOTE
+
+*** Retrying to send implem. using foldLeft pattern
+#+begin_src scala
+def retry(noTimes: Int)(block: => Future[T]): Future[T] = {
+  val ns: Iterator[Int] = (1 to noTimes).iterator
+  val attempts: Iterator[Future[T]] = ns.map(_ => () => block)
+  val failed = Future.failed(new Exception("sorry"))
+
+  attempts.foldLeft(failed)((a, block) => a recoverWith { block() })
+}
+#+end_src
+
+*** Retrying to send implem. using foldRight pattern
+
+#+begin_src scala
+def retry(noTimes: Int)(block: => Future[T]): Future[T] = {
+  val ns: Iterator[Int] = (1 to noTimes).iterator
+  val attempts: Iterator[Future[T]] = ns.map(_ => () => block)
+  val failed = Future.failed(new Exception("sorry"))
+
+  attempts.foldRight(() => failed)((block, a) => block() fallbackTo { a() })
+}
+#+end_src
+
+This is COMPLICATED code => not good
+
+We need to write baby code.
+Needs to be intuitive
+
+*** Making effects implicit
+
+We want to render the effects implicit here:
+
+From:
+T => Future[S]
+to:
+T => Try[S]
+or even:
+T => S
+
+*** Async await magic
+#+begin_src scala
+import scala.async.Async._
+
+def async[T](body: => T)
+  (implicit context: ExecutionContext): Future[T]
+
+def await[T](future: Future[T]): T
+#+end_src
+
+This way, we can use an async code which contains a more natural and regular code to read which is Asynchronous.
+
+#+begin_src scala
+async {
+  // "normal" code
+}
+#+end_src
+
+*** Async, the small print
+
+Some illegal uses:
+- await requires a directly-enclosing async (await must not be used inside a closure nested within an async block, or inside a nested object, trait or class)
+- await must not be used inside an expression passed as argument to a by-name parameter
+- not be used inside a Boolean short-circuit argument
+- return expressions are illegal inside an async block
+- Await should not be used under a try/catch
+
+*** Retrying to send using await
+
+#+begin_src scala
+def retry(noTimes: Int)(block: => Future[T]): Future[T] = async {
+  var i = 0
+  var result: Try[T] = Failure(new Exception("sorry"))
+  while (i < noTimes && result.isFailure) {
+    result = await { Try(block) }
+    i += 1
+  }
+  result.get
+}
+#+end_src
+
+Erik Mejer: "Sometimes, using an imperative style is the more natural way"...
+
+*** Reimplementing filter using await
+
+#+begin_src scala
+def filter(p: T => Boolean): Future[T] = async {
+  val x = await { this }
+  if (!p(x)) throw new NoSuchElementException()
+  else x
+}
+#+end_src
+
+*** Quiz
+
+Recall:
+
+#+begin_src scala
+def async[T](body: => T)
+  (implicit context: ExecutionContext): Future[T]
+
+def await[T](future: Future[T]): T
+#+end_src
+
+flatMap using async/await
+#+begin_src scala
+def flatMap[S](f: T => Future[S]): Future[S] = ...
+#+end_src
+
+Answer:
+
+#+begin_src scala
+def flatMap[S](f: T => Future[S]): Future[S] = async {
+  await {
+    f( await { this } )
+  }
+}
+#+end_src
+
+Checking the type:
+await { this }: Future[T] => T
+f             : T => Future[S]
+await         : S
+async         : Future[S]
+
 ** TODO 5 - 6 - Promises, promises, promises
