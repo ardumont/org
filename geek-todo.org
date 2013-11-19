@@ -1130,3 +1130,4 @@ Code it!
  - [ ] W. Wulf & M. Shaw          - Global Variable Considered Harmful                      - Sigplan Notices, 1973
  - [ ] B. Liskov & S. Zilles      - Programming with Abstract Data Types.                   - ACM conferences on Very High Level Languages, Apr. 1974
  - [ ] B. Liskov                  - Data abstraction and hierarchy                          - Sigplan notices, May. 1988
+ - [ ] P. Norvig                  - [[http://norvig.com/21-days.html][Teach yourself programming in ten years]]
