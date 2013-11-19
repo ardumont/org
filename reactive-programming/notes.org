@@ -782,7 +782,57 @@ def flatMap[S](f: T => Try[S]): Try[S] = this match {
 #+end_src
 
 
-** TODO 5 - 3 - Latency as an Effect
+** IN-PROGRESS 5 - 3 - Latency as an Effect
+
+*** A simple adventure game... is very similar to a simple network stack
+#+begin_src scala
+trait Socket {
+  def readFromMemory(): Array[Byte]
+  def sendToEurope(packet: Array[Byte]): Array[Byte]
+}
+
+val socket = new Socket()
+val packet = socket.readFromMemory()
+val confirmation = socket.sendToEurope(packet)
+#+end_src
+
+Side-effects apparent?
+
+*** Timings for various operations on a typical PC on human scale
+Peter Norvig's table
+
+|-------------------------------------+------------------|
+| Instructions                        | Time             |
+|-------------------------------------+------------------|
+| execute typical instruction         | 1 s              |
+| fetch from L1 cache memory          | 0.5 ns           |
+| branch misprediction                | 5 ns             |
+| fetch from L2 cache memory          | 7 ns             |
+| mutex lock/unlock                   | 25 ns            |
+| fetch from main memory              | 100 ns           |
+| send 2k bytes over 1Gbps network    | 20, 000 ns       |
+| read 1Mb sequentially from memory   | 250, 000 ns      |
+| fetch from new disk location (seek) | 8, 000, 000 ns   |
+| read 1Mb sequentially from disk     | 20, 000, 000 ns  |
+| send packet US to Europe and back   | 150, 000, 000 ns |
+|-------------------------------------+------------------|
+
+*** Sequential composition of actions that take time
+#+begin_src scala
+val socket = new Socket()
+val packet = socket.readFromMemory()
+// block for 50,000 ns
+// only continues if no exception
+
+val confirmation = socket.sendToEurope(packet)
+// block for 150,000,000 ns
+// only continues if no exception
+#+end_src
+
+what does 50,000 ns represent?
+
+*** Convert using Norvig's table
+
 ** TODO 5 - 4 - Combinators on Futures
 ** TODO 5 - 5 - Composing Futures
 ** TODO 5 - 6 - Promises, promises, promises
