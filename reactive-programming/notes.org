@@ -642,3 +642,147 @@ class Circuits extends {
   def full-adder...
 }
 #+end_src
+* IN-PROGRESS week 3 [20%]
+** DONE 5 - 1 - Monads and Effects
+CLOSED: [2013-11-19 mar. 09:53]
+|--------------+-----------+---------------|
+|              | One       | Many          |
+|--------------+-----------+---------------|
+| Synchronous  | Try[T]    | Iterable[T]   |
+| Asynchronous | Future[T] | Observable[T] |
+|--------------+-----------+---------------|
+
+*** Simple adventure game
+
+#+begin_src scala
+trait Adventure {
+  def collectCoins(): List[Coin]
+  def buyTreasure(coins: List[Coin]): Treasure
+}
+#+end_src
+
+No as simple as we may think since me need to deal with failure.
+This does not appear when orchestrating code
+
+*** Actions may fail
+
+We need to add the failure.
+
+If we look at implementation details in collectCoins and buyTreasure, we see the unhappy path.
+
+*** Sequential composition of actions that may fail
+
+*** Expose possibility of failure in the types, honestly
+
+From: T => S
+To: T => Try[S]
+
+*** Making failure evident in the type
+
+Using:
+#+begin_src scala
+import scala.util.{Try, Success, Failure}
+
+abstract class Try[T]
+case class Success[T](elem: T) extends Try[T]
+case class Failure[T](t: Throwable) extends Try[Nothing]
+#+end_src
+
+Now the trait becomes:
+
+#+begin_src scala
+trait Adventure {
+  def collectCoins(): Try[List[Coin]]
+  def buyTreasure(coins: List[Coin]): Try[Treasure]
+}
+#+end_src
+
+*** Dealing with failure explicitely
+
+Code becomes uglier but it reflects the reality we ever meant:
+#+begin_src scala
+val adventure = Adventure()
+
+val coins: Try[List[Coin]] = adventure.collectCoins()
+
+val treasure: Try[Treasure] = coins match {
+  case Success(cs)        => adventure.buyTreasure(cs)
+  case failure@Failure(t) => failure
+}
+#+end_src
+
+*** HOF to manipulate Try[T]
+
+#+begin_src scala
+def flatMap[S](f: T => Try[S]): Try[S]
+def flatten[U <: Try[T]]: Try[U]
+def map[S](f: T => S): Try[T]
+def filter(p: T => Boolean): Try[T]
+def recoverWith(f: PartialFunction[Throwable, Try[T]]): Try[T]
+#+end_src
+
+*** Monads guide you through the happy path
+
+Try[T], a monad (has flatMap + previous rules) that handles exceptions
+
+Effects are visible in the type.
+
+
+*** Noise reduction
+
+1. Using flatMap
+#+begin_src scala
+val adventure = Adventure()
+
+val treasure: Try[Treasure] =
+  adventure.collectCoins().flatMap(coins => adventure.buyTreasure(coins))
+#+end_src
+
+2. Using for-comprehension (flatMap inside :D)
+#+begin_src scala
+val adventure = Adventure()
+
+val treasure: Try[Treasure] =
+  for(coins <- adventure.collectCoins;
+      treasure <- adventure.buyTreasure(coins)) yield treasure
+#+end_src
+
+*** HOF to manipulate Try[T]
+
+Object companion of Try (called at construction if memory serves me well):
+
+#+begin_src scala
+object Try {
+  def apply[T](r: => T): Try[T] = { // r call by name to delay the execution
+    try { Success(r) }
+    catch { case t => Failure(t) }
+  }
+}
+#+end_src
+
+Map implementation of Try:
+
+#+begin_src scala
+def map[S](f: T => S): Try[S] = this match {
+  case Success(value)     => Try(f(value))
+  case failure@Failure(t) => failure
+}
+#+end_src
+
+Try helps in materializing the exceptions!
+
+*** Quiz
+FlatMap implementation:
+
+#+begin_src scala
+def flatMap[S](f: T => Try[S]): Try[S] = this match {
+  case Success(value)     => try { f(value) } catch { case t => Failure(t) }
+  case failure@Failure(t) => failure
+}
+#+end_src
+
+
+** TODO 5 - 3 - Latency as an Effect
+** TODO 5 - 4 - Combinators on Futures
+** TODO 5 - 5 - Composing Futures
+** TODO 5 - 6 - Promises, promises, promises
