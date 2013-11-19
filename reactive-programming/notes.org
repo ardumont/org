@@ -643,7 +643,7 @@ class Circuits extends {
   def full-adder...
 }
 #+end_src
-* IN-PROGRESS week 3 [20%]
+* IN-PROGRESS week 3 [25%]
 ** DONE 5 - 1 - Monads and Effects
 CLOSED: [2013-11-19 mar. 09:53]
 |--------------+-----------+---------------|
@@ -782,8 +782,8 @@ def flatMap[S](f: T => Try[S]): Try[S] = this match {
 }
 #+end_src
 
-
-** IN-PROGRESS 5 - 3 - Latency as an Effect
+** DONE 5 - 3 - Latency as an Effect
+CLOSED: [2013-11-19 mar. 13:22]
 
 *** A simple adventure game... is very similar to a simple network stack
 #+begin_src scala
@@ -802,22 +802,23 @@ Side-effects apparent?
 *** Timings for various operations on a typical PC on human scale
 Peter Norvig's table
 
-|-------------------------------------+------------------|
-| Instructions                        | Time             |
-|-------------------------------------+------------------|
-| execute typical instruction         | 1 s              |
-| fetch from L1 cache memory          | 0.5 ns           |
-| branch misprediction                | 5 ns             |
-| fetch from L2 cache memory          | 7 ns             |
-| mutex lock/unlock                   | 25 ns            |
-| fetch from main memory              | 100 ns           |
-| send 2k bytes over 1Gbps network    | 20, 000 ns       |
-| read 1Mb sequentially from memory   | 250, 000 ns      |
-| fetch from new disk location (seek) | 8, 000, 000 ns   |
-| read 1Mb sequentially from disk     | 20, 000, 000 ns  |
-| send packet US to Europe and back   | 150, 000, 000 ns |
-|-------------------------------------+------------------|
+|-------------------------------------+------------|
+| Instructions                        |  Time (ns) |
+|-------------------------------------+------------|
+| execute typical instruction         | 1000000000 |
+| fetch from L1 cache memory          |        0.5 |
+| branch misprediction                |          5 |
+| fetch from L2 cache memory          |          7 |
+| mutex lock/unlock                   |         25 |
+| fetch from main memory              |        100 |
+| send 2k bytes over 1Gbps network    |      20000 |
+| read 1Mb sequentially from memory   |     250000 |
+| fetch from new disk location (seek) |    8000000 |
+| read 1Mb sequentially from disk     |   20000000 |
+| send packet US to Europe and back   |  150000000 |
+|-------------------------------------+------------|
 
+http://norvig.com/21-days.html#answers
 *** Sequential composition of actions that take time
 #+begin_src scala
 val socket = new Socket()
@@ -830,9 +831,176 @@ val confirmation = socket.sendToEurope(packet)
 // only continues if no exception
 #+end_src
 
-what does 50,000 ns represent?
+but what does 50,000 ns represent in human term?
 
 *** Convert using Norvig's table
+
+Let's convert those ns into second.
+This is not the reality!
+
+ |-------------------------------------+------------|
+ | Instructions                        | Time       |
+ |-------------------------------------+------------|
+ | execute typical instruction         | 1          |
+ | fetch from L1 cache memory          | 0.5s       |
+ | branch misprediction                | 5s         |
+ | fetch from L2 cache memory          | 7s         |
+ | mutex lock/unlock                   | 0.5m       |
+ | fetch from main memory              | 1.5m       |
+ | send 2k bytes over 1Gbps network    | 5.5h       |
+ | read 1Mb sequentially from memory   | 3d         |
+ | fetch from new disk location (seek) | 13w        |
+ | read 1Mb sequentially from disk     | 6.5 months |
+ | send packet US to Europe and back   | 5y         |
+ |-------------------------------------+------------|
+
+#+begin_src scala
+val socket = new Socket()
+val packet = socket.readFromMemory()
+// block for 3 days
+// only continues if no exception
+
+val confirmation = socket.sendToEurope(packet)
+// block for 5 years
+// only continues if no exception
+#+end_src
+
+This is huge!
+
+
+*** Monads guide you through the happy path
+
+Future[T] a monad that handles exception and latency
+
+*** Futures asynchronously notify consumers
+
+-> futures are computation that completes on the future
+
+#+begin_src scala
+import scala.concurrent._
+import scala.concurrent.ExecutionContext.Implicits.global
+
+trait Future[T] {
+  def onComplete(callback: Try[T] => Unit)
+    (implicit executor: ExecutionContext): Unit
+}
+#+end_src
+
+NB: The execution context will remain implicit as this is not necessary to understand futures.
+
+*** Futures alternative designs
+
+#+begin_src scala
+trait Future[T] {
+  def onComplete(success: T => Unit, failed: Throwable => Unit)
+    (implicit executor: ExecutionContext): Unit
+
+  def onComplete(callback: Observer[T]): Unit
+}
+
+trait Observer[T] {
+  def onNext(value: T): Unit
+  def onError(error: Throwable): Unit
+}
+#+end_src
+
+*** Futures asynchronously notify consumers
+
+#+begin_src scala
+trait Socket {
+  def readFromMemory(): Future[Array[Byte]]
+  def sendToEurope(packet: Array[Byte]): Future[Array[Byte]]
+}
+#+end_src
+
+If you know the computation will take a long time, always make your method return a future.
+
+*** Send packets using futures I
+
+Impact on the code obviously.
+
+#+begin_src scala
+val socket = Socket()
+
+val packet: Future[Array[Byte]] = socket.readFromMemory()
+
+val confirmation: Future[Array[Byte]] =
+  packet onComplete {
+    case Success(p) => socket.sendToEurope(p)
+    case Failure(t) => ...
+}
+#+end_src
+This does not work
+
+*** Send packets using futures II
+
+Impact on the code obviously.
+
+#+begin_src scala
+val socket = Socket()
+
+val packet: Future[Array[Byte]] = socket.readFromMemory()
+
+packet onComplete {
+  case Success(p) =>
+    val confirmation: Future[Array[Byte]] = socket.sendToEurope(p)
+  case Failure(t) => ...
+}
+#+end_src
+
+This does work but this can lead to spaghetti code!
+CARNAGE!
+
+Isn't there a better way?
+
+*** Creating Futures
+
+Starts an async computation and returns a future object to which you can suscribe to be notified when the future completes
+
+Companion object for Future:
+#+begin_src scala
+Object Future {
+  def apply(body: => T)
+   (implicit context: ExecutionContext): Future[T]
+}
+#+end_src
+
+*** Creating Futures
+#+begin_src scala
+import scala.concurrent.ExecutionContext.Implicits.global
+import akka.serializer._
+
+val memory = Queue[EMailMessage](
+  EMailMessage(from = "Erik", to = "Roland"),
+  EMailMessage(from = "Martin", to = "Erik"),
+  EMailMessage(from = "Roland", to = "Martin"),
+  ...
+
+def readFromMemory(): Future[Array[Byte]] = Future {
+  val email = queue.dequeue()
+  val serializer = serialization.findSerializerFor(email)
+  serializer.toBinary(email)
+}
+#+end_src
+
+*** Quiz
+
+#+begin_src scala
+import scala.concurrent.ExecutionContext.Implicits.global
+
+val packet: Future[Array[Byte]] = socket.readFromMemory()
+
+packet.onSuccess {
+  case bs => socket.sendToEurope(p)
+}
+
+packet.onSuccess {
+  case bs => socket.sendToEurope(p)
+}
+#+end_src
+
+How many messages remains in the e-mail queue? 3, 2, 1, or 0
+-> 2
 
 ** TODO 5 - 4 - Combinators on Futures
 ** TODO 5 - 5 - Composing Futures
