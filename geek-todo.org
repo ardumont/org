@@ -69,7 +69,9 @@ CLOSED: [2013-10-13 dim. 02:08]
 CLOSED: [2013-10-13 dim. 02:08]
 ** DONE 0.2.2
 CLOSED: [2013-10-13 dim. 02:08]
-** IN-PROGRESS 0.2.3
+** DONE 0.2.3
+CLOSED: [2013-11-19 mar. 12:34]
+** IN-PROGRESS 0.2.4
 * IN-PROGRESS Emacs [100%]
 ** DONE install
 CLOSED: [2012-04-21 Sat 12:02]
@@ -163,7 +165,7 @@ CLOSED: [2013-07-07 dim. 10:00]
 *** DONE jabber-pack
 CLOSED: [2013-07-07 dim. 10:00]
 
-* IN-PROGRESS Scala [44%]
+* IN-PROGRESS Scala [54%]
 ** DONE scala-pack
 CLOSED: [2013-07-26 ven. 12:15]
 
@@ -216,16 +218,24 @@ CLOSED: [2013-10-13 dim. 01:33]
 - [ ] P27 (**) Group the elements of a set into disjoint subsets.
 - [ ] P28 (**) Sorting a list of lists according to length of sublists.
 - [ ]
-** IN-PROGRESS coursera's functional programming [83%]
-- [X] example
-- [X] fun with sets
-- [X] recfun
-- [X] objsets
-- [X] patmat
+** DONE coursera's functional programming [87%]
+CLOSED: [2013-11-19 mar. 12:24]
+- [X] example assignment
+- [X] recursion
+- [X] functional sets
+- [X] object-oriented sets
+- [X] huffman cocoding
+- [X] Collections - Anagrams
+- [X] lazy evaluation - Bloxorz
+** IN-PROGRESS coursera's reactive programming [50%]
+- [X] scala check
+- [X] simulations
+- [ ] NodeScala
 - [ ] ...
 ** TODO Akka
 ** TODO Iteratee
-* IN-PROGRESS guitar [37%]
+* CANCELLED guitar [37%]
+CLOSED: [2013-11-19 mar. 12:35]
 ** DONE coursera - week 1
 CLOSED: [2013-08-03 sam. 10:17]
 ** DONE coursera - week 2
@@ -237,7 +247,7 @@ CLOSED: [2013-08-04 dim. 07:06]
 ** TODO coursera - week 6
 ** IN-PROGRESS lilypond (music notation)
 ** IN-PROGRESS ob-lilypond (music notation on emacs org-mode)
-* IN-PROGRESS crypto [33%]
+* PENDING crypto [33%]
 ** IN-PROGRESS coursera
 ** DONE matasano 1-8 [100%]
 CLOSED: [2013-05-17 ven. 04:59]
@@ -259,8 +269,8 @@ CLOSED: [2013-05-17 ven. 04:55]
 CLOSED: [2013-05-17 ven. 04:55]
 **** DONE send mail
 CLOSED: [2013-05-17 ven. 04:59]
-** TODO matasano 9-48 suite
-* IN-PROGRESS euler 27/434 [96%]
+** PENDING matasano 9-48 suite
+* PENDING euler 27/434 [96%]
 ** DONE 1 - Multiples of 3 and 5
 CLOSED: [2013-05-23 Thu 10:59]
 ** DONE 2 - Even Fibonacci numbers
@@ -316,7 +326,7 @@ CLOSED: [2013-05-23 Thu 10:54]
 ** DONE 59 - XOR decryption
 CLOSED: [2013-05-23 Thu 10:55]
 ** PENDING Finish the other exercises
-* IN-PROGRESS 4clojure 144/155 [98%]
+* PENDING 4clojure 144/155 [98%]
 http://www.4clojure.com/users
 http://www.4clojure.com/user/ardumont
 ** DONE 21
