@@ -104,7 +104,8 @@ unit(x) flatMap f == f(x)
 
 *** Right unit
 m flatMap unit == m
-* IN-PROGRESS week 2 [100%]
+* DONE week 2 [100%]
+CLOSED: [2013-11-19 mar. 12:16]
 ** DONE 4 - 1 - Functions and State
 CLOSED: [2013-11-12 mar. 13:16]
 Without side effect, the concept of time is not important.
