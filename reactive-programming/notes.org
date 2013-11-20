@@ -1,4 +1,8 @@
 #+title: Reactive programming
+resources:
+- http://docs.scala-lang.org/overviews/core/futures.html
+- http://docs.scala-lang.org/sips/pending/futures-promises.html
+- https://github.com/scala/scala/blob/master/src/library/scala/concurrent/Future.scala
 
 * DONE week 1 [100%]
 CLOSED: [2013-11-12 mar. 12:52]
