@@ -1,0 +1,12 @@
+#+begin_src emacs-lisp
+(defun my-personal-clojure-setup-window-orga ()
+  (interactive)
+  (progn
+    (split-window-horizontally)
+    (shrink-window-horizontally 70)
+    (win-switch-right);; found out this one with M-x describe-key C-x o and the scratch buffer again
+
+    (split-window-horizontally)
+    (enlarge-window-horizontally 10)
+    (win-switch-left)))
+#+end_src
