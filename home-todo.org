@@ -484,7 +484,7 @@ CLOSED: [2011-09-12 lun. 13:10]
 ** DONE Reparer la partie de la barriere tombee a cause du lierre
 Merci papy Claude
 ** TODO Replanter les arbustes de devant pour combler le trou dans la haie de derriere
-* PENDING Salon [11/14]
+* PENDING Salon [15/17]
 ** DONE Retirer le papier peint du plafond
 ** DONE Retirer le crepis
 ** DONE Reparer la fissure de la cheminee
@@ -507,9 +507,17 @@ CLOSED: [2013-08-01 jeu. 19:26]
 CLOSED: [2013-08-01 jeu. 19:26]
 ** DONE Interrupteurs salon/escalier
 CLOSED: [2013-08-03 sam. 21:11]
+
+** DONE Cheminee a remplacer par un poele
+** DONE Changer radiateur 1
+CLOSED: [2013-11-24 dim. 19:04]
+Merci papy Claude
+** DONE Changer radiateur 2
+CLOSED: [2013-11-24 dim. 19:04]
+Merci papy Claude
 ** TODO Peindre le plafond
 ** TODO Poser le papier peint
-** TODO Cheminee a remplacer par un poele
+
 * PENDING Buanderie [8/12]
 ** DONE Sous-couche porte buanderie/couloir
 CLOSED: [2013-07-30 mar. 21:47]
