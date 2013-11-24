@@ -391,7 +391,7 @@ CLOSED: [2013-08-08 jeu. 19:35]
 ** TODO Retirer le crepis
 ** TODO Enduit de rebouchage
 ** TODO Peindre
-* IN-PROGRESS Chambre parentale [7/14]
+* IN-PROGRESS Chambre parentale [8/16]
 ** DONE Changer le siphon du lavabo
 CLOSED: [2013-04-11 jeu. 09:39]
 ** DONE Changer le robinet de la douche
@@ -406,6 +406,9 @@ CLOSED: [2013-08-01 jeu. 19:27]
 CLOSED: [2013-08-04 dim. 15:18]
 ** DONE Poignee de porte
 CLOSED: [2013-08-08 jeu. 19:35]
+** DONE Changer le radiateur par celui du salon
+CLOSED: [2013-11-24 dim. 19:07]
+** TODO Changer le radiateur
 ** TODO Retirer le crepis
 ** TODO Enduit de rebouchage
 ** TODO Enduit de lissage
@@ -413,7 +416,7 @@ CLOSED: [2013-08-08 jeu. 19:35]
 ** TODO Passer la sous-couche.
 ** TODO Poser la toile de renovation
 ** TODO Poser le papier peint/Peindre
-* IN-PROGRESS Bureau [8/17]
+* IN-PROGRESS Bureau [9/19]
 ** DONE Enduit de rebouchage porte
 CLOSED: [2013-07-29 lun. 18:57]
 ** DONE Peindre la porte couche 1/2
@@ -430,6 +433,9 @@ CLOSED: [2013-08-01 jeu. 19:28]
 CLOSED: [2013-08-04 dim. 15:18]
 ** DONE Poignee de porte
 CLOSED: [2013-08-08 jeu. 19:35]
+** DONE Changer le radiateur par celui du salon
+CLOSED: [2013-11-24 dim. 19:07]
+** TODO Changer le radiateur
 ** TODO Retirer le crepis
 ** TODO Enduit de rebouchage
 ** TODO Enduit de lissage
