@@ -109,7 +109,10 @@ unit(x) flatMap f == f(x)
 
 *** Right unit
 m flatMap unit == m
+** DONE Assignments
+CLOSED: [2013-11-27 mer. 20:22]
 * DONE week 2 [100%]
+
 CLOSED: [2013-11-19 mar. 12:16]
 ** DONE 4 - 1 - Functions and State
 CLOSED: [2013-11-12 mar. 13:16]
@@ -648,6 +651,9 @@ class Circuits extends {
   def full-adder...
 }
 #+end_src
+
+** DONE Assignment
+CLOSED: [2013-11-27 mer. 20:22]
 * DONE week 3 [100%]
 CLOSED: [2013-11-19 mar. 18:32]
 ** DONE 5 - 1 - Monads and Effects
@@ -1528,3 +1534,15 @@ def sequence[T](fs: List[Future[T]]): Future[List[T]] = async {
 #+end_src
 
 this is "mapM".
+** DONE Assignment
+CLOSED: [2013-11-27 mer. 20:21]
+* IN-PROGRESS week 4 [50%]
+** DONE 6 - 1 - From Futures to Observables
+CLOSED: [2013-11-27 mer. 20:23]
+** DONE 6 - 2 - Basic Combinators on Observable Collections
+CLOSED: [2013-11-27 mer. 20:23]
+** DONE 6 - 3 - Subscriptions
+CLOSED: [2013-11-27 mer. 20:23]
+** IN-PROGRESS 6 - 4 - Creating Rx Streams
+** TODO 6 - 5 - Schedulers I (Optional)
+** TODO 6 - 6 - Schedulers II (Optional)
