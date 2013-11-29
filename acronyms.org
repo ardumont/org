@@ -15,5 +15,6 @@
 | ACID    | Atomic - Consistent - Independent - Durable            |                                                           |
 | STM     | Software Transactional Memory                          | approach to programming shared-memory parallel processors |
 | NLP     | Natural Language Processing                            |                                                           |
+| AMQP    | Advanced Message Queue Protocol                        |                                                           |
 |         |                                                        |                                                           |
 |---------+--------------------------------------------------------+-----------------------------------------------------------|
