@@ -1,0 +1,252 @@
+#+title: Monitoring through Graphite - Olivier Bazoud
+#+author: Antoine R. Dumont
+
+[[https://graphite.readthedocs.org/en/latest/overview.html][Graphite]] is a monitoring tool that does not measure metrics.
+
+[[https://graphite.readthedocs.org/en/latest/tools.html][Metric Measuring tools that works great with Graphite.]]
+
+* Principals 1/
+- monitoring
+- dashboard
+- alerting
+- ...
+* Principals 2/
+- application runtime behavior
+- problem analysis
+- pre-prod/prod platform behavior comparison
+- anticipation on "capacity planning" platform
+- platform (infrastructure) and software (applicative process, etc...) concerns
+* Principals 3/
+KPI
+
+- business
+transaction, connections, workflows, etc...
+
+- application
+memory load, time load
+
+- system
+load, swap, network interface
+
+* Principals
+- SHARE the informations
+dev/Ops/PO/Run
+
+* Towards...
+
+- "If it ain't monitored, no production!"
+
+because:
+
+- "If it ain't monitored, how to improve it?"
+
+- Metric Driven Development
+
+* Graphite
+** Definition
+
+It's an open-source (Apache 2.0 license) enterprise-scale monitoring tool that runs well on cheap hardware which:
+
+- store numeric time-series
+
+- visualize graphs
+
+- It does not collect data.
+
+- Auto-monitoring
+
+** Mode
+
+- Push
+
+- File storage
+
+- URL API: graphs, json, csv
+
+- Functions -> MATHS!
+
+** Composed of
+
+- shisper
+
+- carbon
+
+- graphite-web
+
+** Flow
+
+collectors -> metric -> | carbon -> whisper |  -> write -> fs
+                          (cache)
+                                                           fs  <- | whisper -> graphite-web |
+
+
+                          carbon -> cache                   <- graphite-web
+
+** Carbon
+
+*** Communication Protocols
+
+TCP/UDP (preferred way)
+
+- the "plaintext protocol"
+#+begin_src sh
+echo "local.my.metric 123.45 `date "%s`" | nc location 2003
+#+end_src
+
+- the "pickle protocol"
+#+begin_src sh
+[(path, (timestamp, value)), ...]
+#+end_src
+
+- Advanced Message Queue Protocol
+
+*** Carbon cache
+
+memory storage...
+
+*** Aggregation
+
+Aggregation computations
+
+*** Carbon relay
+
+- Replication based on rules
+
+- Sharding -> consistent hashing, etc...
+
+*** Carbon set-up
+- MAX_CACHE_SIZE
+cache Size
+
+- MAX_XREATES_PER_MINUTE
+I/O reduction
+
+- MAX_UPDATES_PER_SECOND -> Buffer cache
+I/O reduction
+
+***
+** Whisper
+Fixed-size database
+fast reliable storage
+
+- 1 metric = 1 file
+
+- structure
+
+Samples of setup file:
+
+#+begin_src carbon
+[carbon]
+pattern = ^load\.
+retentions = 10s:1d,1m:7d,4m30d
+#+end_src
+-> 346k
+
+
+#+begin_src carbon
+[carbon]
+pattern = ^load\.
+retentions = 10s:15d,30s:180d,1m3y
+#+end_src
+-> 26 Mb
+1 point every 10s for 15 days
+1 point every 30s for 180 days
+...
+
+*** Retention switch change
+
+min, max, sum, avg
+
+** Graphite web
+*** Underneath
+apache/django
+sqlite/mysql
+*** Interests
+- graph composition
+- url api: png, json, csv
+- aggregation function
+- blacklist/whitelist/rewrite
+- dashboard
+- graph template
+
+** Functions
+
+That permits:
+- Transform
+- Combine
+- Compute
+
+Through URI!
+
+*** Samples
+
+#+begin_src function
+/render/?target=<function-name>
+#+end_src
+
+*** Functions
+
+derivative
+integral
+summarize
+sumSeries
+drawAsInfinite
+alias
+scale
+nonNegativeDerivative
+nPercentile
+etc...
+
+* Metric monitoring
+- System
+collectd
+
+- Application
+JMXTrans
+
+** Collectd
+http://collectd.org/
+
+** JMXTrans
+http://www.jmxtrans.org/
+https://github.com/jmxtrans/jmxtrans
+
+** Metrics
+https://github.com/codahale/metrics
+http://metrics.codahale.com/
+"Capturing JVM- and application-level metrics. So you know what's going on."
+
+Java library:
+- gauges, counters, meters, histogram, timers, etc..
+- etc...
+
+** Statsd
+
+** Logster
+
+* alerting
+** Nagios
+http://www.nagios.org/
+
+Can define nagios rules to trigger notification when alerts are raised.
+#+begin_src sh
+check_graphite_multi --help
+#+end_src
+
+** Seyren
+https://github.com/scobal/seyren
+Alerting dashboard for Graphite
+
+- Java
+- pull http
+- alerts
+  - email, pagerDuty
+  - hipChat, hubot, flowdock, IRCCat
+  - etc...
+
+** Skyline
+Real-time anomaly detection system
+https://github.com/etsy/skyline
+
+"part of the Kale stack"
+http://codeascraft.com/2013/06/11/introducing-kale/
