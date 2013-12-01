@@ -1552,3 +1552,6 @@ CLOSED: [2013-11-27 mer. 21:46]
 CLOSED: [2013-11-27 mer. 22:07]
 ** DONE assignment
 CLOSED: [2013-12-01 dim. 14:32]
+* TODO week 5 [0%]
+* TODO week 6 [0%]
+* TODO week 7 [0%]
