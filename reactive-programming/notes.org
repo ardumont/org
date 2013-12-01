@@ -1536,7 +1536,8 @@ def sequence[T](fs: List[Future[T]]): Future[List[T]] = async {
 this is "mapM".
 ** DONE Assignment
 CLOSED: [2013-11-27 mer. 20:21]
-* IN-PROGRESS week 4 [85%]
+* DONE week 4 [100%]
+CLOSED: [2013-12-01 dim. 14:32]
 ** DONE 6 - 1 - From Futures to Observables
 CLOSED: [2013-11-27 mer. 20:23]
 ** DONE 6 - 2 - Basic Combinators on Observable Collections
@@ -1549,4 +1550,5 @@ CLOSED: [2013-11-27 mer. 21:46]
 CLOSED: [2013-11-27 mer. 21:46]
 ** DONE 6 - 6 - Schedulers II (Optional)
 CLOSED: [2013-11-27 mer. 22:07]
-** IN-PROGRESS assignment
+** DONE assignment
+CLOSED: [2013-12-01 dim. 14:32]
