@@ -15,7 +15,7 @@
 * TODO coding challenge which computes the complexity  - http://codility.com/
 * IN-PROGRESS Structure and Interpretation of Computer Programs - video courses
 * IN-PROGRESS Structure and Interpretation of Computer Programs - books
-* IN-PROGRESS org-trello [96%]
+* IN-PROGRESS org-trello [100%]
 minor mode to sync trello and org-mode
 ** DONE v0.0.1
 CLOSED: [2013-07-07 dim. 09:58]
@@ -71,7 +71,12 @@ CLOSED: [2013-10-13 dim. 02:08]
 CLOSED: [2013-10-13 dim. 02:08]
 ** DONE 0.2.3
 CLOSED: [2013-11-19 mar. 12:34]
-** IN-PROGRESS 0.2.4
+** DONE 0.2.4
+CLOSED: [2013-12-01 dim. 14:35]
+** DONE 0.2.5
+CLOSED: [2013-12-01 dim. 14:35]
+** DONE 0.2.6
+CLOSED: [2013-12-01 dim. 14:35]
 * IN-PROGRESS Emacs [100%]
 ** DONE install
 CLOSED: [2012-04-21 Sat 12:02]
@@ -165,7 +170,7 @@ CLOSED: [2013-07-07 dim. 10:00]
 *** DONE jabber-pack
 CLOSED: [2013-07-07 dim. 10:00]
 
-* IN-PROGRESS Scala [54%]
+* IN-PROGRESS Scala [63%]
 ** DONE scala-pack
 CLOSED: [2013-07-26 ven. 12:15]
 
@@ -184,10 +189,14 @@ CLOSED: [2013-07-31 mer. 13:59]
 
 ** DONE Play intro
 CLOSED: [2013-10-13 dim. 01:33]
-** PENDING Improve tooling
-*** [[http://aemoncannon.github.io/ensime/index.html][ensime doc]]
-*** [[https://github.com/ardumont/scala-pack][scala-pack]]
-*** [[https://github.com/rickynils/scalacheck][scalacheck]]
+** DONE Improve tooling
+CLOSED: [2013-12-01 dim. 14:36]
+*** DONE [[http://aemoncannon.github.io/ensime/index.html][ensime doc]]
+CLOSED: [2013-12-01 dim. 14:36]
+*** DONE [[https://github.com/ardumont/scala-pack][scala-pack]]
+CLOSED: [2013-12-01 dim. 14:36]
+*** DONE [[https://github.com/rickynils/scalacheck][scalacheck]]
+CLOSED: [2013-12-01 dim. 14:36]
 ** IN-PROGRESS [[http://aperiodic.net/phil/scala/s-99/][99 problems in scala]] [86%]
 - [X] P01 (*) Find the last element of a list.
 - [X] P02 (*) Find the last but one element of a list.
@@ -227,15 +236,15 @@ CLOSED: [2013-11-19 mar. 12:24]
 - [X] huffman cocoding
 - [X] Collections - Anagrams
 - [X] lazy evaluation - Bloxorz
-** IN-PROGRESS coursera's reactive programming [50%]
+** IN-PROGRESS coursera's reactive programming [80%]
 - [X] scala check
 - [X] simulations
-- [ ] NodeScala
+- [X] NodeScala
+- [X] Wikipedia
 - [ ] ...
 ** TODO Akka
 ** TODO Iteratee
-* CANCELLED guitar [37%]
-CLOSED: [2013-11-19 mar. 12:35]
+* PENDING guitar [37%]
 ** DONE coursera - week 1
 CLOSED: [2013-08-03 sam. 10:17]
 ** DONE coursera - week 2
