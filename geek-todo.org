@@ -170,7 +170,7 @@ CLOSED: [2013-07-07 dim. 10:00]
 *** DONE jabber-pack
 CLOSED: [2013-07-07 dim. 10:00]
 
-* IN-PROGRESS Scala [63%]
+* IN-PROGRESS Scala [58%]
 ** DONE scala-pack
 CLOSED: [2013-07-26 ven. 12:15]
 
@@ -245,6 +245,8 @@ CLOSED: [2013-11-19 mar. 12:24]
 ** IN-PROGRESS Akka
 https://github.com/akka/akka
 http://jglobal.com/emacs-power-for-scala-development/
+** IN-PROGRESS sbt
+http://scala.micronauticsresearch.com/sbt/useful-sbt-commands
 http://stackoverflow.com/questions/19313063/failed-to-run-simple-akka-sample-using-sbt
 ** TODO Iteratee
 * PENDING guitar [37%]
