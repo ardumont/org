@@ -242,7 +242,10 @@ CLOSED: [2013-11-19 mar. 12:24]
 - [X] NodeScala
 - [X] Wikipedia
 - [ ] ...
-** TODO Akka
+** IN-PROGRESS Akka
+https://github.com/akka/akka
+http://jglobal.com/emacs-power-for-scala-development/
+http://stackoverflow.com/questions/19313063/failed-to-run-simple-akka-sample-using-sbt
 ** TODO Iteratee
 * PENDING guitar [37%]
 ** DONE coursera - week 1
