@@ -5,6 +5,20 @@ resources:
 - https://github.com/scala/scala/blob/master/src/library/scala/concurrent/Future.scala
 - https://github.com/scala/scala/blob/master/src/library/scala/concurrent/Promise.scala
 
+* Definition
+
+** Future
+The type Future[T] designates a value of type T that might not be available now, but will become available at some point in the future.
+This type captures the concept of time in your programs - the future is initially not completed, and then becomes completed at some time.
+
+** Promise
+The Promise[T] is a single-assignment variable - an object which initially has no value, but to which you can write some value of type T only once using methods like
+`complete` or `success`, and then it has that value forever.
+Instances of the type Promise[T] have a method called `future` that returns the Future[T] corresponding to that promise.
+As soon as you write to a promise, its corresponding future will be completed.
+
+If you think about it, this allows you to obtain a completed future involving no asynchronous computation whatsoever.
+
 * DONE week 1 [100%]
 CLOSED: [2013-11-12 mar. 12:52]
 ** DONE What is reactive programming?
