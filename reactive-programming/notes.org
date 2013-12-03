@@ -1566,7 +1566,7 @@ CLOSED: [2013-11-27 mer. 21:46]
 CLOSED: [2013-11-27 mer. 22:07]
 ** DONE assignment
 CLOSED: [2013-12-01 dim. 14:32]
-* TODO week 5 [0%]
+* IN-PROGRESS week 5 [0%]
 ** TODO 7 - 1 - Introduction_ Why Actors
 ** TODO 7 - 2 - The Actor Model (13_43).mp4
 ** TODO 7 - 3 - Message Processing Semantics (27_28).mp4
@@ -1716,7 +1716,71 @@ class Controller extends Actor {
 #+end_src
 
 
+*** Receptionist
+
+#+begin_src scala
+package concurrency.actor
+
+import akka.actor.{Actor, ActorRef, Props}
+
+object Receptionist {
+  private case class Job(client: ActorRef, url: String)
+  case class Get(url: String)
+  case class Result(url: String, links: Set[String])
+  case class Failed(url: String)
+}
+
+class Receptionist extends Actor {
+  import Receptionist._
+
+  def receive = waiting
+
+  /** Waiting for some action
+    * Get(url)
+    */
+  val waiting: Receive = {
+    // First reception of a Get, we enqueue our first job
+    case Get(url) =>
+      context.become(runNext(Vector(Job(sender, url))))
+  }
+
+  def running(queue: Vector[Job]): Receive = {
+    // Reception of a new Get(url), we enqueue another job for the url
+    case Get(url)                 =>
+      context.become(enqueueJob(queue, Job(sender, url)))
+
+    case Controller.Result(links) =>
+      val Job(client, url) = queue.head
+      client ! Result(url, links)
+      context.stop(sender)
+      context.become(runNext(queue.tail))
+  }
+
+  var reqNo = 0
+  def runNext(queue: Vector[Job]): Receive = {
+    reqNo += 1
+    if (queue.isEmpty) waiting
+    else {
+      val controller = context.actorOf(Props[Controller], s"crawlerController$reqNo")
+      controller ! Controller.Check(queue.head.url, 2)
+      running(queue)
+    }
+  }
+
+  def enqueueJob(queue: Vector[Job], job: Job): Receive = {
+    if (queue.size > 3) {
+      sender ! Failed(job.url)
+      running(queue)
+    } else {
+      running(queue :+ job)
+    }
+  }
+
+}
+#+end_src
+
 ** TODO 7 - 5 - Testing Actor Systems (17_16).mp4
 
+** TODO assignment
 * TODO week 6 [0%]
 * TODO week 7 [0%]
