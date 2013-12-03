@@ -1567,5 +1567,44 @@ CLOSED: [2013-11-27 mer. 22:07]
 ** DONE assignment
 CLOSED: [2013-12-01 dim. 14:32]
 * TODO week 5 [0%]
+** TODO 7 - 1 - Introduction_ Why Actors
+** TODO 7 - 2 - The Actor Model (13_43).mp4
+** TODO 7 - 3 - Message Processing Semantics (27_28).mp4
+** TODO 7 - 4 - Designing Actor Systems (38_43).mp4
+
+*** Web Crawler
+
+**** Client - bad implem:
+#+begin_src scala
+package concurrency.actor
+
+import com.ning.http.client.AsyncHttpClient
+
+object WebClient {
+  private val client = new AsyncHttpClient
+
+  case class BadStatus(status: Int) extends RuntimeException
+
+  def get(url: String) = {
+    val response = client.prepareGet(url).execute().get
+    if (response.getStatusCode < 400)
+      response.getResponseBodyExcerpt(131072)
+    else
+      throw new BadStatus(response.getStatusCode)
+  }
+}
+#+end_src
+
+Bad implem:
+- blocking by waiting the response of the http request
+- during this blocing time, the actor is deaf to other request.
+- no cancellation
+- 1 thread (which is a limited resource) -> HEAVY
+
+**** Improved
+
+
+** TODO 7 - 5 - Testing Actor Systems (17_16).mp4
+
 * TODO week 6 [0%]
 * TODO week 7 [0%]
