@@ -1566,11 +1566,15 @@ CLOSED: [2013-11-27 mer. 21:46]
 CLOSED: [2013-11-27 mer. 22:07]
 ** DONE assignment
 CLOSED: [2013-12-01 dim. 14:32]
-* IN-PROGRESS week 5 [0%]
-** TODO 7 - 1 - Introduction_ Why Actors
-** TODO 7 - 2 - The Actor Model (13_43).mp4
-** TODO 7 - 3 - Message Processing Semantics (27_28).mp4
-** TODO 7 - 4 - Designing Actor Systems (38_43).mp4
+* IN-PROGRESS week 5 [83%]
+** DONE 7 - 1 - Introduction_ Why Actors
+CLOSED: [2013-12-03 mar. 20:50]
+** DONE 7 - 2 - The Actor Model (13_43).mp4
+CLOSED: [2013-12-03 mar. 20:50]
+** DONE 7 - 3 - Message Processing Semantics (27_28).mp4
+CLOSED: [2013-12-03 mar. 20:50]
+** DONE 7 - 4 - Designing Actor Systems (38_43).mp4
+CLOSED: [2013-12-03 mar. 20:50]
 
 *** Web Crawler
 
@@ -1779,8 +1783,8 @@ class Receptionist extends Actor {
 }
 #+end_src
 
-** TODO 7 - 5 - Testing Actor Systems (17_16).mp4
-
+** DONE 7 - 5 - Testing Actor Systems (17_16).mp4
+CLOSED: [2013-12-03 mar. 20:50]
 ** TODO assignment
 * TODO week 6 [0%]
 * TODO week 7 [0%]
