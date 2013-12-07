@@ -1,7 +1,62 @@
 #+title: Compilers
 #+author: Antoine R. Dumont
 
-* TODO 10 - 1 - 01-01_ Introduction
+* DONE 10 - 1 - 01-01_ Introduction
+CLOSED: [2013-12-07 sam. 13:55]
+** Compiler
+off-line
+                Data
+                 |
+                 v
+Program -> C -> exec
+                 |
+                 v
+               Output
+** Interpreter
+online
+
+Program -> I -> Output
+Data    ->
+
+** History
+
+- 1954 IBN develops the 704
+  - successor to the 701
+
+software cost > hardware cost
+
+- 1953 "speedcoding" -> early interpreter
+John Backus
+
+|-----------------+-------------------------------------------------|
+| Pros            | Cons                                            |
+|-----------------+-------------------------------------------------|
+| dev code faster | code was 10-20x slower                          |
+|                 | 300 bytes which represent 30% of machine memory |
+|-----------------+-------------------------------------------------|
+
+John backus found this was promising...
+
+- FORTRAN1
+... If the formula was somehow transformed, this would be faster
+-> FORmulas TRANslated (1954-1957)
+
+- 1958 50% of programs in FORTRAN
+
+- First compiler
+  - Huge impact on computer science
+
+- Led to an enormous body of theoretical work
+- New Compiler today preserve the FORTRAN1 compiler outline
+
+** Compiler Phases
+
+1. Lexical analysis    -> syntactic
+2. Parsing             -> syntactic
+3. Semantic analysis   -> Types, Scope, etc...
+4. Optimization        -> Collection of transformation to run faster or use less memory
+5. Code generation     -> Translation (byte-code, binary code, to other programming language, etc...)
+
 * TODO 10 - 2 - 01-02_ Structure of a Compiler
 * TODO 10 - 3 - 01-03_ The Economy of Programming Languages
 * TODO 20 - 1 - 02-01_ Cool Overview
