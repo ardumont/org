@@ -57,7 +57,136 @@ John backus found this was promising...
 4. Optimization        -> Collection of transformation to run faster or use less memory
 5. Code generation     -> Translation (byte-code, binary code, to other programming language, etc...)
 
-* TODO 10 - 2 - 01-02_ Structure of a Compiler
+* DONE 10 - 2 - 01-02_ Structure of a Compiler
+CLOSED: [2013-12-07 sam. 15:45]
+** Lexical Analysis
+- recognize words
+  - smallest unit above words -> "It's a sentence"
+
+- goal: divides program text into `words` or `tokens`
+  - keywords
+  - variables
+  - operators
+  - punctuation (blank, semi-colon, etc...)
+  - etc...
+
+** Parsing
+- Def: Diagramming sentences.
+
+The diagram is a tree.
+
+- Example with an english sentence:
+
+| This    | line | is   | a       | longer    | sentence |
+| article | noun | verb | article | adjective | noun     |
+|      subject   | verb |             object             |
+
+Group them together to form a sentence
+
+article + noun -> subject  ->
+                      verb -> sentence
+article + adjective + noun ->
+
+- Piece of code:
+
+if x == y then z = 1; else z = 2;
+
+#+begin_src txt
+                                  +----------------+
+                                  |  if-then-else  |
+                                  +-------+--------+
+                                          |
+                        +-----------------+----------------+
+                        |                 |                |
+                +--------------+   +--------------+  +-----------+
+                | predicate    |   | then-stmt    |  | else-stmt |
+                +------+-------+   +------+-------+  +-----+-----+
+                       |                  |                |
+                +--------------+   +--------------+  +------------+
+                |  relation    |   |    assign    |  |   assign   |
+                +------+-------+   +------+-------+  +-----+------+
+                       |                  |                |
+                      -+-                -+-              -+-
+                     / | \              /   \            /   \
+                    x  ==  y           z     1          z     2
+#+end_src
+
+** Semantic analysis
+*** Def
+Once sentence structure is understood, we can try to understand "meaning"
+  -> this is too hard!
+
+- Compilers perform limited semantic analysis to catch inconsistencies
+
+*** Example
+
+- Jack said Jerry left his assignment at home
+
+  -> `his` refers to Jack or Jerry?
+
+- Jack said Jack left his assignment at home?
+
+  -> Is it the same Jack?
+  -> If no, which Jack `his` refers to
+
+*** Checks
+- Programming languages define strict rules to avoid such ambiguities.
+- Compilers perform many semantic checks besides variable bindings
+
+Example:
+Jack left her homework at home
+
+type mismatch here -> we can deduce that they are different people
+
+** Optimization
+Has no strong counterpart in english.
+-> ~ editing
+
+"But a little bit like editing"  -~-> "But akin to editing"
+
+- Automatically modify programs so that they:
+  - run faster
+  - use less memory
+  - Power
+  - Network
+  - Database
+  - etc...
+
+Example:
+`X = Y * 0 is the same as X = 0`  => NO!
+  - valid for integers
+  - invalide for floating points numbers
+
+** Code gen(eration)
+
+- usually produces assembly code
+
+- A translation into another languages
+
+** Conclusion
+
+- overall structure of almost every compiler adheres to our outline
+
+- the proportions of phases have changed since FORTRAN1
+
+FORTRAN1:
+
+#+begin_src txt
+  +---------+ +-------+ +---+ +------+ +-------+
+  |    L    | |   P   | | S | |   O  | |  CG   |
+  +---------+ +-------+ +---+ +------+ +-------+
+#+end_src
+
+Nowadays:
+
+#+begin_src txt
+  +-+ +-+ +--------+ +--------------------------+ +--+
+  |L| |P| |   S    | |            O             | |CG|
+  +-+ +-+ +--------+ +--------------------------+ +--+
+#+end_src
+
+
+
 * TODO 10 - 3 - 01-03_ The Economy of Programming Languages
 * TODO 20 - 1 - 02-01_ Cool Overview
 * TODO 20 - 2 - 02-02_ Cool Example II
