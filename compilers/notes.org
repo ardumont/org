@@ -1,4 +1,4 @@
-#+title: Compilers
+#+title: Compilers - Alex Aiken - Stanford University
 #+author: Antoine R. Dumont
 
 * DONE 10 - 1 - 01-01_ Introduction
@@ -186,8 +186,81 @@ Nowadays:
 #+end_src
 
 
+* DONE 10 - 3 - 01-03_ The Economy of Programming Languages
+CLOSED: [2013-12-07 sam. 16:09]
+- Why are there so many (P)rogramming (L)anguages?
+- Why are there new PL?
+- What is a good PL?
+** Why are there so many (P)rogramming (L)anguages?
 
-* TODO 10 - 3 - 01-03_ The Economy of Programming Languages
+Application domains have distinctive/conflicting needs.
+
+- Scientific Computing
+  - good floating points
+  - good Arrays
+  - parallelism
+  - ...
+
+  -> FORTRAN
+
+- Business applications
+  - persistance
+  - report generation
+  - data analysis
+  - ...
+
+  -> SQL
+
+- Systems Programming
+  - control of resources
+  - real time constraint
+  - ...
+
+  -> c/c++ family
+
+** Why are there new PL?
+
+*** Claim: Programmer training is the dominant cost for a programming language.
+
+  Predictions
+
+  1. Widely used language will be slow to change
+    With lots of people, difficult to change the language (impacts on them)
+
+  2. Easy to start a new language
+    0 training cost at the beginning
+    They will choose this new language if: productivity > training cost
+
+  3. Languages adopted to fill a void.
+
+
+*** Claim: New Languages tend to look like old languages
+Family resemblance.
+Reduces the training cost.
+
+Ex: Java vs. c++
+
+** What is a good PL?
+
+There is no universally accepted metrics for language design.
+
+One def: "A good language is one people use?"
+
+LOL
+
+From SICP:
+- Primitive of elements
+- Means of combination
+- Means of abstraction
+
+** Conclusion
+
+`Application domains have conflicting needs.` -> It is hard to design one system for all.
+
+`Programming training is the dominant cost for a programming language.`
+
+
+
 * TODO 20 - 1 - 02-01_ Cool Overview
 * TODO 20 - 2 - 02-02_ Cool Example II
 * TODO 20 - 3 - 02-03_ Cool Example III
