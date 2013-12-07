@@ -1,0 +1,100 @@
+#+title: Compilers
+#+author: Antoine R. Dumont
+
+* TODO 10 - 1 - 01-01_ Introduction
+* TODO 10 - 2 - 01-02_ Structure of a Compiler
+* TODO 10 - 3 - 01-03_ The Economy of Programming Languages
+* TODO 20 - 1 - 02-01_ Cool Overview
+* TODO 20 - 2 - 02-02_ Cool Example II
+* TODO 20 - 3 - 02-03_ Cool Example III
+* TODO 30 - 1 - 03-01_ Lexical Analysis
+* TODO 30 - 2 - 03-02_ Lexical Analysis Examples
+* TODO 30 - 3 - 03-03_ Regular Languages
+* TODO 30 - 4 - 03-04_ Formal Languages
+* TODO 30 - 5 - 03-05_ Lexical Specifications
+* TODO 30 - 6 - DeduceIt Demo
+* TODO 40 - 1 - 04-01_ Lexical Specification
+* TODO 40 - 2 - 04-02_ Finite Automata
+* TODO 40 - 3 - 04-03_ Regular Expressions into NFAs
+* TODO 40 - 4 - 04-04_ NFA to DFA
+* TODO 40 - 5 - 04-05_ Implementing Finite Automata
+* TODO 50 - 1 - 05-01_ Introduction to Parsing
+* TODO 50 - 2 - 05-02_ Context Free Grammars
+* TODO 50 - 3 - 05-03_ Derivations
+* TODO 50 - 4 - 05-04_ Ambiguity
+* TODO 60 - 1 - 06-01_ Error Handling
+* TODO 60 - 2 - 06-02_ Abstract Syntax Trees
+* TODO 60 - 3 - 06-03_ Recursive Descent Parsing
+* TODO 60 - 4 - 06-04_ Recursive Descent Algorithm
+* TODO 60 - 5 - 06-04-1_ Recursive Descent Limitations
+* TODO 60 - 6 - 06-05_ Left Recursion
+* TODO 70 - 1 - 07-01_ Predictive Parsing
+* TODO 70 - 2 - 07-02_ First Sets
+* TODO 70 - 3 - 07-03_ Follow Sets
+* TODO 70 - 4 - 07-04_ LL1 Parsing Tables
+* TODO 70 - 5 - 07-05_ Bottom-Up Parsing
+* TODO 70 - 6 - 07-06_ Shift-Reduce Parsing
+* TODO 80 - 1 - 08-01_ Handles
+* TODO 80 - 2 - 08-02_ Recognizing Handles
+* TODO 80 - 3 - 08-03_ Recognizing Viable Prefixes
+* TODO 80 - 4 - 08-04_ Valid Items
+* TODO 80 - 5 - 08-05_ SLR Parsing
+* TODO 80 - 6 - 08-06_ SLR Parsing Example
+* TODO 80 - 7 - 08-07_ SLR Improvements
+* TODO 80 - 8 - 08-08_ SLR Examples
+* TODO 90 - 1 - 09-01_ Introduction to Semantic Analysis
+* TODO 90 - 2 - 09-02_ Scope
+* TODO 90 - 3 - 09-03_ Symbol Tables
+* TODO 90 - 4 - 09-04_ Types
+* TODO 90 - 5 - 09-05_ Type Checking
+* TODO 90 - 6 - 09-06_ Type Environments
+* TODO 90 - 7 - 09-07_ Subtyping
+* TODO 90 - 8 - 09-08_ Typing Methods
+* TODO 90 - 9 - 09-09_ Implementing Type Checking
+* TODO 100 - 1 - 10-01_ Static vs. Dynamic Typing
+* TODO 100 - 2 - 10-02_ Self Type
+* TODO 100 - 3 - 10-03_ Self Type Operations
+* TODO 100 - 4 - 10-04_ Self Type Usage
+* TODO 100 - 5 - 10-05_ Self Type Checking
+* TODO 100 - 6 - 10-06_ Error Recovery
+* TODO 110 - 1 - 11-01_ Runtime Organization
+* TODO 110 - 2 - 11-02_ Activations
+* TODO 110 - 3 - 11-03_ Activation Records
+* TODO 110 - 4 - 11-04_ Globals and Heap
+* TODO 110 - 5 - 11-05_ Alignment
+* TODO 110 - 6 - 11-06_ Stack Machines
+* TODO 120 - 1 - 12-01_ Introduction to Code Generation
+* TODO 120 - 2 - 12-02_ Code Generation I
+* TODO 120 - 3 - 12-03_ Code Generation II
+* TODO 120 - 4 - 12-04_ Code Generation Example
+* TODO 120 - 5 - 12-05_ Temporaries
+* TODO 120 - 6 - 12-06_ Object Layout
+* TODO 130 - 1 - 13-01_ Semantics Overview
+* TODO 130 - 2 - 13-02_ Operational Semantics
+* TODO 130 - 3 - 13-03_ Cool Semantics I
+* TODO 130 - 4 - 13-04_ Cool Semantics II
+* TODO 140 - 1 - 14-01_ Intermediate Code
+* TODO 140 - 2 - 14-02_ Optimization Overview
+* TODO 140 - 3 - 14-03_ Local Optimization
+* TODO 140 - 4 - 14-04_ Peephole Optimization
+* TODO 150 - 1 - 15-01_ Dataflow Analysis
+* TODO 150 - 2 - 15-02_ Constant Propagation
+* TODO 150 - 3 - 15-03_ Analysis of Loops
+* TODO 150 - 4 - 15-04_ Orderings
+* TODO 150 - 5 - 15-05_ Liveness Analysis
+* TODO 160 - 1 - 16-01_ Register Allocation
+* TODO 160 - 2 - 16-02_ Graph Coloring
+* TODO 160 - 3 - 16-03_ Spilling
+* TODO 160 - 4 - 16-04_ Managing Caches
+* TODO 170 - 1 - 17-01_ Automatic Memory Management
+* TODO 170 - 2 - 17-02_ Mark and Sweep
+* TODO 170 - 3 - 17-03_ Stop and Copy
+* TODO 170 - 4 - 17-04_ Conservative Collection
+* TODO 170 - 5 - 17-05_ Reference Counting
+* TODO 180 - 1 - 18-01_ Java
+* TODO 180 - 2 - 18-02_ Java Arrays
+* TODO 180 - 3 - 18-03_ Java Exceptions
+* TODO 180 - 4 - 18-04_ Java Interfaces
+* TODO 180 - 5 - 18-05_ Java Coercions
+* TODO 180 - 6 - 18-06_ Java Threads
+* TODO 180 - 7 - 18-07_ Other Topics
