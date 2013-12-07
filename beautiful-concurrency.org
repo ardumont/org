@@ -1,8 +1,13 @@
 #+title: Beautiful concurrency - notes
 #+author: ardumont
 
+- [[https://www.fpcomplete.com/user/simonpj/beautiful-concurrency][Beautiful concurrency]]
+- [[http://research.microsoft.com/en-us/um/people/simonpj/Papers/STM/stm.pdf][Composable Memory Transactions]]
+- [[http://www.eecs.berkeley.edu/Pubs/TechRpts/2006/EECS-2006-1.pdf][The problems with threads]]
+- [[http://www.stanford.edu/~ouster/cgi-bin/papers/threads.pdf][Why threads are a bad idea (for most purposes)]]
+
 * STM
-new approach on programming shared memory parallel processors
+New approach on programming shared memory parallel processors
 
 * Parallelism / Concurrency
 
@@ -32,3 +37,19 @@ Ex:
 #+begin_src haskell
 Control.Concurrent.forkIO :: IO () -> IO GHC.Conc.Sync.ThreadId
 #+end_src
+* Locks are bad
+
+Too many situations can let hell break loose.
+
+|-------------------------------------+--------------------------------------------------------------------------------------------|
+| Cons                                |                                                                                            |
+|-------------------------------------+--------------------------------------------------------------------------------------------|
+| Take too few locks                  | Multiple threads will modify the variable at the same time -> corrupted data               |
+| Take too many locks                 | Inhibit concurrency or deadlock                                                            |
+| Take the wrong lock                 | If the program is not clear enough, we cannot determine which lock is used for which data. |
+|                                     | Increase the probability to take the wrong lock -> corrupted data                          |
+| Error Recovery                      | Hard. How to ensure there is no inconsistency when problem arise                           |
+| Lost wake-ups and erroneous retries |                                                                                            |
+| Break modularity                    | Basic means of combining from smaller programs is no longer possible                       |
+|                                     |                                                                                            |
+|-------------------------------------+--------------------------------------------------------------------------------------------|
