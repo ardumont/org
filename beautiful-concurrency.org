@@ -54,3 +54,99 @@ Too many situations can let hell break loose.
 | Break modularity                    | Basic means of combining from smaller programs is no longer possible                       |
 |                                     |                                                                                            |
 |-------------------------------------+--------------------------------------------------------------------------------------------|
+* Definition
+|-------------+--------------------------------------------|
+| Term        | Definition                                 |
+|-------------+--------------------------------------------|
+| Side effect | Anything that reads or write mutable state |
+|             |                                            |
+|-------------+--------------------------------------------|
+* Transaction in haskell
+** atomically
+
+#+begin_src haskell
+atomically ( action )
+#+end_src
+where action is a unit block.
+
+`atomically` makes 2 guarantees:
+
+- Atomicity: The effects of `atomically action` become visible to another thread all at once.
+
+- Isolation: During a call of `atomically action`, the action `action` is completely unaffected by other threads.
+             It acts as if atomically takes a snapshot of the world and the `action` executes against the snapshot.
+
+Its type:
+#+begin_src haskell
+atomically :: STM a -> IO a
+#+end_src
+
+** STM
+
+An STM action is like an IO action with much more limited possible side effect.
+The main possible action is read/write a transaction variable (TVar).
+
+#+begin_src haskell
+newTVar :: a -> STM (TVar a)
+readTVar :: TVar a -> STM a
+writeTVar :: TVar a -> a -> STM ()
+#+end_src
+
+Here is an example:
+
+#+begin_src haskell
+module Account where
+
+import Control.Concurrent.STM
+
+-- Represent the balance of the account
+type Account = TVar Int
+
+-- transfer `amount` from account `from` to account `to`
+transfer :: Account -> Account -> Int -> IO ()
+transfer from to amount =
+  atomically (
+    do deposit to amount
+       withdraw from amount
+  )
+
+deposit :: Account -> Int -> STM ()
+deposit acc amt =
+  do balance <- readTVar acc
+     writeTVar acc (balance + amt)
+
+withdraw :: Account -> Int -> STM ()
+withdraw acc amt = deposit acc (- amt)
+
+showAccount :: Account -> IO String
+showAccount acc = do bal <- (atomically . readTVar) acc
+                     return $ show bal
+
+displayAccount :: String -> Account -> IO ()
+displayAccount label acc =
+  do bal <- showAccount acc
+     putStrLn $ label ++ ": " ++ bal
+
+transferFromAccountAToAccountB :: IO ()
+transferFromAccountAToAccountB =
+  do accA <- accountA
+     accB <- accountB
+     displayAccount "A" accA
+     displayAccount "B" accB
+     transfer accA accB 10
+     putStrLn "Transfer 10 from A to B: "
+     displayAccount "A" accA
+     displayAccount "B" accB
+    where accountA :: IO Account
+          accountA = atomically . newTVar $ (100 :: Int)
+          accountB :: IO Account
+          accountB = atomically . newTVar $ (300 :: Int)
+
+-- *Account> transferFromAccountAToAccountB
+-- A: 100
+-- B: 300
+-- Transfer 10 from A to B:
+-- A: 90
+-- B: 310
+
+#+end_src
