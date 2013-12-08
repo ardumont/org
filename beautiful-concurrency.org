@@ -5,6 +5,7 @@
 - [[http://research.microsoft.com/en-us/um/people/simonpj/Papers/STM/stm.pdf][Composable Memory Transactions]]
 - [[http://www.eecs.berkeley.edu/Pubs/TechRpts/2006/EECS-2006-1.pdf][The problems with threads]]
 - [[http://www.stanford.edu/~ouster/cgi-bin/papers/threads.pdf][Why threads are a bad idea (for most purposes)]]
+- [[http://research.microsoft.com/en-us/um/people/simonpj/papers/marktoberdorf/mark.pdf][Tackling the awkward squad: monadic input/output, concurrency, exceptions, and foreign language calls in Haskell]]
 
 * STM
 New approach on programming shared memory parallel processors
