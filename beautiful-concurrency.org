@@ -86,13 +86,34 @@ atomically :: STM a -> IO a
 An STM action is like an IO action with much more limited possible side effect.
 The main possible action is read/write a transaction variable (TVar).
 
+No IO action is possible within a STM action.
+This way, we can `retry` a transaction.
+
 #+begin_src haskell
 newTVar :: a -> STM (TVar a)
 readTVar :: TVar a -> STM a
 writeTVar :: TVar a -> a -> STM ()
 #+end_src
 
-Here is an example:
+- Optimistic execution transation:
+  - Transaction log thread in charge of the transaction log initially empty
+  - Instead of doing action immediately
+  - Each call `writeTVar` writes the reference of the TVar and the new value inside the transaction log
+  - Each call `readTVar` reads the transaction log to find out if other threads have written inside the TVar
+  - If no write is found, the value of the TVar is directly read from it.
+  - The `readTVar` call is written in the transaction log too
+  - When the action is finished, there is a transaction log validation step
+  - Ensure that the value in the transaction log match with the current value of the TVar
+  - If values match, then validation succeeds.
+      The commit steps takes all the writes recorded in the log and writes them into the real TVars (atomically).
+  - Otherwise, the validation fails as the transaction has an inconsistent view of the world.
+      The transaction is aborted.
+      The transaction log is reinitialized.
+      The action is run all over again (no commit have taken place so it can).
+
+*** Example
+
+**** Account Transfer
 
 #+begin_src haskell
 module Account where
