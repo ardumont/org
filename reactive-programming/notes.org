@@ -1565,7 +1565,7 @@ CLOSED: [2013-11-27 mer. 21:46]
 CLOSED: [2013-11-27 mer. 22:07]
 ** DONE assignment
 CLOSED: [2013-12-01 dim. 14:32]
-* DONE week 5 [100%]
+* DONE week 5 [60%]
 CLOSED: [2013-12-08 dim. 17:54]
 ** DONE 7 - 1 - Introduction_ Why Actors
 CLOSED: [2013-12-03 mar. 20:50]
@@ -1787,5 +1787,9 @@ class Receptionist extends Actor {
 CLOSED: [2013-12-03 mar. 20:50]
 ** DONE assignment
 CLOSED: [2013-12-08 dim. 17:54]
-* TODO week 6 [0%]
+* IN-PROGRESS week 6 [0%]
+** TODO 10 - 1 - Failure Handling with Actors
+** TODO 10 - 2 - Lifecycle Monitoring and the Error Kernel
+** TODO 10 - 3 - Persistent Actor State
+** TODO Assignment
 * TODO week 7 [0%]
