@@ -227,7 +227,7 @@ CLOSED: [2013-12-01 dim. 14:36]
 - [ ] P27 (**) Group the elements of a set into disjoint subsets.
 - [ ] P28 (**) Sorting a list of lists according to length of sublists.
 - [ ]
-** DONE coursera's functional programming [87%]
+** DONE coursera's functional programming assignments [100%]
 CLOSED: [2013-11-19 mar. 12:24]
 - [X] example assignment
 - [X] recursion
@@ -236,11 +236,13 @@ CLOSED: [2013-11-19 mar. 12:24]
 - [X] huffman cocoding
 - [X] Collections - Anagrams
 - [X] lazy evaluation - Bloxorz
-** IN-PROGRESS coursera's reactive programming [80%]
+** IN-PROGRESS coursera's reactive programming assignments [71%]
 - [X] scala check
 - [X] simulations
 - [X] NodeScala
 - [X] Wikipedia
+- [X] Actor binary tree
+- [ ] ...
 - [ ] ...
 ** IN-PROGRESS Akka
 https://github.com/akka/akka
