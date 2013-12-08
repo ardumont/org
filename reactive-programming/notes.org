@@ -1565,7 +1565,7 @@ CLOSED: [2013-11-27 mer. 21:46]
 CLOSED: [2013-11-27 mer. 22:07]
 ** DONE assignment
 CLOSED: [2013-12-01 dim. 14:32]
-* DONE week 5 [60%]
+* DONE week 5 [100%]
 CLOSED: [2013-12-08 dim. 17:54]
 ** DONE 7 - 1 - Introduction_ Why Actors
 CLOSED: [2013-12-03 mar. 20:50]
@@ -1787,8 +1787,147 @@ class Receptionist extends Actor {
 CLOSED: [2013-12-03 mar. 20:50]
 ** DONE assignment
 CLOSED: [2013-12-08 dim. 17:54]
-* IN-PROGRESS week 6 [0%]
-** TODO 10 - 1 - Failure Handling with Actors
+* IN-PROGRESS week 6 [25%]
+** DONE 10 - 1 - Failure Handling with Actors
+CLOSED: [2013-12-08 dim. 19:04]
+*** Failure handling in asynchronous system
+Where shall failures go?
+- reify as message
+- send to a known address
+
+The actor model is anthropomorphic (based on how humans interact)
+- Actors work together in teams (system)
+- individual failure is handled by the team leader
+
+cf. example of big company as a hierarchical tree with different company services...
+
+*** Supervision
+Resilience means "recovering from deformations".
+
+Resilience demands containment and delegation of failure.
+
+- failed Actor is terminated or restarted
+- decision must be taken by one other Actor
+- supervised Actors from a tree structure.
+- the supervisor needs to create its subordinate
+
+*** Supervisor strategy
+In Akka the parent declares how its child Actors are supervised:
+
+#+begin_src scala
+class Manager extends Actor {
+  override val supervisorStrategy = OneForOneStrategy() {
+    case _ : DBException => Restart
+    case _ : ActorKilledException => Restart
+    case _ : ServiceDownException => Escalate
+  }
+  ...
+  context.actorOf(Props[DBActor], "db")
+  context.actorOf(Props[ImportantServiceActor], "service")
+  ...
+}
+#+end_src
+
+*** Supervisor Strategy 2
+Failure is sent and processed like a message.
+
+#+begin_src scala
+class Manager extends Actor {
+  var restarts = Map.empty[ActorRef, Int].withDefaultValue(0)
+
+  override val supervisorStrategy = OneForOneStrategy() {
+    case _ : DBException => restart(sender) match {
+      case toomany if toomamy > 10 => restarts -= sender; Stop
+      case n                       => restarts = restarts.updated(sender, n+1); Restart
+    }
+  }
+}
+
+#+end_src
+
+
+*** Supervisor Strategy 3
+
+If decision applies to all children: AllForOneStrategy
+
+Simple rate trigger included:
+- allow a finite number of restarts
+- all a finite number of restarts in a time window
+- if restriction violated then Stop instead of Restart
+
+#+begin_src scala
+OneForOneStrategy(maxNrOfRestarts = 10, withinTimeRange = 1.minute) {
+  case _: DBException => Restart // will turn into a stop at the 11th restart within the same minute
+}
+#+end_src
+
+*** Actor identity
+
+Recovery by restart requires stable identifier to refer to the services
+- in Akka, the ActorRef stays valid after a restart
+- in Erland, a name is registered for the current PID
+
+What does restart mean?
+
+- expected error conditions are handled explicitely
+- unexpected error indicate invalidated actor state
+- restart will install initial behavior / state
+
+*** Actor Lifecycle
+
+- start
+- (restart)*
+- stop
+
+*** Actor lifecycle Hooks
+
+#+begin_src scala
+trait Actor {
+  def preStart(): Unit = {}
+
+  def preRestart(reason: Throwable, message: Option[Any}): Unit = {
+    context.children foreach (context.stop(_))
+    postStop()
+  }
+
+  def postRestart(reason: Throwable): Unit = {
+    preStart()
+  }
+
+  def postStop(): Unit = {}
+  ...
+}
+#+end_src
+
+*** The default Lifecycle
+
+#+begin_src scala
+class DBActor extends Actor {
+  val db = DB.openConnection(...)
+  ...
+
+  override def postStop(): Unit = {
+    db.close()
+  }
+}
+#+end_src
+
+In this model, the actor is fully reinitialized during restart.
+
+*** Lifecycle spanning restarts
+
+#+begin_src scala
+class Listener(source: ActorRef) extends Actor {
+  override def preStart() { source ! RegisterListener(self) }
+  override def preRestart(reason: Throwable, message: Option[Any]) {}
+  override def postRestart(reason: Throwable) {}
+  override def postStop() { source ! UnregisterListener(self) }
+}
+#+end_src
+
+Actor-local state connot be kept across restarts, only external state can be managed like this.
+Child actors not stopped during restart will be restarted recursively.
+
 ** TODO 10 - 2 - Lifecycle Monitoring and the Error Kernel
 ** TODO 10 - 3 - Persistent Actor State
 ** TODO Assignment
