@@ -6,7 +6,6 @@ resources:
 - https://github.com/scala/scala/blob/master/src/library/scala/concurrent/Promise.scala
 
 * Definition
-
 ** Future
 The type Future[T] designates a value of type T that might not be available now, but will become available at some point in the future.
 This type captures the concept of time in your programs - the future is initially not completed, and then becomes completed at some time.
@@ -1566,7 +1565,8 @@ CLOSED: [2013-11-27 mer. 21:46]
 CLOSED: [2013-11-27 mer. 22:07]
 ** DONE assignment
 CLOSED: [2013-12-01 dim. 14:32]
-* IN-PROGRESS week 5 [83%]
+* DONE week 5 [100%]
+CLOSED: [2013-12-08 dim. 17:54]
 ** DONE 7 - 1 - Introduction_ Why Actors
 CLOSED: [2013-12-03 mar. 20:50]
 ** DONE 7 - 2 - The Actor Model (13_43).mp4
@@ -1785,6 +1785,7 @@ class Receptionist extends Actor {
 
 ** DONE 7 - 5 - Testing Actor Systems (17_16).mp4
 CLOSED: [2013-12-03 mar. 20:50]
-** TODO assignment
+** DONE assignment
+CLOSED: [2013-12-08 dim. 17:54]
 * TODO week 6 [0%]
 * TODO week 7 [0%]
