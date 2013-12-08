@@ -111,7 +111,7 @@ writeTVar :: TVar a -> a -> STM ()
       The transaction log is reinitialized.
       The action is run all over again (no commit have taken place so it can).
 
-*** Example
+*** Examples
 
 **** Account Transfer
 
@@ -170,4 +170,38 @@ transferFromAccountAToAccountB =
 -- A: 90
 -- B: 310
 
+#+end_src
+
+**** Account transfer with blocking
+#+begin_src haskell
+
+-- need: import Control.Concurrent
+
+limitedWithdraw :: Account -> Int -> STM ()
+limitedWithdraw acc amt =
+  do balance <- readTVar acc
+     check (0 <= amt && amt <= balance)
+     writeTVar acc (balance - amt)
+
+-- Beware signature is different from deposit one
+delayDeposit :: Account -> Int -> IO ()
+delayDeposit acc amt =
+  do threadDelay 3000000            -- wait 3 seconds
+     atomically ( deposit acc amt )
+
+withdrawFromAccountAWithRetry :: IO ()
+withdrawFromAccountAWithRetry =
+  do accA <- accountA
+     displayAccount "A" accA
+     putStrLn "Transfer 11 from A (waiting if not enough money)..."
+     forkIO(delayDeposit accA 1)
+     atomically ( limitedWithdraw accA 11 )
+     displayAccount "A" accA
+    where accountA :: IO Account
+          accountA = atomically . newTVar $ (10 :: Int)
+
+-- *Account> withdrawFromAccountAWithRetry
+-- A: 10
+-- Transfer 11 from A (waiting if not enough money)...
+-- A: 0
 #+end_src
