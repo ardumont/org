@@ -1929,6 +1929,35 @@ Actor-local state connot be kept across restarts, only external state can be man
 Child actors not stopped during restart will be restarted recursively.
 
 ** TODO 10 - 2 - Lifecycle Monitoring and the Error Kernel
+
+*** Lifecycle Monitoring
+
+The only observable transition occurs when stopping an actor:
+- having an actorRef implies liveness (at some earlier point)
+- restarts are not externally visible
+- after stop, there will be no more responses
+
+No replies could also be due to communication failure, therefore Akka supports Lifecycle Monitoring a.k.a. DeathWatch
+- an actor registers its interest using context.watch(target)
+- it will receive a Terminated(target) message when target stops
+- it will not receive any direct messages from target thereafter
+
+*** DeathWatch API
+
+#+begin_src scala
+trait ActorContext {
+  def watch(target: ActorRef): ActorRef
+  def unwatch(target: ActorRef): ActorRef
+  ...
+}
+
+case class Terminated private[akka] (actor: ActorRef)
+  (val existenceConfirmed: Boolean, val addressTerminated: Boolean)
+    extends AutoReceiveMessage with PossiblyHarmful
+#+end_src
+
+
+
 ** TODO 10 - 3 - Persistent Actor State
 ** TODO Assignment
 * TODO week 7 [0%]
