@@ -56,7 +56,8 @@ CLOSED: [2013-12-10 mar. 20:12]
 CLOSED: [2013-12-11 mer. 10:57]
 * DONE Lecture 7B  - MIT 6.001 Structure and Interpretation, 1986
 CLOSED: [2013-12-11 mer. 10:57]
-* TODO Lecture 8A  - MIT 6.001 Structure and Interpretation, 1986
+* DONE Lecture 8A  - MIT 6.001 Structure and Interpretation, 1986
+CLOSED: [2013-12-11 mer. 19:12]
 * TODO Lecture 8B  - MIT 6.001 Structure and Interpretation, 1986
 * TODO Lecture 9A  - MIT 6.001 Structure and Interpretation, 1986
 * TODO Lecture 9B  - MIT 6.001 Structure and Interpretation, 1986
