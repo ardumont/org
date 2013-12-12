@@ -1,6 +1,8 @@
-#+title: Structure and Interpretation of Computer Programs
+#+title: Structure and Interpretation of Computer Programs - videos
 #+author: Antoine R. Dumont
 #+STYLE: <SCRIPT SRC="/usr/share/jsmath/easy/load.js"></SCRIPT>
+
+[[http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-001-structure-and-interpretation-of-computer-programs-spring-2005/video-lectures/][SICP videos]]
 
 * DONE Lecture 01A - Overview and Introduction to Lisp - MIT 6.001 Structure and Interpretation, 1986
 CLOSED: [2013-08-05 lun. 19:07]
