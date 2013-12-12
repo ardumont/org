@@ -60,8 +60,11 @@ CLOSED: [2013-12-11 mer. 10:57]
 CLOSED: [2013-12-11 mer. 10:57]
 * DONE Lecture 08A - Logic Programming, Part I - MIT 6.001 Structure and Interpretation, 1986
 CLOSED: [2013-12-11 mer. 19:12]
-* TODO Lecture 08B - Logic Programming, Part II - MIT 6.001 Structure and Interpretation, 1986
-* TODO Lecture 09A - Register Machines - MIT 6.001 Structure and Interpretation, 1986
-* TODO Lecture 09B - Explicit-control Evaluator - MIT 6.001 Structure and Interpretation, 1986
+* DONE Lecture 08B - Logic Programming, Part II - MIT 6.001 Structure and Interpretation, 1986
+CLOSED: [2013-12-12 jeu. 13:52]
+* DONE Lecture 09A - Register Machines - MIT 6.001 Structure and Interpretation, 1986
+CLOSED: [2013-12-12 jeu. 13:52]
+* DONE Lecture 09B - Explicit-control Evaluator - MIT 6.001 Structure and Interpretation, 1986
+CLOSED: [2013-12-12 jeu. 13:57]
 * TODO Lecture 10A - Compilation- MIT 6.001 Structure and Interpretation, 1986
 * TODO Lecture 10B - Storage Allocation and Garbage Collection - MIT 6.001 Structure and Interpretation, 1986
