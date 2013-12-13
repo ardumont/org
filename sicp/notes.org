@@ -66,5 +66,6 @@ CLOSED: [2013-12-12 jeu. 13:52]
 CLOSED: [2013-12-12 jeu. 13:52]
 * DONE Lecture 09B - Explicit-control Evaluator - MIT 6.001 Structure and Interpretation, 1986
 CLOSED: [2013-12-12 jeu. 13:57]
-* TODO Lecture 10A - Compilation- MIT 6.001 Structure and Interpretation, 1986
+* DONE Lecture 10A - Compilation- MIT 6.001 Structure and Interpretation, 1986
+CLOSED: [2013-12-13 ven. 13:21]
 * TODO Lecture 10B - Storage Allocation and Garbage Collection - MIT 6.001 Structure and Interpretation, 1986
