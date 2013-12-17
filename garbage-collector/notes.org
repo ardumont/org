@@ -1,0 +1,111 @@
+#+title: Garbage collection notes
+#+author: Antoine R. Dumont
+
+* Note
+
+** Some definition
+
+|------------------+-------------------------------------------------------------------|
+| Name             | Description                                                       |
+|------------------+-------------------------------------------------------------------|
+| Heap             | Structure where object data is stored.                            |
+|                  | Sliced in 5 pieces: Eden, Survivor0, Surivor1, Tenured, Permanent |
+|------------------+-------------------------------------------------------------------|
+| Eden             |                                                                   |
+| Survivor 0       |                                                                   |
+| Survivor 1       |                                                                   |
+| Tenured          |                                                                   |
+| Perm Gen         |                                                                   |
+|------------------+-------------------------------------------------------------------|
+| Young generation | (+ Eden Survivor0 Survivor 0)                                     |
+| Old generation   | Tenured                                                           |
+| Permanent        | Perm Gen                                                          |
+| Survivor space   | (+ Survivor0 Survivor1)                                           |
+|------------------+-------------------------------------------------------------------|
+
+** Gargage collector run
+
+1. Young generation spaces empty
+2. Eden space fills up
+  -> minor garbage collection triggered
+3. Pass to count reference objects
+4. Clean Eden up
+  - Referenced objects are moved to Survivor0
+  - Unreferenced objects are destroyed from the eden space
+5. Eden space fills up
+  -> second minor garbage collection
+6. Pass to count reference objects
+7. Clean Eden and S0 up
+  - Referenced objects from Eden are moved to S1
+  - Unreferenced objects are destroyed from the eden space
+  - S0 objects have their incremented by 1 and moved to S0
+8. Eden space fills up
+  -> third minor garbage collection
+9. Pass to count referenced objects
+10. Clean Eden and S1 up
+  - Referenced objects from Eden are moved to S0
+  - Unreferenced objects are destroyed from the eden space
+  - S1 objects have their age incremented by 1 and moved to S1
+
+...
+n. Given a certain age from the survivor objects. They are promoted to the Old/Tenured Generation.
+2n. Up until a major garbage collection which will clean the old generation up (+ compression of free space).
+
+** Options
+
+*** Serial GC
+- no low pause time requirement
+- more client-style machines
+
+JVM Option:
+#+begin_src sh
+-XX:+UseSerialGC
+#+end_src
+
+*** Parallel GC
+- long pause acceptable GCs
+
+Option to add:
+#+begin_src sh
+-XX:ParallelGCThreads=<desired number>
+#+end_src
+
+**** Parallel GC
+
+- multi-thread young generation collector
+- single-threaded old generation collector
+
+JVM Option:
+#+begin_src sh
+-XX:+UseParallelGC
+#+end_src
+
+**** Parallel Old GC
+- multithreaded young generation collector
+- multithreaded old generation collector
+- multithreaded compacting collector (olg gen only)
+
+JVM Option:
+#+begin_src sh
+-XX:+UseParallelOldGC
+#+end_src
+
+**** CMS
+Concurrent Mark and Sweep
+- minimize the garbage pause
+- compute concurrently with the application the tenured (old) gen.
+- no compression (no moving live objects)
+
+JVM Option:
+#+begin_src sh
+-XX:+UseConcMarkSweepGC -XX:ParallelCMSThreads=<n>
+#+end_src
+
+**** G1
+- to replace CMS
+- add the compression part
+
+JVM option:
+#+begin_src sh
+-XX:+UseG1GC
+#+end_src
