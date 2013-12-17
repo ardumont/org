@@ -1,8 +1,29 @@
 #+title: Garbage collection notes
 #+author: Antoine R. Dumont
 
-* Note
+* Goal
+** Responsiveness
+Refers to how quickly an application or system responds with a requested piece of data.
 
+Examples include:
+- How quickly a desktop UI responds to an event
+- How fast a website returns a page
+- How fast a database query is returned
+
+For applications that focus on responsiveness, large pause times are not acceptable.
+The focus is on responding in short periods of time.
+
+** Throughput
+Focuses on maximizing the amount of work by an application in a specific period of time.
+
+Examples of how throughput might be measured include:
+- The number of transactions completed in a given time.
+- The number of jobs that a batch program can complete in an hour.
+- The number of database queries that can be completed in an hour.
+
+High pause times are acceptable for applications that focus on throughput.
+Since high throughput applications focus on benchmarks over longer periods of time, quick response time is not a consideration.
+* Note
 ** Some definition
 
 |------------------+-------------------------------------------------------------------|
