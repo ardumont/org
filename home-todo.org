@@ -59,8 +59,9 @@ Merci Papy Claude
 Merci Chris
 ** DONE Poignee de porte
 CLOSED: [2013-08-08 jeu. 19:35]
-* DONE Chambre de Theo [11/11]
 ** DONE Changer radiateur
+CLOSED: [2014-01-03 ven. 13:54]
+* DONE Chambre de Theo [11/12]
 ** DONE Retirer le papier peint de la porte
 ** DONE Retirer le papier peint des armoires
 ** DONE Finalement remplacer les portes d'armoire
@@ -81,6 +82,7 @@ Merci Papy Claude
 Merci Chris
 ** DONE Poignee de porte
 CLOSED: [2013-08-08 jeu. 19:36]
+** IN-PROGRESS Changer radiateur
 * DONE Piece de jeux des enfants [32/32]
 CLOSED: [2013-11-10 dim. 15:20]
 ** DONE Retirer la grosse armoire du bureau
