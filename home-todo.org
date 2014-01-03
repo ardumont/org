@@ -2,7 +2,7 @@
 #+author: Antoine Romain Dumont
 #+STARTUP: indent
 
-* DONE cote gauche [11/11]
+* DONE Jardin cote gauche [11/11]
 CLOSED: [2013-04-11 jeu. 09:34]
 ** DONE Retirer toutes les mauvaises herbes
 ** DONE Retirer toute la tranchee d'arbustes (~10)
@@ -20,6 +20,51 @@ CLOSED: [2011-09-12 lun. 13:09]
 CLOSED: [2011-09-12 lun. 13:09]
 ** DONE Retirer les dalles
 CLOSED: [2011-09-12 lun. 13:09]
+* PENDING Jardin cote droit [7/12]
+** DONE Retirer toutes les mauvaises herbes
+** DONE Planter du gazon
+l'herbe est magnifique
+** DONE Faire couper l'arbre
+** DONE Mettre en place les composteurs
+** DONE Laisser secher les buches restantes
+CLOSED: [2013-04-11 jeu. 09:33]
+** TODO Couper les buches restantes
+** TODO Couper/Abattre l'abricotier malade.
+Trop pres du mur de separation.
+** TODO Couper/Abattre le noisetier
+Trop pres du mur de separation.
+** TODO Cimenter les trous du mur
+** TODO Repeindre le mur
+** DONE Replanter l'herbe
+CLOSED: [2011-09-12 lun. 13:09]
+** DONE Retirer les dalles
+CLOSED: [2011-09-12 lun. 13:09]
+
+* PENDING Jardin devant [9/11]
+** DONE parterres de fleurs [4/4]
+**** DONE Detruire le parterre de marguerite qui prend trop de place dans le jardin.
+**** DONE Aplanir tous les parterres de fleurs.
+**** DONE Ramasser toutes les briques de parpaing
+**** DONE Les ranger sous l'escalier de l'entree
+** DONE Couper l'arbre de l'entree du cote droit.
+** DONE Finir de detruire la racine restante de l'arbre
+** DONE Faire couper la haie
+** DONE Faire couper les arbres de devant
+** DONE Mettre en place des barrieres de securite le long de l'allee de descente dans le garage.
+** DONE Evacuer tous les dechets suites a toutes les actions du jardins
+** DONE Tailler le noisetier de devant.
+CLOSED: [2013-04-11 jeu. 09:34]
+** DONE Replanter l'herbe
+CLOSED: [2011-09-12 lun. 13:10]
+** TODO Deraciner les arbustes restant de devant (pour les planter derriere)
+
+** TODO Faire elaguer/couper les erables
+* PENDING Jardin derriere [3/4]
+** DONE Retirer le lierre
+** DONE Tailler la haie de derriere
+** DONE Reparer la partie de la barriere tombee a cause du lierre
+Merci papy Claude
+** TODO Replanter les arbustes de devant pour combler le trou dans la haie de derriere
 * DONE Relatif a l'exterieur [3/3]
 CLOSED: [2013-04-11 jeu. 09:35]
 ** DONE Tailler les arbustes en morceaux pour pouvoir les rentrer dans le garage
@@ -61,7 +106,7 @@ Merci Chris
 CLOSED: [2013-08-08 jeu. 19:35]
 ** DONE Changer radiateur
 CLOSED: [2014-01-03 ven. 13:54]
-* DONE Chambre de Theo [11/12]
+* DONE Chambre de Theo [12/12]
 ** DONE Retirer le papier peint de la porte
 ** DONE Retirer le papier peint des armoires
 ** DONE Finalement remplacer les portes d'armoire
@@ -82,7 +127,8 @@ Merci Papy Claude
 Merci Chris
 ** DONE Poignee de porte
 CLOSED: [2013-08-08 jeu. 19:36]
-** IN-PROGRESS Changer radiateur
+** DONE Changer radiateur
+CLOSED: [2014-01-04 sam. 00:07]
 * DONE Piece de jeux des enfants [32/32]
 CLOSED: [2013-11-10 dim. 15:20]
 ** DONE Retirer la grosse armoire du bureau
@@ -148,71 +194,8 @@ Merci Chris et papy
 CLOSED: [2013-07-30 mar. 21:57]
 ** DONE nouveau radiateur
 CLOSED: [2013-11-10 dim. 15:19]
-* IN-PROGRESS Cuisine [32/33]
-** DONE Degager le vieux frigo
-** DONE Refaire les prises de courant
-** DONE Retirer le crepis
-** DONE Poncer les murs
-CLOSED: [2013-07-28 dim. 17:52]
-** DONE Enduit de rebouchage 1/3
-CLOSED: [2013-07-28 dim. 18:49]
-** DONE Enduit de rebouchage 2/3
-CLOSED: [2013-07-29 lun. 18:55]
-** DONE Enduit de rebouchage 2/3
-CLOSED: [2013-07-30 mar. 21:58]
-** DONE Sous-couche 1/2
-CLOSED: [2013-07-29 lun. 18:55]
-** DONE Lessiver le plafond
-CLOSED: [2013-07-30 mar. 21:45]
-** DONE Sous-couche cadre de porte cuisine/cave
-CLOSED: [2013-07-30 mar. 21:45]
-** DONE Sous-couche cadre de porte cuisine/couloir
-CLOSED: [2013-07-30 mar. 21:45]
-
-** DONE Sous-couche porte cuisine/cave
-CLOSED: [2013-07-30 mar. 21:45]
-** DONE Sous-couche porte cuisine/couloir
-CLOSED: [2013-07-30 mar. 21:45]
-** DONE Lessiver plafond
-CLOSED: [2013-07-30 mar. 21:58]
-** DONE Peindre le cadre + la porte de la cuisine - couloir - couche 1/2
-CLOSED: [2013-07-31 mer. 04:36]
-** DONE Peindre le cadre + la porte de la cuisine - couloir - couche 1/2
-CLOSED: [2013-07-31 mer. 13:18]
-** DONE Peindre le cadre + la porte de la cuisine - cave - couche 1/2
-CLOSED: [2013-07-31 mer. 04:36]
-** DONE Peindre le cadre + porte de la cuisine - cave - couche 1/2
-CLOSED: [2013-07-31 mer. 13:18]
-** DONE Peindre le plafond 1/2
-CLOSED: [2013-07-31 mer. 21:49]
-** DONE Peinture murs blanc
-CLOSED: [2013-07-31 mer. 21:49]
-** DONE Peinture murs chocolat 1/2
-CLOSED: [2013-07-31 mer. 21:49]
-** DONE Peindre le cadre de porte de la cuisine - cave - couche 2/2
-CLOSED: [2013-08-01 jeu. 19:24]
-** DONE Peindre la porte cuisine / couloir - 2/2
-CLOSED: [2013-08-01 jeu. 19:25]
-** DONE Peindre murs chocolat 2/2
-CLOSED: [2013-08-02 ven. 18:43]
-** DONE Peindre le plafond 2/2
-CLOSED: [2013-08-03 sam. 18:25]
-** DONE Peindre mur blanc 2/2
-CLOSED: [2013-08-03 sam. 18:25]
-** DONE Interrupteurs
-CLOSED: [2013-08-03 sam. 18:25]
-** DONE Lampe
-CLOSED: [2013-08-03 sam. 19:22]
-** DONE poignee porte cave/cuisine
-CLOSED: [2013-08-04 dim. 19:42]
-** DONE poignee porte cuisine/couloir
-CLOSED: [2013-08-04 dim. 19:42]
-** DONE Reamenager le placard de la cuisine
-CLOSED: [2013-11-10 dim. 15:21]
-** DONE Changer la table
-CLOSED: [2014-01-03 ven. 13:55]
-** TODO changer radiateur
-* IN-PROGRESS Couloir [42/43]
+* DONE Couloir [43/43]
+CLOSED: [2014-01-04 sam. 00:07]
 ** DONE Changer les portes de l'armoire
 Merci papy Claude
 ** DONE Retirer le papier peint du plafond
@@ -300,6 +283,71 @@ CLOSED: [2013-08-08 jeu. 21:20]
 ** DONE Reconstruire meuble placard
 CLOSED: [2013-11-10 dim. 15:19]
 Merci Papy Claude et Chris
+** DONE changer radiateur
+CLOSED: [2014-01-04 sam. 00:07]
+* IN-PROGRESS Cuisine [32/33]
+** DONE Degager le vieux frigo
+** DONE Refaire les prises de courant
+** DONE Retirer le crepis
+** DONE Poncer les murs
+CLOSED: [2013-07-28 dim. 17:52]
+** DONE Enduit de rebouchage 1/3
+CLOSED: [2013-07-28 dim. 18:49]
+** DONE Enduit de rebouchage 2/3
+CLOSED: [2013-07-29 lun. 18:55]
+** DONE Enduit de rebouchage 2/3
+CLOSED: [2013-07-30 mar. 21:58]
+** DONE Sous-couche 1/2
+CLOSED: [2013-07-29 lun. 18:55]
+** DONE Lessiver le plafond
+CLOSED: [2013-07-30 mar. 21:45]
+** DONE Sous-couche cadre de porte cuisine/cave
+CLOSED: [2013-07-30 mar. 21:45]
+** DONE Sous-couche cadre de porte cuisine/couloir
+CLOSED: [2013-07-30 mar. 21:45]
+
+** DONE Sous-couche porte cuisine/cave
+CLOSED: [2013-07-30 mar. 21:45]
+** DONE Sous-couche porte cuisine/couloir
+CLOSED: [2013-07-30 mar. 21:45]
+** DONE Lessiver plafond
+CLOSED: [2013-07-30 mar. 21:58]
+** DONE Peindre le cadre + la porte de la cuisine - couloir - couche 1/2
+CLOSED: [2013-07-31 mer. 04:36]
+** DONE Peindre le cadre + la porte de la cuisine - couloir - couche 1/2
+CLOSED: [2013-07-31 mer. 13:18]
+** DONE Peindre le cadre + la porte de la cuisine - cave - couche 1/2
+CLOSED: [2013-07-31 mer. 04:36]
+** DONE Peindre le cadre + porte de la cuisine - cave - couche 1/2
+CLOSED: [2013-07-31 mer. 13:18]
+** DONE Peindre le plafond 1/2
+CLOSED: [2013-07-31 mer. 21:49]
+** DONE Peinture murs blanc
+CLOSED: [2013-07-31 mer. 21:49]
+** DONE Peinture murs chocolat 1/2
+CLOSED: [2013-07-31 mer. 21:49]
+** DONE Peindre le cadre de porte de la cuisine - cave - couche 2/2
+CLOSED: [2013-08-01 jeu. 19:24]
+** DONE Peindre la porte cuisine / couloir - 2/2
+CLOSED: [2013-08-01 jeu. 19:25]
+** DONE Peindre murs chocolat 2/2
+CLOSED: [2013-08-02 ven. 18:43]
+** DONE Peindre le plafond 2/2
+CLOSED: [2013-08-03 sam. 18:25]
+** DONE Peindre mur blanc 2/2
+CLOSED: [2013-08-03 sam. 18:25]
+** DONE Interrupteurs
+CLOSED: [2013-08-03 sam. 18:25]
+** DONE Lampe
+CLOSED: [2013-08-03 sam. 19:22]
+** DONE poignee porte cave/cuisine
+CLOSED: [2013-08-04 dim. 19:42]
+** DONE poignee porte cuisine/couloir
+CLOSED: [2013-08-04 dim. 19:42]
+** DONE Reamenager le placard de la cuisine
+CLOSED: [2013-11-10 dim. 15:21]
+** DONE Changer la table
+CLOSED: [2014-01-03 ven. 13:55]
 ** TODO changer radiateur
 * IN-PROGRESS Couloir du haut [28/29]
 ** DONE Retirer le crepis
@@ -449,51 +497,6 @@ CLOSED: [2013-11-24 dim. 19:07]
 ** TODO Poser la toile de renovation
 ** TODO Poser le papier peint/Peindre
 ** TODO Ranger la piece
-* PENDING cote droit [7/12]
-** DONE Retirer toutes les mauvaises herbes
-** DONE Planter du gazon
-l'herbe est magnifique
-** DONE Faire couper l'arbre
-** DONE Mettre en place les composteurs
-** DONE Laisser secher les buches restantes
-CLOSED: [2013-04-11 jeu. 09:33]
-** TODO Couper les buches restantes
-** TODO Couper/Abattre l'abricotier malade.
-Trop pres du mur de separation.
-** TODO Couper/Abattre le noisetier
-Trop pres du mur de separation.
-** TODO Cimenter les trous du mur
-** TODO Repeindre le mur
-** DONE Replanter l'herbe
-CLOSED: [2011-09-12 lun. 13:09]
-** DONE Retirer les dalles
-CLOSED: [2011-09-12 lun. 13:09]
-
-* PENDING devant [9/11]
-** DONE parterres de fleurs [4/4]
-**** DONE Detruire le parterre de marguerite qui prend trop de place dans le jardin.
-**** DONE Aplanir tous les parterres de fleurs.
-**** DONE Ramasser toutes les briques de parpaing
-**** DONE Les ranger sous l'escalier de l'entree
-** DONE Couper l'arbre de l'entree du cote droit.
-** DONE Finir de detruire la racine restante de l'arbre
-** DONE Faire couper la haie
-** DONE Faire couper les arbres de devant
-** DONE Mettre en place des barrieres de securite le long de l'allee de descente dans le garage.
-** DONE Evacuer tous les dechets suites a toutes les actions du jardins
-** DONE Tailler le noisetier de devant.
-CLOSED: [2013-04-11 jeu. 09:34]
-** DONE Replanter l'herbe
-CLOSED: [2011-09-12 lun. 13:10]
-** TODO Deraciner les arbustes restant de devant (pour les planter derriere)
-
-** TODO Faire elaguer/couper les erables
-* PENDING derriere [3/4]
-** DONE Retirer le lierre
-** DONE Tailler la haie de derriere
-** DONE Reparer la partie de la barriere tombee a cause du lierre
-Merci papy Claude
-** TODO Replanter les arbustes de devant pour combler le trou dans la haie de derriere
 * PENDING Salon [15/17]
 ** DONE Retirer le papier peint du plafond
 ** DONE Retirer le crepis
