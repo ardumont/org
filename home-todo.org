@@ -469,7 +469,7 @@ CLOSED: [2014-01-05 dim. 20:05]
 ** TODO Passer la sous-couche.
 ** TODO Poser la toile de renovation
 ** TODO Poser le papier peint/Peindre
-* IN-PROGRESS Bureau [9/19]
+* IN-PROGRESS Bureau [10/19]
 ** DONE Enduit de rebouchage porte
 CLOSED: [2013-07-29 lun. 18:57]
 ** DONE Peindre la porte couche 1/2
@@ -488,7 +488,8 @@ CLOSED: [2013-08-04 dim. 15:18]
 CLOSED: [2013-08-08 jeu. 19:35]
 ** DONE Changer le radiateur par celui du salon
 CLOSED: [2013-11-24 dim. 19:07]
-** TODO Changer le radiateur
+** DONE Changer le radiateur
+CLOSED: [2014-01-05 dim. 22:50]
 ** TODO Retirer le crepis
 ** TODO Enduit de rebouchage
 ** TODO Enduit de lissage
