@@ -443,7 +443,7 @@ CLOSED: [2013-08-08 jeu. 19:35]
 ** TODO Retirer le crepis
 ** TODO Enduit de rebouchage
 ** TODO Peindre
-* IN-PROGRESS Chambre parentale [8/16]
+* IN-PROGRESS Chambre parentale [9/16]
 ** DONE Changer le siphon du lavabo
 CLOSED: [2013-04-11 jeu. 09:39]
 ** DONE Changer le robinet de la douche
@@ -460,7 +460,8 @@ CLOSED: [2013-08-04 dim. 15:18]
 CLOSED: [2013-08-08 jeu. 19:35]
 ** DONE Changer le radiateur par celui du salon
 CLOSED: [2013-11-24 dim. 19:07]
-** TODO Changer le radiateur
+** DONE Changer le radiateur
+CLOSED: [2014-01-05 dim. 20:05]
 ** TODO Retirer le crepis
 ** TODO Enduit de rebouchage
 ** TODO Enduit de lissage
