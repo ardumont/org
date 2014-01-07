@@ -18,4 +18,8 @@
 | AMQP    | Advanced Message Queue Protocol                        |                                                           |
 | JFDI    | Just Focus and Do It                                   |                                                           |
 |         | Just Fuckin' Do It                                     |                                                           |
+| ATM     | Automated Teller Machine                               |                                                           |
+| EFT     | Electronic Funds Transfer                              |                                                           |
+|         |                                                        |                                                           |
+|         |                                                        |                                                           |
 |---------+--------------------------------------------------------+-----------------------------------------------------------|
