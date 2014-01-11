@@ -1130,12 +1130,15 @@ Need some setup.
 *** IN-PROGRESS setup it to have access to different languages
 * DONE [[www.infoq.com/resource/minibooks/domain-driven-design-quickly/en/pdf/DomainDrivenDesignQuicklyOnline.pdf][DDD quickly]]
 CLOSED: [2013-08-10 sam. 10:31]
-* TODO mouseless file manager
+* IN-PROGRESS keysnail [80%]
+- [X] Tab manipulation
+- [X] .keysnail.js sync through git
+- [X] Synchronize keysnail plugin extension through git
+- [X] local key map to keep native binding where possible
+- [ ] Fix the "Select text to kill and yank" which does not work
+* TODO Mouseless file manager
 Does not seem to find one!
 Code it!
-* TODO keysnail
-- [ ] swap tab
-- [ ] select text to kill and yank
 * TODO Arduino [0%]
 - [ ] Get back in touch
 - [ ] Dig more
