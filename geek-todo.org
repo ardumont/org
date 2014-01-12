@@ -39,43 +39,55 @@ Code it!
  - [ ] P. Norvig                  - [[http://norvig.com/21-days.html][Teach yourself programming in ten years]]
  - ...
 * TODO Structure and Interpretation of Computer Programs - books
-* IN-PROGRESS org-trello [96%]
+* TODO Github - Play around with the Github API [100%]
+- [X] http://developer.github.com/libraries/
+  - https://github.com/Raynes/tentacles (clojure)
+  - https://github.com/fpco/GitHub (haskell)
+  - https://github.com/sigma/gh.el (emacs-lisp)
+- [ ] Choose one
+* IN-PROGRESS org-trello [60%]
 Minor mode to sync trello and org-mode
-- [X] v0.0.1
-- [X] Deploy in melpa
-- [X] v0.0.2
-- [X] pb in 0.0.1
+- [X] Deploy in melpa (automated on their own)
 - [X] Deploy in marmalade
-- [X] v0.0.3
-- [X] v0.0.4
-- [X] v0.0.5
-- [X] v0.0.6CLOSED: [2013-07-26 ven. 12
-- [X] v0.0.8
-- [X] 0.0.9
-- [X] 0.1.0
-- [X] 0.1.1
-- [X] 0.1.2
-- [X] 0.1.3
-- [X] 0.1.4
-- [X] 0.1.5
-- [X] 0.1.6
-- [X] 0.1.7
-- [X] 0.1.8
-- [X] 0.1.9
-- [X] 0.2.0
-- [X] 0.2.1
-- [X] 0.2.2
-- [X] 0.2.3
-- [X] 0.2.4
-- [X] 0.2.5
-- [X] 0.2.6
-- [X] 0.2.7
-- [X] 0.2.8
-- [ ] ...
+- [-] Releases
+  - [X] v0.0.1
+  - [X] v0.0.2
+  - [X] pb in 0.0.1
+  - [X] v0.0.3
+  - [X] v0.0.4
+  - [X] v0.0.5
+  - [X] v0.0.6CLOSED: [2013-07-26 ven. 12
+  - [X] v0.0.8
+  - [X] 0.0.9
+  - [X] 0.1.0
+  - [X] 0.1.1
+  - [X] 0.1.2
+  - [X] 0.1.3
+  - [X] 0.1.4
+  - [X] 0.1.5
+  - [X] 0.1.6
+  - [X] 0.1.7
+  - [X] 0.1.8
+  - [X] 0.1.9
+  - [X] 0.2.0
+  - [X] 0.2.1
+  - [X] 0.2.2
+  - [X] 0.2.3
+  - [X] 0.2.4
+  - [X] 0.2.5
+  - [X] 0.2.6
+  - [X] 0.2.7
+  - [X] 0.2.8
+  - [ ] ...
+- [X] Automate the release part to marmalade
+- [ ] Automate the releases part on Github
+  - [ ] Upload tar archive on release
+  - [ ] Add release notes to tag
+  - [ ] Update the main site entry http://ardumont.github.io/org-trello/ using the README.md (at the moment, this is loaded through the github generator)
 * IN-PROGRESS Emacs-lisp [50%]
 - [X] Look at bbatsov/prelude (impressive work)
 - [X] Improve current live packs
-- [X] Compute downloads-by-versions chart for an emacs-lisp package deployed on marmalade
+- [X] Compute downloads-by-versions chart for an emacs-lisp package deployed on marmalade - https://github.com/ardumont/clj-jam
 - [ ] Ask if it's possible to add the means to load prelude modules from another location (keep the existing one and add another) - https://github.com/bbatsov/prelude/issues/474
 - [ ] Switch to prelude?
 - [ ] Mix prelude and emacs-live?
