@@ -84,11 +84,11 @@ Minor mode to sync trello and org-mode
   - [ ] Upload tar archive on release
   - [ ] Add release notes to tag
   - [ ] Update the main site entry http://ardumont.github.io/org-trello/ using the README.md (at the moment, this is loaded through the github generator)
-* IN-PROGRESS Emacs-lisp [50%]
+* IN-PROGRESS Emacs-lisp [66%]
 - [X] Look at bbatsov/prelude (impressive work)
 - [X] Improve current live packs
-- [X] Compute downloads-by-versions chart for an emacs-lisp package deployed on marmalade - https://github.com/ardumont/clj-jam
-- [ ] Ask if it's possible to add the means to load prelude modules from another location (keep the existing one and add another) - https://github.com/bbatsov/prelude/issues/474
+- [X] Compute downloads-by-version chart for an emacs-lisp package deployed on marmalade - https://github.com/ardumont/clj-jam
+- [X] Ask if it's possible to add the means to load prelude modules from another location (keep the existing one and add another) - https://github.com/bbatsov/prelude/issues/474
 - [ ] Switch to prelude?
 - [ ] Mix prelude and emacs-live?
 * IN-PROGRESS Scala [72%]
@@ -1155,3 +1155,11 @@ CLOSED: [2013-07-07 dim. 10:00]
 CLOSED: [2013-07-07 dim. 10:00]
 *** DONE jabber-pack
 CLOSED: [2013-07-07 dim. 10:00]
+* DONE clj-jam [100%]
+CLOSED: [2014-01-13 lun. 08:38]
+- [X] Implements basic authentication
+- [X] Retrieve package information
+- [X] Compute some aggregation regarding emacs-lisp packaging
+- [X] Make it a webapp
+- [X] Deploy to heroku
+- [X] Plug CI to travis-ci
