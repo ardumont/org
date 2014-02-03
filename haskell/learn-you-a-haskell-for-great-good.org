@@ -1,6 +1,7 @@
 #+title: Learn you a Haskell for great good!
 
-* [[http://learnyouahaskell.com/introduction][Introduction]]
+* DONE [[http://learnyouahaskell.com/introduction][Introduction]]
+CLOSED: [2014-02-03 lun. 12:57]
 
 * [[http://learnyouahaskell.com/starting-out][Starting out]]
 
