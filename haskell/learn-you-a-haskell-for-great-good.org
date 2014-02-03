@@ -8,11 +8,10 @@ CLOSED: [2014-02-03 lun. 12:57]
 * DONE [[http://learnyouahaskell.com/types-and-typeclasses][Types and TypeClasses]]
 CLOSED: [2014-02-03 lun. 12:52]
 
-#+begin_src haskell
-removeNonUpperCase :: [Char] -> [Char]
-removeNonUpperCase cs = [ c | c <- cs, c `elem` ['A'..'Z'] ]
-#+end_src
-
+- Everything in haskell has types
+- Haskell has type inference
+Haskell can infer types alone
+It is not mandatory to provide informations about it (good convention to do it anyway)
 - :: "has type of"
 - a is a type variable
 - functions using type variable are "polymorphic functions"
