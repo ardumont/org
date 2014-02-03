@@ -5,7 +5,12 @@
 * [[http://learnyouahaskell.com/starting-out][Starting out]]
 
 * DONE [[http://learnyouahaskell.com/types-and-typeclasses][Types and TypeClasses]]
-CLOSED: [2013-10-26 sam. 19:19]
+CLOSED: [2014-02-03 lun. 12:52]
+
+#+begin_src haskell
+removeNonUpperCase :: [Char] -> [Char]
+removeNonUpperCase cs = [ c | c <- cs, c `elem` ['A'..'Z'] ]
+#+end_src
 
 - :: "has type of"
 - a is a type variable
@@ -27,6 +32,15 @@ Everything before => is a class constraint
 
 - type annotations :: to explicitely give the expected type
 
+- `Eq` for equality testing type
+The functions its members implement are `==` and `/=`.
+
+- `Ord` if for ordering types
+covers the functions such as >, <, <=, >=
+
+- `Ordering` is type that can be GT, LT, EQ
+
+- `Enum` members are sequentially ordered types (['a'..'z'], Succ 'a', etc...)
 
 * [[http://learnyouahaskell.com/syntax-in-functions][Syntax in functions]]
 
