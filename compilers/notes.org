@@ -6,7 +6,7 @@ CLOSED: [2013-12-07 sam. 16:12]
 ** DONE 10 - 1 - 01-01_ Introduction
 CLOSED: [2013-12-07 sam. 13:55]
 *** Compiler
-off-line
+"off-line"
                 Data
                  |
                  v
@@ -15,35 +15,37 @@ Program -> C -> exec
                  v
                Output
 *** Interpreter
-online
+"online"
 
 Program -> I -> Output
 Data    ->
 
 *** History
 
-- 1954 IBN develops the 704
+- 1954 IBM develops the 704
   - successor to the 701
 
-software cost > hardware cost
+IBM discovers that: software cost >>> hardware cost
+(software is dominant expense)
 
-- 1953 "speedcoding" -> early interpreter
+- 1953 "speedcoding" -> early example of interpreter
 John Backus
 
-|-----------------+-------------------------------------------------|
-| Pros            | Cons                                            |
-|-----------------+-------------------------------------------------|
-| dev code faster | code was 10-20x slower                          |
-|                 | 300 bytes which represent 30% of machine memory |
-|-----------------+-------------------------------------------------|
+|-----------------+------------------------------------------------------------------|
+| Pros            | Cons                                                             |
+|-----------------+------------------------------------------------------------------|
+| dev code faster | code was 10-20x slower                                           |
+|                 | 300 bytes (in those days, that represented 30% of machine memory |
+|-----------------+------------------------------------------------------------------|
 
-John backus found this was promising...
+John backus thought this was promising...
 
 - FORTRAN1
 ... If the formula was somehow transformed, this would be faster
--> FORmulas TRANslated (1954-1957)
+-> FORmulas TRANslated -> building compiler from 1954-1957
 
-- 1958 50% of programs in FORTRAN
+- 1958 50% of programs written in FORTRAN
+Very fast adoption
 
 - First compiler
   - Huge impact on computer science
@@ -57,7 +59,7 @@ John backus found this was promising...
 2. Parsing             -> syntactic
 3. Semantic analysis   -> Types, Scope, etc...
 4. Optimization        -> Collection of transformation to run faster or use less memory
-5. Code generation     -> Translation (byte-code, binary code, to other programming language, etc...)
+5. Code generation     -> Translation (byte-code, machine/binary code, to other programming language, etc...)
 
 ** DONE 10 - 2 - 01-02_ Structure of a Compiler
 CLOSED: [2013-12-07 sam. 15:45]
