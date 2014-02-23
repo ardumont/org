@@ -65,7 +65,10 @@ Very fast adoption
 CLOSED: [2013-12-07 sam. 15:45]
 *** Lexical Analysis
 - recognize words
-  - smallest unit above words -> "It's a sentence"
+  - smallest unit above words -> "This is a sentence"
+
+Humans recognizes immediately the 4 words.
+Almost automatic.
 
 - goal: divides program text into `words` or `tokens`
   - keywords
