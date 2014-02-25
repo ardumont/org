@@ -59,7 +59,7 @@ For example:
 
 ** Install
 
-When installing a distribution, select the default keyboard language as english US.
+When installing a [[http://futurist.se/gldt/wp-content/uploads/12.10/gldt1210.png][GNU/Linux distribution]], select the default keyboard language as english US.
 
 ** Switch
 
@@ -87,9 +87,9 @@ So the fastest way to avoid this is to not use it.
 
 ** .Xmodmap
 
-I use xmodmap to remap my bindings under an X session.
+I use [[http://linuxcommand.org/man_pages/xmodmap1.html][xmodmap]] to remap my bindings under an X session.
 
-.Xmodmap file:
+*.Xmodmap* file:
 
 #+begin_src txt
 keysym Super_L = Num_Lock
@@ -107,11 +107,13 @@ xmodmap ~/.Xmodmap
 
 ** Install
 
-Install the .Xmodmap in your $HOME and use your ~/.bashrc or ~/.zshrc to execute xmodmap at session opening.
+Install the .Xmodmap in your $HOME and use your *~/.bashrc* or *~/.zshrc* to execute xmodmap at session opening.
 
 #+begin_src sh
 [ -f ~/.Xmodmap ] && xmodmap ~/.Xmodmap
 #+end_src
+
+[[https://github.com/ardumont/dot-files/blob/master/.shrc#14][Example]]
 
 * Conclusion
 
