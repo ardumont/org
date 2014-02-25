@@ -1,0 +1,140 @@
+#+title: A story of keyboard mapping 2/2
+#+author: ardumont
+
+Everything is great. I have my mapping which permits me to concentrate on my goal.
+
+Or so I thought...
+
+Indeed, from time to time, my keyboard mapping is resetted.
+On my laptop for example, at resume time, the mapping is reverted back to the default QWERTY one.
+
+* pm-utils
+
+`pm-utils` to the rescue!
+
+From their README:
+#+BEGIN_QUOTE
+What is pm-utils?
+
+# Pm-utils provides simple shell command line tools to suspend and
+  hibernate computer that can be used to run vendor, distribution, or
+  user supplied scripts on suspend and resume.
+
+#+END_QUOTE
+
+This is a set of O.S hooks that you can customize to your need.
+
+So we can use this, for example, to install a mapping to a keyboard...
+
+* Platforms
+
+Ubuntu Linux 13.10 / Linux Mint 15
+
+* Mapping keyboard script
+
+We need a script that will check if the mapping is effective or not.
+If not effective, we want to trigger the mapping.
+
+```sh
+#!/bin/bash
+# Use: $0
+# If no display variable set, log a simple message and exit
+# Otherwise, launch the keyboard mapping.
+#
+# Test before changing the mapping
+# For a much better Emacs/Stumpwm/Firefox with keysnail experience.
+# ------------------------------------------------------------------------------
+
+## function
+
+log() {
+    echo "display '$DISPLAY' - $1"
+}
+
+## Checks
+
+[ -z "$DISPLAY" ] && log "No display so no keyboard mapping." && return 1
+
+## Run
+
+WDIR=$(dirname $0)
+
+# will be *Caps_Lock* if no customisation or empty otherwise
+CAPS=$(xmodmap -display $DISPLAY | grep lock | awk '{print $2}')
+
+if [ "$CAPS" = "Caps_Lock" ]; then
+    log "xmodmap customisation..."
+    xmodmap ~/.Xmodmap
+else
+    log "xmodmap already customized!";
+fi
+
+```
+[[https://github.com/ardumont/sh/blob/master/kbd/remap-keyboard.sh][Source]]
+
+* Service script
+
+This is a script that will react to the following events:
+- suspend    suspend to ram the os
+- hibernate  suspend to disk
+- resume     resume from suspend to ram
+- thaw       resume from suspend to disk
+
+In our case, we do not care about `suspend` and `hibernate` events.
+But at `resume` or `thaw` time, we want to remap the keyboard.
+
+``` sh
+#!/bin/sh
+
+# Action script to ensure the mapping is reinitialized at resume time
+#
+# Copyright: Copyright (c) 2014 Antoine R. Dumont
+# License:   GPL-2
+#
+
+USER=tony
+case "${1}" in
+        suspend|hibernate)   # `suspend to ram` or `suspend to disk`
+                # do nothing
+                ;;
+        resume|thaw)         # resume from `suspend to ram` or `suspend to disk`
+	        su -l $USER -c "export DISPLAY=:0.0 ; /home/$USER/bin/kbd/remap-keyboard.sh"
+                ;;
+esac
+```
+[[https://github.com/ardumont/sh/blob/master/pm-utils/keyboard-mapping-on-resume.sh][Source]]
+
+* Where
+
+To install your hook, you need 3 things:
+- the script with executable right
+
+```sh
+chmod +x your-script
+```
+
+- the right installation folder for the script: `/etc/pm/sleep.d`
+
+- a name with XYZ prefix where XYZ is a number
+So for example, you can install the previoust scrip as `/etc/pm/sleep.d/0000keyboard-mapping`.
+
+```sh
+sudo cp ~/bin/pm-utils/keyboard-mapping-on-resume.sh /etc/pm/sleep.d/0000keyboard-mapping
+```
+
+*Note* the name 0000 here will ensure the script is run at last.
+
+* Automate
+
+As I often forget these things, I keep creating other scripts that encapsulate these behaviours.
+(This way I remember having done some scripts about it
+
+```
+#!/bin/sh
+# Use: $0
+# Script to deploy the pm-utils script to remap the keyboard at wake up time
+#
+
+sudo cp ~/bin/pm-utils/keyboard-mapping-on-resume.sh /etc/pm/sleep.d/0000keyboard-mapping
+```
+[[https://github.com/ardumont/sh/pm-utils/remap-keyboard.sh][Source]]
