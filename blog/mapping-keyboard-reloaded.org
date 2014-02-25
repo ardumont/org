@@ -72,6 +72,8 @@ fi
 #+end_src
 [[https://github.com/ardumont/sh/blob/master/kbd/remap-keyboard.sh][Source]]
 
+This script will be called from the service script.
+
 * Service script
 
 This is a script that will react to the following events:
