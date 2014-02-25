@@ -1,3 +1,6 @@
+#+BLOG: tony-blog
+#+POSTID: 1297
+#+DATE: [2014-02-25 mar. 20:03]
 #+title: A story of keyboard mapping 1/2
 #+author: ardumont
 
