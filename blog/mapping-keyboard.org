@@ -1,0 +1,108 @@
+#+title: A story of keyboard mapping
+#+author: ardumont
+
+Since I started using emacs again for clojure development at first (now org-mode, emacs-lisp, haskell, scala, etc...), I completely rethink my input way.
+When Emacs proposed me between blue and red pill, I took the blue one :D.
+And it changed me...
+
+
+In this blog entry, I will try to describe why I choose to change my keyboard mapping and how I did it.
+
+
+The things I understood for using emacs the right way:
+- `There is a function for that`
+- `There is binding for that function`
+- But wait i can create a binding for that!!!
+- Only a portion of the keyboard is necessary (all that remains, the arrow keys, the <F*> keys, the numeric keyboard pad, etc... are too far away to use)
+- Symmetry is beauty (hands position and use in a symmetrical way):
+- AZERTY seriously? In France, AZERTY keymap is default which makes absolutely no sense... and which is violently apparent when using emacs.
+- AltGr must be Alt
+- The rodent (trackpad, mouse) is useless
+- Caps_Lock is annoying
+
+* Language
+
+So first thing first, I ditched AZERTY for QWERTY (US).
+
+** Why
+
+- To code, you need some cute symbols like |,`,$,%,*,+,-,@ etc...
+In AZERTY, to access this, you must do some difficult position with your right hand using the AltGr key.
+For non french people, it's the right Alt which does not permit the same actions as the left Alt.
+So this breaks your typing (even non dev people use @ for example).
+
+In QWERTY, you have access to these symbols with a SHIFT, this is so darn faster.
+
+- Beauty is symmetry
+In QWERTY, for each binding, we can use both hand to do a binding.
+One hand to use the `modifier` key (`C` for Control, `M` for Meta, `S` for super, etc...) and the other one for the alphabet letter.
+To select how to make a binding, I choose the one involving 2 hands and the more appart the keys composing the binding can be.
+
+For example:
+  - `C-y` (yank)
+For this I use left `Control` (C) and the `y` with my right hand.
+On the other hand, right Control and y with the right hand is awkward when typing something.
+
+  - `M-w` (kill)
+Right `Meta` (M) and `w` (left hand)
+
+This way, my hands move but a little and in harmony.
+
+** Install
+
+When installing a distribution, select the default keyboard language as english US.
+
+** Switch
+
+TODO
+
+* Mapping
+
+** Limits
+
+Now here comes the glitch.
+QWERTY is not perfect.
+We still have the dreaded `Caps_Lock` key.
+
+I do not want to think about my lock because:
+- I do not look at my keyboard, this moves my head (I do not move it a lot to keep concentrated on what I do)
+- I do not want to have to type a letter to know its case and remove it afterward.
+  This is one command to type the letter and one binding to remove it.
+  This is too much action that you need repeating everytime you are distracted and do not remember if it is locked or not.
+
+So the fastest way to avoid this is to not use it.
+
+** .Xmodmap
+
+I use xmodmap to remap my bindings under an X session.
+
+.Xmodmap file:
+
+``` txt
+keysym Super_L = Num_Lock
+remove lock = Caps_Lock
+keysym Caps_Lock = Control_L
+add control = Control_L
+clear mod5
+add mod1 = Mode_switch
+```
+
+run:
+```sh
+xmodmap ~/.Xmodmap
+```
+
+** Install
+
+Install the .Xmodmap in your $HOME and use your ~/.bashrc or ~/.zshrc to execute xmodmap at session opening.
+
+```sh
+[ -f ~/.Xmodmap ] && xmodmap ~/.Xmodmap
+```
+
+* Conclusion
+
+In this entry, I explained why and how I use xmodmap to remap my keyboard under an X session.
+
+But I also let appear a refusal to be distracted away from what I intend to do in the first place.
+This is the beginning of something I call the feedback loop that I'll explain in another blog entry.
