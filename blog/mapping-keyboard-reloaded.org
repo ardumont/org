@@ -35,7 +35,7 @@ Ubuntu Linux 13.10 / Linux Mint 15
 We need a script that will check if the mapping is effective or not.
 If not effective, we want to trigger the mapping.
 
-```sh
+#+begin_src sh
 #!/bin/bash
 # Use: $0
 # If no display variable set, log a simple message and exit
@@ -69,7 +69,7 @@ else
     log "xmodmap already customized!";
 fi
 
-```
+#+end_src
 [[https://github.com/ardumont/sh/blob/master/kbd/remap-keyboard.sh][Source]]
 
 * Service script
@@ -83,7 +83,7 @@ This is a script that will react to the following events:
 In our case, we do not care about `suspend` and `hibernate` events.
 But at `resume` or `thaw` time, we want to remap the keyboard.
 
-``` sh
+#+begin_src sh
 #!/bin/sh
 
 # Action script to ensure the mapping is reinitialized at resume time
@@ -101,7 +101,7 @@ case "${1}" in
 	        su -l $USER -c "export DISPLAY=:0.0 ; /home/$USER/bin/kbd/remap-keyboard.sh"
                 ;;
 esac
-```
+#+end_src
 [[https://github.com/ardumont/sh/blob/master/pm-utils/keyboard-mapping-on-resume.sh][Source]]
 
 * Where
@@ -109,18 +109,18 @@ esac
 To install your hook, you need 3 things:
 - the script with executable right
 
-```sh
+#+begin_src sh
 chmod +x your-script
-```
+#+end_src
 
 - the right installation folder for the script: `/etc/pm/sleep.d`
 
 - a name with XYZ prefix where XYZ is a number
 So for example, you can install the previoust scrip as `/etc/pm/sleep.d/0000keyboard-mapping`.
 
-```sh
+#+begin_src sh
 sudo cp ~/bin/pm-utils/keyboard-mapping-on-resume.sh /etc/pm/sleep.d/0000keyboard-mapping
-```
+#+end_src
 
 *Note* the name 0000 here will ensure the script is run at last.
 
@@ -129,12 +129,12 @@ sudo cp ~/bin/pm-utils/keyboard-mapping-on-resume.sh /etc/pm/sleep.d/0000keyboar
 As I often forget these things, I keep creating other scripts that encapsulate these behaviours.
 (This way I remember having done some scripts about it
 
-```
+#+begin_src sh
 #!/bin/sh
 # Use: $0
 # Script to deploy the pm-utils script to remap the keyboard at wake up time
 #
 
 sudo cp ~/bin/pm-utils/keyboard-mapping-on-resume.sh /etc/pm/sleep.d/0000keyboard-mapping
-```
+#+end_src
 [[https://github.com/ardumont/sh/pm-utils/remap-keyboard.sh][Source]]

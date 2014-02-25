@@ -1,4 +1,4 @@
-#+title: A story of keyboard mapping 1/2
+!#+title: A story of keyboard mapping 1/2
 #+author: ardumont
 
 Since I started using emacs again for clojure development at first (now org-mode, emacs-lisp, haskell, scala, etc...), I completely rethink my input way.
@@ -78,27 +78,27 @@ I use xmodmap to remap my bindings under an X session.
 
 .Xmodmap file:
 
-``` txt
+#+begin_src txt
 keysym Super_L = Num_Lock
 remove lock = Caps_Lock
 keysym Caps_Lock = Control_L
 add control = Control_L
 clear mod5
 add mod1 = Mode_switch
-```
+#+end_src
 
 run:
-```sh
+#+begin_src sh
 xmodmap ~/.Xmodmap
-```
+#+end_src
 
 ** Install
 
 Install the .Xmodmap in your $HOME and use your ~/.bashrc or ~/.zshrc to execute xmodmap at session opening.
 
-```sh
+#+begin_src sh
 [ -f ~/.Xmodmap ] && xmodmap ~/.Xmodmap
-```
+#+end_src
 
 * Conclusion
 
