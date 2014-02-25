@@ -9,7 +9,7 @@
 :PROPERTIES:
 :POSTID:   1297
 :POST_DATE: 20140225T19:03:00+0000
-:Published: No
+:Published: Yes
 :END:
 ** [[file:/home/tony/org/haskell/functional-programming/chapter1.org][Functional Approach in haskell - Ch1]]
 :PROPERTIES:
