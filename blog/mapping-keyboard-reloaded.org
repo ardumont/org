@@ -16,7 +16,7 @@ On my laptop for example, at resume time, the mapping is reverted back to the de
 
 * pm-utils
 
-`pm-utils` to the rescue!
+*pm-utils* to the rescue!
 
 From their README:
 #+BEGIN_QUOTE
@@ -88,8 +88,8 @@ This is a script that will react to the following events:
 - resume     resume from suspend to ram
 - thaw       resume from suspend to disk
 
-In our case, we do not care about `suspend` and `hibernate` events.
-But at `resume` or `thaw` time, we want to remap the keyboard.
+In our case, we do not care about *suspend* and *hibernate* events.
+But at *resume* or *thaw* time, we want to remap the keyboard.
 
 #+begin_src sh
 #!/bin/sh
@@ -121,10 +121,10 @@ To install your hook, you need 3 things:
 chmod +x your-script
 #+end_src
 
-- the right installation folder for the script: `/etc/pm/sleep.d`
+- the right installation folder for the script: */etc/pm/sleep.d*
 
 - a name with XYZ prefix where XYZ is a number
-So for example, you can install the previoust scrip as `/etc/pm/sleep.d/0000keyboard-mapping`.
+So for example, you can install the previoust scrip as */etc/pm/sleep.d/0000keyboard-mapping*.
 
 #+begin_src sh
 sudo cp ~/bin/pm-utils/keyboard-mapping-on-resume.sh /etc/pm/sleep.d/0000keyboard-mapping
