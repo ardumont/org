@@ -5,7 +5,7 @@
 #+author: ardumont
 #+CATEGORY: keyboard, feedback, xmodmap, pm-utils, hooks
 #+TAGS: keyboard, feedback, xmodmap, pm-utils, hooks
-#+DESCRIPTION: Keyboard mapping
+#+DESCRIPTION: When keyboard mapping is resetted, pm-utils to the rescue!
 
 Everything is great. I have my mapping which permits me to concentrate on my goal.
 
