@@ -1,11 +1,11 @@
 #+author: ardumont
 #+title: blog todo list
 
+* TODO Keyboard mapping
+* TODO Replay keyboard mapping when resuming from suspension
 * TODO Feedback loop (later is too late)
 * TODO Keysnail
 * TODO Keysnail deploying
 * TODO Generic service wrapper
 * TODO Stumpwm from emacs buffer
 * TODO HWifi
-* TODO Keyboard mapping
-* TODO Replay keyboard mapping when resuming from suspension
