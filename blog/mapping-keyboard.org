@@ -1,4 +1,4 @@
-!#+title: A story of keyboard mapping 1/2
+#+title: A story of keyboard mapping 1/2
 #+author: ardumont
 
 Since I started using emacs again for clojure development at first (now org-mode, emacs-lisp, haskell, scala, etc...), I completely rethink my input way.
