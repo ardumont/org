@@ -1,4 +1,10 @@
 * Posts
+** [[file:/home/tony/org/blog/mapping-keyboard-reloaded.org][A story of keyboard mapping 2/2]]
+:PROPERTIES:
+:POSTID:   1305
+:POST_DATE: 20140225T19:38:33+0000
+:Published: No
+:END:
 ** [[file:/home/tony/org/blog/mapping-keyboard.org][A story of keyboard mapping 1/2]]
 :PROPERTIES:
 :POSTID:   1297
