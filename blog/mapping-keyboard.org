@@ -3,8 +3,8 @@
 #+DATE: [2014-02-25 mar. 20:03]
 #+title: A story of keyboard mapping 1/2
 #+author: ardumont
-#+CATEGORY: keyboard, feedback, xmodmap
-#+TAGS: keyboard, feedback, xmodmap
+#+CATEGORY: keyboard, feedback, xmodmap, GNU/Linux
+#+TAGS: keyboard, feedback, xmodmap, GNU/Linux
 #+DESCRIPTION: My customised keyboard mapping (based on QWERTY)
 
 Since I started using emacs again for clojure development at first (now shell, org-mode, emacs-lisp, haskell, scala, etc...), I completely rethink my input way.
