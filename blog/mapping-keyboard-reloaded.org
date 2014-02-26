@@ -23,10 +23,7 @@ From their README:
 #+BEGIN_QUOTE
 What is pm-utils?
 
-# Pm-utils provides simple shell command line tools to suspend and
-  hibernate computer that can be used to run vendor, distribution, or
-  user supplied scripts on suspend and resume.
-
+Pm-utils provides simple shell command line tools to suspend and hibernate computer that can be used to run vendor, distribution, or user supplied scripts on suspend and resume.
 #+END_QUOTE
 
 So we can use this, for example, to remap a keyboard at each resume event...
@@ -78,10 +75,15 @@ This script will be called from the service script.
 * Service script
 
 This is a script that will react to the following events:
-- suspend    suspend to ram the os
-- hibernate  suspend to disk
-- resume     resume from suspend to ram
-- thaw       resume from suspend to disk
+
+|-----------+-----------------------------+---------|
+| Event     | Description                 | Action  |
+|-----------+-----------------------------+---------|
+| suspend   | Suspend to ram the os       | Nothing |
+| hibernate | Suspend to disk             | Nothing |
+| resume    | Resume from suspend to ram  | Remap   |
+| thaw      | Resume from suspend to disk | Remap   |
+|-----------+-----------------------------+---------|
 
 In our case, we do not care about *suspend* and *hibernate* events.
 But at *resume* or *thaw* time, we want to remap the keyboard.
