@@ -3,20 +3,21 @@
 #+DATE: [2014-02-25 mar. 20:38]
 #+title: A story of keyboard mapping 2/2
 #+author: ardumont
-#+CATEGORY: keyboard, feedback, xmodmap, pm-utils, hooks
-#+TAGS: keyboard, feedback, xmodmap, pm-utils, hooks
-#+DESCRIPTION: When keyboard mapping is resetted, pm-utils to the rescue!
+#+CATEGORY: keyboard, feedback, xmodmap, pm-utils, hooks, resume, revert, help, GNU/Linux
+#+TAGS: keyboard, feedback, xmodmap, pm-utils, hooks, resume, revert, help, GNU/Linux
+#+DESCRIPTION: Help, my keyboard mapping is reverted back at resume time...
 
-Everything is great. I have my mapping which permits me to concentrate on my goal.
+So, Everything is great! [[http://adumont.fr/blog/a-story-of-keyboard-mapping-12/][I have my keyboard mapping]] which permits me to concentrate on my goal.
 
 Or so I thought...
 
-Indeed, from time to time, my keyboard mapping is resetted.
-On my laptop for example, at resume time, the mapping is reverted back to the default QWERTY one.
+Indeed, at each resume time, my keyboard mapping is reverted back to standard QWERTY.
+
+In this blog post, I will propose a solution that permits to ensure the keyboard is remapped at resume time.
 
 * pm-utils
 
-*pm-utils* to the rescue!
+[[http://pm-utils.freedesktop.org/wiki/][pm-utils]] to the rescue!
 
 From their README:
 #+BEGIN_QUOTE
@@ -28,13 +29,7 @@ What is pm-utils?
 
 #+END_QUOTE
 
-This is a set of O.S hooks that you can customize to your need.
-
-So we can use this, for example, to install a mapping to a keyboard...
-
-* Platforms
-
-Ubuntu Linux 13.10 / Linux Mint 15
+So we can use this, for example, to remap a keyboard at each resume event...
 
 * Mapping keyboard script
 
@@ -112,31 +107,33 @@ esac
 #+end_src
 [[https://github.com/ardumont/sh/blob/master/pm-utils/keyboard-mapping-on-resume.sh][Source]]
 
+Of course, edit the script to your need.
+
 * Where
 
-To install your hook, you need 3 things:
-- the script with executable right
+- Give the script the executable rights
 
 #+begin_src sh
 chmod +x your-script
 #+end_src
 
-- the right installation folder for the script: */etc/pm/sleep.d*
+- Install the script in the folder: */etc/pm/sleep.d*
 
-- a name with XYZ prefix where XYZ is a number
-So for example, you can install the previoust scrip as */etc/pm/sleep.d/0000keyboard-mapping*.
+- Name the script with XYZ prefix where XYZ is a priority number
+For example, */etc/pm/sleep.d/0000keyboard-mapping*.
 
 #+begin_src sh
 sudo cp ~/bin/pm-utils/keyboard-mapping-on-resume.sh /etc/pm/sleep.d/0000keyboard-mapping
 #+end_src
 
-*Note* the name 0000 here will ensure the script is run at last.
+*Note* the name 0000 here will ensure the script is run at last position.
 
 * Automate
 
-As I often forget these things, I keep creating other scripts that encapsulate these behaviours.
-(This way I remember having done some scripts about it
+As I often forget these things, I keep creating scripts that encapsulate these behaviours.
+(This way I remember having done so and can report back to this)
 
+- Deploy:
 #+begin_src sh
 #!/bin/sh
 # Use: $0
@@ -146,3 +143,13 @@ As I often forget these things, I keep creating other scripts that encapsulate t
 sudo cp ~/bin/pm-utils/keyboard-mapping-on-resume.sh /etc/pm/sleep.d/0000keyboard-mapping
 #+end_src
 [[https://github.com/ardumont/sh/pm-utils/remap-keyboard.sh][Source]]
+
+- Undeploy:
+#+begin_src sh
+#!/bin/sh
+# Use: $0
+# Script to remove the personal pm-utils scripts
+#
+
+sudo rm /etc/pm/sleep.d/0000keyboard-mapping
+#+end_src
