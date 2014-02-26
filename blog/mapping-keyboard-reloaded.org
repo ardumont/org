@@ -144,7 +144,7 @@ As I often forget these things, I keep creating scripts that encapsulate these b
 
 sudo cp ~/bin/pm-utils/keyboard-mapping-on-resume.sh /etc/pm/sleep.d/0000keyboard-mapping
 #+end_src
-[[https://github.com/ardumont/sh/pm-utils/remap-keyboard.sh][Source]]
+[[https://github.com/ardumont/sh/blob/master/pm-utils/deploy-pm-utils.sh][Source]]
 
 - Undeploy:
 #+begin_src sh
@@ -155,3 +155,4 @@ sudo cp ~/bin/pm-utils/keyboard-mapping-on-resume.sh /etc/pm/sleep.d/0000keyboar
 
 sudo rm /etc/pm/sleep.d/0000keyboard-mapping
 #+end_src
+[[https://github.com/ardumont/sh/blob/master/pm-utils/undeploy-pm-utils.sh][Source]]
