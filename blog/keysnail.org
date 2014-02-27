@@ -1,18 +1,83 @@
+#+DATE: [2014-02-27 jeu. 17:14]
 #+TITLE: Keysnail
 #+AUTHOR: ardumont
-#+DESCRIPTION: Emacs in my Firefox
+#+DESCRIPTION: Emacs in my Firefox...
 #+CATEGORY: Firefox, plugins, Keysnail, emacs, feedback
 #+TAGS: Firefox, plugins, Keysnail, emacs, feedback
 
+TL;DR
+I only wish to use my keyboard.
+My browser imposes me to use the mouse...
+How to make my browser comply to my workflow.
+Simple! KeySnail
+
+
+* Introduction
+
 As I already explains, I'm a feedback addict.
-I want to know if:
-- what I'm doing is right fast
-- have feedback immediately after I ask for something
 
-why?
+It comes bundled with my train of thought - I like to unify my tools so they act the same.
+This way, no difficulty in remembering how they are used or adopting a new one.
 
-Because ideas are as fast as poping out of nowhere as disappearing into nowhere...
+In this blog post, I'll explain a great tool that permits me to make my browser work the same way as every other ones.
 
-Sometimes, it's right to think and think and think again and go implementing...
+* My tools
 
-And sometimes, it's better to go and tinker...
+I already use Emacs, the terminal with Tmux and StumpWM.
+(Also I'm running GNU/Linux but these tools can also be installed on BSD-derivative system.)
+
+** Unified behaviours
+
+They offer a unified interface through:
+
+- keyboard-centrism
+
+What can I say? I find the use of the mouse to be distractive at best.
+
+- modifiers key (one or more)
+
+A modifier key permits to differenciate between standard input (when you type to write something) and command input.
+Of course, the modifier key is customisable.
+
+|-------------+----------+------+----------------------------------------|
+| Application | Modifier | Mine | Remark                                 |
+|-------------+----------+------+----------------------------------------|
+| Emacs       | C-x/C-c  | Same |                                        |
+| StumpWM     | C-t      | Same |                                        |
+| Tmux        | C-b      | C-[  | C-b is already bind to 'back one char' |
+|-------------+----------+------+----------------------------------------|
+
+- complementarity
+
+They each have their goals and do not step in each other's toes.
+
+- customization
+
+We can extend them to create new binding to attach to current or new command...
+In brief, you can make them execute your every wish.
+
+** What's missing?
+
+I left out an important tool that I use every day, my browser.
+
+By default, this important tool only works with the mouse.
+
+So it does not play well with my workflow.
+
+But I can extend it through extension. And one in particular, [[https://github.com/mooz/keysnail][KeySnail]].
+
+* Keysnail
+
+** What is it?
+
+It's a firefox extension which is also an extension manager.
+Briefly, it permits to make my browser react to command exactly the same way as my emacs does.
+
+** Install
+
+To install it, download the extension directly from the github repository.
+
+** Custom
+
+By default keysnail is configured with emacs similar binding.
+And you can customize it to your need in a ~/.keysnail.js file.
