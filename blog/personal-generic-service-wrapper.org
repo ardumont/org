@@ -1,0 +1,126 @@
+#+TITLE: Personal Generic Service Wrapper
+#+AUTHOR: ardumont
+#+DESCRIPTION: Generic need to start/stop/status/restart binary/script
+
+Context:
+- Debian-derivative system (Ubuntu, Linux-Mint)
+- window manager (StumpWM) - this does not impact anything. This explains why I want to reload my configuration and need to restart some script.
+
+Problem:
+I often need to start/stop/restart/status a user script or command.
+
+For example, the *nm-applet* (small applet to deal with network)
+
+You can do this way:
+
+#+begin_src sh
+killall nm-applet && killall nm-applet
+#+end_src
+
+If you got multiple instances, you kill them all.
+Another way:
+
+#+begin_src sh
+pidof nm-applet | xargs kill -KILL
+#+end_src
+
+But, you have no clear feedback about something having gone wrong or not.
+(Except by looking at *$?* to get the error code - 0 is 'all went ok', otherwise, there has been some error.)
+
+
+In this blog post, I'll describe a small wrapper that does exactly that in a generic fashion.
+
+Some typical usage would be:
+
+#+begin_src
+service.sh nm-applet start
+service.sh nm-applet stop
+service.sh nm-applet status
+service.sh nm-applet restart
+#+end_src
+
+Here we go:
+
+#+begin_src sh
+#!/bin/bash
+# Use: $0 {start|stop|restart|status}
+# Generic Service Wrapper
+# Example:
+# $0 <htop|nm-applet|some-personal-script> {start|stop|status|restart}
+
+### functions
+
+# Application that this service wraps
+APP=$1
+shift
+
+# Send a signal to the nm-applet pid (KILL to kill, 0 to know if it's alive)
+app-send() {
+    SIG=$1
+    mypid=$(pidof $APP)
+    [ -z "$mypid" ] && exit 1   # no pid so not running
+    kill -$SIG $mypid && exit 0 # if pid exists and the process exists, will return 0
+    exit 1 # otherwise problem
+}
+
+# Stop application
+app-stop() {
+    $(app-send KILL)
+}
+
+# Start application
+app-start() {
+    $APP
+}
+
+# status
+app-status() {
+    $(app-send 0)
+    ( [ $? = 0 ] && echo "$APP is running!" ) || echo "$APP is not running!"
+}
+
+### run
+
+case "$1" in
+    start)
+        app-start
+        app-status
+        ;;
+
+    stop)
+        app-stop
+        app-status
+        ;;
+
+    restart)
+        app-stop
+        app-start
+        ;;
+
+    status)
+        app-status
+        ;;
+
+    *)
+	echo "Usage: $0 <APP> {start|stop|restart|status}" >&2
+	exit 1
+	;;
+esac
+#+end_src
+
+[[https://github.com/ardumont/sh/blob/master/service/service.sh][Source]]
+
+Calling the script:
+
+#+begin_src sh
+service.sh nm-applet start|stop|restart|status
+#+end_src
+
+
+* What about command with arguments?
+
+At the moment, the need has not appeared.
+
+In theory, one would have to add a small parsing step to retrieve the command name for the *stop* and *status* events and keep feeding the all command to the *start* and *restart* ones.
+
+Contributions are welcome.

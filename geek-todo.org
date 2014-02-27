@@ -756,7 +756,7 @@ CLOSED: [2014-02-26 mer. 22:41]
 CLOSED: [2014-02-26 mer. 22:47]
 ** DONE A story of keyboard mapping 2/2
 CLOSED: [2014-02-26 mer. 22:47]
-** TODO Personal generic service wrapper
+** IN-PROGRESS Personal generic service wrapper
 ** TODO One CLI to rule them and in the Make bind them
 ** TODO Feedback loop ("later is too late")
 ** TODO Keysnail
