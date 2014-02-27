@@ -1,0 +1,18 @@
+#+TITLE: Keysnail
+#+AUTHOR: ardumont
+#+DESCRIPTION: Emacs in my Firefox
+#+CATEGORY: Firefox, plugins, Keysnail, emacs, feedback
+#+TAGS: Firefox, plugins, Keysnail, emacs, feedback
+
+As I already explains, I'm a feedback addict.
+I want to know if:
+- what I'm doing is right fast
+- have feedback immediately after I ask for something
+
+why?
+
+Because ideas are as fast as poping out of nowhere as disappearing into nowhere...
+
+Sometimes, it's right to think and think and think again and go implementing...
+
+And sometimes, it's better to go and tinker...
