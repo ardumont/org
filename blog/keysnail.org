@@ -14,12 +14,16 @@ Simple! KeySnail
 
 * Introduction
 
-As I already explains, I'm a feedback addict.
+As I already explained, I'm a feedback driven people.
+I have lots of patience with people but absolutely none with my computer.
 
-It comes bundled with my train of thought - I like to unify my tools so they act the same.
-This way, no difficulty in remembering how they are used or adopting a new one.
 
-In this blog post, I'll explain a great tool that permits me to make my browser work the same way as every other ones.
+I also like to unify my tools so they act the same.
+This helps me think more about my current goal and less about my tools.
+
+This way, the tools disappear, become an extension of me and together we can reach the goal fast.
+
+In this blog post, I'll explain how KeySnail permitted my browser to become yet another unified tool.
 
 * My tools
 
