@@ -4,38 +4,38 @@
 #+CATEGORY: feedback, tools, stumpwm, emacs, org-mode, tmux, firefox, keysnail, git, vagrant, make, script
 #+TAGS: feedback, tools, stumpwm, emacs, org-mode, tmux, firefox, keysnail, git, vagrant, make, script
 
+* TL;DR
+Use the right tools for the right job. And feedback all the way!
+
 * DISCLAIMER
 I present my set of tools.
 In no way do I claim these are the supreme tools. As always, your mileage may vary.
 The only claim I make is that they can let me be fast.
 
-* TL;DR
-Use the right tools for the right job with the right feedback!
-
 * Introduction
 
-As I already explains time and time again (links), I'm someone you can define as *feedback driven people*.
+As I already explains time and time again (links), I'm feedback driven.
 
-I want:
-- to know if I'm wrong now
+I want to:
 - have feedback immediately after I executed a command/function
-- to believe... (oops, bad context)
-
+- know if I'm wrong now
+- believe... (oops, bad context)
 
 * Why?
 
 Because ideas are as fast as poping out of nowhere as disappearing into nowhere...
 
-Sometimes, it's right to think and think and think again and go implementing later...
-And sometimes, it's better to go and tinker and have feedback NOW...
+Sometimes, it's right to think and think again and go implementing later...
+And sometimes, it's better to go think and tinker along the way too...
 
 Links to find:
-Bref Victor   ->
+Bref Victor   -> ...
 Chris Granger -> lighttable
 
 * How
 
-For this, I use tools:
+For this, I use these tools:
+
 - GNU/Linux
 
 Stable, user-friendly, extendable, reproducible...
@@ -51,13 +51,15 @@ The *emacs* window manager!
 
 - Org-mode
 
-To do things, one has to organizd
+To do things, one has to organized
 
 - Tmux
 
 The *emacs* terminal session manager!
 
 - Firefox with KeySnail
+
+firefox, the emacs way!
 
 - Git
 
