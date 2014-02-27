@@ -1,0 +1,66 @@
+#+TITLE: Feedback loop
+#+AUTHOR: ardumont
+#+DESCRIPTION: Later is too late!
+#+CATEGORY: feedback, tools, stumpwm, emacs, org-mode, tmux, firefox, keysnail, git, vagrant, make, script
+#+TAGS: feedback, tools, stumpwm, emacs, org-mode, tmux, firefox, keysnail, git, vagrant, make, script
+
+* DISCLAIMER
+I present my set of tools.
+In no way do I claim these are the supreme tools. As always, your mileage may vary.
+The only claim I make is that they can let me be fast.
+
+* TL;DR
+Use the right tools for the right job with the right feedback!
+
+* Introduction
+
+As I already explains time and time again (links), I'm someone you can define as *feedback driven people*.
+
+I want:
+- to know if I'm wrong now
+- have feedback immediately after I executed a command/function
+- to believe... (oops, bad context)
+
+
+* Why?
+
+Because ideas are as fast as poping out of nowhere as disappearing into nowhere...
+
+Sometimes, it's right to think and think and think again and go implementing later...
+And sometimes, it's better to go and tinker and have feedback NOW...
+
+Links to find:
+Bref Victor   ->
+Chris Granger -> lighttable
+
+* How
+
+For this, I use tools:
+- GNU/Linux
+
+Stable, user-friendly, extendable, reproducible...
+These are qualities unavoidable to do what I do.
+
+- Emacs
+
+It's not an editor, it's an environment highly extendable.
+
+- StumpWM
+
+The *emacs* window manager!
+
+- Org-mode
+
+To do things, one has to organizd
+
+- Tmux
+
+The *emacs* terminal session manager!
+
+- Firefox with KeySnail
+
+- Git
+
+- Vagrant
+
+-
