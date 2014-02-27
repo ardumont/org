@@ -1,6 +1,8 @@
 #+TITLE: Personal Generic Service Wrapper
 #+AUTHOR: ardumont
 #+DESCRIPTION: Generic need to start/stop/status/restart binary/script
+#+CATEGORY: script, GNU/Linux, feedback, service, personal
+#+TAGS: script, GNU/Linux, feedback, service, personal
 
 Context:
 - Debian-derivative system (Ubuntu, Linux-Mint)
