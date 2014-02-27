@@ -542,7 +542,7 @@ CLOSED: [2013-05-23 Thu 10:45]
 CLOSED: [2013-05-23 Thu 10:45]
 ** PENDING Finish the other exercises
 
-* PENDING Articles [86%]
+* PENDING Articles [85%]
 ** DONE Chroot to save one's GNU/Linux
 CLOSED: [2012-04-21 Sat 18:07]
 http://adumont.fr/blog/chroot-pour-sauver-son-gnulinux/
@@ -757,14 +757,15 @@ CLOSED: [2014-02-26 mer. 22:47]
 ** DONE A story of keyboard mapping 2/2
 CLOSED: [2014-02-26 mer. 22:47]
 ** IN-PROGRESS Personal generic service wrapper
-** TODO One CLI to rule them and in the Make bind them
-** TODO Feedback loop ("later is too late")
 ** TODO Keysnail
+** TODO Towards tools unification
+** TODO Feedback loop ("later is too late")
 ** TODO Automate Keysnail deployment
 ** TODO Stumpwm from emacs buffer
 ** TODO HWifi
 ** TODO Deploying to Marmalade
 ** TODO Personal workflow deployment of emacs-lisp package
+** TODO One CLI to rule them and in the Make bind them
 * PENDING Clojure [50%]
 ** DONE start [100%]
 CLOSED: [2012-04-21 Sat 18:18]
