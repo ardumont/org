@@ -5,30 +5,30 @@
 #+CATEGORY: Firefox, plugins, Keysnail, emacs, feedback
 #+TAGS: Firefox, plugins, Keysnail, emacs, feedback
 
-TL;DR
-I only wish to use my keyboard.
-My browser imposes me to use the mouse...
-How to make my browser comply to my workflow.
-Simple! KeySnail
+* TL;DR
+
+I only wish to use my keyboard. My browser imposes me to use the mouse!
+
+How to make my browser comply to my workflow? Simple! [[https://github.com/mooz/keysnail][KeySnail]]
 
 
 * Introduction
 
-As I already explained, I'm a feedback driven people.
+As I already explained, I'm feedback driven.
 I have lots of patience with people but absolutely none with my computer.
 
 
 I also like to unify my tools so they act the same.
 This helps me think more about my current goal and less about my tools.
 
-This way, the tools disappear, become an extension of me and together we can reach the goal fast.
+This way, the tools disappear, become an extension of me. Together, we can reach the goal fast.
 
-In this blog post, I'll explain how KeySnail permitted my browser to become yet another unified tool.
+In this blog post, I'll explain how [[https://github.com/mooz/keysnail][KeySnail]] extended my browser to become yet another unified tool.
 
 * My tools
 
-I already use Emacs, the terminal with Tmux and StumpWM.
-(Also I'm running GNU/Linux but these tools can also be installed on BSD-derivative system.)
+I already use [[https://www.gnu.org/software/emacs][Emacs]], the terminal with Tmux and [[Http://Www.Nongnu.Org/Stumpwm/][StumpWM]].
+(Also I'm running [[https://www.gnu.org/gnu/linux-and-gnu][GNU/Linux]] but these tools can also be installed on BSD-derivative system.)
 
 ** Unified behaviours
 
@@ -46,8 +46,8 @@ Of course, the modifier key is customisable.
 |-------------+----------+------+----------------------------------------|
 | Application | Modifier | Mine | Remark                                 |
 |-------------+----------+------+----------------------------------------|
-| Emacs       | C-x/C-c  | Same |                                        |
-| StumpWM     | C-t      | Same |                                        |
+| [[https://www.gnu.org/software/emacs][Emacs]]       | C-x/C-c  | Same |                                        |
+| [[Http://Www.Nongnu.Org/Stumpwm/][StumpWM]]     | C-t      | Same |                                        |
 | Tmux        | C-b      | C-[  | C-b is already bind to 'back one char' |
 |-------------+----------+------+----------------------------------------|
 
