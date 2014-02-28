@@ -7,44 +7,44 @@
 #+CATEGORY: script, GNU/Linux, feedback, service, personal
 #+TAGS: script, GNU/Linux, feedback, service, personal
 
-Context:
-- Debian-derivative system (Ubuntu, Linux-Mint)
-- window manager (StumpWM) - this does not impact anything. This explains why I want to reload my configuration and need to restart some script.
+* Problem
 
-Problem:
 I often need to start/stop/restart/status a user script or command.
+
+* Context
+
+I'm running under:
+- Debian-derivative system (Ubuntu, Linux-Mint)
+- window manager (StumpWM) - this does not impact anything. This explains why I want to reload my configuration and need to restart some program.
+
+* Example
 
 For example, the *nm-applet* (small applet to deal with network)
 
 You can do this way:
-
 #+begin_src sh
 killall nm-applet && killall nm-applet
 #+end_src
 
-If you got multiple instances, you kill them all.
-Another way:
-
+or this way:
 #+begin_src sh
 pidof nm-applet | xargs kill -KILL
 #+end_src
 
-But, you have no clear feedback about something having gone wrong or not.
-(Except by looking at *$?* to get the error code - 0 is 'all went ok', otherwise, there has been some error.)
+In any case, for each script/command, you have to repeat the same code.
 
+* Generic service wrapper
 
-In this blog post, I'll describe a small wrapper that does exactly that in a generic fashion.
+We can factorize this a simple service wrapper script that orchestrates this behaviour.
 
+** Use
 Some typical usage would be:
 
-#+begin_src
-service.sh nm-applet start
-service.sh nm-applet stop
-service.sh nm-applet status
-service.sh nm-applet restart
+#+begin_src sh
+service.sh nm-applet start|stop|status|restart
 #+end_src
 
-Here we go:
+** Script
 
 #+begin_src sh
 #!/bin/bash
@@ -115,17 +115,12 @@ esac
 
 [[https://github.com/ardumont/sh/blob/master/service/service.sh][Source]]
 
-Calling the script:
-
-#+begin_src sh
-service.sh nm-applet start|stop|restart|status
-#+end_src
-
-
 * What about command with arguments?
 
-At the moment, the need has not appeared.
+At the moment, the need has only appeared for command without parameters.
 
-In theory, one would have to add a small parsing step to retrieve the command name for the *stop* and *status* events and keep feeding the all command to the *start* and *restart* ones.
+In theory, one would have to:
+- add a small parsing step to retrieve the command name for the *stop* and *status* events
+- and keep feeding the full command to the *start* and *restart* ones.
 
 Contributions are welcome.
