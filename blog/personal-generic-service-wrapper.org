@@ -9,17 +9,17 @@
 
 * Problem
 
-I often need to start/stop/restart/status a user script or command.
+I often need to start/stop/restart/status userland command.
 
 * Context
 
 I'm running under:
-- Debian-derivative system (Ubuntu, Linux-Mint)
-- window manager (StumpWM) - this does not impact anything. This explains why I want to reload my configuration and need to restart some program.
+- [[http://www.debian.org/][Debian]]-derivative system ([[http://ubuntu.com/][Ubuntu]], [[http://linuxmint.com/][Linux-Mint]])
+- [[https://en.wikipedia.org/wiki/Window_manager][Window Manager]] ([[http://www.nongnu.org/stumpwm/][StumpWM]]) - this does not impact anything. This explains why I want to reload my configuration and need to restart some program.
 
 * Example
 
-For example, the *nm-applet* (small applet to deal with network)
+For example, the *nm-applet* (small graphical applet to deal with network)
 
 You can do this way:
 #+begin_src sh
@@ -115,12 +115,33 @@ esac
 
 [[https://github.com/ardumont/sh/blob/master/service/service.sh][Source]]
 
+** Example usage
+
+I use it in my *.stumpwmrc* configuration file to restart the *nm-applet* service.
+This way, when I reload my [[http://www.nongnu.org/stumpwm/][StumpWM]] configuration, no new instance is spawned. I have exactly one.
+
+#+begin_src lisp
+(run-shell-command "~/bin/wifi/nm-applet.sh restart")
+#+end_src
+
+where nm-applet.sh simply wraps the call to service.sh:
+#+begin_src sh
+#!/bin/bash
+# Use: $0 {start|stop|restart|status}
+# Service Wrapper around nm-applet
+
+~/bin/service/service.sh nm-applet $*
+#+end_src
+
+[[https://github.com/ardumont/dot-files/blob/master/.stumpwmrc#L184][Use in my stumpwm configuration]]
+
 * What about command with arguments?
 
 At the moment, the need has only appeared for command without parameters.
 
 In theory, one would have to:
 - add a small parsing step to retrieve the command name for the *stop* and *status* events
+
 - and keep feeding the full command to the *start* and *restart* ones.
 
 Contributions are welcome.
