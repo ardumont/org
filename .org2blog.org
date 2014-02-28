@@ -1,4 +1,10 @@
 * Posts
+** [[file:/home/tony/org/blog/personal-generic-service-wrapper.org][Personal Generic Service Wrapper]]
+:PROPERTIES:
+:POSTID:   1318
+:POST_DATE: 20140228T00:30:43+0000
+:Published: No
+:END:
 ** [[file:/home/tony/org/blog/mapping-keyboard-reloaded.org][A story of keyboard mapping 2/2]]
 :PROPERTIES:
 :POSTID:   1305
