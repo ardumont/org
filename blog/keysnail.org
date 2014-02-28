@@ -7,7 +7,7 @@
 
 * TL;DR
 
-I only wish to use my keyboard. My browser imposes me to use the mouse!
+I do not want to use anything else but my keyboard. My browser imposes me to use the mouse!
 
 How to make my browser comply to my workflow? Simple! [[https://github.com/mooz/keysnail][KeySnail]]
 
