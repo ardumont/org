@@ -19,7 +19,7 @@ I'm running under:
 
 * Example
 
-For example, the *nm-applet* (small graphical applet to deal with network)
+For example, the [[https://github.com/mirsal/nm-applet][nm-applet]] (small graphical applet to deal with network)
 
 You can do this way:
 #+begin_src sh
@@ -117,7 +117,7 @@ esac
 
 ** Example usage
 
-I use it in my *.stumpwmrc* configuration file to restart the *nm-applet* service.
+I use it in my *.stumpwmrc* configuration file to restart the [[https://github.com/mirsal/nm-applet][nm-applet]] service.
 This way, when I reload my [[http://www.nongnu.org/stumpwm/][StumpWM]] configuration, no new instance is spawned. I have exactly one.
 
 #+begin_src lisp
