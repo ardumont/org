@@ -88,13 +88,13 @@ Minor mode to sync trello and org-mode
   - [ ] Upload tar archive on release
   - [ ] Add release notes to tag
   - [ ] Update the main site entry http://ardumont.github.io/org-trello/ using the README.md (at the moment, this is loaded through the github generator)
-* IN-PROGRESS Emacs-lisp [66%]
+* IN-PROGRESS Emacs-lisp [83%]
 - [X] Look at bbatsov/prelude (impressive work)
 - [X] Improve current live packs
 - [X] Compute downloads-by-version chart for an emacs-lisp package deployed on marmalade - https://github.com/ardumont/clj-jam
 - [X] Ask if it's possible to add the means to load prelude modules from another location (keep the existing one and add another) - https://github.com/bbatsov/prelude/issues/474
-- [ ] Switch to prelude?
-- [ ] Mix prelude and emacs-live?
+- [X] Switch to prelude? Mix prelude and emacs-live? => prelude-packs (emacs-live-packs's mirror)
+- [ ] auto-completion in prelude-packs
 * IN-PROGRESS Scala [72%]
 ** DONE scala-pack
 CLOSED: [2013-07-26 ven. 12:15]
