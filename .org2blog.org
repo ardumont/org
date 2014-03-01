@@ -9,7 +9,7 @@
 :PROPERTIES:
 :POSTID:   1318
 :POST_DATE: 20140228T00:30:00+0000
-:Published: No
+:Published: Yes
 :END:
 ** [[file:/home/tony/org/blog/mapping-keyboard-reloaded.org][A story of keyboard mapping 2/2]]
 :PROPERTIES:
