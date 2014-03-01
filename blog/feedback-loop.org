@@ -1,3 +1,6 @@
+#+BLOG: tony-blog
+#+POSTID: 1324
+#+DATE: [2014-03-01 sam. 17:29]
 #+TITLE: Feedback loop
 #+AUTHOR: ardumont
 #+DESCRIPTION: Later is too late!

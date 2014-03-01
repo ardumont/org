@@ -1,4 +1,10 @@
 * Posts
+** [[file:/home/tony/org/blog/feedback-loop.org][Feedback loop]]
+:PROPERTIES:
+:POSTID:   1324
+:POST_DATE: 20140301T16:29:05+0000
+:Published: No
+:END:
 ** [[file:/home/tony/org/blog/personal-generic-service-wrapper.org][Personal Generic Service Wrapper]]
 :PROPERTIES:
 :POSTID:   1318
