@@ -16,9 +16,6 @@
 * TODO Mouseless file manager
 Does not seem to find one!
 Code it!
-* TODO Arduino [0%]
-- [ ] Get back in touch
-- [ ] Dig more
 * TODO Raspberry-PI [0%]
 - [ ] Learn
 * TODO The four horsemen of the parallel apocalypse
@@ -45,6 +42,10 @@ Code it!
   - https://github.com/fpco/GitHub (haskell)
   - https://github.com/sigma/gh.el (emacs-lisp)
 - [ ] Choose one
+* IN-PROGRESS Arduino [66%]
+- [X] Get back in touch - https://github.com/ardumont/harduino-lab
+- [X] https://github.com/LeventErkok/hArduino/pull/9
+- [ ] Dig more
 * IN-PROGRESS org-trello [60%]
 Minor mode to sync trello and org-mode
 - [X] Deploy in melpa (automated on their own)
