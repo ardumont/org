@@ -27,7 +27,7 @@ In this blog post, I'll explain how [[https://github.com/mooz/keysnail][KeySnail
 
 * My tools
 
-I already use [[https://www.gnu.org/software/emacs][Emacs]], the terminal with Tmux and [[Http://Www.Nongnu.Org/Stumpwm/][StumpWM]].
+I already use [[https://www.gnu.org/software/emacs][Emacs]], the terminal with [[Http://Tmux.Sourceforge.Net/][Tmux]] and [[Http://Www.Nongnu.Org/Stumpwm/][StumpWM]].
 (Also I'm running [[https://www.gnu.org/gnu/linux-and-gnu][GNU/Linux]] but these tools can also be installed on BSD-derivative system.)
 
 ** Unified behaviours
@@ -48,7 +48,7 @@ Of course, the modifier key is customisable.
 |-------------+----------+------+----------------------------------------|
 | [[https://www.gnu.org/software/emacs][Emacs]]       | C-x/C-c  | Same |                                        |
 | [[Http://Www.Nongnu.Org/Stumpwm/][StumpWM]]     | C-t      | Same |                                        |
-| Tmux        | C-b      | C-[  | C-b is already bind to 'back one char' |
+| [[Http://Tmux.Sourceforge.Net/][Tmux]]        | C-b      | C-[  | C-b is already bind to 'back one char' |
 |-------------+----------+------+----------------------------------------|
 
 - complementarity
@@ -64,7 +64,7 @@ In brief, you can make them execute your every wish.
 
 I left out an important tool that I use every day, my browser.
 
-By default, this important tool only works with the mouse.
+By default, this important tool mainly works with the mouse.
 
 So it does not play well with my workflow.
 
