@@ -770,7 +770,7 @@ CLOSED: [2014-02-26 mer. 22:41]
 CLOSED: [2014-02-26 mer. 22:47]
 ** DONE A story of keyboard mapping 2/2
 CLOSED: [2014-02-26 mer. 22:47]
-** IN-PROGRESS Personal generic service wrapper
+** DONE Personal generic service wrapper
 ** IN-PROGRESS Keysnail
 ** IN-PROGRESS Feedback loop ("later is too late")
 ** TODO Towards tools unification
