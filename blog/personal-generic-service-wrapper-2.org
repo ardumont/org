@@ -1,0 +1,105 @@
+#+BLOG: tony-blog
+#+POSTID: 1328
+#+DATE: [2014-03-06 Thu 04:14]
+#+BLOG: tony-blog
+#+TITLE: Personal Generic Service Wrapper 2/2
+#+AUTHOR: ardumont
+#+DESCRIPTION: Generic need to start/stop/status/restart command (which can take arguments)
+#+CATEGORY: script, GNU/Linux, feedback, service, personal
+#+TAGS: script, GNU/Linux, feedback, service, personal
+
+In a [[http://adumont.fr/blog/personal-generic-service-wrapper/][previous article]], I presented a generic service wrapper.
+This script was limited in one point, we could not wrap call to command with arguments.
+
+I suggested that we could make an evolution to deal with it (without proposing one at a time).
+
+A simple but yet elegant approach is to switch arguments position:
+- first one becomes the action we want the service command to execute (start, stop, etc...)
+- second one becomes the application's name we deal with (to stop the application we want simply its name, for example =stalonetray=, =emacs=, etc...)
+- the remaining arguments are the actual arguments for the full command. We simply transit them to the original command when we need to start the process (for example =-t --window-type=normal=, =--daemon=, etc...)
+
+Here it goes:
+
+#+begin_src sh
+#!/bin/bash
+# Use: $0 {start|stop|restart|status} <APP>
+# Generic Service Wrapper
+# Example:
+# $0 {start|stop|status|restart} <htop|nm-applet|some-personal-script>
+
+### functions
+
+# Application that this service wraps
+ACTION=$1
+APP=$2
+shift
+shift
+CMD="$APP $*"
+
+# Send a signal to the nm-applet pid (KILL to kill, 0 to know if it's alive)
+app-send() {
+    SIG=$1
+    mypid=$(pidof $APP)
+    [ -z "$mypid" ] && exit 1   # no pid so not running
+    kill -$SIG $mypid && exit 0 # if pid exists and the process exists, will return 0
+    exit 1 # otherwise problem
+}
+
+# Stop application
+app-stop() {
+    $(app-send KILL)
+}
+
+# Start application
+app-start() {
+    $CMD
+}
+
+# status
+app-status() {
+    $(app-send 0)
+    ( [ $? = 0 ] && echo "$APP is running!" ) || echo "$APP is not running!"
+}
+
+### run
+
+case "$ACTION" in
+    start)
+        app-start
+        app-status
+        ;;
+
+    stop)
+        app-stop
+        app-status
+        ;;
+
+    restart)
+        app-stop
+        app-start
+        ;;
+
+    status)
+        app-status
+        ;;
+
+    *)
+        echo "Usage: $0 {start|stop|restart|status} <APP>" >&2
+        exit 1
+        ;;
+esac
+#+end_src
+
+[[https://github.com/ardumont/sh/blob/master/service/service.sh][Source]]
+
+Usage example:
+
+- Restarting the daemon emacs
+#+begin_src sh
+~/bin/service/service.sh restart emacs --daemon
+#+end_src
+
+- Restarting stalonetray
+#+begin_src sh
+~/bin/service/service.sh restart stalonetray -t --window-type=normal
+#+end_src

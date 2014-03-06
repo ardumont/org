@@ -1,11 +1,17 @@
 * Posts
+** [[file:/home/tony/org/blog/personal-generic-service-wrapper-2.org][Personal Generic Service Wrapper 2/2]]
+:PROPERTIES:
+:POSTID:   1328
+:POST_DATE: 20140306T03:14:00+0000
+:Published: Yes
+:END:
 ** [[file:/home/tony/org/blog/feedback-loop.org][Feedback loop]]
 :PROPERTIES:
 :POSTID:   1324
 :POST_DATE: 20140301T16:29:05+0000
 :Published: No
 :END:
-** [[file:/home/tony/org/blog/personal-generic-service-wrapper.org][Personal Generic Service Wrapper]]
+** [[file:/home/tony/org/blog/personal-generic-service-wrapper.org][Personal Generic Service Wrapper 1/2]]
 :PROPERTIES:
 :POSTID:   1318
 :POST_DATE: 20140228T00:30:00+0000
