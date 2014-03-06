@@ -1,0 +1,67 @@
+#+TITLE: org-reveal
+#+DESCRIPTION: Using emacs orgmode to make slides with reveal
+#+AUTHOR: ardumont
+#+DATE: Thu Mar 6 2014
+#+REVEAL_THEME: sky
+#+REVEAL_TRANS: fade
+#+REVEAL_SPEED: 0
+#+OPTIONS: reveal-keyboard
+#+ATTR_REVEAL: frag frag-style
+
+* This is me
+
+#+CAPTION: This is a cool image
+#+LABEL: fig: me
+#+ATTR_LaTeX: height=.77\textheight
+[[../resources/tux-clj.png]]
+
+* org-reveal
+
+This presentation is created using emacs' org-mode export with the
+[[https://github.com/yjwen/org-reveal/][org-reveal]] module.
+
+* Tuning
+
+** Themes
+
+Possible themes (header /REVEAL THEME/):
+- beige
+- blood
+- default
+- moon
+- night
+- serif
+- simple
+- sky
+- solarized
+
+** Transitions
+
+Possible transitions (header /REVEAL TRANS/):
+- default
+- cube
+- page
+- concave
+- zoom
+- linear
+- fade
+- none
+
+** Speed
+
+Header /REVEAL SPEED/
+
+* Code
+:PROPERTIES:
+:reveal_background: black
+:END:
+
+Some haskell:
+#+begin_src haskell
+sieve :: [Int] -> [Int]
+sieve (p:ps) = p : sieve [n | n <- ps, n `mod` p /= 0]
+#+end_src
+
+* Conclusion
+
+emacs/org/reveal rock!
