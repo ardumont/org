@@ -1,0 +1,192 @@
+body {
+/* visibility:hidden; */
+    font: 14px "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
+    background: #000 url("../bg/mauc_bg_bokeh_16x9.jpg");
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+.slide{
+
+    display:none;
+    position:absolute;
+    width: 100%;
+    height: 100% ;
+    
+}
+.current {
+    display:block;
+ 
+}
+a {
+position:relative;
+color: #fff;
+text-decoration:none;
+z-index:99;
+   
+
+}
+
+#swipeBox {
+    display:block;
+    position:fixed;
+    width:100%;
+    height:100%;
+    bottom:0;
+    left:0;
+    z-index:10;
+    /* pointer-events: none; */
+    /* background:rgba(255,0,0,0.5); */
+}
+
+.header, h2, h1 {
+    position:absolute;
+    width:100%;
+    top:-30px;
+    left:0;
+    background: rgba(0,0,0,0.5);
+    font-weight: normal;
+    font-size: 30px;
+    letter-spacing: -.05em;
+    color: white;
+    text-shadow: rgba(0, 0, 0, 0.2) 0 2px 5px;
+    
+    padding-left: 30px;
+    padding-top: 65px;
+    padding-bottom: 20px;
+}
+h1.title{
+    display:none;
+}
+
+.info {
+    position:fixed;
+    display:block;
+    width:100%;
+    height: 20px;
+    bottom: -10px;
+    padding-bottom:10px;
+    background: rgba(0,0,0,0.5);
+    font-size: 12px;
+    text-align: center;
+}
+
+.info-text {
+color:#aaa;
+ box-sizing: border-box;
+    -moz-box-sizing: border-box;
+   
+   
+    float:left;
+    height:58px;
+    padding: 0 10px 0 10px;
+    width:33.33333333333%;
+ }
+.info-text:first-child {
+text-align:left;
+}
+.info-text:last-child {
+text-align:right;
+}
+
+#preamble div.info {
+    position:relative;
+    display:block;
+    width: 800px;
+    left: 50%;
+    margin-left: -400px;
+    margin-top: 180px;
+    height: 400px;;
+
+    background: rgba(0,0,0,0.5);
+    font-size: 35px;
+    color:#fff;
+    text-align: left;
+ border-top-left-radius: 20px;
+    -moz-border-radius-topleft: 20px;
+    -webkit-border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    -moz-border-radius-bottomright: 20px;
+    -webkit-border-bottom-right-radius: 20px;
+    
+}
+
+#preamble div.info-text {
+ box-sizing: border-box;
+    -moz-box-sizing: border-box;
+   
+    padding:35px;   
+    float:left;
+    clear:left;
+    height:30px;
+
+    width:100%;
+ }
+#preamble .info-text:first-child {
+text-align:left;
+font-size:45px;
+}
+
+#preamble .info-text:last-child {
+text-align:left;
+font-size: 20px;
+color:#ccc;
+}
+
+
+.section-number-2,.section-number-3 {
+      position:absolute;
+    font-size: 12px;
+    top:10px;
+}
+.section-number-3::before, .section-number-2::before , .section-number-1::before {
+    content: '//         ';
+}
+
+.outline-text-2 ,#text-table-of-contents,#postamble{
+    position:absolute;
+    /* width:100%; */
+    /* height:100%; */
+    top:120px;
+    bottom:20px;
+    left:0;
+    right:0;
+    font-weight: normal;
+    font-size: 20px;
+    letter-spacing: -.05em;
+    color: white;
+    text-shadow: rgba(0, 0, 0, 0.2) 0 2px 5px;
+    
+    padding-left: 30px;
+    padding-top: 35px;
+    padding-bottom: 20px;
+}
+
+.figure{
+    overflow:hidden;
+    position: absolute;
+    top:0;
+    bottom:0;
+    right:0;
+    width:100%;
+    top: 0px;
+    bottom: 0px;
+    /* background:rgba(255,0,0,0.5); */
+}
+
+.figure p { 
+    text-align: center;
+    font-family: 'Droid Serif', serif;
+    font-size: 15px;
+    font-style:italic;
+    color: #bbb;
+
+	  }
+video {
+    position:relative;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    z-index:99;
+}
+
