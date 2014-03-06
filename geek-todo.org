@@ -556,7 +556,7 @@ CLOSED: [2013-05-23 Thu 10:45]
 CLOSED: [2013-05-23 Thu 10:45]
 ** PENDING Finish the other exercises
 
-* PENDING Articles [85%]
+* PENDING Articles [86%]
 ** DONE Chroot to save one's GNU/Linux
 CLOSED: [2012-04-21 Sat 18:07]
 http://adumont.fr/blog/chroot-pour-sauver-son-gnulinux/
@@ -770,7 +770,9 @@ CLOSED: [2014-02-26 mer. 22:41]
 CLOSED: [2014-02-26 mer. 22:47]
 ** DONE A story of keyboard mapping 2/2
 CLOSED: [2014-02-26 mer. 22:47]
-** DONE Personal generic service wrapper
+** DONE Personal generic service wrapper 1/2
+** DONE Personal generic service wrapper 2/2
+CLOSED: [2014-03-06 Thu 04:30]
 ** IN-PROGRESS Keysnail
 ** IN-PROGRESS Feedback loop ("later is too late")
 ** TODO Towards tools unification
