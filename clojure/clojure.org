@@ -2,7 +2,7 @@
 #+AUTHOR: ardumont
 #+STARTUP: indent
 #+OPTIONS: toc:nil
-#+DESCRIPTION: Presenting clojure with my own words
+#+DESCRIPTION: Presenting clojure
 
 * TL; DR
 
