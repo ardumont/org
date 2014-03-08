@@ -5,9 +5,9 @@
 Presenting clojure with my own words
 
 * Clojure fast
-** [[http://clojure.org/functional_programming][functional programming]] language
-** runs on the JVM
-** [[http://en.wikipedia.org/wiki/Lisp_%28programming_language%29][dialect of LISP]]!
+** [[Http://clojure.org/functional_programming][Functional programming]] language
+** Runs on the JVM
+** [[http://en.wikipedia.org/wiki/Lisp_%28programming_language%29][Dialect of LISP]]!
 * Purpose?
 ** General-purpose language
 ** Ease of development in mind
@@ -32,8 +32,8 @@ Tools:
   - idiomatic immutability
   - focus on the problem at hand
 
-* functionalities?
-** [[http://clojure.org/functional_programming][functionnal programming]]
+* Functionalities?
+** [[Http://clojure.org/functional_programming][Functionnal programming]]
 - Considered as more robust.
 - Datas are de facto immutable
 - First class function - function can manipulate other functions
@@ -49,22 +49,22 @@ Tools:
 ;;nil
 #+END_SRC
 
-** jvm
+** JVM
 - generates byte code
 - interoperability with java
 - can call the java library to use them inside clojure programs
-** lisp
+** LISP
 - exists since the programming language's dawn of time (1958).
 - homoiconic: code is data and data is code
 ** Dynamic
 - No compilation and running phases
 - Directly interact with the language via the REPL (Read-Eval-Print-Loop).
-** scripting approach
-** homoiconic - code is data and data is code
-** macros
-** immutability
-** persistent data set
-- simple concurrent programming
+** Scripting
+** Homoiconic - code is data and data is code
+** Macros
+** Immutability
+** Persistent data set
+- Simple concurrent programming
 - Software Transaction Memory system
 - Agent
 - For optimization: type hint to avoid reflection.
