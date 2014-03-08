@@ -1,8 +1,15 @@
 #+TITLE: Clojure
-#+AUTHOR: ardumont
 #+STARTUP: indent
 #+OPTIONS: toc:nil
 #+DESCRIPTION: Presenting clojure
+
+* Who am I?
+
+#+begin_src clojure
+{:github  "@ardumont"
+ :twitter "@ardumont"
+ :work    "developer/devops"}
+#+end_src
 
 * TL; DR
 
