@@ -129,10 +129,6 @@ Threading the data.
 
 - Not pure -> side effects
 
-- Not fully lazy
-
-- No tail recursion
-
-- Type hints
+- Partially lazy
 
 * Let's code
