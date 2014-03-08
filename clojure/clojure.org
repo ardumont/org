@@ -1,7 +1,11 @@
 #+TITLE: Clojure
+#+AUTHOR: @ardumont
 #+STARTUP: indent
 #+OPTIONS: toc:nil
 #+DESCRIPTION: Presenting clojure
+#+REVEAL_THEME: default
+#+REVEAL_TRANS: fade
+#+REVEAL_SPEED: 0
 
 * Who am I?
 
@@ -17,9 +21,12 @@
 
 - Runs on the JVM
 
-- [[http://en.wikipedia.org/wiki/Lisp_%28programming_language%29][Dialect of LISP]]!
+- [[http://en.wikipedia.org/wiki/Lisp_(programming_language)][Dialect of LISP]]!
 
 * Java vs. Clojure
+
+Filter a list of records according the record's name "some-value"
+and convert such record to a `converted` record.
 
 ** Java
 
@@ -28,9 +35,9 @@
  * Some records list conversion.
  */
 public List<ConvertedRecord> convertRecords(final List<Record> records) {
-  final List<ConvertedRecord> convertedRecords = Lists.<ConvertedRecord>newArrayList();
+  final List<ConvertedRecord> convertedRecords = new ArrayList();
   for (final Record record : records) {
-    if("some-value-to-filter".equals(record.getName())) {
+    if("some-value".equals(record.getName())) {
       convertedRecords.add(convert(record));
     }
   }
@@ -38,50 +45,55 @@ public List<ConvertedRecord> convertRecords(final List<Record> records) {
 }
 #+END_SRC
 
+*Note* Filtering and conversion are intertwined.
+
 ** Clojure
+
 #+begin_src clojure
 (defn convert-records [records] "Some records list conversion."
-  (map convert (filter (fn [e] (= (get-name e) "some-value-to-filter")) records)))
+  (map convert (filter (comp #(= "some-value" %) get-name) records)))
+#+end_src
+
+*Note* Filtering and conversion are 2 distincts steps.
+
+** Clojure (2)
+
+Threading the data.
+
+#+begin_src clojure
+(defn convert-records [records] "Some records list conversion."
+  (->> records
+       (filter (comp #(= "some-value" %) get-name)) ;; filter a records list
+       (map convert))                               ;; and convert...
 #+end_src
 
 * Purpose?
 
 - General-purpose language
 
-- Ease of development in mind
+- Ease of development
 
-- incidental complexity is not work but waste.
+- incidental complexity is not work but waste
 
-- native tools to help you develop your application
-  - concurrency
-
-  - feedback (REPL)
-
-  - idiomatic immutability
-
-  - focus on the problem at hand
+- native tools (concurrency API, REPL, immutability)
 
 * How?
 
 ** [[http://clojure.org/functional_programming][Functional programming]]
 
-- Reasoning
+- Data are de facto immutable (persistent data structure)
 
-- Data are de facto immutable
+- Functions (higher order functions, first class citizen, ...)
 
-- Functions are first class citizen
+- Lazyness (basic constructions: map, filter, iterate, etc...)
 
-- Higher Order Function
+** LISP
 
-  - inputs -> output
+- Exists since the dawn of programming language's time (1958).
 
-  - manipulate other functions
+- Homoiconicity
 
-  - can return functions
-
-- lazyness
-
-  Only basic constructions are lazy (map, filter, iterate, etc...)
+- No syntax
 
 ** JVM
 
@@ -91,19 +103,11 @@ public List<ConvertedRecord> convertRecords(final List<Record> records) {
 
 - Generates native byte code
 
-** LISP
-
-- Exists since the programming language's dawn of time (1958).
-
-- Homoiconic: code is data and data is code
-
-- no syntax
-
 ** Dynamic
 
-- Compilation transparent
-
 - Interact via REPL
+
+- Compilation transparent
 
 ** Homoiconic
 
@@ -113,13 +117,11 @@ public List<ConvertedRecord> convertRecords(final List<Record> records) {
 
 - Macros
 
-** Immutability
+** Concurrency
 
-** Persistent data structure
+- STM
 
-- Simple concurrent programming api
-
-- Software Transaction Memory system
+- future, promise, actor, atom, etc...
 
 * Limits
 
@@ -131,4 +133,6 @@ public List<ConvertedRecord> convertRecords(final List<Record> records) {
 
 - No tail recursion
 
-- For performance reasons, we need to help the compiler to optimize with type hints
+- Type hints
+
+* Let's code
