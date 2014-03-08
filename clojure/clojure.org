@@ -27,15 +27,15 @@ Tools:
 - deals with:
   - memory (as does java)
   - concurrency
-- natively gives us tools for:
+- native tools:
   - feedback (REPL)
   - idiomatic immutability
   - focus on the problem at hand
 
 * Functionalities?
-** [[Http://clojure.org/functional_programming][Functionnal programming]]
+** [[http://clojure.org/functional_programming][Functional programming]]
 - Considered as more robust.
-- Datas are de facto immutable
+- Data are de facto immutable
 - First class function - function can manipulate other functions
 - higher order function - many inputs, one output.
 
