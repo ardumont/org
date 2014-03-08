@@ -1,83 +1,127 @@
 #+TITLE: Clojure
 #+AUTHOR: ardumont
 #+STARTUP: indent
-#+TOC: nil
+#+OPTIONS: toc:nil
+#+DESCRIPTION: Presenting clojure with my own words
 
-Presenting clojure with my own words
+* TL; DR
 
-* Clojure fast
-** [[Http://clojure.org/functional_programming][Functional programming]] language
-** Runs on the JVM
-** [[http://en.wikipedia.org/wiki/Lisp_%28programming_language%29][Dialect of LISP]]!
-* Purpose?
-** General-purpose language
-** Ease of development in mind
-** Avoid incidental complexity
-I will not define 'incidental complexity' but instead [[http://www.simple-talk.com/opinion/geek-of-the-week/rich-hickey-geek-of-the-week/][quote]] the clojure creator, [[https://plus.google.com/101598622654270873929/posts][Rich Hikey]]
+- [[Http://clojure.org/functional_programming][Functional programming]] language
 
-#+BEGIN_SRC quote
-"I think programmers have become
-inured to incidental complexity...
-when they encounter complexity,
-they consider it a challenge to overcome,
-rather than an obstacle to remove.
-Overcoming complexity isn't work, it's waste."
+- Runs on the JVM
+
+- [[http://en.wikipedia.org/wiki/Lisp_%28programming_language%29][Dialect of LISP]]!
+
+* Java vs. Clojure
+
+** Java
+
+#+BEGIN_SRC java
+/**
+ * Some records list conversion.
+ */
+public List<ConvertedRecord> convertRecords(final List<Record> records) {
+  final List<ConvertedRecord> convertedRecords = Lists.<ConvertedRecord>newArrayList();
+  for (final Record record : records) {
+    if("some-value-to-filter".equals(record.getName())) {
+      convertedRecords.add(convert(record));
+    }
+  }
+  return convertedRecords;
+}
 #+END_SRC
 
-Tools:
-- deals with:
-  - memory (as does java)
+** Clojure
+#+begin_src clojure
+(defn convert-records [records] "Some records list conversion."
+  (map convert (filter (fn [e] (= (get-name e) "some-value-to-filter")) records)))
+#+end_src
+
+* Purpose?
+
+- General-purpose language
+
+- Ease of development in mind
+
+- incidental complexity is not work but waste.
+
+- native tools to help you develop your application
   - concurrency
-- native tools:
+
   - feedback (REPL)
+
   - idiomatic immutability
+
   - focus on the problem at hand
 
-* Functionalities?
-** [[http://clojure.org/functional_programming][Functional programming]]
-- Reasoning
-- Data are de facto immutable
-- Function are first class citizen
-- Higher Order Function
-  - inputs -> output
-  - function can manipulate other functions
-- lazy?
-  Not everywhere but the basic construction are lazy (map, filter, iterate, etc...)
+* How?
 
-Simple example, a decorator:
-#+BEGIN_SRC clojure
- (defn debug [s] "debug decorator"
-    (println (format "debug: %s!" s))
-    s)
-#+END_SRC
+** [[http://clojure.org/functional_programming][Functional programming]]
+
+- Reasoning
+
+- Data are de facto immutable
+
+- Functions are first class citizen
+
+- Higher Order Function
+
+  - inputs -> output
+
+  - manipulate other functions
+
+  - can return functions
+
+- lazyness
+
+  Only basic constructions are lazy (map, filter, iterate, etc...)
 
 ** JVM
-- Generates byte code
+
+- Access to native platform primitives
+
 - Interoperability
 
+- Generates native byte code
+
 ** LISP
+
 - Exists since the programming language's dawn of time (1958).
+
 - Homoiconic: code is data and data is code
+
 - no syntax
 
 ** Dynamic
-- Compilation transparent
-- Directly interact with the language via the REPL (Read-Eval-Print-Loop).
 
-** Homoiconic - code is data and data is code
-- No differenciation between the core code and your code
-- Native extension
+- Compilation transparent
+
+- Interact via REPL
+
+** Homoiconic
+
+- data <=> code
+
+- Native extensions beside core
+
 - Macros
 
 ** Immutability
 
 ** Persistent data structure
-- Simple concurrent programming
-- Software Transaction Memory system
-- Agent
-- For optimization: type hint to avoid reflection.
 
-** Limits
-- no type
-- not pure (I/O possible)
-- not fully lazy
+- Simple concurrent programming api
+
+- Software Transaction Memory system
+
+* Limits
+
+- No type
+
+- Not pure -> side effects
+
+- Not fully lazy
+
+- No tail recursion
+
+- For performance reasons, we need to help the compiler to optimize with type hints
