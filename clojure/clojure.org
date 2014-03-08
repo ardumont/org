@@ -1,6 +1,7 @@
 #+TITLE: Clojure
 #+AUTHOR: ardumont
 #+STARTUP: indent
+#+TOC: nil
 
 Presenting clojure with my own words
 
@@ -34,37 +35,49 @@ Tools:
 
 * Functionalities?
 ** [[http://clojure.org/functional_programming][Functional programming]]
-- Considered as more robust.
+- Reasoning
 - Data are de facto immutable
-- First class function - function can manipulate other functions
-- higher order function - many inputs, one output.
+- Function are first class citizen
+- Higher Order Function
+  - inputs -> output
+  - function can manipulate other functions
+- lazy?
+  Not everywhere but the basic construction are lazy (map, filter, iterate, etc...)
 
-#+BEGIN_SRC clj
-(def hello
-  (fn [n]
-    (println
-      (str "hello " n "!"))))
-;;user> (hello "tony")
-;;"hello tony!"
-;;nil
+Simple example, a decorator:
+#+BEGIN_SRC clojure
+ (defn debug [s] "debug decorator"
+    (println (format "debug: %s!" s))
+    s)
 #+END_SRC
 
 ** JVM
-- generates byte code
-- interoperability with java
-- can call the java library to use them inside clojure programs
+- Generates byte code
+- Interoperability
+
 ** LISP
-- exists since the programming language's dawn of time (1958).
-- homoiconic: code is data and data is code
+- Exists since the programming language's dawn of time (1958).
+- Homoiconic: code is data and data is code
+- no syntax
+
 ** Dynamic
-- No compilation and running phases
+- Compilation transparent
 - Directly interact with the language via the REPL (Read-Eval-Print-Loop).
-** Scripting
+
 ** Homoiconic - code is data and data is code
-** Macros
+- No differenciation between the core code and your code
+- Native extension
+- Macros
+
 ** Immutability
-** Persistent data set
+
+** Persistent data structure
 - Simple concurrent programming
 - Software Transaction Memory system
 - Agent
 - For optimization: type hint to avoid reflection.
+
+** Limits
+- no type
+- not pure (I/O possible)
+- not fully lazy
