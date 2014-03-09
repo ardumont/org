@@ -1,0 +1,81 @@
+#+TITLE: Docker
+#+author: ardumont
+
+* search
+
+Search existing images in central index:
+#+begin_src sh
+docker search debian
+#+end_src
+
+* pull
+
+#+begin_src sh
+docker pull debian
+#+end_src
+
+* run
+
+Run command in a container:
+#+begin_src sh
+CONTAINER_ID=$(docker run -d debian /bin/sh -c "echo hello")
+#+end_src
+
+* ps
+
+Monitor the container:
+#+begin_src sh
+docker ps
+#+end_src
+
+Sample:
+#+begin_src sh
+$ docker ps
+CONTAINER ID        IMAGE               COMMAND                CREATED             STATUS              PORTS               NAMES
+ccc70474b671        ubuntu:12.04        /bin/sh -c while tru   3 minutes ago       Up 3 minutes                            condescending_Morse
+#+end_src
+
+* stop
+
+Stop the container:
+#+begin_src sh
+docker stop $CONTAINER_ID
+#+end_src
+
+* kill
+
+Kill a job:
+#+begin_src sh
+docker kill $CONTAINER_ID
+#+end_src
+
+* bind
+
+Bind a service on a tcp port:
+#+begin_src sh
+# Bind port 4444 of this container, and tell netcat to listen on it
+JOB=$(docker run -d -p 4444 ubuntu:12.10 /bin/nc -l 4444)
+
+# Which public port is NATed to my container?
+PORT=$(docker port $JOB 4444 | awk -F: '{ print $2 }')
+
+# Connect to the public port
+echo hello world | nc 127.0.0.1 $PORT
+
+# Verify that the network connection worked
+echo "Daemon received: $(sudo docker logs $JOB)"
+#+end_src
+
+* images
+
+List the current known images:
+#+begin_src sh
+docker images
+#+end_src
+
+* commit
+
+Save the current state of a container by commit:
+#+begin_src sh
+docker commit <container-id> <commit-message>
+#+end_src
