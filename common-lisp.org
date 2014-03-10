@@ -1,0 +1,10 @@
+#+TITLE: common-lisp notes
+#+AUTHOR: ardumont
+
+format:
+
+#+begin_src common-lisp
+(format t "Color ~A, number1 ~D, number2 ~5,'0D, hex ~X, float ~5,2F, unsigned value ~D.~%"
+             "red" 123456 89 255 3.14 250)
+ ;; ⇒ Color red, number1 123456, number2 00089, hex FF, float  3.14, unsigned value 250.
+#+end_src
