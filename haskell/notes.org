@@ -1,0 +1,26 @@
+#+title: notes
+#+author: ardumont
+
+* Monoid
+
+- mempty is the identity function
+
+- mappend is the binary function
+
+- haskell class definition
+
+#+begin_src haskell
+import Data.Monoid
+
+class Monoid m where
+    mempty :: m
+    mappend :: m -> m -> m
+    mconcat :: [m] -> m
+    mconcat = foldr mappend mempty
+#+end_src
+
+- laws
+
+  - mempty `mappend` x = x
+  - x `mappend` mempty = x
+  - (x `mappend` y) `mappend` z = x `mappend` (y `mappend` z)
