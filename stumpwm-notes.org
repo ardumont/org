@@ -1,0 +1,35 @@
+#+TITLE: StumpWM notes
+#+AUTHOR: ardumont
+
+* commands.lisp
+
+- lookup-symbol
+
+#+begin_src common-lisp
+(defun lookup-symbol (string))
+#+end_src
+
+- all-commands
+
+#+begin_src common-lisp
+(defun all-commands (&optional (only-active t)))
+#+end_src
+
+- eval-command
+
+#+begin_src common-lisp
+  (defun eval-command (cmd &optional interactivep))
+#+end_src
+
+- run-commands
+
+#+begin_src common-lisp
+(defun run-commands (&rest commands))
+#+end_src
+
+
+* window.lisp
+
+- window-send-string
+
+- send-fake-key
