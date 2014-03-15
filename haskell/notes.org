@@ -3,11 +3,11 @@
 
 * Monoid
 
-- mempty is the identity function
+- `mempty` is the identity function
 
-- mappend is the binary function
+- `mappend` is the binary function
 
-- haskell class definition
+- haskell class definition:
 
 #+begin_src haskell
 import Data.Monoid
@@ -19,8 +19,46 @@ class Monoid m where
     mconcat = foldr mappend mempty
 #+end_src
 
-- laws
-
+- Monoid obeys Laws (not enforced by haskell)
   - mempty `mappend` x = x
   - x `mappend` mempty = x
   - (x `mappend` y) `mappend` z = x `mappend` (y `mappend` z)
+
+- Example of monoid instances:
+  - List
+    #+begin_src haskell
+    instance Monoid [a] where
+        mempty = []
+        mappend = (++)
+    #+end_src
+
+- Product
+
+    #+begin_src haskell
+    instance Num a => Monoid (Product a) where
+        mempty = Product 1
+        Product x `mappend` Product y = Product (x * y)
+    #+end_src
+
+- Sum
+    #+begin_src haskell
+    instance Num a => Monoid (Sum a) where
+        mempty = Sum 0
+        Sum x `mappend` Sum y = Sum (x + y)
+    #+end_src
+
+- Any
+
+#+begin_src haskell
+    instance Monoid Any where
+        mempty = Any False
+        Any x `mappend` Any y = Any (x || y)
+#+end_src
+
+- All
+
+#+begin_src haskell
+    instance Monoid All where
+        mempty = All True
+        All x `mappend` All y = A (x && y)
+#+end_src
