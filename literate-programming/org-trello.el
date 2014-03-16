@@ -1,4 +1,3 @@
-
 ;;; org-trello.el --- Minor mode for org-mode to sync org-mode and trello
 
 ;; Copyright (C) 2013 Antoine R. Dumont <eniotna.t AT gmail.com>
@@ -8,7 +7,7 @@
 ;; Version: 0.1.0
 ;; Package-Requires: ((org "8.0.7") (dash "1.4.0") (request "0.1.0") (cl-lib "0.3.0") (json "1.2"))
 ;; Keywords: org-mode trello sync org-trello
-;; URL: https://github.com/ardumont/org-trello
+;; URL: https://github.com/org-trello/org-trello
 
 ;; This file is NOT part of GNU Emacs.
 

@@ -49,7 +49,7 @@ This is an important step where we describe the different information about the 
 ;; Version: 0.1.1
 ;; Package-Requires: ((org "8.0.7") (dash "1.5.0") (request "0.2.0") (cl-lib "0.3.0") (json "1.2"))
 ;; Keywords: org-mode trello sync org-trello
-;; URL: https://github.com/ardumont/org-trello
+;; URL: https://github.com/org-trello/org-trello
 
 #+end_src
 
@@ -2925,4 +2925,4 @@ Now let's generate the full code.
 * Source
 
 Project: http://ardumont.github.io/org-trello/
-source: [[https://github.com/ardumont/org-trello/blob/master/org-trello.org][org-trello.org]]
+source: [[https://github.com/org-trello/org-trello/blob/master/org-trello.org][org-trello.org]]

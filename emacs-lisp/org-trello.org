@@ -18,7 +18,7 @@ And, as I:
 - [[https://trello.com/][trello]] exposes a [[https://trello.com/docs/][public API]]
 
 I thought "what the hell, let's do this!".
-And here is the result: [[https://github.com/ardumont/org-trello][org-trello]], an [[http://orgmode.org/][org-mode]] [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Minor-Modes.html][minor-mode]] to permit the synchronization between a [[https://trello.com/][trello]] board and an [[http://orgmode.org/][org-mode]] file (and vice versa).
+And here is the result: [[https://github.com/org-trello/org-trello][org-trello]], an [[http://orgmode.org/][org-mode]] [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Minor-Modes.html][minor-mode]] to permit the synchronization between a [[https://trello.com/][trello]] board and an [[http://orgmode.org/][org-mode]] file (and vice versa).
 
 * Demo!
 
