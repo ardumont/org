@@ -1,5 +1,5 @@
 #+TITLE: Clojure
-#+AUTHOR: @ardumont
+#+AUTHOR: ardumont
 #+STARTUP: indent
 #+OPTIONS: toc:nil
 #+DESCRIPTION: Presenting clojure
@@ -23,7 +23,7 @@
 
 - [[http://en.wikipedia.org/wiki/Lisp_(programming_language)][Dialect of LISP]]!
 
-* Java vs. Clojure
+* Java / Clojure
 
 Filter a list of records according the record's name "some-value"
 and convert such record to a `converted` record.
@@ -89,7 +89,7 @@ Threading the data.
 
 ** LISP
 
-- Exists since the dawn of programming language's time (1958).
+- Dawn of programming language's time (1958)
 
 - Homoiconicity
 
@@ -113,15 +113,17 @@ Threading the data.
 
 - data <=> code
 
-- Native extensions beside core
-
 - Macros
+
+- Extensions beside core
 
 ** Concurrency
 
+- (not= identity state)
+
 - STM
 
-- future, promise, actor, atom, etc...
+- Future, Promise, Agent, Atom, etc...
 
 * Limits
 
@@ -131,4 +133,8 @@ Threading the data.
 
 - Partially lazy
 
-* Let's code
+* Question?
+
+* Code
+
+[[http://infinite-citadel-3625.herokuapp.com/][clj-jam]]
