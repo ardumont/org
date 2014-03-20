@@ -81,11 +81,11 @@ Threading the data.
 
 ** [[http://clojure.org/functional_programming][Functional programming]]
 
-- Data are de facto immutable (persistent data structure)
+- Functions
 
-- Functions (higher order functions, first class citizen, ...)
+- Immutability
 
-- Lazyness (basic constructions: map, filter, iterate, etc...)
+- Laziness
 
 ** LISP
 
