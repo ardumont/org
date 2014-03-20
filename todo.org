@@ -283,18 +283,30 @@ CLOSED: [2014-02-28 ven. 01:25]
 - [X] Take some controls over some default emacs-live-packs
 - [ ] auto completion
 
-* PENDING guitar [37%]
-** DONE coursera - week 1
+* IN-PROGRESS guitar [33%]
+** DONE coursera
+CLOSED: [2014-03-20 Thu 09:35]
+*** DONE coursera - week 1
 CLOSED: [2013-08-03 sam. 10:17]
-** DONE coursera - week 2
+*** DONE coursera - week 2
 CLOSED: [2013-08-03 sam. 10:17]
-** DONE coursera - week 3
+*** DONE coursera - week 3
 CLOSED: [2013-08-04 dim. 07:06]
-** TODO coursera - week 4
-** TODO coursera - week 5
-** TODO coursera - week 6
-** IN-PROGRESS lilypond (music notation)
-** IN-PROGRESS ob-lilypond (music notation on emacs org-mode)
+*** TODO coursera - week 4
+*** TODO coursera - week 5
+*** TODO coursera - week 6
+** TODO music notation
+*** IN-PROGRESS lilypond (music notation)
+*** IN-PROGRESS ob-lilypond (music notation on emacs org-mode)
+** IN-PROGRESS Learn
+- [ ] let it be - beatles
+- [ ] wild word - cat steven
+- [ ] hotel california - eagles
+- [ ] dust in the wind - kansas
+- [ ] nothing else matters - metallica
+- [ ] call of khtulu - metallica
+- [ ] guaranteed - ...
+
 * PENDING crypto [33%]
 ** IN-PROGRESS coursera
 ** DONE matasano 1-8 [100%]
