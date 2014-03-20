@@ -785,7 +785,7 @@ CLOSED: [2014-03-06 Thu 04:30]
 ** TODO Deploying to Marmalade
 ** TODO Personal workflow deployment of emacs-lisp package
 ** TODO One CLI to rule them and in the Make bind them
-* PENDING Clojure [50%]
+* PENDING Clojure [45%]
 ** DONE start [100%]
 CLOSED: [2012-04-21 Sat 18:18]
 *** DONE install
@@ -832,6 +832,8 @@ CLOSED: [2013-03-02 sam. 20:06]
 ** TODO [[https://github.com/ztellman/aleph][Aleph]]
 ** TODO [[https://github.com/clojure/core.logic][core.logic]]
 ** TODO [[https://github.com/clojure/core.async][core.async]]
+** TODO Presentation on clojure
+
 * PENDING CPUG [80%]
 ** DONE make a vm to ease the beginning for newbies
 CLOSED: [2013-03-03 dim. 00:05]
@@ -1239,3 +1241,4 @@ CLOSED: [2014-02-26 mer. 22:39]
 - [X] Install C-i for <Tab>
 - [X] Install C-j/C-m for <Enter>
 - [X] C-x b as switch to tab
+* TODO Improve galaxy s4
