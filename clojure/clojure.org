@@ -97,11 +97,9 @@ Threading the data.
 
 ** JVM
 
-- Access to native platform primitives
-
 - Interoperability
 
-- Generates native byte code
+- Generates byte code
 
 ** Dynamic
 
@@ -115,8 +113,6 @@ Threading the data.
 
 - Macros
 
-- Extensions beside core
-
 ** Concurrency
 
 - (not= identity state)
@@ -124,14 +120,6 @@ Threading the data.
 - STM
 
 - Future, Promise, Agent, Atom, etc...
-
-* Limits
-
-- No type
-
-- Not pure -> side effects
-
-- Partially lazy
 
 * Question?
 
