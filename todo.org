@@ -305,7 +305,12 @@ CLOSED: [2013-08-04 dim. 07:06]
 - [ ] dust in the wind - kansas
 - [ ] nothing else matters - metallica
 - [ ] call of khtulu - metallica
-- [ ] guaranteed - ...
+- [ ] guaranteed - Eddie Vedder
+- [ ] Layla - Eric Clapton
+- [ ] Save the world - Eric Clapton
+- [ ] Say it ain't so - Murray Head
+- [ ] ...
+
 
 * PENDING crypto [33%]
 ** IN-PROGRESS coursera
