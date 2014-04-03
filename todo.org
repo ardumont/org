@@ -1259,6 +1259,7 @@ CLOSED: [2014-02-26 mer. 22:39]
 - [X] Install C-j/C-m for <Enter>
 - [X] C-x b as switch to tab
 * TODO Improve galaxy s4
-* haskell readings
+* TODO haskell readings
 - [ ] http://www.haskell.org/haskellwiki/Monad#Interesting_Monads
 - [ ] http://www.haskell.org/haskellwiki/Category_theory
+- [ ] Functional programming with bananas, lenses, envelopes and barbed wire
