@@ -311,7 +311,10 @@ CLOSED: [2013-08-04 dim. 07:06]
 - [ ] Say it ain't so - Murray Head
 - [ ] ...
 
-
+* IN-PROGRESS gestioneleves [66%]
+- [X] Migrate to github
+- [X] New evolution to ease collection evaluation input
+- [ ] Update again the collection evaluation input
 * PENDING crypto [33%]
 ** IN-PROGRESS coursera
 ** DONE matasano 1-8 [100%]
