@@ -1,0 +1,4 @@
+mysql-server-5.0        mysql-server/root_password_again <%= node['stack']['mysql']['server_root_password'] %>
+mysql-server-5.0        mysql-server/root_password       select  <%= node['stack']['mysql']['server_root_password'] %>
+mysql-server-5.0        mysql-server-5.0/really_downgrade
+...

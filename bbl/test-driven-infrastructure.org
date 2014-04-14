@@ -1,0 +1,224 @@
+#+author: @obazoud
+#+title: Test Driven Infrastructure
+
+* Chef
+- 2008
+- Open source
+- Ruby (+Erlang) for the server part
+- dev/ops write in ruby + json (cookbook -> set of recipes)
+- agent-server system
+- script execution in order
+- chef solor
+- Normalization over configuration
+- idempotent
+
+* More than scripts
+- Complete orchestration of infrastructure
+- Interface with:
+  - amazon
+  - google cloud
+  - vagrant
+  - ...
+- open source script
+  - community.opscode.com
+  - cookbooks TravisCi
+  - ...
+
+* Components
+- Chef-Solo: Play recipes on env
+- Chef-Client: Chef-Solo -_ recipes retrieval on remote server (Chef-Server)
+- Chef-Server: Owns the infrastructure knowledge
+- ...
+
+* Chef repository
+folder:
+- certificats/
+- cookbooks/
+  - tomcat7/
+    - recipes/
+      - default.rb (minimum requisite for a cookbook)
+  - php/
+  - mysql/
+
+- data_bags/ (user, passwords, ...)
+- environments/
+- roles (recipes cookbooks composition. e.g. LAMP)
+
+* Cookbook
+
+** Example
+
+#+begin_src ruby
+# Install package
+package 'tomcat7' do
+  action :install
+end
+#+end_src
+
+#+begin_src ruby
+# template used to generate the setenv.sh
+template '/usr/share/tomcat7/bin/setenv.sh' do
+  source 'setenv.sh.erb'
+  owner 'tomcat7'
+  group 'tomcat7'
+  mode '755'
+end
+#+end_src
+
+#+begin_src ruby
+# managed service by chef
+service 'tomcat7' do
+  supports restart: true, reload:false, status: true
+  action [:start, :enable]
+end
+#+end_src
+
+* All is resource
+
+- package, template
+- resource is a definition
+
+* Resource
+
+- execution conditions
+- subscriptions (the resource executes after another)
+- notifications (one resource after the current resource -> react)
+
+* Tests
+- unit: rspec, chefspec
+- integration: test-kitchen
+- good practices and quality: rubocop, foodcritic
+- chef independent: bats, minitest, serverspec
+
+* TDD
+Red-green-refactor
+
+* Chefspec
+Test the cookbook
+#+begin_src ruby
+require 'chefspec'
+
+describe 'example::default' do
+  let(:chef_run) { ChefSpec::Runner.new.converge(described_recipe) }
+
+  it 'does_something' do
+    expect(chef_run).to install_package('tomcat7')
+  end
+end
+#+end_src
+
+* Test-kitchen
+- cookbooks on many envs
+- test the complete chain
+- useful for multi os / multi env
+- driver
+- ...
+
+** Example
+kitchen.yaml
+#+begin_src yaml
+driver:
+  name: vagrant
+
+provisioner:
+  name: chef_zero
+
+platforms:
+  - name: ubuntu-13.04
+  - name: centos-6.5
+
+suites:
+  - name: client
+    run_list:
+    - recipe[postgresql::client]
+  - name: server
+    run_list:
+      - recipe[postgresql;::server]
+
+#+end_src
+
+* Bats
+
+IT
+
+#+begin_src bash
+#!/usr/bin/env bats
+
+@test 'it creates tomcat directory' {
+  test -d /var/lib/tomcat7
+}
+
+@test 'it starts tomcat' {
+  service tomcat7 status
+}
+
+@test 'it responsed with content' {
+  run curl http://location:8080/
+  [ "$status" -eq 0 ]
+  echo "$output" | grep 'hipster'
+}
+
+#+end_src
+
+* Minitest
+- ruby (independent from chef)
+- ...
+
+** Sample
+
+#+begin_src ruby
+require 'minitest/autorun'
+
+describe 'stack::tomcat7' do
+  describe 'services' do
+    it "runs as a daemon' do
+       assert system ('service tomcat7 status')
+    end
+...
+  end
+end
+#+end_src
+
+* Serverspec
+  - ruby (independent from chef)
+  - write spec for server
+  - based on rspec
+  - remote
+  - multi os support
+  - ...
+** Sample
+
+#+begin_src ruby
+require 'spec_helper'
+
+describe package('httpd') do
+  it { should be_installed }
+end
+
+...
+
+#+end_src
+
+* Rubocop
+- Check the good practices ruby
+- Static analysis
+- bbatsov
+
+* Foodcritic
+- ...
+
+* TDD cookbook
+- Cookbook 'Stack'
+  - MySQL
+  - Tomcat 7
+  - Jhipster
+
+Disclaimer:
+- better to split in many cookbook 'stack'
+- one resource for the database creation
+
+
+* Run
+#+begin_src sh
+rake
+#+end_src
