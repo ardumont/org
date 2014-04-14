@@ -1,0 +1,55 @@
+#+title: deadline/due date sync problem analysis
+#+author: ardumont
+
+* C-u M-x org-trello/sync-entity: The deadline is synced.
+
+Extract:
+#+begin_src lisp
+Request 'sync entity from trello' - done!
+TRACE: :json: ((status . "ok"))
+TRACE: :parsed-json: #s(hash-table size 65 test equal rehash-size 1.5 rehash-threshold 0.8 data (:status "ok"))
+TRACE: :json: ((status . "ok"))
+TRACE: :parsed-json: #s(hash-table size 65 test equal rehash-size 1.5 rehash-threshold 0.8 data (:status "ok"))
+TRACE: :json: ((actions . []) (pos . 16384) (name . "Joy of FUN(ctional) LANGUAGES") (labels . []) (idMembers . []) (idList . "51d99bbc1e1d8988390047f4") (idChecklists . ["53423e457bcf3ef07f4ea575" "53423e418a38ce922cb3750e" "53423e425b6667f92ceda03e"]) (due . "2014-04-01T00:00:00.000Z") (desc . "") (dateLastActivity . "2014-04-07T06:06:48.998Z") (closed . :json-false) (id . "53423e3f4d9e570a6930d684"))
+TRACE: :parsed-json: #s(hash-table size 65 test equal rehash-size 1.5 rehash-threshold 0.8 data (:comments nil :position 16384 :name "Joy of FUN(ctional) LANGUAGES" :labels nil :member-ids nil :list-id "51d99bbc1e1d8988390047f4" :checklists ("53423e457bcf3ef07f4ea575" "53423e418a38ce922cb3750e" "53423e425b6667f92ceda03e") :due "2014-04-01T00:00:00.000Z" :desc "" :closed nil :id "53423e3f4d9e570a6930d684" :level 1))
+Synchronizing entity 'Joy of FUN(ctional) LANGUAGES' with id '53423e3f4d9e570a6930d684'...
+#+end_src
+
+* C-u M-x org-trello/sync-full-entity: the deadline is not synced.
+
+#+begin_src lisp
+Request 'sync entity with structure from trello - done!
+TRACE: :json: ((status . "ok"))
+TRACE: :parsed-json: #s(hash-table size 65 test equal rehash-size 1.5 rehash-threshold 0.8 data (:status "ok"))
+TRACE: :json: ((status . "ok"))
+TRACE: :parsed-json: #s(hash-table size 65 test equal rehash-size 1.5 rehash-threshold 0.8 data (:status "ok"))
+You can run the command `org-trello/sync-full-entity' with C-c o C
+TRACE: :json: ((actions . []) (pos . 16384) (name . "Joy of FUN(ctional) LANGUAGES") (labels . []) (idMembers . []) (idList . "51d99bbc1e1d8988390047f4") (idChecklists . ["53423e457bcf3ef07f4ea575" "53423e418a38ce922cb3750e" "53423e425b6667f92ceda03e"]) (due . "2014-04-01T00:00:00.000Z") (desc . "") (dateLastActivity . "2014-04-07T06:06:48.998Z") (closed . :json-false) (id . "53423e3f4d9e570a6930d684"))
+TRACE: :parsed-json: #s(hash-table size 65 test equal rehash-size 1.5 rehash-threshold 0.8 data (:comments nil :position 16384 :name "Joy of FUN(ctional) LANGUAGES" :labels nil :member-ids nil :list-id "51d99bbc1e1d8988390047f4" :checklists ("53423e457bcf3ef07f4ea575" "53423e418a38ce922cb3750e" "53423e425b6667f92ceda03e") :due "2014-04-01T00:00:00.000Z" :desc "" :closed nil :id "53423e3f4d9e570a6930d684" :level 1))
+Computing card 'Joy of FUN(ctional) LANGUAGES' data...
+Blocking call to accept-process-output with quit inhibited!! [2 times]
+TRACE: :json: ((checkItems . [((pos . 16384) (name . "Scala") (id . "53423e4f619420920367ea86") (state . "complete"))]) (idCard . "53423e3f4d9e570a6930d684") (pos . 49152) (name . "hybrid family") (id . "53423e457bcf3ef07f4ea575"))
+TRACE: :parsed-json: #s(hash-table size 65 test equal rehash-size 1.5 rehash-threshold 0.8 data (:items (#s(hash-table size 65 test equal rehash-size 1.5 rehash-threshold 0.8 data (:position 16384 :name "Scala" :id "53423e4f619420920367ea86" :checked "complete" :level 3))) :card-id "53423e3f4d9e570a6930d684" :position 49152 :name "hybrid family" :id "53423e457bcf3ef07f4ea575" :level 2))
+Blocking call to accept-process-output with quit inhibited!!
+TRACE: :json: ((checkItems . [((pos . 16384) (name . "Emacs-Lisp") (id . "53423e465150f6ee18debbf6") (state . "complete")) ((pos . 32768) (name . "Common-Lisp") (id . "53423e479e82c9ad53d4d204") (state . "complete")) ((pos . 49152) (name . "Scheme") (id . "53423e49ab48399369d19b60") (state . "incomplete")) ((pos . 65536) (name . "Clojure") (id . "53423e4a158faef13fccafd8") (state . "complete"))]) (idCard . "53423e3f4d9e570a6930d684") (pos . 16384) (name . "LISP family") (id . "53423e418a38ce922cb3750e"))
+TRACE: :parsed-json: #s(hash-table size 65 test equal rehash-size 1.5 rehash-threshold 0.8 data (:items (#s(hash-table size 65 test equal rehash-size 1.5 rehash-threshold 0.8 data (:position 16384 :name "Emacs-Lisp" :id "53423e465150f6ee18debbf6" :checked "complete" :level 3)) #s(hash-table size 65 test equal rehash-size 1.5 rehash-threshold 0.8 data (:position 32768 :name "Common-Lisp" :id "53423e479e82c9ad53d4d204" :checked "complete" :level 3)) #s(hash-table size 65 test equal rehash-size 1.5 rehash-threshold 0.8 data (:position 49152 :name "Scheme" :id "53423e49ab48399369d19b60" :checked "incomplete" :level 3)) #s(hash-table size 65 test equal rehash-size 1.5 rehash-threshold 0.8 data (:position 65536 :name "Clojure" :id "53423e4a158faef13fccafd8" :checked "complete" :level 3))) :card-id "53423e3f4d9e570a6930d684" :position 16384 :name "LISP family" :id "53423e418a38ce922cb3750e" :level 2))
+Blocking call to accept-process-output with quit inhibited!! [2 times]
+TRACE: :json: ((checkItems . [((pos . 16384) (name . "Haskell") (id . "53423e4cb7f8b3db429f848c") (state . "complete")) ((pos . 32768) (name . "Ocaml") (id . "53423e4eda01227069349a56") (state . "complete"))]) (idCard . "53423e3f4d9e570a6930d684") (pos . 32768) (name . "ML family") (id . "53423e425b6667f92ceda03e"))
+TRACE: :parsed-json: #s(hash-table size 65 test equal rehash-size 1.5 rehash-threshold 0.8 data (:items (#s(hash-table size 65 test equal rehash-size 1.5 rehash-threshold 0.8 data (:position 16384 :name "Haskell" :id "53423e4cb7f8b3db429f848c" :checked "complete" :level 3)) #s(hash-table size 65 test equal rehash-size 1.5 rehash-threshold 0.8 data (:position 32768 :name "Ocaml" :id "53423e4eda01227069349a56" :checked "complete" :level 3))) :card-id "53423e3f4d9e570a6930d684" :position 32768 :name "ML family" :id "53423e425b6667f92ceda03e" :level 2))
+Synchronizing entity 'Joy of FUN(ctional) LANGUAGES' with id '53423e3f4d9e570a6930d684'...
+Property orgtrello-users was not present in the entry
+Property orgtrello-card-comments was not present in the entry
+Synchronizing entity 'LISP family' with id '53423e418a38ce922cb3750e'...
+Synchronizing entity 'Emacs-Lisp' with id '53423e465150f6ee18debbf6'...
+Synchronizing entity 'Common-Lisp' with id '53423e479e82c9ad53d4d204'...
+Synchronizing entity 'Scheme' with id '53423e49ab48399369d19b60'...
+Synchronizing entity 'Clojure' with id '53423e4a158faef13fccafd8'...
+Synchronizing entity 'ML family' with id '53423e425b6667f92ceda03e'...
+Synchronizing entity 'Haskell' with id '53423e4cb7f8b3db429f848c'...
+Synchronizing entity 'Ocaml' with id '53423e4eda01227069349a56'...
+Synchronizing entity 'hybrid family' with id '53423e457bcf3ef07f4ea575'...
+Synchronizing entity 'Scala' with id '53423e4f619420920367ea86'...
+Saving file /home/tony/repo/perso/org-trello/todo-TESTS-simple.org...
+Wrote /home/tony/repo/perso/org-trello/todo-TESTS-simple.org
+Synchronizing the trello and org data merge - done!
+#+end_src

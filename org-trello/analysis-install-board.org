@@ -1,0 +1,82 @@
+# org-trello
+
+> Apologies.
+
+No problem.
+(Thanks for repeating yourself in this particular case)
+
+> I tried this and it did not change my issue. I cannot seem to find the list at all.
+
+Ok so no list.
+So it seems this can be indeed the same problem as @flody.
+
+There `seems` to be a problem with credentials installation...
+
+To ensure this, can you please check the file: `~/.trello/config.el`?
+
+It must be of the form:
+``` lisp
+(setq *consumer-key* "consumer-key-token")
+(setq *access-token* "access-token")
+```
+
+If this is ok, then the trouble is after that.
+
+Just so you know, when this installation step is done.
+Any interactive command that you will use from this point on ensure that these credentials are correctly loaded before proceeding with the real command.
+If there is problem, it will stop and explain the problem.
+Otherwise, it will proceed with the command.
+
+*Note* This test is minor though, it only ensures that the forms are loaded with value (and not that the values are indeed correct).
+
+By reading again your answer, there may be a confusion either in my understanding of what you did:
+
+I prefer to ascertain this by repeating the steps to ensure we are on the same page:
+
+- create an empty buffer org buffer
+
+- M-x org-trello-mode
+
+- M-x org-trello/install-key-and-token
+
+- M-x org-trello/check-setup
+
+  It will complain:
+```text
+List of errors:
+ - Setup problem.
+Either you did not connect your org-mode buffer with a trello board, to correct this:
+  * attach to a board through C-c o I or M-x org-trello/install-board-and-lists-ids
+  * or create a board from scratch with C-c o b or M-x org-trello/create-board).
+Either your org-mode's todo keyword list and your trello board lists are not named the same way (which they must).
+For this, connect to trello and rename your board's list according to your org-mode's todo list.
+Also, you can specify on your org-mode buffer the todo list you want to work with, for example: #+TODO: TODO DOING | DONE FAIL (hit C-c C-c to refresh the setup)
+```
+
+- M-x org-trello/install-board-and-list-ids
+
+This should propose to you a list of boards to select.
+But your problem is the empty list problem.
+
+- M-x org-trello/check-setup
+
+This should say "Setup ok!"
+
+Am I correct in my assertion of the problem?
+
+# Sidenotes
+
+> As for the sidenotes:
+> * I fell in love with StumpWM about two weeks ago and cannot return to any of the easier WM systems, thank you for noticing and supporting.
+
+Great!
+
+> (Sorry the original message was confusing, I am losing steam as the day draws to an end).
+
+No problem, when I'm confused, I prefer asking questions, even dumb ones.
+
+> * I have posted my tmux config [1] and my more relevant emacs config [2] for you.
+> As for the former, I use solarized color schemes (which you can see in the tmux conf), but the sexier looking formatting and status info on the bottom actually comes from the powerline project to customize the tmux modeline.
+> You can find it on Github; it is quite popular. [1] https://gist.github.com/ajstein/10202419 [2] https://gist.github.com/ajstein/10202578
+
+Many thanks!
