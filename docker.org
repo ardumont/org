@@ -79,3 +79,19 @@ Save the current state of a container by commit:
 #+begin_src sh
 docker commit <container-id> <commit-message>
 #+end_src
+
+* Dockerfile
+
+A Dockerfile is a simple text file which defines the instructions to be played from a given images.
+
+Sample:
+#+begin_src Dockerfile
+from ubuntu
+run echo "deb http://archive.ubuntu.com/ubuntu precise main universe" > /etc/apt/sources.list
+run apt-get update
+run apt-get install -y memcached
+#+end_src
+
+Note:
+- The `from` states from which images we should start the following actions.
+- The `run` instructions are the equivalent commands of the run command `docker run...`
