@@ -113,3 +113,15 @@ run apt-get install -y memcached
 Note:
 - The `from` states from which images we should start the following actions.
 - The `run` instructions are the equivalent commands of the run command `docker run...`
+
+To build from docker file, use the docker build command:
+#+begin_src sh
+docker build .
+#+end_src
+
+This will load the file `Dockerfile`.
+
+*Note* If the docker file has a different name:
+#+begin_src sh
+docker build - < Dockerfile-with-a-specific-name
+#+end_src
