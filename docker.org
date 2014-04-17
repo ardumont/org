@@ -1,5 +1,23 @@
-#+TITLE: Docker
+#+title: Docker notes
 #+author: ardumont
+
+* Install
+
+OS on ubuntu 12.04 or 13.10:
+#+begin_src sh
+# Install docker
+curl -s https://get.docker.io/ubuntu/ | sudo sh
+# Add the current user to docker group
+sudo gpasswd -a $USER docker
+# Unfortunately simply restart the docker service is not sufficient, I am forced to reboot the machine for the user to be able to use directly docker
+sudo reboot
+#+end_src
+
+To check the installation is ok:
+
+#+begin_src sh
+sudo docker run -i -t ubuntu /bin/bash
+#+end_src
 
 * search
 
