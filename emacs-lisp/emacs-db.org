@@ -1,0 +1,39 @@
+#+TITLE: emacs-db
+#+AUTHOR: @ardumont
+
+* Install
+
+#+begin_src sh
+M-x package-install db
+#+end_src
+
+* Code
+
+#+begin_src elisp
+(require 'db)
+
+;; prepare the cache
+(make-directory "/tmp/cache/")
+
+;; Create the db
+(setq my-db
+  (db-make
+   `(db-hash
+     :filename ,(format "/tmp/cache/some-file"))))
+
+;; Install data in database
+(db-put "001" '(("a" . 10)("b" . 20)) my-db)
+(db-put "002" '(("a" . 17)("b" . "hello")("xyz" . "well!")) my-db)
+;; We can overwrite already existing data on key
+(db-put "002" 1 my-db)
+
+(db-get "002" my-db)
+
+;; map over all the records from the database
+(db-map (lambda (key db-value)
+          (message "key: %s\nvalue:%s" key db-value))
+        my-db)
+
+;; filter on key '002'.
+(db-map (lambda (key db-value) (when (string= key "002") db-value)) my-db nil t)
+#+end_src
