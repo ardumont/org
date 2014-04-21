@@ -37,5 +37,6 @@ M-x package-install db
 ;; filter on key '002'.
 (db-map (lambda (key db-value) (when (string= key "002") db-value)) my-db nil t)
 
-;; do not know how to use db-query
+;; do not understand how to use db-query
+(db-query my-db '(| (= key "002"))) ;; does not work
 #+end_src
