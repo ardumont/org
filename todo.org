@@ -86,6 +86,14 @@ Minor mode to sync trello and org-mode
   - [X] 0.3.3
   - [X] 0.3.4
   - [X] 0.3.5
+  - [X] 0.3.6
+  - [X] 0.3.7
+  - [X] 0.3.8
+  - [X] 0.3.9
+  - [X] 0.4.0
+  - [X] 0.4.1
+  - [X] 0.4.2
+  - [X] 0.4.3
   - [ ] ...
 - [X] Automate the release part to marmalade
 - [ ] Automate the releases part on Github
