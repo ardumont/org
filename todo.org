@@ -1269,6 +1269,7 @@ CLOSED: [2014-02-26 mer. 22:39]
 - [X] Install C-i for <Tab>
 - [X] Install C-j/C-m for <Enter>
 - [X] C-x b as switch to tab
+* TODO SSO
 * TODO Improve galaxy s4
 * TODO haskell readings
 - [ ] http://www.haskell.org/haskellwiki/Monad#Interesting_Monads
