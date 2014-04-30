@@ -1270,6 +1270,9 @@ CLOSED: [2014-02-26 mer. 22:39]
 - [X] Install C-j/C-m for <Enter>
 - [X] C-x b as switch to tab
 * TODO SSO
+- https://en.wikipedia.org/wiki/Single_sign-on
+- http://research.microsoft.com/pubs/160659/websso-final.pdf
+- https://access.llnl.gov/otp/cgi-bin/faq.cgi#OTP_acronym
 * TODO Improve galaxy s4
 * TODO haskell readings
 - [ ] http://www.haskell.org/haskellwiki/Monad#Interesting_Monads
