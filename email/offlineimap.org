@@ -1,0 +1,42 @@
+#+TITLE: offlineimap
+#+AUTHOR: ardumont
+
+offlineimap is a imap <-> maildir synchonizer.
+It can also sync imap <-> imap.
+
+* Install
+
+#+begin_src sh
+sudo aptitude install -y offlineimap
+#+end_src
+
+* Setup
+
+** Gmail account
+
+#+begin_src text
+[general]
+accounts = eniotna
+
+[Account eniotna]
+localrepository = Local
+remoterepository = Remote
+
+[Repository Local]
+type = Maildir
+localfolders = ~/.mails/eniotna.t/
+
+[Repository Remote]
+type = Gmail
+remotehost = imap.gmail.com
+remoteuser = eniotna.t
+#+end_src
+
+* Run
+
+Launch the command.
+It will prompt you for authentication.
+
+#+begin_src sh
+offlineimap
+#+end_src
