@@ -4,6 +4,8 @@
 offlineimap is a imap <-> maildir synchonizer.
 It can also sync imap <-> imap.
 
+* Docs
+http://docs.offlineimap.org/en/latest/MANUAL.html
 * Install
 
 #+begin_src sh
