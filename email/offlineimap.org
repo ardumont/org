@@ -46,5 +46,5 @@ offlineimap
 * Speed
 We can add some configuration to make it sync faster:
 - In section `Repository`, add *maxconnections = 3*
-- Use folderfilters
+- Use [[http://docs.offlineimap.org/en/latest/nametrans.html][folderfilters]]
 - Default backend if files. Using sql-lite as backend will increase speed. Use status_backend = sqlite (deps on python-sqlite)
