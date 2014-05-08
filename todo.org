@@ -1294,3 +1294,12 @@ CLOSED: [2014-05-08 Thu 10:27]
 - [X] mu to index the local maildir format - [[http://www.djcbsoftware.nl/code/mu/][official site]]
 - [X] mu4e to use mu from emacs - [[http://www.djcbsoftware.nl/code/mu/mu4e/index.html#Top][Documentation]]
 - [X] mail-pack to orchestrate the authentication and setuping mu4e
+
+* IN-PROGRESS Security
+** DONE keychain
+CLOSED: [2014-05-08 Thu 10:35]
+** TODO GNUPG
+- [ ] https://www.gnupg.org/gph/en/manual.html
+- [ ] http://blog.sanctum.geek.nz/series/linux-crypto/
+* TODO laptop power management
+* TODO udisks
