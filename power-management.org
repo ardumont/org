@@ -1,0 +1,15 @@
+#+title: Power management
+
+- acpi: a small program that displays basic ACPI information.
+- acpid: a daemon that handles ACPI events - mostly power button, lid, battery and related stuff. For example, if the power button was pressed, acpid runs shutdown. When AC power is connected, acpid can run the apropriate laptop-mode-tools command. If you use systemd, then it replaces most of acpid's functionality.
+- cpufreq: (now obsolete) a set of tools for adjusting CPU frequency. The core functionality is part of the kernel and accessible through /sys, and cpufreq commands are just for convenience, but some scripts may require them.
+- cpufreqd: a user-space daemon that can be used as a replacement for the default kernel-space governors (powersave, ondemand, performance). It is not necessary – for most uses, the standard governors are enough.
+- cpupower: a replacement for cpufreq – it allows setting CPU frequency settings from command line.
+- laptop-mode-tools: does various system adjustments whenever you plug or unplug AC power to your laptop - for example, disk spin-down times or switching cpufreq governors. It is triggered by acpid on AC events, and is inactive the rest of the time.
+(Note: Some of the settings in laptop-mode-tools may actually hurt performance and/or sanity; for example, it disables Ethernet autonegotiation, which IMHO is just silly.)
+- pm-utils: handle the preparations of suspending to memory and/or disk (running pre-suspend hooks, choosing the best method). They are inactive the rest of the time.
+ You used to need pm-utils to cleanly suspend the machine, but on modern machines, pm-utils does very little as it can just tell the kernel to suspend. If you use systemd, then it replaces pm-utils.
+ Additionally, pm-utils comes with a pm-powersave command that performs most of the same functions as laptop-mode-tools. pm-powersave is triggered by upower when you plug/unplug AC power, and performs various adjustments.
+- systemd-logind: has functions for suspending/hibernating, and handles the most common ACPI events (lid switch, power button, etc.) It replaces acpid and pm-utils on most systems.
+ (Unlike pm-utils, however, systemd-logind does not come with any pre-suspend hooks or other workarounds by default, and only uses the default kernel suspend method. It expects driver bugs to be fixed in the drivers.)
+- upower: is an abstraction layer for desktop applications to various power parameters. Programs can use it to check battery status, adjust backlight, or suspend the system without having to care about the specific platform. upower also uses PolicyKit to allow various actions (suspend, etc) without giving away full root privileges. It relies on pm-utils and acpid. GNOME and Xfce require upower for their "power management" settings.
