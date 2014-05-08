@@ -1288,12 +1288,14 @@ A small library to easily parse .authinfo files
 - [X] 0.0.5.1
 - [X] 0.0.6
 - [ ] 0.0.X
-* DONE emails in emacs [%]
-CLOSED: [2014-05-08 Thu 10:27]
+* DONE emails in emacs [100%]
+CLOSED: [2014-05-08 Thu 18:13]
 - [X] offlineimap to sync imap server locally in a maildir format - [[http://docs.offlineimap.org/en/latest/index.html][Documentation]]
 - [X] mu to index the local maildir format - [[http://www.djcbsoftware.nl/code/mu/][official site]]
 - [X] mu4e to use mu from emacs - [[http://www.djcbsoftware.nl/code/mu/mu4e/index.html#Top][Documentation]]
 - [X] mail-pack to orchestrate the authentication and setuping mu4e
+- [X] 0.0.5
+- [X] Update documentation about it
 
 * IN-PROGRESS Security
 ** DONE keychain
