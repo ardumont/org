@@ -97,3 +97,35 @@ Copyright (c) 1982, 2013, Oracle.  All rights reserved.
 
 Enter user-name:
 #+end_src
+
+* Emacs edbi
+
+** Prepare
+
+#+begin_src sh
+sudo cpan RPC::EPC::Service
+sudo cpan DBD::Oracle
+#+end_src
+
+** Install
+
+Install edbi from marmalade or melpa:
+
+#+begin_src elisp
+(require 'package)
+(package-install 'edbi)
+;; to load it
+(require 'edbi)
+
+#+end_src
+
+** Connect
+
+<kbd>M-x edbi:open-db-viewer</kbd>
+
+Then input the connection information:
+#+begin_src text
+Data Source: dbi:Oracle:host=ORACLE-HOST;port=ORACLE-PORT;sid=ORACLE-SID
+User Name :  YOUR-LOGIN
+Auth      :  YOUR-PASS
+#+end_src
