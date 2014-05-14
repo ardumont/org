@@ -1,0 +1,99 @@
+#+title: Install oracle's instant client
+#+author: @ardumont
+
+* Retrieve
+
+Retrieve from http://www.oracle.com/technetwork/topics/linuxx86-64soft-092277.html the basic, devel, sqlplus rpm packages.
+
+* Transform
+
+As I'm on debian based platform, I need to transform them to .deb.
+
+Install alien if not already installed.
+
+#+begin_src sh
+sudo aptitude install -y alien
+#+end_src
+
+Convert the rpm:
+
+#+begin_src sh
+for package in *.rpm; do alien --to-deb $package; done
+#+end_src
+
+* Install
+
+Now you can install the debian package:
+
+#+begin_src sh
+sudo dpkg -i oracle-instantclient12.1-basic_12.1.0.1.0-2_amd64.deb oracle-instantclient12.1-sqlplus_12.1.0.1.0-2_amd64.deb oracle-instantclient12.1-devel_12.1.0.1.0-2_amd64.deb
+#+end_src
+
+* Check
+
+If you check the following folders, you should have something along those lines:
+
+#+begin_src sh
+$ tree /usr/lib/oracle
+/usr/lib/oracle
+└── 12.1
+    └── client64
+        ├── bin
+        │   ├── adrci
+        │   ├── genezi
+        │   └── sqlplus
+        └── lib
+            ├── glogin.sql
+            ├── libclntshcore.so -> libclntshcore.so.12.1
+            ├── libclntshcore.so.12.1
+            ├── libclntsh.so -> libclntsh.so.12.1
+            ├── libclntsh.so.12.1
+            ├── libnnz12.so
+            ├── libocci.so -> libocci.so.12.1
+            ├── libocci.so.12.1
+            ├── libociei.so
+            ├── libocijdbc12.so
+            ├── libons.so
+            ├── liboramysql12.so
+            ├── libsqlplusic.so
+            ├── libsqlplus.so
+            ├── ojdbc6.jar
+            ├── ojdbc7.jar
+            ├── ottclasses.zip
+            └── xstreams.jar
+
+4 directories, 21 files
+#+end_src
+
+* Update env
+
+Now you need to set the update your environment.
+
+Adapt your ~/.profile or ~/.bash_profile:
+
+#+begin_src sh
+export LD_LIBRARY_PATH=/usr/lib/oracle/12.1/client64/lib:$LD_LIBRARY_PATH
+export ORACLE_HOME=/usr/lib/oracle/12.1/client64
+export PATH=$ORACLE_HOME/bin:$PATH
+#+end_src
+
+Reload your env setup.
+
+#+begin_src sh
+source ~/.profile
+#+end_src
+
+* Check
+
+Execute sqlplus, if all is good, you should see:
+
+#+begin_src sh
+# tony at FR-WS-307 in ~/Downloads/oracle-hell [13:32:36]
+$ sqlplus
+
+SQL*Plus: Release 12.1.0.1.0 Production on Wed May 14 13:34:28 2014
+
+Copyright (c) 1982, 2013, Oracle.  All rights reserved.
+
+Enter user-name:
+#+end_src
