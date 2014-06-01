@@ -41,13 +41,13 @@
   - [X] Les deux Tours
   - [X] Le retour du Roi
 * Georges R. R. Martin [0/1]
-- [-] A song of ice and fire [2/5]
+- [-] A song of ice and fire [5/7]
   - [X] A game of thrones
   - [X] A clash of kings
-  - [-] A storm of swords
-  - [-] A feast for crows
-  - [-] A dance with dragons
-  - [-] The winds of winder
+  - [X] A storm of swords
+  - [X] A feast for crows
+  - [X] A dance with dragons
+  - [-] The winds of winter
   - [-] A dream of springs
 * C.S Lewis [1/1]
 - [-] Le monde de Narnia [7/7]
