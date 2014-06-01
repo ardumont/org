@@ -18,7 +18,12 @@
 - [X] Minority Report
 - [X] Do android dream of eletric sheep?
 - [X] A scanner Darkly
-* Isaac Asimov [/]
+* Isaac Asimov [0/1]
+- [ ] The foundation
+* William Gibson [0/1]
+- [ ] The neuromancer
+* Connie Willis [0/1]
+- [ ] Doomsday book
 * Pierre Boule [1/1]
 - [X] La planete des singes
 * George Orwell [1/1]
