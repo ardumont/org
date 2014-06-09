@@ -1315,10 +1315,21 @@ CLOSED: [2014-05-08 Thu 12:48]
 - [X] Deal with ssh-agent -> keychain
 - [X] Deal with gpg-agent -> keychain
 - [X] Make the laptop suspend when closing lid
-* IN-PROGRESS xmonad [66%]
+* IN-PROGRESS XMonad [82%]
 - [X] Install
 - [X] Configure from template
 - [X] Run or raise some applications
 - [X] Avoid hard-coding HOME environment
-- [ ] Using workspace + specific layout
-- [ ] Spawn process at startup time
+- [X] Fix multiple conflicting bindings
+- [X] C-; C-; to swap the 2 top windows
+- [X] XMonad tryout as main window manager
+- [X] xscreensaver in XMonad
+- [X] LID suspend in XMonad
+- [X] C-; ! - as run a command
+- [X] C-; r - dmenu_run
+- [X] Find a way to constrain the zenity window (manageHook)
+- [X] C-; S-q - Force reload configuration from within XMonad
+- [X] C-; C-t - Toggle touchpad on/off
+- [ ] C-; C-g - Try to send the abort signal as in `quit current action`
+- [ ] Spawn process at startup time (xscreensaver, nemo, dropbox, etc...)
+- [ ] Use workspaces + specific layout
