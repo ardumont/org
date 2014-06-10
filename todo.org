@@ -1315,7 +1315,7 @@ CLOSED: [2014-05-08 Thu 12:48]
 - [X] Deal with ssh-agent -> keychain
 - [X] Deal with gpg-agent -> keychain
 - [X] Make the laptop suspend when closing lid
-* IN-PROGRESS XMonad [87%]
+* IN-PROGRESS XMonad [77%]
 - [X] Install
 - [X] Configure from template
 - [X] Run or raise some applications
@@ -1338,6 +1338,7 @@ CLOSED: [2014-05-08 Thu 12:48]
 - [X] Move around workspace with bindings
 - [ ] xmobar setup
 - [X] Search from xmonad
+- [ ] Check the keymap is correct at xmonad startup time
 - [ ] Confirm before stopping xmonad session or reloading configuration
 - [ ] Adapt layout per workspace (gimp, etc...)
 - [ ] C-; C-g - Try to send the abort signal as in `quit current action`
