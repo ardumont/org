@@ -1315,7 +1315,7 @@ CLOSED: [2014-05-08 Thu 12:48]
 - [X] Deal with ssh-agent -> keychain
 - [X] Deal with gpg-agent -> keychain
 - [X] Make the laptop suspend when closing lid
-* IN-PROGRESS XMonad [81%]
+* IN-PROGRESS XMonad [82%]
 - [X] Install
 - [X] Configure from template
 - [X] Run or raise some applications
@@ -1325,7 +1325,7 @@ CLOSED: [2014-05-08 Thu 12:48]
 - [X] XMonad tryout as main window manager
 - [X] xscreensaver in XMonad
 - [X] LID suspend in XMonad
-- [X] C-; ! - as run a command
+- [X] C-; M1-r - as run a command
 - [X] C-; r - dmenu_run
 - [X] Find a way to constrain the zenity window (manageHook)
 - [X] C-; S-q - Force reload configuration from within XMonad
@@ -1337,9 +1337,11 @@ CLOSED: [2014-05-08 Thu 12:48]
 - [X] Switch client to workspace
 - [X] Move around workspace with bindings
 - [X] xmobar setup
-- [X] Search from xmonad
+- [X] Search url from xmonad
+- [X] Focus in turn on multiple windows matching the same classname
+- [X] Use notify-send instead of zenity? -> tested and not satisfied by the rendering (notifications piles up so slow)
+- [ ] Adapt keymap in xmonad prompt (C-i <tab>, C-m <return>, C-g <Escape>, etc...)
+- [ ] Adapt prefix key for xmonad/stumpwm depending on their run as main window manager or embedded in xephyr
 - [ ] Check the keymap is correct at xmonad startup time
 - [ ] Confirm before stopping xmonad session or reloading configuration
 - [ ] Adapt layout per workspace (gimp, etc...)
-- [ ] C-; C-g - Try to send the abort signal as in `quit current action`
-- [ ] Use notify-send instead of zenity? -> tested and not satisfied by the rendering (notifications piles up so slow)
