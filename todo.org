@@ -1315,7 +1315,7 @@ CLOSED: [2014-05-08 Thu 12:48]
 - [X] Deal with ssh-agent -> keychain
 - [X] Deal with gpg-agent -> keychain
 - [X] Make the laptop suspend when closing lid
-* IN-PROGRESS XMonad [82%]
+* IN-PROGRESS XMonad [81%]
 - [X] Install
 - [X] Configure from template
 - [X] Run or raise some applications
@@ -1340,6 +1340,10 @@ CLOSED: [2014-05-08 Thu 12:48]
 - [X] Search url from xmonad
 - [X] Focus in turn on multiple windows matching the same classname
 - [X] Use notify-send instead of zenity? -> tested and not satisfied by the rendering (notifications piles up so slow)
+- [X] Notify when xmonad is restarted
+- [X] Add a prompt to deal with passwords
+- [X] Improve prompt's configuration
+- [ ]
 - [ ] Adapt keymap in xmonad prompt (C-i <tab>, C-m <return>, C-g <Escape>, etc...)
 - [ ] Adapt prefix key for xmonad/stumpwm depending on their run as main window manager or embedded in xephyr
 - [ ] Check the keymap is correct at xmonad startup time
