@@ -1347,7 +1347,10 @@ CLOSED: [2014-05-08 Thu 12:48]
 - [ ] Adapt prefix key for xmonad/stumpwm depending on their run as main window manager or embedded in xephyr
 - [ ] Check the keymap is correct at xmonad startup time
 - [ ] Confirm before stopping xmonad session or reloading configuration
-- [ ] Adapt layout per workspace (gimp, etc...)
+- [ ] Adapt layout per workspace (gimp, etc...)x
+* XMonad-contrib
+- [X] Read how to make a module for xmonad-contrib - http://www.haskell.org/haskellwiki/Xmonad/xmonad_development_tutorial
+- [ ] PassPrompt
 * DONE Buffer pack [100%]
 CLOSED: [2014-06-14 Sat 14:16]
-- [X] C-c M-z from any buffer, spawns an ansi-term or go to one. C-c M-z from any ansi-term gets back to the buffer from whence you come from
+- [X] C-c M-z from any buffer, spawns an ansi-term or go to one. C-c M-z from any ansi-term gets back to the buffer from whence you come fromPP
