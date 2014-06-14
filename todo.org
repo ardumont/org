@@ -1348,5 +1348,6 @@ CLOSED: [2014-05-08 Thu 12:48]
 - [ ] Check the keymap is correct at xmonad startup time
 - [ ] Confirm before stopping xmonad session or reloading configuration
 - [ ] Adapt layout per workspace (gimp, etc...)
-* Buffer pack
-- [ ] C-c M-z from any buffer, spawns an ansi-term or go to one. C-c M-z from any ansi-term gets back to the buffer from whence you come from
+* DONE Buffer pack [100%]
+CLOSED: [2014-06-14 Sat 14:16]
+- [X] C-c M-z from any buffer, spawns an ansi-term or go to one. C-c M-z from any ansi-term gets back to the buffer from whence you come from
