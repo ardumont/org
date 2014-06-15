@@ -1348,9 +1348,13 @@ CLOSED: [2014-05-08 Thu 12:48]
 - [ ] Check the keymap is correct at xmonad startup time
 - [ ] Confirm before stopping xmonad session or reloading configuration
 - [ ] Adapt layout per workspace (gimp, etc...)x
-* XMonad-contrib
+* DONE Xmonad.Prompt.Pass [100%]
+CLOSED: [2014-06-15 Sun 16:37]
 - [X] Read how to make a module for xmonad-contrib - http://www.haskell.org/haskellwiki/Xmonad/xmonad_development_tutorial
-- [ ] PassPrompt
+- [X] passPrompt
+- [X] passGeneratePrompt
+- [X] passRemovePrompt
+- [X] Email to mailing list the dpatch
 * DONE Buffer pack [100%]
 CLOSED: [2014-06-14 Sat 14:16]
 - [X] C-c M-z from any buffer, spawns an ansi-term or go to one. C-c M-z from any ansi-term gets back to the buffer from whence you come fromPP
