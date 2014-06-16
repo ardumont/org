@@ -1309,7 +1309,8 @@ CLOSED: [2014-05-08 Thu 10:35]
 * TODO laptop power management
 * TODO udisks
 * TODO [[http://software.schmorp.de/pkg/rxvt-unicode.html][rxvt-unicode]]
-* TODO fonts
+* DONE fonts
+CLOSED: [2014-06-16 Mon 20:20]
 * DONE Remove cinnamon-settings-daemon (or gnome-settings-daemon) from my dependencies
 CLOSED: [2014-05-08 Thu 12:48]
 - [X] Deal with ssh-agent -> keychain
