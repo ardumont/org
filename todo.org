@@ -1303,7 +1303,7 @@ CLOSED: [2014-05-08 Thu 18:13]
 * IN-PROGRESS Security
 ** DONE keychain
 CLOSED: [2014-05-08 Thu 10:35]
-** TODO GNUPG
+** IN-PROGRESS GNUPG
 - [ ] https://www.gnupg.org/gph/en/manual.html
 - [ ] http://blog.sanctum.geek.nz/series/linux-crypto/
 * TODO laptop power management
