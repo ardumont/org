@@ -1357,6 +1357,9 @@ CLOSED: [2014-06-15 Sun 16:37]
 - [X] passGeneratePrompt
 - [X] passRemovePrompt
 - [X] Email to mailing list the dpatch
+* DONE XMonad.Actions.Search [100%]
+CLOSED: [2014-06-17 Tue 19:48]
+- [X] Add DuckDuckGo search engine to the defaults - "https://duckduckgo.com/?t=lm&q="
 * DONE Buffer pack [100%]
 CLOSED: [2014-06-14 Sat 14:16]
 - [X] C-c M-z from any buffer, spawns an ansi-term or go to one. C-c M-z from any ansi-term gets back to the buffer from whence you come fromPP
