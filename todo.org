@@ -1316,7 +1316,7 @@ CLOSED: [2014-05-08 Thu 12:48]
 - [X] Deal with ssh-agent -> keychain
 - [X] Deal with gpg-agent -> keychain
 - [X] Make the laptop suspend when closing lid
-* IN-PROGRESS XMonad [84%]
+* IN-PROGRESS XMonad [85%]
 - [X] Install
 - [X] Configure from template
 - [X] Run or raise some applications
@@ -1345,6 +1345,7 @@ CLOSED: [2014-05-08 Thu 12:48]
 - [X] Add a prompt to deal with passwords
 - [X] Improve prompt's configuration
 - [X] Notify when xmonad is restarted or a window is killed
+- [X] Avoid spawning processes from ~/.xmonad/xmonad.hs and use .xinitrc standard
 - [ ] Adapt keymap in xmonad prompt (C-i <tab>, C-m <return>, C-g <Escape>, etc...)
 - [ ] Check the keymap is correct at xmonad startup time
 - [ ] Adapt prefix key for xmonad/stumpwm depending on the running context (main window manager or embedded in xephyr)
