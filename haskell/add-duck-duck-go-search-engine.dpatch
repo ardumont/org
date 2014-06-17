@@ -1,0 +1,439 @@
+1 patch for repository http://code.haskell.org/XMonadContrib:
+
+Tue Jun 17 19:42:46 CEST 2014  eniotna.t@gmail.com
+  * add-duck-duck-go-search-engine
+
+New patches:
+
+[add-duck-duck-go-search-engine
+eniotna.t@gmail.com**20140617174246
+ Ignore-this: 29bbfb2d07d9ddf36bf0268a4e255f81
+] {
+hunk ./XMonad/Actions/Search.hs 54
+                                  wikipedia,
+                                  wiktionary,
+                                  youtube,
++                                 duckduckgo,
+                                  multi,
+                                   -- * Use case: searching with a submap
+                                   -- $tip
+hunk ./XMonad/Actions/Search.hs 142
+ 
+ * 'youtube' -- Youtube video search.
+ 
++* 'duckduckgo' -- DuckDuckGo search engine.
++
+ * 'multi' -- Search based on the prefix. \"amazon:Potter\" will use amazon, etc. With no prefix searches google.
+ 
+ Feel free to add more! -}
+hunk ./XMonad/Actions/Search.hs 278
+ -- The engines.
+ amazon, alpha, codesearch, deb, debbts, debpts, dictionary, google, hackage, hoogle,
+   images, imdb, isohunt, lucky, maps, mathworld, openstreetmap, scholar, thesaurus, wayback, wikipedia, wiktionary,
+-  youtube :: SearchEngine
++  youtube, duckduckgo :: SearchEngine
+ amazon        = searchEngine "amazon"        "http://www.amazon.com/exec/obidos/external-search?index=all&keyword="
+ alpha         = searchEngine "alpha"         "http://www.wolframalpha.com/input/?i="
+ codesearch    = searchEngine "codesearch"    "http://www.google.com/codesearch?q="
+hunk ./XMonad/Actions/Search.hs 302
+ wiktionary    = searchEngine "wikt"          "http://en.wiktionary.org/wiki/Special:Search?go=Go&search="
+ youtube       = searchEngine "youtube"       "http://www.youtube.com/results?search_type=search_videos&search_query="
+ wayback       = searchEngineF "wayback"      ("http://web.archive.org/web/*/"++)
++duckduckgo    = searchEngine "duckduckgo"    "https://duckduckgo.com/?t=lm&q="
+ 
+ multi :: SearchEngine
+hunk ./XMonad/Actions/Search.hs 305
+-multi = namedEngine "multi" $ foldr1 (!>) [amazon, alpha, codesearch, deb, debbts, debpts, dictionary, google, hackage, hoogle, images, imdb, isohunt, lucky, maps, mathworld, openstreetmap, scholar, thesaurus, wayback, wikipedia, wiktionary, (prefixAware google)]
++multi = namedEngine "multi" $ foldr1 (!>) [amazon, alpha, codesearch, deb, debbts, debpts, dictionary, google, hackage, hoogle, images, imdb, isohunt, lucky, maps, mathworld, openstreetmap, scholar, thesaurus, wayback, wikipedia, wiktionary, duckduckgo, (prefixAware google)]
+ 
+ {- | This function wraps up a search engine and creates a new one, which works
+    like the argument, but goes directly to a URL if one is given rather than
+}
+
+Context:
+
+[XSelection: getSelection: fix connection exhaustion bug (issue #573); include warning
+gwern@gwern.net**20140601025019
+ Ignore-this: add21190fc07338b243c2241cc746119
+] 
+[Fix dbus-send call in XMonad.Config.Gnome
+md143rbh7f@gmail.com**20140129032114
+ Ignore-this: ed62458b55c8b34b77f73027eeee1a73
+ dbus-send --print-reply=string is invalid, but it was silently ignored until recently:
+ http://cgit.freedesktop.org/dbus/dbus/commit/tools/dbus-send.c?id=c690ee4351f99ed5e629ffcf5f4a2edcd418d103
+ I've changed XMonad.Config.Gnome to run --print-reply=literal, since that's what the old behavior was.
+] 
+[warning police (unused variables)
+Adam Vogt <vogt.adam@gmail.com>**20140505001242
+ Ignore-this: a15b4d844b1da4f1f1f9b6095c968705
+] 
+[This patch makes the Ssh extension works with **user** arguments in ssh, .e.g ssh admin@localhost.
+linxray@gmail.com**20140504091120
+ Ignore-this: 297673e11d3049c4f127aac3e172d361
+] 
+[remove trailing whitespace in L.BinarySpacePartition
+Adam Vogt <vogt.adam@gmail.com>**20140501011943
+ Ignore-this: 8dd677978992e0854801b8f254463dc2
+] 
+[replace Bound with the equivalent Direction2D
+Adam Vogt <vogt.adam@gmail.com>**20140501011540
+ Ignore-this: b1f1c256aba07f70918fe1d693c8087b
+] 
+[remove unused extension in BSP
+Adam Vogt <vogt.adam@gmail.com>**20140501011455
+ Ignore-this: a4962486b2aa3980536bff19a537451e
+] 
+[Add BinarySpacePartition layout 
+benweitzman@gmail.com**20140430205848
+ Ignore-this: a85d1dc51bf54c59ae2bd9d948cc1088
+] 
+[X.Actions.DynamicWorkspaceGroups: export new function addRawWSGroup
+Brent Yorgey <byorgey@cis.upenn.edu>**20140428142901
+ Ignore-this: a487882c9571bf91ff921d6561bb4cc6
+] 
+[Remove unneeded context with the IfMax layout instance
+Adam Vogt <vogt.adam@gmail.com>**20140422221105
+ Ignore-this: 3b8ac316f56df6a84420754db769fb0
+ 
+ Extra constraints on instances are about as useful as -XDataTypeContexts
+] 
+[Adding side tabs and replacing TabbarLocation with Direction2D.
+nrujac@gmail.com**20140219200811
+ Ignore-this: edabeec973b4e0d61515818367689843
+] 
+[warning police
+Daniel Wagner <daniel@wagner-home.com>**20140316183747
+ Ignore-this: fd16435ccdd3fee8924723cc690cc239
+] 
+[New module: XMonad.Util.WindowState
+Dmitry Bogatov <KAction@gnu.org>**20140218100229
+ Ignore-this: 14a6fa263c423cd8cca3b2645b3930d7
+ 
+ Save almost arbitary data per window 
+] 
+[Add side tabs to the tabbed layout.
+nrujac@gmail.com**20140213215247
+ Ignore-this: f81bafe9cb75a30ed6bbbe68cf5d66c0
+] 
+[SpawnNamedPipe hlint cleanup
+cwills.dev@gmail.com**20140202213613
+ Ignore-this: dbb68c4c5522026bd108d0158e747b48
+] 
+[document and cleanup SpawnNamedPipe
+cwills.dev@gmail.com**20140202211000
+ Ignore-this: b264278f1f1ab1f18b37245a5ff33136
+] 
+[Added SpawnNamedPipe
+cwills.dev@gmail.com**20140202143415
+ Ignore-this: 87797ffffc8d0fd088482bd0c5baf0e
+] 
+[Make commandToComplete in XMonad.Prompt.Shell complete last word
+md143rbh7f@gmail.com**20140130200050
+ Ignore-this: b0fe22fdd7b9409835fd0ca069f2e01a
+ 
+ The following change from 2013-02-09 breaks shell completion for me:
+     hunk ./XMonad/Prompt/Shell.hs 65
+     +    commandToComplete _ c = c
+ 
+ It seems to be passing the entire string into compgen in order to get the file completions, but it should only pass the last word. I propose reverting this change. Comments are appreciated.
+] 
+[expose and document X.L.IndependentScreens.marshallSort
+Daniel Wagner <daniel@wagner-home.com>**20140128212844
+ Ignore-this: 90c1437c6ffe1dbd8f4a4ed192097ec
+] 
+[ServerMode properly indent
+Adam Vogt <vogt.adam@gmail.com>**20131219201440
+ Ignore-this: 761b39c3e3c90b6123f068e8b1d34e5d
+] 
+[remove ServerMode tabs
+Adam Vogt <vogt.adam@gmail.com>**20131219201000
+ Ignore-this: f21448c248ec0ac289c309ed964ebcff
+] 
+[fix -Wall ServerMode
+Adam Vogt <vogt.adam@gmail.com>**20131219181030
+ Ignore-this: 708dd5fc60f43dee3d1da085002052f
+] 
+[documentation note that ServerMode is similar to wmctrl
+Adam Vogt <vogt.adam@gmail.com>**20131219180748
+ Ignore-this: 3215bdf1c698c798eca8ed7f62a0f591
+] 
+[Generalized XMonad.Hooks.ServerMode
+polson2@hawk.iit.edu**20131216025100
+ Ignore-this: e58da3b168a1058f32982833ea25a739
+] 
+[IfMax-Layout
+Ilya Portnov <portnov84@rambler.ru>**20131201072634
+ Ignore-this: dac53f2a0505e740f05fdf03f1db0c21
+ This adds a new ("conditional") layout, IfMax, which simply runs one layout, if there are <= N windows, and else runs another layout.
+] 
+[fix UrgencyHook and add filterUrgencyHook
+Adam Vogt <vogt.adam@gmail.com>**20130924224738
+ Ignore-this: 3b7c62275701e6758397977c5c09b744
+] 
+[export XMonad.Hooks.UrgencyHook.clearUrgency (issue 533)
+Adam Vogt <vogt.adam@gmail.com>**20130923031349
+ Ignore-this: dafe5763d9abcfa606f5c1a8cf5c57d6
+] 
+[minor documentation fix: manageDocks doesn't do anything with struts, so don't claim it does
+Daniel Wagner <daniel@wagner-home.com>**20130814125106
+ Ignore-this: a2610d6c1318ac0977abfc21d1b91632
+] 
+[don't pretend to be LG3D in X.C.Dmwit because this confuses modern GTK
+Daniel Wagner <daniel@wagner-home.com>**20130813211636
+ Ignore-this: 8f728dc1b4bf5e472d99419cc5920e51
+] 
+[XMonad.Actions.UpdatePointer: generalise updatePointer
+Liyang HU <git@liyang.hu>**20130730071007
+ Ignore-this: 3374a62b6c63dcc152dbf843cd0577f0
+ 
+] 
+[XMonad.Actions.UpdatePointer: document TowardsCentre
+Liyang HU <git@liyang.hu>**20130730053746
+ Ignore-this: 2d684b12e4fff0ebec254bea4a4546a3
+ 
+] 
+[Haddock formatting in H.Minimize
+Adam Vogt <vogt.adam@gmail.com>**20130723155658
+ Ignore-this: 5db3186a51dec58f78954466ded339cb
+] 
+[Bump version (and xmonad dependency) to 0.12
+Adam Vogt <vogt.adam@gmail.com>**20130720205857
+ Ignore-this: ce165178ca916223501f266339f1de39
+ 
+ This makes a breakage due to missing patches in core a bit more obvious.
+ Previously you would have a build failure regarding some missing identifiers
+ (def re-exported by XMonad from Data.Default), while after applying this patch
+ it will be clear that xmonad-core needs to be updated.
+] 
+[Fix issue 551 by also getting manpath without -g flag.
+Adam Vogt <vogt.adam@gmail.com>**20130716030536
+ Ignore-this: ded2d51eb7b7697c0fdfaa8158d612df
+ 
+ Instead of taking Ondrej's approach of figuring out which man (man-db or
+ http://primates.ximian.com/~flucifredi/man/) is used by the system, just try
+ both sets of flags.
+] 
+[Escape dzen markup and remove xmobar tags from window titles by default.
+Adam Vogt <vogt.adam@gmail.com>**20130708144813
+ Ignore-this: cf56bff752fbf78ea06d5c0cb755f615
+ 
+ The issue was that window titles, such as those set by, for example a browser,
+ could set the window title to display something like
+ 
+    <action=malicious shell command>normal title</action>
+ 
+ Which could be executed by xmobar (or dzen).
+ 
+ This adds a ppTitleSanitize which does the above functions. This way when users
+ override ppTitle, the benefits are not lost.
+ 
+ Thanks to Raúl Benencia and Joachim Breitner for bringing this to my attention.
+] 
+[DynamicBars-use-ExtensibleState
+gopsychonauts@gmail.com**20130618074755
+ Ignore-this: afacba51af2be8ede65b9bcf9b002a7
+ 
+ Hooks.DynamicBars was previously using an MVar and the unsafePerformIO hack (
+ http://www.haskell.org/haskellwiki/Top_level_mutable_state ) to store bar
+ state. Since ExtensibleState exists to solve these sorts of problems, I've
+ switched the file over to use unsafePerformIO instead.
+ 
+ Some functions' types had to be changed to allow access to XState, but the
+ public API is unchanged.
+ 
+] 
+[Catch exceptions when finding commands on PATH in Prompt.Shell
+Thomas Tuegel <ttuegel@gmail.com>**20130616230219
+ Ignore-this: 5a4d08c80301864bc14ed784f1054c3f
+] 
+[Fix haddock parse error in X.A.LinkWorkspaces
+Adam Vogt <vogt.adam@gmail.com>**20130528133448
+ Ignore-this: 42f05cf8ca9e6d1ffae3bd20666d87ab
+] 
+[use Data.Default wherever possible, and deprecate the things it replaces
+Daniel Wagner <daniel@wagner-home.com>**20130528013909
+ Ignore-this: 898458b1d2868a70dfb09faf473dc7aa
+] 
+[eliminate references to defaultConfig
+Daniel Wagner <daniel@wagner-home.com>**20130528005825
+ Ignore-this: 37ae613e4b943e99c5200915b9d95e58
+] 
+[minimal change needed to get xmonad-contrib to build with xmonad's data-default patch
+Daniel Wagner <daniel@wagner-home.com>**20130528001040
+ Ignore-this: 291e4f6cd74fc2b808062e0369665170
+] 
+[Remove unneeded XSync call in Layout.ShowWName
+Francesco Ariis <fa-ml@ariis.it>**20130517153341
+ Ignore-this: 4d107c680572eff464c8f6ed9fabdd41
+] 
+[Remove misleading comment: we definitely don't support ghc-6.6 anymore
+Adam Vogt <vogt.adam@gmail.com>**20130514215851
+ Ignore-this: 2d071cb05709a16763d039222264b426
+] 
+[Fix module name in comment of X.L.Fullscreen
+Adam Vogt <vogt.adam@gmail.com>**20130514215727
+ Ignore-this: cb5cf18c301c5daf5e1a2527da1ef6bf
+] 
+[Minor update to cabal file (adding modules & maintainership)
+Adam Vogt <vogt.adam@gmail.com>**20130514215632
+ Ignore-this: 82785e02e544e1f797799bed5b5d9be2
+] 
+[Remove trailing whitespace in X.A.LinkWorkspaces
+Adam Vogt <vogt.adam@gmail.com>**20130514215421
+ Ignore-this: 5015ab4468e7931876eb66b019af804c
+] 
+[Update documentation of LinkWorkspaces Module
+quesel@informatik.uni-oldenburg.de**20110328072813
+ Ignore-this: da863534931181f551c9c54bc4076c05
+] 
+[Added a module for linking workspaces
+quesel@informatik.uni-oldenburg.de**20110210165018
+ Ignore-this: 1dba2164cc3387409873d33099596d91
+ 
+ This module provides a way to link certain workspaces in a multihead setup.
+ That way, when switching to the first one the other heads display the linked
+ workspaces.
+] 
+[Cache results from calcGap in ManageDocks
+Adam Vogt <vogt.adam@gmail.com>**20130425155811
+ Ignore-this: e5076fdbdfc68bc159424dd4e0f14456
+ 
+ http://www.haskell.org/pipermail/xmonad/2013-April/013670.html
+] 
+[Remove unnecessary contexts from L.MultiToggle
+Adam Vogt <vogt.adam@gmail.com>**20130217163356
+ Ignore-this: 6b0e413d8c3a58f62088c32a96c57c51
+] 
+[Generalises modWorkspace to take any layout-transforming function
+gopsychonauts@gmail.com**20130501151425
+ Ignore-this: 28c7dc1f6216bb1ebdffef5434ccbcbd
+ 
+ modWorkspace already was capable of modifying the layout with an arbitrary
+ layout -> layout function, but its original type restricted it such that it
+ could only apply a single LayoutModifier; this was often inconvenient, as for
+ example it was not possible simply to compose LayoutModifiers for use with
+ modWorkspace.
+ 
+ This patch also reimplements onWorkspaces in terms of modWorkspaces, since with
+ the latter's less restrictive type this is now possible.
+] 
+[since XMonad.Config.Dmwit mentions xmobar, we should include the associated .xmobarrc file
+Daniel Wagner <daniel@wagner-home.com>**20130503194055
+ Ignore-this: 2f6d7536df81eb767262b79b60eb1b86
+] 
+[warning police
+Daniel Wagner <daniel@wagner-home.com>**20130502012700
+ Ignore-this: ae7412ac77c57492a7ad6c5f8f50b9eb
+] 
+[XMonad.Config.Dmwit
+Daniel Wagner <daniel@wagner-home.com>**20130502012132
+ Ignore-this: 7402161579fd2e191b60a057d955e5ea
+] 
+[minor fixes to the haddock markup in X.L.IndependentScreens
+Daniel Wagner <daniel@wagner-home.com>**20130411193849
+ Ignore-this: b6a139aa43fdb39fc1b86566c0c34c7a
+] 
+[add whenCurrentOn to X.L.IndependentScreens
+Daniel Wagner <daniel@wagner-home.com>**20130408225251
+ Ignore-this: ceea3d391f270abc9ed8e52ce19fb1ac
+] 
+[Allow to specify the initial gaps' states in X.L.Gaps
+Paul Fertser <fercerpav@gmail.com>**20130222072232
+ Ignore-this: 31596d918d0050e36ce3f64f56205a64
+] 
+[should bump X11 dependency, too, to make sure we have getAtomName
+Daniel Wagner <daniel@wagner-home.com>**20130225180527
+ Ignore-this: 260711f27551f18cc66afeb7b4846b9f
+] 
+[getAtomName is now defined in the X11 library
+Daniel Wagner <daniel@wagner-home.com>**20130225180323
+ Ignore-this: 3b9e17c234679e98752a47c37132ee4e
+] 
+[Allow to limit maximum row count in X.Prompt completion window
+Paul Fertser <fercerpav@gmail.com>**20130221122050
+ Ignore-this: 923656f02996f2de2b1336275392c5f9
+ 
+ On a keyboard-less device (such as a smartphone), where one has to use
+ an on-screen keyboard, the maximum completion window height must be
+ limited to avoid overlapping the keyboard.
+] 
+[Note in U.NameActions that xmonad core can list default keys now
+Adam Vogt <vogt.adam@gmail.com>**20130217233026
+ Ignore-this: 937bff636fa88171932d5192fe8e290b
+] 
+[Export U.NamedActions.addDescrKeys per evaryont's request.
+Adam Vogt <vogt.adam@gmail.com>**20130217232619
+ Ignore-this: a694a0a3ece70b52fba6e8f688d86344
+] 
+[Add EWMH DEMANDS_ATTENTION support to UrgencyHook.
+Maarten de Vries <maarten@de-vri.es>**20130212181229
+ Ignore-this: 5a4b314d137676758fad9ec8f85ce422
+ 
+ Add support for the _NET_WM_STATE_DEMANDS_ATTENTION atom
+ by treating it the same way as the WM_HINTS urgency flag.
+ 
+] 
+[Unconditionally set _NET_WORKAREA in ManageDocks
+Adam Vogt <vogt.adam@gmail.com>**20130117180851
+ Ignore-this: 9f57e53fba9573d8a92cf153beb7fe7a
+] 
+[spawn command when no completion is available (if alwaysHighlight is True); changes commandToComplete in Prompt/Shell to complete the whole word instead of using getLastWord
+c.lopez@kmels.net**20130209190456
+ Ignore-this: ca7d354bb301b555b64d5e76e31d10e8
+] 
+[order-unindexed-ws-last
+matthewhague@zoho.com**20120703222726
+ Ignore-this: 4af8162ee8b16a60e8fd62fbc915d3c0
+ 
+ Changes the WorkspaceCompare module's comparison by index to put workspaces without an index last (rather than first).
+] 
+[SpawnOn modification for issue 523
+Adam Vogt <vogt.adam@gmail.com>**20130114014642
+ Ignore-this: 703f7dc0f800366b752f0ec1cecb52e5
+ 
+ This moves the function to help clean up the `Spawner' to the ManageHook
+ rather than in functions like spawnOn. Probably it makes no difference, the
+ reason is because there's one manageSpawn function but many different so this
+ way there are less functions to write.
+] 
+[Update L.TrackFloating.useTransient example code
+Adam Vogt <vogt.adam@gmail.com>**20130112041239
+ Ignore-this: e4e31cf1db742778c1d59d52fdbeed7a
+ 
+ Suggest useTransient goes to the right of trackFloating which is the
+ configuration actually tested.
+] 
+[Adapt ideas of issue 306 patch to a new modifier in L.TrackFloating
+Adam Vogt <vogt.adam@gmail.com>**20130112035701
+ Ignore-this: d54d27b71b97144ef0660f910fd464aa
+] 
+[Make X.A.CycleWS not rely on hidden WS order
+Dmitri Iouchtchenko <johnnyspoon@gmail.com>**20130109023328
+ Ignore-this: 8717a154b33253c5df4e9a0ada4c2c3e
+] 
+[Add X.H.WorkspaceHistory
+Dmitri Iouchtchenko <johnnyspoon@gmail.com>**20130109023307
+ Ignore-this: c9e7ce33a944facc27481dde52c7cc80
+] 
+[Allow removing arbitrary workspaces
+Dmitri Iouchtchenko <johnnyspoon@gmail.com>**20121231214343
+ Ignore-this: 6fce4bd3d0c5337e5122158583138e74
+] 
+[Remove first-hidden restriction from X.A.DynamicWorkspaces.removeWorkspace'
+Dmitri Iouchtchenko <johnnyspoon@gmail.com>**20121231214148
+ Ignore-this: 55fb0859e9a5f476a834ecbdb774aac8
+] 
+[Add authorspellings file for `darcs show authors'.
+Adam Vogt <vogt.adam@gmail.com>**20130101040031
+ Ignore-this: c3198072ebc6a71d635bec4d8e2c78fd
+ 
+ This authorspellings file includes a couple people who've contributed to xmonad
+ (not XMonadContrib). When people have multiple addresses, the most recent one
+ has been picked.
+] 
+[TAG 0.11
+Adam Vogt <vogt.adam@gmail.com>**20130101014231
+ Ignore-this: 57cf32412fd1ce912811cb7fafe930f5
+] 
+Patch bundle hash:
+94e48d26eea55755c5cb1b1ad6bd8a13bc94ffae
