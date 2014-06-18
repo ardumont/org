@@ -1365,3 +1365,29 @@ CLOSED: [2014-06-17 Tue 19:48]
 * DONE Buffer pack [100%]
 CLOSED: [2014-06-14 Sat 14:16]
 - [X] C-c M-z from any buffer, spawns an ansi-term or go to one. C-c M-z from any ansi-term gets back to the buffer from whence you come fromPP
+* DONE Multiple git ssh keys fix!
+Open a ~/.ssh/config file:
+#+begin_src text
+Host host1
+ User git
+ Hostname bitbucket.org
+ PreferredAuthentications publickey
+ IdentityFile ~/.ssh/id_rsa-first-private-key
+
+Host host2
+ User git
+ Hostname bitbucket.org
+ PreferredAuthentications publickey
+ IdentitiesOnly yes
+ IdentityFile ~/.ssh/id_rsa-second-private-key
+#+end_src
+
+Clone with the first repo:
+#+begin_src sh
+git clone git@host1:ardumont/my-repo.git
+#+end_src
+
+Clone with the second repo (this will used the second account):
+#+begin_src sh
+git clone git@host2:ardumont/my-repo.git
+#+end_src
