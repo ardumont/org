@@ -1391,3 +1391,5 @@ Clone with the second repo (this will used the second account):
 #+begin_src sh
 git clone git@host2:ardumont/my-repo.git
 #+end_src
+
+Source: http://dbushell.com/2013/01/27/multiple-accounts-and-ssh-keys/
