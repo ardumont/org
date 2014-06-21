@@ -1306,7 +1306,12 @@ CLOSED: [2014-05-08 Thu 10:35]
 ** IN-PROGRESS GNUPG
 - [ ] https://www.gnupg.org/gph/en/manual.html
 - [ ] http://blog.sanctum.geek.nz/series/linux-crypto/
-* TODO laptop power management
+- [ ] Publish my public key
+- [ ] Expose it on the blog too
+- [ ] Sign emails with private key
+
+* DONE laptop power management
+CLOSED: [2014-06-21 Sat 20:27]
 * TODO udisks
 * TODO [[http://software.schmorp.de/pkg/rxvt-unicode.html][rxvt-unicode]]
 * DONE fonts
