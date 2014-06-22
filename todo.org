@@ -1278,14 +1278,29 @@ CLOSED: [2014-05-08 Thu 18:13]
 - [X] 0.0.5
 - [X] Update documentation about it
 
-* IN-PROGRESS Security
+* IN-PROGRESS Security [66%]
 ** DONE keychain
 CLOSED: [2014-05-08 Thu 10:35]
-** IN-PROGRESS GNUPG
+** DONE pass
+CLOSED: [2014-06-22 Sun 10:47]
+- [X] http://blog.sanctum.geek.nz/linux-crypto-passwords/
+- [X] http://git.zx2c4.com/password-store/
+- [X] http://babushk.in/posts/combining-xmonad-and-pass.html
+** IN-PROGRESS GNUPG [40%]
+- [X] http://blog.sanctum.geek.nz/linux-crypto-introduction/
+- [X] http://blog.sanctum.geek.nz/linux-crypto-gnupg-keys/
+- [X] http://blog.sanctum.geek.nz/linux-crypto-gnupg-usage/
+- [X] http://blog.sanctum.geek.nz/linux-crypto-ssh-keys/
+- [X] http://blog.sanctum.geek.nz/linux-crypto-sshgpg-agents/
+- [X] http://blog.sanctum.geek.nz/linux-crypto-passwords/
+- [ ] http://blog.sanctum.geek.nz/linux-crypto-email/
+- [ ] http://blog.sanctum.geek.nz/linux-crypto-backups/
+- [ ] http://blog.sanctum.geek.nz/linux-crypto-disks/
+- [ ] http://blog.sanctum.geek.nz/linux-crypto-importance/
 - [ ] https://www.gnupg.org/gph/en/manual.html
-- [ ] http://blog.sanctum.geek.nz/series/linux-crypto/
-- [ ] Publish my public key
-- [ ] Expose it on the blog too
+- [ ] http://wiki.debian.org/subkeys
+- [ ] Publish my public key (public keyserver)
+- [ ] Reference the public key on the blog too (link towards public keyserver)
 - [ ] Sign emails with private key
 
 * DONE laptop power management
