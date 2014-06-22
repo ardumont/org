@@ -1,18 +1,7 @@
 #+title: Self-organisation
 #+author: ardumont
 
-* TODO Domain Driven Design
-* TODO Clojure data analysis cookbook
-* TODO Parallel and concurrent programming in haskell
-* TODO How to Design Programs: An Introduction to Programming and Computing
-* TODO The Little Schemer
-* TODO The Seasoned Schemer
-* TODO The Reasoned Schemer
-* TODO [[Http://riemann.io/index.html][riemann]] - monitors distributed systems
-* TODO [[http://www.docker.io/][docker]] - an open source project to pack, ship and run any application as a lightweight container
-* TODO [[http://www.packer.io/][packer]] - a tool for creating identical machine images for multiple platforms from a single source configuration.
-* TODO [[http://www.opscode.com/chef/][Chef]] - infrastructure automation and configuration management framework - infrastructure as code
-* TODO coding challenge which computes the complexity  - http://codility.com/
+* TODO coding challenge which computes the complexity - http://codility.com/
 * TODO Mouseless file manager
 Does not seem to find one!
 Code it!
@@ -23,8 +12,28 @@ Code it!
 - [ ] Deadlocks
 - [ ] Livelocks
 - [ ] Priority inversions
-* TODO Readings
- - [ ] E. W. Dijkstra             - Go to statement considered harmful                      - Cacm, Mar. 1968
+* IN-PROGRESS Readings [20%]
+ - [X] practical clojure
+ - [X] joy of clojure
+ - [X] clojure in action
+ - [X] Clojure programming
+ - [X] Programming in haskell [100%]
+   - [X] chapter 1
+   - [X] chapter 2
+   - [X] chapter 3
+   - [X] chapter 4
+   - [X] chapter 5
+   - [X] chapter 6
+   - [X] chapter 7
+   - [X] chapter 8
+   - [X] chapter 9
+   - [X] chapter 10
+   - [X] chapter 11
+   - [X] chapter 12
+   - [X] chapter 13
+   - [X] http://yannesposito.com/Scratch/en/blog/Haskell-the-Hard-Way/
+   - [X] http://learnyouahaskell.com/input-and-output
+   - [X] http://learnyouahaskell.com/types-and-typeclasses
  - [ ] N. Wirth                   - Program development by Stepwise refinement              - Cacm, April 1971
  - [ ] D. L. Parnas               - Information distribution Aspects of Design Methodology  - IFIP Congress, 1971
  - [ ] B. Liskov                  - A design Methodology for Reliable Software Systems      - FJCC, Dec. 1972
@@ -34,7 +43,18 @@ Code it!
  - [ ] B. Liskov & S. Zilles      - Programming with Abstract Data Types.                   - ACM conferences on Very High Level Languages, Apr. 1974
  - [ ] B. Liskov                  - Data abstraction and hierarchy                          - Sigplan notices, May. 1988
  - [ ] P. Norvig                  - [[http://norvig.com/21-days.html][Teach yourself programming in ten years]]
- - ...
+ - [ ] Domain Driven Design
+ - [ ] Clojure data analysis cookbook
+ - [ ] Parallel and concurrent programming in haskell
+ - [ ] How to Design Programs: An Introduction to Programming and Computing
+ - [ ] The Little Schemer
+ - [ ] The Seasoned Schemer
+ - [ ] The Reasoned Schemer
+ - [ ] [[Http://riemann.io/index.html][riemann]] - monitors distributed systems
+ - [ ] [[http://www.docker.io/][docker]] - an open source project to pack, ship and run any application as a lightweight container
+ - [ ] [[http://www.packer.io/][packer]] - a tool for creating identical machine images for multiple platforms from a single source configuration.
+ - [ ] [[http://www.opscode.com/chef/][Chef]] - infrastructure automation and configuration management framework - infrastructure as code
+
 * TODO Structure and Interpretation of Computer Programs - books
 * TODO Github - Play around with the Github API [100%]
 - [X] http://developer.github.com/libraries/
@@ -897,48 +917,6 @@ CLOSED: [2013-04-19 ven. 22:39]
 **** TODO chapter 11
 *** TODO new
  http://www.dicosmo.org/CourseNotes/pfav/
-* DONE practical clojure
-CLOSED: [2012-04-21 Sat 18:20]
-* DONE joy of clojure
-CLOSED: [2013-07-07 dim. 10:04]
-* DONE clojure in action
-CLOSED: [2013-07-07 dim. 10:04]
-* DONE Clojure programming
-CLOSED: [2012-12-23 Sun 13:24]
-* DONE Programming in haskell [100%]
-CLOSED: [2013-08-10 sam. 10:33]
-** DONE chapter 1
-CLOSED: [2013-04-19 ven. 22:32]
-** DONE chapter 2
-CLOSED: [2013-04-19 ven. 22:32]
-** DONE chapter 3
-CLOSED: [2013-04-19 ven. 22:32]
-** DONE chapter 4
-CLOSED: [2013-04-19 ven. 22:32]
-** DONE chapter 5
-CLOSED: [2013-04-19 ven. 22:32]
-** DONE chapter 6
-CLOSED: [2013-04-19 ven. 22:32]
-** DONE chapter 7
-CLOSED: [2013-04-19 ven. 22:32]
-** DONE chapter 8
-CLOSED: [2013-04-19 ven. 22:32]
-** DONE chapter 9
-CLOSED: [2013-05-03 ven. 18:14]
-** DONE chapter 10
-CLOSED: [2013-05-03 ven. 18:14]
-** DONE chapter 11
-CLOSED: [2013-08-10 sam. 10:33]
-** DONE chapter 12
-CLOSED: [2013-08-10 sam. 10:33]
-** DONE chapter 13
-CLOSED: [2013-08-10 sam. 10:33]
-** DONE http://yannesposito.com/Scratch/en/blog/Haskell-the-Hard-Way/
-CLOSED: [2013-04-19 ven. 22:35]
-** DONE http://learnyouahaskell.com/input-and-output
-CLOSED: [2013-04-21 dim. 20:34]
-** DONE http://learnyouahaskell.com/types-and-typeclasses
-CLOSED: [2013-04-22 lun. 18:17]
 * DONE sh [100%]
 CLOSED: [2012-04-21 Sat 12:08]
 ** DONE init
