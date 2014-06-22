@@ -1,4 +1,4 @@
-#+title: Self-organisation
+#+title: Learning...
 #+author: ardumont
 
 * TODO coding challenge which computes the complexity - http://codility.com/
