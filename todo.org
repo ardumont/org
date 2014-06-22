@@ -1260,7 +1260,7 @@ CLOSED: [2014-02-26 mer. 22:39]
 - [ ] http://www.haskell.org/haskellwiki/Category_theory
 - [ ] Functional programming with bananas, lenses, envelopes and barbed wire
 * IN-PROGRESS emacs-creds [87%]
-A small library to easily parse .authinfo files
+A small library to easily parse .authinfo files with more than just credentials information.
 - [X] 0.0.1
 - [X] 0.0.2
 - [X] 0.0.3
