@@ -1,0 +1,129 @@
+#+title: Cryptsetup tryout
+#+author: ardumont
+
+from: http://blog.sanctum.geek.nz/linux-crypto-disks/
+
+#+begin_src sh
+# tony at myrkr in ~ o [11:26:48]
+$ sudo dd if=/dev/zero of=/loopdev bs=1k count=102400
+[sudo] password for tony:
+102400+0 records in
+102400+0 records out
+104857600 bytes (105 MB) copied, 0.14187 s, 739 MB/s
+
+# tony at myrkr in ~ o [11:27:22]
+$ sudo losetup -f
+/dev/loop0
+
+# tony at myrkr in ~ o [11:27:38]
+$ sudo losetup /dev/loop0 /loopdev
+
+# tony at myrkr in ~ o [11:27:40]
+$ ll /loopdev
+-rw-r--r-- 1 root root 100M Jun 23 11:26 /loopdev
+
+# tony at myrkr in ~ o [11:28:57]
+$ man cryptsetup
+
+# tony at myrkr in ~ o [11:29:17]
+$ sudo cryptsetup luksFormat /loopdev
+
+WARNING!
+========
+This will overwrite data on /loopdev irrevocably.
+
+Are you sure? (Type uppercase yes): YES
+Enter LUKS passphrase:
+Verify passphrase:
+
+# tony at myrkr in ~ o [11:30:52]
+$ sudo cryptsetup luksOpen /loopdev secret
+Enter passphrase for /loopdev:
+
+# tony at myrkr in ~ o [11:31:12]
+$ ll /dev/mapper/secret
+lrwxrwxrwx 1 root root 7 Jun 23 11:31 /dev/mapper/secret -> ../dm-4
+
+# tony at myrkr in ~ o [11:31:14]
+$ sudo mkfs.ext4 /dev/mapper/secret
+mke2fs 1.42.8 (20-Jun-2013)
+Filesystem label=
+OS type: Linux
+Block size=1024 (log=0)
+Fragment size=1024 (log=0)
+Stride=0 blocks, Stripe width=0 blocks
+25168 inodes, 100352 blocks
+5017 blocks (5.00%) reserved for the super user
+First data block=1
+Maximum filesystem blocks=67371008
+13 block groups
+8192 blocks per group, 8192 fragments per group
+1936 inodes per group
+Superblock backups stored on blocks:
+        8193, 24577, 40961, 57345, 73729
+
+Allocating group tables: done
+Writing inode tables: done
+Creating journal (4096 blocks): done
+Writing superblocks and filesystem accounting information: done
+
+
+# tony at myrkr in ~ o [11:31:39]
+$ sudo mkdir -p /mnt/secret
+
+# tony at myrkr in ~ o [11:31:54]
+$ sudo mount /dev/mapper/secret /mnt/secret
+
+# tony at myrkr in ~ o [11:32:24]
+$ echo "hello world" | sudo tee -a /mnt/secret/hello-world-on-secure-disk
+hello world
+
+# tony at myrkr in ~ o [11:32:31]
+$ sudo cat /mnt/secret/hello-world-on-secure-disk
+hello world
+
+# tony at myrkr in ~ o [11:32:37]
+$ sudo cryptsetup luksDump /loopdev
+LUKS header information for /dev/loop2
+
+Version:        1
+Cipher name:    aes
+Cipher mode:    cbc-essiv:sha256
+Hash spec:      sha1
+Payload offset: 4096
+MK bits:        256
+MK digest:      cc ed 35 eb 6e 08 67 ad 88 08 ca f2 d7 cb 44 f6 4a 5b e5 bf
+MK salt:        5d d3 80 35 b9 f5 66 21 6d a4 0d b1 02 36 23 1a
+                97 e3 b0 35 64 92 3d 3f e5 9a 15 0b 53 b5 54 b9
+MK iterations:  68000
+UUID:           a0c46d49-c9b6-4782-8194-c76b3281692d
+
+Key Slot 0: ENABLED
+        Iterations:             272203
+        Salt:                   e0 ca c7 b8 61 94 e0 37 a4 64 09 5a 06 82 37 9a
+                                26 8b d7 d2 ca 98 d1 7b 8f 88 70 da 22 eb 7e 5c
+        Key material offset:    8
+        AF stripes:             4000
+Key Slot 1: DISABLED
+Key Slot 2: DISABLED
+Key Slot 3: DISABLED
+Key Slot 4: DISABLED
+Key Slot 5: DISABLED
+Key Slot 6: DISABLED
+Key Slot 7: DISABLED
+
+# tony at myrkr in ~ o [11:33:19]
+$ sudo umount /mnt/secret
+
+# tony at myrkr in ~ o [11:33:21]
+$ sudo cryptsetup luksClose /dev/mapper/secret
+
+# tony at myrkr in ~ o [11:33:50]
+$ ll /loopdev
+-rw-r--r-- 1 root root 100M Jun 23 11:33 /loopdev
+
+# tony at myrkr in ~ o [11:33:52]
+$ file /loopdev
+/loopdev: LUKS encrypted file, ver 1 [aes, cbc-essiv:sha256, sha1] UUID: a0c46d49-c9b6-4782-8194-c76b3281692d
+
+#+end_src
