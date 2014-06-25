@@ -1,0 +1,44 @@
+#+title: nixos + wifi network
+#+author: ardumont
+
+When starting from nixos, you need a network.
+The KDE UI does not provide anything (or at least, I did not find anything).
+
+As usual, CLI to the rescue, use `wpa_passphrase`.
+
+#+begin_src sh
+wpa_passphrase <your-ssid>
+#+end_src
+
+This will ask you your passphrase.
+And output something along those line:
+
+#+begin_src text
+network={
+  ssid="<your-ssid>"
+  #psk="<your-pass-in-clear>"
+  psk=<your-encrypted-pass>
+}
+#+end_src
+
+So:
+
+#+begin_src sh
+wpa_passphrase your-ssid >> /etc/wpa_supplicant.conf
+#+end_src
+
+Edit /etc/wpa_supplicant.conf and remove your clear pass.
+
+Then restart the network service.
+
+#+begin_src sh
+systemctl restart wpa_supplicant.service
+#+end_src
+
+Then, check that you successfully connected to your network.
+
+#+begin_src sh
+ifconfig
+#+end_src
+
+That's it.
