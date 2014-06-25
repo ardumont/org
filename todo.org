@@ -1286,22 +1286,22 @@ CLOSED: [2014-06-22 Sun 10:47]
 - [X] http://blog.sanctum.geek.nz/linux-crypto-passwords/
 - [X] http://git.zx2c4.com/password-store/
 - [X] http://babushk.in/posts/combining-xmonad-and-pass.html
-** IN-PROGRESS GNUPG [40%]
+** IN-PROGRESS GNUPG [46%]
 - [X] http://blog.sanctum.geek.nz/linux-crypto-introduction/
 - [X] http://blog.sanctum.geek.nz/linux-crypto-gnupg-keys/
 - [X] http://blog.sanctum.geek.nz/linux-crypto-gnupg-usage/
 - [X] http://blog.sanctum.geek.nz/linux-crypto-ssh-keys/
 - [X] http://blog.sanctum.geek.nz/linux-crypto-sshgpg-agents/
 - [X] http://blog.sanctum.geek.nz/linux-crypto-passwords/
-- [ ] http://blog.sanctum.geek.nz/linux-crypto-email/
+- [X] http://blog.sanctum.geek.nz/linux-crypto-email/
 - [ ] http://blog.sanctum.geek.nz/linux-crypto-backups/
 - [ ] http://blog.sanctum.geek.nz/linux-crypto-disks/
 - [ ] http://blog.sanctum.geek.nz/linux-crypto-importance/
 - [ ] https://www.gnupg.org/gph/en/manual.html
 - [ ] http://wiki.debian.org/subkeys
-- [ ] Publish my public key (public keyserver)
-- [ ] Reference the public key on the blog too (link towards public keyserver)
+- [ ] Publish my public key to a public keyserver
 - [ ] Sign emails with private key
+- [ ] Reference my public key in mail header
 
 * DONE laptop power management
 CLOSED: [2014-06-21 Sat 20:27]
