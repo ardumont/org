@@ -1398,3 +1398,6 @@ Source: http://dbushell.com/2013/01/27/multiple-accounts-and-ssh-keys/
 * DONE Fix org-with-silent-modification
 CLOSED: [2014-06-26 Thu 20:00]
 When you encounter this, M-x org-reload
+* DONE MBR/GPT partition
+CLOSED: [2014-06-26 Thu 20:15]
+- [X] Disambiguate - http://www.rodsbooks.com/gdisk/whatsgpt.html
