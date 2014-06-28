@@ -1422,3 +1422,4 @@ CLOSED: [2014-06-26 Thu 20:15]
 - [ ] Install nixos with encryption
 http://bluishcoder.co.nz/2014/05/14/installing-nixos-with-encrypted-root-on-thinkpad-w540.html
 https://nixos.org/wiki/Encrypted_Root_on_NixOS
+* TODO RAID
