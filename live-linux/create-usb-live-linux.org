@@ -1,0 +1,128 @@
+#+title: Create my own iso live linux
+#+author: ardumont
+
+* Log in as root:
+
+#+begin_src sh
+su -
+# for sudoers
+# sudo su -
+#+end_src
+
+* Pre-requisite tools
+
+#+begin_src sh
+aptitude install -y debootstrap xorriso live-build syslinux squashfs-tools
+#+end_src
+
+* bootstrap
+
+Create an empty work directory, bring in a basic Debian filesystem using debootstrap.
+
+#+begin_src sh
+mkdir ~/livework && cd ~/livework && debootstrap --arch=amd64 wheezy chroot
+#+end_src
+
+A new filesystem has been created in ~/livework/chroot directory.
+
+* chroot
+
+#+begin_src sh
+cd ~/livework
+chroot chroot
+mount none -t proc /proc
+mount none -t sysfs /sys
+mount none -t devpts /dev/pts
+export HOME=/root
+export LC_ALL=C
+export PS1="\e[01;31m(live):\W \$ \e[00m"
+#+end_src
+
+Possible output:
+
+#+begin_src sh
+dagobah livework # ls
+chroot
+dagobah livework # chroot chroot
+root@dagobah:/# mount none -t proc /proc
+root@dagobah:/# mount none -t sysfs /sys
+root@dagobah:/# mount none -t devpts /dev/pts
+root@dagobah:/# export HOME=/root
+root@dagobah:/# export LC_ALL=C
+root@dagobah:/# export PS1="\e[01;31m(live):\W \$ \e[00m"
+(live):/ $ cat /etc/mtab
+none /proc proc rw 0 0
+none /sys sysfs rw 0 0
+none /dev/pts devpts rw 0 0
+#+end_src
+
+
+#+begin_src sh
+apt-get install dialog dbus
+dbus-uuidgen > /var/lib/dbus/machine-id
+apt-get install linux-image-amd64 live-boot
+passwd
+#+end_src
+
+Input the passwd you want for the live cd, for example: `hack is life`
+
+Install the needed software that you want:
+
+#+begin_src sh
+apt-get install emacs tmux git ssh iceweasel conkeror
+#+end_src
+
+Then clean up.
+
+#+begin_src sh
+apt-get clean
+rm /var/lib/dbus/machine-id && rm -rf /tmp/*
+umount /proc /sys /dev/pts
+exit
+#+end_src
+
+* isolinux
+
+
+#+begin_src sh
+cd ~/livework
+mkdir -p binary/live && mkdir -p binary/isolinux
+cp chroot/boot/vmlinuz-3.2.0-4-amd64 binary/live/vmlinuz
+cp chroot/boot/initrd.img-3.2.0-4-amd64 binary/live/initrd
+mksquashfs chroot binary/live/filesystem.squashfs -comp xz -e boot
+cp /usr/lib/syslinux/isolinux.bin binary/isolinux/.
+cp /usr/lib/syslinux/menu.c32 binary/isolinux/.
+#+end_src
+
+Create binary/isolinux/isolinux.cfg
+
+#+begin_src sh
+echo << EOF
+ui menu.c32
+prompt 0
+menu title Boot Menu
+timeout 300
+
+label live-amd64
+	menu label ^Live (amd64)
+	menu default
+	linux /live/vmlinuz
+ 	append initrd=/live/initrd boot=live persistence quiet
+
+label live-amd64-failsafe
+	menu label ^Live (amd64 failsafe)
+	linux /live/vmlinuz
+	append initrd=/live/initrd boot=live persistence config memtest noapic noapm nodma nomce nolapic nomodeset nosmp nosplash vga=normal
+
+endtext
+EOF > binary/isolinux/isolinux.cfg
+#+end_src
+
+#+begin_src sh
+cd ~/livework
+xorriso -as mkisofs -r -J -joliet-long -l -cache-inodes \
+  -isohybrid-mbr /usr/lib/syslinux/isohdpfx.bin -partition_offset 16 \
+  -A "Debian Live"  -b isolinux/isolinux.bin -c \
+  isolinux/boot.cat -no-emul-boot -boot-load-size 4 \
+  -boot-info-table -o remaster.iso binary
+#+end_src
