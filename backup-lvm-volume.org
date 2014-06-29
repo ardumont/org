@@ -1,0 +1,73 @@
+#+title: Back LVM up
+#+author: ardumont
+
+Using mint live-usb to backup an old disk from a nas mounting a raid volume.
+
+For this, we need [[http://neil.brown.name/blog/mdadm][mdadm]], a tool to administer Linux MD arrays (software RAID).
+The mdadm utility can be used to create, manage, and monitor MD (multi-disk) arrays for software RAID or multipath I/O.
+
+#+begin_src sh
+sudo aptitude install -y mdadm
+#+end_src
+
+Now plugging the disk on your machine.
+I had to find a free spot inside my machine.
+
+#+begin_src sh
+mint@mint ~ $ sudo mdadm --assemble --scan
+mdadm: /dev/md/3 has been started with 1 drive.
+#+end_src
+
+Trying to mount simply the device failed, because the disk was mounted with lvm.
+
+#+begin_src sh
+mint@mint ~ $ sudo mount /dev/md/3 /media/linux/
+mount: unknown filesystem type 'LVM2_member'
+#+end_src
+
+
+Now we need the [[http://sources.redhat.com/lvm2/][lvm2]] package, the rewrite of Linux Logical Volume Manager.
+This supports enterprise level volume management of disk and disk subsystems by grouping arbitrary disks into volume groups.
+The total capacity of volume groups can be allocated to logical volumes, which are accessed as regular block devices.
+
+We will use pvs, which reports information about physical volume.
+
+#+begin_src sh
+mint@mint ~ $ sudo pvs
+  PV         VG     Fmt  Attr PSize   PFree
+  /dev/md3   vg1001 lvm2 a--  927.00g    0
+#+end_src
+
+Good the volume do exists.
+To have a little more detail, let's use lvdisplay
+
+#+begin_src sh
+mint@mint ~ $ sudo lvdisplay /dev/vg1001
+  --- Logical volume ---
+  LV Path                /dev/vg1001/lv
+  LV Name                lv
+  VG Name                vg1001
+  LV UUID                4wSJ8q-0YNt-TBXz-Ybjp-6Ldb-f18d-vzn506
+  LV Write Access        read/write
+  LV Creation host, time ,
+  LV Status              available
+  # open                 0
+  LV Size                927.00 GiB
+  Current LE             237311
+  Segments               1
+  Allocation             inherit
+  Read ahead sectors     auto
+  - currently set to     256
+  Block device           252:0
+#+end_src
+
+Now, we can mount the volume /dev/mapper/vg10001-lv
+
+#+begin_src sh
+mint@mint ~ $ mount
+...
+/dev/mapper/vg1001-lv on /media/mint/1.41.12-2228 type ext4 (rw,nosuid,nodev,uhelper=udisks2)
+#+end_src
+
+Yeah!
+Now backup time, a little rsync will do.
