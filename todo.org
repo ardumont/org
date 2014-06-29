@@ -1423,7 +1423,6 @@ CLOSED: [2014-06-26 Thu 20:15]
 http://bluishcoder.co.nz/2014/05/14/installing-nixos-with-encrypted-root-on-thinkpad-w540.html
 https://nixos.org/wiki/Encrypted_Root_on_NixOS
 * TODO RAID
-* TODO Make a personal live-cd (xmonad, firefox, etc...)
 * DONE Find a package containing a file
 CLOSED: [2014-06-29 Sun 11:44]
 #+begin_src sh
@@ -1432,3 +1431,9 @@ apt-file update
 apt-file find <the-file-to-seek>
 #+end_src
 apt-file will tell you the package you are looking for.
+* IN-PROGRESS Make a personal live-cd (xmonad, firefox, etc...) [20%]
+- [X] Create a simple iso, boot it and log
+- [ ] Update the live linux to have X11 running
+- [ ] Make X11 running with XMonad
+- [ ] Ensure network (wifi included) is ok
+- [ ] Make it an installable iso
