@@ -1424,3 +1424,11 @@ http://bluishcoder.co.nz/2014/05/14/installing-nixos-with-encrypted-root-on-thin
 https://nixos.org/wiki/Encrypted_Root_on_NixOS
 * TODO RAID
 * TODO Make a personal live-cd (xmonad, firefox, etc...)
+* DONE Find a package containing a file
+CLOSED: [2014-06-29 Sun 11:44]
+#+begin_src sh
+sudo aptitude install -y apt-file
+apt-file update
+apt-file find <the-file-to-seek>
+#+end_src
+apt-file will tell you the package you are looking for.
