@@ -1431,6 +1431,14 @@ apt-file update
 apt-file find <the-file-to-seek>
 #+end_src
 apt-file will tell you the package you are looking for.
+* DONE Print block device attribute
+CLOSED: [2014-06-30 Mon 21:20]
+blkid to the rescue:
+
+#+begin_src sh
+$ sudo blkid /dev/sdb1
+/dev/sdb1: UUID="be4bd3d5-abbc-4788-911c-e15b1557e1dd" TYPE="ext4"
+#+end_src
 * IN-PROGRESS Make a personal live-cd (xmonad, firefox, etc...) [20%]
 - [X] Create a simple iso, boot it and log
 - [ ] Update the live linux to have X11 running
