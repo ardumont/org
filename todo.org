@@ -1445,3 +1445,7 @@ $ sudo blkid /dev/sdb1
 - [ ] Make X11 running with XMonad
 - [ ] Ensure network (wifi included) is ok
 - [ ] Make it an installable iso
+* IN-PROGRESS Secure machines
+- [X] Reinstall os + secure the disk
+- [ ] Secure hdd
+- [ ] Secure usb disks
