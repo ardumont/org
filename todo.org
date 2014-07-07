@@ -1440,10 +1440,10 @@ $ sudo blkid /dev/sdb1
 /dev/sdb1: UUID="be4bd3d5-abbc-4788-911c-e15b1557e1dd" TYPE="ext4"
 #+end_src
 * IN-PROGRESS Make a personal live-cd (xmonad, firefox, etc...) [20%]
-- [X] Create a simple iso, boot it and log
+- [X] Create a simple iso, boot it
+- [ ] Ensure network (wifi included) is ok
 - [ ] Update the live linux to have X11 running
 - [ ] Make X11 running with XMonad
-- [ ] Ensure network (wifi included) is ok
 - [ ] Make it an installable iso
 * IN-PROGRESS Secure machines
 - [X] Reinstall os + secure the disk
