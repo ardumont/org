@@ -1,0 +1,42 @@
+#+title: Nixos install
+
+- Boot on usb disk
+
+- Log as root (no pass by default)
+
+- The first time around, we need to slice the disks accordingly using fdisk (legacy MBR) or cfdisk (for UEFI partitions).
+
+#+begin_src sh
+fdisk /dev/sda
+
+mkfs.ext4 -L boot /dev/sda1
+swapon /dev/sda2
+mkfs.ext4 -L root /dev/sda3
+
+mount /dev/disk/by-label/root /mnt/
+mount /dev/disk/by-label/boot /mnt/boot
+
+nix-generate-config --root=/mnt
+
+nix-env -i wget
+wget https://raw.githubusercontent.com/ardumont/dot-files/master/nixos/configuration.nix --output-file /mnt/etc/nixos/
+
+nixos-install
+
+reboot
+#+end_src
+
+- Log as root again (no password remember)
+
+- Input a password for the root user:
+#+begin_src sh
+passwd
+#+end_src
+
+- Input a password for your standard user
+
+#+begin_src sh
+passwd tony
+#+end_src
+
+- And now you are done!
