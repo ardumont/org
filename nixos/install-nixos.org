@@ -39,4 +39,8 @@ passwd
 passwd tony
 #+end_src
 
-- And now you are done!
+- And now you have a new nixos install.
+
+- I now retrieve my home backup from elsewhere (nas rsync for example) or clone my git repositories.
+
+- When the backup is installed, I have a fully compliant replicated machine
