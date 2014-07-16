@@ -10,11 +10,12 @@
 fdisk /dev/sda
 
 mkfs.ext4 -L boot /dev/sda1
-swapon /dev/sda2
+swapon -L swap /dev/sda2
 mkfs.ext4 -L root /dev/sda3
 
 mount /dev/disk/by-label/root /mnt/
 mount /dev/disk/by-label/boot /mnt/boot
+swapon /dev/disk/by-label/swap
 
 nix-generate-config --root=/mnt
 
