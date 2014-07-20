@@ -1404,7 +1404,7 @@ CLOSED: [2014-06-26 Thu 20:15]
 * IN-PROGRESS Nix* [0%]
 ** Nix [0%]
 - [ ] nix package manager - http://nixos.org/nix/manual/
-** NixOS [85%]
+** NixOS [86%]
 - [X] nixos - http://nixos.org/nixos/manual/
 - [X] Install nixos -> https://github.com/ardumont/dot-files/blob/master/configuration.nix
 - [X] Fix trouble with X (it may be my personal xmonad.hs's deps that are not satisfied)
@@ -1426,6 +1426,9 @@ https://nixos.org/wiki/Encrypted_Root_on_NixOS
 - [X] edit /etc/hosts to add nas, dagobah, etc...
 - [X] Fix gnupg agent
 - [X] pmount for a nixos user
+- [X] suspend to ram on lid close event
+- [ ] screen lock on open lid event
+- [X] sound
 
 * TODO RAID
 * DONE Find a package containing a file
