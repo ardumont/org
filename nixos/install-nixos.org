@@ -1,4 +1,5 @@
 #+title: Nixos install
+#+author: ardumont
 
 - Boot on usb disk
 
@@ -8,39 +9,68 @@
 
 #+begin_src sh
 fdisk /dev/sda
+#+end_src
 
+- Now that the partition are done, we can create the filesystem accordingly
+
+#+begin_src sh
 mkfs.ext4 -L boot /dev/sda1
 swapon -L swap /dev/sda2
 mkfs.ext4 -L root /dev/sda3
+#+end_src
 
+- Mount the partitions
+
+#+begin_src sh
 mount /dev/disk/by-label/root /mnt/
 mount /dev/disk/by-label/boot /mnt/boot
 swapon /dev/disk/by-label/swap
+#+end_src
 
+- Ask NixOS to generate the templates configuration.nix and hardware-configuration.nix (scanned from the previous operations).
+
+#+begin_src sh
 nix-generate-config --root=/mnt
+#+end_src
 
+- Override the configuration.nix with mine
+
+#+begin_src sh
 nix-env -i wget
 wget https://raw.githubusercontent.com/ardumont/dot-files/master/nixos/configuration.nix --output-file /mnt/etc/nixos/
+#+end_src
 
+- Install NixOS
+
+#+begin_src sh
 nixos-install
+#+end_src
 
+*Note* This can be long due to the network (I have a slow one).
+
+- Reboot
+
+#+begin_src sh
 reboot
 #+end_src
 
-- Log as root again (no password remember)
+- Log as root again (no password remember :)
 
-- Input a password for the root user:
+- Input a password for the root user
+
 #+begin_src sh
 passwd
 #+end_src
 
-- Input a password for your standard user
+- Input a password for your standard user (user are declared in the configuration.nix file)
 
 #+begin_src sh
 passwd tony
 #+end_src
 
-- And now you have a new nixos install.
+*Note* You could fill the password in configuration.nix (as mine is on github, no thank you).
+
+- And now a replicated nixos install from the software point of view
 
 - I now retrieve my home backup from elsewhere (nas rsync for example) or clone my git repositories.
 
