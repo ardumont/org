@@ -1403,32 +1403,31 @@ CLOSED: [2014-06-26 Thu 20:15]
 - [X] Disambiguate - http://www.rodsbooks.com/gdisk/whatsgpt.html
 * IN-PROGRESS Nix* [0%]
 ** Nix [0%]
-- [ ] nix package manager - http://nixos.org/nix/manual/
+- [ ] Nix package manager - http://nixos.org/nix/manual/
 ** NixOS [86%]
-- [X] nixos - http://nixos.org/nixos/manual/
+- [X] Read [[http://nixos.org/nixos/manual/][NixOS manual]]
 - [X] Install nixos -> https://github.com/ardumont/dot-files/blob/master/configuration.nix
 - [X] Fix trouble with X (it may be my personal xmonad.hs's deps that are not satisfied)
-- [X] xmonad
-- [X] emacs
-- [X] ntp
-- [X] sudo
-- [X] fonts
-- [X] firefox with keysnail
-- [X] firefox with flash
-- [X] pass
-- [X] offlineimap + mu
-- [X] zenity
-- [ ] haskell
-- [ ] Install nixos with encryption
-http://bluishcoder.co.nz/2014/05/14/installing-nixos-with-encrypted-root-on-thinkpad-w540.html
-https://nixos.org/wiki/Encrypted_Root_on_NixOS
+- [X] Xmonad
+- [X] Emacs
+- [X] Ntp
+- [X] Sudo
+- [X] Fonts
+- [X] Firefox with keysnail
+- [X] Firefox with flash
+- [X] Pass
+- [X] Offlineimap + mu
+- [X] Zenity
 - [X] Install packages not yet installed (gitg tig zenity xmodmap pmount gpg2 nmcli)
-- [X] edit /etc/hosts to add nas, dagobah, etc...
+- [X] Edit /etc/hosts to add nas, dagobah, etc...
 - [X] Fix gnupg agent
-- [X] pmount for a nixos user
-- [X] suspend to ram on lid close event
-- [ ] screen lock on open lid event
-- [X] sound
+- [X] Make pmount usable directly by nixos user
+- [X] Suspend to ram on lid close event
+- [X] Screen lock on open lid event
+- [X] Sound
+- [ ] brightness increase/decrease
+- [ ] Haskell
+- [ ] Install nixos with encryption - http://bluishcoder.co.nz/2014/05/14/installing-nixos-with-encrypted-root-on-thinkpad-w540.html - https://nixos.org/wiki/Encrypted_Root_on_NixOS
 
 * TODO RAID
 * DONE Find a package containing a file
