@@ -1456,3 +1456,4 @@ $ sudo blkid /dev/sdb1
 - [X] Reinstall os + secure the disk
 - [ ] Secure hdd
 - [ ] Secure usb disks
+* TODO bind - readline
