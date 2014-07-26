@@ -15,7 +15,7 @@ fdisk /dev/sda
 
 #+begin_src sh
 mkfs.ext4 -L boot /dev/sda1
-swapon -L swap /dev/sda2
+mkswap -L swap /dev/sda2
 mkfs.ext4 -L root /dev/sda3
 #+end_src
 
