@@ -30,7 +30,7 @@ swapon /dev/disk/by-label/swap
 - Ask NixOS to generate the templates configuration.nix and hardware-configuration.nix (scanned from the previous operations).
 
 #+begin_src sh
-nix-generate-config --root=/mnt
+nixos-generate-config --root=/mnt
 #+end_src
 
 - Override the configuration.nix with mine
