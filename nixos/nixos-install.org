@@ -60,7 +60,7 @@ cp /etc/wpa_supplicant.conf /mnt/etc/
 
 #+begin_src sh
 nix-env -i wget
-wget https://raw.githubusercontent.com/ardumont/dot-files/master/nixos/configuration.nix --output-document /mnt/etc/nixos/
+wget https://raw.githubusercontent.com/ardumont/dot-files/master/nixos/configuration.nix --output-document /mnt/etc/nixos/configuration.nix
 #+end_src
 
 - Install NixOS
