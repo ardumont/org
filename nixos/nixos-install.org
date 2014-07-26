@@ -37,7 +37,7 @@ nixos-generate-config --root=/mnt
 
 #+begin_src sh
 nix-env -i wget
-wget https://raw.githubusercontent.com/ardumont/dot-files/master/nixos/configuration.nix --output-file /mnt/etc/nixos/
+wget https://raw.githubusercontent.com/ardumont/dot-files/master/nixos/configuration.nix --output-document /mnt/etc/nixos/
 #+end_src
 
 - Install NixOS
