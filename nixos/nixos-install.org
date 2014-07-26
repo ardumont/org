@@ -33,6 +33,29 @@ swapon /dev/disk/by-label/swap
 nixos-generate-config --root=/mnt
 #+end_src
 
+- Activate the wifi (determine the wifi's ssid).
+
+#+begin_src sh
+wpa_passphrase <SSID> <PASSPHRASE> > /etc/wpa_supplicant.conf
+#+end_src
+
+*Note* This will generate the wpa supplicant expression.
+Beware, there is an encrypted entry and a clear text entry you'll need to remove after.
+
+- Restart the dedicated service
+
+#+begin_src sh
+systemctl restart wpa_supplicant.service
+#+end_src
+
+*Note* Now you should have access to internet (check the access restrictions, e.g. mac address filering on your box)
+
+- Copy the wpa_supplicant.conf (to keep it after reboot)
+
+#+begin_src sh
+cp /etc/wpa_supplicant.conf /mnt/etc/
+#+end_src
+
 - Override the configuration.nix with mine
 
 #+begin_src sh
