@@ -403,7 +403,7 @@ CLOSED: [2013-08-04 dim. 15:17]
 ** DONE Plafonnier
 CLOSED: [2013-08-04 dim. 15:17]
 ** TODO Poser le papier peint sur les murs
-* IN-PROGRESS Toilettes du bas [6/10]
+* IN-PROGRESS Toilettes du bas [7/10]
 ** DONE Sous-couche porte
 CLOSED: [2013-07-30 mar. 21:46]
 ** DONE Peindre porte
@@ -416,7 +416,8 @@ CLOSED: [2013-08-01 jeu. 19:25]
 CLOSED: [2013-08-04 dim. 15:17]
 ** DONE Poignee toilette/buanderie
 CLOSED: [2013-08-04 dim. 20:29]
-** TODO Changer les toilettes
+** DONE Changer les toilettes
+CLOSED: [2014-07-28 Mon 21:33]
 ** TODO Retirer le crepis
 ** TODO Enduit de rebouchage
 ** TODO Peinture
