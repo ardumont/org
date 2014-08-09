@@ -1,0 +1,4 @@
+#+title: twittering-mode reminder
+#+author: me
+
+Post a tweet u or `C-c C-s` (from http://www.emacswiki.org/emacs/TwitteringMode#toc11)
