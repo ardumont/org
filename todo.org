@@ -1457,3 +1457,10 @@ $ sudo blkid /dev/sdb1
 - [ ] Secure hdd
 - [ ] Secure usb disks
 * TODO bind - readline
+* DONE Improve Haskell-pack [100%]
+CLOSED: [2014-08-16 Sat 17:33]
+- [X] Read haskell-mode setup
+- [X] Switch from deprecated inferior-haskell to interactive-haskell-mode
+- [X] Propose C-c C-z switch to repl and back
+- [X] Integrated in haskell-mode now (not my code but at least the idea :D)
+- [ ]
