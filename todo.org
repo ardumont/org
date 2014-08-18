@@ -1464,3 +1464,12 @@ CLOSED: [2014-08-16 Sat 17:33]
 - [X] Propose C-c C-z switch to repl and back
 - [X] Integrated in haskell-mode now (not my code but at least the idea :D)
 - [ ]
+* IN-PROGRESS HWifi [87%]
+- [X] Bootstrap hwifi in [[https://github.com/ardumont/hWifi][ardumont/hWifi]] - only scan and auto-connect to the most powerful signal
+- [X] Tests
+- [X] Docstring
+- [X] Migrate to [[https://github.com/lambdatree/hWifi][lambdatree/hWifi]] to try and initiate a team focus
+- [X] Improve the base code - https://github.com/lambdatree/hWifi/pull/12 - https://github.com/lambdatree/hWifi/pull/13
+- [X] Re-add tests - https://github.com/lambdatree/hWifi/pull/14
+- [X] Implement basic connection to new and unknown wifi - https://github.com/lambdatree/hWifi/pull/15
+- [ ] Improve the hwifi launcher to be semi-automatic regarding the wifi creation
