@@ -1259,7 +1259,8 @@ CLOSED: [2014-02-26 mer. 22:39]
 - [ ] http://www.haskell.org/haskellwiki/Monad#Interesting_Monads
 - [ ] http://www.haskell.org/haskellwiki/Category_theory
 - [ ] Functional programming with bananas, lenses, envelopes and barbed wire
-* IN-PROGRESS emacs-creds [87%]
+* DONE emacs-creds [87%]
+CLOSED: [2014-08-19 Tue 19:38]
 A small library to easily parse .authinfo files with more than just credentials information.
 - [X] 0.0.1
 - [X] 0.0.2
@@ -1268,7 +1269,6 @@ A small library to easily parse .authinfo files with more than just credentials 
 - [X] 0.0.5
 - [X] 0.0.5.1
 - [X] 0.0.6
-- [ ] 0.0.X
 * DONE emails in emacs [100%]
 CLOSED: [2014-05-08 Thu 18:13]
 - [X] offlineimap to sync imap server locally in a maildir format - [[http://docs.offlineimap.org/en/latest/index.html][Documentation]]
@@ -1305,7 +1305,8 @@ CLOSED: [2014-06-22 Sun 10:47]
 * DONE laptop power management
 CLOSED: [2014-06-21 Sat 20:27]
 * TODO udisks
-* TODO [[http://software.schmorp.de/pkg/rxvt-unicode.html][rxvt-unicode]]
+* DONE [[http://software.schmorp.de/pkg/rxvt-unicode.html][rxvt-unicode]]
+CLOSED: [2014-08-19 Tue 19:38]
 * DONE fonts
 CLOSED: [2014-06-16 Mon 20:20]
 * DONE Remove cinnamon-settings-daemon (or gnome-settings-daemon) from my dependencies
@@ -1474,3 +1475,11 @@ CLOSED: [2014-08-16 Sat 17:33]
 - [X] Improve hwifi launcher to reject bad options - https://github.com/lambdatree/hWifi/pull/16
 - [X] Improve hWifi's main readme - https://github.com/lambdatree/hWifi/pull/16
 - [ ] Improve the hwifi launcher to be semi-automatic regarding the wifi creation
+* DONE markdown-toc [100%]
+CLOSED: [2014-08-19 Tue 19:57]
+- [X] 0.0.1
+- [X] 0.0.2
+- [X] 0.0.3
+- [X] 0.0.4
+- [X] 0.0.5
+- [X] 0.0.6
