@@ -129,7 +129,6 @@ Minor mode to sync trello and org-mode
 - [ ] Automate the releases part on Github
   - [ ] Upload tar archive on release
   - [ ] Add release notes to tag
-  - [ ] Update the main site entry http://ardumont.github.io/org-trello/ using the README.md (at the moment, this is loaded through the github generator)
 * IN-PROGRESS Scala [72%]
 ** DONE scala-pack
 CLOSED: [2013-07-26 ven. 12:15]
