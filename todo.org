@@ -66,19 +66,23 @@ Code it!
 - [X] Get back in touch - https://github.com/ardumont/harduino-lab
 - [X] https://github.com/LeventErkok/hArduino/pull/9
 - [ ] Dig more
-* IN-PROGRESS org-trello [60%]
+* IN-PROGRESS org-trello [66%]
 Minor mode to sync trello and org-mode
 - [X] Deploy in melpa (automated on their own)
 - [X] Deploy in marmalade
-- [-] Releases
-  - [X] v0.0.1
-  - [X] v0.0.2
-  - [X] pb in 0.0.1
-  - [X] v0.0.3
-  - [X] v0.0.4
-  - [X] v0.0.5
-  - [X] v0.0.6CLOSED: [2013-07-26 ven. 12
-  - [X] v0.0.8
+- [X] Automate the release part to marmalade
+- [X] Improve documentation rendering -> dedicated repo and site org-trello.github.io
+- [ ] Automate the releases part on Github
+  - [ ] Upload tar archive on release
+  - [ ] Add release notes to tag
+- [-] Releases [96%]
+  - [X] 0.0.1
+  - [X] 0.0.2
+  - [X] 0.0.3
+  - [X] 0.0.4
+  - [X] 0.0.5
+  - [X] 0.0.6
+  - [X] 0.0.8
   - [X] 0.0.9
   - [X] 0.1.0
   - [X] 0.1.1
@@ -125,10 +129,6 @@ Minor mode to sync trello and org-mode
   - [X] 0.5.2
   - [ ] 0.5.3
   - [ ] ...
-- [X] Automate the release part to marmalade
-- [ ] Automate the releases part on Github
-  - [ ] Upload tar archive on release
-  - [ ] Add release notes to tag
 * IN-PROGRESS Scala [72%]
 ** DONE scala-pack
 CLOSED: [2013-07-26 ven. 12:15]
