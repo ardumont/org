@@ -75,7 +75,7 @@ Minor mode to sync trello and org-mode
 - [ ] Automate the releases part on Github
   - [ ] Upload tar archive on release
   - [ ] Add release notes to tag
-- [-] Releases [96%]
+- [-] Releases [98%]
   - [X] 0.0.1
   - [X] 0.0.2
   - [X] 0.0.3
@@ -127,7 +127,8 @@ Minor mode to sync trello and org-mode
   - [X] 0.5.0
   - [X] 0.5.1
   - [X] 0.5.2
-  - [ ] 0.5.3
+  - [X] 0.5.3
+  - [X] 0.5.4
   - [ ] ...
 * IN-PROGRESS Scala [72%]
 ** DONE scala-pack
