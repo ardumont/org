@@ -12,48 +12,48 @@ Code it!
 - [ ] Deadlocks
 - [ ] Livelocks
 - [ ] Priority inversions
-* IN-PROGRESS Readings [20%]
- - [X] practical clojure
- - [X] joy of clojure
- - [X] clojure in action
- - [X] Clojure programming
- - [X] Programming in haskell [100%]
-   - [X] chapter 1
-   - [X] chapter 2
-   - [X] chapter 3
-   - [X] chapter 4
-   - [X] chapter 5
-   - [X] chapter 6
-   - [X] chapter 7
-   - [X] chapter 8
-   - [X] chapter 9
-   - [X] chapter 10
-   - [X] chapter 11
-   - [X] chapter 12
-   - [X] chapter 13
-   - [X] http://yannesposito.com/Scratch/en/blog/Haskell-the-Hard-Way/
-   - [X] http://learnyouahaskell.com/input-and-output
-   - [X] http://learnyouahaskell.com/types-and-typeclasses
- - [ ] N. Wirth                   - Program development by Stepwise refinement              - Cacm, April 1971
- - [ ] D. L. Parnas               - Information distribution Aspects of Design Methodology  - IFIP Congress, 1971
- - [ ] B. Liskov                  - A design Methodology for Reliable Software Systems      - FJCC, Dec. 1972
- - [ ] O-J. Dahl & C. A. R. Hoare - Hierarchical Program Structures. Structured Programming - Academic Press, 1972
- - [ ] J. H. Morris               - Protection in Programming Languages                     - Cacm, Jan. 1973
- - [ ] W. Wulf & M. Shaw          - Global Variable Considered Harmful                      - Sigplan Notices, 1973
- - [ ] B. Liskov & S. Zilles      - Programming with Abstract Data Types.                   - ACM conferences on Very High Level Languages, Apr. 1974
- - [ ] B. Liskov                  - Data abstraction and hierarchy                          - Sigplan notices, May. 1988
- - [ ] P. Norvig                  - [[http://norvig.com/21-days.html][Teach yourself programming in ten years]]
- - [ ] Domain Driven Design
- - [ ] Clojure data analysis cookbook
- - [ ] Parallel and concurrent programming in haskell
- - [ ] How to Design Programs: An Introduction to Programming and Computing
- - [ ] The Little Schemer
- - [ ] The Seasoned Schemer
- - [ ] The Reasoned Schemer
- - [ ] [[Http://riemann.io/index.html][riemann]] - monitors distributed systems
- - [ ] [[http://www.docker.io/][docker]] - an open source project to pack, ship and run any application as a lightweight container
- - [ ] [[http://www.packer.io/][packer]] - a tool for creating identical machine images for multiple platforms from a single source configuration.
- - [ ] [[http://www.opscode.com/chef/][Chef]] - infrastructure automation and configuration management framework - infrastructure as code
+* IN-PROGRESS Readings [19%]
+- [X] practical clojure
+- [X] joy of clojure
+- [X] clojure in action
+- [X] Clojure programming
+- [X] Programming in haskell [100%]
+  - [X] chapter 1
+  - [X] chapter 2
+  - [X] chapter 3
+  - [X] chapter 4
+  - [X] chapter 5
+  - [X] chapter 6
+  - [X] chapter 7
+  - [X] chapter 8
+  - [X] chapter 9
+  - [X] chapter 10
+  - [X] chapter 11
+  - [X] chapter 12
+  - [X] chapter 13
+  - [X] http://yannesposito.com/Scratch/en/blog/Haskell-the-Hard-Way/
+  - [X] http://learnyouahaskell.com/input-and-output
+  - [X] http://learnyouahaskell.com/types-and-typeclasses
+- [ ] N. Wirth                   - Program development by Stepwise refinement              - Cacm, April 1971
+- [ ] D. L. Parnas               - Information distribution Aspects of Design Methodology  - IFIP Congress, 1971
+- [ ] B. Liskov                  - A design Methodology for Reliable Software Systems      - FJCC, Dec. 1972
+- [ ] O-J. Dahl & C. A. R. Hoare - Hierarchical Program Structures. Structured Programming - Academic Press, 1972
+- [ ] J. H. Morris               - Protection in Programming Languages                     - Cacm, Jan. 1973
+- [ ] W. Wulf & M. Shaw          - Global Variable Considered Harmful                      - Sigplan Notices, 1973
+- [ ] B. Liskov & S. Zilles      - Programming with Abstract Data Types.                   - ACM conferences on Very High Level Languages, Apr. 1974
+- [ ] B. Liskov                  - Data abstraction and hierarchy                          - Sigplan notices, May. 1988
+- [ ] P. Norvig                  - [[http://norvig.com/21-days.html][Teach yourself programming in ten years]]
+- [ ] Domain Driven Design
+- [ ] Clojure data analysis cookbook
+- [ ] Parallel and concurrent programming in haskell
+- [ ] How to Design Programs: An Introduction to Programming and Computing
+- [ ] The Little Schemer
+- [ ] The Seasoned Schemer
+- [ ] The Reasoned Schemer
+- [ ] [[Http://riemann.io/index.html][riemann]] - monitors distributed systems
+- [ ] [[http://www.docker.io/][docker]] - an open source project to pack, ship and run any application as a lightweight container
+- [ ] [[http://www.packer.io/][packer]] - a tool for creating identical machine images for multiple platforms from a single source configuration.
+- [ ] [[http://www.opscode.com/chef/][Chef]] - infrastructure automation and configuration management framework - infrastructure as code
 
 * TODO Structure and Interpretation of Computer Programs - books
 * TODO Github - Play around with the Github API [100%]
@@ -355,7 +355,7 @@ CLOSED: [2013-08-04 dim. 07:06]
 - [X] Migrate to github
 - [X] New evolution to ease collection evaluation input
 - [ ] Update again the collection evaluation input
-* PENDING crypto [33%]
+n* PENDING crypto [33%]
 ** IN-PROGRESS coursera
 ** DONE matasano 1-8 [100%]
 CLOSED: [2013-05-17 ven. 04:59]
