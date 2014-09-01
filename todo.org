@@ -3,8 +3,8 @@
 
 * TODO coding challenge which computes the complexity - http://codility.com/
 * TODO Mouseless file manager
-Does not seem to find one!
-Code it!
+  Does not seem to find one!
+  Code it!
 * TODO Raspberry-PI [0%]
 - [ ] Learn
 * TODO The four horsemen of the parallel apocalypse
@@ -67,7 +67,7 @@ Code it!
 - [X] https://github.com/LeventErkok/hArduino/pull/9
 - [ ] Dig more
 * IN-PROGRESS org-trello [66%]
-Minor mode to sync trello and org-mode
+  Minor mode to sync trello and org-mode
 - [X] Deploy in melpa (automated on their own)
 - [X] Deploy in marmalade
 - [X] Automate the release part to marmalade
@@ -75,8 +75,8 @@ Minor mode to sync trello and org-mode
 - [ ] Automate the releases part on Github
   - [ ] Upload tar archive on release
   - [ ] Add release notes to tag
-- [-] Releases [96%]
-  - [X] 0.0.1
+- [-] Releases [94%]
+  - [ ] 0.0.1
   - [X] 0.0.2
   - [X] 0.0.3
   - [X] 0.0.4
@@ -130,7 +130,8 @@ Minor mode to sync trello and org-mode
   - [X] 0.5.3
   - [X] 0.5.4
   - [X] 0.5.5
-  - [ ] 0.5.6
+  - [X] 0.5.6
+  - [ ] 0.5.7
   - [ ] ...
 * IN-PROGRESS Scala [72%]
 ** DONE scala-pack
@@ -314,7 +315,7 @@ CLOSED: [2013-04-15 lun. 21:12]
 - [X] Ask if it's possible to add the means to load prelude modules from another location (keep the existing one and add another) - https://github.com/bbatsov/prelude/issues/474
 - [X] Switch to prelude? Mix prelude and emacs-live? => prelude-packs (emacs-live-packs's mirror)
 * DONE emacs-live-packs
-CLOSED: [2014-02-28 ven. 01:25]
+  CLOSED: [2014-02-28 ven. 01:25]
 - [X] Activate continuous integration
 * DONE prelude-packs [80%]
 - [X] Create
@@ -435,8 +436,8 @@ CLOSED: [2013-05-23 Thu 10:54]
 CLOSED: [2013-05-23 Thu 10:55]
 ** PENDING Finish the other exercises
 * PENDING 4clojure 144/155 [98%]
-http://www.4clojure.com/users
-http://www.4clojure.com/user/ardumont
+  http://www.4clojure.com/users
+  http://www.4clojure.com/user/ardumont
 ** DONE 21
 CLOSED: [2012-04-23 lun. 12:39]
 ** DONE 22
@@ -927,13 +928,13 @@ CLOSED: [2013-04-19 ven. 22:39]
 *** TODO new
  http://www.dicosmo.org/CourseNotes/pfav/
 * DONE sh [100%]
-CLOSED: [2012-04-21 Sat 12:08]
+  CLOSED: [2012-04-21 Sat 12:08]
 ** DONE init
 CLOSED: [2012-04-21 Sat 12:21]
 ** DONE cleanup
 CLOSED: [2012-04-21 Sat 17:47]
 * DONE stumpwm [100%]
-CLOSED: [2012-04-21 Sat 12:07]
+  CLOSED: [2012-04-21 Sat 12:07]
 ** DONE install
 CLOSED: [2012-04-21 Sat 12:07]
 ** DONE setup
@@ -942,7 +943,7 @@ CLOSED: [2012-04-21 Sat 12:07]
 ** DONE Updating setup
 CLOSED: [2012-04-21 Sat 17:48]
 * DONE migrate blog [100%]
-CLOSED: [2012-12-30 dim. 15:37]
+  CLOSED: [2012-12-30 dim. 15:37]
 ** CANCELLED migrate tonys-blog with static and nakkaya [100%]
 CLOSED: [2012-12-23 Sun 13:12]
 *** DONE static [100%]
@@ -996,7 +997,7 @@ CLOSED: [2012-12-23 Sun 13:17]
 **** DONE http://adumont.fr/blog/possible-team-workflow-with-git/
 CLOSED: [2012-12-23 Sun 13:17]
 * DONE Modifying theme [100%]
-CLOSED: [2013-01-01 mar. 20:10]
+  CLOSED: [2013-01-01 mar. 20:10]
 ** DONE find one
 CLOSED: [2013-01-01 mar. 20:09]
 ** DONE setup it
@@ -1006,7 +1007,7 @@ CLOSED: [2013-01-01 mar. 20:10]
 ** DONE ok with mobile
 CLOSED: [2013-01-01 mar. 20:10]
 * DONE curriculum [100%]
-CLOSED: [2013-04-19 ven. 22:40]
+  CLOSED: [2013-04-19 ven. 22:40]
 ** DONE update blog
 CLOSED: [2013-04-07 dim. 12:56]
 ** DONE create a curriculum site in clojurescript
@@ -1145,11 +1146,11 @@ CLOSED: [2012-04-22 Sun 11:13]
 Need some setup.
 *** IN-PROGRESS setup it to have access to different languages
 * DONE [[www.infoq.com/resource/minibooks/domain-driven-design-quickly/en/pdf/DomainDrivenDesignQuicklyOnline.pdf][DDD quickly]]
-CLOSED: [2013-08-10 sam. 10:31]
+  CLOSED: [2013-08-10 sam. 10:31]
 * DONE Structure and Interpretation of Computer Programs - video courses
-CLOSED: [2014-01-12 dim. 18:33]
+  CLOSED: [2014-01-12 dim. 18:33]
 * DONE Emacs [100%]
-CLOSED: [2014-01-12 dim. 18:37]
+  CLOSED: [2014-01-12 dim. 18:37]
 ** DONE install
 CLOSED: [2012-04-21 Sat 12:02]
 #+BEGIN_SRC sh
@@ -1242,7 +1243,7 @@ CLOSED: [2013-07-07 dim. 10:00]
 *** DONE jabber-pack
 CLOSED: [2013-07-07 dim. 10:00]
 * DONE clj-jam [100%]
-CLOSED: [2014-01-13 lun. 08:38]
+  CLOSED: [2014-01-13 lun. 08:38]
 - [X] Implements basic authentication
 - [X] Retrieve package information
 - [X] Compute some aggregation regarding emacs-lisp packaging
@@ -1250,7 +1251,7 @@ CLOSED: [2014-01-13 lun. 08:38]
 - [X] Deploy to heroku
 - [X] Plug CI to travis-ci
 * DONE keysnail [100%]
-CLOSED: [2014-02-26 mer. 22:39]
+  CLOSED: [2014-02-26 mer. 22:39]
 - [X] Tab manipulation
 - [X] .keysnail.js sync through git
 - [X] Synchronize keysnail plugin extension through git
@@ -1269,8 +1270,8 @@ CLOSED: [2014-02-26 mer. 22:39]
 - [ ] http://www.haskell.org/haskellwiki/Category_theory
 - [ ] Functional programming with bananas, lenses, envelopes and barbed wire
 * DONE emacs-creds [87%]
-CLOSED: [2014-08-19 Tue 19:38]
-A small library to easily parse .authinfo files with more than just credentials information.
+  CLOSED: [2014-08-19 Tue 19:38]
+  A small library to easily parse .authinfo files with more than just credentials information.
 - [X] 0.0.1
 - [X] 0.0.2
 - [X] 0.0.3
@@ -1279,7 +1280,7 @@ A small library to easily parse .authinfo files with more than just credentials 
 - [X] 0.0.5.1
 - [X] 0.0.6
 * DONE emails in emacs [100%]
-CLOSED: [2014-05-08 Thu 18:13]
+  CLOSED: [2014-05-08 Thu 18:13]
 - [X] offlineimap to sync imap server locally in a maildir format - [[http://docs.offlineimap.org/en/latest/index.html][Documentation]]
 - [X] mu to index the local maildir format - [[http://www.djcbsoftware.nl/code/mu/][official site]]
 - [X] mu4e to use mu from emacs - [[http://www.djcbsoftware.nl/code/mu/mu4e/index.html#Top][Documentation]]
@@ -1312,14 +1313,14 @@ CLOSED: [2014-06-22 Sun 10:47]
 - [ ] Sign emails with private key
 - [ ] Reference my public key in mail header
 * DONE laptop power management
-CLOSED: [2014-06-21 Sat 20:27]
+  CLOSED: [2014-06-21 Sat 20:27]
 * TODO udisks
 * DONE [[http://software.schmorp.de/pkg/rxvt-unicode.html][rxvt-unicode]]
-CLOSED: [2014-08-19 Tue 19:38]
+  CLOSED: [2014-08-19 Tue 19:38]
 * DONE fonts
-CLOSED: [2014-06-16 Mon 20:20]
+  CLOSED: [2014-06-16 Mon 20:20]
 * DONE Remove cinnamon-settings-daemon (or gnome-settings-daemon) from my dependencies
-CLOSED: [2014-05-08 Thu 12:48]
+  CLOSED: [2014-05-08 Thu 12:48]
 - [X] Deal with ssh-agent -> keychain
 - [X] Deal with gpg-agent -> keychain
 - [X] Make the laptop suspend when closing lid
@@ -1358,56 +1359,56 @@ CLOSED: [2014-05-08 Thu 12:48]
 - [ ] Check the keymap is correct at xmonad startup time
 - [ ] Adapt layout per workspace (gimp, etc...)
 * DONE Xmonad.Prompt.Pass [100%]
-CLOSED: [2014-06-15 Sun 16:37]
+  CLOSED: [2014-06-15 Sun 16:37]
 - [X] Read how to make a module for xmonad-contrib - http://www.haskell.org/haskellwiki/Xmonad/xmonad_development_tutorial
 - [X] passPrompt
 - [X] passGeneratePrompt
 - [X] passRemovePrompt
 - [X] Email to mailing list the dpatch
 * DONE XMonad.Actions.Search [100%]
-CLOSED: [2014-06-17 Tue 19:48]
+  CLOSED: [2014-06-17 Tue 19:48]
 - [X] Add DuckDuckGo search engine to the defaults - "https://duckduckgo.com/?t=lm&q=" - MERGED :D
 
 * DONE Buffer pack [100%]
-CLOSED: [2014-06-14 Sat 14:16]
+  CLOSED: [2014-06-14 Sat 14:16]
 - [X] C-c M-z from any buffer, spawns an ansi-term or go to one. C-c M-z from any ansi-term gets back to the buffer from whence you come fromPP
 * DONE Multiple git ssh keys fix!
-Open a ~/.ssh/config file:
-#+begin_src text
-Host host1
- User git
- Hostname bitbucket.org
- PreferredAuthentications publickey
- IdentityFile ~/.ssh/id_rsa-first-private-key
+  Open a ~/.ssh/config file:
+  #+begin_src text
+  Host host1
+   User git
+   Hostname bitbucket.org
+   PreferredAuthentications publickey
+   IdentityFile ~/.ssh/id_rsa-first-private-key
 
-Host host2
- User git
- Hostname bitbucket.org
- PreferredAuthentications publickey
- IdentitiesOnly yes
- IdentityFile ~/.ssh/id_rsa-second-private-key
-#+end_src
+  Host host2
+   User git
+   Hostname bitbucket.org
+   PreferredAuthentications publickey
+   IdentitiesOnly yes
+   IdentityFile ~/.ssh/id_rsa-second-private-key
+  #+end_src
 
-Clone with the first repo:
-#+begin_src sh
-git clone git@host1:ardumont/my-repo.git
-#+end_src
+  Clone with the first repo:
+  #+begin_src sh
+  git clone git@host1:ardumont/my-repo.git
+  #+end_src
 
-Clone with the second repo (this will used the second account):
-#+begin_src sh
-git clone git@host2:ardumont/my-repo.git
-#+end_src
+  Clone with the second repo (this will used the second account):
+  #+begin_src sh
+  git clone git@host2:ardumont/my-repo.git
+  #+end_src
 
-Source: http://dbushell.com/2013/01/27/multiple-accounts-and-ssh-keys/
+  Source: http://dbushell.com/2013/01/27/multiple-accounts-and-ssh-keys/
 * TODO bitcoin [0%]
 - [ ] https://bitcoin.org/en/
 - [ ] https://www.weusecoins.com/en/
 - [ ] https://blockchain.info/
 * DONE Fix org-with-silent-modification
-CLOSED: [2014-06-26 Thu 20:00]
-When you encounter this, M-x org-reload
+  CLOSED: [2014-06-26 Thu 20:00]
+  When you encounter this, M-x org-reload
 * DONE MBR/GPT partition
-CLOSED: [2014-06-26 Thu 20:15]
+  CLOSED: [2014-06-26 Thu 20:15]
 - [X] Disambiguate - http://www.rodsbooks.com/gdisk/whatsgpt.html
 * IN-PROGRESS Nix* [0%]
 ** Nix [0%]
@@ -1440,21 +1441,21 @@ CLOSED: [2014-06-26 Thu 20:15]
 
 * TODO RAID
 * DONE Find a package containing a file
-CLOSED: [2014-06-29 Sun 11:44]
-#+begin_src sh
-sudo aptitude install -y apt-file
-apt-file update
-apt-file find <the-file-to-seek>
-#+end_src
-apt-file will tell you the package you are looking for.
+  CLOSED: [2014-06-29 Sun 11:44]
+  #+begin_src sh
+  sudo aptitude install -y apt-file
+  apt-file update
+  apt-file find <the-file-to-seek>
+  #+end_src
+  apt-file will tell you the package you are looking for.
 * DONE Print block device attribute
-CLOSED: [2014-06-30 Mon 21:20]
-blkid to the rescue:
+  CLOSED: [2014-06-30 Mon 21:20]
+  blkid to the rescue:
 
-#+begin_src sh
-$ sudo blkid /dev/sdb1
-/dev/sdb1: UUID="be4bd3d5-abbc-4788-911c-e15b1557e1dd" TYPE="ext4"
-#+end_src
+  #+begin_src sh
+  $ sudo blkid /dev/sdb1
+  /dev/sdb1: UUID="be4bd3d5-abbc-4788-911c-e15b1557e1dd" TYPE="ext4"
+  #+end_src
 * IN-PROGRESS Make a personal live-cd (xmonad, firefox, etc...) [20%]
 - [X] Create a simple iso, boot it
 - [ ] Ensure network (wifi included) is ok
@@ -1467,7 +1468,7 @@ $ sudo blkid /dev/sdb1
 - [ ] Secure usb disks
 * TODO bind - readline
 * DONE Improve Haskell-pack [100%]
-CLOSED: [2014-08-16 Sat 17:33]
+  CLOSED: [2014-08-16 Sat 17:33]
 - [X] Read haskell-mode setup
 - [X] Switch from deprecated inferior-haskell to interactive-haskell-mode
 - [X] Propose C-c C-z switch to repl and back
@@ -1485,7 +1486,7 @@ CLOSED: [2014-08-16 Sat 17:33]
 - [X] Improve hWifi's main readme - https://github.com/lambdatree/hWifi/pull/16
 - [X] Improve the hwifi launcher to be semi-automatic (wait for user input if missing data) regarding the wifi creation
 * DONE markdown-toc [100%]
-CLOSED: [2014-08-19 Tue 19:57]
+  CLOSED: [2014-08-19 Tue 19:57]
 - [X] 0.0.1
 - [X] 0.0.2
 - [X] 0.0.3
