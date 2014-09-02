@@ -75,7 +75,7 @@
 - [ ] Automate the releases part on Github
   - [ ] Upload tar archive on release
   - [ ] Add release notes to tag
-- [-] Releases [94%]
+- [-] Releases [96%]
   - [ ] 0.0.1
   - [X] 0.0.2
   - [X] 0.0.3
@@ -131,7 +131,9 @@
   - [X] 0.5.4
   - [X] 0.5.5
   - [X] 0.5.6
-  - [ ] 0.5.7
+  - [X] 0.5.7
+  - [X] 0.5.8
+  - [X] 0.5.9
   - [ ] ...
 * IN-PROGRESS Scala [72%]
 ** DONE scala-pack
@@ -1473,7 +1475,6 @@ CLOSED: [2014-06-22 Sun 10:47]
 - [X] Switch from deprecated inferior-haskell to interactive-haskell-mode
 - [X] Propose C-c C-z switch to repl and back
 - [X] Integrated in haskell-mode now (not my code but at least the idea :D)
-- [ ]
 * IN-PROGRESS HWifi [100%]
 - [X] Bootstrap hwifi in [[https://github.com/ardumont/hWifi][ardumont/hWifi]] - only scan and auto-connect to the most powerful signal
 - [X] Tests
