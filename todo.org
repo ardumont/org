@@ -1298,7 +1298,7 @@ CLOSED: [2014-06-22 Sun 10:47]
 - [X] http://blog.sanctum.geek.nz/linux-crypto-passwords/
 - [X] http://git.zx2c4.com/password-store/
 - [X] http://babushk.in/posts/combining-xmonad-and-pass.html
-** IN-PROGRESS GNUPG [46%]
+** IN-PROGRESS GNUPG [66%]
 - [X] http://blog.sanctum.geek.nz/linux-crypto-introduction/
 - [X] http://blog.sanctum.geek.nz/linux-crypto-gnupg-keys/
 - [X] http://blog.sanctum.geek.nz/linux-crypto-gnupg-usage/
@@ -1306,9 +1306,9 @@ CLOSED: [2014-06-22 Sun 10:47]
 - [X] http://blog.sanctum.geek.nz/linux-crypto-sshgpg-agents/
 - [X] http://blog.sanctum.geek.nz/linux-crypto-passwords/
 - [X] http://blog.sanctum.geek.nz/linux-crypto-email/
-- [ ] http://blog.sanctum.geek.nz/linux-crypto-backups/
-- [ ] http://blog.sanctum.geek.nz/linux-crypto-disks/
-- [ ] http://blog.sanctum.geek.nz/linux-crypto-importance/
+- [X] http://blog.sanctum.geek.nz/linux-crypto-backups/
+- [X] http://blog.sanctum.geek.nz/linux-crypto-disks/
+- [X] http://blog.sanctum.geek.nz/linux-crypto-importance/
 - [ ] https://www.gnupg.org/gph/en/manual.html
 - [ ] http://wiki.debian.org/subkeys
 - [ ] Publish my public key to a public keyserver
@@ -1326,7 +1326,7 @@ CLOSED: [2014-06-22 Sun 10:47]
 - [X] Deal with ssh-agent -> keychain
 - [X] Deal with gpg-agent -> keychain
 - [X] Make the laptop suspend when closing lid
-* IN-PROGRESS XMonad [90%]
+* IN-PROGRESS XMonad [88%]
 - [X] Install
 - [X] Configure from template
 - [X] Run or raise some applications
@@ -1357,6 +1357,7 @@ CLOSED: [2014-06-22 Sun 10:47]
 - [X] Notify when xmonad is restarted or a window is killed
 - [X] Avoid spawning processes from ~/.xmonad/xmonad.hs and use .xinitrc standard
 - [X] Banish mouse pointer
+- [ ] Banish mouse pointer in nixos does not work
 - [ ] Adapt keymap in xmonad prompt (C-i <tab>, C-m <return>, C-g <Escape>, etc...)
 - [ ] Check the keymap is correct at xmonad startup time
 - [ ] Adapt layout per workspace (gimp, etc...)
