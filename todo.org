@@ -1416,7 +1416,7 @@ CLOSED: [2014-06-22 Sun 10:47]
 * IN-PROGRESS Nix* [0%]
 ** Nix [0%]
 - [ ] Nix package manager - http://nixos.org/nix/manual/
-** NixOS [95%]
+** NixOS [96%]
 - [X] Read [[http://nixos.org/nixos/manual/][NixOS manual]]
 - [X] Install nixos -> https://github.com/ardumont/dot-files/blob/master/configuration.nix
 - [X] Fix trouble with X (it may be my personal xmonad.hs's deps that are not satisfied)
@@ -1440,6 +1440,7 @@ CLOSED: [2014-06-22 Sun 10:47]
 - [X] nm-applet with NixOS
 - [X] brightness increase/decrease
 - [X] Haskell
+- [X] Fix trouble with suspend
 - [ ] Install nixos with encryption - http://bluishcoder.co.nz/2014/05/14/installing-nixos-with-encrypted-root-on-thinkpad-w540.html - https://nixos.org/wiki/Encrypted_Root_on_NixOS
 
 * TODO RAID
@@ -1496,4 +1497,4 @@ CLOSED: [2014-06-22 Sun 10:47]
 - [X] 0.0.5
 - [X] 0.0.6
 * DONE Find a software to display bindings as you type along - keymon
-CLOSED: [2014-09-06 Sat 18:53]
+  CLOSED: [2014-09-06 Sat 18:53]
