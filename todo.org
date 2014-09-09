@@ -1368,6 +1368,8 @@ CLOSED: [2014-06-22 Sun 10:47]
 - [X] passGeneratePrompt
 - [X] passRemovePrompt
 - [X] Email to mailing list the dpatch
+- [X] Improve code
+- [X] Patch applied! - http://www.haskell.org/pipermail/xmonad/2014-September/014243.html
 * DONE XMonad.Actions.Search [100%]
   CLOSED: [2014-06-17 Tue 19:48]
 - [X] Add DuckDuckGo search engine to the defaults - "https://duckduckgo.com/?t=lm&q=" - MERGED :D
