@@ -70,41 +70,41 @@ otoshi - laisser tomber
 
 #+CAPTION: Yellow belt
 #+NAME:   tab:basic-data
-|--------------------------+------------------------+-------------------------------------------+---------------------------------|
-| Yellow belt              | Meaning                | Actions                                   |                                 |
-|--------------------------+------------------------+-------------------------------------------+---------------------------------|
-| Morote-Seoi-Nage         | Two arm shoulder throw | [[./img/yellow/Morote-Seoi-Nage.gif]]         | [[./img/yellow/moroteseoinage.gif]] |
-| Ko-Uchi-Gari             | Small inner reap       | [[./img/yellow/Ko-Uchi-Gari.gif]]             | [[./img/yellow/1kouchi.gif]]        |
-| O-Uchi-Gari              |                        | [[./img/yellow/O-Uchi-Gari.gif]]              | [[./img/yellow/ouchigari.gif]]      |
-| Sasae-Tsuri-Komi-Ashi    |                        | [[./img/yellow/Sasae-Tsuri-Komi-Ashi.gif]]    |                                 |
-| Tsuri-Komi-Goshi         |                        | [[./img/yellow/Tsuri-Komi-Goshi.gif]]         | [[./img/yellow/tsurikomigoshi.gif]] |
-| Harai-Goshi              | Sweeping hip throw     | [[./img/yellow/Harai-Goshi.gif]]              | [[./img/yellow/haraigoshi.gif]]     |
-|--------------------------+------------------------+-------------------------------------------+---------------------------------|
-| Kata-Gatame              |                        | [[./img/yellow/Kata-Gatame.gif]]              |                                 |
-| Kuzure-Gesa-Gatame       |                        | [[./img/yellow/Kuzure-Gesa-Gatame.gif]]       |                                 |
-| Kuzure-Kami-Shiho-Gatame |                        | [[./img/yellow/Kuzure-Kami-Shiho-Gatame.gif]] |                                 |
-| Kuzure-Tate-Shiho-Gatame |                        | [[./img/yellow/Kuzure-Tate-Shiho-Gatame.gif]] |                                 |
-| Kuzure-Yoko-Shiho-Gatame |                        | [[./img/yellow/Kuzure-Yoko-Shiho-Gatame.gif]] |                                 |
-| Makura-Gesa-Gatame       |                        | [[./img/yellow/Makura-Gesa-Gatame.gif]]       |                                 |
-|--------------------------+------------------------+-------------------------------------------+---------------------------------|
+|--------------------------+-----------------------------+-------------------------------------------+-------------------------------------|
+| Yellow belt              | Meaning                     | Actions                                   |                                     |
+|--------------------------+-----------------------------+-------------------------------------------+-------------------------------------|
+| Morote-Seoi-Nage         | Two arm shoulder throw      | [[./img/yellow/Morote-Seoi-Nage.gif]]         | [[./img/yellow/moroteseoinage.gif]]     |
+| Ko-Uchi-Gari             | Small inner reap            | [[./img/yellow/Ko-Uchi-Gari.gif]]             | [[./img/yellow/1kouchi.gif]]            |
+| O-Uchi-Gari              | Large inner reaping         | [[./img/yellow/O-Uchi-Gari.gif]]              | [[./img/yellow/ouchigari.gif]]          |
+| Sasae-Tsuri-Komi-Ashi    | Lifting pulling Ankle block | [[./img/yellow/Sasae-Tsuri-Komi-Ashi.gif]]    | [[./img/yellow/sasaetsurikomiashi.gif]] |
+| Tsuri-Komi-Goshi         | Lifting pulling hip         | [[./img/yellow/Tsuri-Komi-Goshi.gif]]         | [[./img/yellow/tsurikomigoshi.gif]]     |
+| Harai-Goshi              | Sweeping hip throw          | [[./img/yellow/Harai-Goshi.gif]]              | [[./img/yellow/haraigoshi.gif]]         |
+|--------------------------+-----------------------------+-------------------------------------------+-------------------------------------|
+| Kata-Gatame              |                             | [[./img/yellow/Kata-Gatame.gif]]              |                                     |
+| Kuzure-Gesa-Gatame       |                             | [[./img/yellow/Kuzure-Gesa-Gatame.gif]]       |                                     |
+| Kuzure-Kami-Shiho-Gatame |                             | [[./img/yellow/Kuzure-Kami-Shiho-Gatame.gif]] |                                     |
+| Kuzure-Tate-Shiho-Gatame |                             | [[./img/yellow/Kuzure-Tate-Shiho-Gatame.gif]] |                                     |
+| Kuzure-Yoko-Shiho-Gatame |                             | [[./img/yellow/Kuzure-Yoko-Shiho-Gatame.gif]] |                                     |
+| Makura-Gesa-Gatame       |                             | [[./img/yellow/Makura-Gesa-Gatame.gif]]       |                                     |
+|--------------------------+-----------------------------+-------------------------------------------+-------------------------------------|
 ** orange
   source:
 - http://kodokanireland.com/OrangeBelt.html
 
 #+CAPTION: Orange belt
 #+NAME:   tab:basic-data
-|---------------------------+---------+--------------------------------------------|
-| Orange belt               | Meaning | Actions                                    |
-|---------------------------+---------+--------------------------------------------|
-| Hane-Goshi                |         | [[./img/orange/Hane-Goshi.gif]]                |
-| Immobilisations-Variants1 |         | [[./img/orange/Immobilisations-Variants1.gif]] |
-| Immobilisations-Variants2 |         | [[./img/orange/Immobilisations-Variants2.gif]] |
-| Koshi-Guruma              |         | [[./img/orange/Koshi-Guruma.gif]]              |
-| Ko-Soto-Gari              |         | [[./img/orange/Ko-Soto-Gari.gif]]              |
-| Okuri-Ashi-Barai          |         | [[./img/orange/Okuri-Ashi-Barai.gif]]          |
-| Tai-Otoshi                |         | [[./img/orange/Tai-Otoshi.gif]]                |
-| Uchi-Mata                 |         | [[./img/orange/Uchi-Mata.gif]]                 |
-|---------------------------+---------+--------------------------------------------|
+|---------------------------+----------------------+--------------------------------------------+---------------------------------+----------------------------|
+| Orange belt               | Meaning              | Actions                                    |                                 |                            |
+|---------------------------+----------------------+--------------------------------------------+---------------------------------+----------------------------|
+| Hane-Goshi                | Spring hip throw     | [[./img/orange/Hane-Goshi.gif]]                | [[./img/orange/hanegoshi.gif]]      |                            |
+| Koshi-Guruma              | Hip wheel            | [[./img/orange/Koshi-Guruma.gif]]              | [[./img/orange/koshiguruma.gif]]    |                            |
+| Ko-Soto-Gari              | Small outside reap   | [[./img/orange/Ko-Soto-Gari.gif]]              | [[./img/orange/kosotogari.gif]]     |                            |
+| Okuri-Ashi-Barai          | Following foot sweep | [[./img/orange/Okuri-Ashi-Barai.gif]]          | [[./img/orange/okuriashiharai.gif]] |                            |
+| Tai-Otoshi                | Body drop            | [[./img/orange/Tai-Otoshi.gif]]                | [[./img/orange/taiotoshi.gif]]      | [[./img/orange/taiotoshi2.gif]] |
+| Uchi-Mata                 |                      | [[./img/orange/Uchi-Mata.gif]]                 | [[./img/orange/uchimata.gif]]       | [[./img/orange/uchimata2.gif]]  |
+| Immobilisations-Variants1 |                      | [[./img/orange/Immobilisations-Variants1.gif]] |                                 |                            |
+| Immobilisations-Variants2 |                      | [[./img/orange/Immobilisations-Variants2.gif]] |                                 |                            |
+|---------------------------+----------------------+--------------------------------------------+---------------------------------+----------------------------|
 ** green
   source:
 - http://kodokanireland.com/GreenBelt.html
