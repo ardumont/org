@@ -18,38 +18,35 @@ otoshi - laisser tomber
 *** Sutemi waza - Techniques de projection en sacrifice
 
 * Vocabulary
-
-|--------------+-----------------------|
-| Judogi       | Judo Suit             |
-| Kimono       | Judo jacket           |
-| Obi          | Belt                  |
-| Dojo         | Room of Judo Practice |
-| Tatami       | Matt of Judo          |
-| Zarei        | Knee bow              |
-| Ritsurei     | Standing bow          |
-| Adjime       | Start                 |
-| Matte        | Stop                  |
-| Oseakomi     | Holding on            |
-| Toketa       | Out                   |
-| Koka         | 3 points              |
-| Yuko         | 5 points              |
-| Waza-ari     | 7 points              |
-| Ippon        | 10 points             |
-| Uke          | person defendant      |
-| Tori         | Person attacking      |
-| Randori      | Fight                 |
-| Hansoku-make | Penalties             |
-|--------------+-----------------------|
-
+  |--------------+-----------------------|
+  | Judogi       | Judo Suit             |
+  | Kimono       | Judo jacket           |
+  | Obi          | Belt                  |
+  | Dojo         | Room of Judo Practice |
+  | Tatami       | Matt of Judo          |
+  | Zarei        | Knee bow              |
+  | Ritsurei     | Standing bow          |
+  | Adjime       | Start                 |
+  | Matte        | Stop                  |
+  | Oseakomi     | Holding on            |
+  | Toketa       | Out                   |
+  | Koka         | 3 points              |
+  | Yuko         | 5 points              |
+  | Waza-ari     | 7 points              |
+  | Ippon        | 10 points             |
+  | Uke          | person defendant      |
+  | Tori         | Person attacking      |
+  | Randori      | Fight                 |
+  |--------------+-----------------------|
+  | Hansoku-make | Penalties             |
+  |--------------+-----------------------|
 * Waza
-
 ** white
-
-source:
+  source:
 - http://judoinfo.com/gokyo.htm
 - http://kodokanireland.com/WhiteBelt.html
 
-#+CAPTION: This is the caption for the next table (or link)
+#+CAPTION: White belt
 #+NAME:   tab:basic-data
 |--------------------+------------------------------+--------------------------------------------+-------------------------------+---------------------------------|
 | White belt         | Meaning                      | Actions                                    |                               |                                 |
@@ -67,9 +64,12 @@ source:
 | kami-shiho-gatame  | Control back sternal by belt | [[./img/white/kami_shiho_gatame-274x157.jpg]]  |                               |                                 |
 | tate-shiho-gatame  | Control top sternal          | [[./img/white/Tate_shiho_gatame-176x216.jpg]]  |                               |                                 |
 |--------------------+------------------------------+--------------------------------------------+-------------------------------+---------------------------------|
-
 ** yellow
+  source:
+- http://kodokanireland.com/YellowBelt.html
 
+#+CAPTION: Yellow belt
+#+NAME:   tab:basic-data
 |--------------------------+------------------------+-------------------------------------------+---------------------------------|
 | Yellow belt              | Meaning                | Actions                                   |                                 |
 |--------------------------+------------------------+-------------------------------------------+---------------------------------|
@@ -87,9 +87,102 @@ source:
 | Kuzure-Yoko-Shiho-Gatame |                        | [[./img/yellow/Kuzure-Yoko-Shiho-Gatame.gif]] |                                 |
 | Makura-Gesa-Gatame       |                        | [[./img/yellow/Makura-Gesa-Gatame.gif]]       |                                 |
 |--------------------------+------------------------+-------------------------------------------+---------------------------------|
-
 ** orange
+  source:
+- http://kodokanireland.com/OrangeBelt.html
+
+#+CAPTION: Orange belt
+#+NAME:   tab:basic-data
+|---------------------------+---------+--------------------------------------------|
+| Orange belt               | Meaning | Actions                                    |
+|---------------------------+---------+--------------------------------------------|
+| Hane-Goshi                |         | [[./img/orange/Hane-Goshi.gif]]                |
+| Immobilisations-Variants1 |         | [[./img/orange/Immobilisations-Variants1.gif]] |
+| Immobilisations-Variants2 |         | [[./img/orange/Immobilisations-Variants2.gif]] |
+| Koshi-Guruma              |         | [[./img/orange/Koshi-Guruma.gif]]              |
+| Ko-Soto-Gari              |         | [[./img/orange/Ko-Soto-Gari.gif]]              |
+| Okuri-Ashi-Barai          |         | [[./img/orange/Okuri-Ashi-Barai.gif]]          |
+| Tai-Otoshi                |         | [[./img/orange/Tai-Otoshi.gif]]                |
+| Uchi-Mata                 |         | [[./img/orange/Uchi-Mata.gif]]                 |
+|---------------------------+---------+--------------------------------------------|
 ** green
+  source:
+- http://kodokanireland.com/GreenBelt.html
+
+|------------------+---------+----------------------------------|
+| Green belt       | Meaning | Actions                          |
+|------------------+---------+----------------------------------|
+| Ashi-Gatame-Jime |         | [[./img/green/Ashi-Gatame-Jime.gif]] |
+| Ashi-Guruma      |         | [[./img/green/Ashi-Guruma.gif]]      |
+| Hadaka-Jime      |         | [[./img/green/Hadaka-Jime.gif]]      |
+| Kata-Guruma      |         | [[./img/green/Kata-Guruma.gif]]      |
+| Kata-Juji-Jime   |         | [[./img/green/Kata-Juji-Jime.gif]]   |
+| Ko-Soto-Gake     |         | [[./img/green/Ko-Soto-Gake.gif]]     |
+| Morote-Jime      |         | [[./img/green/Morote-Jime.gif]]      |
+| Sode-Guruma-Jime |         | [[./img/green/Sode-Guruma-Jime.gif]] |
+| Tomoe-Nage       |         | [[./img/green/Tomoe-Nage.gif]]       |
+| Uki-Otoshi       |         | [[./img/green/Uki-Otoshi.gif]]       |
+|------------------+---------+----------------------------------|
+
 ** blue
+  source:
+- http://kodokanireland.com/BlueBelt.html
+
+|-----------------------+---------+--------------------------------------|
+| Blue belt             | Meaning | Actions                              |
+|-----------------------+---------+--------------------------------------|
+| Hara_Gatame           |         | [[./img/blue/Hara_Gatame.gif]]           |
+| Harai_Tsuri_Komi_Ashi |         | [[./img/blue/Harai_Tsuri_Komi_Ashi.gif]] |
+| Hiza_Gatame           |         | [[./img/blue/Hiza_Gatame.gif]]           |
+| Juji_Gatame           |         | [[./img/blue/Juji_Gatame.gif]]           |
+| O_Guruma              |         | [[./img/blue/O_Guruma.gif]]              |
+| O_Soto_Otoshi         |         | [[./img/blue/O_Soto_Otoshi.gif]]         |
+| Soto_Maki_Komi        |         | [[./img/blue/Soto_Maki_Komi.gif]]        |
+| Ude_Garami            |         | [[./img/blue/Ude_Garami.gif]]            |
+| Ude_Gatame            |         | [[./img/blue/Ude_Gatame.gif]]            |
+| Uki_Waza              |         | [[./img/blue/Uki_Waza.gif]]              |
+| Waki_Gatame           |         | [[./img/blue/Waki_Gatame.gif]]           |
+|-----------------------+---------+--------------------------------------|
+
+Kata?
+| 2nd_Rear_Entry.gif    |
+| 2nd_Side_Entry.gif    |
+| 3rd_Side_Entry.gif    |
+| 4th_Entry_on_Back.gif |
+| 5th_Entry_on_Back.gif |
+| 5th_Front_Entry.gif   |
+| 6th_Front_Entry.gif   |
+
 ** brown
+  source:
+- http://kodokanireland.com/BrownBelt.html
+
+|--------------+---------+------------------------------|
+| Brown belt   | Meaning | Actions                      |
+|--------------+---------+------------------------------|
+| Te_Guruma    |         | [[./img/brown/Te_Guruma.gif]]    |
+| Ushiro_Goshi |         | [[./img/brown/Ushiro_Goshi.gif]] |
+| Utsuri_Goshi |         | [[./img/brown/Utsuri_Goshi.gif]] |
+| Yoko_Guruma  |         | [[./img/brown/Yoko_Guruma.gif]]  |
+| Yoko_Otoshi  |         | [[./img/brown/Yoko_Otoshi.gif]]  |
+|--------------+---------+------------------------------|
+
+Kata?
+| 1st_Leg_Escape.gif    |
+| 2nd_Leg_Escape.gif    |
+| 3rd_Leg_Escape.gif    |
+| 3rd_Rear_Entry.gif    |
+| 4th_Side_Entry.gif    |
+| 6th_Entry_on_Back.gif |
+| 7th_Entry_on_Back.gif |
+| 7th_Front_Entry.gif   |
+| 8th_Front_Entry.gif   |
 ** black
+  source:
+- http://kodokanireland.com/BlackBelt.html
+
+|------------+---------+---------|
+| Black belt | Meaning | Actions |
+|------------+---------+---------|
+|            |         |         |
+|------------+---------+---------|
