@@ -1,7 +1,5 @@
 * Nage waza - Techniques de projection
-
 ** Tachi waza - Techniques de projection debout
-
 *** Te waza - Projection de main et de bras
 - Ippon seoi nage - Projection en chargement sur le dos
 - Morote seoi nage - Projection d'epaule a 2 mains
@@ -11,7 +9,6 @@
 - Kata guruma - Roue autour des epaules
 - Uki otoshi - Renversement flottant
 - Sumi otoshi - Renversement ds le coin
-
 otoshi - laisser tomber
 
 *** Koshi waza - Projection de hanche
@@ -19,3 +16,80 @@ otoshi - laisser tomber
 *** Ashi waza - Projection de pieds et de jambes
 
 *** Sutemi waza - Techniques de projection en sacrifice
+
+* Vocabulary
+
+|--------------+-----------------------|
+| Judogi       | Judo Suit             |
+| Kimono       | Judo jacket           |
+| Obi          | Belt                  |
+| Dojo         | Room of Judo Practice |
+| Tatami       | Matt of Judo          |
+| Zarei        | Knee bow              |
+| Ritsurei     | Standing bow          |
+| Adjime       | Start                 |
+| Matte        | Stop                  |
+| Oseakomi     | Holding on            |
+| Toketa       | Out                   |
+| Koka         | 3 points              |
+| Yuko         | 5 points              |
+| Waza-ari     | 7 points              |
+| Ippon        | 10 points             |
+| Uke          | person defendant      |
+| Tori         | Person attacking      |
+| Randori      | Fight                 |
+| Hansoku-make | Penalties             |
+|--------------+-----------------------|
+
+* Waza
+
+** white
+
+source:
+- http://judoinfo.com/gokyo.htm
+- http://kodokanireland.com/WhiteBelt.html
+
+#+CAPTION: This is the caption for the next table (or link)
+#+NAME:   tab:basic-data
+|--------------------+------------------------------+--------------------------------------------+-------------------------------+---------------------------------|
+| White belt         | Meaning                      | Actions                                    |                               |                                 |
+|--------------------+------------------------------+--------------------------------------------+-------------------------------+---------------------------------|
+| o-soto-gari        | Big outside sweep            | [[./img/white/O_soto_gari1-332x168.jpg]]       | [[./img/white/osotogari.gif]]     | [[./img/white/kotaniosotogari.gif]] |
+| ippon-seoi-nage    | Shoulder throw               | [[./img/white/ippon_seoi_nage-330x138.jpg]]    | [[./img/white/ipponseoinage.gif]] |                                 |
+| o goshi            | Big hip throw                | [[./img/white/o_goshi2-329x142.jpg]]           | [[./img/white/ogoshi.gif]]        |                                 |
+| uki goshi          | Simple hip turn              | [[./img/white/uki_goshi-331x188.jpg]]          | [[./img/white/ukigoshi.gif]]      |                                 |
+| hiza-guruma        | Wheel around the turn        | [[./img/white/hiza_guruma-328x135.jpg]]        | [[./img/white/hizaguruma.gif]]    |                                 |
+| de-ashi-barai      | Sweep of the advance foot    | [[./img/white/de_ashi_barai-330x150.jpg]]      | [[./img/white/deashibarai.gif]]   |                                 |
+|--------------------+------------------------------+--------------------------------------------+-------------------------------+---------------------------------|
+| hon-gesa-gatame    | Control latero costal        | [[./img/white/Hon_gesa_gatame-262x159.jpg]]    |                               |                                 |
+| yoko-shiho-gatame  | Control latero sternal       | [[./img/white/yoko_shiho_gatame-263x182.jpg]]  |                               |                                 |
+| ushiro-gesa-gatame | Control back postal          | [[./img/white/ushiro_gesa_gatame-266x179.jpg]] |                               |                                 |
+| kami-shiho-gatame  | Control back sternal by belt | [[./img/white/kami_shiho_gatame-274x157.jpg]]  |                               |                                 |
+| tate-shiho-gatame  | Control top sternal          | [[./img/white/Tate_shiho_gatame-176x216.jpg]]  |                               |                                 |
+|--------------------+------------------------------+--------------------------------------------+-------------------------------+---------------------------------|
+
+** yellow
+
+|--------------------------+------------------------+-------------------------------------------+---------------------------------|
+| Yellow belt              | Meaning                | Actions                                   |                                 |
+|--------------------------+------------------------+-------------------------------------------+---------------------------------|
+| Morote-Seoi-Nage         | Two arm shoulder throw | [[./img/yellow/Morote-Seoi-Nage.gif]]         | [[./img/yellow/moroteseoinage.gif]] |
+| Ko-Uchi-Gari             | Small inner reap       | [[./img/yellow/Ko-Uchi-Gari.gif]]             | [[./img/yellow/1kouchi.gif]]        |
+| O-Uchi-Gari              |                        | [[./img/yellow/O-Uchi-Gari.gif]]              | [[./img/yellow/ouchigari.gif]]      |
+| Sasae-Tsuri-Komi-Ashi    |                        | [[./img/yellow/Sasae-Tsuri-Komi-Ashi.gif]]    |                                 |
+| Tsuri-Komi-Goshi         |                        | [[./img/yellow/Tsuri-Komi-Goshi.gif]]         | [[./img/yellow/tsurikomigoshi.gif]] |
+| Harai-Goshi              | Sweeping hip throw     | [[./img/yellow/Harai-Goshi.gif]]              | [[./img/yellow/haraigoshi.gif]]     |
+|--------------------------+------------------------+-------------------------------------------+---------------------------------|
+| Kata-Gatame              |                        | [[./img/yellow/Kata-Gatame.gif]]              |                                 |
+| Kuzure-Gesa-Gatame       |                        | [[./img/yellow/Kuzure-Gesa-Gatame.gif]]       |                                 |
+| Kuzure-Kami-Shiho-Gatame |                        | [[./img/yellow/Kuzure-Kami-Shiho-Gatame.gif]] |                                 |
+| Kuzure-Tate-Shiho-Gatame |                        | [[./img/yellow/Kuzure-Tate-Shiho-Gatame.gif]] |                                 |
+| Kuzure-Yoko-Shiho-Gatame |                        | [[./img/yellow/Kuzure-Yoko-Shiho-Gatame.gif]] |                                 |
+| Makura-Gesa-Gatame       |                        | [[./img/yellow/Makura-Gesa-Gatame.gif]]       |                                 |
+|--------------------------+------------------------+-------------------------------------------+---------------------------------|
+
+** orange
+** green
+** blue
+** brown
+** black
