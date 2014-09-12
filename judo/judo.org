@@ -65,7 +65,7 @@
 |---------------------------+------------------+-----------------------------------------+-------------------------------------------+------------------------------------+----------------------------|
 | Nage waza                 | Projection       | Projection                              | Actions                                   |                                    |                            |
 |---------------------------+------------------+-----------------------------------------+-------------------------------------------+------------------------------------+----------------------------|
-| Koc-Soto-Gake             |                  | Petit accrochage exterieur              | [[./img/green/Ko-Soto-Gake.gif]]              | [[./img/green/kosotogake2.gif ]]       |                            |
+| Koc-Soto-Gake             |                  | Petit accrochage exterieur              | [[./img/green/Ko-Soto-Gake.gif]]              | [[./img/green/kosotogake2.gif]]        |                            |
 | Tsuri Goshi               |                  | Hanche soulevee                         |                                           | [[./img/green/tsurigoshi.gif]]         |                            |
 | Hane-Goshi                | Spring hip throw | Hanche percutee                         | [[./img/green/Hane-Goshi.gif]]                | [[./img/green/hanegoshi.gif]]          | [[./img/green/hanegoshi2.gif]] |
 | Yoko-Otoshi               |                  | Renversement sur le côté                | [[./img/green/Yoko_Otoshi.gif]]               | [[./img/green/yokootoshi.gif]]         |                            |
