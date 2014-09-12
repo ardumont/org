@@ -48,12 +48,12 @@
 |--------------------------+------------------------+------------------------------------------+-------------------------------------------+-------------------------------------------+----------------------------------|
 | Katame waza              |                        | Immobilisations                          |                                           |                                           |                                  |
 |--------------------------+------------------------+------------------------------------------+-------------------------------------------+-------------------------------------------+----------------------------------|
-| Kata-Gatame              |                        | Controle arriere sternal par la ceinture | [[./img/orange/Kata-Gatame.gif]]              | [[./img/yellow/kata_gatame1.gif]]          |                                  |
-| Kuzure-Gesa-Gatame       |                        | variante 1                               | [[./img/orange/Kuzure-Gesa-Gatame.gif]]       | [[./img/yellow/kuzure_kesa_gatame1.gif]]   |                                  |
-| Makura-Gesa-Gatame       |                        | variante 2 (kuzure gesa gatame)          | [[./img/orange/Makura-Gesa-Gatame.gif]]       | [[./img/yellow/makura_kesa_gatame.gif]]       |                                  |
-| Kuzure-Kami-Shiho-Gatame |                        | variante kami-shiho-gatame               | [[./img/orange/Kuzure-Kami-Shiho-Gatame.gif]] | [[./img/yellow/kuzure_kami_shio_gatame2.gif]] |                                  |
-| Kuzure-Tate-Shiho-Gatame |                        | variante tate-shiho-gatame               | [[./img/orange/Kuzure-Tate-Shiho-Gatame.gif]] | [[./img/yellow/Kuzure_tate_shiho_gatame.gif]] |                                  |
-| Kuzure-Yoko-Shiho-Gatame |                        | variante yoko-shio-gatame                | [[./img/orange/Kuzure-Yoko-Shiho-Gatame.gif]] | [[./img/yellow/kuzure_yoko_shio_gatame.gif]]  |                                  |
+| Kata-Gatame              |                        | Controle arriere sternal par la ceinture | [[./img/orange/Kata-Gatame.gif]]              | [[./img/orange/kata_gatame1.gif]]          |                                  |
+| Kuzure-Gesa-Gatame       |                        | variante 1                               | [[./img/orange/Kuzure-Gesa-Gatame.gif]]       | [[./img/orange/kuzure_kesa_gatame1.gif]]   |                                  |
+| Makura-Gesa-Gatame       |                        | variante 2 (kuzure gesa gatame)          | [[./img/orange/Makura-Gesa-Gatame.gif]]       | [[./img/orange/makura_kesa_gatame.gif]]       |                                  |
+| Kuzure-Kami-Shiho-Gatame |                        | variante kami-shiho-gatame               | [[./img/orange/Kuzure-Kami-Shiho-Gatame.gif]] | [[./img/orange/kuzure_kami_shio_gatame2.gif]] |                                  |
+| Kuzure-Tate-Shiho-Gatame |                        | variante tate-shiho-gatame               | [[./img/orange/Kuzure-Tate-Shiho-Gatame.gif]] | [[./img/orange/Kuzure_tate_shiho_gatame.gif]] |                                  |
+| Kuzure-Yoko-Shiho-Gatame |                        | variante yoko-shio-gatame                | [[./img/orange/Kuzure-Yoko-Shiho-Gatame.gif]] | [[./img/orange/kuzure_yoko_shio_gatame.gif]]  |                                  |
 |--------------------------+------------------------+------------------------------------------+-------------------------------------------+-------------------------------------------+----------------------------------|
 
 ** to green
