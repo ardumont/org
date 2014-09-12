@@ -107,7 +107,7 @@ otoshi - laisser tomber
 | Ko-Soto-Gari              | Small outside reap   | [[./img/orange/Ko-Soto-Gari.gif]]              | [[./img/orange/kosotogari.gif]]     |                             |
 | Okuri-Ashi-Barai          | Following foot sweep | [[./img/orange/Okuri-Ashi-Barai.gif]]          | [[./img/orange/okuriashiharai.gif]] |                             |
 | Tai-Otoshi                | Body drop            | [[./img/orange/Tai-Otoshi.gif]]                | [[./img/orange/taiotoshi.gif]]      | [[./img/orange/taiotoshi2.gif]] |
-| Uchi-Mata                 |                      | [[./img/orange/Uchi-Mata.gif]]                 | [[./img/orange/uchimata.gif]]       | [[./img/orange/uchimata2.gif]]  |
+| Uchi-Mata                 | Inner thigh drop     | [[./img/orange/Uchi-Mata.gif]]                 | [[./img/orange/uchimata.gif]]       | [[./img/orange/uchimata2.gif]]  |
 |---------------------------+----------------------+--------------------------------------------+---------------------------------+-----------------------------|
 | Katame waza               |                      |                                            |                                 |                             |
 |---------------------------+----------------------+--------------------------------------------+---------------------------------+-----------------------------|
