@@ -21,10 +21,10 @@
 | Katame waza           |                              | Immobilisation                         |                                             |                                      |                                 |
 |-----------------------+------------------------------+----------------------------------------+---------------------------------------------+--------------------------------------+---------------------------------|
 | hon-gesa-gatame       | Control latero costal        | Controle latero costal                 | [[./img/yellow/Hon_gesa_gatame-262x159.jpg]]    | [[./img/yellow/hon_kesa_gatame1.gif]]    |                                 |
-| yoko-shiho-gatame     | Control latero sternal       | controle 4 coins par le cote           | [[./img/yellow/yoko_shiho_gatame-263x182.jpg]]  | [[./img/yellow/yoko_shiho_gatame.gif]]   |                                 |
-| ushiro-gesa-gatame    | Control back postal          | variante (variante kuzure gesa gatame) | [[./img/yellow/ushiro_gesa_gatame-266x179.jpg]] | [[./img/yellow/ushiro_kesa_gatame1.gif]] |                                 |
-| kami-shiho-gatame     | Control back sternal by belt | controle 4 coins par au-dessus         | [[./img/yellow/kami_shiho_gatame-274x157.jpg]]  | [[./img/yellow/kami_shiho_gatame.gif]]   |                                 |
-| tate-shiho-gatame     | Control top sternal          | controle 4 coins longitudinalement     | [[./img/yellow/Tate_shiho_gatame-176x216.jpg]]  | [[./img/yellow/tate_shiho_gatame.gif]]   |                                 |
+| yoko-shiho-gatame     | Control latero sternal       | Controle 4 coins par le cote           | [[./img/yellow/yoko_shiho_gatame-263x182.jpg]]  | [[./img/yellow/yoko_shiho_gatame.gif]]   |                                 |
+| ushiro-gesa-gatame    | Control back postal          | Variante (variante kuzure gesa gatame) | [[./img/yellow/ushiro_gesa_gatame-266x179.jpg]] | [[./img/yellow/ushiro_kesa_gatame1.gif]] |                                 |
+| kami-shiho-gatame     | Control back sternal by belt | Controle 4 coins par au-dessus         | [[./img/yellow/kami_shiho_gatame-274x157.jpg]]  | [[./img/yellow/kami_shiho_gatame.gif]]   |                                 |
+| tate-shiho-gatame     | Control top sternal          | Controle 4 coins longitudinalement     | [[./img/yellow/Tate_shiho_gatame-176x216.jpg]]  | [[./img/yellow/tate_shiho_gatame.gif]]   |                                 |
 |-----------------------+------------------------------+----------------------------------------+---------------------------------------------+--------------------------------------+---------------------------------|
 
 ** to orange
@@ -49,11 +49,11 @@
 | Katame waza              |                        | Immobilisations                          |                                           |                                           |                                  |
 |--------------------------+------------------------+------------------------------------------+-------------------------------------------+-------------------------------------------+----------------------------------|
 | Kata-Gatame              |                        | Controle arriere sternal par la ceinture | [[./img/orange/Kata-Gatame.gif]]              | [[./img/orange/kata_gatame1.gif]]          |                                  |
-| Kuzure-Gesa-Gatame       |                        | variante 1                               | [[./img/orange/Kuzure-Gesa-Gatame.gif]]       | [[./img/orange/kuzure_kesa_gatame1.gif]]   |                                  |
-| Makura-Gesa-Gatame       |                        | variante 2 (kuzure gesa gatame)          | [[./img/orange/Makura-Gesa-Gatame.gif]]       | [[./img/orange/makura_kesa_gatame.gif]]       |                                  |
-| Kuzure-Kami-Shiho-Gatame |                        | variante kami-shiho-gatame               | [[./img/orange/Kuzure-Kami-Shiho-Gatame.gif]] | [[./img/orange/kuzure_kami_shio_gatame2.gif]] |                                  |
-| Kuzure-Tate-Shiho-Gatame |                        | variante tate-shiho-gatame               | [[./img/orange/Kuzure-Tate-Shiho-Gatame.gif]] | [[./img/orange/Kuzure_tate_shiho_gatame.gif]] |                                  |
-| Kuzure-Yoko-Shiho-Gatame |                        | variante yoko-shio-gatame                | [[./img/orange/Kuzure-Yoko-Shiho-Gatame.gif]] | [[./img/orange/kuzure_yoko_shio_gatame.gif]]  |                                  |
+| Kuzure-Gesa-Gatame       |                        | Variante 1                               | [[./img/orange/Kuzure-Gesa-Gatame.gif]]       | [[./img/orange/kuzure_kesa_gatame1.gif]]   |                                  |
+| Makura-Gesa-Gatame       |                        | Variante 2 (Kuzure gesa gatame)          | [[./img/orange/Makura-Gesa-Gatame.gif]]       | [[./img/orange/makura_kesa_gatame.gif]]       |                                  |
+| Kuzure-Kami-Shiho-Gatame |                        | Variante Kami-shiho-gatame               | [[./img/orange/Kuzure-Kami-Shiho-Gatame.gif]] | [[./img/orange/kuzure_kami_shio_gatame2.gif]] |                                  |
+| Kuzure-Tate-Shiho-Gatame |                        | Variante Tate-shiho-gatame               | [[./img/orange/Kuzure-Tate-Shiho-Gatame.gif]] | [[./img/orange/Kuzure_tate_shiho_gatame.gif]] |                                  |
+| Kuzure-Yoko-Shiho-Gatame |                        | Variante Yoko-shio-gatame                | [[./img/orange/Kuzure-Yoko-Shiho-Gatame.gif]] | [[./img/orange/kuzure_yoko_shio_gatame.gif]]  |                                  |
 |--------------------------+------------------------+------------------------------------------+-------------------------------------------+-------------------------------------------+----------------------------------|
 
 ** to green
@@ -99,7 +99,7 @@
 | Tani Otoshi           |            | Chute dans la vallée               |                           |
 | Hane Maki  Komi       |            | Hanche sautée enroulée             |                           |
 | Sukui Nage            |            | Projection en cuillère             |                           |
-| Utsuri Goshi          |            | Pprojection de hanche par l’avant, |                           |
+| Utsuri Goshi          |            | Projection de hanche par l’avant,  |                           |
 | O Guruma              |            | Grande roue                        |                           |
 | Soto Maki Komi        |            | Enroulement exérieur               |                           |
 | Uki-Otoshi            |            | Renversement du corps              | [[./img/blue/Uki-Otoshi.gif]] |
@@ -160,13 +160,13 @@
 |-------------------------+------------+--------------------------------------+---------------------------------------|
 
 Kata?
-| 2nd_Rear_Entry.gif    |
-| 2nd_Side_Entry.gif    |
-| 3rd_Side_Entry.gif    |
-| 4th_Entry_on_Back.gif |
-| 5th_Entry_on_Back.gif |
-| 5th_Front_Entry.gif   |
-| 6th_Front_Entry.gif   |
+| [[./img/brown/2nd_Rear_Entry.gif]]    |
+| [[./img/brown/2nd_Side_Entry.gif]]    |
+| [[./img/brown/3rd_Side_Entry.gif]]    |
+| [[./img/brown/4th_Entry_on_Back.gif]] |
+| [[./img/brown/5th_Entry_on_Back.gif]] |
+| [[./img/brown/5th_Front_Entry.gif]]   |
+| [[./img/brown/6th_Front_Entry.gif]]   |
 
 ** to black
   source:
@@ -186,15 +186,15 @@ Kata?
 |--------------+---------+---+------------------------------|
 
 Kata?
-| 1st_Leg_Escape.gif    |
-| 2nd_Leg_Escape.gif    |
-| 3rd_Leg_Escape.gif    |
-| 3rd_Rear_Entry.gif    |
-| 4th_Side_Entry.gif    |
-| 6th_Entry_on_Back.gif |
-| 7th_Entry_on_Back.gif |
-| 7th_Front_Entry.gif   |
-| 8th_Front_Entry.gif   |
+| [[./img/black/1st_Leg_Escape.gif]] |
+| [[./img/black/2nd_Leg_Escape.gif]] |
+| [[./img/black/3rd_Leg_Escape.gif]] |
+| [[./img/black/3rd_Rear_Entry.gif]] |
+| [[./img/black/4th_Side_Entry.gif]] |
+| [[./img/black/6th_Entry_on_Back.gif]] |
+| [[./img/black/7th_Entry_on_Back.gif]] |
+| [[./img/black/7th_Front_Entry.gif]] |
+| [[./img/black/8th_Front_Entry.gif]] |
 
 * Glossary
   |--------------+-----------------------+----------------------------------|
