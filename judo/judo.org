@@ -196,31 +196,79 @@ Kata?
 | [[./img/black/8th_Front_Entry.gif]] |
 
 * Glossary
-  |--------------+-----------------------+----------------------------------|
-  | Judogi       | Judo Suit             |                                  |
-  | Kimono       | Judo jacket           |                                  |
-  | Obi          | Belt                  |                                  |
-  | Dojo         | Room of Judo Practice |                                  |
-  | Tatami       | Matt of Judo          |                                  |
-  | Zarei        | Knee bow              |                                  |
-  | Ritsurei     | Standing bow          |                                  |
-  | Adjime       | Start                 |                                  |
-  | Matte        | Stop                  |                                  |
-  | Oseakomi     | Holding on            |                                  |
-  | Toketa       | Out                   |                                  |
-  | Koka         | 3 points              |                                  |
-  | Yuko         | 5 points              |                                  |
-  | Waza-ari     | 7 points              |                                  |
-  | Ippon        | 10 points             |                                  |
-  | Uke          | person defendant      |                                  |
-  | Tori         | Person attacking      |                                  |
-  | Randori      | Fight                 |                                  |
-  | Nage waza    | Projection            |                                  |
-  | Katame waza  | Control               | Immobilisation                   |
-  | Koshi waza   |                       | Projection de hanche             |
-  | Ashi waza    |                       | Projection de pieds et de jambes |
-  | Sutemi waza  |                       | projection en sacrifice          |
-  | Hansoku-make | Penalties             | Penalites                        |
-  | Tachi waza   |                       | Technique de projection debout   |
-  | Te waza      |                       | Projection de mains et de bras   |
-  |--------------+-----------------------+----------------------------------|
+
+|-------------------+----------------------------------------------+------------+---------------------------------|
+| Japonais          | Français                                     | Japonais   | Français                        |
+|-------------------+----------------------------------------------+------------+---------------------------------|
+| Age               | Lever                                        | Kuzure     | Déséquilibrer                   |
+| Arashi            | Tempête                                      | Kuzushi    | Déséquilibre                    |
+| Ashi              | Pied, jambe                                  | Kuzushi    | Rompre, déformer la position    |
+| Atama             | Tête                                         | M          |                                 |
+| B                 |                                              | Mae        | Face                            |
+| Barai             | Balayer                                      | Maita      | Je suis battu                   |
+| Bu                | Combat, guerrier                             | Maki       | Enrouler                        |
+| D                 |                                              | Mata       | Intérieur des cuisses           |
+| Daki              | Prendre dans ses bras                        | Migi       | Droit, à droite                 |
+| De                | Avancé, (qui est devant), en avant           | Mochi      | Prendre avec les mains          |
+| Do                | Voie, chemin, tronc                          | Morote     | Deux  mains                     |
+| Dori              | Prendre                                      | Mune       | Poitrine                        |
+| E                 |                                              | N          |                                 |
+| Eri               | Revers                                       | Nage       | Projection                      |
+| Erikubiunji       | Nuque                                        | Ne         | Couché                          |
+| F                 |                                              | Ni         | 2                               |
+| Fumikomi          | Avancer le pied à l'intérieur                | O          |                                 |
+| G                 |                                              | O          | Grand                           |
+| Gaeshi            | Contre attaque, renverser                    | Obi        | Ceinture                        |
+| Gake              | Prendre, exécuter                            | Okuri      | Envoyé                          |
+| Garami            | Maintenir                                    | Osae       | Immobiliser                     |
+| Gari              | Fauchage                                     | Otoshi     | Tombé                           |
+| Gatame ( Katame ) | Contrôle, immobilisation                     | R          |                                 |
+| Geiko             | exercice                                     | Rio        | Deux                            |
+| Gi                | Vêtements pour la pratique des arts martiaux | Riu        | Ecole, méthode                  |
+| Go                | Puissance, force, 5                          | Roku       | 6                               |
+| Gokusoku          | Art de combattre en tenue légère             | S          |                                 |
+| Goshi ( Kosho )   | Hanche                                       | Sabaki     | Esquiver, Tourner, Défendre     |
+| Guruma            | Roue                                         | San        | 3                               |
+| H                 |                                              | Sasae      | Maintenir                       |
+| Hachi             | 8                                            | Seoi       | Epaule, dos                     |
+| Hadaka            | Nu                                           | Seoi       | Prendre sur le dos, les épaules |
+| Hane              | Bondir                                       | Shi        | 4                               |
+| Har               | Ventre                                       | Shichi     | 7                               |
+| Harai             | Balayer                                      | Shiho      | Quatre côtés                    |
+| Henka             | Changement                                   | Shime      | Etranglement                    |
+| Hidari            | Gauche                                       | Shisei     | Posture                         |
+| Hiji              | Coude                                        | Sode       | Manche                          |
+| Hishigi           | Casser                                       | Soto       |                                 |
+| Hiza              | Genou                                        | Sumi       |                                 |
+| Hizi              | Coude                                        | Sutemi     |                                 |
+| Hon               | Fondamental, livre                           | T          |                                 |
+| I                 |                                              | Tachi      | Debout                          |
+| Ichi              | 1                                            | Tai        | Corps                           |
+| J                 |                                              | Tanden     | Abdomen                         |
+| Jitsu             | Technique                                    | Tate       | Vertical                        |
+| Ju                | Souple                                       | Te         | Main                            |
+| Jû                | 10                                           | Tekubi     | Poignet                         |
+| Judogi            | Tenue de judo ( habits )                     | Tori       | Prendre                         |
+| Juji              | Croix                                        | Tsugi      | Succession                      |
+| K                 |                                              | Tsukomi    | Pousser                         |
+| Kakato            | Talon                                        | Tsuri      | Lever, pêcher                   |
+| Kake              | Mouvement positif                            | Tsuri komi | Traction en soulevant           |
+| Kakemono          | Peinture, japonaise                          | U          |                                 |
+| Kami              | Au dessus                                    | Uchi       | Intérieur                       |
+| Kani              | Langouste                                    | Ude        | Bras                            |
+| Kansetsu          | Luxation                                     | Uke        | Recevoir                        |
+| Karate do         | Voie de la main vide                         | Uki        | Flotter                         |
+| Kata              | Epaule                                       | Ura        | Opposé                          |
+| Keikogi           | Habits d'entraînements                       | Ushiro     | Dernière                        |
+| Kendo             | Escrime                                      | Utsuri     | Déplacer                        |
+| Kensui            | Prendre par les mains                        | W          |                                 |
+| Kinu   p          | Soie                                         | Waki       | Aisselle                        |
+| Kiudo             | Arc                                          | Waza       | Art                             |
+| Ko                | Petit                                        | Y          |                                 |
+| Kokoro            | Esprit                                       | Yama       | Montagne                        |
+| Komi              | Dedans                                       | Yo         | 3                               |
+| Ku                | 9                                            | Yoko       | Côté                            |
+| Kubi              | Cou                                          | Yon        | 4                               |
+| Kumi              | Prise                                        | Yubi       | Doigt                           |
+| Kuzure            | Variante                                     |            |                                 |
+|-------------------+----------------------------------------------+------------+---------------------------------|
