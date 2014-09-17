@@ -94,7 +94,7 @@
 |-----------------------+------------+------------------------------------+-------------------------------+---------------------------|
 | Nage waza             | Projection | Projection                         | Actions                       |                           |
 |-----------------------+------------+------------------------------------+-------------------------------+---------------------------|
-| Sumi Gaeshi           |            | Renversement dans l’angle          |                               | Hadaka-Jime.gif           |
+| Sumi Gaeshi           |            | Renversement dans l’angle          | [[./img/blue/sumigaeshi2.gif]]    |                           |
 | Tani Otoshi           |            | Chute dans la vallée               | [[./img/blue/tani_otoshi2.gif]]   |                           |
 | Hane Maki Komi        |            | Hanche sautée enroulée             | [[./img/blue/hanemakikomi4.gif]]  |                           |
 | Sukui Nage            |            | Projection en cuillère             | [[./img/blue/sukui_nage2.gif]]    |                           |
@@ -123,11 +123,10 @@
 |---------------------------+------------+--------------------------------------+---------------------------------------+-----------------------------|
 | Nage waza                 | Projection | Projection                           | Actions                               |                             |
 |---------------------------+------------+--------------------------------------+---------------------------------------+-----------------------------|
-| Ashi-Gatame-Jime          |            |                                      | [[./img/blue/Ashi-Gatame-Jime.gif]]       |                             |
-| Hadaka-Jime               |            |                                      | [[./img/blue/Hadaka-Jime.gif]]            |                             |
-| Kata-Juji-Jime            |            |                                      | [[./img/blue/Kata-Juji-Jime.gif]]         |                             |
-| Morote-Jime               |            |                                      | [[./img/blue/Morote-Jime.gif]]            |                             |
-| Sode-Guruma-Jime          |            |                                      | [[./img/blue/Sode-Guruma-Jime.gif]]       |                             |
+| Ashi-Gatame-Jime          |            |                                      | [[./img/brown/Ashi-Gatame-Jime.gif]]      |                             |
+| Kata-Juji-Jime            |            |                                      | [[./img/brown/Kata-Juji-Jime.gif]]        |                             |
+| Morote-Jime               |            |                                      | [[./img/brown/Morote-Jime.gif]]           |                             |
+| Sode-Guruma-Jime          |            |                                      | [[./img/brown/Sode-Guruma-Jime.gif]]      |                             |
 | Hara-Gatame               |            |                                      | [[./img/brown/Hara_Gatame.gif]]           |                             |
 | Harai-Tsuri-Komi-Ashi     |            |                                      | [[./img/brown/Harai_Tsuri_Komi_Ashi.gif]] |                             |
 | Hiza-Gatame               |            |                                      | [[./img/brown/Hiza_Gatame.gif]]           |                             |
