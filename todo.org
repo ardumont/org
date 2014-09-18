@@ -135,6 +135,7 @@
   - [X] 0.5.8
   - [X] 0.5.9
   - [X] 0.6.0
+  - [X] 0.6.1
   - [ ] ...
 * IN-PROGRESS Scala [72%]
 ** DONE scala-pack
