@@ -152,7 +152,7 @@
 | Morote Jime               |            | Etranglement facial non croisé       | [[./img/brown/Morote-Jime.gif]]           | [[./img/brown/morotejime2.gif]] |
 | Ashi Gatame Jime          |            | Etranglement avec l’aide d’une jambe | [[./img/brown/Ashi-Gatame-Jime.gif]]      |                             |
 | Katate Jime               |            | Etranglement d’une seule main        | [[./img/brown/katatejime3.gif]]           |                             |
-| Ude]] Hishigi Hiza Gatame |            | Hyper extension avec le genou        | [[./img/brown/Hiza_Gatame.gif]]           | [[./img/brown/hiza_gatame.jpg]] |
+| Ude Hishigi Hiza Gatame   |            | Hyper extension avec le genou        | [[./img/brown/Hiza_Gatame.gif]]           | [[./img/brown/hiza_gatame.jpg]] |
 | Ude Hishigi Waki Gatame   |            | Hyper extension avec l aisselle      | [[./img/brown/Waki_Gatame.gif]]           | [[./img/brown/waki_gatame.jpg]] |
 | Hara Gatame               |            | Hyper extension avec le ventre       | [[./img/brown/Hara_Gatame.gif]]           | [[./img/brown/hara_gatame.jpg]] |
 |---------------------------+------------+--------------------------------------+---------------------------------------+-----------------------------|
