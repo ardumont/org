@@ -1504,3 +1504,7 @@ CLOSED: [2014-06-22 Sun 10:47]
 * DONE Find a software to display bindings as you type along - keymon
   CLOSED: [2014-09-06 Sat 18:53]
 * IN-PROGRESS judo
+* IN-PROGRESS docker
+- [ ] https://www.docker.com/
+* TODO sparks
+- [ ] http://spark.apache.org/docs/latest/index.html
