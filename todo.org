@@ -1420,6 +1420,7 @@ CLOSED: [2014-06-22 Sun 10:47]
 * IN-PROGRESS Nix* [0%]
 ** Nix [0%]
 - [ ] Nix package manager - http://nixos.org/nix/manual/
+- [ ] Create the tux-guitar package for NixOS - http://nixos.org/nixpkgs/manual/
 ** NixOS [96%]
 - [X] Read [[http://nixos.org/nixos/manual/][NixOS manual]]
 - [X] Install nixos -> https://github.com/ardumont/dot-files/blob/master/configuration.nix
