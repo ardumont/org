@@ -1515,3 +1515,8 @@ CLOSED: [2014-06-22 Sun 10:47]
 - [ ] https://www.docker.com/
 * TODO sparks
 - [ ] http://spark.apache.org/docs/latest/index.html
+* PENDING clj-jam [75%]
+- [X] Develop
+- [X] Demo (BBL clojure at Kyriba)
+- [X] Find out why it broke (Marmalade API got migrated and restrained - https://github.com/ardumont/clj-jam/issues/1
+- [ ] Fix when it's possible
