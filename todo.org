@@ -1420,6 +1420,9 @@ CLOSED: [2014-06-22 Sun 10:47]
 * IN-PROGRESS Nix* [0%]
 ** Nix [0%]
 - [ ] Nix package manager - http://nixos.org/nix/manual/
+
+** Nixpkgs [50%]
+- [X] Extends Nixos - https://nixos.org/wiki/NixOS:extend_NixOS
 - [-] Create the tux-guitar package for NixOS - http://nixos.org/nixpkgs/manual/ [50%]
   - [X] Fork and clone NixOS/nixpkgs repository
   - [X] Located in pkgs/applications/misc according to http://nixos.org/nixpkgs/manual/#sec-organisation
@@ -1453,7 +1456,13 @@ CLOSED: [2014-06-22 Sun 10:47]
 - [X] Haskell
 - [X] Fix trouble with suspend
 - [ ] Install nixos with encryption - http://bluishcoder.co.nz/2014/05/14/installing-nixos-with-encrypted-root-on-thinkpad-w540.html - https://nixos.org/wiki/Encrypted_Root_on_NixOS
-
+** Factor NixOS configuration [0%]
+- [ ] `job` and `dagobah` shares 99% of configuration except for the hostname and the wifi connection, find a way to factorize this code.
+** NixOps [0%]
+- [ ] http://hydra.nixos.org/build/15623313/download/1/manual/manual.html
+* TODO Terraform
+- [ ] http://www.terraform.io/
+- [ ] http://www.infoq.com/news/2014/08/terraform
 * TODO RAID
 * DONE Find a package containing a file
   CLOSED: [2014-06-29 Sun 11:44]
