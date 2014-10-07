@@ -1,0 +1,87 @@
+#+title: nixos configuration
+#+author: ardumont
+
+* wifi
+** dagobah
+
+*** wpa_supplicant
+
+We need to update the interfaces to ["wlp1s0"]:
+
+#+begin_src nix
+  networking = {
+    hostName = "dagobah";    # Define your hostname.
+
+    wireless = {
+      enable = true;                # Enables wireless
+      userControlled.enable = true; # user can play with wifi
+      interfaces = [ "wlp1s0" ];    # explicit the interfaces the user can modify
+    };
+#+end_src
+
+*** NetworkManager
+
+If we want to use nmcli, remove the wireless entry and use directly networkmanager (incompatible with the other).
+
+#+begin_src nix
+  networking = {
+    hostName = "dagobah";    # Define your hostname.
+
+    # wireless = {
+    #   enable = true;                # Enables wireless
+    #   userControlled.enable = true; # user can play with wifi
+    #   interfaces = [ "wlp1s0" ];    # explicit the interfaces the user can modify
+    # };
+
+    networkmanager.enable = true; # nm, nmcli, etc... incompatible with networking.wireless
+
+#+end_src
+
+** job
+
+*** wpa_supplicant (default with nixos)
+
+#+begin_src nix
+  networking = {
+    hostName = "job";    # Define your hostname.
+
+    wireless = {
+      enable = true;                # Enables wireless
+      userControlled.enable = true; # user can play with wifi
+      interfaces = [ "wlo1" ];      # explicit the interfaces the user can modify
+    };
+
+#+end_src
+
+*** NetworkManager
+
+Using networkmanager, building the next generation fails with this log message:
+
+#+begin_src log
+$ sudo nixos-rebuild switch
+building Nix...
+building the system configuration...
+updating GRUB 2 menu...
+stopping the following units: dhcpcd.service, local-fs.target, network-interfaces.target, remote-fs.target, systemd-modules-load.service, wpa_supplicant.service
+activating the configuration...
+setting up /etc...
+removing obsolete symlink ‘/etc/dhcpcd.exit-hook’...
+restarting the following units: polkit.service
+starting the following units: default.target, getty.target, graphical.target, ip-up.target, local-fs.target, multi-user.target, network-interfaces.target, network.target, paths.target, remote-fs.target, slices.target, sockets.target, swap.target, systemd-modules-load.service, timers.target, wpa_supplicant.service
+warning: the following units failed: NetworkManager.service
+
+● NetworkManager.service - Network Manager
+   Loaded: loaded (/nix/store/yxv3dbyn5aa0x9c50hqlvyvqgffqdmpv-network-manager-0.9.8.8/etc/systemd/system/NetworkManager.service)
+   Active: failed (Result: exit-code) since Tue 2014-10-07 09:58:51 CEST; 39ms ago
+  Process: 7196 ExecStart=/nix/store/yxv3dbyn5aa0x9c50hqlvyvqgffqdmpv-network-manager-0.9.8.8/sbin/NetworkManager --no-daemon (code=exited, status=1/FAILURE)
+ Main PID: 7196 (code=exited, status=1/FAILURE)
+
+Oct 07 09:58:51 job NetworkManager[7196]: <error> [1412668731.59484] [nm-dbus-manager.c:332] nm_dbus_manager_start_service(): Could not acquire the NetworkManager service.
+                                            Error: 'Connection ":1.38" is not allowed to own the service "org.freedesktop.NetworkManager" due to security policies in the configuration file'
+Oct 07 09:58:51 job NetworkManager[7196]: <error> [1412668731.59721] [main.c:592] main(): failed to start the dbus service.
+Oct 07 09:58:51 job systemd[1]: NetworkManager.service: main process exited, code=exited, status=1/FAILURE
+Oct 07 09:58:51 job systemd[1]: Failed to start Network Manager.
+Oct 07 09:58:51 job systemd[1]: Unit NetworkManager.service entered failed state.
+#+end_src
+
+No network after that.
