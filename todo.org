@@ -1420,7 +1420,13 @@ CLOSED: [2014-06-22 Sun 10:47]
 * IN-PROGRESS Nix* [0%]
 ** Nix [0%]
 - [ ] Nix package manager - http://nixos.org/nix/manual/
-- [ ] Create the tux-guitar package for NixOS - http://nixos.org/nixpkgs/manual/
+- [-] Create the tux-guitar package for NixOS - http://nixos.org/nixpkgs/manual/ [50%]
+  - [X] Fork and clone NixOS/nixpkgs repository
+  - [X] Located in pkgs/applications/misc according to http://nixos.org/nixpkgs/manual/#sec-organisation
+  - [X] Reference the package in pkgs/top-level/all-packages.nix
+  - [ ] Check that everything works locally
+  - [ ] Push branch and open Pull Request
+
 ** NixOS [96%]
 - [X] Read [[http://nixos.org/nixos/manual/][NixOS manual]]
 - [X] Install nixos -> https://github.com/ardumont/dot-files/blob/master/configuration.nix
