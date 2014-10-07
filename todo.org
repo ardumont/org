@@ -1,6 +1,10 @@
 #+title: Learning...
 #+author: ardumont
 
+* DONE printer [100%]
+CLOSED: [2014-10-07 Tue 18:42]
+- [X] Install CUPS on nixos
+- [X] Set network home printer
 * TODO coding challenge which computes the complexity - http://codility.com/
 * TODO Mouseless file manager
   Does not seem to find one!
