@@ -1,6 +1,9 @@
 #+title: Learning...
 #+author: ardumont
 
+* online universities
+- https://www.edx.org/
+- https://www.coursera.org/
 * DONE printer [100%]
 CLOSED: [2014-10-07 Tue 18:42]
 - [X] Install CUPS on nixos
