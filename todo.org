@@ -1469,9 +1469,15 @@ CLOSED: [2014-06-22 Sun 10:47]
 - [ ] `job` and `dagobah` shares 99% of configuration except for the hostname and the wifi connection, find a way to factorize this code.
 ** NixOps [0%]
 - [ ] http://hydra.nixos.org/build/15623313/download/1/manual/manual.html
-* TODO Terraform
-- [ ] http://www.terraform.io/
-- [ ] http://www.infoq.com/news/2014/08/terraform
+* IN-PROGRESS Terraform
+- [X] https://github.com/hashicorp/terraform
+- [X] http://www.infoq.com/news/2014/08/terraform
+- [-] http://www.terraform.io/
+  - [X] http://www.terraform.io/intro/index.html
+  - [X] http://www.terraform.io/intro/use-cases.html
+  - [X] http://www.terraform.io/intro/vs/index.html
+  - [ ] http://www.terraform.io/intro/getting-started/install.html
+  - [ ] http://www.terraform.io/intro/examples/index.html
 * TODO RAID
 * DONE Find a package containing a file
   CLOSED: [2014-06-29 Sun 11:44]
