@@ -1,25 +1,28 @@
 #+title: Acronyms
 
-|---------+--------------------------------------------------------+-----------------------------------------------------------|
-| Acronym | Name                                                   | Description                                               |
-|---------+--------------------------------------------------------+-----------------------------------------------------------|
-| JAX-RPC | Java over XML to make Remote Procedure Calls           |                                                           |
-| WSDL    | Web Service Description Language                       | Used to describe the web services's contract              |
-| SOAP    | Simple Object Access Protocol                          | transport protocol to send xml messages over http         |
-| UDDI    | Universal Description Discovery & Integration Protocol |                                                           |
-| AXIS    | Apache Extensible Interaction System                   | Apache Axis is a SOAP client/server                       |
-| AXIOM   | AXIs Object Model                                      |                                                           |
-| DOM     | Document Object Model                                  |                                                           |
-| StAX    | Streaming API for XML                                  |                                                           |
-| ADB     | Axis2 Databinding Framework                            |                                                           |
-| ACID    | Atomic - Consistent - Independent - Durable            |                                                           |
-| STM     | Software Transactional Memory                          | approach to programming shared-memory parallel processors |
-| NLP     | Natural Language Processing                            |                                                           |
-| AMQP    | Advanced Message Queue Protocol                        |                                                           |
-| JFDI    | Just Focus and Do It                                   |                                                           |
-|         | Just Fuckin' Do It                                     |                                                           |
-| ATM     | Automated Teller Machine                               |                                                           |
-| EFT     | Electronic Funds Transfer                              |                                                           |
-|         |                                                        |                                                           |
-|         |                                                        |                                                           |
-|---------+--------------------------------------------------------+-----------------------------------------------------------|
+|---------+--------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------|
+| Acronym | Name                                                   | Description                                                                                                                       |
+|---------+--------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------|
+| JAX-RPC | Java over XML to make Remote Procedure Calls           |                                                                                                                                   |
+| WSDL    | Web Service Description Language                       | Used to describe the web services's contract                                                                                      |
+| SOAP    | Simple Object Access Protocol                          | Transport protocol to send xml messages over http                                                                                 |
+| UDDI    | Universal Description Discovery & Integration Protocol |                                                                                                                                   |
+| AXIS    | Apache Extensible Interaction System                   | Apache Axis is a SOAP client/server                                                                                               |
+| AXIOM   | AXIs Object Model                                      |                                                                                                                                   |
+| DOM     | Document Object Model                                  |                                                                                                                                   |
+| StAX    | Streaming API for XML                                  |                                                                                                                                   |
+| ADB     | Axis2 Databinding Framework                            |                                                                                                                                   |
+| ACID    | Atomic - Consistent - Independent - Durable            |                                                                                                                                   |
+| STM     | Software Transactional Memory                          | Approach to programming shared-memory parallel processors                                                                         |
+| NLP     | Natural Language Processing                            |                                                                                                                                   |
+| AMQP    | Advanced Message Queue Protocol                        |                                                                                                                                   |
+| JFDI    | Just Focus and Do It                                   |                                                                                                                                   |
+|         | Just Fuckin' Do It                                     |                                                                                                                                   |
+| ATM     | Automated Teller Machine                               |                                                                                                                                   |
+| EFT     | Electronic Funds Transfer                              |                                                                                                                                   |
+| CIDR    | Classless Inter-Domain Routing                         | Allocation IP addresses and routing Internet Protocol packets method.                                                             |
+| IETF    | Internet Engineering Task Force                        | Open Standards Organization which develops and promotes voluntary Internet standards.                                             |
+| DNS     | Domain Name System                                     | Hierarchical distributed naming system for computers, services or any resources connected to the internet or a private network. |
+| IANA    | Internet Assigned Numbers Authority                    | a department of ICANN, a nonprofit American private corporation which oversees global IP address allocation...                    |
+| ICANN   | Internet Corporation for Assigned Names and Numbers    |                                                                                                                                   |
+|---------+--------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------|
