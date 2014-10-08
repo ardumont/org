@@ -1537,6 +1537,7 @@ CLOSED: [2014-06-22 Sun 10:47]
 * IN-PROGRESS judo
 * IN-PROGRESS docker
 - [ ] https://www.docker.com/
+- [ ] https://docs.docker.com/
 * TODO sparks
 - [ ] http://spark.apache.org/docs/latest/index.html
 * PENDING clj-jam [75%]
