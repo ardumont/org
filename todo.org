@@ -19,7 +19,7 @@ CLOSED: [2014-10-07 Tue 18:42]
 - [ ] Deadlocks
 - [ ] Livelocks
 - [ ] Priority inversions
-* IN-PROGRESS Readings [19%]
+* IN-PROGRESS Readings [22%]
 - [X] practical clojure
 - [X] joy of clojure
 - [X] clojure in action
@@ -61,6 +61,8 @@ CLOSED: [2014-10-07 Tue 18:42]
 - [ ] [[http://www.docker.io/][docker]] - an open source project to pack, ship and run any application as a lightweight container
 - [ ] [[http://www.packer.io/][packer]] - a tool for creating identical machine images for multiple platforms from a single source configuration.
 - [ ] [[http://www.opscode.com/chef/][Chef]] - infrastructure automation and configuration management framework - infrastructure as code
+- [X] [[https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing][CIDR]]
+- [ ] [[https://en.wikipedia.org/wiki/Domain_Name_System][DNS]]
 
 * TODO Structure and Interpretation of Computer Programs - books
 * TODO Github - Play around with the Github API [100%]
