@@ -176,14 +176,17 @@ Note:
 - The `from` states from which images we should start the following actions.
 - The `run` instructions are the equivalent commands of the run command `docker run...`
 
-To build from docker file, use the docker build command:
+To build from docker file (default to current Dockerfile), use the docker build command:
 #+begin_src sh
-docker build .
+docker build -t ardumont/image-name .
 #+end_src
 
-This will load the file `Dockerfile`.
+*Note*
+This will:
+- name the container ardumont/image-name
+- load the current `Dockerfile` present in directory.
 
-*Note* If the docker file has a different name:
+*Remark* If the docker file has a different name, you can always use this:
 #+begin_src sh
 docker build - < Dockerfile-with-a-specific-name
 #+end_src
