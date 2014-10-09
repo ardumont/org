@@ -1536,8 +1536,12 @@ CLOSED: [2014-06-22 Sun 10:47]
   CLOSED: [2014-09-06 Sat 18:53]
 * IN-PROGRESS judo
 * IN-PROGRESS docker
+- [ ] [[./docker.org][docker.org]]
 - [ ] https://www.docker.com/
-- [ ] https://docs.docker.com/
+- [X] https://docs.docker.com/
+- [X] https://docs.docker.com/introduction/understanding-docker/
+- [ ] https://docs.docker.com/installation/#installation
+- [ ] https://nixos.org/wiki/Docker
 * TODO sparks
 - [ ] http://spark.apache.org/docs/latest/index.html
 * PENDING clj-jam [75%]
@@ -1545,3 +1549,5 @@ CLOSED: [2014-06-22 Sun 10:47]
 - [X] Demo (BBL clojure at Kyriba)
 - [X] Find out why it broke (Marmalade API got migrated and restrained - https://github.com/ardumont/clj-jam/issues/1
 - [ ] Fix when it's possible
+* DevOps
+- [ ] https://en.wikipedia.org/wiki/DevOps
