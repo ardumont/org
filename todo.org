@@ -336,7 +336,8 @@ CLOSED: [2013-04-15 lun. 21:12]
 - [X] Continuous integration
 - [X] Take some controls over some default emacs-live-packs
 - [ ] auto completion
-
+* IN-PROGRESS Blog [1/1]
+- [X] Migrate comment system to Disqus
 * IN-PROGRESS guitar [33%]
 ** DONE coursera
 CLOSED: [2014-03-20 Thu 09:35]
