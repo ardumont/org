@@ -1535,13 +1535,14 @@ CLOSED: [2014-06-22 Sun 10:47]
 * DONE Find a software to display bindings as you type along - keymon
   CLOSED: [2014-09-06 Sat 18:53]
 * IN-PROGRESS judo
-* IN-PROGRESS docker
-- [ ] [[./docker.org][docker.org]]
+* IN-PROGRESS docker [5/8]
 - [ ] https://www.docker.com/
+- [X] http://www.infoq.com/articles/docker-containers
 - [X] https://docs.docker.com/
 - [X] https://docs.docker.com/introduction/understanding-docker/
 - [ ] https://docs.docker.com/installation/#installation
 - [ ] https://nixos.org/wiki/Docker
+- [X] http://zef.me/6049/nix-docker/
 * TODO sparks
 - [ ] http://spark.apache.org/docs/latest/index.html
 * PENDING clj-jam [75%]
