@@ -13,6 +13,7 @@
 
 * Install
 
+** Ubuntu
 OS on ubuntu 12.04 or 13.10:
 #+begin_src sh
 # Install docker
@@ -23,10 +24,59 @@ sudo gpasswd -a $USER docker
 logout
 #+end_src
 
+** NixOS
+
+Add the package nixos.
+
+#+begin_src nix
+{ config, pkgs, ... }:
+
+{
+  environment.systemPackages = with pkgs; [
+    docker
+}
+#+end_src
+
+Add the group docker to the user's default group. For example:
+
+#+begin_src nix
+  users = {
+    defaultUserShell = "/var/run/current-system/sw/bin/zsh";
+
+    # Define a user account. Don't forget to set a password with ‘passwd’.
+    extraUsers = [{
+      description = "Antoine R. Dumont";
+      name = "tony";
+      group = "users";
+      uid = 1000;
+      createHome = true;
+      home = "/home/tony";
+      extraGroups = [ "users" "wheel" "audio" "video" "vboxusers" "docker" ];
+      useDefaultShell = true;
+    }];
+  };
+#+end_src
+
+Update your nix:
+
+#+begin_src sh
+sudo nixos-rebuild switch
+#+end_src
+
+*Note*
+If this does not work (you know, shit happens), you can do it manually.
+
+#+begin_src sh
+sudo groupadd docker
+sudo gpasswd -a $USER docker
+#+end_src
+
+** Check
+
 To check the installation is ok:
 
 #+begin_src sh
-sudo docker run -i -t ubuntu /bin/bash
+docker run -t -i ubuntu /bin/bash
 #+end_src
 
 * search
@@ -37,6 +87,8 @@ docker search debian
 #+end_src
 
 * pull
+
+Retrieve the debian image from the default repository ([[http://hub.docker.com/][docker hub]]):
 
 #+begin_src sh
 docker pull debian
