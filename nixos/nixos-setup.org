@@ -85,3 +85,11 @@ Oct 07 09:58:51 job systemd[1]: Unit NetworkManager.service entered failed state
 #+end_src
 
 No network after that.
+
+* ssh
+
+I stumble upon this snippet to deploy public key. Seems pretty nice.
+
+#+begin_src nix
+users.extraUsers.root.openssh.authorizedKeys.keys = [ (builtins.readFile ./id_rsa.pub) ];
+#+end_src
