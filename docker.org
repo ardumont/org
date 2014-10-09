@@ -1,6 +1,16 @@
 #+title: Docker notes
 #+author: ardumont
 
+* Definition
+|-------------------+-----------------------------------------------------------------+--------------|
+| Notion            | Definition                                                      | Component    |
+|-------------------+-----------------------------------------------------------------+--------------|
+| Docker images     | read-only template of an OS                                     | Build        |
+| Docker registries | Public/Private store to hold images. Ex: http://hub.docker.com/ | Distribution |
+| Docker containers | Isolated and secure platform to run application.                | Run          |
+|                   | It can be started, stopped, moved, deleted.                     |              |
+|-------------------+-----------------------------------------------------------------+--------------|
+
 * Install
 
 OS on ubuntu 12.04 or 13.10:
