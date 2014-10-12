@@ -1,0 +1,64 @@
+#+begin_src hs
+import Data.Set (Set)
+import qualified Data.Set as Set
+
+{-- BONUS! ----------------------------------------------------------------
+
+So Dr. Smullyan is quite the playful sort and wrote quite the few of these
+paradoxen, encodifying them into a calculus of paradox. This is NOT from
+his Scherazade book, but from the Mensa quiz-a-day book, and you'd think,
+it coming from a Mensa book, it'd be harder, but it's not. So here's the
+problem statement:
+
+Lost on Liars' and TruthTellers' Town, you are in real trouble! You need to
+ask directions from a TruthTeller, but how can you tell who is a TruthTeller?
+You stop a group of three [ed: Why is it always three people in these
+scenarii?] women and ask if they are TruthTellers. The first says: "Two of
+us are TruthTellers." The second says: "Only one of us is a TruthTeller." And
+the third one chimes in: "The last woman who spoke is a TruthTeller." Well,
+who was or who were TruthTellers?
+
+--}
+
+data Person = Liar | TruthTeller
+   deriving (Eq, Ord, Show, Read)
+data Speaker = First | Second | Third
+   deriving (Eq, Ord, Show, Read)
+data Woman = W Speaker -- their ID is who spoke in which turn
+   deriving (Eq, Ord, Show, Read)
+
+data Statement = Truth | Falsehood
+   deriving (Eq, Ord, Show, Read)
+
+truthTellers :: [Woman] -> Set (Woman, Person) -- or something like that
+truthTellers women = undefined
+
+{--
+
+Smullyan has a whole book of these kinds of puzzled called the Riddle of
+Scheherazade: and Other Amazing Puzzles in which via these puzzles he
+develops a new kind of logic, known as coercive logic. I'm excited in
+exploring this field, as I run into this occasionally at work and do
+frame logics? ontologies? dependent types? all of the above? neatly address
+the issues I face? Does grappling with these kinds of problems open up new
+ways to solve hard problems or even open up the possibility of tackling
+problems just not addressed as they are labeled as 'too hard'?
+
+I'll see. I'll learn. I'm intrigued. Yes, by riddles that are as old as
+story-telling, itself. The knights and knaves riddle is as old as the hills.
+
+--}
+#+end_src
+
+| Woman | Statement                                  |
+|     1 | 2 of us are TruthTellers.                  |
+|     2 | Only one of us is a TruthTeller.           |
+|     3 | The last woman who spoke is a TruthTeller. |
+
+- Hypothesis: Woman 1 is a TruthTeller. Then 2 and 3 lied! Thus rendering the 1 statement false. Absurd! 1 is a liar.
+- Hypothesis: Woman 1 is a liar.
+...
+
+| 1 | 2 | 3 | Result |
+| L | L | L |        |
+|   |   |   |        |
