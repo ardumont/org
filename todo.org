@@ -1,25 +1,7 @@
 #+title: Learning...
 #+author: ardumont
 
-* online universities
-- https://www.edx.org/
-- https://www.coursera.org/
-* DONE printer [100%]
-CLOSED: [2014-10-07 Tue 18:42]
-- [X] Install CUPS on nixos
-- [X] Set network home printer
-* TODO coding challenge which computes the complexity - http://codility.com/
-* TODO Mouseless file manager
-  Does not seem to find one!
-  Code it!
-* TODO Raspberry-PI [0%]
-- [ ] Learn
-* TODO The four horsemen of the parallel apocalypse
-- [ ] Race conditions
-- [ ] Deadlocks
-- [ ] Livelocks
-- [ ] Priority inversions
-* IN-PROGRESS Readings [22%]
+* IN-PROGRESS Readings [30%]
 - [X] practical clojure
 - [X] joy of clojure
 - [X] clojure in action
@@ -63,7 +45,28 @@ CLOSED: [2014-10-07 Tue 18:42]
 - [ ] [[http://www.opscode.com/chef/][Chef]] - infrastructure automation and configuration management framework - infrastructure as code
 - [X] [[https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing][CIDR]]
 - [ ] [[https://en.wikipedia.org/wiki/Domain_Name_System][DNS]]
+- [X] Stop à la manipulation - Jacques Regard
+- [X] Apprendre a résister - Olivier Houdé
+- [X] Hackers and Painters - Paul Graham
 
+* online universities
+- https://www.edx.org/
+- https://www.coursera.org/
+* DONE printer [100%]
+CLOSED: [2014-10-07 Tue 18:42]
+- [X] Install CUPS on nixos
+- [X] Set network home printer
+* TODO coding challenge which computes the complexity - http://codility.com/
+* TODO Mouseless file manager
+  Does not seem to find one!
+  Code it!
+* TODO Raspberry-PI [0%]
+- [ ] Learn
+* TODO The four horsemen of the parallel apocalypse
+- [ ] Race conditions
+- [ ] Deadlocks
+- [ ] Livelocks
+- [ ] Priority inversions
 * TODO Structure and Interpretation of Computer Programs - books
 * TODO Github - Play around with the Github API [100%]
 - [X] http://developer.github.com/libraries/
