@@ -1,0 +1,51 @@
+#+title: Digit fifth powers
+
+Digit fifth powers
+Problem 30
+
+Surprisingly there are only three numbers that can be written as the sum of fourth powers of their digits:
+
+    1634 = 14 + 64 + 34 + 44
+    8208 = 84 + 24 + 04 + 84
+    9474 = 94 + 44 + 74 + 44
+
+As 1 = 14 is not a sum it is not included.
+
+The sum of these numbers is 1634 + 8208 + 9474 = 19316.
+
+Find the sum of all the numbers that can be written as the sum of fifth powers of their digits.
+
+#+begin_src lisp
+(require 'dash)
+
+(defun number-to-digits (n)
+  "Compute the number N into its digit as list."
+  (mapcar (lambda (x) (- x ?0)) (number-to-string n)))
+
+(defun sum-of-digits (n e)
+  "Compute the sum of the number N's digits to the exponent E."
+  (apply '+ (mapcar (lambda (x) (expt x e)) (number-to-digits n))))
+
+(defun filter-digits (l e)
+  "Filter the numbers for which the sum of their digit to the exponent E is itself."
+  (--filter (= (sum-of-digits it e) it) l))
+
+(filter-digits '(1634 8208 9474 1000) 4)
+;; '(1634 8208 9474)
+
+(filter-digits (number-sequence 2 295245) 5)
+;; '(4150 4151 54748 92727 93084 194979)
+
+(defun sum-of-digits-to-exponent (e)
+  "Compute the sum of the digits to the exponents e"
+  (let ((upper-limit (* e (expt 9 e))))
+    (--> (number-sequence 2 upper-limit)
+      (filter-digits it e)
+      (apply '+ it))))
+
+(sum-of-digits-to-exponent 4)
+;; 19316 -> this is the same as the exercise
+
+(sum-of-digits-to-exponent 5)
+;; 443839 -> this is the result asked for
+#+end_src
