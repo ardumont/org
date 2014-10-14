@@ -4,32 +4,37 @@
   "Compute the number N into its digit as list."
   (mapcar (lambda (x) (- x ?0)) (number-to-string n)))
 
-(defun sum-of-digits (n e)
+(defun sum-of-digits-elevated-to-exponent (n e)
   "Compute the sum of the number N's digits to the exponent E."
-  (apply '+ (mapcar (lambda (x) (expt x e)) (number-to-digits n))))
+  (->> n
+    number-to-digits
+    (--map (expt it e))
+    (apply '+)))
 
-(defun filter-digits (l e)
-  "Filter the numbers for which the sum of their digit to the exponent E is itself."
-  (--filter (= (sum-of-digits it e) it) l))
-
-(filter-digits '(1634 8208 9474 1000) 4)
-;; '(1634 8208 9474)
-
-(filter-digits (number-sequence 2 295245) 5)
-;; '(4150 4151 54748 92727 93084 194979)
+(defun compute-numbers-which-sum-of-digits-is-itself (l e)
+  "Filter numbers for which the sum of their digits to the exponent E is itself."
+  (--filter (= (sum-of-digits-elevated-to-exponent it e) it) l))
 
 (defun sum-of-digits-to-exponent (e)
   "Compute the sum of the digits to the exponents e"
   (let ((upper-limit (* e (expt 9 e))))
     (--> (number-sequence 2 upper-limit)
-      (filter-digits it e)
+      (compute-numbers-which-sum-of-digits-is-itself it e)
       (apply '+ it))))
 
-(sum-of-digits-to-exponent 4)
-;; 19316 -> this is the same as the exercise
+(require 'ert)
+(require 'ert-expectations)
+(require 'el-mock)
 
-(sum-of-digits-to-exponent 5)
-;; 443839 -> this is the result asked for
+(expectations
+ (desc "compute-numbers-which-sum-of-digits-is-itself")
+ (expect '(1634 8208 9474)
+         (compute-numbers-which-sum-of-digits-is-itself '(1634 8208 9474 1000) 4))
+ (expect '(4150 4151 54748 92727 93084 194979)
+         (compute-numbers-which-sum-of-digits-is-itself (number-sequence 2 295245) 5)))
 
-(filter-digits (number-sequence 2 (* 4 (expt 9 4))) 4)
-(filter-digits (number-sequence 2 (* 5 (expt 9 5))) 5)
+(expectations
+ (expect 19316
+         (sum-of-digits-to-exponent 4))
+ (expect 443839
+         (sum-of-digits-to-exponent 5)))
