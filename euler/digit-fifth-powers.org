@@ -16,7 +16,7 @@ The sum of these numbers is 1634 + 8208 + 9474 = 19316.
 Find the sum of all the numbers that can be written as the sum of fifth powers of their digits.
 
 Code:
-#+begin_src lisp
+#+begin_src emacs-lisp
 (require 'dash)
 
 (defun number-to-digits (n)
@@ -40,10 +40,15 @@ Code:
     (--> (number-sequence 2 upper-limit)
       (compute-numbers-which-sum-of-digits-is-itself it e)
       (apply '+ it))))
+
+(sum-of-digits-to-exponent 5)
 #+end_src
 
+#+RESULTS:
+: 443839
+
 Tests:
-#+begin_src lisp
+#+begin_src emacs-lisp
 (require 'ert)
 (require 'ert-expectations)
 (require 'el-mock)
