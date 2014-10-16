@@ -1,0 +1,39 @@
+Getting started: https://flood.io/help/floods/getting_started_using_gatling
+
+Gatling sample:
+
+#+begin_src scala
+import io.gatling.core.Predef._
+     , io.gatling.http.Predef._
+     , io.gatling.jdbc.Predef._
+     , io.gatling.http.HeaderNames._
+     , scala.concurrent.duration._
+
+class StreetArtSimulation extends Simulation {
+	val pl = http.baseURL("https://streetart.withgoogle.com")
+		.baseHeaders(Map(
+			"User-Agent" -> "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:33.0) Gecko/20100101 Firefox/33.0",
+			"Accept" -> "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+			"Accept-Language" -> "en-US,en;q=0.5",
+			"Accept-Encoding" -> "gzip, deflate"
+		))
+#+end_src
+
+Here is an adapted sample for flood:
+#+begin_src scala
+import io.gatling.core.Predef._
+  , io.gatling.http.Predef._
+  , io.gatling.jdbc.Predef._
+  , io.gatling.http.HeaderNames._
+  , scala.concurrent.duration._
+
+class StreetArtSimulation extends Simulation {
+  val pl = httpConfigFlood.baseURL("https://streetart.withgoogle.com")
+    .baseHeaders(Map(
+		   "User-Agent" -> "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:33.0) Gecko/20100101 Firefox/33.0",
+		   "Accept" -> "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+		   "Accept-Language" -> "en-US,en;q=0.5",
+		   "Accept-Encoding" -> "gzip, deflate"
+		 ))
+
+#+end_src
