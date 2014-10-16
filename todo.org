@@ -1,7 +1,7 @@
 #+title: Learning...
 #+author: ardumont
 
-* IN-PROGRESS Readings [30%]
+* IN-PROGRESS Readings [28%]
 - [X] practical clojure
 - [X] joy of clojure
 - [X] clojure in action
@@ -48,6 +48,8 @@
 - [X] Stop à la manipulation - Jacques Regard
 - [X] Apprendre a résister - Olivier Houdé
 - [X] Hackers and Painters - Paul Graham
+- [ ] Javascript: the good parts
+- [ ] Purely functional data structure
 
 * online universities
 - https://www.edx.org/
