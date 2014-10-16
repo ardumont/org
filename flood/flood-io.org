@@ -1,6 +1,17 @@
-Getting started: https://flood.io/help/floods/getting_started_using_gatling
+#+title: flood.io - a tryout
+#+author: ardumont
 
-Gatling sample:
+* Introduction
+
+We need to adapt the gatling scenario code with [[https://flood.io][flood]]'s own scala imports and make some small changes before we can make run the gatling scenario in flood.
+
+The Doc is rather clear:
+- [[https://flood.io/help/floods/getting_started_using_gatling][Getting started]]
+- [[https://flood.io/blog/14-getting-started-with-gatling][More detailed version]]
+
+* Prepare the gatling scenario
+
+From a running Gatling sample:
 
 #+begin_src scala
 import io.gatling.core.Predef._
@@ -10,25 +21,43 @@ import io.gatling.core.Predef._
      , scala.concurrent.duration._
 
 class StreetArtSimulation extends Simulation {
-	val pl = http.baseURL("https://streetart.withgoogle.com")
-		.baseHeaders(Map(
-			"User-Agent" -> "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:33.0) Gecko/20100101 Firefox/33.0",
-			"Accept" -> "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-			"Accept-Language" -> "en-US,en;q=0.5",
-			"Accept-Encoding" -> "gzip, deflate"
-		))
+  val pl = http.baseURL("https://streetart.withgoogle.com")
+    .baseHeaders(Map(
+      "User-Agent" -> "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:33.0) Gecko/20100101 Firefox/33.0",
+      "Accept" -> "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+      "Accept-Language" -> "en-US,en;q=0.5",
+      "Accept-Encoding" -> "gzip, deflate"
+	))
+
+  val s1 = scenario("My scenario")
+    .exec(http("request_0").get("/en/%23be-a-spotter").headers(Map("Host" -> "streetart.withgoogle.com", "User-Agent" -> "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:33.0) Gecko/20100101 Firefox/33.0", "Accept" -> "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8", "Accept-Language" -> "en-US,en;q=0.5", "Accept-Encoding" -> "gzip, deflate", "Cookie" -> "__utma=267205836.1653766859.1413450470.1413450470.1413450470.1; __utmb=267205836.7.10.1413450470; __utmc=267205836; __utmz=267205836.1413450470.1.1.utmcsr=google|utmccn=(organic)|utmcmd=organic|utmctr=(not%20provided)", "Connection" -> "keep-alive", "Cache-Control" -> "max-age=0")))
+    .pause(2)
+
+...
+
+  setUp(s1.inject(rampUsers(10) over (10 seconds))).protocols(pl)
+}
 #+end_src
 
-Here is an adapted sample for flood:
+To a flood compliant one:
 #+begin_src scala
-import io.gatling.core.Predef._
-  , io.gatling.http.Predef._
-  , io.gatling.jdbc.Predef._
-  , io.gatling.http.HeaderNames._
-  , scala.concurrent.duration._
+import com.excilys.ebi.gatling.core.Predef._
+import com.excilys.ebi.gatling.http.Predef._
+import com.excilys.ebi.gatling.jdbc.Predef._
+import com.excilys.ebi.gatling.http.Headers.Names._
+import akka.util.duration._
+import bootstrap._
+
+// Mandatory, you must import Flood libraries
+import flood._
 
 class StreetArtSimulation extends Simulation {
-  val pl = httpConfigFlood.baseURL("https://streetart.withgoogle.com")
+  val threads   = Integer.getInteger("threads",  10)
+  val rampup    = Integer.getInteger("rampup",   10).toLong
+  val duration  = Integer.getInteger("duration", 15).toLong
+
+  val pl = httpConfigFlood
+    .baseURL("https://streetart.withgoogle.com")
     .baseHeaders(Map(
 		   "User-Agent" -> "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:33.0) Gecko/20100101 Firefox/33.0",
 		   "Accept" -> "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
@@ -36,4 +65,40 @@ class StreetArtSimulation extends Simulation {
 		   "Accept-Encoding" -> "gzip, deflate"
 		 ))
 
+  val s1 = scenario("My scenario")
+    .exec(http("request_0").get("/en/%23be-a-spotter").headers(Map("Host" -> "streetart.withgoogle.com", "User-Agent" -> "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:33.0) Gecko/20100101 Firefox/33.0", "Accept" -> "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8", "Accept-Language" -> "en-US,en;q=0.5", "Accept-Encoding" -> "gzip, deflate", "Cookie" -> "__utma=267205836.1653766859.1413450470.1413450470.1413450470.1; __utmb=267205836.7.10.1413450470; __utmc=267205836; __utmz=267205836.1413450470.1.1.utmcsr=google|utmccn=(organic)|utmcmd=organic|utmctr=(not%20provided)", "Connection" -> "keep-alive", "Cache-Control" -> "max-age=0")))
+    .pause(2)
+
+  ...
+
+  setUp(s1.users(threads).ramp(rampup).protocolConfig(pl))
+}
 #+end_src
+
+* Create a flood scenario
+
+Then we create the flood scenario on the main page.
+
+[[./img/create-flood-main-part.png]]
+
+Mainly:
+- upload the adapted gatling scenario
+- select the node that the scenario will ran
+
+* Run
+
+Then validate the creation and run the `flood`.
+The flood is queued (depending on the account's subscription).
+
+* Details flood report
+
+We have a nice visual report when it's done
+
+[[./img/flood-report-1.png]]
+[[./img/flood-report-2-summary-report.png]]
+[[./img/flood-report-3-transactions.png]]
+[[./img/flood-report-4-logs-and-grid.png]]
+
+There is also another ui to sum the latest flood reports:
+
+[[./img/latest-flood-report-summary.png]]
