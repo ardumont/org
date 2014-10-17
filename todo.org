@@ -1556,5 +1556,6 @@ CLOSED: [2014-06-22 Sun 10:47]
 - [X] Demo (BBL clojure at Kyriba)
 - [X] Find out why it broke (Marmalade API got migrated and restrained - https://github.com/ardumont/clj-jam/issues/1
 - [ ] Fix when it's possible
-* DevOps
+* TODO DevOps
 - [ ] https://en.wikipedia.org/wiki/DevOps
+* TODO js-pack
