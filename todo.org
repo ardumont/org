@@ -1559,3 +1559,5 @@ CLOSED: [2014-06-22 Sun 10:47]
 * TODO DevOps
 - [ ] https://en.wikipedia.org/wiki/DevOps
 * TODO js-pack
+- [ ] http://mihai.bazon.net/projects/editing-javascript-with-emacs-js2-mode
+- [ ] http://blog.deadpansincerity.com/2011/05/setting-up-emacs-as-a-javascript-editing-environment-for-fun-and-profit/
