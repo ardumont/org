@@ -150,6 +150,8 @@ CLOSED: [2014-10-07 Tue 18:42]
   - [X] 0.5.9
   - [X] 0.6.0
   - [X] 0.6.1
+  - [X] 0.6.2
+  - [X] 0.6.3
   - [ ] ...
 * IN-PROGRESS Scala [72%]
 ** DONE scala-pack
