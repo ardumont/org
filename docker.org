@@ -79,7 +79,7 @@ To check the installation is ok:
 docker run -t -i ubuntu /bin/bash
 #+end_src
 
-* search
+* Search
 
 ** Remotely
 
@@ -95,7 +95,7 @@ To list current installed images:
 docker images
 #+end_src
 
-* pull
+* Pull
 
 Retrieve the debian image from the default repository ([[http://hub.docker.com/][docker hub]]):
 
@@ -103,14 +103,14 @@ Retrieve the debian image from the default repository ([[http://hub.docker.com/]
 docker pull debian
 #+end_src
 
-* run
+* Run
 
 Run command in a container:
 #+begin_src sh
 CONTAINER_ID=$(docker run -d debian /bin/sh -c "echo hello")
 #+end_src
 
-* ps
+* Ps
 
 Monitor the container:
 #+begin_src sh
@@ -124,21 +124,21 @@ CONTAINER ID        IMAGE               COMMAND                CREATED          
 ccc70474b671        ubuntu:12.04        /bin/sh -c while tru   3 minutes ago       Up 3 minutes                            condescending_Morse
 #+end_src
 
-* stop
+* Stop
 
 Stop the container:
 #+begin_src sh
 docker stop $CONTAINER_ID
 #+end_src
 
-* kill
+* Kill
 
 Kill a job:
 #+begin_src sh
 docker kill $CONTAINER_ID
 #+end_src
 
-* bind
+* Bind
 
 Bind a service on a tcp port:
 #+begin_src sh
@@ -155,7 +155,7 @@ echo hello world | nc 127.0.0.1 $PORT
 echo "Daemon received: $(sudo docker logs $JOB)"
 #+end_src
 
-* commit
+* Commit
 
 Save the current state of a container by commit:
 #+begin_src sh
