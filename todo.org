@@ -1560,9 +1560,12 @@ CLOSED: [2014-06-22 Sun 10:47]
 - [ ] Fix when it's possible
 * TODO DevOps
 - [ ] https://en.wikipedia.org/wiki/DevOps
-* IN-PROGRESS js-pack
+* DONE js-pack
+CLOSED: [2014-10-20 Mon 12:37]
 - [ ] http://mihai.bazon.net/projects/editing-javascript-with-emacs-js2-mode
 - [ ] http://blog.deadpansincerity.com/2011/05/setting-up-emacs-as-a-javascript-editing-environment-for-fun-and-profit/
+- [X] https://github.com/Wilfred/flymake-jshint.el#flymake-jshint
+- [ ] https://github.com/omouse/angularjs-mode
 * TODO Fix kill/yank in urxvt
 This is not working right now and work around using emacs/tmux...
 I'm getting more and more annoyed by this.
