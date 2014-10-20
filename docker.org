@@ -164,6 +164,8 @@ docker commit <container-id> <commit-message>
 
 * Dockerfile
 
+** Basic file
+
 A Dockerfile is a simple text file which defines the instructions to be played from a given images.
 
 Sample:
@@ -178,6 +180,8 @@ Note:
 - The `from` states from which images we should start the following actions.
 - The `run` instructions are the equivalent commands of the run command `docker run...`
 
+** Build
+
 To build from docker file (default to current Dockerfile), use the docker build command:
 #+begin_src sh
 docker build -t ardumont/image-name .
@@ -188,7 +192,17 @@ This will:
 - name the container ardumont/image-name
 - load the current `Dockerfile` present in directory.
 
-*Remark* If the docker file has a different name, you can always use this:
+** Build with specific Dockerfile name
+
+If the docker file has a different name, you can always use this:
 #+begin_src sh
 docker build - < Dockerfile-with-a-specific-name
 #+end_src
+
+** Naming images after the build
+
+#+begin_src sh
+docker build -t <image-name>
+#+end_src
+
+At the end of the build, listing the images will display a new image with name <image-name>
