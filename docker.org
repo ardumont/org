@@ -81,9 +81,18 @@ docker run -t -i ubuntu /bin/bash
 
 * search
 
+** Remotely
+
 Search existing images in central index:
 #+begin_src sh
 docker search debian
+#+end_src
+
+** locally
+
+To list current installed images:
+#+begin_src sh
+docker images
 #+end_src
 
 * pull
