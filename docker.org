@@ -155,13 +155,6 @@ echo hello world | nc 127.0.0.1 $PORT
 echo "Daemon received: $(sudo docker logs $JOB)"
 #+end_src
 
-* images
-
-List the current known images:
-#+begin_src sh
-docker images
-#+end_src
-
 * commit
 
 Save the current state of a container by commit:
