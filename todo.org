@@ -1560,6 +1560,10 @@ CLOSED: [2014-06-22 Sun 10:47]
 - [ ] Fix when it's possible
 * TODO DevOps
 - [ ] https://en.wikipedia.org/wiki/DevOps
-* TODO js-pack
+* IN-PROGRESS js-pack
 - [ ] http://mihai.bazon.net/projects/editing-javascript-with-emacs-js2-mode
 - [ ] http://blog.deadpansincerity.com/2011/05/setting-up-emacs-as-a-javascript-editing-environment-for-fun-and-profit/
+* TODO Fix kill/yank in urxvt
+This is not working right now and work around using emacs/tmux...
+I'm getting more and more annoyed by this.
+Broken since I started using nix (I must be missing extensions defined in `~/.Xresources`)
