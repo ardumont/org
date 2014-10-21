@@ -349,7 +349,7 @@ CLOSED: [2013-11-10 dim. 15:21]
 ** DONE Changer la table
 CLOSED: [2014-01-03 ven. 13:55]
 ** TODO changer radiateur
-* IN-PROGRESS Couloir du haut [28/29]
+* IN-PROGRESS Couloir du haut [29/30]
 ** DONE Retirer le crepis
 ** DONE Retirer le papier peint
 ** DONE Enduit
@@ -402,6 +402,8 @@ CLOSED: [2013-08-03 sam. 22:22]
 CLOSED: [2013-08-04 dim. 15:17]
 ** DONE Plafonnier
 CLOSED: [2013-08-04 dim. 15:17]
+** DONE Poser un faux plafond
+CLOSED: [2014-10-21 Tue 15:47]
 ** TODO Poser le papier peint sur les murs
 * IN-PROGRESS Toilettes du bas [7/10]
 ** DONE Sous-couche porte
