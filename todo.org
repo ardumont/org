@@ -1,8 +1,9 @@
 #+title: Learning...
 #+author: ardumont
 
-* PENDING codinggame [50%]
-- [X] don't panic
+* PENDING codinggame [66%]
+- [X] Onboarding
+- [X] Skynet, the chasm
 - [ ] ...
 * IN-PROGRESS Readings [28%]
 - [X] practical clojure
