@@ -1,6 +1,9 @@
 #+title: Learning...
 #+author: ardumont
 
+* PENDING codinggame [50%]
+- [X] don't panic
+- [ ] ...
 * IN-PROGRESS Readings [28%]
 - [X] practical clojure
 - [X] joy of clojure
@@ -1570,3 +1573,7 @@ CLOSED: [2014-10-20 Mon 12:37]
 This is not working right now and work around using emacs/tmux...
 I'm getting more and more annoyed by this.
 Broken since I started using nix (I must be missing extensions defined in `~/.Xresources`)
+* TODO javascript
+- [ ] https://github.com/jashkenas/underscore
+- [ ] https://github.com/angular/angular.js
+- [ ] https://github.com/es-shims/es5-shim - ecmascript compatibility for legacy javascript engine
