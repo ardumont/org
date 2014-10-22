@@ -1,9 +1,10 @@
 #+title: Learning...
 #+author: ardumont
 
-* PENDING codinggame [66%]
+* PENDING codinggame [75%]
 - [X] Onboarding
 - [X] Skynet, the chasm
+- [X] Kirk's quest - the descent
 - [ ] ...
 * IN-PROGRESS Readings [28%]
 - [X] practical clojure
