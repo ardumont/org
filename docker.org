@@ -105,9 +105,18 @@ docker pull debian
 
 * Run
 
+** Command
+
 Run command in a container:
 #+begin_src sh
 CONTAINER_ID=$(docker run -d debian /bin/sh -c "echo hello")
+#+end_src
+
+** Interactive
+
+Run interactive command in a container:
+#+begin_src sh
+docker run -t -i ubuntu /bin/bash
 #+end_src
 
 * Ps
