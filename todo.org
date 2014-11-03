@@ -1580,9 +1580,11 @@ Broken since I started using nix (I must be missing extensions defined in `~/.Xr
 - [ ] https://github.com/jashkenas/underscore
 - [ ] https://github.com/angular/angular.js
 - [ ] https://github.com/es-shims/es5-shim - ecmascript compatibility for legacy javascript engine
-* IN-PROGRESS purescript [100%]
+* DONE purescript [100%]
+CLOSED: [2014-10-31 Fri 21:20]
 - [X] Find a purescript major mode to help in editing
 - [X] No easy installation through emacs package, make it on melpa - https://github.com/milkypostman/melpa/pull/2111
 - [X] Interactive mode for purescript? - No one exists, create one - https://github.com/ardumont/emacs-psci
 - [X] Make it available on [[http://melpa.org/#/psci][melpa / melpa-stable]] / [[https://marmalade-repo.org/packages/psci][marmalade]] / [[https://github.com/dimitri/el-get/blob/master/recipes/psci.rcp][el-get]]
 - [X] Extend psci to have :b keyword - https://github.com/purescript/purescript/pull/662
+* TODO packer to make nix box
