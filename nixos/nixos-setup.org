@@ -93,3 +93,26 @@ I stumble upon this snippet to deploy public key. Seems pretty nice.
 #+begin_src nix
 users.extraUsers.root.openssh.authorizedKeys.keys = [ (builtins.readFile ./id_rsa.pub) ];
 #+end_src
+
+* proxy
+
+** Setup proxy
+
+This will generate a file which is sourced from the main /etc/profile.
+
+#+begin_src nix
+nix.proxy = "http://yourproxy:yourproxyport";
+#+end_src
+
+source: http://nixos.org/nixos/manual/#opt-nix.proxy
+** Rebuild
+
+This helps in building nixos from behing a proxy:
+
+#+begin_src nix
+export http_proxy=http://yourproxy:yourproxy-port
+NIX_REMOTE= nix-build -A system "<nixos>"
+nixos-rebuild switch
+#+end_src
+
+source: https://lastlog.de/wiki/index.php/Nixos_configuration.nix
