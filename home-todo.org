@@ -557,7 +557,7 @@ CLOSED: [2013-07-31 mer. 13:19]
 ** TODO Enduit de rebouchage
 ** TODO Sous-couche
 ** TODO Peinture
-* PENDING Escalier salon-1er [8/11]
+* PENDING Escalier salon-1er [8/10]
 ** DONE Retirer le crepis
 ** DONE Enduit de lissage
 CLOSED: [2011-10-31 lun. 10:11]
@@ -573,9 +573,10 @@ CLOSED: [2011-10-31 lun. 19:35]
 CLOSED: [2013-04-11 jeu. 09:37]
 ** DONE Interrupteur escalier/couloir du haut
 CLOSED: [2013-08-03 sam. 22:22]
+** DONE Faux-plafond
+CLOSED: [2014-11-04 Tue 20:16]
 ** TODO Poser la toile de renovation
 ** TODO Poser le papier peint/Peindre
-** TODO Faux-plafond
 * PENDING Salle d'eau [6/11]
 ** DONE Sous-couche cadre de porte
 CLOSED: [2013-07-30 mar. 21:51]
