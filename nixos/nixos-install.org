@@ -70,13 +70,21 @@ nix-env -i wget
 wget https://raw.githubusercontent.com/ardumont/dot-files/master/nixos/configuration.nix --output-document /mnt/etc/nixos/configuration.nix
 #+end_src
 
+*Note*
+Update temporarily the configuration.nix file to add the `password` entry in the user section:
+#+begin_src nix
+    password = "dummy";
+#+end_src
+This way the user ends up having a "dummy" password (this way you can connect on the login manager at next reboot).
+Do not forget to override (and remove) this from the configuration.nix at next reboot.
+
 - Install NixOS
 
 #+begin_src sh
 nixos-install
 #+end_src
 
-*Note* This can be long due to the network (I have a slow one).
+*Note* This can be long due to the network (I have a real slow one).
 
 - Reboot
 
@@ -85,6 +93,8 @@ reboot
 #+end_src
 
 - Log as root again (no password remember :)
+
+*Note* Assume that the `configuration.nix` did not start the xserver.
 
 - Input a password for the root user
 
