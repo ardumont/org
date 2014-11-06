@@ -56,7 +56,14 @@ systemctl restart wpa_supplicant.service
 cp /etc/wpa_supplicant.conf /mnt/etc/
 #+end_src
 
-- Override the configuration.nix with mine
+- Update the channel to the latest
+
+#+begin_src sh
+nix-channel --add https://nixos.org/channels/nixos-unstable
+nix-channel --update
+#+end_src
+
+- Override the configuration.nix with your configuration (here I use mine)
 
 #+begin_src sh
 nix-env -i wget
