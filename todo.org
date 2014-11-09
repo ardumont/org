@@ -1590,4 +1590,12 @@ CLOSED: [2014-10-31 Fri 21:20]
 - [X] Interactive mode for purescript? - No one exists, create one - https://github.com/ardumont/emacs-psci
 - [X] Make it available on [[http://melpa.org/#/psci][melpa / melpa-stable]] / [[https://marmalade-repo.org/packages/psci][marmalade]] / [[https://github.com/dimitri/el-get/blob/master/recipes/psci.rcp][el-get]]
 - [X] Extend psci to have :b keyword - https://github.com/purescript/purescript/pull/662
-* TODO packer to make nix box
+* IN-PROGRESS packer/vagrant to make nix box
+- https://github.com/zimbatm/nixbox
+- https://nixos.org/wiki/Installing_VirtualBox_on_NixOS
+
+* IN-PROGRESS Fixes
+- [X] Find a https://github.com/felipec/git-remote-hg bridge between git and mercurial
+- [X] Fix synaptics errors on non mobile nixos computer
+- [X] Fix pb with myrkr (apparently fixed by formatting /home)
+- [ ] Fix autojump not working on nixos box
