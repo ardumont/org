@@ -1572,6 +1572,9 @@ CLOSED: [2014-10-20 Mon 12:37]
 - [ ] http://blog.deadpansincerity.com/2011/05/setting-up-emacs-as-a-javascript-editing-environment-for-fun-and-profit/
 - [X] https://github.com/Wilfred/flymake-jshint.el#flymake-jshint
 - [ ] https://github.com/omouse/angularjs-mode
+- [X] Start a js-pack
+- [X] Toggle repl for js-pack
+
 * TODO Fix kill/yank in urxvt
 This is not working right now and work around using emacs/tmux...
 I'm getting more and more annoyed by this.
