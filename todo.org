@@ -1575,7 +1575,8 @@ CLOSED: [2014-10-20 Mon 12:37]
 - [X] Start a js-pack
 - [X] Toggle repl for js-pack
 
-* TODO Fix kill/yank in urxvt
+* DONE Fix kill/yank in urxvt
+CLOSED: [2014-11-09 Sun 22:43]
 This is not working right now and work around using emacs/tmux...
 I'm getting more and more annoyed by this.
 Broken since I started using nix (I must be missing extensions defined in `~/.Xresources`)
@@ -1598,5 +1599,4 @@ CLOSED: [2014-10-31 Fri 21:20]
 - [X] Find a https://github.com/felipec/git-remote-hg bridge between git and mercurial
 - [X] synaptics errors on non mobile nixos computer
 - [X] pb with myrkr (apparently fixed by reformatting /home)
-- [X] copy/paste inside urxvt
 - [ ] autojump not working on nixos box
