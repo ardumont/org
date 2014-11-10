@@ -1592,6 +1592,7 @@ CLOSED: [2013-07-07 dim. 10:00]
 - [X] Switch from deprecated inferior-haskell to interactive-haskell-mode
 - [X] Propose C-c C-z switch to repl and back
 - [X] Integrated in haskell-mode now (not my code but at least the idea :D)
+- [X] Propose improvment about nix-shell integration in haskell-mode - https://github.com/haskell/haskell-mode/pull/370
 * DONE markdown-toc [100%]
   CLOSED: [2014-08-19 Tue 19:57]
 - [X] 0.0.1
