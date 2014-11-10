@@ -65,6 +65,10 @@
 - [X] http://angularjs.org/
 - [ ] https://github.com/angular/angular.js
 - [ ] http://angular.github.io/protractor/#/browser-setup
+* IN-PROGRESS packer/vagrant to make nix box
+- [X] https://nixos.org/wiki/Installing_VirtualBox_on_NixOS
+- [X] Create a nixos vagrant image - https://github.com/zimbatm/nixbox
+- [ ] Provision a nixos vagrant vm using the previous image - https://github.com/oxdi/vagrant-nixos
 * PENDING Readings [28%]
 - [X] practical clojure
 - [X] joy of clojure
@@ -1126,12 +1130,6 @@ CLOSED: [2013-04-19 ven. 22:39]
 - [X] Interactive mode for purescript? - No one exists, create one - https://github.com/ardumont/emacs-psci
 - [X] Make it available on [[http://melpa.org/#/psci][melpa / melpa-stable]] / [[https://marmalade-repo.org/packages/psci][marmalade]] / [[https://github.com/dimitri/el-get/blob/master/recipes/psci.rcp][el-get]]
 - [X] Extend psci to have :b keyword - https://github.com/purescript/purescript/pull/662
-* PENDING packer/vagrant to make nix box
-- [X] https://nixos.org/wiki/Installing_VirtualBox_on_NixOS
-- [ ] https://github.com/zimbatm/nixbox
-Fail at the moment.
-Need to make vbox work on nixos host.
-
 * PENDING Fixes
 - [X] Find a https://github.com/felipec/git-remote-hg bridge between git and mercurial
 - [X] synaptics errors on non mobile nixos computer
