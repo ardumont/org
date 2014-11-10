@@ -1482,7 +1482,7 @@ CLOSED: [2014-06-22 Sun 10:47]
 - [ ] `job` and `dagobah` shares 99% of configuration except for the hostname and the wifi connection, find a way to factorize this code.
 ** NixOps [0%]
 - [ ] http://hydra.nixos.org/build/15623313/download/1/manual/manual.html
-* IN-PROGRESS Terraform
+* PENDING Terraform
 - [X] https://github.com/hashicorp/terraform
 - [X] http://www.infoq.com/news/2014/08/terraform
 - [-] http://www.terraform.io/
@@ -1508,13 +1508,13 @@ CLOSED: [2014-06-22 Sun 10:47]
   $ sudo blkid /dev/sdb1
   /dev/sdb1: UUID="be4bd3d5-abbc-4788-911c-e15b1557e1dd" TYPE="ext4"
   #+end_src
-* IN-PROGRESS Make a personal live-cd (xmonad, firefox, etc...) [20%]
+* PENDING Make a personal live-cd (xmonad, firefox, etc...) [20%]
 - [X] Create a simple iso, boot it
 - [ ] Ensure network (wifi included) is ok
 - [ ] Update the live linux to have X11 running
 - [ ] Make X11 running with XMonad
 - [ ] Make it an installable iso
-* IN-PROGRESS Secure machines
+* PENDING Secure machines
 - [X] Reinstall os + secure the disk
 - [ ] Secure hdd
 - [ ] Secure usb disks
@@ -1525,7 +1525,7 @@ CLOSED: [2014-06-22 Sun 10:47]
 - [X] Switch from deprecated inferior-haskell to interactive-haskell-mode
 - [X] Propose C-c C-z switch to repl and back
 - [X] Integrated in haskell-mode now (not my code but at least the idea :D)
-* IN-PROGRESS HWifi [91%]
+* PENDING HWifi [91%]
 - [X] Bootstrap hwifi in [[https://github.com/ardumont/hWifi][ardumont/hWifi]] - only scan and auto-connect to the most powerful signal
 - [X] Tests
 - [X] Docstring
@@ -1549,7 +1549,7 @@ CLOSED: [2014-06-22 Sun 10:47]
 * DONE Find a software to display bindings as you type along - keymon
   CLOSED: [2014-09-06 Sat 18:53]
 * IN-PROGRESS judo
-* IN-PROGRESS docker [5/7]
+* PENDING docker [5/7]
 - [ ] https://www.docker.com/
 - [X] http://www.infoq.com/articles/docker-containers
 - [X] https://docs.docker.com/
@@ -1581,22 +1581,26 @@ CLOSED: [2014-11-09 Sun 22:43]
 This is not working right now and work around using emacs/tmux...
 I'm getting more and more annoyed by this.
 Broken since I started using nix (I must be missing extensions defined in `~/.Xresources`)
-* TODO javascript
+* PENDING javascript
 - [ ] https://github.com/jashkenas/underscore
-- [ ] https://github.com/angular/angular.js
 - [ ] https://github.com/es-shims/es5-shim - ecmascript compatibility for legacy javascript engine
-* DONE purescript [100%]
-CLOSED: [2014-10-31 Fri 21:20]
+* IN-PROGRESS Refresh on angular-js
+- [ ] https://docs.angularjs.org/tutorial
+- [X] http://angularjs.org/
+- [ ] https://github.com/angular/angular.js
+* PENDING purescript [100%]
 - [X] Find a purescript major mode to help in editing
 - [X] No easy installation through emacs package, make it on melpa - https://github.com/milkypostman/melpa/pull/2111
 - [X] Interactive mode for purescript? - No one exists, create one - https://github.com/ardumont/emacs-psci
 - [X] Make it available on [[http://melpa.org/#/psci][melpa / melpa-stable]] / [[https://marmalade-repo.org/packages/psci][marmalade]] / [[https://github.com/dimitri/el-get/blob/master/recipes/psci.rcp][el-get]]
 - [X] Extend psci to have :b keyword - https://github.com/purescript/purescript/pull/662
-* IN-PROGRESS packer/vagrant to make nix box
+* PENDING packer/vagrant to make nix box
 - [X] https://nixos.org/wiki/Installing_VirtualBox_on_NixOS
 - [ ] https://github.com/zimbatm/nixbox
+Fail at the moment.
+Need to make vbox work on nixos host.
 
-* IN-PROGRESS Fixes
+* PENDING Fixes
 - [X] Find a https://github.com/felipec/git-remote-hg bridge between git and mercurial
 - [X] synaptics errors on non mobile nixos computer
 - [X] pb with myrkr (apparently fixed by reformatting /home)
