@@ -1,12 +1,55 @@
 #+title: Learning...
 #+author: ardumont
 
-* PENDING codinggame [75%]
-- [X] Onboarding
-- [X] Skynet, the chasm
-- [X] Kirk's quest - the descent
-- [ ] ...
-* IN-PROGRESS Readings [28%]
+* IN-PROGRESS Nix* [0%]
+** Nix [0%]
+- [ ] Nix package manager - http://nixos.org/nix/manual/
+
+** Nixpkgs [50%]
+- [X] Extends Nixos - https://nixos.org/wiki/NixOS:extend_NixOS
+- [-] Create the tux-guitar package for NixOS - http://nixos.org/nixpkgs/manual/ [50%]
+  - [X] Fork and clone NixOS/nixpkgs repository
+  - [X] Located in pkgs/applications/misc according to http://nixos.org/nixpkgs/manual/#sec-organisation
+  - [X] Reference the package in pkgs/top-level/all-packages.nix
+  - [ ] Check that everything works locally
+  - [ ] Push branch and open Pull Request
+
+** NixOS [96%]
+- [X] Read [[http://nixos.org/nixos/manual/][NixOS manual]]
+- [X] Install nixos -> https://github.com/ardumont/dot-files/blob/master/configuration.nix
+- [X] Fix trouble with X (it may be my personal xmonad.hs's deps that are not satisfied)
+- [X] Xmonad
+- [X] Emacs
+- [X] Ntp
+- [X] Sudo
+- [X] Fonts
+- [X] Firefox with keysnail
+- [X] Firefox with flash
+- [X] Pass
+- [X] Offlineimap + mu
+- [X] Zenity
+- [X] Install packages not yet installed (gitg tig zenity xmodmap pmount gpg2 nmcli)
+- [X] Edit /etc/hosts to add nas, dagobah, etc...
+- [X] Fix gnupg agent
+- [X] Make pmount usable directly by nixos user
+- [X] Suspend to ram on lid close event
+- [X] Screen lock on open lid event
+- [X] Sound
+- [X] nm-applet with NixOS
+- [X] brightness increase/decrease
+- [X] Haskell
+- [X] Fix trouble with suspend
+- [ ] Install nixos with encryption - http://bluishcoder.co.nz/2014/05/14/installing-nixos-with-encrypted-root-on-thinkpad-w540.html - https://nixos.org/wiki/Encrypted_Root_on_NixOS
+** Factor NixOS configuration [0%]
+- [ ] `job` and `dagobah` shares 99% of configuration except for the hostname and the wifi connection, find a way to factorize this code.
+** NixOps [0%]
+- [ ] http://hydra.nixos.org/build/15623313/download/1/manual/manual.html
+* IN-PROGRESS judo
+* IN-PROGRESS Refresh on angular-js
+- [ ] https://docs.angularjs.org/tutorial
+- [X] http://angularjs.org/
+- [ ] https://github.com/angular/angular.js
+* PENDING Readings [28%]
 - [X] practical clojure
 - [X] joy of clojure
 - [X] clojure in action
@@ -56,36 +99,11 @@
 - [ ] Javascript: the good parts
 - [ ] Purely functional data structure
 
-* online universities
-- https://www.edx.org/
-- https://www.coursera.org/
-* DONE printer [100%]
-CLOSED: [2014-10-07 Tue 18:42]
-- [X] Install CUPS on nixos
-- [X] Set network home printer
-* TODO coding challenge which computes the complexity - http://codility.com/
-* TODO Mouseless file manager
-  Does not seem to find one!
-  Code it!
-* TODO Raspberry-PI [0%]
-- [ ] Learn
-* TODO The four horsemen of the parallel apocalypse
-- [ ] Race conditions
-- [ ] Deadlocks
-- [ ] Livelocks
-- [ ] Priority inversions
-* TODO Structure and Interpretation of Computer Programs - books
-* TODO Github - Play around with the Github API [100%]
-- [X] http://developer.github.com/libraries/
-  - https://github.com/Raynes/tentacles (clojure)
-  - https://github.com/fpco/GitHub (haskell)
-  - https://github.com/sigma/gh.el (emacs-lisp)
-- [ ] Choose one
-* IN-PROGRESS Arduino [66%]
+* PENDING Arduino [66%]
 - [X] Get back in touch - https://github.com/ardumont/harduino-lab
 - [X] https://github.com/LeventErkok/hArduino/pull/9
 - [ ] Dig more
-* IN-PROGRESS org-trello [66%]
+* PENDING org-trello [66%]
   Minor mode to sync trello and org-mode
 - [X] Deploy in melpa (automated on their own)
 - [X] Deploy in marmalade
@@ -158,7 +176,7 @@ CLOSED: [2014-10-07 Tue 18:42]
   - [X] 0.6.2
   - [X] 0.6.3
   - [ ] ...
-* IN-PROGRESS Scala [72%]
+* PENDING Scala [72%]
 ** DONE scala-pack
 CLOSED: [2013-07-26 ven. 12:15]
 
@@ -240,7 +258,7 @@ http://jglobal.com/emacs-power-for-scala-development/
 http://scala.micronauticsresearch.com/sbt/useful-sbt-commands
 http://stackoverflow.com/questions/19313063/failed-to-run-simple-akka-sample-using-sbt
 ** TODO Iteratee
-* IN-PROGRESS haskell [53%]
+* PENDING haskell [53%]
 ** DONE setuping environment
 CLOSED: [2013-04-19 ven. 22:33]
 ** DONE blogging about haskell
@@ -288,7 +306,7 @@ http://ivanmiljenovic.wordpress.com/2010/03/15/repeat-after-me-cabal-is-not-a-pa
 - [ ] Monad
 - [ ] Lens
 - [ ] Functor
-* IN-PROGRESS emacs-live [83%]
+* PENDING emacs-live [83%]
 ** DONE merge starter-kit and emacs-live's init.el
 CLOSED: [2013-04-15 lun. 19:59]
 ** DONE Use emacs-live and the tony branch to develop my own emacs-live packs
@@ -333,24 +351,9 @@ CLOSED: [2013-04-15 lun. 21:12]
 ** DONE adding all packs as git submodules to emacs-live-packs
 CLOSED: [2013-04-15 lun. 21:12]
 ** TODO Find out what the completion problem is about (auto-complete mode goes berserk after some working time with it)
-* DONE Emacs-lisp [100%]
-- [X] Look at bbatsov/prelude (impressive work)
-- [X] Improve current live packs
-- [X] Compute downloads-by-version chart for an emacs-lisp package deployed on marmalade - https://github.com/ardumont/clj-jam
-- [X] Ask if it's possible to add the means to load prelude modules from another location (keep the existing one and add another) - https://github.com/bbatsov/prelude/issues/474
-- [X] Switch to prelude? Mix prelude and emacs-live? => prelude-packs (emacs-live-packs's mirror)
-* DONE emacs-live-packs
-  CLOSED: [2014-02-28 ven. 01:25]
-- [X] Activate continuous integration
-* DONE prelude-packs [80%]
-- [X] Create
-- [X] Compatible with emacs-live-packs' pack
-- [X] Continuous integration
-- [X] Take some controls over some default emacs-live-packs
-- [ ] auto completion
-* IN-PROGRESS Blog [1/1]
+* PENDING Blog [1/1]
 - [X] Migrate comment system to Disqus
-* IN-PROGRESS guitar [33%]
+* PENDING guitar [33%]
 ** DONE coursera
 CLOSED: [2014-03-20 Thu 09:35]
 *** DONE coursera - week 1
@@ -378,7 +381,7 @@ CLOSED: [2013-08-04 dim. 07:06]
 - [ ] Say it ain't so - Murray Head
 - [ ] ...
 
-* IN-PROGRESS gestioneleves [66%]
+* PENDING gestioneleves [66%]
 - [X] Migrate to github
 - [X] New evolution to ease collection evaluation input
 - [ ] Update again the collection evaluation input
@@ -405,6 +408,88 @@ CLOSED: [2013-05-17 ven. 04:55]
 **** DONE send mail
 CLOSED: [2013-05-17 ven. 04:59]
 ** PENDING matasano 9-48 suite
+* PENDING Security [66%]
+** DONE keychain
+CLOSED: [2014-05-08 Thu 10:35]
+** DONE pass
+CLOSED: [2014-06-22 Sun 10:47]
+- [X] http://blog.sanctum.geek.nz/linux-crypto-passwords/
+- [X] http://git.zx2c4.com/password-store/
+- [X] http://babushk.in/posts/combining-xmonad-and-pass.html
+** IN-PROGRESS GNUPG [66%]
+- [X] http://blog.sanctum.geek.nz/linux-crypto-introduction/
+- [X] http://blog.sanctum.geek.nz/linux-crypto-gnupg-keys/
+- [X] http://blog.sanctum.geek.nz/linux-crypto-gnupg-usage/
+- [X] http://blog.sanctum.geek.nz/linux-crypto-ssh-keys/
+- [X] http://blog.sanctum.geek.nz/linux-crypto-sshgpg-agents/
+- [X] http://blog.sanctum.geek.nz/linux-crypto-passwords/
+- [X] http://blog.sanctum.geek.nz/linux-crypto-email/
+- [X] http://blog.sanctum.geek.nz/linux-crypto-backups/
+- [X] http://blog.sanctum.geek.nz/linux-crypto-disks/
+- [X] http://blog.sanctum.geek.nz/linux-crypto-importance/
+- [ ] https://www.gnupg.org/gph/en/manual.html
+- [ ] http://wiki.debian.org/subkeys
+- [ ] Publish my public key to a public keyserver
+- [ ] Sign emails with private key
+- [ ] Reference my public key in mail header
+* PENDING XMonad [91%]
+- [X] Install
+- [X] Configure from template
+- [X] Run or raise some applications
+- [X] Avoid hard-coding HOME environment
+- [X] Fix multiple conflicting bindings
+- [X] C-; C-; to swap the 2 top windows
+- [X] XMonad tryout as main window manager
+- [X] xscreensaver in XMonad
+- [X] LID suspend in XMonad
+- [X] C-; M1-r - as run a command
+- [X] C-; r - dmenu_run
+- [X] Find a way to constrain the zenity window (manageHook)
+- [X] C-; S-q - Force reload configuration from within XMonad
+- [X] C-; C-t - Toggle touchpad on/off
+- [X] Spawn command processes at xmonad startup time (xscreensaver, nemo, dropbox, etc...)
+- [X] C-; M-x - similar as emacs's M-x
+- [X] C-; g - Prompt to list and permit to go to a specific window
+- [X] Use workspaces + specific layout
+- [X] Switch client to workspace
+- [X] Move around workspace with bindings
+- [X] xmobar setup
+- [X] Search url from xmonad
+- [X] Focus in turn on multiple windows matching the same classname
+- [X] Use notify-send instead of zenity? -> tested and not satisfied by the rendering (notifications piles up so slow)
+- [X] Notify when xmonad is restarted
+- [X] Add a prompt to deal with passwords
+- [X] Improve prompt's configuration
+- [X] Notify when xmonad is restarted or a window is killed
+- [X] Avoid spawning processes from ~/.xmonad/xmonad.hs and use .xinitrc standard
+- [X] Banish mouse pointer
+- [X] Banish mouse pointer in nixos does not work
+- [ ] Adapt keymap in xmonad prompt (C-i <tab>, C-m <return>, C-g <Escape>, etc...)
+- [ ] Check the keymap is correct at xmonad startup time
+- [ ] Adapt layout per workspace (gimp, etc...)
+* PENDING codinggame [75%]
+- [X] Onboarding
+- [X] Skynet, the chasm
+- [X] Kirk's quest - the descent
+- [ ] ...
+* PENDING coding challenge which computes the complexity - http://codility.com/
+* PENDING Mouseless file manager
+  Does not seem to find one!
+  Code it!
+* PENDING Raspberry-PI [0%]
+- [ ] Learn
+* PENDING The four horsemen of the parallel apocalypse
+- [ ] Race conditions
+- [ ] Deadlocks
+- [ ] Livelocks
+- [ ] Priority inversions
+* PENDING Structure and Interpretation of Computer Programs - books
+* PENDING Github - Play around with the Github API [100%]
+- [X] http://developer.github.com/libraries/
+  - https://github.com/Raynes/tentacles (clojure)
+  - https://github.com/fpco/GitHub (haskell)
+  - https://github.com/sigma/gh.el (emacs-lisp)
+- [ ] Choose one
 * PENDING euler 27/434 [96%]
 ** DONE 1 - Multiples of 3 and 5
 CLOSED: [2013-05-23 Thu 10:59]
@@ -953,6 +1038,111 @@ CLOSED: [2013-04-19 ven. 22:39]
 **** TODO chapter 11
 *** TODO new
  http://www.dicosmo.org/CourseNotes/pfav/
+* PENDING SSO
+- https://en.wikipedia.org/wiki/Single_sign-on
+- http://research.microsoft.com/pubs/160659/websso-final.pdf
+- https://access.llnl.gov/otp/cgi-bin/faq.cgi#OTP_acronym
+* PENDING Improve galaxy s4
+* PENDING haskell readings
+- [ ] http://www.haskell.org/haskellwiki/Monad#Interesting_Monads
+- [ ] http://www.haskell.org/haskellwiki/Category_theory
+- [ ] Functional programming with bananas, lenses, envelopes and barbed wire
+* PENDING udisks
+* PENDING bitcoin [0%]
+- [ ] https://bitcoin.org/en/
+- [ ] https://www.weusecoins.com/en/
+- [ ] https://blockchain.info/
+* PENDING Terraform
+- [X] https://github.com/hashicorp/terraform
+- [X] http://www.infoq.com/news/2014/08/terraform
+- [-] http://www.terraform.io/
+  - [X] http://www.terraform.io/intro/index.html
+  - [X] http://www.terraform.io/intro/use-cases.html
+  - [X] http://www.terraform.io/intro/vs/index.html
+  - [ ] http://www.terraform.io/intro/getting-started/install.html
+  - [ ] http://www.terraform.io/intro/examples/index.html
+* PENDING RAID
+* PENDING Make a personal live-cd (xmonad, firefox, etc...) [20%]
+- [X] Create a simple iso, boot it
+- [ ] Ensure network (wifi included) is ok
+- [ ] Update the live linux to have X11 running
+- [ ] Make X11 running with XMonad
+- [ ] Make it an installable iso
+* PENDING Secure machines
+- [X] Reinstall os + secure the disk
+- [ ] Secure hdd
+- [ ] Secure usb disks
+* PENDING bind - readline
+* PENDING HWifi [91%]
+- [X] Bootstrap hwifi in [[https://github.com/ardumont/hWifi][ardumont/hWifi]] - only scan and auto-connect to the most powerful signal
+- [X] Tests
+- [X] Docstring
+- [X] Migrate to [[https://github.com/lambdatree/hWifi][lambdatree/hWifi]] to try and initiate a team focus
+- [X] Improve the base code - https://github.com/lambdatree/hWifi/pull/12 - https://github.com/lambdatree/hWifi/pull/13
+- [X] Re-add tests - https://github.com/lambdatree/hWifi/pull/14
+- [X] Implement basic connection to new and unknown wifi - https://github.com/lambdatree/hWifi/pull/15
+- [X] Improve hwifi launcher to reject bad options - https://github.com/lambdatree/hWifi/pull/16
+- [X] Improve hWifi's main readme - https://github.com/lambdatree/hWifi/pull/16
+- [X] Improve the hwifi launcher to be semi-automatic (wait for user input if missing data) regarding the wifi creation
+- [X] Improve CI build (using nix)
+- [ ] Release to hackage
+* PENDING docker [5/7]
+- [ ] https://www.docker.com/
+- [X] http://www.infoq.com/articles/docker-containers
+- [X] https://docs.docker.com/
+- [X] https://docs.docker.com/introduction/understanding-docker/
+- [X] https://docs.docker.com/installation/#installation
+- [ ] https://nixos.org/wiki/Docker
+- [X] http://zef.me/6049/nix-docker/
+* PENDING sparks
+- [ ] http://spark.apache.org/docs/latest/index.html
+* PENDING clj-jam [75%]
+- [X] Develop
+- [X] Demo (BBL clojure at Kyriba)
+- [X] Find out why it broke (Marmalade API got migrated and restrained - https://github.com/ardumont/clj-jam/issues/1
+- [ ] Fix when it's possible
+* PENDING javascript
+- [ ] https://github.com/jashkenas/underscore
+- [ ] https://github.com/es-shims/es5-shim - ecmascript compatibility for legacy javascript engine
+* PENDING purescript [100%]
+- [X] Find a purescript major mode to help in editing
+- [X] No easy installation through emacs package, make it on melpa - https://github.com/milkypostman/melpa/pull/2111
+- [X] Interactive mode for purescript? - No one exists, create one - https://github.com/ardumont/emacs-psci
+- [X] Make it available on [[http://melpa.org/#/psci][melpa / melpa-stable]] / [[https://marmalade-repo.org/packages/psci][marmalade]] / [[https://github.com/dimitri/el-get/blob/master/recipes/psci.rcp][el-get]]
+- [X] Extend psci to have :b keyword - https://github.com/purescript/purescript/pull/662
+* PENDING packer/vagrant to make nix box
+- [X] https://nixos.org/wiki/Installing_VirtualBox_on_NixOS
+- [ ] https://github.com/zimbatm/nixbox
+Fail at the moment.
+Need to make vbox work on nixos host.
+
+* PENDING Fixes
+- [X] Find a https://github.com/felipec/git-remote-hg bridge between git and mercurial
+- [X] synaptics errors on non mobile nixos computer
+- [X] pb with myrkr (apparently fixed by reformatting /home)
+- [ ] autojump not working on nixos box
+* PENDING online universities
+- https://www.edx.org/
+- https://www.coursera.org/
+* DONE printer [100%]
+CLOSED: [2014-10-07 Tue 18:42]
+- [X] Install CUPS on nixos
+- [X] Set network home printer
+* DONE Emacs-lisp [100%]
+- [X] Look at bbatsov/prelude (impressive work)
+- [X] Improve current live packs
+- [X] Compute downloads-by-version chart for an emacs-lisp package deployed on marmalade - https://github.com/ardumont/clj-jam
+- [X] Ask if it's possible to add the means to load prelude modules from another location (keep the existing one and add another) - https://github.com/bbatsov/prelude/issues/474
+- [X] Switch to prelude? Mix prelude and emacs-live? => prelude-packs (emacs-live-packs's mirror)
+* DONE emacs-live-packs
+  CLOSED: [2014-02-28 ven. 01:25]
+- [X] Activate continuous integration
+* DONE prelude-packs [80%]
+- [X] Create
+- [X] Compatible with emacs-live-packs' pack
+- [X] Continuous integration
+- [X] Take some controls over some default emacs-live-packs
+- [ ] auto completion
 * DONE sh [100%]
   CLOSED: [2012-04-21 Sat 12:08]
 ** DONE init
@@ -1286,15 +1476,6 @@ CLOSED: [2013-07-07 dim. 10:00]
 - [X] Install C-i for <Tab>
 - [X] Install C-j/C-m for <Enter>
 - [X] C-x b as switch to tab
-* TODO SSO
-- https://en.wikipedia.org/wiki/Single_sign-on
-- http://research.microsoft.com/pubs/160659/websso-final.pdf
-- https://access.llnl.gov/otp/cgi-bin/faq.cgi#OTP_acronym
-* TODO Improve galaxy s4
-* TODO haskell readings
-- [ ] http://www.haskell.org/haskellwiki/Monad#Interesting_Monads
-- [ ] http://www.haskell.org/haskellwiki/Category_theory
-- [ ] Functional programming with bananas, lenses, envelopes and barbed wire
 * DONE emacs-creds [87%]
   CLOSED: [2014-08-19 Tue 19:38]
   A small library to easily parse .authinfo files with more than just credentials information.
@@ -1314,33 +1495,8 @@ CLOSED: [2013-07-07 dim. 10:00]
 - [X] 0.0.5
 - [X] Update documentation about it
 
-* IN-PROGRESS Security [66%]
-** DONE keychain
-CLOSED: [2014-05-08 Thu 10:35]
-** DONE pass
-CLOSED: [2014-06-22 Sun 10:47]
-- [X] http://blog.sanctum.geek.nz/linux-crypto-passwords/
-- [X] http://git.zx2c4.com/password-store/
-- [X] http://babushk.in/posts/combining-xmonad-and-pass.html
-** IN-PROGRESS GNUPG [66%]
-- [X] http://blog.sanctum.geek.nz/linux-crypto-introduction/
-- [X] http://blog.sanctum.geek.nz/linux-crypto-gnupg-keys/
-- [X] http://blog.sanctum.geek.nz/linux-crypto-gnupg-usage/
-- [X] http://blog.sanctum.geek.nz/linux-crypto-ssh-keys/
-- [X] http://blog.sanctum.geek.nz/linux-crypto-sshgpg-agents/
-- [X] http://blog.sanctum.geek.nz/linux-crypto-passwords/
-- [X] http://blog.sanctum.geek.nz/linux-crypto-email/
-- [X] http://blog.sanctum.geek.nz/linux-crypto-backups/
-- [X] http://blog.sanctum.geek.nz/linux-crypto-disks/
-- [X] http://blog.sanctum.geek.nz/linux-crypto-importance/
-- [ ] https://www.gnupg.org/gph/en/manual.html
-- [ ] http://wiki.debian.org/subkeys
-- [ ] Publish my public key to a public keyserver
-- [ ] Sign emails with private key
-- [ ] Reference my public key in mail header
 * DONE laptop power management
   CLOSED: [2014-06-21 Sat 20:27]
-* TODO udisks
 * DONE [[http://software.schmorp.de/pkg/rxvt-unicode.html][rxvt-unicode]]
   CLOSED: [2014-08-19 Tue 19:38]
 * DONE fonts
@@ -1350,41 +1506,6 @@ CLOSED: [2014-06-22 Sun 10:47]
 - [X] Deal with ssh-agent -> keychain
 - [X] Deal with gpg-agent -> keychain
 - [X] Make the laptop suspend when closing lid
-* IN-PROGRESS XMonad [91%]
-- [X] Install
-- [X] Configure from template
-- [X] Run or raise some applications
-- [X] Avoid hard-coding HOME environment
-- [X] Fix multiple conflicting bindings
-- [X] C-; C-; to swap the 2 top windows
-- [X] XMonad tryout as main window manager
-- [X] xscreensaver in XMonad
-- [X] LID suspend in XMonad
-- [X] C-; M1-r - as run a command
-- [X] C-; r - dmenu_run
-- [X] Find a way to constrain the zenity window (manageHook)
-- [X] C-; S-q - Force reload configuration from within XMonad
-- [X] C-; C-t - Toggle touchpad on/off
-- [X] Spawn command processes at xmonad startup time (xscreensaver, nemo, dropbox, etc...)
-- [X] C-; M-x - similar as emacs's M-x
-- [X] C-; g - Prompt to list and permit to go to a specific window
-- [X] Use workspaces + specific layout
-- [X] Switch client to workspace
-- [X] Move around workspace with bindings
-- [X] xmobar setup
-- [X] Search url from xmonad
-- [X] Focus in turn on multiple windows matching the same classname
-- [X] Use notify-send instead of zenity? -> tested and not satisfied by the rendering (notifications piles up so slow)
-- [X] Notify when xmonad is restarted
-- [X] Add a prompt to deal with passwords
-- [X] Improve prompt's configuration
-- [X] Notify when xmonad is restarted or a window is killed
-- [X] Avoid spawning processes from ~/.xmonad/xmonad.hs and use .xinitrc standard
-- [X] Banish mouse pointer
-- [X] Banish mouse pointer in nixos does not work
-- [ ] Adapt keymap in xmonad prompt (C-i <tab>, C-m <return>, C-g <Escape>, etc...)
-- [ ] Check the keymap is correct at xmonad startup time
-- [ ] Adapt layout per workspace (gimp, etc...)
 * DONE Xmonad.Prompt.Pass [100%]
   CLOSED: [2014-06-15 Sun 16:37]
 - [X] Read how to make a module for xmonad-contrib - http://www.haskell.org/haskellwiki/Xmonad/xmonad_development_tutorial
@@ -1429,69 +1550,12 @@ CLOSED: [2014-06-22 Sun 10:47]
   #+end_src
 
   Source: http://dbushell.com/2013/01/27/multiple-accounts-and-ssh-keys/
-* TODO bitcoin [0%]
-- [ ] https://bitcoin.org/en/
-- [ ] https://www.weusecoins.com/en/
-- [ ] https://blockchain.info/
 * DONE Fix org-with-silent-modification
   CLOSED: [2014-06-26 Thu 20:00]
   When you encounter this, M-x org-reload
 * DONE MBR/GPT partition
   CLOSED: [2014-06-26 Thu 20:15]
 - [X] Disambiguate - http://www.rodsbooks.com/gdisk/whatsgpt.html
-* IN-PROGRESS Nix* [0%]
-** Nix [0%]
-- [ ] Nix package manager - http://nixos.org/nix/manual/
-
-** Nixpkgs [50%]
-- [X] Extends Nixos - https://nixos.org/wiki/NixOS:extend_NixOS
-- [-] Create the tux-guitar package for NixOS - http://nixos.org/nixpkgs/manual/ [50%]
-  - [X] Fork and clone NixOS/nixpkgs repository
-  - [X] Located in pkgs/applications/misc according to http://nixos.org/nixpkgs/manual/#sec-organisation
-  - [X] Reference the package in pkgs/top-level/all-packages.nix
-  - [ ] Check that everything works locally
-  - [ ] Push branch and open Pull Request
-
-** NixOS [96%]
-- [X] Read [[http://nixos.org/nixos/manual/][NixOS manual]]
-- [X] Install nixos -> https://github.com/ardumont/dot-files/blob/master/configuration.nix
-- [X] Fix trouble with X (it may be my personal xmonad.hs's deps that are not satisfied)
-- [X] Xmonad
-- [X] Emacs
-- [X] Ntp
-- [X] Sudo
-- [X] Fonts
-- [X] Firefox with keysnail
-- [X] Firefox with flash
-- [X] Pass
-- [X] Offlineimap + mu
-- [X] Zenity
-- [X] Install packages not yet installed (gitg tig zenity xmodmap pmount gpg2 nmcli)
-- [X] Edit /etc/hosts to add nas, dagobah, etc...
-- [X] Fix gnupg agent
-- [X] Make pmount usable directly by nixos user
-- [X] Suspend to ram on lid close event
-- [X] Screen lock on open lid event
-- [X] Sound
-- [X] nm-applet with NixOS
-- [X] brightness increase/decrease
-- [X] Haskell
-- [X] Fix trouble with suspend
-- [ ] Install nixos with encryption - http://bluishcoder.co.nz/2014/05/14/installing-nixos-with-encrypted-root-on-thinkpad-w540.html - https://nixos.org/wiki/Encrypted_Root_on_NixOS
-** Factor NixOS configuration [0%]
-- [ ] `job` and `dagobah` shares 99% of configuration except for the hostname and the wifi connection, find a way to factorize this code.
-** NixOps [0%]
-- [ ] http://hydra.nixos.org/build/15623313/download/1/manual/manual.html
-* PENDING Terraform
-- [X] https://github.com/hashicorp/terraform
-- [X] http://www.infoq.com/news/2014/08/terraform
-- [-] http://www.terraform.io/
-  - [X] http://www.terraform.io/intro/index.html
-  - [X] http://www.terraform.io/intro/use-cases.html
-  - [X] http://www.terraform.io/intro/vs/index.html
-  - [ ] http://www.terraform.io/intro/getting-started/install.html
-  - [ ] http://www.terraform.io/intro/examples/index.html
-* TODO RAID
 * DONE Find a package containing a file
   CLOSED: [2014-06-29 Sun 11:44]
   #+begin_src sh
@@ -1508,36 +1572,12 @@ CLOSED: [2014-06-22 Sun 10:47]
   $ sudo blkid /dev/sdb1
   /dev/sdb1: UUID="be4bd3d5-abbc-4788-911c-e15b1557e1dd" TYPE="ext4"
   #+end_src
-* PENDING Make a personal live-cd (xmonad, firefox, etc...) [20%]
-- [X] Create a simple iso, boot it
-- [ ] Ensure network (wifi included) is ok
-- [ ] Update the live linux to have X11 running
-- [ ] Make X11 running with XMonad
-- [ ] Make it an installable iso
-* PENDING Secure machines
-- [X] Reinstall os + secure the disk
-- [ ] Secure hdd
-- [ ] Secure usb disks
-* TODO bind - readline
 * DONE Improve Haskell-pack [100%]
   CLOSED: [2014-08-16 Sat 17:33]
 - [X] Read haskell-mode setup
 - [X] Switch from deprecated inferior-haskell to interactive-haskell-mode
 - [X] Propose C-c C-z switch to repl and back
 - [X] Integrated in haskell-mode now (not my code but at least the idea :D)
-* PENDING HWifi [91%]
-- [X] Bootstrap hwifi in [[https://github.com/ardumont/hWifi][ardumont/hWifi]] - only scan and auto-connect to the most powerful signal
-- [X] Tests
-- [X] Docstring
-- [X] Migrate to [[https://github.com/lambdatree/hWifi][lambdatree/hWifi]] to try and initiate a team focus
-- [X] Improve the base code - https://github.com/lambdatree/hWifi/pull/12 - https://github.com/lambdatree/hWifi/pull/13
-- [X] Re-add tests - https://github.com/lambdatree/hWifi/pull/14
-- [X] Implement basic connection to new and unknown wifi - https://github.com/lambdatree/hWifi/pull/15
-- [X] Improve hwifi launcher to reject bad options - https://github.com/lambdatree/hWifi/pull/16
-- [X] Improve hWifi's main readme - https://github.com/lambdatree/hWifi/pull/16
-- [X] Improve the hwifi launcher to be semi-automatic (wait for user input if missing data) regarding the wifi creation
-- [X] Improve CI build (using nix)
-- [ ] Release to hackage
 * DONE markdown-toc [100%]
   CLOSED: [2014-08-19 Tue 19:57]
 - [X] 0.0.1
@@ -1548,22 +1588,6 @@ CLOSED: [2014-06-22 Sun 10:47]
 - [X] 0.0.6
 * DONE Find a software to display bindings as you type along - keymon
   CLOSED: [2014-09-06 Sat 18:53]
-* IN-PROGRESS judo
-* PENDING docker [5/7]
-- [ ] https://www.docker.com/
-- [X] http://www.infoq.com/articles/docker-containers
-- [X] https://docs.docker.com/
-- [X] https://docs.docker.com/introduction/understanding-docker/
-- [X] https://docs.docker.com/installation/#installation
-- [ ] https://nixos.org/wiki/Docker
-- [X] http://zef.me/6049/nix-docker/
-* TODO sparks
-- [ ] http://spark.apache.org/docs/latest/index.html
-* PENDING clj-jam [75%]
-- [X] Develop
-- [X] Demo (BBL clojure at Kyriba)
-- [X] Find out why it broke (Marmalade API got migrated and restrained - https://github.com/ardumont/clj-jam/issues/1
-- [ ] Fix when it's possible
 * DONE DevOps
 CLOSED: [2014-11-10 Mon 10:03]
 - [X] https://en.wikipedia.org/wiki/DevOps
@@ -1581,27 +1605,3 @@ CLOSED: [2014-11-09 Sun 22:43]
 This is not working right now and work around using emacs/tmux...
 I'm getting more and more annoyed by this.
 Broken since I started using nix (I must be missing extensions defined in `~/.Xresources`)
-* PENDING javascript
-- [ ] https://github.com/jashkenas/underscore
-- [ ] https://github.com/es-shims/es5-shim - ecmascript compatibility for legacy javascript engine
-* IN-PROGRESS Refresh on angular-js
-- [ ] https://docs.angularjs.org/tutorial
-- [X] http://angularjs.org/
-- [ ] https://github.com/angular/angular.js
-* PENDING purescript [100%]
-- [X] Find a purescript major mode to help in editing
-- [X] No easy installation through emacs package, make it on melpa - https://github.com/milkypostman/melpa/pull/2111
-- [X] Interactive mode for purescript? - No one exists, create one - https://github.com/ardumont/emacs-psci
-- [X] Make it available on [[http://melpa.org/#/psci][melpa / melpa-stable]] / [[https://marmalade-repo.org/packages/psci][marmalade]] / [[https://github.com/dimitri/el-get/blob/master/recipes/psci.rcp][el-get]]
-- [X] Extend psci to have :b keyword - https://github.com/purescript/purescript/pull/662
-* PENDING packer/vagrant to make nix box
-- [X] https://nixos.org/wiki/Installing_VirtualBox_on_NixOS
-- [ ] https://github.com/zimbatm/nixbox
-Fail at the moment.
-Need to make vbox work on nixos host.
-
-* PENDING Fixes
-- [X] Find a https://github.com/felipec/git-remote-hg bridge between git and mercurial
-- [X] synaptics errors on non mobile nixos computer
-- [X] pb with myrkr (apparently fixed by reformatting /home)
-- [ ] autojump not working on nixos box
