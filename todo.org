@@ -1564,8 +1564,9 @@ CLOSED: [2014-06-22 Sun 10:47]
 - [X] Demo (BBL clojure at Kyriba)
 - [X] Find out why it broke (Marmalade API got migrated and restrained - https://github.com/ardumont/clj-jam/issues/1
 - [ ] Fix when it's possible
-* TODO DevOps
-- [ ] https://en.wikipedia.org/wiki/DevOps
+* DONE DevOps
+CLOSED: [2014-11-10 Mon 10:03]
+- [X] https://en.wikipedia.org/wiki/DevOps
 * DONE js-pack
 CLOSED: [2014-10-20 Mon 12:37]
 - [ ] http://mihai.bazon.net/projects/editing-javascript-with-emacs-js2-mode
