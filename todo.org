@@ -69,6 +69,12 @@
 - [X] https://nixos.org/wiki/Installing_VirtualBox_on_NixOS
 - [X] Create a nixos vagrant image - https://github.com/zimbatm/nixbox
 - [ ] Provision a nixos vagrant vm using the previous image - https://github.com/oxdi/vagrant-nixos
+* IN-PROGRESS Fixes
+- [X] Find a https://github.com/felipec/git-remote-hg bridge between git and mercurial
+- [X] synaptics errors on non mobile nixos computer
+- [X] pb with myrkr (apparently fixed by reformatting /home)
+- [X] git completion not working
+- [ ] autojump not working on nixos box
 * PENDING Readings [28%]
 - [X] practical clojure
 - [X] joy of clojure
@@ -1130,11 +1136,6 @@ CLOSED: [2013-04-19 ven. 22:39]
 - [X] Interactive mode for purescript? - No one exists, create one - https://github.com/ardumont/emacs-psci
 - [X] Make it available on [[http://melpa.org/#/psci][melpa / melpa-stable]] / [[https://marmalade-repo.org/packages/psci][marmalade]] / [[https://github.com/dimitri/el-get/blob/master/recipes/psci.rcp][el-get]]
 - [X] Extend psci to have :b keyword - https://github.com/purescript/purescript/pull/662
-* PENDING Fixes
-- [X] Find a https://github.com/felipec/git-remote-hg bridge between git and mercurial
-- [X] synaptics errors on non mobile nixos computer
-- [X] pb with myrkr (apparently fixed by reformatting /home)
-- [ ] autojump not working on nixos box
 * PENDING online universities
 - https://www.edx.org/
 - https://www.coursera.org/
@@ -1614,9 +1615,3 @@ CLOSED: [2014-10-20 Mon 12:37]
 - [ ] https://github.com/omouse/angularjs-mode
 - [X] Start a js-pack
 - [X] Toggle repl for js-pack
-
-* DONE Fix kill/yank in urxvt
-CLOSED: [2014-11-09 Sun 22:43]
-This is not working right now and work around using emacs/tmux...
-I'm getting more and more annoyed by this.
-Broken since I started using nix (I must be missing extensions defined in `~/.Xresources`)
