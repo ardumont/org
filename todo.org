@@ -69,12 +69,6 @@
 - [X] https://nixos.org/wiki/Installing_VirtualBox_on_NixOS
 - [X] Create a nixos vagrant image - https://github.com/zimbatm/nixbox
 - [ ] Provision a nixos vagrant vm using the previous image - https://github.com/oxdi/vagrant-nixos
-* IN-PROGRESS Fixes
-- [X] Find a https://github.com/felipec/git-remote-hg bridge between git and mercurial
-- [X] synaptics errors on non mobile nixos computer
-- [X] pb with myrkr (apparently fixed by reformatting /home)
-- [X] git completion not working
-- [ ] autojump not working on nixos box
 * PENDING Readings [28%]
 - [X] practical clojure
 - [X] joy of clojure
@@ -1139,6 +1133,13 @@ CLOSED: [2013-04-19 ven. 22:39]
 * PENDING online universities
 - https://www.edx.org/
 - https://www.coursera.org/
+* DONE Fixes
+CLOSED: [2014-11-13 Thu 23:08]
+- [X] Find a https://github.com/felipec/git-remote-hg bridge between git and mercurial
+- [X] synaptics errors on non mobile nixos computer
+- [X] pb with myrkr (apparently fixed by reformatting /home)
+- [X] git completion not working
+- [X] autojump not working on nixos box
 * DONE printer [100%]
 CLOSED: [2014-10-07 Tue 18:42]
 - [X] Install CUPS on nixos
