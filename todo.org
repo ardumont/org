@@ -1,6 +1,8 @@
 #+title: Learning...
 #+author: ardumont
 
+* TODO keysnail
+- [ ] Create a function to append the copy of urls in the kill ring
 * IN-PROGRESS Nix* [0%]
 ** Nix [0%]
 - [ ] Nix package manager - http://nixos.org/nix/manual/
