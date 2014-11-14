@@ -3,33 +3,53 @@
 #+STARTUP: indent
 #+STARTUP: hidestars odd
 
-* First they ignored you, then they laughed at you, then they fought you, now you've won. -- Not quite Gandhi
-* Any intelligent fool can make things bigger, more complex, and more violent. It takes a touch of genius -- and a lot of courage -- to move in the opposite direction. -- Schumacher
-* Happiness comes when you believe that you have done something truly meaningful. -- Yan
-* Effort only fully releases its reward after a person refuses to quit. -- Hill
+First they ignored you, then they laughed at you, then they fought you, now you've won. -- Not quite Gandhi
+
+Any intelligent fool can make things bigger, more complex, and more violent. It takes a touch of genius
+and a lot of courage to move in the opposite direction.
+-- Schumacher
+
+Happiness comes when you believe that you have done something truly meaningful.
+-- Yan
+
+Effort only fully releases its reward after a person refuses to quit.
+-- Hill
+
+Satisfaction lies in the effort, not in the attainment, full effort is
+full victory. -- Gandhi
+
+It takes time to succeed because success is merely the natural reward
+of taking time to do anything well. -- Ross
+
+Out of clutter find simplicity;
+from discord find harmony;
+in the middle of difficulty lies
+opportunity.
+-- Einstein
+
+Satisfaction lies in the effort, not in the attainment, full effort is
+full victory.
+-- Gandhi
+
+The highest reward for a man's toil is not what he gets for it but
+what he becomes by it.
+-- Ruskin
+
+Good code is its own best documentation.
+-- Steve McConnell
+
+Simplicity, carried to the extreme, becomes elegance.
+-- Jon Franklin
+
+Intellectual 'work' is misnamed; it is a pleasure, a dissipation,and
+is its own highest reward.
+-- Mark Twain
 
 
-;.;. Satisfaction lies in the effort, not in the attainment, full
-effort is
-;.;. full victory. -- Gandhi
-
-;.;. It takes time to succeed because success is merely the natural reward
-;.;. of taking time to do anything well. -- Ross
-
-;.;. Out of clutter find simplicity; from discord find harmony; in the
-;.;.                               ; middle of difficulty lies
-;.;.                               ; opportunity. -- Einstein
-
-;.;. Satisfaction lies in the effort, not in the attainment, full effort is
-;.;. full victory. -- Gandhi
-
-;.;. The highest reward for a man's toil is not what he gets for it but
-;.;. what he becomes by it. -- Ruskin
-
-;.;. Good code is its own best documentation. -- Steve McConnell
-
-;.;. Simplicity, carried to the extreme, becomes elegance. -- Jon
-Franklin
-
-;.;. Intellectual 'work' is misnamed; it is a pleasure, a dissipation,and
-;.;. is its own highest reward. -- Twain
+I have no right, by anything I do or
+say, to demean a human being in his own
+eyes. What matters is not what I think
+of him; it is what he thinks of
+himself. To undermine a man's
+self-respect is a sin.
+-- Antoine de Saint-Exupery
