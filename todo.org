@@ -1,6 +1,7 @@
 #+title: Learning...
 #+author: ardumont
 
+* TODO How to reproduce nix's userland and git it?
 * TODO keysnail
 - [ ] Create a function to append the copy of urls in the kill ring
 * IN-PROGRESS Nix* [0%]
