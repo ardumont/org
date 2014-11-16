@@ -215,3 +215,16 @@ docker build -t <image-name>
 #+end_src
 
 At the end of the build, listing the images will display a new image with name <image-name>
+
+* UI application and X
+
+- ardumont/evolution: debian based distribution with evolution ready to be used.
+- bind $HOME/.config/evolution to the one inside the container
+- bind /tmp/.X11-unix socket.
+- This way the ui is rendered inside the host. using the $DISPLAY
+
+#+begin_src sh
+export DISPLAY=:0.0
+xhost +
+sudo docker run -it -v $HOME/.config/evolution/:/home/user/.config/evolution -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=unix$DISPLAY ardumont/evolution
+#+end_src
