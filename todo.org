@@ -17,7 +17,7 @@
   - [ ] Check that everything works locally
   - [ ] Push branch and open Pull Request
 
-** NixOS [96%]
+** NixOS [85%]
 - [X] Read [[http://nixos.org/nixos/manual/][NixOS manual]]
 - [X] Install nixos -> https://github.com/ardumont/dot-files/blob/master/configuration.nix
 - [X] Fix trouble with X (it may be my personal xmonad.hs's deps that are not satisfied)
@@ -43,6 +43,9 @@
 - [X] Haskell
 - [X] Fix trouble with suspend
 - [ ] Install nixos with encryption - http://bluishcoder.co.nz/2014/05/14/installing-nixos-with-encrypted-root-on-thinkpad-w540.html - https://nixos.org/wiki/Encrypted_Root_on_NixOS
+- [ ] Propose a fix about pidgin-with-plugins which miss the folder containing the plugins
+- [ ] Propose a fix about proxy to expose the env no_proxy variable too (not specified right now and create problems when developping local web app)
+- [ ] Fix lid close event (sometimes, when opening the lid, it closes again) -
 ** Factor NixOS configuration [0%]
 - [ ] `job` and `dagobah` shares 99% of configuration except for the hostname and the wifi connection, find a way to factorize this code.
 ** NixOps [0%]
