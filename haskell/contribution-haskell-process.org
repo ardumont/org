@@ -1,0 +1,58 @@
+#+title: add haskell-process-wrapper-function
+#+author: ardumont
+
+Ok, so I got some more time and I could really test the following:
+
+|-----------------------------------------------+------+------------+------------+-----------|
+|                                               | ghci | cabal-repl | cabal-ghci | cabal-dev |
+|-----------------------------------------------+------+------------+------------+-----------|
+| Unit Tests                                    | OK   | OK         | OK         | OK        |
+|-----------------------------------------------+------+------------+------------+-----------|
+| Manual without wrapper function (the default) | OK   | OK         | OK         | N/A       |
+| Manual with wrapper function                  | OK   | OK         | OK         | N/A       |
+|-----------------------------------------------+------+------------+------------+-----------|
+
+(as before I did not test cabal-dev because I do not know this one but I ensure the initial contract stays the same as before... in unit tests that is...)
+
+Here is the possible `.dir-labels` I used:
+
+#+begin_src emacs-lisp
+((haskell-mode . ((haskell-process-wrapper-function . (lambda (argv) (append (list "nix-shell" "haskell-lab.nix" "--command" )
+                                                                        (list (mapconcat 'identity argv " ")))))
+                  (haskell-process-type . ghci)))) ;; ok
+
+((haskell-mode . ((haskell-process-wrapper-function . (lambda (argv) (append (list "nix-shell" "haskell-lab.nix" "--command" )
+                                                                        (list (mapconcat 'identity argv " ")))))
+                  (haskell-process-type . cabal-repl)))) ;; ok
+
+((haskell-mode . ((haskell-process-wrapper-function . (lambda (argv) (append (list "nix-shell" "haskell-lab.nix" "--command" )
+                                                                        (list (mapconcat 'identity argv " ")))))
+                  (haskell-process-type . cabal-ghci)))) ;; ok
+#+end_src
+
+Their equivalence as `custom-set-variables`:
+
+#+begin_src emacs-lisp
+(custom-set-variables '(haskell-process-wrapper-function (lambda (argv) (append (list "nix-shell" "haskell-lab.nix" "--command" )
+                                                                           (list (mapconcat 'identity argv " ")))))
+                      '(haskell-process-type ghci)) ;; ok
+
+(custom-set-variables '(haskell-process-wrapper-function (lambda (argv) (append (list "nix-shell" "haskell-lab.nix" "--command" )
+                                                                           (list (mapconcat 'identity argv " ")))))
+                      '(haskell-process-type cabal-repl)) ;; ok
+
+(custom-set-variables '(haskell-process-wrapper-function (lambda (argv) (append (list "nix-shell" "haskell-lab.nix" "--command" )
+                                                                           (list (mapconcat 'identity argv " ")))))
+                      '(haskell-process-type cabal-ghci)) ;; ok
+#+end_src
+
+
+*Note*
+I tried to use `shell-quote-argument` but systematically resulted in `command not found`.
+
+Here is the sample that did not work out
+#+begin_src emacs-lisp
+((haskell-mode . ((haskell-process-wrapper-function . (lambda (argv) (append (list "nix-shell" "haskell-lab.nix" "--command" )
+                                                                        (list (shell-quote-argument (mapconcat 'identity argv " "))))))
+                  (haskell-process-type . ghci)))) ;; shell-quote-argument does not work
+#+end_src
