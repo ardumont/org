@@ -1,9 +1,14 @@
 #+title: Learning...
 #+author: ardumont
 
-* TODO How to reproduce nix's userland and git it?
+* TODO How to reproduce nix's userland?
 * TODO keysnail
 - [ ] Create a function to append the copy of urls in the kill ring
+- [ ] Define some default global js functions (callable from M-x in ffx through keysnail)
+* TODO Emacs [0/3]
+- [ ] Learn how to store/retrieve buffer/window position
+- [ ] Activate tags for js2-mode, web-mode, etc...
+- [ ] Make the *grep* buffer behaves as *magit* ones (fullscreen then get back to previous frame organization).
 * IN-PROGRESS Nix* [0%]
 ** Nix [0%]
 - [ ] Nix package manager - http://nixos.org/nix/manual/
