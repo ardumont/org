@@ -1,0 +1,34 @@
+#+title: howto dir-locals.el
+#+author: ardumont
+
+* web
+
+Example for web and js2-mode in specific project:
+
+#+begin_src emacs-lisp
+((js2-mode . ((prelude-clean-whitespace-on-save . nil)
+              (indent-tabs-mode . t)
+              (tab-width . 4)))
+ (web-mode . ((prelude-clean-whitespace-on-save . nil)
+              (indent-tabs-mode . t)
+              (tab-width . 4))))
+#+end_src
+
+For js2-mode and web-mode major modes, this will:
+- not cleanup on save
+- indent 4 spaces tabulation
+- use tab instead of spaces...
+
+* haskell-lab
+
+#+begin_src emacs-lisp
+((haskell-mode . ((haskell-process-wrapper-function . (lambda (argv) (append (list "nix-shell" "haskell-lab.nix" "--command" )
+                                                                        (list (mapconcat 'identity argv " ")))))
+                  (haskell-process-type . cabal-repl)))) ;; Ok
+#+end_src
+
+This will override by project the haskell-mode major for:
+- permit the haskell-process to start but by wrapping the haskell-process-type in a nix-shell variable
+- haskell-process-type to use cabal-repl
+
+All of this regardless of the full emacs' user global setup (.emacs or ~/.emacs.d/init.el)
