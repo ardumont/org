@@ -5,7 +5,8 @@
 * TODO keysnail
 - [ ] Create a function to append the copy of urls in the kill ring
 - [ ] Define some default global js functions (callable from M-x in ffx through keysnail)
-* TODO Emacs [0/3]
+* IN-PROGRESS Emacs [1/4]
+- [X] Improve js-pack setup
 - [ ] Learn how to store/retrieve buffer/window position
 - [ ] Activate tags for js2-mode, web-mode, etc...
 - [ ] Make the *grep* buffer behaves as *magit* ones (fullscreen then get back to previous frame organization).
@@ -1621,11 +1622,11 @@ CLOSED: [2013-07-07 dim. 10:00]
 * DONE DevOps
 CLOSED: [2014-11-10 Mon 10:03]
 - [X] https://en.wikipedia.org/wiki/DevOps
-* DONE js-pack
-CLOSED: [2014-10-20 Mon 12:37]
+* IN-PROGRESS js-pack
 - [ ] http://mihai.bazon.net/projects/editing-javascript-with-emacs-js2-mode
 - [ ] http://blog.deadpansincerity.com/2011/05/setting-up-emacs-as-a-javascript-editing-environment-for-fun-and-profit/
 - [X] https://github.com/Wilfred/flymake-jshint.el#flymake-jshint
 - [ ] https://github.com/omouse/angularjs-mode
 - [X] Start a js-pack
 - [X] Toggle repl for js-pack
+- [X] Update on repl for js-pack - https://github.com/skeeto/skewer-mode
