@@ -1,0 +1,26 @@
+#+title: nixos use
+#+author: ardumont
+
+Edit your configuration file and then install those updates to the system:
+
+#+begin_src sh
+sudo nixos-rebuild switch
+#+end_src
+
+Upgrade to the latest channel:
+#+begin_src sh
+sudo nixos-rebuild switch --upgrade
+#+end_src
+
+Install unstable channels:
+
+#+begin_src sh
+sudo nix-channel --add https://nixos.org/channels/nixos-unstable
+sudo nixos-rebuild switch --upgrade
+#+end_src
+
+Garbage collect some older configuration you won't use:
+
+#+begin_src sh
+sudo nix-collect-garbage --delete-older-than 30d
+#+end_src
