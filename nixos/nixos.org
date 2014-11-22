@@ -1,11 +1,15 @@
 #+title: nixos use
 #+author: ardumont
 
+* Update nixos system configuration
+
 Edit your configuration file and then install those updates to the system:
 
 #+begin_src sh
 sudo nixos-rebuild switch
 #+end_src
+
+* Channel
 
 Upgrade to the latest channel:
 #+begin_src sh
@@ -19,8 +23,18 @@ sudo nix-channel --add https://nixos.org/channels/nixos-unstable
 sudo nixos-rebuild switch --upgrade
 #+end_src
 
+* Garbage collector
+
 Garbage collect some older configuration you won't use:
 
 #+begin_src sh
 sudo nix-collect-garbage --delete-older-than 30d
+#+end_src
+
+* Update
+
+Update all applications in your userland:
+
+#+begin_src sh
+nix-env -u '*'
 #+end_src
