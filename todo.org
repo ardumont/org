@@ -57,7 +57,7 @@
 - [ ] http://hydra.nixos.org/build/15623313/download/1/manual/manual.html
 * IN-PROGRESS judo
 * IN-PROGRESS Refresh on angular-js
-- [-] https://docs.angularjs.org/tutorial [7/13]
+- [-] https://docs.angularjs.org/tutorial [12/13]
   - [X] 0 - Bootstrapping
   - [X] 1 - Static Template
   - [X] 2 - Angular Templates
@@ -65,11 +65,11 @@
   - [X] 4 - Two-way Data Binding
   - [X] 5 - XHRs & Dependency Injection
   - [X] 6 - Templating Links & Images
-  - [ ] 7 - Routing & Multiple Views
-  - [ ] 8 - More Templating
-  - [ ] 9 - Filters
-  - [ ] 10 - Event Handlers
-  - [ ] 11 - REST and Custom Services
+  - [X] 7 - Routing & Multiple Views
+  - [X] 8 - More Templating
+  - [X] 9 - Filters
+  - [X] 10 - Event Handlers
+  - [X] 11 - REST and Custom Services
   - [ ] 12 - Applying Animations The End
 
 
