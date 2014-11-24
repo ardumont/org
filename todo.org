@@ -13,14 +13,16 @@
 ** Nix [0%]
 - [ ] Nix package manager - http://nixos.org/nix/manual/
 
-** Nixpkgs [50%]
+** Nixpkgs [75%]
 - [X] Extends Nixos - https://nixos.org/wiki/NixOS:extend_NixOS
-- [-] Create the tux-guitar package for NixOS - http://nixos.org/nixpkgs/manual/ [50%]
+- [-] Create the tux-guitar package for NixOS - http://nixos.org/nixpkgs/manual/ [60%]
   - [X] Fork and clone NixOS/nixpkgs repository
   - [X] Located in pkgs/applications/misc according to http://nixos.org/nixpkgs/manual/#sec-organisation
   - [X] Reference the package in pkgs/top-level/all-packages.nix
   - [ ] Check that everything works locally
   - [ ] Push branch and open Pull Request
+- [X] Fix pidgin-with-plugins
+- [X] Propose a networking.proxy option - https://github.com/NixOS/nixpkgs/pull/5058
 
 ** NixOS [85%]
 - [X] Read [[http://nixos.org/nixos/manual/][NixOS manual]]
@@ -52,7 +54,7 @@
 - [ ] Propose a fix about proxy to expose the env no_proxy variable too (not specified right now and create problems when developping local web app)
 - [ ] Fix lid close event (sometimes, when opening the lid, it closes again) -
 ** Factor NixOS configuration [0%]
-- [ ] `job` and `dagobah` shares 99% of configuration except for the hostname and the wifi connection, find a way to factorize this code.
+- [ ] `job`, `dagobah`, `myrkr` shares 99% of configuration except for the hostname - find a way to factorize this code.
 ** NixOps [0%]
 - [ ] http://hydra.nixos.org/build/15623313/download/1/manual/manual.html
 * IN-PROGRESS judo
