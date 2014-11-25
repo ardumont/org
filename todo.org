@@ -83,6 +83,8 @@
 - [X] https://nixos.org/wiki/Installing_VirtualBox_on_NixOS
 - [X] Create a nixos vagrant image - https://github.com/zimbatm/nixbox
 - [ ] Provision a nixos vagrant vm using the previous image - https://github.com/oxdi/vagrant-nixos
+* TODO https://github.com/oblique/create_ap
+- [ ] Create nix expression for this
 * PENDING Readings [28%]
 - [X] practical clojure
 - [X] joy of clojure
