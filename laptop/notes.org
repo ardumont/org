@@ -1,0 +1,7 @@
+nm-tool - utility to report NetworkManager state and devices
+
+rfkill - tool for enabling and disabling wireless devices
+
+#+begin_src sh
+rfkill list
+#+end_src
