@@ -83,6 +83,10 @@
 - [X] https://nixos.org/wiki/Installing_VirtualBox_on_NixOS
 - [X] Create a nixos vagrant image - https://github.com/zimbatm/nixbox
 - [ ] Provision a nixos vagrant vm using the previous image - https://github.com/oxdi/vagrant-nixos
+* IN-PROGRESS Improve galaxy s4
+- [X] root it. cf. [[android/root-galaxy-s4-9505.org]]
+- [ ] Install CWM
+- [ ] Change rom
 * TODO https://github.com/oblique/create_ap
 - [ ] Create nix expression for this
 * PENDING Readings [28%]
@@ -1078,7 +1082,6 @@ CLOSED: [2013-04-19 ven. 22:39]
 - https://en.wikipedia.org/wiki/Single_sign-on
 - http://research.microsoft.com/pubs/160659/websso-final.pdf
 - https://access.llnl.gov/otp/cgi-bin/faq.cgi#OTP_acronym
-* PENDING Improve galaxy s4
 * PENDING haskell readings
 - [ ] http://www.haskell.org/haskellwiki/Monad#Interesting_Monads
 - [ ] http://www.haskell.org/haskellwiki/Category_theory
