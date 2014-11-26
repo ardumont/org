@@ -1,0 +1,189 @@
+#+title: Root galaxy s4
+#+author: ardumont
+
+This is hell on earth.
+Depending on the model and the android version, this not done the same way.
+
+source: http://forum.xda-developers.com/showthread.php?t=2442262
+
+* Install heimdall
+
+#+begin_src sh
+nix-env -i heimdall
+#+end_src
+
+This will install heimdall's cli and front end.
+
+* Download needed files
+
+http://autoroot.chainfire.eu/:
+
+Check your android model and your android version:
+- model: gt-9505
+- version: 4.4.2
+
+This gives:
+- file: http://download.chainfire.eu/316/CF-Root/CF-Auto-Root/CF-Auto-Root-jflte-jfltexx-gti9505.zip
+- checksum: 01b0f8d953add803f2754179117d5436
+
+#+begin_src sh
+wget http://download.chainfire.eu/316/CF-Root/CF-Auto-Root/CF-Auto-Root-jflte-jfltexx-gti9505.zip
+#+end_src
+
+When download done, ensure checksum match:
+#+begin_src sh
+md5sum CF-Auto-Root-jflte-jfltexx-gti9505.zip
+#+end_src
+
+Unarchive files (beware, archive in archive):
+#+begin_src sh
+unzip CF-Auto-Root-jflte-jfltexx-gti9505.zip -d /tmp/auto-root
+pushd /tmp/auto-root
+tar xvf CF-Auto-Root-jflte-jfltexx-gti9505.tar.md5
+popd
+#+end_src
+
+* Shutdown android phone
+
+Hold button power until it asks what to do.
+
+* Start android phone in download mode
+
+For galaxy s4, hold simultaneously 5 seconds the buttons `volume-down` + `home` + `power`.
+Validate that you want the download mode by pression `volume-up`
+
+* Flash
+
+#+begin_src sh
+sudo heimdall flash --recovery /path/to/recovery.img --cache /path/to/cache.img.ext4
+#+end_src
+
+Example:
+#+begin_src sh
+sudo heimdall flash --recovery /home/tony/android/root/recovery.img --cache /home/tony/android/root/cache.img.ext4
+#+end_src
+
+First tryout - FAIL:
+
+#+begin_src sh
+# tony at dagobah in ~/android/root [13:30:31]
+$ sudo heimdall flash --recovery /home/tony/android/root/recovery.img --cache /home/tony/android/root/cache.img.ext4
+[sudo] password for tony:
+Heimdall v1.4.0
+
+Copyright (c) 2010-2013, Benjamin Dobell, Glass Echidna
+http://www.glassechidna.com.au/
+
+This software is provided free of charge. Copying and redistribution is
+encouraged.
+
+If you appreciate this software and you would like to support future
+development please consider donating:
+http://www.glassechidna.com.au/donate/
+
+Initialising connection...
+Detecting device...
+Claiming interface...
+Attempt failed. Detaching driver...
+Claiming interface again...
+Setting up interface...
+
+Initialising protocol...
+Protocol initialisation successful.
+
+Beginning session...
+
+Some devices may take up to 2 minutes to respond.
+Please be patient!
+
+Session begun.
+
+Downloading device's PIT file...
+PIT file download successful.
+
+ERROR: Partition "recovery" does not exist in the specified PIT.
+Ending session...
+Rebooting device...
+Releasing device interface...
+Re-attaching kernel driver...
+#+end_src
+
+*Note* I use sudo here because otherwise, there is complaint about permission denied on libusb.
+
+We can dowload the pit to understand what the trouble is:
+
+#+begin_src sh
+sudo heimdall --print-pit --no-reboot | tee original.pit
+#+end_src
+
+Indeed, the case sensitivity is the culprit here:
+
+#+begin_src txt
+--- Entry #17 ---
+Partition Name: CACHE
+Flash Filename: cache.img.ext4
+...
+Partition Name: RECOVERY
+Flash Filename: recovery.img
+...
+#+end_src
+
+As suggested, changing the command to:
+
+#+begin_src sh
+sudo heimdall flash --RECOVERY /home/tony/android/root/recovery.img --CACHE /home/tony/android/root/cache.img.ext4
+#+end_src
+
+seems to fix it!
+
+#+begin_src sh
+# tony at dagobah in ~/android/root [13:51:53]
+$ sudo heimdall flash --RECOVERY /home/tony/android/root/recovery.img --CACHE /home/tony/android/root/cache.img.ext4
+Heimdall v1.4.0
+
+Copyright (c) 2010-2013, Benjamin Dobell, Glass Echidna
+http://www.glassechidna.com.au/
+
+This software is provided free of charge. Copying and redistribution is
+encouraged.
+
+If you appreciate this software and you would like to support future
+development please consider donating:
+http://www.glassechidna.com.au/donate/
+
+Initialising connection...
+Detecting device...
+Claiming interface...
+Attempt failed. Detaching driver...
+Claiming interface again...
+Setting up interface...
+
+Initialising protocol...
+Protocol initialisation successful.
+
+Beginning session...
+
+Some devices may take up to 2 minutes to respond.
+Please be patient!
+
+Session begun.
+
+Downloading device's PIT file...
+PIT file download successful.
+
+Uploading RECOVERY
+100%
+RECOVERY upload successful
+
+Uploading CACHE
+100%
+CACHE upload successful
+
+Ending session...
+Rebooting device...
+Releasing device interface...
+Re-attaching kernel driver...
+#+end_src
+
+The phone will reboot.
+Load super-su application that was installed and do as it asks.
