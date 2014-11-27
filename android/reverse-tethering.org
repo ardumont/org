@@ -1,0 +1,60 @@
+#+title: Reverse tethering
+#+author: ardumont
+
+* usb tethering
+- Android phone: Connect android phone to pc
+- Android phone: active usb tethering
+- Linux: Networkmanager, right click on the wired connection, on ipv4 tab, change from `dhcpd` selection to `shared with other computer` then save.
+
+* network
+
+#+begin_src sh
+sudo ifconfig enp0s20u1 10.42.0.1 netmask 255.255.255.0
+# if ip_forward is not activated
+sudo 'echo 1 > /proc/sys/net/ipv4/ip_forward'
+#+end_src
+
+
+Activate some firewall rules:
+#+begin_src sh
+sudo iptables -t nat -F
+sudo iptables -t nat -A POSTROUTING -j MASQUERADE
+#+end_src
+
+Mobile: Connect a su section on your mobile
+
+#+begin_src sh
+adb shell su
+#+end_src
+
+If you are controlling your phone via adb commands (remember to have USB debugging allowed on your phone for this).
+
+Watch as your command prompt changes from $ to #. If the sign does not change you need to check if your device is rooted properly or not
+Now type the following commands:
+
+busybox ifconfig
+
+This command will identify the name for the USB interface inside Android (it usually is rndis0 or usb0)
+
+Now type (of course change rndis0 to usb0 (or whatever name came up in the above step) if that is the name of your USB interface):
+
+netcfg rndis0 dhcp
+
+If the automatic method fails you can alternatively try (again replacing rndis0 with appropriate name)
+
+ifconfig rndis0 192.168.2.2 netmask 255.255.255.0
+route add default gw 192.168.2.1 dev rndis0
+
+Replace 192.168.2.2 with 10.42.0.2 and 192.168.2.1 with 10.42.0.1 if you’re using Linux.
+
+Now, some apps might not recognize the internet connection that you have just enabled, you can change that by first typing (some 3G interface Android names are ppp0, rmnet0, so look for names like these in the results displayed):
+
+busybox ifconfig
+
+Type the following command to set up a temporary 3G connection
+
+ifconfig rmnet0 0.0.0.0
+
+That’s it, you will now be able to use internet on your device via reverse tethering. To revert these settings back on your PC, simply uncheck “Allow other network users to connect through” option that we checked in the Phase 1 of this guide.
+
+Happy browsing everybody.
