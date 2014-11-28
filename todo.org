@@ -90,6 +90,7 @@ http://shakebuild.com/
 - [X] root it. cf. [[android/root-galaxy-s4-9505.org]]
 - [ ] Install CWM
 - [ ] Change rom
+- [ ] Install cyanogen rom
 * TODO https://github.com/oblique/create_ap
 - [ ] Create nix expression for this
 * PENDING Readings [28%]
