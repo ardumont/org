@@ -5,9 +5,9 @@
 * TODO keysnail
 - [ ] Create a function to append the copy of urls in the kill ring
 - [ ] Define some default global js functions (callable from M-x in ffx through keysnail)
-* shake
+* TODO shake
 http://shakebuild.com/
-
+https://github.com/ndmitchell/shake
 * IN-PROGRESS Emacs [1/4]
 - [X] Improve js-pack setup
 - [ ] Learn how to store/retrieve buffer/window position
