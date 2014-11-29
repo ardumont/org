@@ -8,6 +8,8 @@
 * TODO shake
 http://shakebuild.com/
 https://github.com/ndmitchell/shake
+* TODO https://github.com/oblique/create_ap
+- [ ] Create nix expression for this
 * IN-PROGRESS Emacs [1/4]
 - [X] Improve js-pack setup
 - [ ] Learn how to store/retrieve buffer/window position
@@ -105,13 +107,14 @@ https://github.com/ndmitchell/shake
 - [X] https://nixos.org/wiki/Installing_VirtualBox_on_NixOS
 - [X] Create a nixos vagrant image - https://github.com/zimbatm/nixbox
 - [ ] Provision a nixos vagrant vm using the previous image - https://github.com/oxdi/vagrant-nixos
-* DONE Improve Galaxy S4 [100%]
-CLOSED: [2014-11-29 Sat 20:33]
-- [X] Root - [[android/root-galaxy-s4-9505.org]]
-- [X] Install CWM recovery - [[install-clockwork-mod-recovery-on-galaxy-s4-gt-i9505.org]]
-- [X] Install cyanogen rom - [[install-cyanogen-mode-on-galaxy-s4-9505.org]]
-* TODO https://github.com/oblique/create_ap
-- [ ] Create nix expression for this
+* IN-PROGRESS js-pack
+- [ ] http://mihai.bazon.net/projects/editing-javascript-with-emacs-js2-mode
+- [ ] http://blog.deadpansincerity.com/2011/05/setting-up-emacs-as-a-javascript-editing-environment-for-fun-and-profit/
+- [X] https://github.com/Wilfred/flymake-jshint.el#flymake-jshint
+- [ ] https://github.com/omouse/angularjs-mode
+- [X] Start a js-pack
+- [X] Toggle repl for js-pack
+- [X] Update on repl for js-pack - https://github.com/skeeto/skewer-mode
 * PENDING Readings [28%]
 - [X] practical clojure
 - [X] joy of clojure
@@ -1175,6 +1178,11 @@ CLOSED: [2013-04-19 ven. 22:39]
 * PENDING online universities
 - https://www.edx.org/
 - https://www.coursera.org/
+* DONE Improve Galaxy S4 [100%]
+CLOSED: [2014-11-29 Sat 20:33]
+- [X] Root - [[android/root-galaxy-s4-9505.org]]
+- [X] Install CWM recovery - [[install-clockwork-mod-recovery-on-galaxy-s4-gt-i9505.org]]
+- [X] Install cyanogen rom - [[install-cyanogen-mode-on-galaxy-s4-9505.org]]
 * DONE Fixes
 CLOSED: [2014-11-13 Thu 23:08]
 - [X] Find a https://github.com/felipec/git-remote-hg bridge between git and mercurial
@@ -1650,11 +1658,3 @@ CLOSED: [2013-07-07 dim. 10:00]
 * DONE DevOps
 CLOSED: [2014-11-10 Mon 10:03]
 - [X] https://en.wikipedia.org/wiki/DevOps
-* IN-PROGRESS js-pack
-- [ ] http://mihai.bazon.net/projects/editing-javascript-with-emacs-js2-mode
-- [ ] http://blog.deadpansincerity.com/2011/05/setting-up-emacs-as-a-javascript-editing-environment-for-fun-and-profit/
-- [X] https://github.com/Wilfred/flymake-jshint.el#flymake-jshint
-- [ ] https://github.com/omouse/angularjs-mode
-- [X] Start a js-pack
-- [X] Toggle repl for js-pack
-- [X] Update on repl for js-pack - https://github.com/skeeto/skewer-mode
