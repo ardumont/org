@@ -107,7 +107,7 @@ https://github.com/ndmitchell/shake
 - [ ] Provision a nixos vagrant vm using the previous image - https://github.com/oxdi/vagrant-nixos
 * IN-PROGRESS Improve galaxy s4
 - [X] root it. cf. [[android/root-galaxy-s4-9505.org]]
-- [ ] Install CWM
+- [X] Install CWM recovery
 - [ ] Change rom
 - [ ] Install cyanogen rom
 * TODO https://github.com/oblique/create_ap
