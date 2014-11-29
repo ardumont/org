@@ -1,0 +1,106 @@
+#+title: Install Clockworkmod Recovery on galaxy S4 GT-I9505
+#+author: ardumont
+
+Disclaimer:
+Here is my note about my own experiment on my phone to install CWM Recovery mode.
+I'm not responsible if you mess up your phone.
+
+source: https://evilshit.wordpress.com/2013/10/17/how-to-install-clockworkmod-recovery-and-cyanogenmod-on-samsung-galaxy-s3/
+
+* Definition
+
+[[http://wiki.cyanogenmod.org/w/All_About_Recovery_Images][What's recovery definition?]]
+
+* Pre-requisites
+** Rooted phone
+
+Here are [[./root-galaxy-s4-9505.org][my notes on this]].
+
+** Heimdall
+
+#+begin_src sh
+nix-env -i heimdall
+#+end_src
+*Note*
+Your mileage may vary, I chose to use nix because it simplifies everything (available for at least all GNU/Linux distributions and os x platforms).
+
+* Download files
+
+#+begin_src sh
+wget http://download2.clockworkmod.com/recoveries/recovery-clockwork-touch-6.0.4.7-jfltexx.img
+#+end_src
+
+files: http://clockworkmod.com/rommanager
+
+* Reboot in recovery mode
+
+- Shutdown phone.
+- Hold `Volume-down + power + home` button until phone boots to start in recovery mode.
+(Do not let go of the buttons even when feeling the boot vibration. Otherwise, it will boot normally).
+- Volume-up to validate that you want the recovery mode.
+
+* Flash
+
+Using heimdall, we will flash the clockwordmod recovery touch:
+#+begin_src sh
+sudo heimdall flash --RECOVERY ./clockworkmod-recovery/recovery-clockwork-touch-6.0.4.7-jfltexx.img --no-reboot
+#+end_src
+
+Possible output:
+#+begin_src sh
+# tony at dagobah in ~/Downloads/android/galaxy-s4-9505 [11:29:23]
+$ sudo heimdall flash --RECOVERY ./clockworkmod-recovery/recovery-clockwork-touch-6.0.4.7-jfltexx.img --no-reboot
+[sudo] password for tony:
+Heimdall v1.4.0
+
+Copyright (c) 2010-2013, Benjamin Dobell, Glass Echidna
+http://www.glassechidna.com.au/
+
+This software is provided free of charge. Copying and redistribution is
+encouraged.
+
+If you appreciate this software and you would like to support future
+development please consider donating:
+http://www.glassechidna.com.au/donate/
+
+Initialising connection...
+Detecting device...
+Claiming interface...
+Attempt failed. Detaching driver...
+Claiming interface again...
+Setting up interface...
+
+Initialising protocol...
+Protocol initialisation successful.
+
+Beginning session...
+
+Some devices may take up to 2 minutes to respond.
+Please be patient!
+
+Session begun.
+
+Downloading device's PIT file...
+PIT file download successful.
+
+Uploading RECOVERY
+100%
+RECOVERY upload successful
+
+Ending session...
+Releasing device interface...
+Re-attaching kernel driver...
+#+end_src
+
+*Note*
+On my phone, the `recovery` option (mapped to the flag `--RECOVERY` in the heimdall command) is in uppercase.
+To check this, you could generate the PIT file of your phone and grep it to ensure it's the right name:
+
+#+begin_src sh
+sudo heimdall --print-pit --no-reboot | grep -i recovery
+#+end_src
+
+* Reboot
+
+Now CWM recovery is installed.
+You have now power.
