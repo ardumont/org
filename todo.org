@@ -14,10 +14,28 @@ http://shakebuild.com/
 - [ ] Activate tags for js2-mode, web-mode, etc...
 - [ ] Make the *grep* buffer behaves as *magit* ones (fullscreen then get back to previous frame organization).
 * IN-PROGRESS Nix* [0%]
-** Nix [0%]
-- [ ] Nix package manager - http://nixos.org/nix/manual/
+** Nix [16%]
+- [X] Nix package manager - http://nixos.org/nix/manual/
+- [X] http://lethalman.blogspot.it/2014/07/nix-pill-1-why-you-should-give-it-try.html
+- [X] http://lethalman.blogspot.it/2014/07/nix-pill-2-install-on-your-running.html
+- [ ] http://lethalman.blogspot.it/2014/07/nix-pill-3-enter-environment.html
+- [ ] http://lethalman.blogspot.it/2014/07/nix-pill-4-basics-of-language.html
+- [ ] http://lethalman.blogspot.it/2014/07/nix-pill-5-functions-and-imports.html
+- [ ] http://lethalman.blogspot.it/2014/07/nix-pill-6-our-first-derivation.html
+- [ ] http://lethalman.blogspot.it/2014/07/nix-pill-7-working-derivation.html
+- [ ] http://lethalman.blogspot.it/2014/08/nix-pill-8-generic-builders.html
+- [ ] http://lethalman.blogspot.it/2014/08/nix-pill-9-automatic-runtime.html
+- [ ] http://lethalman.blogspot.it/2014/08/nix-pill-10-developing-with-nix-shell.html
+- [ ] http://lethalman.blogspot.it/2014/08/nix-pill-11-garbage-collector.html
+- [ ] http://lethalman.blogspot.it/2014/08/nix-pill-12-inputs-design-pattern.html
+- [ ] http://lethalman.blogspot.it/2014/09/nix-pill-13-callpackage-design-pattern.html
+- [ ] http://lethalman.blogspot.it/2014/09/nix-pill-14-override-design-pattern.html
+- [ ] http://lethalman.blogspot.it/2014/09/nix-pill-15-nix-search-paths.html
+- [ ] http://lethalman.blogspot.it/2014/11/nix-pill-16-nixpkgs-parameters.html
+- [ ] http://lethalman.blogspot.it/2014/11/nix-pill-17-nixpkgs-overriding-packages.html
 
-** Nixpkgs [75%]
+** Nixpkgs [80%]
+- [X] [[https://nixos.org/nixpkgs/manual/][Nixpkgs manual]]
 - [X] Extends Nixos - https://nixos.org/wiki/NixOS:extend_NixOS
 - [-] Create the tux-guitar package for NixOS - http://nixos.org/nixpkgs/manual/ [60%]
   - [X] Fork and clone NixOS/nixpkgs repository
@@ -26,9 +44,8 @@ http://shakebuild.com/
   - [ ] Check that everything works locally
   - [ ] Push branch and open Pull Request
 - [X] Fix pidgin-with-plugins
-- [X] Propose a networking.proxy option - https://github.com/NixOS/nixpkgs/pull/5058
 
-** NixOS [85%]
+** NixOS [96%]
 - [X] Read [[http://nixos.org/nixos/manual/][NixOS manual]]
 - [X] Install nixos -> https://github.com/ardumont/dot-files/blob/master/configuration.nix
 - [X] Fix trouble with X (it may be my personal xmonad.hs's deps that are not satisfied)
@@ -53,13 +70,15 @@ http://shakebuild.com/
 - [X] brightness increase/decrease
 - [X] Haskell
 - [X] Fix trouble with suspend
+- [X] Propose a fix about pidgin-with-plugins which miss the folder containing the plugins
+- [X] Propose a fix about proxy to expose the env no_proxy variable too (not specified right now and create problems when developping local web app)
+- [X] Propose a networking.proxy option - https://github.com/NixOS/nixpkgs/pull/5058
+- [X] Fix lid close event (sometimes, when opening the lid, it closes again)
 - [ ] Install nixos with encryption - http://bluishcoder.co.nz/2014/05/14/installing-nixos-with-encrypted-root-on-thinkpad-w540.html - https://nixos.org/wiki/Encrypted_Root_on_NixOS
-- [ ] Propose a fix about pidgin-with-plugins which miss the folder containing the plugins
-- [ ] Propose a fix about proxy to expose the env no_proxy variable too (not specified right now and create problems when developping local web app)
-- [ ] Fix lid close event (sometimes, when opening the lid, it closes again) -
 ** Factor NixOS configuration [0%]
 - [ ] `job`, `dagobah`, `myrkr` shares 99% of configuration except for the hostname - find a way to factorize this code.
 ** NixOps [0%]
+- [ ] [[https://nixos.org/nixops/manual/][NixOps manual]]
 - [ ] http://hydra.nixos.org/build/15623313/download/1/manual/manual.html
 * IN-PROGRESS judo
 * IN-PROGRESS Refresh on angular-js
