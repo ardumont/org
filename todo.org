@@ -106,10 +106,10 @@ https://github.com/ndmitchell/shake
 - [X] Create a nixos vagrant image - https://github.com/zimbatm/nixbox
 - [ ] Provision a nixos vagrant vm using the previous image - https://github.com/oxdi/vagrant-nixos
 * IN-PROGRESS Improve galaxy s4
-- [X] root it. cf. [[android/root-galaxy-s4-9505.org]]
-- [X] Install CWM recovery
 - [ ] Change rom
 - [ ] Install cyanogen rom
+- [X] Root - [[android/root-galaxy-s4-9505.org]]
+- [X] Install CWM recovery - [[install-clockwork-mod-recovery-on-galaxy-s4-gt-i9505.org]]
 * TODO https://github.com/oblique/create_ap
 - [ ] Create nix expression for this
 * PENDING Readings [28%]
