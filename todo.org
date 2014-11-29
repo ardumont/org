@@ -83,6 +83,13 @@ https://github.com/ndmitchell/shake
 - [ ] [[https://nixos.org/nixops/manual/][NixOps manual]]
 - [ ] http://hydra.nixos.org/build/15623313/download/1/manual/manual.html
 * IN-PROGRESS judo
+- [X] white
+- [X] yellow
+- [X] orange
+- [X] green
+- [ ] blue
+- [ ] brown
+- [ ] black
 * IN-PROGRESS Refresh on angular-js
 - [-] https://docs.angularjs.org/tutorial [12/13]
   - [X] 0 - Bootstrapping
