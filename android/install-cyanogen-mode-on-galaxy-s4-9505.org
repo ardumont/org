@@ -1,0 +1,62 @@
+#+title: Install cwm recovery on galaxy s4 9505
+#+author: ardumont
+
+Disclaimer:
+Here is my notes about my own experiment to install cyanogen mod on my phone.
+I'm not responsible if you mess up your phone.
+
+sources: http://wiki.cyanogenmod.org/w/Install_CM_for_jflte
+
+* Pre-requisites
+** Rooted phone
+
+** Software
+
+Install adb and heimdall:
+#+begin_src sh
+nix-env -i heimdall androidsdk_4_4
+#+end_src
+*Note* Your mileage may vary, I chose to use nix because it simplifies everything (available for at least all GNU/Linux distributions and os x platforms).
+
+* Download files
+
+Cyanogen mod, for example:
+#+begin_src sh
+wget http://download.cyanogenmod.org/get/jenkins/90461/cm-11-20141112-SNAPSHOT-M12-jflte.zip
+
+# md5: 3ba06098eb49b8b8b25bf3db1ab53c52
+md5sum cm-11-20141112-SNAPSHOT-M12-jflte.zip
+#+end_src
+
+files: http://download.cyanogenmod.org/?device=jflte&type=snapshot
+
+Google apps are to install on the side due to license limitations: http://wiki.cyanogenmod.org/w/Google_Apps
+
+* Install
+
+Install files in your phone (so that's available in recovery mode):
+
+#+begin_src sh
+# tony at dagobah in ~/Downloads/android/galaxy-s4-9505 [11:15:11]
+$ adb push ./cyanogen-mod/cm-11-20141112-SNAPSHOT-M12-jflte.zip /sdcard/
+6702 KB/s (236771758 bytes in 34.499s)
+
+# tony at dagobah in ~/Downloads/android/galaxy-s4-9505 [11:20:49]
+$ adb push ./google-apps/gapps-kk-20140606-signed.zip /sdcard/
+6790 KB/s (157694716 bytes in 22.677s)
+#+end_src
+
+* Reboot in recovery mode
+
+#+begin_src sh
+adb reboot recovery
+#+end_src
+
+* Install the zip as usual
+
+Inside the recovery mode:
+- wipe data/cache
+- install cyanogen-mod: Install zip > cm-11-20141112-SNAPSHOT-M12-jflte.zip > confirm
+- Then, install google apps: Install zip > gapps-kk-20140606-signed.zip > confirm
+
+Now reboot the phone and you should see cyanogen-mod booting.
