@@ -36,7 +36,7 @@ https://github.com/ndmitchell/shake
 - [ ] http://lethalman.blogspot.it/2014/11/nix-pill-16-nixpkgs-parameters.html
 - [ ] http://lethalman.blogspot.it/2014/11/nix-pill-17-nixpkgs-overriding-packages.html
 
-** Nixpkgs [80%]
+** Nixpkgs [60%]
 - [X] [[https://nixos.org/nixpkgs/manual/][Nixpkgs manual]]
 - [X] Extends Nixos - https://nixos.org/wiki/NixOS:extend_NixOS
 - [-] Create the tux-guitar package for NixOS - http://nixos.org/nixpkgs/manual/ [60%]
@@ -72,8 +72,8 @@ https://github.com/ndmitchell/shake
 - [X] brightness increase/decrease
 - [X] Haskell
 - [X] Fix trouble with suspend
-- [X] Propose a fix about pidgin-with-plugins which miss the folder containing the plugins
-- [X] Propose a fix about proxy to expose the env no_proxy variable too (not specified right now and create problems when developping local web app)
+- [X] Propose a fix about pidgin-with-plugins which miss the folder containing the plugins - Merged
+- [X] Propose a fix about proxy to expose the env no_proxy variable too (not specified right now and create problems when developping local web app) - Merged
 - [X] Propose a networking.proxy option - https://github.com/NixOS/nixpkgs/pull/5058
 - [X] Fix lid close event (sometimes, when opening the lid, it closes again)
 - [ ] Install nixos with encryption - http://bluishcoder.co.nz/2014/05/14/installing-nixos-with-encrypted-root-on-thinkpad-w540.html - https://nixos.org/wiki/Encrypted_Root_on_NixOS
@@ -1651,7 +1651,7 @@ CLOSED: [2013-07-07 dim. 10:00]
 - [X] Switch from deprecated inferior-haskell to interactive-haskell-mode
 - [X] Propose C-c C-z switch to repl and back
 - [X] Integrated in haskell-mode now (not my code but at least the idea :D)
-- [X] Propose improvment about nix-shell integration in haskell-mode - https://github.com/haskell/haskell-mode/pull/370
+- [X] Propose improvment about nix-shell integration in haskell-mode - https://github.com/haskell/haskell-mode/pull/370 - Merged
 * DONE markdown-toc [100%]
   CLOSED: [2014-08-19 Tue 19:57]
 - [X] 0.0.1
