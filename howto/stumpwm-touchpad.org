@@ -43,7 +43,7 @@ The main code whose only concern is to:
 #+begin_src lisp
 (defcommand toggle-touchpad-auto () ()
   "Activate/Deactivate automatically the touchpad depending on the current status."
-  (run-shl "~/bin/stumpwm/toggle-touchpad.sh")
+  (run-shl "~/bin/touchpad/toggle-touchpad.sh")
   (stumpwm::banish))
 #+end_src
 

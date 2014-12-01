@@ -34,7 +34,7 @@ Actions:
 - At last, trigger the on/off status depending on the status.
 
 ** code
-#+INCLUDE: "~/bin/stumpwm/toggle-touchpad-manual.sh" src sh
+#+INCLUDE: "~/bin/touchpad/toggle-touchpad-manual.sh" src sh
 src: [[https://github.com/ardumont/sh/blob/master/stumpwm/toggle-touchpad-manual.sh][toggle-touchpad-manual.sh]]
 
 ** use
@@ -56,7 +56,7 @@ It's almost the same script as before.
 But this one does request the current status of the touchpad and then inverse the status.
 For doing so, it calls the previous script one with the new status as parameter.
 
-#+INCLUDE: "~/bin/stumpwm/toggle-touchpad.sh" src sh
+#+INCLUDE: "~/bin/touchpad/toggle-touchpad.sh" src sh
 src: [[https://github.com/ardumont/sh/blob/master/stumpwm/toggle-touchpad.sh][toggle-touchpad.sh]]
 
 ** use
