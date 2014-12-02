@@ -13,29 +13,31 @@
 [[./resources/tux-clj.png]]
 
 * Personally
-I'm just a linux fan boy geek (GNU/Linux, *BSD, Android and Free Software etc...).
-Also, completely development addict (Clojure, Haskell, Java, C, PHP, *sh, Perl, Python, etc...)
+I'm just a free software fan boy geek (GNU/Linux, GNU/Emacs, *BSD, Android and Free Software etc...).
+Also, completely development addict (Clojure, Haskell, JVM, C, Nix, *sh, etc...)
 
-I'm /trying/ to share the little computer knowledge I have with the rest of the
-world.
+I'm /trying/ to share the computer knowledge I have with the rest of the world.
 
-*Why?* Because I have this completely amazingly and utterly utopist dream of free knowledge (as in free beer).
+*Why?* Because I have this completely and utterly utopist dream of free knowledge (as in free beer).
 
 /Trying to share/ when i'm not too busy playing with my kids or coding
-to solve some problems ([[http://projecteuler.net][Project Euler]],[[http://4clojure.com][ 4clojure.com]]) or playing guitar (then again trying)
+to solve some problems ([[http://projecteuler.net][Project Euler]],[[http://4clojure.com][ 4clojure.com]]) or playing some guitar (then again trying)
 or losing my precious time in some bull... means of transportation.
 
 Anyway, here is my rapid resume.
 * Rapid resume
-** Once upon a time, i was a student
+** Once upon a time, I was a student
 Master's degree in Networks and systems at the [[http://www.univ-paris-diderot.fr/][Denis Diderot College Paris VII]].
 ** Then i started working
-Software engineer for 4 years at [[http://www.sopragroup.com"][Sopra Group]].
-Some technologies i came across : JEE4/5, PHP4/5, Oracle, Hibernate, Spring, Ant, Maven, etc...
+Software engineer for 4,5 years at [[http://www.sopragroup.com"][Sopra Group]].
+Now I continue developing software @Sfeir (for 3.5 years now).
+Some legacy technologies I came across : JEE4/5, PHP4/5, Oracle, Hibernate, Spring, etc...
 ** Now
-I'm still a software engineer but i like to call it simply developer as i really really enjoy coding.
-I'm working with [[http://www.sfeir.com/][Sfeir]].
-The technologies are innovative : GWT, Android, NoSQL, etc...
+I'm still a software engineer but I like to call it developer, it's simple.
+I have been working with [[http://www.sfeir.com/][Sfeir]] now for at least 3.5 years.
+The technologies are more recent: JVM, Hadoop, NoSQL, AngularJS...
+
+Some more advanced technologies I came across during my spare time: Haskell, Clojure, emacs-lisp, Android, Angularjs, Nodejs, etc..
 * Where can you found me if you ever were interested
 ** [[http://en.gravatar.com/ardumont][gravatar]]
 ** [[https://github.com/ardumont][github]]
