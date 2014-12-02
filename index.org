@@ -1,0 +1,18 @@
+#+title: tony's blog
+#+author: Antoine R. Dumont
+#+Options: num:nil
+#+STARTUP: odd
+#+Style: <style> h1,h2,h3 {font-family: arial, helvetica, sans-serif} </style>
+
+I am Antoine R. Dumont, one developer.
+
+I develop software and contribute to multiple free software on my spare time.
+
+I am @ardumont on [[https://github.com/ardumont][github]] and [[https://twitter.com/ardumont][twitter]].
+
+Here you will find my notes on multiple subjects that I liked at some point.
+Sometimes, it's just notes, sometimes it's articles and sometimes, it's to permit myself to reproduce some advanced automation I keep forgetting.
+
+With a little luck, this could help others too.
+
+[[./about-me.org][More information about me can be found here.]]
