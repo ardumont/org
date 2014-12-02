@@ -1,9 +1,0 @@
-#+Title: papa, pourquoi?
-#+author: Antoine Romain Dumont
-#+STARTUP: indent
-#+STARTUP: hidestars odd
-
-* papa, pq il pleut dehors ?
-* papa, pq tu travailles ?
-* pq elle s'endort sur moi Leeloo?
-* pq 

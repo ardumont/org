@@ -34,5 +34,3 @@
   #+BEGIN_SRC sh
   sudo grub-install /dev/sda
   #+END_SRC sh
-
-*
