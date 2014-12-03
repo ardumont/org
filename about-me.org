@@ -33,15 +33,15 @@ Software engineer for 4,5 years at [[http://www.sopragroup.com"][Sopra Group]].
 Now I continue developing software @Sfeir (for 3.5 years now).
 Some legacy technologies I came across : JEE4/5, PHP4/5, Oracle, Hibernate, Spring, etc...
 ** Now
-I'm still a software engineer but I like to call it developer, it's simple.
-I have been working with [[http://www.sfeir.com/][Sfeir]] now for at least 3.5 years.
-The technologies are more recent: JVM, Hadoop, NoSQL, AngularJS...
+I'm a developer/devops, and proud of it.
+I have been working with [[http://www.sfeir.com/][Sfeir]] for at least 3.5 years now.
+The technologies are more recent: JVM, Java, Scala, Hadoop, Zookeeper, AngularJS, Puppet, ...
 
-Some more advanced technologies I came across during my spare time: Haskell, Clojure, emacs-lisp, Android, Angularjs, Nodejs, etc..
+Some more advanced technologies I came across during my spare time: Haskell, *Lisp (Emacs-Lisp, Common-Lisp, Clojure, Scheme, ...), Nixos, Purescript, Android, Angularjs, Nodejs, Chef, Pallet, Docker, Vagrant, etc..
 * Where can you found me if you ever were interested
-** [[http://en.gravatar.com/ardumont][gravatar]]
 ** [[https://github.com/ardumont][github]]
-** [[http://adumont.fr][blog]]
+** [[http://adumont.fr/blog][my current blog (I'm migrating from)]]
+** [[http://en.gravatar.com/ardumont][gravatar]]
 ** [[http://j.mp/ibIAVM][viadeo]]
 ** [[http://j.mp/dWMPPr][linkedin]]
 ** [[http://adumont.fr/cv/curriculum-app.html][My resume]]
