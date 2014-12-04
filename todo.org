@@ -16,16 +16,16 @@ https://github.com/ndmitchell/shake
 - [ ] Activate tags for js2-mode, web-mode, etc...
 - [ ] Make the *grep* buffer behaves as *magit* ones (fullscreen then get back to previous frame organization).
 * IN-PROGRESS Nix* [0%]
-** Nix [16%]
+** Nix [50%]
 - [X] Nix package manager - http://nixos.org/nix/manual/
 - [X] http://lethalman.blogspot.it/2014/07/nix-pill-1-why-you-should-give-it-try.html
 - [X] http://lethalman.blogspot.it/2014/07/nix-pill-2-install-on-your-running.html
-- [ ] http://lethalman.blogspot.it/2014/07/nix-pill-3-enter-environment.html
-- [ ] http://lethalman.blogspot.it/2014/07/nix-pill-4-basics-of-language.html
-- [ ] http://lethalman.blogspot.it/2014/07/nix-pill-5-functions-and-imports.html
-- [ ] http://lethalman.blogspot.it/2014/07/nix-pill-6-our-first-derivation.html
-- [ ] http://lethalman.blogspot.it/2014/07/nix-pill-7-working-derivation.html
-- [ ] http://lethalman.blogspot.it/2014/08/nix-pill-8-generic-builders.html
+- [X] http://lethalman.blogspot.it/2014/07/nix-pill-3-enter-environment.html
+- [X] http://lethalman.blogspot.it/2014/07/nix-pill-4-basics-of-language.html
+- [X] http://lethalman.blogspot.it/2014/07/nix-pill-5-functions-and-imports.html
+- [X] http://lethalman.blogspot.it/2014/07/nix-pill-6-our-first-derivation.html
+- [X] http://lethalman.blogspot.it/2014/07/nix-pill-7-working-derivation.html
+- [X] http://lethalman.blogspot.it/2014/08/nix-pill-8-generic-builders.html
 - [ ] http://lethalman.blogspot.it/2014/08/nix-pill-9-automatic-runtime.html
 - [ ] http://lethalman.blogspot.it/2014/08/nix-pill-10-developing-with-nix-shell.html
 - [ ] http://lethalman.blogspot.it/2014/08/nix-pill-11-garbage-collector.html
