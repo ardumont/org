@@ -122,6 +122,12 @@ https://github.com/ndmitchell/shake
 - [X] Start a js-pack
 - [X] Toggle repl for js-pack
 - [X] Update on repl for js-pack - https://github.com/skeeto/skewer-mode
+* TODO thunderbird for hostile env.
+- [ ] exquilla
+- [ ] exchange ws provider -> ericson
+- [ ] lightning
+* TODO https://github.com/oblique/create_ap
+- [ ] Create nix expression for this
 * PENDING Readings [28%]
 - [X] practical clojure
 - [X] joy of clojure

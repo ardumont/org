@@ -1,0 +1,46 @@
+* Definition
+
+- enp0s25 - network device connected to the internet.
+- wlp3s0 - network device connected to the other machine.
+
+* Static ip addresses
+
+#+begin_src sh
+sudo ip link set up dev wlp3s0
+# arbitrary address
+sudo ip addr add 192.168.123.100/24 dev wlp3s0
+#+end_src
+
+* Check packet forwarding
+
+Check the current packet forwarding settings:
+
+#+begin_src sh
+sysctl -a | grep forward
+#+end_src
+
+* Enable packet forwarding
+
+Enter this command to temporarily enable packet forwarding:
+
+#+begin_src sh
+sysctl net.ipv4.ip_forward=1
+#+end_src
+
+* Enable NAT
+
+Install the package iptables from the official repositories. Use iptables to enable NAT:
+
+#+begin_src sh
+sudo iptables -t nat -A POSTROUTING -o enp0s25 -j MASQUERADE
+sudo iptables -A FORWARD -i wlp3s0 -o enp0s25 -j ACCEPT
+sudo iptables -A FORWARD -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
+#+end_src
+
+* Manual ip
+
+#+begin_src sh
+sudo ip addr add 192.168.123.201/24 dev eth0  # arbitrary address, first three blocks must match the address from above
+sudo ip link set up dev eth0
+sudo ip route add default via 192.168.123.100 dev eth0   # same address as in the beginning
+#+end_src
