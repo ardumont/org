@@ -16,7 +16,7 @@ https://github.com/ndmitchell/shake
 - [ ] Activate tags for js2-mode, web-mode, etc...
 - [ ] Make the *grep* buffer behaves as *magit* ones (fullscreen then get back to previous frame organization).
 * IN-PROGRESS Nix* [0%]
-** Nix [50%]
+** Nix [72%]
 - [X] Nix package manager - http://nixos.org/nix/manual/
 - [X] http://lethalman.blogspot.it/2014/07/nix-pill-1-why-you-should-give-it-try.html
 - [X] http://lethalman.blogspot.it/2014/07/nix-pill-2-install-on-your-running.html
@@ -26,10 +26,10 @@ https://github.com/ndmitchell/shake
 - [X] http://lethalman.blogspot.it/2014/07/nix-pill-6-our-first-derivation.html
 - [X] http://lethalman.blogspot.it/2014/07/nix-pill-7-working-derivation.html
 - [X] http://lethalman.blogspot.it/2014/08/nix-pill-8-generic-builders.html
-- [ ] http://lethalman.blogspot.it/2014/08/nix-pill-9-automatic-runtime.html
-- [ ] http://lethalman.blogspot.it/2014/08/nix-pill-10-developing-with-nix-shell.html
-- [ ] http://lethalman.blogspot.it/2014/08/nix-pill-11-garbage-collector.html
-- [ ] http://lethalman.blogspot.it/2014/08/nix-pill-12-inputs-design-pattern.html
+- [X] http://lethalman.blogspot.it/2014/08/nix-pill-9-automatic-runtime.html
+- [X] http://lethalman.blogspot.it/2014/08/nix-pill-10-developing-with-nix-shell.html
+- [X] http://lethalman.blogspot.it/2014/08/nix-pill-11-garbage-collector.html
+- [X] http://lethalman.blogspot.it/2014/08/nix-pill-12-inputs-design-pattern.html
 - [ ] http://lethalman.blogspot.it/2014/09/nix-pill-13-callpackage-design-pattern.html
 - [ ] http://lethalman.blogspot.it/2014/09/nix-pill-14-override-design-pattern.html
 - [ ] http://lethalman.blogspot.it/2014/09/nix-pill-15-nix-search-paths.html
@@ -76,6 +76,7 @@ https://github.com/ndmitchell/shake
 - [X] Propose a fix about proxy to expose the env no_proxy variable too (not specified right now and create problems when developping local web app) - Merged
 - [X] Propose a networking.proxy option - https://github.com/NixOS/nixpkgs/pull/5058
 - [X] Fix lid close event (sometimes, when opening the lid, it closes again)
+- [X] x11vnc
 - [ ] Install nixos with encryption - http://bluishcoder.co.nz/2014/05/14/installing-nixos-with-encrypted-root-on-thinkpad-w540.html - https://nixos.org/wiki/Encrypted_Root_on_NixOS
 ** Factor NixOS configuration [0%]
 - [ ] `job`, `dagobah`, `myrkr` shares 99% of configuration except for the hostname - find a way to factorize this code.
@@ -90,7 +91,8 @@ https://github.com/ndmitchell/shake
 - [ ] blue
 - [ ] brown
 - [ ] black
-* IN-PROGRESS Refresh on angular-js
+* DONE Refresh on angular-js
+CLOSED: [2014-12-06 Sat 22:33]
 - [-] https://docs.angularjs.org/tutorial [12/13]
   - [X] 0 - Bootstrapping
   - [X] 1 - Static Template
