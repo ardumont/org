@@ -14,8 +14,6 @@ https://github.com/ndmitchell/shake
 - [ ] exquilla
 - [ ] exchange ws provider -> ericson
 - [ ] lightning
-* TODO https://github.com/oblique/create_ap
-- [ ] Create nix expression for this
 * IN-PROGRESS Emacs [1/4]
 - [X] Improve js-pack setup
 - [ ] Learn how to store/retrieve buffer/window position
