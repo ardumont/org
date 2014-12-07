@@ -10,6 +10,12 @@ http://shakebuild.com/
 https://github.com/ndmitchell/shake
 * TODO https://github.com/oblique/create_ap
 - [ ] Create nix expression for this
+* TODO thunderbird for hostile env.
+- [ ] exquilla
+- [ ] exchange ws provider -> ericson
+- [ ] lightning
+* TODO https://github.com/oblique/create_ap
+- [ ] Create nix expression for this
 * IN-PROGRESS Emacs [1/4]
 - [X] Improve js-pack setup
 - [ ] Learn how to store/retrieve buffer/window position
@@ -91,27 +97,6 @@ https://github.com/ndmitchell/shake
 - [ ] blue
 - [ ] brown
 - [ ] black
-* DONE Refresh on angular-js
-CLOSED: [2014-12-06 Sat 22:33]
-- [-] https://docs.angularjs.org/tutorial [12/13]
-  - [X] 0 - Bootstrapping
-  - [X] 1 - Static Template
-  - [X] 2 - Angular Templates
-  - [X] 3 - Filtering Repeaters
-  - [X] 4 - Two-way Data Binding
-  - [X] 5 - XHRs & Dependency Injection
-  - [X] 6 - Templating Links & Images
-  - [X] 7 - Routing & Multiple Views
-  - [X] 8 - More Templating
-  - [X] 9 - Filters
-  - [X] 10 - Event Handlers
-  - [X] 11 - REST and Custom Services
-  - [ ] 12 - Applying Animations The End
-
-
-- [X] http://angularjs.org/
-- [ ] https://github.com/angular/angular.js
-- [ ] http://angular.github.io/protractor/#/browser-setup
 * IN-PROGRESS packer/vagrant to make nix box
 - [X] https://nixos.org/wiki/Installing_VirtualBox_on_NixOS
 - [X] Create a nixos vagrant image - https://github.com/zimbatm/nixbox
@@ -124,66 +109,6 @@ CLOSED: [2014-12-06 Sat 22:33]
 - [X] Start a js-pack
 - [X] Toggle repl for js-pack
 - [X] Update on repl for js-pack - https://github.com/skeeto/skewer-mode
-* TODO thunderbird for hostile env.
-- [ ] exquilla
-- [ ] exchange ws provider -> ericson
-- [ ] lightning
-* TODO https://github.com/oblique/create_ap
-- [ ] Create nix expression for this
-* PENDING Readings [28%]
-- [X] practical clojure
-- [X] joy of clojure
-- [X] clojure in action
-- [X] Clojure programming
-- [X] Programming in haskell [100%]
-  - [X] chapter 1
-  - [X] chapter 2
-  - [X] chapter 3
-  - [X] chapter 4
-  - [X] chapter 5
-  - [X] chapter 6
-  - [X] chapter 7
-  - [X] chapter 8
-  - [X] chapter 9
-  - [X] chapter 10
-  - [X] chapter 11
-  - [X] chapter 12
-  - [X] chapter 13
-  - [X] http://yannesposito.com/Scratch/en/blog/Haskell-the-Hard-Way/
-  - [X] http://learnyouahaskell.com/input-and-output
-  - [X] http://learnyouahaskell.com/types-and-typeclasses
-- [ ] N. Wirth                   - Program development by Stepwise refinement              - Cacm, April 1971
-- [ ] D. L. Parnas               - Information distribution Aspects of Design Methodology  - IFIP Congress, 1971
-- [ ] B. Liskov                  - A design Methodology for Reliable Software Systems      - FJCC, Dec. 1972
-- [ ] O-J. Dahl & C. A. R. Hoare - Hierarchical Program Structures. Structured Programming - Academic Press, 1972
-- [ ] J. H. Morris               - Protection in Programming Languages                     - Cacm, Jan. 1973
-- [ ] W. Wulf & M. Shaw          - Global Variable Considered Harmful                      - Sigplan Notices, 1973
-- [ ] B. Liskov & S. Zilles      - Programming with Abstract Data Types.                   - ACM conferences on Very High Level Languages, Apr. 1974
-- [ ] B. Liskov                  - Data abstraction and hierarchy                          - Sigplan notices, May. 1988
-- [ ] P. Norvig                  - [[http://norvig.com/21-days.html][Teach yourself programming in ten years]]
-- [ ] Domain Driven Design
-- [ ] Clojure data analysis cookbook
-- [ ] Parallel and concurrent programming in haskell
-- [ ] How to Design Programs: An Introduction to Programming and Computing
-- [ ] The Little Schemer
-- [ ] The Seasoned Schemer
-- [ ] The Reasoned Schemer
-- [ ] [[Http://riemann.io/index.html][riemann]] - monitors distributed systems
-- [ ] [[http://www.docker.io/][docker]] - an open source project to pack, ship and run any application as a lightweight container
-- [ ] [[http://www.packer.io/][packer]] - a tool for creating identical machine images for multiple platforms from a single source configuration.
-- [ ] [[http://www.opscode.com/chef/][Chef]] - infrastructure automation and configuration management framework - infrastructure as code
-- [X] [[https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing][CIDR]]
-- [ ] [[https://en.wikipedia.org/wiki/Domain_Name_System][DNS]]
-- [X] Stop à la manipulation - Jacques Regard
-- [X] Apprendre a résister - Olivier Houdé
-- [X] Hackers and Painters - Paul Graham
-- [ ] Javascript: the good parts
-- [ ] Purely functional data structure
-
-* PENDING Arduino [66%]
-- [X] Get back in touch - https://github.com/ardumont/harduino-lab
-- [X] https://github.com/LeventErkok/hArduino/pull/9
-- [ ] Dig more
 * IN-PROGRESS org-trello [97%]
   Minor mode to sync trello and org-mode
 - [X] Deploy in melpa (automated on their own)
@@ -258,6 +183,60 @@ CLOSED: [2014-12-06 Sat 22:33]
 - [X] 0.6.4
 - [X] 0.6.5
 - [ ] ...
+* PENDING Readings [28%]
+- [X] practical clojure
+- [X] joy of clojure
+- [X] clojure in action
+- [X] Clojure programming
+- [X] Programming in haskell [100%]
+  - [X] chapter 1
+  - [X] chapter 2
+  - [X] chapter 3
+  - [X] chapter 4
+  - [X] chapter 5
+  - [X] chapter 6
+  - [X] chapter 7
+  - [X] chapter 8
+  - [X] chapter 9
+  - [X] chapter 10
+  - [X] chapter 11
+  - [X] chapter 12
+  - [X] chapter 13
+  - [X] http://yannesposito.com/Scratch/en/blog/Haskell-the-Hard-Way/
+  - [X] http://learnyouahaskell.com/input-and-output
+  - [X] http://learnyouahaskell.com/types-and-typeclasses
+- [ ] N. Wirth                   - Program development by Stepwise refinement              - Cacm, April 1971
+- [ ] D. L. Parnas               - Information distribution Aspects of Design Methodology  - IFIP Congress, 1971
+- [ ] B. Liskov                  - A design Methodology for Reliable Software Systems      - FJCC, Dec. 1972
+- [ ] O-J. Dahl & C. A. R. Hoare - Hierarchical Program Structures. Structured Programming - Academic Press, 1972
+- [ ] J. H. Morris               - Protection in Programming Languages                     - Cacm, Jan. 1973
+- [ ] W. Wulf & M. Shaw          - Global Variable Considered Harmful                      - Sigplan Notices, 1973
+- [ ] B. Liskov & S. Zilles      - Programming with Abstract Data Types.                   - ACM conferences on Very High Level Languages, Apr. 1974
+- [ ] B. Liskov                  - Data abstraction and hierarchy                          - Sigplan notices, May. 1988
+- [ ] P. Norvig                  - [[http://norvig.com/21-days.html][Teach yourself programming in ten years]]
+- [ ] Domain Driven Design
+- [ ] Clojure data analysis cookbook
+- [ ] Parallel and concurrent programming in haskell
+- [ ] How to Design Programs: An Introduction to Programming and Computing
+- [ ] The Little Schemer
+- [ ] The Seasoned Schemer
+- [ ] The Reasoned Schemer
+- [ ] [[Http://riemann.io/index.html][riemann]] - monitors distributed systems
+- [ ] [[http://www.docker.io/][docker]] - an open source project to pack, ship and run any application as a lightweight container
+- [ ] [[http://www.packer.io/][packer]] - a tool for creating identical machine images for multiple platforms from a single source configuration.
+- [ ] [[http://www.opscode.com/chef/][Chef]] - infrastructure automation and configuration management framework - infrastructure as code
+- [X] [[https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing][CIDR]]
+- [ ] [[https://en.wikipedia.org/wiki/Domain_Name_System][DNS]]
+- [X] Stop à la manipulation - Jacques Regard
+- [X] Apprendre a résister - Olivier Houdé
+- [X] Hackers and Painters - Paul Graham
+- [ ] Javascript: the good parts
+- [ ] Purely functional data structure
+
+* PENDING Arduino [66%]
+- [X] Get back in touch - https://github.com/ardumont/harduino-lab
+- [X] https://github.com/LeventErkok/hArduino/pull/9
+- [ ] Dig more
 * PENDING Scala [72%]
 ** DONE scala-pack
 CLOSED: [2013-07-26 ven. 12:15]
@@ -1194,6 +1173,27 @@ CLOSED: [2013-04-19 ven. 22:39]
 * PENDING online universities
 - https://www.edx.org/
 - https://www.coursera.org/
+* DONE Refresh on angular-js
+CLOSED: [2014-12-06 Sat 22:33]
+- [-] https://docs.angularjs.org/tutorial [12/13]
+  - [X] 0 - Bootstrapping
+  - [X] 1 - Static Template
+  - [X] 2 - Angular Templates
+  - [X] 3 - Filtering Repeaters
+  - [X] 4 - Two-way Data Binding
+  - [X] 5 - XHRs & Dependency Injection
+  - [X] 6 - Templating Links & Images
+  - [X] 7 - Routing & Multiple Views
+  - [X] 8 - More Templating
+  - [X] 9 - Filters
+  - [X] 10 - Event Handlers
+  - [X] 11 - REST and Custom Services
+  - [ ] 12 - Applying Animations The End
+
+
+- [X] http://angularjs.org/
+- [ ] https://github.com/angular/angular.js
+- [ ] http://angular.github.io/protractor/#/browser-setup
 * DONE Improve Galaxy S4 [100%]
 CLOSED: [2014-11-29 Sat 20:33]
 - [X] Root - [[android/root-galaxy-s4-9505.org]]
