@@ -1,0 +1,8 @@
+#+title: Samba notes
+#+author: ardumont
+
+Mount point
+
+#+begin_src sh
+sudo mount -t cifs -o username=login,password=pass //host/share /path/to/mount-point
+#+end_src
