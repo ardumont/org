@@ -107,7 +107,7 @@ https://github.com/ndmitchell/shake
 - [X] Start a js-pack
 - [X] Toggle repl for js-pack
 - [X] Update on repl for js-pack - https://github.com/skeeto/skewer-mode
-* IN-PROGRESS org-trello [97%]
+* IN-PROGRESS org-trello [95%]
   Minor mode to sync trello and org-mode
 - [X] Deploy in melpa (automated on their own)
 - [X] Deploy in marmalade
@@ -180,6 +180,7 @@ https://github.com/ndmitchell/shake
 - [X] 0.6.3
 - [X] 0.6.4
 - [X] 0.6.5
+- [ ] 0.6.6
 - [ ] ...
 * PENDING Readings [28%]
 - [X] practical clojure
