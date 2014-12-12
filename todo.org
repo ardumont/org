@@ -181,7 +181,8 @@ https://github.com/ndmitchell/shake
 - [X] 0.6.4
 - [X] 0.6.5
 - [X] 0.6.6
-- [ ] 0.6.7
+- [X] 0.6.7
+- [ ] 0.6.8
 - [ ] ...
 * PENDING Readings [28%]
 - [X] practical clojure
