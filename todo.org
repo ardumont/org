@@ -1671,6 +1671,7 @@ CLOSED: [2013-07-07 dim. 10:00]
 - [X] 0.0.4
 - [X] 0.0.5
 - [X] 0.0.6
+- [X] 0.0.7
 * DONE Find a software to display bindings as you type along - keymon
   CLOSED: [2014-09-06 Sat 18:53]
 * DONE DevOps
