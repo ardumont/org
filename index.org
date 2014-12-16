@@ -7,14 +7,14 @@
 layout: default
 title: tony's blog
 excerpt: Welcome to my blog
+
+categories: about
 ---
 #+END_HTML
 
-I am Antoine R. Dumont, a developer.
+I am Antoine R. Dumont, a developer, @ardumont on [[https://github.com/ardumont][github]] and [[https://twitter.com/ardumont][twitter]].
 
 I develop software and contribute to multiple free ones on my spare time.
-
-I am @ardumont on [[https://github.com/ardumont][github]] and [[https://twitter.com/ardumont][twitter]].
 
 Here you will find my notes on multiple subjects that I came across at some point.
 Sometimes, it's just notes, sometimes it's articles and sometimes, it's to permit myself to reproduce some advanced automation I keep forgetting.

@@ -3,17 +3,27 @@
 #+DATE: [2012-12-22 Sat 14:20]
 #+TITLE: About me
 #+AUTHOR: Antoine R. Dumont
-#+OPTIONS:
+#+OPTIONS: num:nil
 #+TAGS: me
 #+CATEGORY: me
 #+DESCRIPTION: Just me
+#+STARTUP: showall indent
+#+BEGIN_HTML
+---
+layout: default
+title: tony's blog
+excerpt: Just me
+
+categories: about
+---
+#+END_HTML
 
 * Just me
 
-[[./resources/tux-clj.png]]
+[[../img/tux-clj.png]]
 
 * Personally
-I'm just a free software fan boy geek (GNU/Linux, GNU/Emacs, *BSD, Android and Free Software etc...).
+I'm a free software fan boy geek (GNU/Linux, GNU/Emacs, *BSD, Android and Free Software etc...).
 Also, completely development addict (Clojure, Haskell, JVM, C, Nix, *sh, etc...)
 
 I'm /trying/ to share the computer knowledge I have with the rest of the world.
@@ -21,7 +31,7 @@ I'm /trying/ to share the computer knowledge I have with the rest of the world.
 *Why?* Because I have this completely and utterly utopist dream of free knowledge (as in free beer).
 
 /Trying to share/ when i'm not too busy playing with my kids or coding
-to solve some problems ([[http://projecteuler.net][Project Euler]],[[http://4clojure.com][ 4clojure.com]]) or playing some guitar (then again trying)
+to solve some problems ([[http://projecteuler.net][Project Euler]],[[http://4clojure.com][ 4clojure.com]]) or playing some guitar
 or losing my precious time in some bull... means of transportation.
 
 Anyway, here is my rapid resume.
@@ -30,20 +40,17 @@ Anyway, here is my rapid resume.
 Master's degree in Networks and systems at the [[http://www.univ-paris-diderot.fr/][Denis Diderot College Paris VII]].
 ** Then i started working
 Software engineer for 4,5 years at [[http://www.sopragroup.com"][Sopra Group]].
-Now I continue developing software @Sfeir (for 3.5 years now).
+Now I continue developing software [[http://www.sfeir.com/][@Sfeir]] (for 3.5 years now).
 Some legacy technologies I came across : JEE4/5, PHP4/5, Oracle, Hibernate, Spring, etc...
 ** Now
-I'm a developer/devops, and proud of it.
+I'm a developer/devops.
 I have been working with [[http://www.sfeir.com/][Sfeir]] for at least 3.5 years now.
 The technologies are more recent: JVM, Java, Scala, Hadoop, Zookeeper, AngularJS, Puppet, ...
 
 Some more advanced technologies I came across during my spare time: Haskell, *Lisp (Emacs-Lisp, Common-Lisp, Clojure, Scheme, ...), Nixos, Purescript, Android, Angularjs, Nodejs, Chef, Pallet, Docker, Vagrant, etc..
 * Where can you found me if you ever were interested
 ** [[https://github.com/ardumont][github]]
-** [[http://adumont.fr/blog][my current blog (I'm migrating from)]]
 ** [[http://en.gravatar.com/ardumont][gravatar]]
-** [[http://j.mp/ibIAVM][viadeo]]
 ** [[http://j.mp/dWMPPr][linkedin]]
+** [[http://j.mp/ibIAVM][viadeo]]
 ** [[http://adumont.fr/cv/curriculum-app.html][My resume]]
-
-#+./resources/tux-clj.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-tux-clj.png
