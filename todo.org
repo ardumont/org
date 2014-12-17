@@ -187,11 +187,13 @@ https://github.com/ndmitchell/shake
 - [X] 0.6.8
 - [ ] 0.6.9
 - [ ] ...
-* IN-PROGRESS Blog [1/4]
+* IN-PROGRESS Blog [1/6]
 - [X] Migrate comment system to Disqus
 - [ ] Migrate from wordpress to a github solution -> ardumont.github.io
 - [ ] Automate the publication
 - [ ] Update my multiple references to my old blog to the new one
+- [ ] Improve my blog's visual
+- [ ] Ensure the blog is web responsive
 * PENDING Readings [28%]
 - [X] practical clojure
 - [X] joy of clojure
