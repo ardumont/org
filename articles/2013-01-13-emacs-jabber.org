@@ -9,6 +9,20 @@
 #+DESCRIPTION: Installing jabber and using it from emacs + authentication tips and tricks
 #+STARTUP: indent
 #+STARTUP: hidestars
+#+BEGIN_HTML
+---
+layout: post
+title: gtalk in emacs using jabber mode
+excerpt: Installing jabber and using it from emacs + authentication tips and tricks
+
+categories:
+- jabber
+- emacs
+- gtalk
+- tools
+- authentication
+---
+#+END_HTML
 
 [[https://twitter.com/lo_dawid][A friend of mine]] showed me that he was connected to [[http://www.emacswiki.org/emacs/JabberEl][jabber in emacs]] for gtalk.
 So I gave it a try. I read [[http://saheelram.blogspot.fr/2011/05/using-emacs-jabber.html][some blog posts]] and tried it.

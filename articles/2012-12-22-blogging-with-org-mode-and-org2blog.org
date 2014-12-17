@@ -9,12 +9,26 @@
 #+DESCRIPTION: Syncing one's org-mode files with one's blog using org2blog
 #+STARTUP: indent
 #+STARTUP: hidestars odd
+#+BEGIN_HTML
+---
+layout: post
+title: Blogging with org-mode/org2blog/wordpress
+excerpt: Syncing one's org-mode files with one's blog using org2blog
+
+categories:
+- emacs
+- org
+- wordpress
+- org2blog
+- tools
+---
+#+END_HTML
 
 * Statements
 - I'm a feedback addict
 When I execute something, I want it to answer quickly, no lag is acceptable.
 - I found out that there is no faster than the keyboard to input quickly (at least as fast as my fingers go)
-The mouse is slow because you to break the position of your hands...
+The mouse is slow because you need to break the position of your hands...
 - I love emacs and [[http://orgmode.org/][org-mode]]
 - I like [[http://wordpress.org/][wordpress]] (simple and user-friendly).
 But you have too much to do and click to succeed in making one article.
