@@ -416,8 +416,11 @@ CLOSED: [2013-04-15 lun. 21:12]
 ** DONE adding all packs as git submodules to emacs-live-packs
 CLOSED: [2013-04-15 lun. 21:12]
 ** TODO Find out what the completion problem is about (auto-complete mode goes berserk after some working time with it)
-* PENDING Blog [1/1]
+* IN-PROGRESS Blog [1/4]
 - [X] Migrate comment system to Disqus
+- [ ] Migrate from wordpress to a github solution -> ardumont.github.io
+- [ ] Automate the publication
+- [ ] Update my multiple references to my old blog to the new one
 * PENDING guitar [33%]
 ** DONE coursera
 CLOSED: [2014-03-20 Thu 09:35]
@@ -450,7 +453,7 @@ CLOSED: [2013-08-04 dim. 07:06]
 - [X] Migrate to github
 - [X] New evolution to ease collection evaluation input
 - [ ] Update again the collection evaluation input
-n* PENDING crypto [33%]
+* PENDING crypto [33%]
 ** IN-PROGRESS coursera
 ** DONE matasano 1-8 [100%]
 CLOSED: [2013-05-17 ven. 04:59]
