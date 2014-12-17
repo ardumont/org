@@ -187,6 +187,11 @@ https://github.com/ndmitchell/shake
 - [X] 0.6.8
 - [ ] 0.6.9
 - [ ] ...
+* IN-PROGRESS Blog [1/4]
+- [X] Migrate comment system to Disqus
+- [ ] Migrate from wordpress to a github solution -> ardumont.github.io
+- [ ] Automate the publication
+- [ ] Update my multiple references to my old blog to the new one
 * PENDING Readings [28%]
 - [X] practical clojure
 - [X] joy of clojure
@@ -416,11 +421,6 @@ CLOSED: [2013-04-15 lun. 21:12]
 ** DONE adding all packs as git submodules to emacs-live-packs
 CLOSED: [2013-04-15 lun. 21:12]
 ** TODO Find out what the completion problem is about (auto-complete mode goes berserk after some working time with it)
-* IN-PROGRESS Blog [1/4]
-- [X] Migrate comment system to Disqus
-- [ ] Migrate from wordpress to a github solution -> ardumont.github.io
-- [ ] Automate the publication
-- [ ] Update my multiple references to my old blog to the new one
 * PENDING guitar [33%]
 ** DONE coursera
 CLOSED: [2014-03-20 Thu 09:35]
