@@ -5,7 +5,7 @@
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
 #+TAGS: haskell, exercises, functional-programming
-#+CATEGORY: haskell, programming, functional-programming
+#+CATEGORIES: haskell, programming, functional-programming
 #+DESCRIPTION: Functional Approach in Haskell - Ch. 2 - Functional programming in Haskell - exercises
 #+STARTUP: indent
 #+STARTUP: hidestars odd

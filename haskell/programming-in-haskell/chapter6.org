@@ -5,7 +5,7 @@
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS: toc:2
 #+TAGS: haskell, exercises, functional-programming, recursion
-#+CATEGORY: haskell, exercises, functional-programming
+#+CATEGORIES: haskell, exercises, functional-programming
 #+DESCRIPTION: recursion exercises in Haskell
 #+STARTUP: indent
 #+STARTUP: hidestars

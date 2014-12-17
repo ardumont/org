@@ -5,7 +5,7 @@
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
 #+TAGS: haskell, exercises, functional-programming, types, classes, tautology, parser
-#+CATEGORY: haskell, exercises, functional-programming, types, classes, tautology, parser
+#+CATEGORIES: haskell, exercises, functional-programming, types, classes, tautology, parser
 #+DESCRIPTION: Tautology extension and interactive tautology checkers
 #+STARTUP: indent
 #+STARTUP: hidestars odd

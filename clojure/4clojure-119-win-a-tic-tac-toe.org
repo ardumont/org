@@ -2,7 +2,7 @@
 #+BLOG: tony-blog
 #+POSTID: 983
 #+OPTIONS:
-#+CATEGORY: clojure, exercises, 4clojure, functional-programming, tic-tac-toe
+#+CATEGORIES: clojure, exercises, 4clojure, functional-programming, tic-tac-toe
 #+TAGS: clojure, exercises, 4clojure, functional-programming, tic-tac-toe
 #+TITLE: 4clojure - win a tic tac toe problem
 #+DESCRIPTION: One possible solution about the 'win a tic-tac-toe problem' (119) on 4clojure.com

@@ -5,7 +5,7 @@
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
 #+TAGS: clojure, game-of-life, functional-programming
-#+CATEGORY: clojure, game-of-life, functional-programming
+#+CATEGORIES: clojure, game-of-life, functional-programming
 #+DESCRIPTION: Implementing the game of life in clojure
 #+STARTUP: indent
 #+STARTUP: hidestars odd

@@ -5,7 +5,7 @@
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
 #+TAGS: haskell, exercises, functional-programming, types, classes, binary-tree
-#+CATEGORY: haskell, exercises, functional-programming, types, classes, binary-tree
+#+CATEGORIES: haskell, exercises, functional-programming, types, classes, binary-tree
 #+DESCRIPTION: Exercises about binary trees
 #+STARTUP: indent
 #+STARTUP: hidestars odd

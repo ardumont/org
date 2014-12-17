@@ -6,7 +6,7 @@
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
 #+TAGS: dummy
-#+CATEGORY: dummy
+#+CATEGORIES: dummy
 #+DESCRIPTION: a dummy file
 #+STARTUP: indent
 #+STARTUP: hidestars odd

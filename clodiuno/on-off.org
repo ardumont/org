@@ -5,7 +5,7 @@
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
 #+TAGS: clodiuno, clojure, arduino, emacs, geek
-#+CATEGORY: arduino, clojure, geek
+#+CATEGORIES: arduino, clojure, geek
 #+DESCRIPTION: What was my difficulties bootstraping arduino/clodiuno.
 
 Now that the setup hell is gone, here i will describe "my first interaction" to make my arduino uno talk with a simple led.

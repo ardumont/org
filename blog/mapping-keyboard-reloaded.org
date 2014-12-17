@@ -3,7 +3,7 @@
 #+DATE: [2014-02-25 mar. 20:38]
 #+TITLE: A story of keyboard mapping 2/2
 #+AUTHOR: ardumont
-#+CATEGORY: keyboard, feedback, xmodmap, pm-utils, hooks, resume, revert, help, GNU/Linux
+#+CATEGORIES: keyboard, feedback, xmodmap, pm-utils, hooks, resume, revert, help, GNU/Linux
 #+TAGS: keyboard, feedback, xmodmap, pm-utils, hooks, resume, revert, help, GNU/Linux
 #+DESCRIPTION: Help, my keyboard mapping is reverted back at resume time...
 

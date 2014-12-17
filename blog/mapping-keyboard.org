@@ -3,7 +3,7 @@
 #+DATE: [2014-02-25 mar. 20:03]
 #+TITLE: A story of keyboard mapping 1/2
 #+AUTHOR: ardumont
-#+CATEGORY: keyboard, feedback, xmodmap, GNU/Linux
+#+CATEGORIES: keyboard, feedback, xmodmap, GNU/Linux
 #+TAGS: keyboard, feedback, xmodmap, GNU/Linux
 #+DESCRIPTION: My customised keyboard mapping (based on QWERTY)
 

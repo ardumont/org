@@ -5,7 +5,7 @@
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
 #+TAGS: clojure, emacs, leiningen, midje, tdd, tools
-#+CATEGORY: clojure
+#+CATEGORIES: clojure
 #+DESCRIPTION: howto install the clojure development environment on debian based system
 
 In this article, we will see how to rapidly install the clojure tools in a debian-like distribution (ubuntu 11.10 for example).

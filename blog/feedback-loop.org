@@ -4,7 +4,7 @@
 #+TITLE: Feedback loop
 #+AUTHOR: ardumont
 #+DESCRIPTION: Later is too late!
-#+CATEGORY: feedback, tools, stumpwm, emacs, org-mode, tmux, firefox, keysnail, git, vagrant, make, script
+#+CATEGORIES: feedback, tools, stumpwm, emacs, org-mode, tmux, firefox, keysnail, git, vagrant, make, script
 #+TAGS: feedback, tools, stumpwm, emacs, org-mode, tmux, firefox, keysnail, git, vagrant, make, script
 
 * TL;DR

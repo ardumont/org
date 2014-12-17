@@ -5,7 +5,7 @@
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
 #+TAGS: clodiuno, clojure, arduino, emacs, geek
-#+CATEGORY: arduino, clojure, geek
+#+CATEGORIES: arduino, clojure, geek
 #+DESCRIPTION: A small program to make a LED speaks in morse
 
 We will now still use the same circuit but this time, we will add a little more fun.

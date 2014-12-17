@@ -5,7 +5,7 @@
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS: num:nil
 #+TAGS: me
-#+CATEGORY: me
+#+CATEGORIES: me
 #+DESCRIPTION: Just me
 #+STARTUP: showall indent
 #+BEGIN_HTML

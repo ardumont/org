@@ -2,7 +2,7 @@
 #+POSTID: 938
 #+DATE: [2013-01-27 dim. 01:02]
 #+OPTIONS:
-#+CATEGORY: clojure, exercises, 4clojure, functional-programming
+#+CATEGORIES: clojure, exercises, 4clojure, functional-programming
 #+TAGS: clojure, exercises, 4clojure, functional-programming
 #+TITLE: 4clojure - Intervals problem
 #+DESCRIPTION: One possible solution about the intervals problem (171) on 4clojure.com

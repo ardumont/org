@@ -1,6 +1,6 @@
 #+DATE: [2013-04-29 lun. 20:09]
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil TeX:nil
-#+CATEGORY: Uncategorized, Hello
+#+CATEGORIES: Uncategorized, Hello
 #+TAGS:
 #+DESCRIPTION:
 #+TITLE: Hello, World

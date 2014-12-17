@@ -5,7 +5,7 @@
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
 #+TAGS: polipo, proxy, setup, tools
-#+CATEGORY: proxy, tools
+#+CATEGORIES: proxy, tools
 #+DESCRIPTION: Possible setup for polipo proxy
 #+STARTUP: indent
 #+STARTUP: hidestars

@@ -148,7 +148,7 @@ Here is my way, you can go from this at first and then improve :D
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
 #+TAGS: org-mode, emacs, wordpress, blog
-#+CATEGORY: org-mode, blog, wordpress
+#+CATEGORIES: org-mode, blog, wordpress
 #+DESCRIPTION: Syncing one's org-mode files with one's blog
 #+END_SRC
 

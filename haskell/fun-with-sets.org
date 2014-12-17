@@ -2,7 +2,7 @@
 #+BLOG: tony-blog
 #+POSTID: 1110
 #+OPTIONS:
-#+CATEGORY: haskell, sets, functional-programming
+#+CATEGORIES: haskell, sets, functional-programming
 #+TAGS: haskell, sets, functional-programming
 #+TITLE: Fun with sets in Haskell
 #+DESCRIPTION: Having fun implementing some sets functions in Haskell

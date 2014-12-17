@@ -5,7 +5,7 @@
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
 #+TAGS: emacs, git, aliases, tools
-#+CATEGORY: emacs, git, tools
+#+CATEGORIES: emacs, git, tools
 #+DESCRIPTION: How do i use git every day 2/2
 #+STARTUP: indent
 #+STARTUP: hidestars

@@ -4,7 +4,7 @@
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
 #+TAGS: haskell, exercises, functional-programming, IO, Interactive programs
-#+CATEGORY: haskell, exercises, functional-programming, IO, Integractive programs
+#+CATEGORIES: haskell, exercises, functional-programming, IO, Integractive programs
 #+DESCRIPTION: Learning haskell and solving problems using reasoning and 'repl'ing
 #+STARTUP: indent
 #+STARTUP: hidestars odd

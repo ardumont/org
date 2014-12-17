@@ -5,7 +5,7 @@
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
 #+TAGS: haskell, QuickCheck, fun, prime, functional-programming
-#+CATEGORY: haskell, QuickCheck, fun, prime, functional-programming
+#+CATEGORIES: haskell, QuickCheck, fun, prime, functional-programming
 #+DESCRIPTION: Playing with primes using Haskell and QuickCheck
 #+STARTUP: indent
 #+STARTUP: hidestars odd

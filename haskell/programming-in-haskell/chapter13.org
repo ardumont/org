@@ -5,7 +5,7 @@
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
 #+TAGS: haskell, exercises, functional-programming, induction, proof
-#+CATEGORY: haskell, exercises, functional-programming, induction, proof
+#+CATEGORIES: haskell, exercises, functional-programming, induction, proof
 #+DESCRIPTION: The last chapter of programming in haskell - exercises.
 #+STARTUP: indent
 #+STARTUP: hidestars odd

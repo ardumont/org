@@ -3,7 +3,7 @@
 #+DATE: [2013-08-11 dim. 14:28]
 #+title: Literate org-trello
 #+author: Antoine R. Dumont
-#+CATEGORY: literate-programming, org-mode, org-trello, emacs, emacs-lisp
+#+CATEGORIES: literate-programming, org-mode, org-trello, emacs, emacs-lisp
 #+TAGS: literate-programming, org-mode, org-trello, emacs, emacs-lisp
 #+DESCRIPTION: literate org-trello tryout
 

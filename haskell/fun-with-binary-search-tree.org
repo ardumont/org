@@ -2,7 +2,7 @@
 #+POSTID: 1156
 #+BLOG: tony-blog
 #+OPTIONS:
-#+CATEGORY: haskell, binary-search-tree, functional-programming
+#+CATEGORIES: haskell, binary-search-tree, functional-programming
 #+TAGS: haskell, binary-search-tree, functional-programming
 #+TITLE: Binary Search Tree in Haskell
 #+DESCRIPTION: Having fun implementing some binary search tree functions

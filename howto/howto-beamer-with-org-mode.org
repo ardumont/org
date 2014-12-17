@@ -5,7 +5,7 @@
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
 #+TAGS: emacs, beamer, org-mode, tools
-#+CATEGORY: emacs, beamer, org-mode, tools
+#+CATEGORIES: emacs, beamer, org-mode, tools
 #+DESCRIPTION: howto make presentation using org-mode and beamer
 #+STARTUP: indent
 #+STARTUP: hidestars odd

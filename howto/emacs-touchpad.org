@@ -5,7 +5,7 @@
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
 #+TAGS: emacs, org-mode, tools, touchpad, hook
-#+CATEGORY: emacs, org-mode, howto, tools
+#+CATEGORIES: emacs, org-mode, howto, tools
 #+DESCRIPTION: Show how to reactivate the touchpad when exporting the html and opening the browser from emacs's org-mode
 #+STARTUP: indent
 #+STARTUP: hidestars

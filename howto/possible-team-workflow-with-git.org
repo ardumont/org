@@ -5,7 +5,7 @@
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
 #+TAGS: git, workflow, team
-#+CATEGORY: git
+#+CATEGORIES: git
 #+DESCRIPTION: Possible team workflow with git
 #+STARTUP: indent
 #+STARTUP: hidestars odd

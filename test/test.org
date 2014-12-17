@@ -2,7 +2,7 @@
 #+POSTID: 1082
 #+DATE: [2013-05-01 mer. 14:44]
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil TeX:nil
-#+CATEGORY:
+#+CATEGORIES:
 #+TAGS:
 #+DESCRIPTION: this is a test
 #+TITLE: Hello, World!

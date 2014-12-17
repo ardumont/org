@@ -5,7 +5,7 @@
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
 #+TAGS: stumpwm, tools, touchpad
-#+CATEGORY: stumpwm, howto, tools
+#+CATEGORIES: stumpwm, howto, tools
 #+DESCRIPTION: Show how to activate/deactivate touchpad depending on the soft you use
 #+STARTUP: indent
 #+STARTUP: hidestars

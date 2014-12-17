@@ -5,7 +5,7 @@
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
 #+TAGS: stumpwm, tools
-#+CATEGORY: stumpwm, howto, tools
+#+CATEGORIES: stumpwm, howto, tools
 #+DESCRIPTION: howto install/setup/use stumpwm + my stumpwm configuration
 #+STARTUP: indent
 #+STARTUP: hidestars odd

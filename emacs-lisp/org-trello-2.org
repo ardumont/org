@@ -2,7 +2,7 @@
 #+POSTID: 1275
 #+DATE: [2013-08-05 lun. 20:59]
 #+OPTIONS: toc:t
-#+CATEGORY: org-trello, org-mode, emacs, trello, tools
+#+CATEGORIES: org-trello, org-mode, emacs, trello, tools
 #+TAGS: org-trello, org-mode, emacs, trello, tools
 #+DESCRIPTION: Synchronize your trello board from emacs - new features
 #+TITLE: org-trello - New features

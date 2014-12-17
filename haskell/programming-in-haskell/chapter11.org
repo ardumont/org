@@ -6,7 +6,7 @@
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
 #+TAGS: haskell, exercises, functional-programming, countdown-problem
-#+CATEGORY: haskell, exercises, functional-programming, countdown-problem
+#+CATEGORIES: haskell, exercises, functional-programming, countdown-problem
 #+DESCRIPTION: The countdown problem (from 'Des chiffres et des Lettres')
 #+STARTUP: indent
 #+STARTUP: hidestars odd

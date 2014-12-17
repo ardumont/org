@@ -5,7 +5,7 @@
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
 #+TAGS: clojure, emacs, leiningen, midje, tdd, problem
-#+CATEGORY: clojure
+#+CATEGORIES: clojure
 #+DESCRIPTION: A simple problem to solve in clojure
 
 In this article, we will see how to use the different tools at our disposal to solve a problem.

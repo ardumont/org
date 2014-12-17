@@ -2,7 +2,7 @@
 #+POSTID: 1114
 #+DATE: [2013-05-02 jeu. 20:43]
 #+OPTIONS:
-#+CATEGORY: haskell, sets, functional-programming
+#+CATEGORIES: haskell, sets, functional-programming
 #+TAGS: haskell, sets, functional-programming
 #+TITLE: Binary Search Trees
 #+DESCRIPTION: Having fun implementing some binary search trees functions

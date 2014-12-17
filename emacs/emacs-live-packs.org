@@ -1,6 +1,6 @@
 #+DATE: [2013-04-28 dim. 20:41]
 #+OPTIONS: toc:t num:nil todo:nil pri:nil tags:nil ^:nil TeX:nil
-#+CATEGORY: Uncategorized, Hello
+#+CATEGORIES: Uncategorized, Hello
 #+TAGS:
 #+DESCRIPTION:
 #+TITLE: emacs-live

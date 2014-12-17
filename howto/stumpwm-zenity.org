@@ -5,7 +5,7 @@
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
 #+TAGS: stumpwm, tools, zenity
-#+CATEGORY: stumpwm, howto, tools
+#+CATEGORIES: stumpwm, howto, tools
 #+DESCRIPTION: Display results of bash commands in stumpwm using zenity
 #+STARTUP: indent
 #+STARTUP: hidestars

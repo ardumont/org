@@ -3,7 +3,7 @@
 #+DATE: [2013-01-30 mer. 00:32]
 #+BLOG: tony-blog
 #+OPTIONS:
-#+CATEGORY: clojure, exercises, 4clojure, functional-programming, tic-tac-toe
+#+CATEGORIES: clojure, exercises, 4clojure, functional-programming, tic-tac-toe
 #+TAGS: clojure, exercises, 4clojure, functional-programming, tic-tac-toe
 #+TITLE: 4clojure - analyze a tic tac toe problem
 #+DESCRIPTION: One possible solution about the 'analyze a tic-tac-toe problem' (73) on 4clojure.com

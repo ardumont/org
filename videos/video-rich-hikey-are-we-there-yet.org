@@ -5,7 +5,7 @@
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
 #+TAGS: Rich Hickey, mind-blowing questions, philosophy
-#+CATEGORY: rich-hickey
+#+CATEGORIES: rich-hickey
 #+DESCRIPTION: "Are we there yet?" fanboy
 
 Completely mind blowing video from Rich Hickey ([[http://clojure.org/][Clojure]]'s creator) where he exposes the limitations of the overall most popular actual languages.

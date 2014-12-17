@@ -5,7 +5,7 @@
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
 #+TAGS: haskell, exercises, functional-programming, parsers
-#+CATEGORY: haskell, exercises, functional-programming, parsers
+#+CATEGORIES: haskell, exercises, functional-programming, parsers
 #+DESCRIPTION: Learning haskell and solving problems using reasoning and 'repl'ing
 #+STARTUP: indent
 #+STARTUP: hidestars odd

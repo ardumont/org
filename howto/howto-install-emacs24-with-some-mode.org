@@ -5,7 +5,7 @@
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
 #+TAGS: emacs, ubuntu-11.10, ubuntu-12.04, ubuntu-12.10
-#+CATEGORY: emacs, howto
+#+CATEGORIES: emacs, howto
 #+DESCRIPTION: how to install emacs 24 in ubuntu based box
 #+STARTUP: indent
 #+STARTUP: hidestars odd

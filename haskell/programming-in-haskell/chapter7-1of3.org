@@ -5,7 +5,7 @@
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
 #+TAGS: haskell, exercises, functional-programming, hof, functions-composition, foldr, foldl
-#+CATEGORY: haskell, exercises, functional-programming
+#+CATEGORIES: haskell, exercises, functional-programming
 #+DESCRIPTION: Higher order functions, function composition, foldr, foldl exercises.
 #+STARTUP: indent
 #+STARTUP: hidestars

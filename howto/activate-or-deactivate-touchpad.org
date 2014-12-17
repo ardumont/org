@@ -5,7 +5,7 @@
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
 #+TAGS: tools, touchpad, shell
-#+CATEGORY: howto, tools, shell
+#+CATEGORIES: howto, tools, shell
 #+DESCRIPTION: Show how to activate/deactivate touchpad depending on the soft you use
 #+STARTUP: indent
 #+STARTUP: hidestars

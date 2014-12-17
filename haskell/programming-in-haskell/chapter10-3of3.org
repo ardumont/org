@@ -4,7 +4,7 @@
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
 #+TAGS: haskell, exercises, functional-programming, types, classes, abstract-machine
-#+CATEGORY: haskell, exercises, functional-programming, types, classes, abstract-machine
+#+CATEGORIES: haskell, exercises, functional-programming, types, classes, abstract-machine
 #+DESCRIPTION: Tautology extension and interactive tautology checkers
 #+STARTUP: indent
 
