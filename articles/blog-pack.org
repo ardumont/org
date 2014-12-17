@@ -4,25 +4,10 @@
 #+TITLE: emacs-live pack - blog-pack
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
-#+TAGS: org-mode, emacs, wordpress, blog, org2blog, tools, blog-pack, emacs-live
-#+CATEGORY: org-mode, emacs, wordpress, blog, org2blog, tools, blog-pack, emacs-live
+#+CATEGORIES: org-mode, emacs, wordpress, blog, org2blog, tools, blog-pack, emacs-live
 #+DESCRIPTION: emacs-live pack about org2blog - blog-pack
 #+STARTUP: indent
 #+BEGIN_HTML
----
-layout: post
-title: emacs-live pack - blog-pack
-excerpt: emacs-live pack about org2blog - blog-pack
-
-categories:
-- org-mode
-- emacs
-- wordpress
-- blog
-- org2blog
-- tools
-- blog-pack
----
 #+END_HTML
 
 [[http://adumont.fr/blog/blogging-with-org-mode-and-org2blog-to-publish-on-wordpress/][I already published an article about org2blog]].

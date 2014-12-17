@@ -5,22 +5,8 @@
 #+TITLE: My emacs tools
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
-#+TAGS: emacs, emacs-live, emacs-starter-kit, tools
-#+CATEGORY: emacs, tools
+#+CATEGORIES: emacs, emacs-live, emacs-starter-kit, tools
 #+DESCRIPTION: Just explaining my progression using emacs, first emacs-starter-kit, then emacs-live.
-#+BEGIN_HTML
----
-layout: default
-title: My emacs tools
-excerpt: Just explaining my progression using emacs, first emacs-starter-kit, then emacs-live.
-
-categories:
-- emacs
-- emacs-live
-- emacs-starter-kit
-- tools
----
-#+END_HTML
 
 [[http://www.gnu.org/software/emacs/][Emacs]] is powerful and can be daunting at first.
 

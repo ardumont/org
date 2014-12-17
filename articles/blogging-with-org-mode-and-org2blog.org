@@ -4,25 +4,10 @@
 #+TITLE: Blogging with org-mode/org2blog/wordpress
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
-#+TAGS: org-mode, emacs, wordpress, blog, org2blog, tools
-#+CATEGORY: org-mode, blog, wordpress, tools
+#+CATEGORIES: org-mode, emacs, wordpress, blog, org2blog, tools
 #+DESCRIPTION: Syncing one's org-mode files with one's blog using org2blog
 #+STARTUP: indent
 #+STARTUP: hidestars odd
-#+BEGIN_HTML
----
-layout: post
-title: Blogging with org-mode/org2blog/wordpress
-excerpt: Syncing one's org-mode files with one's blog using org2blog
-
-categories:
-- emacs
-- org
-- wordpress
-- org2blog
-- tools
----
-#+END_HTML
 
 * Statements
 - I'm a feedback addict
