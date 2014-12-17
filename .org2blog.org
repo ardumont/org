@@ -35,7 +35,7 @@
 :POST_DATE: 20130601T15:11:00+0000
 :Published: Yes
 :END:
-** [[file:/home/tony/repo/perso/my-org-files/haskell/programming-in-haskell/chapter13.org][PIH - ch13 - Reasoning about programs - exercises]]
+** [[file:/home/tony/org/haskell/programming-in-haskell/chapter13.org][PIH - ch13 - Reasoning about programs - exercises]]
 :PROPERTIES:
 :POSTID: 1218
 :POST_DATE: 20130529T17:25:00+0000
@@ -173,7 +173,7 @@
 :POST_DATE: 20130201T07:31:49+0000
 :Published: Yes
 :END:
-** [[file:/home/tony/repo/perso/my-org-files/articles/blogging-with-org-mode-and-org2blog.org][Blogging with org-mode and org2blog to publish on wordpress]]
+** [[file:/home/tony/org/articles/blogging-with-org-mode-and-org2blog.org][Blogging with org-mode and org2blog to publish on wordpress]]
 :PROPERTIES:
 :POSTID: 586
 :POST_DATE: 20121222T18:53:00+0000
@@ -185,61 +185,61 @@
 :POST_DATE: 20130128T18:29:00+0000
 :Published: Yes
 :END:
-** [[file:/home/tony/repo/perso/my-org-files/about-me.org][About me]]
+** [[file:/home/tony/org/about-me.org][About me]]
 :PROPERTIES:
 :POSTID: 3
 :POST_DATE: 20121222T13:20:00+0000
 :Published: Yes
 :END:
-** [[file:/home/tony/repo/perso/my-org-files/howto/stumpwm-zenity.org][Stumpwm - Display result of bash commands using zenity]]
+** [[file:/home/tony/org/howto/stumpwm-zenity.org][Stumpwm - Display result of bash commands using zenity]]
 :PROPERTIES:
 :POSTID: 746
 :POST_DATE: 20121231T18:50:00+0000
 :Published: Yes
 :END:
-** [[file:/home/tony/repo/perso/my-org-files/howto/stumpwm-touchpad.org][Stumpwm - Activate/Deactivate touchpad]]
+** [[file:/home/tony/org/howto/stumpwm-touchpad.org][Stumpwm - Activate/Deactivate touchpad]]
 :PROPERTIES:
 :POSTID: 763
 :POST_DATE: 20121229T14:43:00+0000
 :Published: Yes
 :END:
-** [[file:/home/tony/repo/perso/my-org-files/howto/howto-install-clojure.org][How to install the clojure development environment]]
+** [[file:/home/tony/org/howto/howto-install-clojure.org][How to install the clojure development environment]]
 :PROPERTIES:
 :POSTID: 449
 :POST_DATE: 20121222T13:20:00+0000
 :Published: Yes
 :END:
-** [[file:/home/tony/repo/perso/my-org-files/howto/howto-beamer-with-org-mode.org][Howto beamer with org-mode]]
+** [[file:/home/tony/org/howto/howto-beamer-with-org-mode.org][Howto beamer with org-mode]]
 :PROPERTIES:
 :POSTID: 412
 :POST_DATE: 20121222T13:20:00+0000
 :Published: Yes
 :END:
-** [[file:/home/tony/repo/perso/my-org-files/howto/git-aliases.org][Git aliases/System git aliases]]
+** [[file:/home/tony/org/howto/git-aliases.org][Git aliases/System git aliases]]
 :PROPERTIES:
 :POSTID: 686
 :POST_DATE: 20121225T16:31:00+0000
 :Published: Yes
 :END:
-** [[file:/home/tony/repo/perso/my-org-files/howto/emacs-touchpad.org][Emacs - Activate touchpad when org-mode exports html]]
+** [[file:/home/tony/org/howto/emacs-touchpad.org][Emacs - Activate touchpad when org-mode exports html]]
 :PROPERTIES:
 :POSTID: 774
 :POST_DATE: 20130101T11:40:00+0000
 :Published: Yes
 :END:
-** [[file:/home/tony/repo/perso/my-org-files/howto/daily-git-2-of-2.org][Daily git 2/2]]
+** [[file:/home/tony/org/howto/daily-git-2-of-2.org][Daily git 2/2]]
 :PROPERTIES:
 :POSTID: 717
 :POST_DATE: 20121230T11:21:00+0000
 :Published: Yes
 :END:
-** [[file:/home/tony/repo/perso/my-org-files/howto/daily-git-1-of-2.org][Daily git 1/2]]
+** [[file:/home/tony/org/howto/daily-git-1-of-2.org][Daily git 1/2]]
 :PROPERTIES:
 :POSTID: 675
 :POST_DATE: 20121228T12:18:00+0000
 :Published: Yes
 :END:
-** [[file:/home/tony/repo/perso/my-org-files/howto/activate-or-deactivate-touchpad.org][Activate/Deactivate touchpad from the shell]]
+** [[file:/home/tony/org/howto/activate-or-deactivate-touchpad.org][Activate/Deactivate touchpad from the shell]]
 :PROPERTIES:
 :POSTID: 755
 :POST_DATE: 20121229T12:49:00+0000
@@ -251,7 +251,7 @@
 :POST_DATE: 20130105T14:53:00+0000
 :Published: Yes
 :END:
-** [[file:/home/tony/repo/perso/my-org-files/howto/possible-team-workflow-with-git.org][Possible team workflow with git]]
+** [[file:/home/tony/org/howto/possible-team-workflow-with-git.org][Possible team workflow with git]]
 :PROPERTIES:
 :POSTID: 353
 :POST_DATE: 20121222T13:20:00+0000
@@ -287,25 +287,25 @@
 :POST_DATE: 20130108T18:56:00+0000
 :Published: Yes
 :END:
-** [[file:/home/tony/repo/perso/my-org-files/haskell/programming-in-haskell/chapter7-1of3.org][PIH - ch7 - Higher-order Functions 1/3]]
+** [[file:/home/tony/org/haskell/programming-in-haskell/chapter7-1of3.org][PIH - ch7 - Higher-order Functions 1/3]]
 :PROPERTIES:
 :POSTID: 886
 :POST_DATE: 20130105T13:07:00+0000
 :Published: Yes
 :END
-** [[file:/home/tony/repo/perso/my-org-files/haskell/programming-in-haskell/chapter7-2of3.org][PIH - ch7 - Higher-order functions 2/3]]
+** [[file:/home/tony/org/haskell/programming-in-haskell/chapter7-2of3.org][PIH - ch7 - Higher-order functions 2/3]]
 :PROPERTIES:
 :POSTID: 903
 :POST_DATE: 20130105T14:53:00+0000
 :Published: Yes
 :END:
-** [[file:/home/tony/repo/perso/my-org-files/haskell/programming-in-haskell/chapter7-3of3.org][PIH - ch7 - Higher-order functions 3/3]]
+** [[file:/home/tony/org/haskell/programming-in-haskell/chapter7-3of3.org][PIH - ch7 - Higher-order functions 3/3]]
 :PROPERTIES:
 :POSTID: 914
 :POST_DATE: 20130107T20:47:00+0000
 :Published: No
 :END:
-** [[file:/home/tony/repo/perso/my-org-files/haskell/programming-in-haskell/chapter7-2of2.org][Programming in haskell - ch7 - Higher-order functions 2/2]]
+** [[file:/home/tony/org/haskell/programming-in-haskell/chapter7-2of2.org][Programming in haskell - ch7 - Higher-order functions 2/2]]
 :PROPERTIES:
 :POSTID: 903
 :POST_DATE: 20130105T14:53:00+0000
@@ -515,7 +515,7 @@
 :POST_DATE: 20121222T13:20:00+0000
 :Published: Yes
 :END:
-** [[file:/home/tony/org/setup-asus-zenbook.org][Setup the asus zenbook]]
+** [[file:/home/tony/org/setup/asus/setup-asus-zenbook.org][Setup the asus zenbook]]
 :PROPERTIES:
 :POSTID:   517
 :POST_DATE: 20121222T13:20:00+0000
@@ -533,7 +533,7 @@
 :POST_DATE: 20130805T18:59:00+0000
 :Published: Yes
 :END:
-** [[file:/home/tony/repositories/perso/my-org-files/literate-programming/org-trello.org][Literate org-trello]]
+** [[file:/home/tony/org/literate-programming/org-trello.org][Literate org-trello]]
 :PROPERTIES:
 :POSTID:   1289
 :POST_DATE: 20130811T12:28:00+0000
