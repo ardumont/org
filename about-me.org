@@ -8,15 +8,6 @@
 #+CATEGORIES: me
 #+DESCRIPTION: Just me
 #+STARTUP: showall indent
-#+BEGIN_HTML
----
-layout: default
-title: tony's blog
-excerpt: Just me
-
-categories: about
----
-#+END_HTML
 
 * Just me
 
