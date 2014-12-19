@@ -1,16 +1,15 @@
 #+BLOG: tony-blog
 #+POSTID: 378
-#+DATE: [2012-12-22 Sat 14:20]
+#+DATE: [2014-12-22 Sat 14:20]
 #+TITLE: Video - Rich Hickey - Are we there yet?
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
-#+TAGS: Rich Hickey, mind-blowing questions, philosophy
-#+CATEGORIES: rich-hickey
-#+DESCRIPTION: "Are we there yet?" fanboy
+#+CATEGORIES: rich-hickey, philosophy, way-of-life
+#+DESCRIPTION: Understanding Rich Hickey's vision about existing languages
 
-Completely mind blowing video from Rich Hickey ([[http://clojure.org/][Clojure]]'s creator) where he exposes the limitations of the overall most popular actual languages.
+Completely mind blowing video from Rich Hickey ([[http://clojure.org/][Clojure]]'s creator) where he exposes the limitations of the overall mainstream languages.
 
-Here's the link. I do not enter much in the details here as Rich Hikey himself is so good at explaining.
+I do not enter much into the details here as Rich Hikey himself is so good at explaining it.
 
 It's not about [[http://clojure.org/][Clojure]], which is the mere implementation of what this video is all about.
 
