@@ -1,0 +1,93 @@
+#+LAYOUT: post
+#+DATE: [2014-12-20 Sat. 23:00]
+#+TITLE: Blogging with org and jekyll with org2jekyll
+#+AUTHOR: Antoine R. Dumont
+#+OPTIONS: H:2 num:nil tags:nil toc:nil timestamps:t
+#+CATEGORIES: org-mode, jekyll, org2jekyll, emacs, blog, tools
+#+DESCRIPTION: org2jekyll, the new kid in town
+#+STARTUP: indent
+
+* Rationale
+
+After reading existing tutorials about org-mode and jekyll:
+- http://orgmode.org/worg/org-tutorials/org-jekyll.html
+- http://www.gorgnegre.com/linux/using-emacs-orgmode-to-blog-with-jekyll.html
+- https://pavpanchekha.com/blog/org-mode-publish.html
+
+And making them work...
+
+I was not satisfied with the existing solution.
+
+Why? Because we need to adapt the org-mode file with specific jekyll yaml settings inside an org-mode html block code.
+
+But here is my thing, I don't want to adapt org with alien yaml or any other strange metadata.
+I'd like to have some standard org metadata, for example:
+
+#+begin_src org
+#+LAYOUT: post
+#+AUTHOR: ardumont
+#+DATE: 2014-12-19 Fri 23:49
+#+STARTUP: showall
+#+STARTUP: hidestars
+#+OPTIONS: H:2 num:nil tags:nil toc:1 timestamps:t
+#+TITLE: hello
+#+DESCRIPTION: some description
+#+CATEGORIES: some-category
+#+end_src
+
+Then publish the blog post (/M-x org2jekyll/publish!/).
+
+Using some emacs-lisp incantation, we can make /org-publish/ and /jekyll/ work together.
+
+So, here comes https://github.com/ardumont/org2jekyll...
+
+* Setup
+
+For this to work, you need to have this ready:
+- jekyll
+- org-publish (/ox-publish/ since 24.4)
+- org2jekyll
+
+* Example
+
+Here is my working setup:
+- blog: http://ardumont.github.io/blog/
+- source: https://github.com/ardumont/org2jekyll
+- setup: https://github.com/ardumont/blog-pack/blob/master/blog-pack.el
+
+* Install
+
+Ok, I'm sold!
+How do I install org2jekyll?
+
+Install from [[https://marmalade-repo.org/packages/org2jekyll][marmalade]] available or from [[https://github.com/ardumont/org2jekyll/releases][github releases]].
+
+** Marmalade
+
+#+begin_src emacs-lisp
+(require 'package)
+(add-to-list 'package-archives '("marmalade" . "https://marmalade-repo.org/packages/") t)
+(package-initialize)
+#+end_src
+
+/M-x package-install RET org2jekyll RET/
+
+** github
+
+#+begin_src sh
+wget https://github.com/ardumont/org2jekyll/releases/download/0.0.7/org2jekyll-0.0.7.tar
+#+end_src
+
+/M-x package-install-file RET org2jekyll.tar/
+
+* Contribution/Issues
+
+I intend to maintain this as the other solution referenced are no longer.
+
+As usual, feel free to [[https://github.com/ardumont/org2jekyll/issues][open issues on the tracker]] or [[https://github.com/ardumont/org2jekyll/pulls][pull requests]].
+
+As all of you, I have other things to attend to but I'll do my best to answer.
+
+* Inspiration
+
+I used a lot [[https://github.com/punchagan/org2blog.git][the great org2blog (org -> wordpress bridge)]] and was inspired by the name and the org headers approach.
