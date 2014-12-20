@@ -1,20 +1,15 @@
 #+STARTUP: showall indent
 #+STARTUP: hidestars
 #+OPTIONS: H:2 num:nil tags:nil toc:nil timestamps:t
-#+BLOG: tony-blog
+#+BLOG: org
 #+LAYOUT: default
 #+AUTHOR: ardumont
 #+DATE: 2014-12-20 Sat 09:58
 #+TITLE: Archives
+#+DESCRIPTION: Archives
+#+CATEGORIES: archives
 
 #+BEGIN_HTML
----
-layout: default
-title: Archives
-excerpt: Archives
-
-categories: archives
----
     <div id="container" class="archives">
       <div class="index">
         <h2><em>Post Archives</em>&hellip;</h2>
