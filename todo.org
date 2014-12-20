@@ -207,6 +207,234 @@ https://github.com/ndmitchell/shake
 - [X] 0.0.5
 - [X] 0.0.6
 
+* IN-PROGRESS Articles [87%]
+** DONE Chroot to save one's GNU/Linux
+CLOSED: [2012-04-21 Sat 18:07]
+http://adumont.fr/blog/chroot-pour-sauver-son-gnulinux/
+** DONE public/private key generation
+CLOSED: [2012-04-21 Sat 18:06]
+http://adumont.fr/blog/generation-cle-priveepublique/
+** DONE Possible team workflow with git
+CLOSED: [2012-04-21 Sat 12:45]
+http://adumont.fr/blog/possible-team-workflow-with-git/
+** DONE How to install stumpwm
+CLOSED: [2012-04-21 Sat 12:43]
+http://adumont.fr/blog/howto-install-stumpwm-and-little-more/
+** DONE How to beamer with org-mode
+CLOSED: [2012-04-21 Sat 12:44]
+http://adumont.fr/blog/howto-beamer-with-org-mode/
+** DONE How to install emacs 24
+CLOSED: [2012-04-21 Sat 12:44]
+http://adumont.fr/blog/how-to-install-emacs-24/
+** DONE How to install the clojure environment [100%]
+CLOSED: [2012-04-24 mar. 13:34]
+*** DONE org
+CLOSED: [2012-04-24 mar. 13:25]
+*** DONE blog
+CLOSED: [2012-04-24 mar. 13:34]
+http://adumont.fr/blog/how-to-install-the-clojure-development-environment/
+** DONE How to bootstrap a clojure project [100%]
+CLOSED: [2012-04-24 mar. 14:17]
+*** DONE org
+CLOSED: [2012-04-24 mar. 14:17]
+*** DONE blog
+CLOSED: [2012-04-24 mar. 14:17]
+http://adumont.fr/blog/how-to-boostrap-a-clojure-project/
+** DONE One way to solve a problem in clojure [100%]
+CLOSED: [2012-04-24 mar. 15:00]
+*** DONE org
+CLOSED: [2012-04-24 mar. 14:17]
+*** DONE blog
+CLOSED: [2012-04-24 mar. 14:58]
+http://adumont.fr/blog/one-way-to-solve-a-problem-in-clojure/
+** DONE setup asus zenbook
+CLOSED: [2012-12-23 Sun 13:14]
+http://adumont.fr/blog/setup-the-asus-zenbook/
+** DONE blogging with org-mode/org2blog/wordpress
+CLOSED: [2012-12-23 Sun 13:14]
+http://adumont.fr/blog/blogging-with-org-mode-and-org2blog-to-publish-on-wordpress/
+** DONE my emacs tools
+CLOSED: [2012-12-23 Sun 13:14]
+http://adumont.fr/blog/my-emacs-tools/
+** DONE programming in haskell - Ch1 - Introduction - exercises
+CLOSED: [2012-12-24 Mon 13:47]
+http://adumont.fr/blog/programming-in-haskell-exercices-intro/
+** DONE programming in haskell - Ch2 - First steps - exercises
+CLOSED: [2012-12-25 Tue 10:48]
+http://adumont.fr/blog/programming-in-haskell-ch2-first-steps-exercises/
+** DONE Vagrant tools
+CLOSED: [2012-12-26 mer. 17:27]
+http://adumont.fr/blog/vagrant-tools/
+** DONE programming in haskell - Ch3 - Types and classes - exercises
+CLOSED: [2012-12-26 mer. 23:18]
+http://adumont.fr/blog/programming-in-haskell-ch3-types-and-classes-exercises/
+** DONE Git aliases/System git aliases
+CLOSED: [2012-12-27 jeu. 19:09]
+http://adumont.fr/blog/git-aliasessystem-git-aliases/
+** DONE programming in haskell - Ch4 - Defining functions - exercises
+CLOSED: [2012-12-28 ven. 18:56]
+http://adumont.fr/blog/programming-in-haskell-ch4-defining-functions-exercises/
+** DONE Daily git 1/2
+CLOSED: [2012-12-29 sam. 13:20]
+http://adumont.fr/blog/daily-git-12/
+** DONE Activate/Deactivate touchpad from the shell
+http://adumont.fr/blog/activatedeactivate-touchpad-from-the-shell/
+CLOSED: [2012-12-29 sam. 15:10]
+** DONE Stumpwm - Activate/Deactivate touchpad
+CLOSED: [2012-12-29 sam. 15:55]
+http://adumont.fr/blog/stumpwm-activatedeactivate-touchpad/
+** DONE Daily git 2/2
+CLOSED: [2012-12-30 dim. 12:21]
+http://adumont.fr/blog/daily-git-22/
+** DONE Programming in haskell - ch5 - Lists comprehension - exercises
+CLOSED: [2012-12-30 dim. 15:31]
+http://adumont.fr/blog/programming-in-haskell-ch5-lists-comprehension-exercises/
+** DONE Stumpwm - Display result of bash commands using zenity
+CLOSED: [2012-12-31 lun. 19:53]
+http://adumont.fr/blog/stumpwm-display-result-of-bash-commands-using-zenity/
+** DONE Emacs - Activate touchpad when org-mode exports html
+CLOSED: [2013-01-01 mar. 12:41]
+http://adumont.fr/blog/emacs-activate-touchpad-when-org-mode-exports-html/
+** DONE Programming in haskell - ch6 - Recursive functions - exercises
+CLOSED: [2013-01-02 mer. 21:37]
+http://adumont.fr/blog/programming-in-haskell-ch6-recursive-functions/
+** DONE Programming in haskell - ch7 - Higher-order functions - exercises 1/3
+CLOSED: [2013-01-05 sam. 15:51]
+http://adumont.fr/blog/pih-ch7-higher-order-functions-12/
+** DONE Programming in haskell - ch7 - Higher-order functions - exercises - 2/3
+CLOSED: [2013-01-07 lun. 21:57]
+http://adumont.fr/blog/pih-ch7-higher-order-functions-23/
+** DONE Programming in haskell - ch7 - Higher-order functions - exercises - 3/3
+CLOSED: [2013-01-08 mar. 19:56]
+http://adumont.fr/blog/pih-ch7-higher-order-functions-33/
+** DONE polipo simple setup
+CLOSED: [2013-01-12 sam. 03:46]
+http://adumont.fr/blog/polipo-setup/
+** DONE gtalk in emacs using jabber mode
+CLOSED: [2013-01-13 dim. 18:44]
+http://adumont.fr/blog/gtalk-in-emacs-using-jabber-mode/
+** DONE problem intervals on 4clojure
+CLOSED: [2013-01-27 dim. 03:10]
+http://adumont.fr/blog/intervals/
+** DONE number maze problem on 4clojure
+CLOSED: [2013-01-28 lun. 22:38]
+http://adumont.fr/blog/4clojure-number-maze-problem/
+** DONE Decomposition into a product of 2 numbers
+CLOSED: [2013-01-29 mar. 20:27]
+http://adumont.fr/blog/problem-decomposition-into-a-product-of-2-numbers/
+** DONE Analyze a tic-tac-toe board
+CLOSED: [2013-01-30 mer. 00:35]
+http://adumont.fr/blog/4clojure-analyze-a-tic-tac-toe-problem/
+** DONE Win a tic-tac-toe board
+CLOSED: [2013-04-13 sam. 22:40]
+** DONE Levenshtein distance
+CLOSED: [2013-04-13 sam. 22:40]
+** DONE Programming in Haskell - chapter 8 - 1/2 - functional parsers exercises
+CLOSED: [2013-04-13 sam. 22:41]
+http://adumont.fr/blog/pih-ch8-12-functional-parsers-exercises/
+** DONE Programming in Haskell - chapter 8 - 1/2 - functional parsers exercises
+CLOSED: [2013-04-14 dim. 17:25]
+http://adumont.fr/blog/pih-ch8-22-functional-parsers-exercises/
+** DONE Programming in Haskell - Chapter 9
+CLOSED: [2013-04-25 jeu. 22:00]
+http://adumont.fr/blog/pih-ch9-interactive-programs-exercises/
+** DONE Programming in Haskell - Chapter 10 - 1/3
+CLOSED: [2013-04-27 sam. 15:56]
+** DONE Programming in Haskell - Chaper 10 - 2/3
+CLOSED: [2013-05-01 mer. 12:51]
+** DONE Programming in Haskell - Chapter 10 - 3/3
+CLOSED: [2013-05-08 mer. 10:44]
+** DONE emacs-live-packs - blog-pack
+CLOSED: [2013-04-29 lun. 01:25]
+http://adumont.fr/blog/emacs-live-pack-blog-pack/
+** DONE clj-of-life
+CLOSED: [2013-05-01 mer. 17:55]
+http://adumont.fr/blog/game-of-life-in-clojure-demo/
+** DONE Decode/Encode base64 in Clojure
+CLOSED: [2013-05-04 sam. 16:40]
+** DONE Fun with Sets in Haskell
+CLOSED: [2013-05-16 jeu. 22:54]
+** DONE XOR decryption - euler 59
+CLOSED: [2013-05-11 sam. 15:50]
+** DONE euler 26
+CLOSED: [2013-05-20 lun. 10:50]
+** DONE Sieve of Eratosthenes
+CLOSED: [2013-05-20 lun. 10:43]
+** DONE BinarySearchTree in Haskell
+CLOSED: [2013-05-23 jeu. 19:42]
+
+** PENDING AVL in Haskell
+** DONE PIH - ch11 - The countdown problem - exercises
+CLOSED: [2013-05-26 dim. 13:18]
+** DONE PIH - ch12 - lazyness - exercises
+CLOSED: [2013-05-29 mer. 20:24]
+** DONE PIH - ch13 - Reasoning about programs - exercises
+CLOSED: [2013-06-04 mar. 20:29]
+** PENDING Functional approach in haskell - Ch. 2
+** PENDING Functional Approach in Haskell - Ch. 3 - The efficiency of functional programs
+** DONE org-trello
+CLOSED: [2013-07-12 ven. 22:25]
+** DONE org-trello - new feature
+CLOSED: [2013-08-07 mer. 16:00]
+** DONE 25/04/2013, [[http://adumont.fr/blog/pih-ch9-interactive-programs-exercises/][PIH - ch9 - Interactive programs - exercises]]
+CLOSED: [2014-02-26 mer. 22:41]
+** DONE 14/04/2013, [[http://adumont.fr/blog/pih-ch8-22-functional-parsers-exercises/][PIH - ch8 2/2 - Functional parsers - exercises]]
+CLOSED: [2014-02-26 mer. 22:41]
+** DONE 13/04/2013, [[http://adumont.fr/blog/pih-ch8-12-functional-parsers-exercises/][PIH - ch8 1/2 - Functional parsers - exercises]]
+CLOSED: [2014-02-26 mer. 22:41]
+** DONE 28/04/2013, [[http://adumont.fr/blog/emacs-live-pack-blog-pack/][emacs-live pack - blog-pack]]
+CLOSED: [2014-02-26 mer. 22:41]
+** DONE 29/05/2013, [[http://adumont.fr/blog/pih-ch12-lazy-evaluation-exercises/][PIH - ch12 - Lazy evaluation - exercises]]
+CLOSED: [2014-02-26 mer. 22:41]
+** DONE 25/05/2013, [[http://adumont.fr/blog/pih-ch11-the-countdown-problem-exercises/][PIH - ch11 - The countdown problem - exercises]]
+CLOSED: [2014-02-26 mer. 22:41]
+** DONE 20/05/2013, [[http://adumont.fr/blog/euler-26-recurring-cycles/][Euler 26 - recurring cycles]]
+CLOSED: [2014-02-26 mer. 22:41]
+** DONE 18/05/2013, [[http://adumont.fr/blog/sieve-of-erathostenes/][Sieve of Erathostenes]]
+CLOSED: [2014-02-26 mer. 22:41]
+** DONE 23/05/2013, [[http://adumont.fr/blog/binary-search-tree-in-haskell/][Binary Search Tree in Haskell]]
+CLOSED: [2014-02-26 mer. 22:41]
+** DONE 11/05/2013, [[http://adumont.fr/blog/xor-decryption-euler-59-in-clojure/][XOR decryption - Euler 59 in Clojure]]
+CLOSED: [2014-02-26 mer. 22:41]
+** DONE 16/05/2013, [[http://adumont.fr/blog/fun-with-sets/][Fun with sets in Haskell]]
+CLOSED: [2014-02-26 mer. 22:41]
+** DONE 04/05/2013, [[http://adumont.fr/blog/decodeencode-base64-in-clojure/][Decode/Encode base64 in Clojure]]
+CLOSED: [2014-02-26 mer. 22:41]
+** DONE 01/05/2013, [[http://adumont.fr/blog/game-of-life-in-clojure-demo/][game of life in clojure + demo]]
+CLOSED: [2014-02-26 mer. 22:41]
+** DONE 27/04/2013, [[http://adumont.fr/blog/pih-ch10-12-declaring-types-and-classes-exercises/][PIH - ch10 - 1/3 - Declaring types and classes - exercises]]
+CLOSED: [2014-02-26 mer. 22:41]
+** DONE 08/05/2013, [[http://adumont.fr/blog/pih-ch10-33-declaring-types-and-classes-exercises/][PIH - ch10 - 3/3 - Declaring types and classes - exercises]]
+CLOSED: [2014-02-26 mer. 22:41]
+** DONE 01/05/2013, [[http://adumont.fr/blog/pih-ch10-23-declaring-types-and-classes-exercises/][PIH - ch10 - 2/3 - Declaring types and classes - exercises]]
+CLOSED: [2014-02-26 mer. 22:41]
+** DONE 04/06/2013, [[http://adumont.fr/blog/pih-ch13-reasoning-about-programs-exercises/][PIH - ch13 - Reasoning about programs - exercises]]
+CLOSED: [2014-02-26 mer. 22:41]
+** DONE 12/07/2013, [[http://adumont.fr/blog/org-trello-sync-your-org-file-to-trello/][org-trello - 2-way sync org & trello]]
+CLOSED: [2014-02-26 mer. 22:41]
+** DONE 05/08/2013, [[http://adumont.fr/blog/org-trello-new-features/][org-trello - new features]]
+CLOSED: [2014-02-26 mer. 22:41]
+** DONE 11/08/2013, [[http://adumont.fr/blog/literate-org-trello/][Literate org-trello]]
+CLOSED: [2014-02-26 mer. 22:41]
+
+** DONE A story of keyboard mapping 1/2
+CLOSED: [2014-02-26 mer. 22:47]
+** DONE A story of keyboard mapping 2/2
+CLOSED: [2014-02-26 mer. 22:47]
+** DONE Personal generic service wrapper 1/2
+** DONE Personal generic service wrapper 2/2
+CLOSED: [2014-03-06 Thu 04:30]
+** IN-PROGRESS Keysnail
+** IN-PROGRESS Feedback loop ("later is too late")
+** TODO Towards tools unification
+** TODO Automate Keysnail deployment
+** TODO Stumpwm from emacs buffer
+** TODO HWifi
+** TODO Deploying to Marmalade
+** TODO Personal workflow deployment of emacs-lisp package
+** TODO One CLI to rule them and in the Make bind them
+** DONE Blogging with org and jekyll with org2jekyll
+CLOSED: [2014-12-20 Sat 23:51]
 * PENDING Readings [28%]
 - [X] practical clojure
 - [X] joy of clojure
@@ -814,234 +1042,6 @@ CLOSED: [2013-05-23 Thu 10:45]
 CLOSED: [2013-05-23 Thu 10:45]
 ** PENDING Finish the other exercises
 
-* IN-PROGRESS Articles [87%]
-** DONE Chroot to save one's GNU/Linux
-CLOSED: [2012-04-21 Sat 18:07]
-http://adumont.fr/blog/chroot-pour-sauver-son-gnulinux/
-** DONE public/private key generation
-CLOSED: [2012-04-21 Sat 18:06]
-http://adumont.fr/blog/generation-cle-priveepublique/
-** DONE Possible team workflow with git
-CLOSED: [2012-04-21 Sat 12:45]
-http://adumont.fr/blog/possible-team-workflow-with-git/
-** DONE How to install stumpwm
-CLOSED: [2012-04-21 Sat 12:43]
-http://adumont.fr/blog/howto-install-stumpwm-and-little-more/
-** DONE How to beamer with org-mode
-CLOSED: [2012-04-21 Sat 12:44]
-http://adumont.fr/blog/howto-beamer-with-org-mode/
-** DONE How to install emacs 24
-CLOSED: [2012-04-21 Sat 12:44]
-http://adumont.fr/blog/how-to-install-emacs-24/
-** DONE How to install the clojure environment [100%]
-CLOSED: [2012-04-24 mar. 13:34]
-*** DONE org
-CLOSED: [2012-04-24 mar. 13:25]
-*** DONE blog
-CLOSED: [2012-04-24 mar. 13:34]
-http://adumont.fr/blog/how-to-install-the-clojure-development-environment/
-** DONE How to bootstrap a clojure project [100%]
-CLOSED: [2012-04-24 mar. 14:17]
-*** DONE org
-CLOSED: [2012-04-24 mar. 14:17]
-*** DONE blog
-CLOSED: [2012-04-24 mar. 14:17]
-http://adumont.fr/blog/how-to-boostrap-a-clojure-project/
-** DONE One way to solve a problem in clojure [100%]
-CLOSED: [2012-04-24 mar. 15:00]
-*** DONE org
-CLOSED: [2012-04-24 mar. 14:17]
-*** DONE blog
-CLOSED: [2012-04-24 mar. 14:58]
-http://adumont.fr/blog/one-way-to-solve-a-problem-in-clojure/
-** DONE setup asus zenbook
-CLOSED: [2012-12-23 Sun 13:14]
-http://adumont.fr/blog/setup-the-asus-zenbook/
-** DONE blogging with org-mode/org2blog/wordpress
-CLOSED: [2012-12-23 Sun 13:14]
-http://adumont.fr/blog/blogging-with-org-mode-and-org2blog-to-publish-on-wordpress/
-** DONE my emacs tools
-CLOSED: [2012-12-23 Sun 13:14]
-http://adumont.fr/blog/my-emacs-tools/
-** DONE programming in haskell - Ch1 - Introduction - exercises
-CLOSED: [2012-12-24 Mon 13:47]
-http://adumont.fr/blog/programming-in-haskell-exercices-intro/
-** DONE programming in haskell - Ch2 - First steps - exercises
-CLOSED: [2012-12-25 Tue 10:48]
-http://adumont.fr/blog/programming-in-haskell-ch2-first-steps-exercises/
-** DONE Vagrant tools
-CLOSED: [2012-12-26 mer. 17:27]
-http://adumont.fr/blog/vagrant-tools/
-** DONE programming in haskell - Ch3 - Types and classes - exercises
-CLOSED: [2012-12-26 mer. 23:18]
-http://adumont.fr/blog/programming-in-haskell-ch3-types-and-classes-exercises/
-** DONE Git aliases/System git aliases
-CLOSED: [2012-12-27 jeu. 19:09]
-http://adumont.fr/blog/git-aliasessystem-git-aliases/
-** DONE programming in haskell - Ch4 - Defining functions - exercises
-CLOSED: [2012-12-28 ven. 18:56]
-http://adumont.fr/blog/programming-in-haskell-ch4-defining-functions-exercises/
-** DONE Daily git 1/2
-CLOSED: [2012-12-29 sam. 13:20]
-http://adumont.fr/blog/daily-git-12/
-** DONE Activate/Deactivate touchpad from the shell
-http://adumont.fr/blog/activatedeactivate-touchpad-from-the-shell/
-CLOSED: [2012-12-29 sam. 15:10]
-** DONE Stumpwm - Activate/Deactivate touchpad
-CLOSED: [2012-12-29 sam. 15:55]
-http://adumont.fr/blog/stumpwm-activatedeactivate-touchpad/
-** DONE Daily git 2/2
-CLOSED: [2012-12-30 dim. 12:21]
-http://adumont.fr/blog/daily-git-22/
-** DONE Programming in haskell - ch5 - Lists comprehension - exercises
-CLOSED: [2012-12-30 dim. 15:31]
-http://adumont.fr/blog/programming-in-haskell-ch5-lists-comprehension-exercises/
-** DONE Stumpwm - Display result of bash commands using zenity
-CLOSED: [2012-12-31 lun. 19:53]
-http://adumont.fr/blog/stumpwm-display-result-of-bash-commands-using-zenity/
-** DONE Emacs - Activate touchpad when org-mode exports html
-CLOSED: [2013-01-01 mar. 12:41]
-http://adumont.fr/blog/emacs-activate-touchpad-when-org-mode-exports-html/
-** DONE Programming in haskell - ch6 - Recursive functions - exercises
-CLOSED: [2013-01-02 mer. 21:37]
-http://adumont.fr/blog/programming-in-haskell-ch6-recursive-functions/
-** DONE Programming in haskell - ch7 - Higher-order functions - exercises 1/3
-CLOSED: [2013-01-05 sam. 15:51]
-http://adumont.fr/blog/pih-ch7-higher-order-functions-12/
-** DONE Programming in haskell - ch7 - Higher-order functions - exercises - 2/3
-CLOSED: [2013-01-07 lun. 21:57]
-http://adumont.fr/blog/pih-ch7-higher-order-functions-23/
-** DONE Programming in haskell - ch7 - Higher-order functions - exercises - 3/3
-CLOSED: [2013-01-08 mar. 19:56]
-http://adumont.fr/blog/pih-ch7-higher-order-functions-33/
-** DONE polipo simple setup
-CLOSED: [2013-01-12 sam. 03:46]
-http://adumont.fr/blog/polipo-setup/
-** DONE gtalk in emacs using jabber mode
-CLOSED: [2013-01-13 dim. 18:44]
-http://adumont.fr/blog/gtalk-in-emacs-using-jabber-mode/
-** DONE problem intervals on 4clojure
-CLOSED: [2013-01-27 dim. 03:10]
-http://adumont.fr/blog/intervals/
-** DONE number maze problem on 4clojure
-CLOSED: [2013-01-28 lun. 22:38]
-http://adumont.fr/blog/4clojure-number-maze-problem/
-** DONE Decomposition into a product of 2 numbers
-CLOSED: [2013-01-29 mar. 20:27]
-http://adumont.fr/blog/problem-decomposition-into-a-product-of-2-numbers/
-** DONE Analyze a tic-tac-toe board
-CLOSED: [2013-01-30 mer. 00:35]
-http://adumont.fr/blog/4clojure-analyze-a-tic-tac-toe-problem/
-** DONE Win a tic-tac-toe board
-CLOSED: [2013-04-13 sam. 22:40]
-** DONE Levenshtein distance
-CLOSED: [2013-04-13 sam. 22:40]
-** DONE Programming in Haskell - chapter 8 - 1/2 - functional parsers exercises
-CLOSED: [2013-04-13 sam. 22:41]
-http://adumont.fr/blog/pih-ch8-12-functional-parsers-exercises/
-** DONE Programming in Haskell - chapter 8 - 1/2 - functional parsers exercises
-CLOSED: [2013-04-14 dim. 17:25]
-http://adumont.fr/blog/pih-ch8-22-functional-parsers-exercises/
-** DONE Programming in Haskell - Chapter 9
-CLOSED: [2013-04-25 jeu. 22:00]
-http://adumont.fr/blog/pih-ch9-interactive-programs-exercises/
-** DONE Programming in Haskell - Chapter 10 - 1/3
-CLOSED: [2013-04-27 sam. 15:56]
-** DONE Programming in Haskell - Chaper 10 - 2/3
-CLOSED: [2013-05-01 mer. 12:51]
-** DONE Programming in Haskell - Chapter 10 - 3/3
-CLOSED: [2013-05-08 mer. 10:44]
-** DONE emacs-live-packs - blog-pack
-CLOSED: [2013-04-29 lun. 01:25]
-http://adumont.fr/blog/emacs-live-pack-blog-pack/
-** DONE clj-of-life
-CLOSED: [2013-05-01 mer. 17:55]
-http://adumont.fr/blog/game-of-life-in-clojure-demo/
-** DONE Decode/Encode base64 in Clojure
-CLOSED: [2013-05-04 sam. 16:40]
-** DONE Fun with Sets in Haskell
-CLOSED: [2013-05-16 jeu. 22:54]
-** DONE XOR decryption - euler 59
-CLOSED: [2013-05-11 sam. 15:50]
-** DONE euler 26
-CLOSED: [2013-05-20 lun. 10:50]
-** DONE Sieve of Eratosthenes
-CLOSED: [2013-05-20 lun. 10:43]
-** DONE BinarySearchTree in Haskell
-CLOSED: [2013-05-23 jeu. 19:42]
-
-** PENDING AVL in Haskell
-** DONE PIH - ch11 - The countdown problem - exercises
-CLOSED: [2013-05-26 dim. 13:18]
-** DONE PIH - ch12 - lazyness - exercises
-CLOSED: [2013-05-29 mer. 20:24]
-** DONE PIH - ch13 - Reasoning about programs - exercises
-CLOSED: [2013-06-04 mar. 20:29]
-** PENDING Functional approach in haskell - Ch. 2
-** PENDING Functional Approach in Haskell - Ch. 3 - The efficiency of functional programs
-** DONE org-trello
-CLOSED: [2013-07-12 ven. 22:25]
-** DONE org-trello - new feature
-CLOSED: [2013-08-07 mer. 16:00]
-** DONE 25/04/2013, [[http://adumont.fr/blog/pih-ch9-interactive-programs-exercises/][PIH - ch9 - Interactive programs - exercises]]
-CLOSED: [2014-02-26 mer. 22:41]
-** DONE 14/04/2013, [[http://adumont.fr/blog/pih-ch8-22-functional-parsers-exercises/][PIH - ch8 2/2 - Functional parsers - exercises]]
-CLOSED: [2014-02-26 mer. 22:41]
-** DONE 13/04/2013, [[http://adumont.fr/blog/pih-ch8-12-functional-parsers-exercises/][PIH - ch8 1/2 - Functional parsers - exercises]]
-CLOSED: [2014-02-26 mer. 22:41]
-** DONE 28/04/2013, [[http://adumont.fr/blog/emacs-live-pack-blog-pack/][emacs-live pack - blog-pack]]
-CLOSED: [2014-02-26 mer. 22:41]
-** DONE 29/05/2013, [[http://adumont.fr/blog/pih-ch12-lazy-evaluation-exercises/][PIH - ch12 - Lazy evaluation - exercises]]
-CLOSED: [2014-02-26 mer. 22:41]
-** DONE 25/05/2013, [[http://adumont.fr/blog/pih-ch11-the-countdown-problem-exercises/][PIH - ch11 - The countdown problem - exercises]]
-CLOSED: [2014-02-26 mer. 22:41]
-** DONE 20/05/2013, [[http://adumont.fr/blog/euler-26-recurring-cycles/][Euler 26 - recurring cycles]]
-CLOSED: [2014-02-26 mer. 22:41]
-** DONE 18/05/2013, [[http://adumont.fr/blog/sieve-of-erathostenes/][Sieve of Erathostenes]]
-CLOSED: [2014-02-26 mer. 22:41]
-** DONE 23/05/2013, [[http://adumont.fr/blog/binary-search-tree-in-haskell/][Binary Search Tree in Haskell]]
-CLOSED: [2014-02-26 mer. 22:41]
-** DONE 11/05/2013, [[http://adumont.fr/blog/xor-decryption-euler-59-in-clojure/][XOR decryption - Euler 59 in Clojure]]
-CLOSED: [2014-02-26 mer. 22:41]
-** DONE 16/05/2013, [[http://adumont.fr/blog/fun-with-sets/][Fun with sets in Haskell]]
-CLOSED: [2014-02-26 mer. 22:41]
-** DONE 04/05/2013, [[http://adumont.fr/blog/decodeencode-base64-in-clojure/][Decode/Encode base64 in Clojure]]
-CLOSED: [2014-02-26 mer. 22:41]
-** DONE 01/05/2013, [[http://adumont.fr/blog/game-of-life-in-clojure-demo/][game of life in clojure + demo]]
-CLOSED: [2014-02-26 mer. 22:41]
-** DONE 27/04/2013, [[http://adumont.fr/blog/pih-ch10-12-declaring-types-and-classes-exercises/][PIH - ch10 - 1/3 - Declaring types and classes - exercises]]
-CLOSED: [2014-02-26 mer. 22:41]
-** DONE 08/05/2013, [[http://adumont.fr/blog/pih-ch10-33-declaring-types-and-classes-exercises/][PIH - ch10 - 3/3 - Declaring types and classes - exercises]]
-CLOSED: [2014-02-26 mer. 22:41]
-** DONE 01/05/2013, [[http://adumont.fr/blog/pih-ch10-23-declaring-types-and-classes-exercises/][PIH - ch10 - 2/3 - Declaring types and classes - exercises]]
-CLOSED: [2014-02-26 mer. 22:41]
-** DONE 04/06/2013, [[http://adumont.fr/blog/pih-ch13-reasoning-about-programs-exercises/][PIH - ch13 - Reasoning about programs - exercises]]
-CLOSED: [2014-02-26 mer. 22:41]
-** DONE 12/07/2013, [[http://adumont.fr/blog/org-trello-sync-your-org-file-to-trello/][org-trello - 2-way sync org & trello]]
-CLOSED: [2014-02-26 mer. 22:41]
-** DONE 05/08/2013, [[http://adumont.fr/blog/org-trello-new-features/][org-trello - new features]]
-CLOSED: [2014-02-26 mer. 22:41]
-** DONE 11/08/2013, [[http://adumont.fr/blog/literate-org-trello/][Literate org-trello]]
-CLOSED: [2014-02-26 mer. 22:41]
-
-** DONE A story of keyboard mapping 1/2
-CLOSED: [2014-02-26 mer. 22:47]
-** DONE A story of keyboard mapping 2/2
-CLOSED: [2014-02-26 mer. 22:47]
-** DONE Personal generic service wrapper 1/2
-** DONE Personal generic service wrapper 2/2
-CLOSED: [2014-03-06 Thu 04:30]
-** IN-PROGRESS Keysnail
-** IN-PROGRESS Feedback loop ("later is too late")
-** TODO Towards tools unification
-** TODO Automate Keysnail deployment
-** TODO Stumpwm from emacs buffer
-** TODO HWifi
-** TODO Deploying to Marmalade
-** TODO Personal workflow deployment of emacs-lisp package
-** TODO One CLI to rule them and in the Make bind them
-** DONE Blogging with org and jekyll with org2jekyll
-CLOSED: [2014-12-20 Sat 23:51]
 * PENDING Clojure [45%]
 ** DONE start [100%]
 CLOSED: [2012-04-21 Sat 18:18]
