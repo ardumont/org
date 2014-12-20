@@ -814,7 +814,7 @@ CLOSED: [2013-05-23 Thu 10:45]
 CLOSED: [2013-05-23 Thu 10:45]
 ** PENDING Finish the other exercises
 
-* PENDING Articles [86%]
+* IN-PROGRESS Articles [87%]
 ** DONE Chroot to save one's GNU/Linux
 CLOSED: [2012-04-21 Sat 18:07]
 http://adumont.fr/blog/chroot-pour-sauver-son-gnulinux/
@@ -1040,6 +1040,8 @@ CLOSED: [2014-03-06 Thu 04:30]
 ** TODO Deploying to Marmalade
 ** TODO Personal workflow deployment of emacs-lisp package
 ** TODO One CLI to rule them and in the Make bind them
+** DONE Blogging with org and jekyll with org2jekyll
+CLOSED: [2014-12-20 Sat 23:51]
 * PENDING Clojure [45%]
 ** DONE start [100%]
 CLOSED: [2012-04-21 Sat 18:18]
