@@ -187,7 +187,7 @@ https://github.com/ndmitchell/shake
 - [X] 0.6.8
 - [ ] 0.6.9
 - [ ] ...
-* IN-PROGRESS Blog [3/8]
+* IN-PROGRESS org2jekyll [3/9]
 - [X] Migrate comment system to Disqus
 - [X] Migrate from wordpress to a github solution -> ardumont.github.io [3/3]
   - [X] Make jekyll run locally
