@@ -8,13 +8,12 @@
   {:identity     {:name        "Dumont"
                   :first-name  "Antoine"
                   :middle-name "Romain"
-                  :birth       "22/10/1982"
-                  :location    "43 bis boulevard Jean Moulin"
-                  :city        "93190 Livry Gargan"
+                  :birth       "N/A"
+                  :location    "N/A"
+                  :city        "N/A"
                   :country     "France"
-                  :emails      (map #(s/join \@ %) [["antoine.romain.dumont" "gmail.com"]
-                                                    ["eniotna.t"             "gmail.com"]])
-                  :phone       (reverse ["03" "79" "08" "99" "06"])}
+                  :phone       "N/A"
+                  :emails      "N/A"}
 
    :jobs         {:current     :sfeir
                   :sfeir       {:as     "software engineer/developer/devops"
