@@ -1,5 +1,6 @@
-#+BLOG: tony-blog
+#+BLOG: org
 #+POSTID: 1069
+#+LAYOUT: tony-blog
 #+DATE: [2013-04-29 lun. 00:46]
 #+TITLE: emacs-live pack - blog-pack
 #+AUTHOR: Antoine R. Dumont
