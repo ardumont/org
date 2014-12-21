@@ -1,11 +1,9 @@
-#+BLOG: tony-blog
-#+POSTID: 1275
 #+DATE: [2013-08-05 lun. 20:59]
-#+OPTIONS: toc:t
+#+OPTIONS: toc:nil
 #+CATEGORIES: org-trello, org-mode, emacs, trello, tools
-#+TAGS: org-trello, org-mode, emacs, trello, tools
 #+DESCRIPTION: Synchronize your trello board from emacs - new features
 #+TITLE: org-trello - New features
+#+LAYOUT: post
 
 In a [[http://adumont.fr/blog/org-trello-sync-your-org-file-to-trello/][previous article]], I introduced [[http://ardumont.github.io/org-trello/][org-trello]].
 
