@@ -194,7 +194,7 @@ https://github.com/ndmitchell/shake
   - [X] Automate the posting of blog articles (org-publish, jekyll)
   - [X] Posts the old blog back to the new one
 - [X] Add archive links on main page
-- [ ] Update my multiple references to my old blog to the new one
+- [X] Update my multiple references in external site from my old blog to the new one
 - [ ] Improve my blog's visual
 - [ ] Ensure the blog is web responsive
 - [ ] Automate the publication (let github do the job?)
