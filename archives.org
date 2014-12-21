@@ -10,11 +10,12 @@
 #+CATEGORIES: archives
 
 #+BEGIN_HTML
+{% if site.posts.size > site.archivelimit %}
     <div id="container" class="archives">
       <div class="index">
         <h2><em>Post Archives</em>&hellip;</h2>
         <ul>
-          {% for post in site.posts %}
+          {% for post in site.posts offset: site.archivelimit %}
             <li>
               <a href="{{ post.url }}/#notebook" title="{{ post.title }}">
                 <span class="date">
@@ -29,4 +30,5 @@
         </ul>
       </div> <!-- /.index -->
     </div> <!-- /#container.archives -->
+{% endif %}
 #+END_HTML
