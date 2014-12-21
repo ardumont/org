@@ -1,16 +1,10 @@
-#+title: tony's blog
-#+author: Antoine R. Dumont
-#+Options: num:nil
+#+AUTHOR: Antoine R. Dumont
+#+OPTIONS: num:nil
 #+STARTUP: showall indent
-#+BEGIN_HTML
----
-layout: default
-title: tony's blog
-excerpt: Welcome to my blog
-
-categories: about
----
-#+END_HTML
+#+LAYOUT: default
+#+TITLE: tony's blog
+#+DESCRIPTION: Welcome to my blog
+#+CATEGORIES: about
 
 I am @ardumont on [[https://github.com/ardumont][github]] and [[https://twitter.com/ardumont][twitter]].
 
