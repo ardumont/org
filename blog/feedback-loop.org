@@ -1,27 +1,28 @@
-#+BLOG: tony-blog
-#+POSTID: 1324
-#+DATE: [2014-03-01 sam. 17:29]
+#+LAYOUT: post
+#+DATE: 2014-12-21 Sun 19:03
 #+TITLE: Feedback loop
 #+AUTHOR: ardumont
 #+DESCRIPTION: Later is too late!
-#+CATEGORIES: feedback, tools, stumpwm, emacs, org-mode, tmux, firefox, keysnail, git, vagrant, make, script
-#+TAGS: feedback, tools, stumpwm, emacs, org-mode, tmux, firefox, keysnail, git, vagrant, make, script
+#+CATEGORIES: feedback, tools, stumpwm, xmonad, emacs, org-mode, tmux, firefox, keysnail, git, vagrant, virtualbox, docker, make, script
 
 * TL;DR
 Use the right tools for the right job. And feedback all the way!
 
 * DISCLAIMER
+
 I present my set of tools.
+
 In no way do I claim these are the supreme tools. As always, your mileage may vary.
-The only claim I make is that they can let me be fast.
+
+The only claim I make is that they make me fast.
 
 * Introduction
 
-As I already explains time and time again (links), I'm feedback driven.
+As I already explains time and time again (links to add), I'm feedback driven.
 
 I want to:
 - have feedback immediately after I executed a command/function
-- know if I'm wrong now
+- know if I'm wrong now, not later
 - believe... (oops, bad context)
 
 * Why?
@@ -31,28 +32,49 @@ Because ideas are as fast as poping out of nowhere as disappearing into nowhere.
 Sometimes, it's right to think and think again and go implementing later...
 And sometimes, it's better to go think and tinker along the way too...
 
-Links to find:
-Bref Victor   -> ...
-Chris Granger -> lighttable
+I believe that this feedback loop is the very nature of mouvements like:
+- agility (as in `small sprint to show rapidly to the users something that works`)
+- devops (as in `reproducible environment as soon as possible to avoid later trouble`)
+- tests culture (as in `testing the runtime now and not when the application will be deployed)
+- etc...
+
+I'd need to revisit this video but what at some point showed me I was hitting in the right direction was this particular video: [[http://vimeo.com/36579366][Bref Victor - Inventing on principles]] and some consequences it had.
+
+ As a result, [[https://twitter.com/ibdknox][Chris Granger]] reacted immediately (it appeared as much to me) and came up the very next day with an equivalent demo in [[https://github.com/clojure/clojurescript][clojurescript]].
+Then some time after that, [[https://twitter.com/ibdknox][Chris Granger]] came up with [[https://www.kickstarter.com/projects/ibdknox/light-table][LightTable]], to try and exercise what he thought was possible.
+
+And [[https://www.kickstarter.com/projects/ibdknox/light-table][Lighttable]] showed a new [[https://en.wikipedia.org/wiki/REPL][REPL]], an instarepl - As you type along your clojure(script) expression, you have immediately the result.
+FEEDBACK!.
+
+It is an awesome idea which embraces further the notion of feedback.
 
 * How
 
-For this, I use these tools:
+Here is my non-exhaustive list of tools I use to:
 
-- GNU/Linux
+- [[https://www.gnu.org/gnu/linux-and-gnu.html][GNU/Linux]] and now more specifically [[http://nixos.org/][NixOS]]
 
 Stable, user-friendly, extendable, reproducible...
-These are qualities unavoidable to do what I do.
+These are unavoidable qualities.
 
-- Emacs
+- [[https://www.gnu.org/software/emacs/][GNU/Emacs]]
 
-It's not an editor, it's an environment highly extendable.
+It's not an editor, it's an environment extremely extendable.
 
-- StumpWM
+- [[https://github.com/stumpwm/stumpwm][StumpWM]]
 
-The *emacs* window manager!
+The *emacs* like window manager!
 
-- Org-mode
+*Note* I switched to XMonad but I'd recommend anyone to give it a try.
+
+- [[http://xmonad.org/][XMonad]]
+
+In a graphical world, one has to display graphical software and what a pain it is to manually place windows.
+XMonad takes care of this for me. What a nice dude!
+
+Also I kept the way I called my applications from the stumpwm window manager (that is, I use a prefix key, `C-;` then another binding and this triggers the run or raise action for the particular application).
+
+- [[http://orgmode.org][Org-mode]]
 
 To do things, one has to organized
 
@@ -60,12 +82,16 @@ To do things, one has to organized
 
 The *emacs* terminal session manager!
 
-- Firefox with KeySnail
+- [[https://www.mozilla.org/en-US/firefox/new/][Firefox]] with [[https://github.com/mooz/keysnail][KeySnail]]
 
-firefox, the emacs way!
+Firefox, the emacs way!
 
-- Git
+No mouse (as much as possible, unfortunately, some site use some shitty js/css thingy that force the user to use his/her mouse)
 
-- Vagrant
+- [[http://git-scm.com/][Git]]
 
--
+Versioning every bit of data!
+
+- [[https://www.vagrantup.com/][Vagrant]] / [[https://www.virtualbox.org/][Virtualbox]] / [[https://www.docker.com/][Docker]]
+
+Virtualize or test in sandbox environment!
