@@ -197,11 +197,11 @@ https://github.com/ndmitchell/shake
 - [X] Update my multiple references in external site from my old blog to the new one
 - [X] Add blog post's content license links
 - [ ] Fix broken links in migrated blog posts
-- [ ] Install Disqus system for comments
-- [ ] Improve my blog's style
+- [ ] Improve my blog's style (css and all)
 - [ ] Ensure the blog is good on mobile phone too
 - [ ] Automate the publication (let github do the job?)
 - [ ] Merge ardumont/org into ardumont/ardumont.github.io?
+- [ ] Install Disqus system for comments
 * IN-PROGRESS org2jekyll - https://github.com/ardumont/org2jekyll [7/8]
 - [X] 0.0.1
 - [X] 0.0.2
