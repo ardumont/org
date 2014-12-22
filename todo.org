@@ -187,7 +187,7 @@ https://github.com/ndmitchell/shake
 - [X] 0.6.8
 - [ ] 0.6.9
 - [ ] ...
-* IN-PROGRESS Blog [5/11]
+* IN-PROGRESS Blog [7/11]
 - [X] Migrate comment system to Disqus (old blog)
 - [X] Migrate from old blog system (wordpress) to a github solution -> ardumont.github.io [3/3]
   - [X] Make jekyll run locally
@@ -196,9 +196,9 @@ https://github.com/ndmitchell/shake
 - [X] Add archive links on main page
 - [X] Update my multiple references in external site from my old blog to the new one
 - [X] Add blog post's content license links
+- [X] Improve my blog's style (css and all)
+- [X] Ensure the blog is good on mobile phone too (twitter bootstrap :D)
 - [ ] Fix broken links in migrated blog posts
-- [ ] Improve my blog's style (css and all)
-- [ ] Ensure the blog is good on mobile phone too
 - [ ] Automate the publication (let github do the job?)
 - [ ] Merge ardumont/org into ardumont/ardumont.github.io?
 - [ ] Install Disqus system for comments
