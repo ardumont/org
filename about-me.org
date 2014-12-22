@@ -26,10 +26,11 @@ to solve some problems ([[http://projecteuler.net][Project Euler]],[[http://4clo
 or losing my precious time in some bull... means of transportation.
 
 Anyway, here is my rapid resume.
+
 * Rapid resume
 ** Once upon a time, I was a student
 Master's degree in Networks and systems at the [[http://www.univ-paris-diderot.fr/][Denis Diderot College Paris VII]].
-** Then i started working
+** Then I started working
 Software engineer for 4,5 years at [[http://www.sopragroup.com"][Sopra Group]].
 Now I continue developing software [[http://www.sfeir.com/][@Sfeir]] (for 3.5 years now).
 Some legacy technologies I came across : JEE4/5, PHP4/5, Oracle, Hibernate, Spring, etc...
@@ -39,9 +40,10 @@ I have been working with [[http://www.sfeir.com/][Sfeir]] for at least 3.5 years
 The technologies are more recent: JVM, Java, Scala, Hadoop, Zookeeper, AngularJS, Puppet, ...
 
 Some more advanced technologies I came across during my spare time: Haskell, *Lisp (Emacs-Lisp, Common-Lisp, Clojure, Scheme, ...), Nixos, Purescript, Android, Angularjs, Nodejs, Chef, Pallet, Docker, Vagrant, etc..
-* Where can you found me if you ever were interested
-** [[https://github.com/ardumont][github]]
-** [[http://en.gravatar.com/ardumont][gravatar]]
-** [[http://j.mp/dWMPPr][linkedin]]
-** [[http://j.mp/ibIAVM][viadeo]]
-** [[http://adumont.fr/cv/curriculum-app.html][My resume]]
+
+* Where am I?
+- [[https://github.com/ardumont][github]]
+- [[http://en.gravatar.com/ardumont][gravatar]]
+- [[http://j.mp/dWMPPr][linkedin]]
+- [[http://j.mp/ibIAVM][viadeo]]
+- [[http://adumont.fr/cv/curriculum-app.html][My resume]]
