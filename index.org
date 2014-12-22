@@ -6,6 +6,8 @@
 #+DESCRIPTION: Welcome to my blog
 #+CATEGORIES: about
 
+Welcome to my blog.
+
 I am @ardumont on [[https://github.com/ardumont][github]] and [[https://twitter.com/ardumont][twitter]].
 
 I develop software and contribute to multiple [[https://www.gnu.org/philosophy/free-sw.html][free ones]] on my spare time.
