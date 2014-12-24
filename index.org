@@ -16,5 +16,3 @@ Here you will find my notes on multiple subjects that I came across at some poin
 Sometimes, it's just notes, sometimes it's articles and sometimes, it's to permit myself to reproduce some advanced automation I keep forgetting.
 
 With a little luck, this could help others too.
-
-[[./about-me.org][More information about me can be found here.]]
