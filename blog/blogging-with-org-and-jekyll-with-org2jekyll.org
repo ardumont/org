@@ -1,6 +1,6 @@
 #+LAYOUT: post
 #+DATE: [2014-12-20 Sat. 23:00]
-#+TITLE: Blogging with org and jekyll with org2jekyll
+#+TITLE: org2jekyll - blog with org & jekyll
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS: H:2 num:nil tags:nil toc:nil timestamps:t
 #+CATEGORIES: org-mode, jekyll, org2jekyll, emacs, blog, tools
