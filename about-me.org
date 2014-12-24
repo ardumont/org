@@ -46,4 +46,4 @@ Some more advanced technologies I came across during my spare time: Haskell, *Li
 - [[http://en.gravatar.com/ardumont][gravatar]]
 - [[http://j.mp/dWMPPr][linkedin]]
 - [[http://j.mp/ibIAVM][viadeo]]
-- [[http://adumont.fr/cv/curriculum-app.html][My resume]]
+- [[./cv/curriculum-app.html][My resume]]
