@@ -1,15 +1,12 @@
-#+BLOG: tony-blog
-#+POSTID: 1196
+#+STARTUP: indent
+#+STARTUP: hidestars odd
 #+DATE: [2013-05-26 dim. 01:39]
-#+BLOG: tony-blog
+#+LAYOUT: post
 #+TITLE: PIH - ch11 - The countdown problem - exercises
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
-#+TAGS: haskell, exercises, functional-programming, countdown-problem
 #+CATEGORIES: haskell, exercises, functional-programming, countdown-problem
 #+DESCRIPTION: The countdown problem (from 'Des chiffres et des Lettres')
-#+STARTUP: indent
-#+STARTUP: hidestars odd
 
 It has been a while since I read some [[http://www.cs.nott.ac.uk/~gmh/book.htm][programming in haskell book]] ([[http://blog.pinboard.in/2013/04/the_matasano_crypto_challenges/][matasano challenges]], [[http://projecteuler.net/][euler problems]], [[http://www.4clojure.com/][4clojure problems]], and so on kept me busy :D).
 So here it goes, the chapter 11 exercises was about the countdown problem.
