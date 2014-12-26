@@ -1,4 +1,5 @@
 #+LAYOUT: post
+#+DATE: 2013-06-01
 #+TITLE: FAIH - Ch3 - Exercises
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:

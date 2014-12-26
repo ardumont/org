@@ -1,5 +1,5 @@
 #+LAYOUT: post
-#+DATE: [2012-12-24 Mon 20:35]
+#+DATE: 2012-12-24 Mon 20:35
 #+TITLE: Programming in haskell - Ch3 - Types and classes
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
