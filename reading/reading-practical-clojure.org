@@ -82,7 +82,7 @@ Code is data and data can be code.
 Special system form that is part of the clojure core.
 *** DONE Writing and Running Source Files ........................................................................20
 Loading clojure code from the repl through a file:
-#+BEGIN_SRC clj
+#+BEGIN_SRC clojure
 user=> (load-file "./hello-world.clj")
 Hello, World!
 I'm running Clojure code from a file.
@@ -123,11 +123,11 @@ In clojure, all functions are first-class object, which means
 - can be stored as values in any data structures
 ***** DONE Defining Functions with fn ............................................................................. 29
 only 2 arguments
-#+BEGIN_SRC clj
+#+BEGIN_SRC clojure
 (fn [x y] (* x y))
 #+END_SRC
 this function is not named, so we can bind it to a symbol.
-#+BEGIN_SRC clj
+#+BEGIN_SRC clojure
 (def my-mult (fn [x y] (* x y)))
 #+END_SRC
 A function is not called by a name, it is resolved from the symbol
@@ -135,7 +135,7 @@ they are bound to.
 ***** DONE Defining Functions with defn............................................................................ 31
 defn shortcut to define a function and bind it to a symbol and
 document it. Use it.
-#+BEGIN_SRC clj
+#+BEGIN_SRC clojure
 (fact (sq 0) => 0)
 (fact (sq 5) => 25)
 
@@ -146,7 +146,7 @@ document it. Use it.
 #+END_SRC
 ***** DONE Functions of Multiple Arities........................................................................... 31
 We can define multiple implementations of a function depending on the number of arguments.
-#+BEGIN_SRC clj
+#+BEGIN_SRC clojure
 (fact (square-or-multiply) => 0)
 (fact (square-or-multiply 5) => 25)
 (fact (square-or-multiply 5 6) => 30)
@@ -161,7 +161,7 @@ We can define multiple implementations of a function depending on the number of 
 ***** DONE Functions with Variable Arguments....................................................................... 32
 Arity not fixed.
 Use a keyword & to represent this variable arity.
-#+BEGIN_SRC clj
+#+BEGIN_SRC clojure
 (fact (add-arg-count 5) => 5)
 (fact (add-arg-count 5 0) => 6)
 (fact (add-arg-count 5 0 1 2 3) => 9)
@@ -175,7 +175,7 @@ Use a keyword & to represent this variable arity.
 ***** DONE Shorthand Function Declaration ......................................................................... 33
 Reading macro
 - with same argument
-#+BEGIN_SRC clj
+#+BEGIN_SRC clojure
 (fact (sq2 0) => 0)
 ;.;. The work itself praises the master. -- CPE Bach
 (fact (sq2 5) => 25)
@@ -183,7 +183,7 @@ Reading macro
 (def sq2 #(* % %))
 #+BEGIN_SRC
 - with different arguments
-#+BEGIN_SRC clj
+#+BEGIN_SRC clojure
 (fact (my-mult2 10 2) => 20)
 ;.;. This is the future you were hoping for. -- @Vaguery
 (fact (my-mult 1 2) => 2)
@@ -191,7 +191,7 @@ Reading macro
 (def my-mult2 #(* %1 %2))
 #+BEGIN_SRCDONE Conditional Expressions..................................................................................34
 if statement.
-#+BEGIN_SRC clj
+#+BEGIN_SRC clojure
 (fact (if (= 1 1) "Maths still work!") => "Maths still work!")
 (fact (if (= 1 2) "Maths is broken!" "Maths still work!") => "Maths still work!")
 
@@ -199,7 +199,7 @@ if statement.
 #+END_SRC
 
 cond statements
-#+BEGIN_SRC clj
+#+BEGIN_SRC clojure
 (defn weather-judge
   "given a temperature in degree centigrade, it will comment on the weather's quality"
   [x]

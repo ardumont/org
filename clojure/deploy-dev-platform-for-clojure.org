@@ -16,14 +16,14 @@ M-x cd ~/repositories/perso/my-clojure-lab
 M-x clojure-jack-in
 * edit your project.clj file
 Add this to your project.clj
-#+BEGIN_SRC clj
+#+BEGIN_SRC clojure
  :dependencies [[org.clojure/clojure "1.2.1"]]
   :dev-dependencies [[org.clojure/clojure-contrib "1.2.0"]
                      [midje "1.1.1"]] )
 
 #+END_SRC
 * edit in your core.clj
-#+BEGIN_SRC clj
+#+BEGIN_SRC clojure
 (fact (+ 1 1) => 3)
 #+END_SRC
 * Retrieve some files from the project midje

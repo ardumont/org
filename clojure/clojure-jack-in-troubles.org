@@ -1,4 +1,3 @@
-
 * Versions
 ** lein - 1.7.1-SNAPSHOT
 #+BEGIN_SRC sh
@@ -89,7 +88,7 @@ Je n'ai pas essaye le --enable-debug parce que je ne sais pas de quoi il s'agit.
 
 * stacktrace
 
-#+BEGIN_SRC clj
+#+BEGIN_SRC clojure
 exception in read loop
 java.lang.Exception: Error reading swank message
         at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)

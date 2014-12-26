@@ -30,7 +30,7 @@
 * Awesomeness!
 ** Clojure
 *** code clojure
-#+BEGIN_SRC clj
+#+BEGIN_SRC clojure
 (fact (+ 1 1) => 2)
 #+END_SRC
 *** /Midje/, unit testing fwk is pretty awesome!
