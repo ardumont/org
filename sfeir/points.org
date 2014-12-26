@@ -28,31 +28,31 @@
 
 29/03/2012	9-2	55	Hands-on clojure - JDuchess
 
- 08/2011	6-3	13	http://adumont.fr/blog/howto-install-stumpwm-and-little-more/
+ 08/2011	6-3	13	http://ardumont.github.io/howto-install-stumpwm-and-little-more/
 
- 08/2011	6-3	13	http://adumont.fr/blog/possible-team-workflow-with-git/
+ 08/2011	6-3	13	http://ardumont.github.io/possible-team-workflow-with-git/
 
- 08/2011	6-3	13	http://adumont.fr/blog/generation-cle-priveepublique/
+ 08/2011	6-3	13	http://ardumont.github.io/generation-cle-priveepublique/
 
- 08/2011	6-3	13	http://adumont.fr/blog/possible-team-workflow-with-git/
+ 08/2011	6-3	13	http://ardumont.github.io/possible-team-workflow-with-git/
 
- 04/2012	6-3	13	http://adumont.fr/blog/howto-beamer-with-org-mode/
+ 04/2012	6-3	13	http://ardumont.github.io/howto-beamer-with-org-mode/
 
- 04/2012	6-3	13	http://adumont.fr/blog/how-to-install-emacs-24/
+ 04/2012	6-3	13	http://ardumont.github.io/how-to-install-emacs-24/
 
- 04/2012	6-3	13	http://adumont.fr/blog/how-to-install-the-clojure-development-environment/
+ 04/2012	6-3	13	http://ardumont.github.io/how-to-install-the-clojure-development-environment/
 
- 04/2012	6-3	13	http://adumont.fr/blog/how-to-boostrap-a-clojure-project/
+ 04/2012	6-3	13	http://ardumont.github.io/how-to-boostrap-a-clojure-project/
 
- 04/2012	6-3	13	http://adumont.fr/blog/one-way-to-solve-a-problem-in-clojure/
+ 04/2012	6-3	13	http://ardumont.github.io/one-way-to-solve-a-problem-in-clojure/
 
  04/2012 5-4	8	issue github sur le projet serial-port - https://github.com/samaaron/serial-port/issues/3
 
  04/2012 5-4	8	pull request sur le projet serial-port - https://github.com/samaaron/serial-port/pull/4 - https://github.com/samaaron/serial-port/pull/5
 
- 05/2012 6-3	13	http://adumont.fr/blog/my-first-steps-with-arduinoclodiuno/
+ 05/2012 6-3	13	http://ardumont.github.io/my-first-steps-with-arduinoclodiuno/
 
- 05/2012 6-3	13	http://adumont.fr/blog/clodiuno-command-a-led-from-the-repl/
+ 05/2012 6-3	13	http://ardumont.github.io/clodiuno-command-a-led-from-the-repl/
 
  05/2012 6-7	13	Euroclojure a Londres - 2 jours
 
@@ -62,7 +62,7 @@
 
  06/2012 10-2	89	Organisation d'un evenement externe (kata-rendori clojure mercredi 06/06/2012)
 
- 06/2012 6-3	13	http://adumont.fr/blog/hello-world-in-morse-with-arduinoclodiuno/
+ 06/2012 6-3	13	http://ardumont.github.io/hello-world-in-morse-with-arduinoclodiuno/
 
  06/2012  9-2	55	Animation du kata rendori le mercredi 06/06/2012 - 19-22h (lieu xebia)
 
@@ -72,48 +72,48 @@
 
  07/2012  9-2	55	Presentation au CPUG
 
- 12/2012	6-3	13	setup asus zenbook - [2012-12-23 Sun 13:14] - http://adumont.fr/blog/setup-the-asus-zenbook/
+ 12/2012	6-3	13	setup asus zenbook - [2012-12-23 Sun 13:14] - http://ardumont.github.io/setup-the-asus-zenbook/
 
- 12/2012	6-3	13	blogging with org-mode/org2blog/wordpress - [2012-12-23 Sun 13:14] - http://adumont.fr/blog/blogging-with-org-mode-and-org2blog-to-publish-on-wordpress/
+ 12/2012	6-3	13	blogging with org-mode/org2blog/wordpress - [2012-12-23 Sun 13:14] - http://ardumont.github.io/blogging-with-org-mode-and-org2blog-to-publish-on-wordpress/
 
- 12/2012	6-3	13	my emacs tools - [2012-12-23 Sun 13:14] - http://adumont.fr/blog/my-emacs-tools/
+ 12/2012	6-3	13	my emacs tools - [2012-12-23 Sun 13:14] - http://ardumont.github.io/my-emacs-tools/
 
- 12/2012	6-3	13	programming in haskell - Ch1 - Introduction - exercises - [2012-12-24 Mon 13:47] - http://adumont.fr/blog/programming-in-haskell-exercices-intro/
+ 12/2012	6-3	13	programming in haskell - Ch1 - Introduction - exercises - [2012-12-24 Mon 13:47] - http://ardumont.github.io/programming-in-haskell-exercices-intro/
 
- 12/2012	6-3	13	programming in haskell - Ch2 - First steps - exercises - [2012-12-25 Tue 10:48] - http://adumont.fr/blog/programming-in-haskell-ch2-first-steps-exercises/
+ 12/2012	6-3	13	programming in haskell - Ch2 - First steps - exercises - [2012-12-25 Tue 10:48] - http://ardumont.github.io/programming-in-haskell-ch2-first-steps-exercises/
 
- 12/2012	6-3	13	Vagrant tools - [2012-12-26 mer. 17:27] - http://adumont.fr/blog/vagrant-tools/
+ 12/2012	6-3	13	Vagrant tools - [2012-12-26 mer. 17:27] - http://ardumont.github.io/vagrant-tools/
 
- 12/2012	6-3	13	programming in haskell - Ch3 - Types and classes - exercises - [2012-12-26 mer. 23:18] - http://adumont.fr/blog/programming-in-haskell-ch3-types-and-classes-exercises/
+ 12/2012	6-3	13	programming in haskell - Ch3 - Types and classes - exercises - [2012-12-26 mer. 23:18] - http://ardumont.github.io/programming-in-haskell-ch3-types-and-classes-exercises/
 
- 12/2012	6-3	13	Git aliases/System git aliases - [2012-12-27 jeu. 19:09] - http://adumont.fr/blog/git-aliasessystem-git-aliases/
+ 12/2012	6-3	13	Git aliases/System git aliases - [2012-12-27 jeu. 19:09] - http://ardumont.github.io/git-aliasessystem-git-aliases/
 
- 12/2012	6-3	13	programming in haskell - Ch4 - Defining functions - exercises - [2012-12-28 ven. 18:56] - http://adumont.fr/blog/programming-in-haskell-ch4-defining-functions-exercises/
+ 12/2012	6-3	13	programming in haskell - Ch4 - Defining functions - exercises - [2012-12-28 ven. 18:56] - http://ardumont.github.io/programming-in-haskell-ch4-defining-functions-exercises/
 
- 12/2012	6-3	13	Daily git 1/2 - [2012-12-29 sam. 13:20] - http://adumont.fr/blog/daily-git-12/
+ 12/2012	6-3	13	Daily git 1/2 - [2012-12-29 sam. 13:20] - http://ardumont.github.io/daily-git-12/
 
  12/2012	6-3	13	Activate/Deactivate touchpad from the shell - [2012-12-29 sam. 15:10]
 
- 12/2012	6-3	13	Stumpwm - Activate/Deactivate touchpad - http://adumont.fr/blog/stumpwm-activatedeactivate-touchpad/
+ 12/2012	6-3	13	Stumpwm - Activate/Deactivate touchpad - http://ardumont.github.io/stumpwm-activatedeactivate-touchpad/
 
- 12/2012	6-3	13	Daily git 2/2 - CLOSED: [2012-12-30 dim. 12:21] - http://adumont.fr/blog/daily-git-22/
+ 12/2012	6-3	13	Daily git 2/2 - CLOSED: [2012-12-30 dim. 12:21] - http://ardumont.github.io/daily-git-22/
 
- 12/2012	6-3	13	Programming in haskell - ch5 - Lists comprehension - exercises - [2012-12-30 dim. 15:31] - http://adumont.fr/blog/programming-in-haskell-ch5-lists-comprehension-exercises/
+ 12/2012	6-3	13	Programming in haskell - ch5 - Lists comprehension - exercises - [2012-12-30 dim. 15:31] - http://ardumont.github.io/programming-in-haskell-ch5-lists-comprehension-exercises/
 
- 12/2012	6-3	13	Stumpwm - Display result of bash commands using zenity - [2012-12-31 lun. 19:53] - http://adumont.fr/blog/stumpwm-display-result-of-bash-commands-using-zenity/
+ 12/2012	6-3	13	Stumpwm - Display result of bash commands using zenity - [2012-12-31 lun. 19:53] - http://ardumont.github.io/stumpwm-display-result-of-bash-commands-using-zenity/
 
- 01/2013	6-3	13	Emacs - Activate touchpad when org-mode exports html - [2013-01-01 mar. 12:41] - http://adumont.fr/blog/emacs-activate-touchpad-when-org-mode-exports-html/
+ 01/2013	6-3	13	Emacs - Activate touchpad when org-mode exports html - [2013-01-01 mar. 12:41] - http://ardumont.github.io/emacs-activate-touchpad-when-org-mode-exports-html/
 
- 01/2013	6-3	13	Programming in haskell - ch6 - Recursive functions - exercises - [2013-01-02 mer. 21:37] - http://adumont.fr/blog/programming-in-haskell-ch6-recursive-functions/
+ 01/2013	6-3	13	Programming in haskell - ch6 - Recursive functions - exercises - [2013-01-02 mer. 21:37] - http://ardumont.github.io/programming-in-haskell-ch6-recursive-functions/
 
- 01/2013	6-3	13	Programming in haskell - ch7 - Higher-order functions - exercises 1/3 - [2013-01-05 sam. 15:51] - http://adumont.fr/blog/pih-ch7-higher-order-functions-12/
+ 01/2013	6-3	13	Programming in haskell - ch7 - Higher-order functions - exercises 1/3 - [2013-01-05 sam. 15:51] - http://ardumont.github.io/pih-ch7-higher-order-functions-12/
 
- 01/2013	6-3	13	Programming in haskell - ch7 - Higher-order functions - exercises - 2/3 - [2013-01-07 lun. 21:57] - http://adumont.fr/blog/pih-ch7-higher-order-functions-23/
+ 01/2013	6-3	13	Programming in haskell - ch7 - Higher-order functions - exercises - 2/3 - [2013-01-07 lun. 21:57] - http://ardumont.github.io/pih-ch7-higher-order-functions-23/
 
- 01/2013	6-3	13	Programming in haskell - ch7 - Higher-order functions - exercises - 3/3 - [2013-01-08 mar. 19:56] - http://adumont.fr/blog/pih-ch7-higher-order-functions-33/
+ 01/2013	6-3	13	Programming in haskell - ch7 - Higher-order functions - exercises - 3/3 - [2013-01-08 mar. 19:56] - http://ardumont.github.io/pih-ch7-higher-order-functions-33/
 
- 01/2013	6-3	13	polipo simple setup - [2013-01-12 sam. 03:46] -	http://adumont.fr/blog/polipo-setup/
+ 01/2013	6-3	13	polipo simple setup - [2013-01-12 sam. 03:46] -	http://ardumont.github.io/polipo-setup/
 
- 01/2013	6-3	13	gtalk in emacs using jabber mode - [2013-01-13 dim. 18:44] - http://adumont.fr/blog/gtalk-in-emacs-using-jabber-mode/
+ 01/2013	6-3	13	gtalk in emacs using jabber mode - [2013-01-13 dim. 18:44] - http://ardumont.github.io/gtalk-in-emacs-using-jabber-mode/
 
- 01/2013	6-3	13	4clojure problem on intervals - [2013-01-27 dim. 03:10] - http://adumont.fr/blog/intervals/
+ 01/2013	6-3	13	4clojure problem on intervals - [2013-01-27 dim. 03:10] - http://ardumont.github.io/intervals/
