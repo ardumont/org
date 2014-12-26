@@ -9,7 +9,7 @@
 #+STARTUP: hidestars odd
 
 Here is the second part of the exercise from the chapter 10.
-The first part is [[http://adumont.fr/blog/pih-ch10-12-declaring-types-and-classes-exercises/][here]].
+The first part is [[http://ardumont.github.io/chapter10-1of3][here]].
 
 * Tautology
 #+BEGIN_QUOTE

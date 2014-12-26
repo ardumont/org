@@ -5,13 +5,13 @@
 #+TITLE: org-trello - New features
 #+LAYOUT: post
 
-In a [[http://adumont.fr/blog/org-trello-sync-your-org-file-to-trello/][previous article]], I introduced [[http://ardumont.github.io/org-trello/][org-trello]].
+In a [[http://ardumont.github.io/org-trello][previous article]], I introduced [[http://ardumont.github.io/org-trello/][org-trello]].
 
 In this blog post, I will show some more actions you can do with [[http://ardumont.github.io/org-trello/][org-trello]].
 
 The current version is [[https://github.com/org-trello/org-trello/releases/tag/0.0.8][0.0.8]].
 
-Also, a new site is hosted on http://ardumont.github.io/org-trello/.
+Also, a new site is hosted on [[http://org-trello.github.io/org-trello/]].
 
 * Demo
 

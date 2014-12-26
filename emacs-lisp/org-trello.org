@@ -1,9 +1,10 @@
+#+LAYOUT: post
 #+DATE: [2013-07-12 ven. 21:45]
 #+OPTIONS: toc:nil
-#+CATEGORIES: org-trello, org-mode, emacs, trello, tools
-#+DESCRIPTION: Synchronize your trello board from emacs
 #+TITLE: org-trello - 2-way sync org & trello
-#+LAYOUT: post
+#+AUTHOR: ardumont
+#+DESCRIPTION: Synchronize your trello board from emacs
+#+CATEGORIES: org-trello, org-mode, emacs, trello, tools
 
 For some time now, I wanted to learn [[https://www.gnu.org/software/emacs/manual/html_node/elisp/index.html][Emacs-lisp]] some [[https://github.com/ardumont/emacs-live-packs][more than I already did]].
 As I dayly use emacs, I think it was the logical course of action.

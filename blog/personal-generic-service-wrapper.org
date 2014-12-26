@@ -144,4 +144,4 @@ In theory, one would have to:
 
 Contributions are welcome.
 
-*Edit* [[http://adumont.fr/blog/personal-generic-service-wrapper-22/][I just published a possible implementation.]]
+*Edit* [[http://ardumont.github.io/personal-generic-service-wrapper-2][I just published a possible implementation.]]

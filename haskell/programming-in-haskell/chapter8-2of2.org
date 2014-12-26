@@ -9,7 +9,7 @@
 #+STARTUP: hidestars odd
 
 Here is the second part of the exercises from the chapter 8.
-For the first part, [[http://adumont.fr/blog/?p=997][go here]].
+For the first part, [[http://ardumont.github.io/chapter8-1of2][go here]]o.
 
 * Efficiency
 #+begin_quote
@@ -210,7 +210,7 @@ Show how it can be fixed.
 _Hint:_ Rewrite the parser using the repetition primitive =many= and the library function [[http://hackage.haskell.org/packages/archive/base/latest/doc/html/Prelude.html#v:foldl][foldl]].
 #+end_quote
 
-Here is the remainder of the many parser, for a more exhaustive list, see the [[http://adumont.fr/blog/?p=997][previous article]]:
+Here is the remainder of the many parser, for a more exhaustive list, see the [[http://ardumont.github.io/chapter8-1of2][previous article]]:
 #+begin_src haskell
 many :: Parser a -> Parser [a]
 many p = many1 p +++ return []

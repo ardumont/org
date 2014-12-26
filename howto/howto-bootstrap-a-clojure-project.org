@@ -9,11 +9,11 @@
 In this article, we will see how to rapidly startup a [[http://clojure.org/][clojure]] project using [[https://github.com/technomancy/leiningen][leiningen]].
 
 * Pre-requisites
-** [[http://www.gnu.org/software/emacs/][emacs]]
-See this [[http://adumont.fr/blog/how-to-install-emacs-24/][previous post for installing it]]
+** [[http://www.gnu.org/software/emacs/][GNU/Emacs]]
+See this [[http://ardumont.github.io/howto-install-emacs24-with-some-mode/][previous post for installing it]]
 
 ** [[http://clojure.org/][clojure]] environment
-See this [[http://adumont.fr/blog/how-to-install-the-clojure-development-environment/][previous post]]
+See this [[http://localhost:4000/howto-install-clojure][previous post]]
 
 ** a network to fetch dependencies
 
@@ -47,7 +47,7 @@ git init && git add . && git commit -m "Bootstrap clojure project"
 
 * Launch a [[http://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop][repl]]
 ** [[https://github.com/technomancy/swank-clojure][clojure-jack-in]]
-As we [[http://adumont.fr/blog/how-to-install-emacs-24/][already installed emacs]], we can launch the repl by doing simply:
+As we [[http://ardumont.github.io/howto-install-emacs24-with-some-mode/][already installed emacs]], we can launch the repl by doing simply:
 - =M-x cd= to change the current folder emacs runs into the =hello folder= (the one containing the =project.clj= file)
 - =M-x clojure-jack-in= to launch the repl.
 

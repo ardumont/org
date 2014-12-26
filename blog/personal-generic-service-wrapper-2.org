@@ -6,7 +6,7 @@
 #+DESCRIPTION: Generic need to start/stop/status/restart command (which can take arguments)
 #+CATEGORIES: script, GNU/Linux, feedback, service, personal
 
-In a [[http://adumont.fr/blog/personal-generic-service-wrapper/][previous article]], I presented a generic service wrapper.
+In a [[http://ardumont.github.io/personal-generic-service-wrapper][previous article]], I presented a generic service wrapper.
 This script was limited in one point, we could not wrap call to command with arguments.
 
 I suggested that we could make an evolution to deal with it (without proposing one at a time).

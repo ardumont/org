@@ -2,11 +2,11 @@
 #+DATE: [2012-12-22 Sat 14:20]
 #+TITLE: How to install emacs 24
 #+AUTHOR: Antoine R. Dumont
-#+OPTIONS:
+#+OPTIONS: toc:nil
 #+CATEGORIES: emacs, howto
 #+DESCRIPTION: how to install emacs 24 in ubuntu based box
 #+STARTUP: indent
-#+STARTUP: hidestars odd
+#+STARTUP: hidestars
 
 This article will show how to install rapidly emacs 24 on ubuntu based system (linuxmint 13/14 for example) from 11.10 to 12.10.
 
@@ -17,39 +17,39 @@ sudo aptitude install emacs24
 #+END_SRC
 
 * ubuntu based 11.10/12.04
-*** Pre-requisites:
-***** ubuntu 11.10/12.04
-***** internet access
-*** What will be installed?
+** Pre-requisites:
+*** ubuntu 11.10/12.04
+*** internet access
+** What will be installed?
 [[http://www.gnu.org/software/emacs/][emacs]] 24 with [[https://github.com/overtone/emacs-live][emacs-live]]
-*** How to?
-***** Install
+** How to?
+*** Install
 Here are the scripts to download:
 #+BEGIN_SRC sh
 wget https://github.com/ardumont/sh/blob/master/deploy/deploy-emacs24.sh
 chmod +x deploy-emacs24.sh && deploy-emacs24.sh
 #+END_SRC
-***** Start emacs
+*** Start emacs
 #+BEGIN_SRC sh
 emacs
 #+END_SRC
 This will automatically search and install the asked packages (cf. next chapter for some more details).
-*** Some more details
-**** deploy
-***** deploy-emacs24.sh
-***** Content
+** Some more details
+*** deploy
+**** deploy-emacs24.sh
+**** Content
 #+INCLUDE: "/home/tony/bin/deploy/deploy-emacs24.sh" src sh
-***** Details
-******* Setup the script
-******* Add the repository *ppa:cassou/emacs*
-******* Install emacs 24
-******* Check that the version is ok
-**** Setup
+**** Details
+***** Setup the script
+***** Add the repository *ppa:cassou/emacs*
+***** Install emacs 24
+***** Check that the version is ok
+*** Setup
 
 Launch the installation process of a default setup that comes from the [[https://github.com/overtone/emacs-live][emacs-live]] page:
 #+BEGIN_SRC sh
 bash <(curl -fksSL https://raw.github.com/overtone/emacs-live/master/installer/install-emacs-live.sh)
 #+END_SRC
 
-*** Sources:
-***** [[https://github.com/ardumont/sh/blob/master/setup-emacs24.sh][setup-emacs24.sh]]
+** Sources:
+*** [[https://github.com/ardumont/sh/blob/master/setup-emacs24.sh][setup-emacs24.sh]]

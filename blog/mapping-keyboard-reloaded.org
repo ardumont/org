@@ -5,7 +5,7 @@
 #+CATEGORIES: keyboard, feedback, xmodmap, pm-utils, hooks, resume, revert, help, GNU/Linux
 #+DESCRIPTION: Help, my keyboard mapping is reverted back at resume time...
 
-So, Everything is great! [[http://adumont.fr/blog/a-story-of-keyboard-mapping-12/][I have my keyboard mapping]] which permits me to concentrate on my goal.
+So, Everything is great! [[http://ardumont.github.io/mapping-keyboard/][I have my keyboard mapping]] which permits me to concentrate on my goal.
 
 Or so I thought...
 

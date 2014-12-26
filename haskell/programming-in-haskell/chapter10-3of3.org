@@ -1,3 +1,4 @@
+#+LAYOUT: post
 #+DATE: [2013-05-08 mer. 10:40]
 #+TITLE: PIH - ch10 - 3/3 - Declaring types and classes - exercises
 #+AUTHOR: Antoine R. Dumont
@@ -8,8 +9,8 @@
 
 Here is the last part of the chapter 10's exercises.
 Previous part:
-- [[http://adumont.fr/blog/?p%3D1050][First]]
-- [[http://adumont.fr/blog/?p%3D1064][Second]]
+- [[http://ardumont.github.io/chapter10-1of3][First]]
+- [[http://ardumont.github.io/chapter10-2of3][Second]]
 
 * Abstract Machine
 #+BEGIN_QUOTE

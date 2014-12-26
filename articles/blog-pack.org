@@ -7,7 +7,7 @@
 #+DESCRIPTION: emacs-live pack about org2blog - blog-pack
 #+STARTUP: indent
 
-[[http://adumont.fr/blog/blogging-with-org-mode-and-org2blog-to-publish-on-wordpress/][I already published an article about org2blog]].
+[[http://ardumont.github.io/blogging-with-org-mode-and-org2blog][I already published an article about org2blog]].
 This is another one explaining how to install [[https://github.com/punchagan/org2blog][org2blog]] using simply a =~/.netrc= file.
 
 For this, I developed a simple [[https://github.com/overtone/emacs-live][emacs-live]] pack called [[https://github.com/ardumont/blog-pack][blog-pack]].

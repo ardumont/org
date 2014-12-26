@@ -12,11 +12,11 @@ As I recently changed my hardware, I got a new portable with a *HUGE* touchpad (
 Thus, when I type with my keyboard, it gets in the way.
 
 So a new need came up, Shell/Stumpwm power to the rescue:
-- [[http://adumont.fr/blog/activatedeactivate-touchpad-from-the-shell/][I want to be able to disable/enable my touchpad]] DONE!
+- [[http://ardumont.github.io/stumpwm-touchpad][I want to be able to disable/enable my touchpad]] DONE!
 - When switching to emacs or a terminal, I want it to be disabled!
 - When switching back to the browsers or other mouse-needed software, I want to enable it back.
 
-As I [[http://adumont.fr/blog/activatedeactivate-touchpad-from-the-shell/][recently posted on how to activate/deactivate the touchpad from the shell command]], in this post, I will use those bricks to improve my condition using [[http://www.nongnu.org/stumpwm/][stumpwm]].
+As I [[http://ardumont.github.io/activate-or-deactivate-touchpad][recently posted on how to activate/deactivate the touchpad from the shell command]], in this post, I will use those bricks to improve my condition using [[http://www.nongnu.org/stumpwm/][stumpwm]].
 
 * Manually
 
@@ -35,7 +35,7 @@ Helper function:
 #+end_src
 
 The main code whose only concern is to:
-- reuse the script [[http://adumont.fr/blog/activatedeactivate-touchpad-from-the-shell/][toggle-touchpad.sh described here]]:
+- reuse the script [[http://ardumont.github.io/activate-or-deactivate-touchpad/#notebook][toggle-touchpad.sh described here]]:
 - banish the mouse from the screen (the mouse is positionned at the bottom right of the screen)
 
 #+begin_src lisp

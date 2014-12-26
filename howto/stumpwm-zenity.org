@@ -8,7 +8,7 @@
 #+STARTUP: indent
 #+STARTUP: hidestars
 
-It has been [[http://adumont.fr/blog/howto-install-stumpwm-and-little-more/][some time now]] since i talked about [[http://www.nongnu.org/stumpwm/][stumpwm]].
+It has been [[http://ardumont.github.io/howto-install-stumpwm][some time now]] since i talked about [[http://www.nongnu.org/stumpwm/][stumpwm]].
 
 I wanted to do an update since I added/modified/upgraded some stuff in my setup.
 

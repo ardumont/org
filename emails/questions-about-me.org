@@ -83,7 +83,7 @@ To sum up, the environment's got to adapt to you and not the other way around.
 ** How do you spend your time when you are coding for your own amusement?
 
 - Trying out clojure libs (pallet, core-logic, quil, ring, compojure, midje, clj-http, webfui, etc...). (cf. http://github.com/ardumont)
-- Learning tools (vagrant, stumpwm, emacs, etc...) to improve my abilities in my everyday use (cf. http://adumont.fr/blog)
+- Learning tools (vagrant, stumpwm, emacs, etc...) to improve my abilities in my everyday use (cf. [[http://ardumont.github.io]])
 - Learning new options of bash commands for the same previous reason
 
 ** What kind of problems do you solve?

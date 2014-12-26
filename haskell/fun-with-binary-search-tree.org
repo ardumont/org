@@ -5,7 +5,7 @@
 #+TITLE: Binary Search Tree in Haskell
 #+DESCRIPTION: Having fun implementing some binary search tree functions
 
-In this post, following the same idea from the [[http://adumont.fr/blog/?p%3D1110][previous post about sets]], we will walk through some functions relative to [[https://en.wikipedia.org/wiki/Binary_search_tree][binary search trees]].
+In this post, following the same idea from the [[http://ardumont.github.io/fun-with-sets][previous post about sets]], we will walk through some functions relative to [[https://en.wikipedia.org/wiki/Binary_search_tree][binary search trees]].
 
 * Definition
 
