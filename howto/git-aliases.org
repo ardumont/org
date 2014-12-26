@@ -111,7 +111,8 @@ You will still be able to use [[https://github.com/defunkt/hub][hub]] very much 
 I use [[http://wiki.tcl.tk/14598][gitk]] to see where I'm at in terms of branch and SHA1.
 I often want to see all the branches too.
 
-[[./resources/git/gitka-sample.png]]
+#+ATTR_HTML: :width 90%
+[[../img/dayly-git/gitka-sample.png]]
 
 If not, i use directly =gitk=
 
@@ -199,8 +200,6 @@ But I systematically forgot about it and so I still use directly =git reset=.
 =git log -1 HEAD=
 
 To see the last commit. This is mostly to check if I am where I think I am
-
-#+./resources/git/gitka-sample.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-gitka-sample.png
 
 * Conclusion
 

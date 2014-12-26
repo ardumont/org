@@ -46,7 +46,8 @@ git checkout -b adu/doSomeStuff
 *** You do your dev regularly, add the files and commit.
 The graph will look like something like this:
 
-[[file:./resources/git/00.master-branch-without-pull-on-master.png][file:./resources/git/00.master-branch-without-pull-on-master.png]]
+[[../img/dayly-git/00.master-branch-without-pull-on-master.png]]
+
 *** Regularly, return to master to synchronize the source.
 #+BEGIN_SRC sh
 # Return to master
@@ -58,7 +59,8 @@ git pull
 
 If there were some changes inside the remote master (origin/master), the graph will evolve like this:
 
-[[file:./resources/git/resources/git/0.master-branch-before-merge.png][file:./resources/git/0.master-branch-before-merge.png]]
+
+[[../img/dayly-git/0.master-branch-before-merge.png]]
 
 *** Why does git refuse to checkout my branch?
 If it refuses (git explains everything it does and also why it refuses), you may have forgotten one
@@ -114,7 +116,7 @@ git merge master
 Everything ok ?
 If everything is merging without problems, the graph will look like this:
 
-[[file:./resources/git/1.merge-master-into-branch.png][file:./resources/git/1.merge-master-into-branch.png]]
+[[../img/dayly-git/1.merge-master-into-branch.png]]
 
 *** There were conflicts, what do i do?
 So there were conflits during merge, we must fix these conflicts manually.
@@ -176,7 +178,7 @@ command).
 
 So the graph will look like this:
 
-[[file:./resources/git/2.master-branch-after-second-merge-branchA-into-master.png][file:./resources/git/2.master-branch-after-second-merge-branchA-into-master.png]]
+[[../img/dayly-git/2.master-branch-after-second-merge-branchA-into-master.png]]
 *** Send your modifications to master!
 #+BEGIN_SRC sh
 git push
@@ -200,8 +202,3 @@ git pull
 git push
 #+END_SRC
 *** Now, you're done!!!
-
-#+./resources/git/00.master-branch-without-pull-on-master.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-00.master-branch-without-pull-on-master.png
-#+./resources/git/resources/git/0.master-branch-before-merge.png"><img src="./resources/git/0.master-branch-before-merge.png" alt="0.master-branch-before-merge.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-0.master-branch-before-merge.png-alt0.master-branch-before-merge.png
-#+./resources/git/1.merge-master-into-branch.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-1.merge-master-into-branch.png
-#+./resources/git/2.master-branch-after-second-merge-branchA-into-master.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-2.master-branch-after-second-merge-branchA-into-master.png
