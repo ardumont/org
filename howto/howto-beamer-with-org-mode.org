@@ -7,18 +7,35 @@
 #+DATE: [2012-12-22 Sat 14:20]
 #+CATEGORIES: emacs, beamer, org-mode, tools
 #+OPTIONS: toc:nil
+#+STYLE: <style type="text/css">
 
 * Pre-requisites
-** emacs
-** with org-mode
+- emacs
+- with org-mode
+
 * Install the other pre-requisites
+
+Under a debian derivative O.S.:
 #+BEGIN_SRC sh
 sudo aptitude install latex latex-beamer \
   texlive-latex-extra texlive-fonts-recommended ttf-marvosym
 #+END_SRC
-* Init a org file
-** Add some particular headers
-#+BEGIN_SRC org
+
+*Note* Your mileage may vary...
+
+* Example of org-mode file
+
+Here is an example of org-code and the output frame beside it.
+
+*Note*
+As I wrote in org-mode, I escaped the org-mode code with \.
+Real org-mode code is without the first \ character.
+
+** First, add some specific headers
+
+Initialize an org file with the following headers:
+
+#+BEGIN_SRC org-mode
 \#+TITLE:     your-title
 \#+AUTHOR:    your-name
 \#+EMAIL:     your-email
@@ -33,115 +50,131 @@ sudo aptitude install latex latex-beamer \
 \#+EXPORT_EXCLUDE_TAGS: noexport
 \#+LINK_UP:
 \#+LINK_HOME:
-
+\
 \#+startup: beamer
 \#+LaTeX_CLASS: beamer
 \#+LaTeX_CLASS_OPTIONS: [bigger]
-
+\
 \#+BEAMER_FRAME_LEVEL: 2
-
 #+END_SRC
-They are escaped here (\#) otherwise, it's evaluated by org-mode.
-For real, replace the \# by #.
 
 
+** There is automatically a front-page
 
-** Example of org-code and the output
+The information comes from the previous headers block.
 
-*** There is automatically a front-page
-The informations comes from the previous blocks.
+#+CAPTION: First frame output example
+#+ATTR_HTML: :alt "frame-11 image" :title "First frame output example"
+#+ATTR_HTML: :width 500 :align center
+[[../img/org-beamer-examples/front-page.png]]
 
-#+ATTR_HTML: alt="frame-11 image" title="First frame output example" align="center" width="500"
-[[../org-beamer-examples/front-page.png]]
-
-*** And a outline page
+** And an outline page
 
 This will come from the content of the other frames below.
 
-#+ATTR_HTML: alt="frame-11 image" title="First frame output example" align="center" width="500"
-[[../org-beamer-examples/outline.png]]
+#+CAPTION: Outline frame example
+#+ATTR_HTML: :alt "frame-outline image" :title "Outline frame example"
+#+ATTR_HTML: :width 500 :align center
+[[../img/org-beamer-examples/outline.png]]
 
-*** Frame 1
-#+BEGIN_SRC txt
-* Some group of frames
-** frame11
-*** some stuff
-*** to tell
-*** in list elements
+** Frame 1
+
+#+BEGIN_SRC org
+\* Some group of frames
+\** frame11
+\*** some stuff
+\*** to tell
+\*** in list elements
 #+END_SRC
 
-#+ATTR_HTML: alt="frame-11 image" title="First frame output example" align="center" width="500"
-[[../org-beamer-examples/frame-11.png]]
+#+CAPTION: Frame 11 example
+#+ATTR_HTML: :alt "frame-11 image" :title "First frame output example"
+#+ATTR_HTML: :align center :width 500
+[[../img/org-beamer-examples/frame-11.png]]
 
-*** Frame 2
-#+BEGIN_SRC txt
-** frame12
-*** what do you know!
-*** nice or what?
+** Frame 2
+
+#+BEGIN_SRC org
+\** frame12
+\*** what do you know!
+\*** nice or what?
 #+END_SRC
 
-#+ATTR_HTML: alt="frame-11 image" title="First frame output example" align="center" width="500"
-[[../org-beamer-examples/frame-12.png]]
+#+CAPTION: Frame 12 example
+#+ATTR_HTML: :alt "frame-12 image" :title "First frame output example"
+#+ATTR_HTML: :align center :width 500
+[[../img/org-beamer-examples/frame-12.png]]
 
-*** A frame about clojure in another group
-#+BEGIN_SRC txt
-* Awsomeness!
-** Clojure
-*** code clojure
+** A clojure frame in another group
+
+#+BEGIN_SRC org
+\* Awesomeness!
+\** Clojure
+\*** code clojure
 \#+BEGIN_SRC clj
-(fact (+ 1 1) => 2)
+\(fact (+ 1 1) => 2)
 \#+END_SRC
-*** /Midje/, unit testing fwk is pretty awesome!
+\*** /Midje/, unit testing fwk is pretty awesome!
 #+END_SRC
+
 As we can see here, we can embedded some block of code from any language as org-mode usually permits.
 
-#+ATTR_HTML: alt="frame-11 image" title="First frame output example" align="center" width="500"
-[[../org-beamer-examples/frame-clojure.png]]
-*** About emacs
-#+BEGIN_SRC txt
-** Emacs
-*** It's pretty cool too!
+#+CAPTION: Frame clojure example
+#+ATTR_HTML: :alt "frame-clojure image" :title "Frame clojure"
+#+ATTR_HTML: :align center :width 500
+[[../img/org-beamer-examples/frame-clojure.png]]
+
+** About emacs frame
+
+#+BEGIN_SRC org
+\** Emacs
+\*** It's pretty cool too!
 #+END_SRC
 
-#+ATTR_HTML: alt="frame-11 image" title="First frame output example" align="center" width="500"
-[[../org-beamer-examples/frame-emacs.png]]
+#+CAPTION: Frame emacs example
+#+ATTR_HTML: :alt "frame-emacs image" :title "Frame emacs"
+#+ATTR_HTML: :align center :width 500
+[[../img/org-beamer-examples/frame-emacs.png]]
 
-*** Org
-#+BEGIN_SRC txt
-** Org-mode with beamer
-*** rocks as we can present                                           :BMCOL:
-:PROPERTIES:
-:BEAMER_col: 0.5
-:END:
-*** in columns
-*** and as always
-:PROPERTIES:
-:BEAMER_col: 0.5
-:END:
-[[./clj-pink.png]]
-*** include images
+** About Org frame
+#+BEGIN_SRC org
+\** Org-mode with beamer
+\*** rocks as we can present                                           :BMCOL:
+\:PROPERTIES:
+\:BEAMER_col: 0.5
+\:END:
+\*** in columns
+\*** and as always
+\:PROPERTIES:
+\:BEAMER_col: 0.5
+\:END:
+\[[./clj-pink.png]]
+\*** include images
 #+END_SRC
 
-#+ATTR_HTML: alt="frame-11 image" title="First frame output example" align="center" width="500"
-[[../org-beamer-examples/frame-org.png]]
+#+CAPTION: Frame org example
+#+ATTR_HTML: :alt "frame-org image" :title "Frame org"
+#+ATTR_HTML: :align center :width 500
+[[../img/org-beamer-examples/frame-org.png]]
 
-***** =Wait!= What's with the syntax?
+*Note* =Wait!= What's with the syntax?
 
-It's a binding that does that for us.
+It's a binding that generates this for us.
 Selection the item that you want in columns then =C-c C-b |=, this will ask you for the size of the column (ratio
 between 0 and 1). Give, for example, 0.4 then hit enter. Do the same all the other columns.
 
 * Launch the export
 
-C-c C-e will launch a buffer with the options for exporting in the format you want!
+*C-c C-e* will launch a buffer with the options for exporting in the format you want!
 
 |-----------+---------------------------------------------------|
 | C-c C-e d | compile in latex, then export to pdf and open it. |
 |-----------+---------------------------------------------------|
 
-* And that's it
+And that's it.
 
 * Pros/Cons
+
 Here's only what i think of, feel free to think otherwise.
 
 |------------------------------------+---------------------------------------------|
@@ -154,17 +187,11 @@ Here's only what i think of, feel free to think otherwise.
 | Free as in free beer!              |                                             |
 |------------------------------------+---------------------------------------------|
 
+*Note* Whether, the `not editable in a browser` property is a negative point is debatable...
+For me, it's not but I try to stay unbiased here.
+
 * Source
 
-- [[https://github.com/ardumont/my-org-files/blob/master/howto-beamer-with-org-mode.org][The example org source code]]
-- [[https://github.com/ardumont/my-org-files/blob/master/org-beamer-example/example0.pdf][The example pdf]]
+- [[https://raw.githubusercontent.com/ardumont/org/master/howto/howto-beamer-with-org-mode.org][The example org source code]]
+- [[https://github.com/ardumont/org/blob/master/howto/howto-beamer-with-org-mode.pdf?raw%3Dtrue][The example pdf]]
 - [[http://orgmode.org/worg/org-tutorials/org-beamer/tutorial.html][Writing Beamer presentations in org-mode]]
-
-#+../org-beamer-examples/outline.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-outline.png
-#+../org-beamer-examples/frame-11.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-frame-11.png
-#+../org-beamer-examples/frame-12.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-frame-12.png
-#+../org-beamer-examples/frame-clojure.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-frame-clojure.png
-#+../org-beamer-examples/frame-emacs.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-frame-emacs.png
-#+../org-beamer-examples/frame-org.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-frame-org.png
-
-#+../org-beamer-examples/front-page.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-front-page.png
