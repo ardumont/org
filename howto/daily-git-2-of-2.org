@@ -8,7 +8,7 @@
 #+STARTUP: indent
 #+STARTUP: hidestars
 
-On [[http://adumont.fr/blog/daily-git-12/][this article]], I presented the most basics of the command I use.
+On [[http://ardumont.github.io/daily-git-1-of-2/#notebook][this article]], I presented the most basics of the command I use.
 
 In this one, I'll detail the more advanced.
 
@@ -179,7 +179,7 @@ One danger with the rebase is if you already pushed your development and someone
 Example:
 - I made some dev on the branch *some-dev* (5 commits after master)
 - I made some other dev from the same original commit but on another branch *some-other-dev*
-[[./resources/git/rebase/status.png]]
+[[../img/dayly-git/rebase/status.png]]
 - Now we can see that the 2 branches *some-dev* and *some-other-dev* have a common ancestor
 - master is advanced according to *some-other-dev*
 #+BEGIN_SRC sh
@@ -190,7 +190,7 @@ git merge some-other-dev
 *Note*
 Here I use the merge to only fast-forward the branch master according to *some-other-dev*
 
-[[./resources/git/rebase/master-synced-with-some-other-dev.png]]
+[[../img/dayly-git/rebase/master-synced-with-some-other-dev.png]]
 
 - Now master and *some-dev* have diverged
 - I place myself to the branch *some-dev* and rebase my work from the master branch.
@@ -200,7 +200,7 @@ git rebase master
 #+END_SRC
 
 I first got a conflict because both the first commit of the branch does the same modifications
-[[./resources/git/rebase/conflict.png]]
+[[../img/dayly-git/rebase/conflict.png]]
 
 - I edit the conflicted file, chose the first implementation, and save the file
 - I add the modification to the index (=git add README.md=) and relaunch the rebase (=git rebase --continue=)
@@ -211,10 +211,10 @@ git rebase --continue
 #+END_SRC
 
 - Once the rebase is done, all is good, we obtain an inlined history
-[[./resources/git/rebase/rebased-final.png]]
+[[../img/dayly-git/rebase/rebased-final.png]]
 
 - We can fast-forward the *master* with *some-dev*
-[[./resources/git/rebase/master-ff.png]]
+[[../img/dayly-git/rebase/master-ff.png]]
 
 #+BEGIN_SRC sh
 git co master
@@ -244,7 +244,7 @@ Typically, do not rewrite your history if the branch is remote and used by other
 Example:
 I will squash all the commits I've done until now into one.
 
-[[./resources/git/rebase/before-squash.png]]
+[[../img/dayly-git/rebase/before-squash.png]]
 
 #+BEGIN_SRC sh
 tony@dagobah(0.27,) 22:00:09 ~/repo/perso/dot-files (master) $ gst
@@ -320,15 +320,6 @@ Successfully rebased and updated refs/heads/master.
 #+END_SRC
 
 Here is the final result:
-[[./resources/git/rebase/after-squash.png]]
+[[../img/dayly-git/rebase/after-squash.png]]
 
 [[http://git-scm.com/book/en/Git-Tools-Rewriting-History#Changing-Multiple-Commit-Messages][For more information]]
-
-#+./resources/git/rebase/status.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-status.png
-#+./resources/git/rebase/master-synced-with-some-other-dev.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-master-synced-with-some-other-dev.png
-#+./resources/git/rebase/conflict.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-conflict.png
-#+./resources/git/rebase/rebased-final.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-rebased-final.png
-#+./resources/git/rebase/master-ff.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-master-ff.png
-
-#+./resources/git/rebase/before-squash.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-before-squash.png
-#+./resources/git/rebase/after-squash.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-after-squash.png
