@@ -30,8 +30,8 @@ nat    ::= 0 | 1 | ... |
 
 The resulting parsing with the tryout and failures is:
 
-#+ATTR_HTML: width=250px
-[[./resources/ch8-ex5-1.jpg]]
+#+ATTR_HTML: :width 250px
+[[../img/programming-in-haskell/ch8-ex5-1.jpg]]
 
 For each step, recognise the right term in the grammar, will parse and fail each possible definition until finding the rightmost (and rightful) definition:
 - trying and fail =expr + expr=, same with =expr - expr=, trying and succeed =term=
@@ -49,8 +49,8 @@ nat    ::= 0 | 1 | ... |
 
 The resulting parsing tree is a lot smaller because of less tryout and failtures:
 
-#+ATTR_HTML: width=250px
-[[./resources/ch8-ex5-2.jpg]]
+#+ATTR_HTML: :width 250px
+[[../img/programming-in-haskell/ch8-ex5-2.jpg]]
 
 For each step, we try to parse right term in grammar, then the next symbol and fail, thus the first term parsed is the right one, no need to continue.
 
@@ -245,7 +245,3 @@ Examples:
 *Parsers> parse expr "1-2-3-506"
 [(-510,"")]
 #+end_src
-
-
-#+./resources/ch8-ex5-1.jpg http://adumont.fr/blog/wp-content/uploads/2013/04/wpid-ch8-ex5-1.jpg
-#+./resources/ch8-ex5-2.jpg http://adumont.fr/blog/wp-content/uploads/2013/04/wpid-ch8-ex5-2.jpg

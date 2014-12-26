@@ -1,4 +1,4 @@
-#+DATE: [2013-04-13 sam. 19:14]
+x#+DATE: [2013-04-13 sam. 19:14]
 #+LAYOUT: post
 #+TITLE: PIH - ch8 1/2 - Functional parsers - exercises
 #+AUTHOR: Antoine R. Dumont
@@ -185,13 +185,13 @@ nat    ::= 0 | 1 | ... |
 =2+3+4= can be read in 2 ways:
 - =(2+3)+4=
 
-#+ATTR_HTML: width=250px
-[[./resources/ch8-ex3-1.png]]
+#+ATTR_HTML: :width 250px
+[[../img/programming-in-haskell/ch8-ex3-1.png]]
 
 - =2+(3+4)=
 
-#+ATTR_HTML: width=250px
-[[./resources/ch8-ex3-2.png]]
+#+ATTR_HTML: :width 250px
+[[../img/programming-in-haskell/ch8-ex3-2.png]]
 * Draw Tree 2/2
 #+begin_quote
 Using our third grammar for arithmetic expressions, draw the parse trees for the expressions =2 + 3=, =2 ∗ 3 ∗ 4= and =(2 + 3) + 4=.
@@ -207,22 +207,15 @@ nat    ::= 0 | 1 | ... |
 
 - =2+3=
 
-#+ATTR_HTML: width=250px
-[[./resources/ch8-ex4-1.png]]
+#+ATTR_HTML: :width 250px
+[[../img/programming-in-haskell//ch8-ex4-1.png]]
 
 - =2*3*4=
 
-#+ATTR_HTML: width=250px
-[[./resources/ch8-ex4-2.png]]
+#+ATTR_HTML: :width 250px
+[[../img/programming-in-haskell//ch8-ex4-2.png]]
 
 - =(2+3)*4=
 
-#+ATTR_HTML: width=250px
-[[./resources/ch8-ex4-3.png]]
-
-#+./resources/ch8-ex3-1.png http://adumont.fr/blog/wp-content/uploads/2013/04/wpid-ch8-ex3-1.png
-#+./resources/ch8-ex3-2.png http://adumont.fr/blog/wp-content/uploads/2013/04/wpid-ch8-ex3-2.png
-
-#+./resources/ch8-ex4-1.png http://adumont.fr/blog/wp-content/uploads/2013/04/wpid-ch8-ex4-1.png
-#+./resources/ch8-ex4-2.png http://adumont.fr/blog/wp-content/uploads/2013/04/wpid-ch8-ex4-2.png
-#+./resources/ch8-ex4-3.png http://adumont.fr/blog/wp-content/uploads/2013/04/wpid-ch8-ex4-3.png
+#+ATTR_HTML: :width 250px
+[[../img/programming-in-haskell//ch8-ex4-3.png]]
