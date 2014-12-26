@@ -1,25 +1,25 @@
+#+STARTUP: indent
+#+STARTUP: hidestars odd
 #+LAYOUT: post
-#+DATE: [2012-12-22 Sat 19:53]
 #+TITLE: Blogging with org-mode/org2blog/wordpress
 #+AUTHOR: ardumont
+#+DATE: [2012-12-22 Sat 19:53]
 #+OPTIONS: TOC:nil
 #+CATEGORIES: org-mode, emacs, wordpress, blog, org2blog, tools
 #+DESCRIPTION: Syncing one's org-mode files with one's blog using org2blog
-#+STARTUP: indent
-#+STARTUP: hidestars odd
 
 * Statements
-- I'm a feedback addict
+- I'm a [[http://localhost:4000/feedback-loop][feedback addict]]
 When I execute something, I want it to answer quickly, no lag is acceptable.
-- I found out that there is no faster than the keyboard to input quickly (at least as fast as my fingers go)
+- I found out that there is no faster way than using the keyboard to input quickly (at least as fast as my fingers go)
 The mouse is slow because you need to break the position of your hands...
-- I love emacs and [[http://orgmode.org/][org-mode]]
+- I love [[https://www.gnu.org/software/emacs/][GNU/Emacs]] and [[http://orgmode.org/][org-mode]]
 - I like [[http://wordpress.org/][wordpress]] (simple and user-friendly).
 But you have too much to do and click to succeed in making one article.
 
 * Consequence
 
-I have difficulties in blogging directly in [[http://wordpress.org/][wordpress]] (it is in the click world, I'm not anymore).
+I have difficulties in blogging directly in [[http://wordpress.org/][wordpress]] (it is in the click world and I'm not anymore).
 
 * But... *help me org-mode-wan, you are my only hope*
 
@@ -157,11 +157,11 @@ Here is my way, you can go from this at first and then improve :D
 
 - To check the rendering is ok, export locally your article via *C-c C-e b* (*M-x org-export-as-html-and-open*)
 
-[[file:./resources/img/export-dummy.png][file:./resources/img/export-dummy.png]]
+[[../img/blogging-with-org2blog/export-dummy.png]]
 
 - Once you're almost ready, you can upload a draft to your [[http://wordpress.org/][wordpress]] *C-c d* (*M-x org2blog/wp-post-buffer*)
 
-[[file:./resources/img/export-dummy-and-upload-draft.png][file:./resources/img/export-dummy-and-upload-draft.png]]
+[[../img/blogging-with-org2blog/export-dummy-and-upload-draft.png]]
 
 - New metadata has been generated at the top of your [[http://orgmode.org/][org-mode]] file
 
@@ -182,11 +182,3 @@ This will help in updating your post throughout the time.
 At last, the perfect way of blogging through emacs! At least for me!
 
 Long live [[https://github.com/punchagan/org2blog][org2blog]]!
-
-#+./resources/img/export-dummy.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-export-dummy.png
-
-#+./resources/img/export-dummy-as-draft.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-export-dummy-as-draft.png
-
-#+./resources/img/export-dummy-as-draft.png"><img src="./resources/img/export-dummy-and-upload-draft.png" alt="export-dummy-and-upload-draft.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-export-dummy-and-upload-draft.png-altexport-dummy-and-upload-draft.png
-
-#+./resources/img/export-dummy-and-upload-draft.png http://adumont.fr/blog/wp-content/uploads/2012/12/wpid-export-dummy-and-upload-draft.png
