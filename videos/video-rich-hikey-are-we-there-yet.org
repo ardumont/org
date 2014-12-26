@@ -1,5 +1,4 @@
-#+BLOG: tony-blog
-#+POSTID: 378
+#+LAYOUT: post
 #+DATE: [2014-12-22 Sat 14:20]
 #+TITLE: Video - Rich Hickey - Are we there yet?
 #+AUTHOR: Antoine R. Dumont

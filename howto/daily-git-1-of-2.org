@@ -1,10 +1,8 @@
-#+BLOG: tony-blog
+#+LAYOUT: post
 #+DATE: [2012-12-28 fri. 13:18]
-#+POSTID: 675
 #+TITLE: Daily git 1/2
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
-#+TAGS: emacs, git, aliases, tools
 #+CATEGORIES: emacs, git, tools
 #+DESCRIPTION: How do i use git every day 1/2
 #+STARTUP: indent

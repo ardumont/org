@@ -1,9 +1,7 @@
 #+DATE: [2013-02-01 ven. 08:31]
-#+BLOG: tony-blog
-#+POSTID: 962
+#+LAYOUT: post
 #+OPTIONS:
 #+CATEGORIES: clojure, exercises, 4clojure, functional-programming, levenshtein, distance
-#+TAGS: clojure, exercises, 4clojure, functional-programming, levenshtein, distance
 #+TITLE: 4clojure - Levenshtein distance problem
 #+DESCRIPTION: One possible solution about the levenshtein distance computation problem (101) on 4clojure.com
 

@@ -1,10 +1,8 @@
-#+BLOG: tony-blog
-#+POSTID: 380
+#+LAYOUT: post
 #+DATE: [2012-12-22 Sat 14:20]
 #+TITLE: Howto install stumpwm and little more
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
-#+TAGS: stumpwm, tools
 #+CATEGORIES: stumpwm, howto, tools
 #+DESCRIPTION: howto install/setup/use stumpwm + my stumpwm configuration
 #+STARTUP: indent

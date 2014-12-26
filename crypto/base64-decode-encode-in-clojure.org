@@ -1,9 +1,7 @@
-#+BLOG: tony-blog
-#+POSTID: 1117
+#+LAYOUT: post
 #+DATE: [2013-05-04 sam. 16:35]
 #+OPTIONS:
 #+CATEGORIES: clojure, base64, encode, decode, functional-programming
-#+TAGS: clojure, base64, encode, decode, functional-programming
 #+TITLE: Decode/Encode base64 in Clojure
 #+DESCRIPTION: Learning how to encode and decode string in base64 for fun!
 

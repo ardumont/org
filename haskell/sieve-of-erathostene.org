@@ -1,10 +1,8 @@
-#+BLOG: tony-blog
-#+POSTID: 1188
+#+LAYOUT: post
 #+DATE: [2013-05-18 sam. 20:41]
 #+TITLE: Sieve of Erathostenes
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
-#+TAGS: haskell, QuickCheck, fun, prime, functional-programming
 #+CATEGORIES: haskell, QuickCheck, fun, prime, functional-programming
 #+DESCRIPTION: Playing with primes using Haskell and QuickCheck
 #+STARTUP: indent

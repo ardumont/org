@@ -1,10 +1,8 @@
 #+DATE: [2012-12-31 lun. 19:50]
-#+BLOG: tony-blog
-#+POSTID: 746
+#+LAYOUT: post
 #+TITLE: Stumpwm - Display result of bash commands using zenity
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
-#+TAGS: stumpwm, tools, zenity
 #+CATEGORIES: stumpwm, howto, tools
 #+DESCRIPTION: Display results of bash commands in stumpwm using zenity
 #+STARTUP: indent

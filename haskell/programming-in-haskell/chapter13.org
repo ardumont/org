@@ -1,10 +1,8 @@
 #+DATE: [2013-06-04 mar. 20:30]
-- #+BLOG: tony-blog
-#+POSTID: 1218
+- #+LAYOUT: post
 #+TITLE: PIH - ch13 - Reasoning about programs - exercises
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
-#+TAGS: haskell, exercises, functional-programming, induction, proof
 #+CATEGORIES: haskell, exercises, functional-programming, induction, proof
 #+DESCRIPTION: The last chapter of programming in haskell - exercises.
 #+STARTUP: indent

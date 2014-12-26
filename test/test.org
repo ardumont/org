@@ -1,5 +1,4 @@
-#+BLOG: tony-blog
-#+POSTID: 1082
+#+LAYOUT: post
 #+DATE: [2013-05-01 mer. 14:44]
 #+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil TeX:nil
 #+CATEGORIES:

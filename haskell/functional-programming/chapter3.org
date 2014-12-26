@@ -1,8 +1,7 @@
-#+BLOG: tony-blog
+#+LAYOUT: post
 #+TITLE: FAIH - Ch3 - Exercises
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
-#+TAGS: haskell, exercises, functional-programming
 #+CATEGORIES: haskell, programming, functional-programming
 #+DESCRIPTION: Functional Approach in Haskell - Ch. 3 - The efficiency of functional programs
 #+STARTUP: indent

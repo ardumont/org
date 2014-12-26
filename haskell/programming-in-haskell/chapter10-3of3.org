@@ -1,9 +1,7 @@
 #+DATE: [2013-05-08 mer. 10:40]
-#+POSTID: 1068
 #+TITLE: PIH - ch10 - 3/3 - Declaring types and classes - exercises
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
-#+TAGS: haskell, exercises, functional-programming, types, classes, abstract-machine
 #+CATEGORIES: haskell, exercises, functional-programming, types, classes, abstract-machine
 #+DESCRIPTION: Tautology extension and interactive tautology checkers
 #+STARTUP: indent

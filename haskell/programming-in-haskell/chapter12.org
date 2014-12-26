@@ -1,10 +1,8 @@
 #+DATE: [2013-05-29 mer. 20:21]
-#+POSTID: 1213
-#+BLOG: tony-blog
+#+LAYOUT: post
 #+TITLE: PIH - ch12 - Lazy evaluation - exercises
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
-#+TAGS: haskell, exercises, functional-programming, lazyness
 #+CATEGORIES: haskell, exercises, functional-programming, lazyness
 #+DESCRIPTION: Learning haskell and solving problems using reasoning and 'repl'ing
 #+STARTUP: indent

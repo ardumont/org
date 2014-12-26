@@ -1,10 +1,8 @@
-#+BLOG: tony-blog
-#+POSTID: 970
+#+LAYOUT: post
 #+DATE: [2013-01-29 mar. 20:11]
 #+TITLE: Problem - Decomposition into a product of 2 numbers
 #+AUTHOR: Massyl Nait-Mouloud, Antoine R. Dumont
 #+OPTIONS:
-#+TAGS: haskell, exercises, functional-programming, quickcheck, generating-testing
 #+CATEGORIES: haskell, exercises, functional-programming, quickcheck, generating-testing
 #+DESCRIPTION: Find all the unique couple (a,b) that a*b = n, for n in N+. A first use of quickcheck to generate tests.
 #+STARTUP: indent

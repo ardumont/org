@@ -1,8 +1,6 @@
-#+BLOG: tony-blog
-#+POSTID: 1130
+#+LAYOUT: post
 #+DATE: [2013-05-11 sam. 10:37]
 #+CATEGORIES: clojure, crypto, euler-project, exercises, xor
-#+TAGS: clojure, crypto, euler-project, exercises, xor
 #+DESCRIPTION: XOR decryption in Clojure
 #+TITLE: XOR decryption - Euler 59 in Clojure
 

@@ -1,12 +1,10 @@
-#+BLOG: tony-blog
-#+POSTID: 1328
+#+LAYOUT: post
 #+DATE: [2014-03-06 Thu 04:14]
-#+BLOG: tony-blog
+#+LAYOUT: post
 #+TITLE: Personal Generic Service Wrapper 2/2
 #+AUTHOR: ardumont
 #+DESCRIPTION: Generic need to start/stop/status/restart command (which can take arguments)
 #+CATEGORIES: script, GNU/Linux, feedback, service, personal
-#+TAGS: script, GNU/Linux, feedback, service, personal
 
 In a [[http://adumont.fr/blog/personal-generic-service-wrapper/][previous article]], I presented a generic service wrapper.
 This script was limited in one point, we could not wrap call to command with arguments.

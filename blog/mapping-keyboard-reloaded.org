@@ -1,10 +1,8 @@
-#+BLOG: tony-blog
-#+POSTID: 1305
+#+LAYOUT: post
 #+DATE: [2014-02-25 mar. 20:38]
 #+TITLE: A story of keyboard mapping 2/2
 #+AUTHOR: ardumont
 #+CATEGORIES: keyboard, feedback, xmodmap, pm-utils, hooks, resume, revert, help, GNU/Linux
-#+TAGS: keyboard, feedback, xmodmap, pm-utils, hooks, resume, revert, help, GNU/Linux
 #+DESCRIPTION: Help, my keyboard mapping is reverted back at resume time...
 
 So, Everything is great! [[http://adumont.fr/blog/a-story-of-keyboard-mapping-12/][I have my keyboard mapping]] which permits me to concentrate on my goal.

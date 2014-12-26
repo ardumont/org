@@ -3,7 +3,6 @@
 #+AUTHOR: ardumont
 #+DESCRIPTION: Emacs in my Firefox...
 #+CATEGORIES: Firefox, plugins, Keysnail, emacs, feedback
-#+TAGS: Firefox, plugins, Keysnail, emacs, feedback
 
 * TL;DR
 

@@ -1,9 +1,7 @@
 #+DATE: [2013-04-25 jeu. 21:56]
-#+POSTID: 1039
 #+TITLE: PIH - ch9 - Interactive programs - exercises
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
-#+TAGS: haskell, exercises, functional-programming, IO, Interactive programs
 #+CATEGORIES: haskell, exercises, functional-programming, IO, Integractive programs
 #+DESCRIPTION: Learning haskell and solving problems using reasoning and 'repl'ing
 #+STARTUP: indent

@@ -1,10 +1,8 @@
 #+DATE: [2013-05-01 mer. 12:49]
-#+BLOG: tony-blog
-#+POSTID: 1064
+#+LAYOUT: post
 #+TITLE: PIH - ch10 - 2/3 - Declaring types and classes - exercises
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
-#+TAGS: haskell, exercises, functional-programming, types, classes, tautology, parser
 #+CATEGORIES: haskell, exercises, functional-programming, types, classes, tautology, parser
 #+DESCRIPTION: Tautology extension and interactive tautology checkers
 #+STARTUP: indent

@@ -1,10 +1,8 @@
-#+BLOG: tony-blog
-#+POSTID: 923
+#+LAYOUT: post
 #+DATE: [2013-01-12 sam. 03:30]
 #+TITLE: Polipo setup
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
-#+TAGS: polipo, proxy, setup, tools
 #+CATEGORIES: proxy, tools
 #+DESCRIPTION: Possible setup for polipo proxy
 #+STARTUP: indent

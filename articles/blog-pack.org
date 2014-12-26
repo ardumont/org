@@ -1,4 +1,3 @@
-#+POSTID: 1069
 #+LAYOUT: post
 #+DATE: [2013-04-29 lun. 00:46]
 #+TITLE: emacs-live pack - blog-pack

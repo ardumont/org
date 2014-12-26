@@ -1,11 +1,9 @@
-#+BLOG: tony-blog
-#+POSTID: 659
+#+LAYOUT: post
 #+DATE: [2012-12-24 Mon 21:16]
-#+BLOG: tony-blog
+#+LAYOUT: post
 #+TITLE: Vagrant tools
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
-#+TAGS: vagrant, vagrant-snap, virtualbox, snapshot, tools
 #+CATEGORIES: vagrant, vagrant-snap, virtualbox, snapshot, tools
 #+DESCRIPTION: Howto about vagrant tools
 #+STARTUP: indent

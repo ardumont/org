@@ -1,10 +1,8 @@
-#+BLOG: tony-blog
+#+LAYOUT: post
 #+DATE: [2013-01-01 mar. 12:40]
-#+POSTID: 774
 #+TITLE: Emacs - Activate touchpad when org-mode exports html
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
-#+TAGS: emacs, org-mode, tools, touchpad, hook
 #+CATEGORIES: emacs, org-mode, howto, tools
 #+DESCRIPTION: Show how to reactivate the touchpad when exporting the html and opening the browser from emacs's org-mode
 #+STARTUP: indent

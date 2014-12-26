@@ -1,10 +1,8 @@
-#+BLOG: tony-blog
-#+POSTID: 1088
+#+LAYOUT: post
 #+DATE: [2013-05-01 mer. 17:12]
 #+TITLE: game of life in clojure + demo
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
-#+TAGS: clojure, game-of-life, functional-programming
 #+CATEGORIES: clojure, game-of-life, functional-programming
 #+DESCRIPTION: Implementing the game of life in clojure
 #+STARTUP: indent

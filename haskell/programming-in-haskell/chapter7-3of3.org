@@ -1,10 +1,8 @@
 #+DATE: [2013-01-08 mar. 19:56]
-#+BLOG: tony-blog
-#+POSTID: 914
+#+LAYOUT: post
 #+TITLE: PIH - ch7 - Higher-order functions 3/3
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
-#+TAGS: haskell, exercises, functional-programming
 #+CATEGORIES: haskell, exercises, functional-programming
 #+DESCRIPTION: Higher order functions, function composition, foldr, foldl exercises.
 #+STARTUP: indent

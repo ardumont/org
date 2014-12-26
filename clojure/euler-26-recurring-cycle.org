@@ -1,8 +1,6 @@
-#+BLOG: tony-blog
-#+POSTID: 1182
+#+LAYOUT: post
 #+DATE: [2013-05-20 lun. 10:42]
 #+CATEGORIES: clojure, functional-programming, recurring-cycles, euler-project
-#+TAGS: clojure, functional-programming, recurring-cycles, euler-project
 #+DESCRIPTION: Counting the greatest recurring cycles inside a fraction - euler 26.
 #+TITLE: Euler 26 - recurring cycles
 

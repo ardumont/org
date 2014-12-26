@@ -1,9 +1,7 @@
-#+BLOG: tony-blog
-#+POSTID: 938
+#+LAYOUT: post
 #+DATE: [2013-01-27 dim. 01:02]
 #+OPTIONS:
 #+CATEGORIES: clojure, exercises, 4clojure, functional-programming
-#+TAGS: clojure, exercises, 4clojure, functional-programming
 #+TITLE: 4clojure - Intervals problem
 #+DESCRIPTION: One possible solution about the intervals problem (171) on 4clojure.com
 

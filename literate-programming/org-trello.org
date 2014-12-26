@@ -1,10 +1,8 @@
-#+BLOG: tony-blog
-#+POSTID: 1289
+#+LAYOUT: post
 #+DATE: [2013-08-11 dim. 14:28]
 #+title: Literate org-trello
 #+author: Antoine R. Dumont
 #+CATEGORIES: literate-programming, org-mode, org-trello, emacs, emacs-lisp
-#+TAGS: literate-programming, org-mode, org-trello, emacs, emacs-lisp
 #+DESCRIPTION: literate org-trello tryout
 
 To help improving the maintenance of [[http://ardumont.github.io/org-trello/][org-trello]], we will describe it using [[https://en.wikipedia.org/wiki/Literate_programming][literate programming]].
