@@ -3,7 +3,7 @@
 #+LAYOUT: post
 #+TITLE: Blogging with org-mode/org2blog/wordpress
 #+AUTHOR: ardumont
-#+DATE: [2012-12-22 Sat 19:53]
+#+DATE: 2012-12-22 Sat 19:53
 #+OPTIONS: TOC:nil
 #+CATEGORIES: org-mode, emacs, wordpress, blog, org2blog, tools
 #+DESCRIPTION: Syncing one's org-mode files with one's blog using org2blog
