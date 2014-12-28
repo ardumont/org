@@ -1,6 +1,6 @@
 #+STARTUP: indent
 #+STARTUP: hidestars odd
-#+DATE: [2013-05-26 dim. 01:39]
+#+DATE: 2013-05-26 Sun. 01:39
 #+LAYOUT: post
 #+TITLE: PIH - ch11 - The countdown problem - exercises
 #+AUTHOR: Antoine R. Dumont

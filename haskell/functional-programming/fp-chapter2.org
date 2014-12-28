@@ -1,6 +1,6 @@
 #+LAYOUT: post
-#+DATE: [2013-06-01 sam. 17:11]
-#+TITLE: Functional Approach in haskell - Ch2 - Exercises
+#+DATE: 2013-06-01 Sat. 17:11
+#+TITLE: Functional Approach in Haskell - Ch2 - Exercises
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
 #+CATEGORIES: haskell, programming, functional-programming

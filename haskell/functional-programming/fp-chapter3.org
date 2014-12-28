@@ -1,6 +1,7 @@
 #+LAYOUT: post
 #+DATE: 2013-06-01
-#+TITLE: FAIH - Ch3 - Exercises
+#+LAYOUT: post
+#+TITLE: Functional Approach in Haskell - Ch3 - Exercises
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
 #+CATEGORIES: haskell, programming, functional-programming

@@ -1,5 +1,5 @@
 #+LAYOUT: post
-#+DATE: [2012-12-26 mer. 23:09]
+#+DATE: 2012-12-26 Wed. 23:09
 #+TITLE: Programming in haskell - ch4 - Defining Functions
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:

@@ -1,4 +1,4 @@
-#+DATE: [2013-01-02 mer. 20:16]
+#+DATE: 2013-01-02 Wed. 20:16
 #+TITLE: PIH - ch6 - Recursive functions
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS: toc:nil

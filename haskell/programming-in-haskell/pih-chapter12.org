@@ -1,4 +1,4 @@
-#+DATE: [2013-05-29 mer. 20:21]
+#+DATE: 2013-05-29 Wed. 20:21
 #+LAYOUT: post
 #+TITLE: PIH - ch12 - Lazy evaluation - exercises
 #+AUTHOR: Antoine R. Dumont

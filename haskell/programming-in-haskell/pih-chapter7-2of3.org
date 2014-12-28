@@ -1,5 +1,5 @@
 #+LAYOUT: post
-#+DATE: [2013-01-05 sam. 15:53]
+#+DATE: 2013-01-05 Sat. 15:53
 #+TITLE: PIH - ch7 - Higher-order functions 2/3
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:

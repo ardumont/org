@@ -1,5 +1,5 @@
 #+LAYOUT: post
-#+DATE: [2013-05-08 mer. 10:40]
+#+DATE: 2013-05-08 Wed. 10:40
 #+TITLE: PIH - ch10 - 3/3 - Declaring types and classes - exercises
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:

@@ -1,4 +1,4 @@
-#+DATE: [2013-04-27 sam. 15:55]
+#+DATE: 2013-04-27 Sat. 15:55
 #+LAYOUT: post
 #+TITLE: PIH - ch10 - 1/3 - Declaring types and classes - exercises
 #+AUTHOR: Antoine R. Dumont

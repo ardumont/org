@@ -1,4 +1,4 @@
-#+DATE: 2013-04-13 sam. 19:14
+#+DATE: 2013-04-13 Sat. 19:14
 #+LAYOUT: post
 #+TITLE: PIH - ch8 1/2 - Functional parsers - exercises
 #+AUTHOR: Antoine R. Dumont

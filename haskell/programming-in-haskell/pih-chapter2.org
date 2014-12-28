@@ -1,6 +1,6 @@
 #+LAYOUT: post
-#+DATE: [2012-12-24 Mon 14:59]
-#+TITLE: Programming in haskell - Ch2 - First stepsb
+#+DATE: 2012-12-24 Mon. 14:59
+#+TITLE: Programming in haskell - Ch2 - First steps
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
 #+CATEGORIES: haskell, exercises, functional-programming
