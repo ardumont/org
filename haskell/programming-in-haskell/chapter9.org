@@ -1,4 +1,5 @@
-#+DATE: [2013-04-25 jeu. 21:56]
+#+DATE: 2013-04-25 Thu. 21:56
+#+LAYOUT: post
 #+TITLE: PIH - ch9 - Interactive programs - exercises
 #+AUTHOR: Antoine R. Dumont
 #+OPTIONS:
