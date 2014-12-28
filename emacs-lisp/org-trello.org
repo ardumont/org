@@ -1,5 +1,5 @@
 #+LAYOUT: post
-#+DATE: [2013-07-12 ven. 21:45]
+#+DATE: 2013-07-12 Fri. 21:45
 #+OPTIONS: toc:nil
 #+TITLE: org-trello - 2-way sync org & trello
 #+AUTHOR: ardumont

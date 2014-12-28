@@ -1,5 +1,5 @@
 #+LAYOUT: post
-#+DATE: [2013-08-11 dim. 14:28]
+#+DATE: 2013-08-11 Sun. 14:28
 #+title: Literate org-trello
 #+author: Antoine R. Dumont
 #+CATEGORIES: literate-programming, org-mode, org-trello, emacs, emacs-lisp
