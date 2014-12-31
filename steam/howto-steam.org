@@ -1,0 +1,20 @@
+#+title: A quick reminder for steam under NixOS
+#+author: ardumont
+
+source: http://sandervanderburg.blogspot.nl/2013/09/composing-fhs-compatible-chroot.html
+
+#+begin_src sh
+sudo su -
+init-steam-chrootenv
+mount-steam-chrootenv
+load-steam-chrootenv
+su -l tony -c steam
+#+end_src
+
+when done:
+
+#+begin_src sh
+sudo su -
+umount-steam-chrootenv
+destroy-steam-chrootenv
+#+end_src
