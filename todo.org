@@ -107,7 +107,7 @@ https://github.com/ndmitchell/shake
 - [X] Start a js-pack
 - [X] Toggle repl for js-pack
 - [X] Update on repl for js-pack - https://github.com/skeeto/skewer-mode
-* IN-PROGRESS org-trello [94%]
+* IN-PROGRESS org-trello [96%]
   Minor mode to sync trello and org-mode
 - [X] Deploy in melpa (automated on their own)
 - [X] Deploy in marmalade
@@ -118,7 +118,7 @@ https://github.com/ndmitchell/shake
   - [ ] Add release notes to tag
 - [X] Open issue on marmalade about being unable to publish new org-trello version
 - [X] Use jekyll to serve org-trello.github.io locally
-- [ ] Make the release of 0.6.8 org-trello package (pb referenced https://github.com/nicferrier/elmarmalade/issues/76)
+- [X] Make the release of 0.6.8 org-trello package
 - [X] 0.0.1
 - [X] 0.0.2
 - [X] 0.0.3
