@@ -207,7 +207,7 @@ https://github.com/ndmitchell/shake
 - [ ] Add twitter, g+ buttons etc...
 - [ ] Automate the publication (let github do the job?)
 - [ ] Merge ardumont/org into ardumont/ardumont.github.io?
-* IN-PROGRESS org2jekyll - https://github.com/ardumont/org2jekyll [7/8]
+* IN-PROGRESS org2jekyll - https://github.com/ardumont/org2jekyll [8/8]
 - [X] 0.0.1
 - [X] 0.0.2
 - [X] 0.0.3
@@ -215,7 +215,10 @@ https://github.com/ndmitchell/shake
 - [X] 0.0.5
 - [X] 0.0.6
 - [X] 0.0.7
-- [ ] 0.0.8
+- [X] 0.0.8
+- [X] 0.0.9
+- [X] 0.1.0
+- [X] 0.1.1
 
 * IN-PROGRESS Articles [87%]
 ** DONE Chroot to save one's GNU/Linux
