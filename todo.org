@@ -1,6 +1,12 @@
 #+title: Learning...
 #+author: ardumont
 
+* TODO domotic
+- http://www.geeek.org/votre-karotz-vous-informe-quand-vous-consommez-trop-d-energie-034.html
+- https://github.com/ltoinel/domogeeek -> openzwave lib
+- https://github.com/jperkin/node-openzwave
+- https://code.google.com/p/open-zwave/ -> zwave protocol -> zwave network
+- http://zwaveworld.com/
 * TODO How to reproduce nix's userland?
 * TODO keysnail
 - [ ] Create a function to append the copy of urls in the kill ring
