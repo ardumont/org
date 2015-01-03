@@ -20,9 +20,9 @@ https://github.com/ndmitchell/shake
 - [ ] exquilla
 - [ ] exchange ws provider -> ericson
 - [ ] lightning
-* IN-PROGRESS Emacs [1/4]
+* IN-PROGRESS Emacs [2/4]
 - [X] Improve js-pack setup
-- [ ] Learn how to store/retrieve buffer/window position
+- [X] Learn how to store/retrieve buffer/window in register - window-configuration-to-register C-x r w/j
 - [ ] Activate tags for js2-mode, web-mode, etc...
 - [ ] Make the *grep* buffer behaves as *magit* ones (fullscreen then get back to previous frame organization).
 * IN-PROGRESS Nix* [0%]
