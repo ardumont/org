@@ -114,7 +114,7 @@ https://github.com/ndmitchell/shake
 - [X] Start a js-pack
 - [X] Toggle repl for js-pack
 - [X] Update on repl for js-pack - https://github.com/skeeto/skewer-mode
-* IN-PROGRESS org-trello [96%]
+* IN-PROGRESS org-trello [93%]
   Minor mode to sync trello and org-mode
 - [X] Deploy in melpa (automated on their own)
 - [X] Deploy in marmalade
@@ -195,6 +195,8 @@ https://github.com/ndmitchell/shake
 - [X] 0.6.8
 - [ ] 0.6.9
 - [ ] ...
+- [ ] Fix #231 create-board-and-install-metadata gives error 60
+- [ ] #230 Try and install emacs 25 to check this error (maybe new network-security-manager?)
 * IN-PROGRESS Blog [11/15]
 - [X] Migrate comment system to Disqus (old blog)
 - [X] Migrate from old blog system (wordpress) to a github solution -> ardumont.github.io [3/3]
