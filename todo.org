@@ -7,7 +7,6 @@
 - https://github.com/jperkin/node-openzwave
 - https://code.google.com/p/open-zwave/ -> zwave protocol -> zwave network
 - http://zwaveworld.com/
-* TODO How to reproduce nix's userland?
 * TODO keysnail
 - [ ] Create a function to append the urls to copy the kill ring
 - [ ] Define some default global js functions (callable from M-x in ffx through keysnail)
@@ -456,7 +455,7 @@ CLOSED: [2014-03-06 Thu 04:30]
 ** TODO Personal workflow deployment of emacs-lisp package
 ** TODO One CLI to rule them and in the Make bind them
 ** DONE Blogging with org and jekyll with org2jekyll
-CLOSED: [2014-12-20 Sat 23:51]
+CLOSED: [2014-12-20 Sat 23:5
 * PENDING Readings [28%]
 - [X] practical clojure
 - [X] joy of clojure
