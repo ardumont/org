@@ -8,7 +8,7 @@
 - https://code.google.com/p/open-zwave/ -> zwave protocol -> zwave network
 - http://zwaveworld.com/
 * TODO keysnail
-- [ ] Create a function to append the urls to copy the kill ring
+- [ ] Create a function to append the urls to copy in the kill ring
 - [ ] Define some default global js functions (callable from M-x in ffx through keysnail)
 * TODO shake
 http://shakebuild.com/
