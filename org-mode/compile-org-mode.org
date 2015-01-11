@@ -1,0 +1,18 @@
+#+title: Compile org-mode from source
+
+source: http://orgmode.org/worg/dev/org-build-system.html
+
+Place yourself in the clone folder, then:
+
+#+begin_src emacs-lisp
+(defun org-folder (root-path path)
+  "Compute the full org folder from ROOT-PATH to PATH."
+  (format "%s/%s" root-path path))
+
+(let ((clone-folder "/path/to/git/org-mode"))
+  (add-to-list 'load-path (org-folder clone-folder "/lisp"))
+  (load-library (org-folder clone-folder "mk/org-fixup.el"))
+  (let ((org-fake-release     "8.3.0")
+        (org-fake-git-version "8.3.0-fake"))
+    (org-make-autoloads)))
+#+end_src
