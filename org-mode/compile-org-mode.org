@@ -9,10 +9,10 @@ Place yourself in the clone folder, then:
   "Compute the full org folder from ROOT-PATH to PATH."
   (format "%s/%s" root-path path))
 
-(let ((clone-folder "/path/to/git/org-mode"))
+(let ((clone-folder         "/path/to/git/org-mode")
+      (org-fake-release     "8.3.0")
+      (org-fake-git-version "8.3.0-fake"))
   (add-to-list 'load-path (org-folder clone-folder "/lisp"))
   (load-library (org-folder clone-folder "mk/org-fixup.el"))
-  (let ((org-fake-release     "8.3.0")
-        (org-fake-git-version "8.3.0-fake"))
-    (org-make-autoloads)))
+  (org-make-autoloads))
 #+end_src
