@@ -25,7 +25,7 @@ https://github.com/ndmitchell/shake
 - [ ] Activate tags for js2-mode, web-mode, etc...
 - [ ] Make the *grep* buffer behaves as *magit* ones (fullscreen then get back to previous frame organization).
 * IN-PROGRESS Nix* [0%]
-** Nix [72%]
+** Nix [73%]
 - [X] Nix package manager - http://nixos.org/nix/manual/
 - [X] http://lethalman.blogspot.it/2014/07/nix-pill-1-why-you-should-give-it-try.html
 - [X] http://lethalman.blogspot.it/2014/07/nix-pill-2-install-on-your-running.html
@@ -44,6 +44,7 @@ https://github.com/ndmitchell/shake
 - [ ] http://lethalman.blogspot.it/2014/09/nix-pill-15-nix-search-paths.html
 - [ ] http://lethalman.blogspot.it/2014/11/nix-pill-16-nixpkgs-parameters.html
 - [ ] http://lethalman.blogspot.it/2014/11/nix-pill-17-nixpkgs-overriding-packages.html
+- [X] http://sandervanderburg.blogspot.fr/2014/07/managing-private-nix-packages-outside.html
 
 ** Nixpkgs [60%]
 - [X] [[https://nixos.org/nixpkgs/manual/][Nixpkgs manual]]
@@ -113,7 +114,7 @@ https://github.com/ndmitchell/shake
 - [X] Start a js-pack
 - [X] Toggle repl for js-pack
 - [X] Update on repl for js-pack - https://github.com/skeeto/skewer-mode
-* IN-PROGRESS org-trello [93%]
+* IN-PROGRESS org-trello [94%]
   Minor mode to sync trello and org-mode
 - [X] Deploy in melpa (automated on their own)
 - [X] Deploy in marmalade
@@ -194,7 +195,7 @@ https://github.com/ndmitchell/shake
 - [X] 0.6.8
 - [ ] 0.6.9
 - [ ] ...
-- [ ] Fix #231 create-board-and-install-metadata gives error 60
+- [X] Solve #231 create-board-and-install-metadata gives error 60
 - [ ] #230 Try and install emacs 25 to check this error (maybe new network-security-manager?)
 * IN-PROGRESS Blog [11/15]
 - [X] Migrate comment system to Disqus (old blog)
