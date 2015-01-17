@@ -95,6 +95,7 @@ https://github.com/ndmitchell/shake
 - [ ] [[https://nixos.org/nixops/manual/][NixOps manual]]
 - [ ] http://hydra.nixos.org/build/15623313/download/1/manual/manual.html
 * IN-PROGRESS judo
+** dan
 - [X] white
 - [X] yellow
 - [X] orange
@@ -102,6 +103,8 @@ https://github.com/ndmitchell/shake
 - [ ] blue
 - [ ] brown
 - [ ] black
+** training
+- [ ] Find ochikomi expander to train at home
 * IN-PROGRESS packer/vagrant to make nix box
 - [X] https://nixos.org/wiki/Installing_VirtualBox_on_NixOS
 - [X] Create a nixos vagrant image - https://github.com/zimbatm/nixbox
