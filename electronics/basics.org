@@ -1,0 +1,23 @@
+#+title: Electonics basics
+#+description: notes about electronics
+
+like charges repel
+opposite charge attract
+
+Coulomb: unit of charge
+
+atom composed of protons/neutrons/electrons
+
+e = Charge of proton
+-e = Charge of electron
+
+1C = 6.24 x 10^18 e
+
+Coulomb figured out that:
+Fe = Kq1.q2 / d^2
+
+d: distance between objects
+K = 9.10^9 N.m^2/C^2
+
+looks like the gravitation law:
+Fe = Gm1.m2 / d^2
