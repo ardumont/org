@@ -21,3 +21,59 @@ K = 9.10^9 N.m^2/C^2
 
 looks like the gravitation law:
 Fe = Gm1.m2 / d^2
+
+* Glossary
+
+|--------------------+----------------------------------------------------------------------------------------------------------+--------------------------------------------|
+|                    | Description                                                                                              | Who                                        |
+|--------------------+----------------------------------------------------------------------------------------------------------+--------------------------------------------|
+| Ampere             | Describe the number of electrons flowing trough a circuit in one second.                                 | Andre-Marie Ampere                         |
+| Battery            | Store electrons to power electronics.                                                                    |                                            |
+| Bretboard          | To help in testing/practicing electronics circuit without soldering.                                     |                                            |
+| Capacitor          | Store electrons using an electric field                                                                  | Ewald Georg von Kleist                     |
+| Diode              | Let electrons flow in one direction only                                                                 | John Ambrose Fleming                       |
+| Frequency          | Measurement of how often something happens                                                               |                                            |
+|                    | Measured in Hertz.                                                                                       |                                            |
+|                    | If something happens once     in 1 second, it has 1H  frequency                                          |                                            |
+|                    | If something happens 10 times in 1 second, it has 10H frequency                                          |                                            |
+| Ground             | Special point in a circuit used as a reference to make measurements.                                     |                                            |
+|                    | Example: measure oneself from their feet (on the ground) to the top of the head.                         |                                            |
+| Hertz              | Unit of measure for the frequency                                                                        | Heinrich Hertz                             |
+| Intensity (I)      | Used as the symbol for electric current.                                                                 |                                            |
+|                    | Intensity of the flow of electrons through the circuit.                                                  |                                            |
+| Joule (J)          | Unit of energy                                                                                           | James Prescott Joule                       |
+| LED                | Light Emitting Diode. Diode that emits light when a current flows through it.                            |                                            |
+|                    | The LED has 2 terminals: anode and cathode.                                                              |                                            |
+|                    | When electrons cross the barriers between the anode to the cathodes, a photon is released                |                                            |
+|                    | (thus the light)                                                                                         |                                            |
+| Noise              | Random signal that disturb the optimal behavior of electronics circuits                                  |                                            |
+| Ohm                | Unit of resistance \Omega                                                                                | Georg Simon Ohm                            |
+|                    | When you place a voltage of 1V across a resistance of 1 ohm, 1 Ampere of current will flow through it    |                                            |
+| Ohm's law          | U = R I                                                                                                  |                                            |
+| PCB                | Printed Circuit Board                                                                                    |                                            |
+| Quartz             | Type of crystal with a unique property called piezoelectricity.                                          |                                            |
+|                    | - if you squeeze it, it releases a small voltage                                                         |                                            |
+|                    | - if you apply voltage on it, it will contract or expand (resonance). This resonance can be tuned to     |                                            |
+|                    | specific frequency -> accurate electronic clock signal                                                   |                                            |
+| Resistor           | Control the flow of electrons through a circuit by letting only a certain number of electrons go through |                                            |
+|                    | the circuit per second. Any extra electrons must wait in line.                                           |                                            |
+| Soldering Iron     | Hot glue for electronics by melting metals (conductive) irons together                                   |                                            |
+| Transistor         | Allows one circuit to control another.                                                                   |                                            |
+|                    | Acts like a lever.                                                                                       |                                            |
+| BJT                | Bipolar Junction Transistor                                                                              |                                            |
+| FET                | Field Effect Transistor                                                                                  |                                            |
+| USB                | Universal Serial Bus. Type of connection to allow computer to talk to other devices                      |                                            |
+| Voltage            | Potential electric energy, per unit of charge, between 2 points.                                         | Alessandro Voltage (first voltaic battery) |
+|                    | Measured in Volts (V).                                                                                   |                                            |
+|                    | The higher the voltage, the more it can push electrons through a circuit.                                |                                            |
+| Wire               | Thin, long piece of metal (copper) to conduct electricity from one point to another in a circuit.        |                                            |
+| Watt               | Unit of Power.                                                                                           |                                            |
+|                    | 1W is the amount of power required to perform 1J of work per second.                                     | James Watt (first reliable steam engine)   |
+|                    | 1W is the amount of power required to make 1A flow through 1 Ohm of resistance                           |                                            |
+| X-ray              | Type of electromagnetic radiatic (invisible to human eyes, higher frequency than visible light).         | Wilhelm Conrad Rontgen                     |
+|                    | Used to see inside electronic device or human body                                                       |                                            |
+| Yagi(-Uda) antenna | Kind of antenna for radio frequencies that use multiple pieces to direct and strengthen a signal.        | Shintaro Uda/Hidetsugu Yagi                |
+| Zener diode        | A diode that permits:                                                                                    | After Clarence Zener                       |
+|                    | - to let the current flow from the anode to the cathode (normal)                                         |                                            |
+|                    | - to let the current flow in the opposite direction (cathode to anode) above a given threshold           |                                            |
+|--------------------+----------------------------------------------------------------------------------------------------------+--------------------------------------------|
