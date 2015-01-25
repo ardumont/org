@@ -1,0 +1,33 @@
+#+title: ADB trouble
+#+author: ardumont
+
+When `adb devices` got lost:
+
+#+begin_src sh
+# tony at dagobah in ~/repo/perso/org2jekyll on git:master o [21:28:39]
+$ adb devices
+List of devices attached
+????????????    no permissions
+#+end_src
+
+Simply, kill the adb server and restart it.
+
+#+begin_src sh
+sudo adb kill-server
+sudo adb start-server
+#+end_src
+
+#+begin_src sh
+# tony at dagobah in ~/repo/perso/org2jekyll on git:master o [9:44:36]
+$ sudo adb start-server
+[sudo] password for tony:
+* daemon not running. starting it now on port 5037 *
+* daemon started successfully *
+
+# tony at dagobah in ~/repo/perso/org2jekyll on git:master o [9:45:12]
+$ sudo adb devices
+List of devices attached
+7e0c8df5        unauthorized
+#+end_src
+
+Now for the unauthorized part, check your mobile to authorize the action to happen on your mobile.
