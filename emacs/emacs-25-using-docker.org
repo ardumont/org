@@ -1,0 +1,42 @@
+#+title: Using docker to get the latest emacs (25)
+#+author: ardumont
+
+Using dockerhub to find some emacs box already ready:
+
+Fetch such image and make it run:
+#+begin_src sh
+docker run -it nicferrier/emacs /bin/bash
+#+end_src
+
+As this image is based on ubuntu, we can have apt-get.
+
+#+begin_src sh
+apt-get update
+apt-get install software-properties-common
+add-apt-repository ppa:ubuntu-elisp/ppa
+apt-get update
+apt-get install emacs-snapshot
+#+end_src
+
+Now commit the updates on the container to have the latest emacs and be able to run it from this step forward.
+
+#+begin_src sh
+docker commit <container-id> -m "emacs 25 ready"
+#+end_src
+
+We can create a Dockerfile now that we know what to do:
+
+#+begin_src Dockerfile
+TODO
+#+end_src
+
+And now we can run emacs using docker:
+
+Assuming $CONTAINER_WITH_EMACS is the container/image with emacs ready:
+#+begin_src sh
+docker run -it -v /tmp/.X11-unix:/tmp/.X11-unix -v $HOME:/root/ -e DISPLAY=unix$DISPLAY $CONTAINER_WITH_EMACS /usr/bin/emacs
+#+end_src
+
+This will run emacs inside the container but render graphically on your host using $HOME share as /root partition.
+
+...
