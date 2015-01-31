@@ -1,6 +1,10 @@
 #+title: Learning...
 #+author: ardumont
 
+* TODO xmonad
+- [ ] fix nix's xmonad recompile and restart procedure
+* TODO coding dojo
+- [ ] Progress on underscorejs coding dojo preparation
 * TODO domotic
 - http://www.geeek.org/votre-karotz-vous-informe-quand-vous-consommez-trop-d-energie-034.html
 - https://github.com/ltoinel/domogeeek -> openzwave lib
@@ -9,7 +13,7 @@
 - http://zwaveworld.com/
 * TODO keysnail
 - [ ] Create a function to append the urls to copy in the kill ring
-- [ ] Define some default global js functions (callable from M-x in ffx through keysnail)
+- [ ] Define some default global js functions (callable from M-x in ffx through keysnai
 * TODO shake
 http://shakebuild.com/
 https://github.com/ndmitchell/shake
@@ -19,11 +23,12 @@ https://github.com/ndmitchell/shake
 - [ ] exquilla
 - [ ] exchange ws provider -> ericson
 - [ ] lightning
-* IN-PROGRESS Emacs [2/4]
+* IN-PROGRESS Emacs [2/5]
 - [X] Improve js-pack setup
 - [X] Learn how to store/retrieve buffer/window in register - window-configuration-to-register C-x r w/j
 - [ ] Activate tags for js2-mode, web-mode, etc...
 - [ ] Make the *grep* buffer behaves as *magit* ones (fullscreen then get back to previous frame organization).
+- [ ] Install emacs-25 from source the nix way (via package override)
 * IN-PROGRESS Nix* [0%]
 ** Nix [73%]
 - [X] Nix package manager - http://nixos.org/nix/manual/
@@ -45,7 +50,7 @@ https://github.com/ndmitchell/shake
 - [ ] http://lethalman.blogspot.it/2014/11/nix-pill-16-nixpkgs-parameters.html
 - [ ] http://lethalman.blogspot.it/2014/11/nix-pill-17-nixpkgs-overriding-packages.html
 - [X] http://sandervanderburg.blogspot.fr/2014/07/managing-private-nix-packages-outside.html
-
+- [ ] understand package override - https://nixos.org/wiki/Nix_Modifying_Packages
 ** Nixpkgs [60%]
 - [X] [[https://nixos.org/nixpkgs/manual/][Nixpkgs manual]]
 - [X] Extends Nixos - https://nixos.org/wiki/NixOS:extend_NixOS
@@ -117,6 +122,8 @@ https://github.com/ndmitchell/shake
 - [X] Start a js-pack
 - [X] Toggle repl for js-pack
 - [X] Update on repl for js-pack - https://github.com/skeeto/skewer-mode
+- [ ] Understand how `swank-js` works for properly setup it
+- [ ] Connect to a live repl for live coding
 * IN-PROGRESS org-trello [94%]
   Minor mode to sync trello and org-mode
 - [X] Deploy in melpa (automated on their own)
