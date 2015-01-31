@@ -1,8 +1,12 @@
 #+title: Learning...
 #+author: ardumont
 
+* TODO conkeror
+- [ ] http://retroj.net/git/conkerorrc/
+- [ ] https://github.com/PhilHudson/conkerorrc
+- [ ] https://github.com/aborn/.conkerorrc
 * TODO xmonad
-- [ ] fix nix's xmonad recompile and restart procedure
+- [ ] Fix nix's xmonad recompile and restart procedure
 * TODO coding dojo
 - [ ] Progress on underscorejs coding dojo preparation
 * TODO domotic
