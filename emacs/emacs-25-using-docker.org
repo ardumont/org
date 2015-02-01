@@ -1,19 +1,19 @@
 #+title: Using docker to get the latest emacs (25)
 #+author: ardumont
 
-Using dockerhub to find some emacs box already ready:
+Using dockerhub to find some emacs box ready:
 
 Fetch such image and make it run:
 #+begin_src sh
 docker run -it nicferrier/emacs /bin/bash
 #+end_src
 
-As this image is based on ubuntu, we can have apt-get.
+As this image is based on ubuntu, we can use the ppa:ubuntu-elisp/ppa which exposes the latest emacs.
 
 #+begin_src sh
 apt-get update
-apt-get install software-properties-common
-add-apt-repository ppa:ubuntu-elisp/ppa
+apt-get install -h software-properties-common
+add-apt-repository -y ppa:ubuntu-elisp/ppa
 apt-get update
 apt-get install emacs-snapshot
 #+end_src
@@ -27,16 +27,58 @@ docker commit <container-id> -m "emacs 25 ready"
 We can create a Dockerfile now that we know what to do:
 
 #+begin_src Dockerfile
-TODO
+# -*- dockerfile -*-
+# emacs 25
+# VERSION       0.1
+
+FROM nicferrier/emacs
+MAINTAINER Antoine R. Dumont, github.com/ardumont
+
+# prepare user that will run emacs in
+RUN useradd -m -G users -s /bin/bash -d /home/user user
+
+# install latest emacs
+RUN apt-get update
+RUN apt-get install -y software-properties-common
+RUN add-apt-repository -y ppa:ubuntu-elisp/ppa
+RUN apt-get update
+RUN apt-get install -y emacs-snapshot
+
+WORKDIR /home/user
+USER user
+
+CMD ["emacs"]
+#+end_src
+
+Build docker image:
+#+begin_src sh
+docker build -t ardumont/emacs-25:scratch - < Dockerfile-emacs-25
 #+end_src
 
 And now we can run emacs using docker:
-
-Assuming $CONTAINER_WITH_EMACS is the container/image with emacs ready:
 #+begin_src sh
-docker run -it -v /tmp/.X11-unix:/tmp/.X11-unix -v $HOME:/root/ -e DISPLAY=unix$DISPLAY $CONTAINER_WITH_EMACS /usr/bin/emacs
+docker run -it -v /tmp/.X11-unix:/tmp/.X11-unix -v $HOME:/home/user -e DISPLAY=unix$DISPLAY ardumont/emacs-25:scratch /usr/bin/emacs
 #+end_src
 
-This will run emacs inside the container but render graphically on your host using $HOME share as /root partition.
+This will run emacs inside the container but render graphically on your host using $HOME share as /home/user partition.
 
-...
+Now go setup emacs the way you like it, for example, I have a bug on org-trello referencing the use of emacs-25:
+#+begin_src emacs-lisp
+(package-initialize)
+(setq package-archives '(("org"      . "http://orgmode.org/elpa/")
+                         ;; ("gnu"       . "http://elpa.gnu.org/packages/")
+                         ("melpa"     . "http://melpa.milkbox.net/packages/")
+                         ;; ("melpa-stable" . "http://melpa-stable.milkbox.net/packages/")
+                         ;; ("tromey"    . "http://tromey.com/elpa/")
+                         ("marmalade" . "https://marmalade-repo.org/packages/")
+                         ))
+(package-refresh-contents)
+
+(package-install-file "/root/repo/perso/org-trello/org-trello-0.6.9.1.tar")
+
+(require 'org-trello)
+(custom-set-variables '(*orgtrello-log/level* *OT/TRACE*)
+		      '(orgtrello/line-between-comments "\n"))
+#+end_src
+
+Sure, this can also be automated...
