@@ -128,6 +128,9 @@ https://github.com/ndmitchell/shake
 - [X] Update on repl for js-pack - https://github.com/skeeto/skewer-mode
 - [ ] Understand how `swank-js` works for properly setup it
 - [ ] Connect to a live repl for live coding
+- [ ] https://github.com/swank-js/swank-js - manipulate browser from node repl
+- [ ] https://github.com/skeeto/skewer-mode - manipulate browser from node repl (equivalent of swank-js)
+- [ ] https://github.com/itsatony/nREPL - nrepl server/client
 * IN-PROGRESS org-trello [94%]
   Minor mode to sync trello and org-mode
 - [X] Deploy in melpa (automated on their own)
