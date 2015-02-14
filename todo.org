@@ -1,14 +1,18 @@
 #+title: Learning...
 #+author: ardumont
 
-* TODO conkeror
+* IN-PROGRESS conkeror
 - [ ] http://retroj.net/git/conkerorrc/
 - [ ] https://github.com/PhilHudson/conkerorrc
 - [ ] https://github.com/aborn/.conkerorrc
+- [X] Begin to port keysnail configuration to conkeror
+- [X] Read some source
 * TODO xmonad
-- [ ] Fix nix's xmonad recompile and restart procedure
-* TODO coding dojo
-- [ ] Progress on underscorejs coding dojo preparation
+- [ ] Fix nix's xmonad recompile and restart procedure in nixos
+* DONE coding dojo (with ggirou)
+CLOSED: [2015-02-14 Sat 15:25]
+- [X] prepare coding dojo with ggirou
+- [X] Animate it
 * TODO domotic
 - http://www.geeek.org/votre-karotz-vous-informe-quand-vous-consommez-trop-d-energie-034.html
 - https://github.com/ltoinel/domogeeek -> openzwave lib
@@ -128,10 +132,11 @@ https://github.com/ndmitchell/shake
 - [X] Update on repl for js-pack - https://github.com/skeeto/skewer-mode
 - [ ] Understand how `swank-js` works for properly setup it
 - [ ] Connect to a live repl for live coding
+<<<<<<< HEAD
 - [ ] https://github.com/swank-js/swank-js - manipulate browser from node repl
 - [ ] https://github.com/skeeto/skewer-mode - manipulate browser from node repl (equivalent of swank-js)
 - [ ] https://github.com/itsatony/nREPL - nrepl server/client
-* IN-PROGRESS org-trello [94%]
+* IN-PROGRESS org-trello [96%]
   Minor mode to sync trello and org-mode
 - [X] Deploy in melpa (automated on their own)
 - [X] Deploy in marmalade
@@ -211,9 +216,11 @@ https://github.com/ndmitchell/shake
 - [X] 0.6.7
 - [X] 0.6.8
 - [ ] 0.6.9
+- [X] 0.6.9.1
+- [X] 0.6.9.2
 - [ ] ...
 - [X] Solve #231 create-board-and-install-metadata gives error 60
-- [ ] #230 Try and install emacs 25 to check this error (maybe new network-security-manager?)
+- [X] #230 Try and install emacs 25 to check this error (maybe new network-security-manager?)
 * IN-PROGRESS Blog [11/15]
 - [X] Migrate comment system to Disqus (old blog)
 - [X] Migrate from old blog system (wordpress) to a github solution -> ardumont.github.io [3/3]
