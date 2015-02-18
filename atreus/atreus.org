@@ -1,0 +1,114 @@
+#+title: Atreus keyboard
+#+author: ardumont
+
+First assemble it using the most excellent documentation from http://atreus.technomancy.us/assembly.pdf.
+
+This can take some time.
+
+It took me most of the night with some coffee.
+
+Because I'm not a solder iron expert.
+Plus I did miscomprehend some parts of the documentation and did have to unsolder and solder again (and this is much more complicated after a first tryout).
+
+--
+
+Determine the usb keyboard:
+#+begin_src sh
+ls /dev > /tmp/dev-off # run this while the device is unplugged
+ls /dev > /tmp/dev-on # run this while the device is in bootloader mode
+diff /tmp/dev-off /tmp/dev-on
+#+end_src
+
+Install pre-requisite dependencies:
+
+#+begin_src sh
+nix-env -i avrdude avr-gcc-libc
+#+end_src
+
+Clone technomancy's repository:
+
+#+begin_src sh
+git clone git@github.com:technomancy/atreus-firmware.git
+#+end_src
+
+*Note* There is another one -
+
+Hard reset the first time by connecting RST and GND 2 times in less than 1 second (with a wire for example).
+If it's ok the LED starts blinking differently.
+During this period, type `make upload` in the terminal from technomancy's fork folder.
+
+Something along those lines will appear.
+
+#+begin_src sh
+# tony at dagobah in ~/repo/perso/atreus-firmware on git:master o [4:17:54]
+$ make upload
+while [ ! -r /dev/ttyACM0 ]; do sleep 1; done; \
+avrdude -p atmega32u4 -c avr109 -U flash:w:atreus.hex -P /dev/ttyACM0
+
+Connecting to programmer: .
+Found programmer: Id = "CATERIN"; type = S
+    Software Version = 1.0; No Hardware Version given.
+Programmer supports auto addr increment.
+Programmer supports buffered memory access with buffersize=128 bytes.
+
+Programmer supports the following devices:
+    Device code: 0x44
+
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: Device signature = 0x1e9587
+avrdude: NOTE: "flash" memory has been specified, an erase cycle will be performed
+         To disable this feature, specify the -D option.
+avrdude: erasing chip
+avrdude: reading input file "atreus.hex"
+avrdude: input file atreus.hex auto detected as Intel Hex
+avrdude: writing flash (3278 bytes):
+
+Writing | ################################################## | 100% 0.25s
+
+avrdude: 3278 bytes of flash written
+avrdude: verifying flash memory against atreus.hex:
+avrdude: load data flash data from input file atreus.hex:
+avrdude: input file atreus.hex auto detected as Intel Hex
+avrdude: input file atreus.hex contains 3278 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 0.03s
+
+avrdude: verifying ...
+avrdude: 3278 bytes of flash verified
+
+avrdude: safemode: Fuses OK (E:C8, H:D0, L:FF)
+
+avrdude done.  Thank you.
+
+#+end_src
+
+Looking at dmesg, the keyboard is disconnected and reconnected:
+
+#+begin_src sh
+[234924.640433] cdc_acm 1-2:1.0: ttyACM0: USB ACM device
+[234931.190801] usb 1-2: USB disconnect, device number 17
+[234931.473927] usb 1-2: new full-speed USB device number 18 using xhci_hcd
+[234931.639206] usb 1-2: New USB device found, idVendor=16c0, idProduct=047c
+[234931.639215] usb 1-2: New USB device strings: Mfr=1, Product=2, SerialNumber=0
+[234931.639220] usb 1-2: Product: Atreus
+[234931.639223] usb 1-2: Manufacturer: Technomancy
+[234931.640720] input: Technomancy Atreus as /devices/pci0000:00/0000:00:14.0/usb1/1-2/1-2:1.0/0003:16C0:047C.0004/input/input12
+[234931.640971] hid-generic 0003:16C0:047C.0004: input,hidraw0: USB HID v1.11 Keyboard [Technomancy Atreus] on usb-0000:00:14.0-2/input0
+#+end_src
+
+Now typing using your keyboard should display things.
+For me, it works almost perfectly:
+
+A rapid tour of what does not work:
+So, what does not work immediately:
+
+```txt
+e d k x c , ENTER
+```
+
+In blank the characters that are not working.
+I need to take a look at my soldering :D
