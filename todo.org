@@ -1,6 +1,10 @@
 #+title: Learning...
 #+author: ardumont
 
+* IN-PROGRESS atreus
+- [X] command
+- [X] build
+- [ ] tweak firmware
 * IN-PROGRESS conkeror
 - [ ] http://retroj.net/git/conkerorrc/
 - [ ] https://github.com/PhilHudson/conkerorrc

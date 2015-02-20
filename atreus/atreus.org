@@ -112,3 +112,14 @@ e d k x c , ENTER
 
 In blank the characters that are not working.
 I need to take a look at my soldering :D
+
+--
+
+Now, after some multiple soldering session:
+- ENTER works
+- w (stopped)
+- x
+- ,
+- k
+
+qw
