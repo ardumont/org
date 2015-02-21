@@ -5,6 +5,8 @@
 - [X] command
 - [X] build
 - [ ] tweak firmware
+- [ ] Blog post about atreus build
+- [ ] Add me https://github.com/technomancy/atreus/wiki/BuildLogs
 * IN-PROGRESS conkeror
 - [ ] http://retroj.net/git/conkerorrc/
 - [ ] https://github.com/PhilHudson/conkerorrc
