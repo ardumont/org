@@ -115,11 +115,19 @@ I need to take a look at my soldering :D
 
 --
 
-Now, after some multiple soldering session:
+Now, after some multiple soldering sessions:
 - ENTER works
 - w (stopped)
 - x
 - ,
 - k
 
-qw
+The only thing that did not work was the column `sw9`.
+After multiple looks at my boards, I finally unsoldered all switches.
+Look at the other side of the boards and saw that the soldering on some diode were cluttered with too much iron, so I cleaned them.
+Also, the pins in the controller a-star were cluttered.
+
+Using an unsoldering pump to clean that mess and using a thinner iron (I was at 1.5 mm, now with 1mm), all is ok.
+I've got everything working nice and clean!
+
+Woohoo!
