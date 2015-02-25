@@ -123,9 +123,13 @@ Now, after some multiple soldering sessions:
 - k
 
 The only thing that did not work was the column `sw9`.
-After multiple looks at my boards, I finally unsoldered all switches.
-Look at the other side of the boards and saw that the soldering on some diode were cluttered with too much iron, so I cleaned them.
+After multiple looks at my boards, nothing was seen that was justifying problems.
+This meant, the problem lied on the other side of the board (the one no longer accessible).
+
+So, I finally unsoldered all switches.
+And indeded, on the other side, I saw that the soldering on some diodes were cluttered with too much iron, so I cleaned them.
 Also, the pins in the controller a-star were cluttered.
+Justifying the fact that sw9 was not working.
 
 Using an unsoldering pump to clean that mess and using a thinner iron (I was at 1.5 mm, now with 1mm), all is ok.
 I've got everything working nice and clean!
