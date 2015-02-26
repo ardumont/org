@@ -1,10 +1,10 @@
 #+title: Atreus keyboard
 #+author: Antoine R. Dumont
 #+LAYOUT: post
-#+DATE: [2014-02-26 Tue 15:57]
+#+DATE: [2015-02-26 Tue 15:57]
 #+OPTIONS: H:2 num:nil tags:nil toc:nil timestamps:t
 #+CATEGORIES: atreus, keyboard, diy
-#+DESCRIPTION: my atreus keyboard adventure
+#+DESCRIPTION: My Atreus keyboard journey
 #+STARTUP: indent
 
 * Assemble
@@ -18,11 +18,12 @@ It took me one night with some coffee.
 Because:
 - I'm not a solder iron expert.
 - I did not have an unsoldering pump (it's a good idea to have if like me you're kind of first timer - I did kind of manipulate a soldering iron some ~17-18 years ago...).
+- I used a too large iron diameter (1.5 mm). Soldering got better with 1mm.
 
 And I did miscomprehend some parts of the documentation.
 This lead to some unsoldering and soldering back session (not that easy without the right tool).
 
-So let's go for some details after that - the firmware installation and setup of the keyboard.
+So let's go for some details after that - the firmware installation and the investigation on the improper behavior.
 
 * Pre-requisite
 
@@ -144,20 +145,47 @@ The remaining non-working part turned out to be a column of key (`sw:9` ; e d c 
 
 After multiple looks at my board, nothing was seen that justified the problems.
 
-As I saw only one side of the board, this meant the problem lied on the other side.
+As I saw only one side of the board, this meant the problem lied on the other side...
 
-So, I had to unsolder all switches to access the side no longer accessible.
+Which meant unsoldering all switches.
+
+I sent some question to technomancy side and he confirmed that either it was:
+- some solder on the diode that went bad (checked before)
+- or I had to unsolder switches to access the other side.
+
+So, I had to unsolder all switches...
 
 And indeed, on the other side, some diode were cluttered with too much iron. So I cleaned up.
 
-Conclusion: This did not help.
+Still, this did not help.
 
-I guess more experienced user would have realised sooner than me that a non-working column meant an a-star pin was responsible.
+I guess more experienced user would have realised sooner that a non-working column meant an a-star pin was responsible.
+And technomancy at some point gathered as much.
 And indeed, some pin in the controller a-star were too much cluttered.
 
-After cleaning this up using an unsoldering pump and using a thinner iron (first 1.5 mm, after 1mm) for soldering back, all went ok!
+I did not get the `too much iron on the controller pin` immediately because the problem moved along.
+That is, sw9 worked but then the sw10 column no longer worked (`wsx`)
+and then sw10 worked but sw11 no longer...
 
-* Conlusion
+I did miss some sleep. Somehow, I finally got it.
+
+After cleaning this up using an unsoldering pump and using a thinner iron for soldering back, all went ok!
+
+** feedback loop
+
+I should have searched for a simple way to ensure everything was ok before soldering the switches (after all 42 keycaps times 2 switches is kind of long to solder and unsolder).
+
+I got it right the last time around.
+Before soldering back, I ensured everything was right before soldering back.
+
+I simply took one wire and connected the switch pins of the same keycap.
+Indeed, if everything is ok, the keyboard must then send the appropriate signal and your current software should print something.
+If not, there is an issue.
+
+So, I did this to ensure every keycap was ok.
+And when all 42 keycaps did what they were supposed to, I soldered back!
+
+* Conclusion
 
 It works!
 
