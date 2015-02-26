@@ -1,23 +1,32 @@
 #+title: Atreus keyboard
-#+author: ardumont
+#+author: Antoine R. Dumont
+#+LAYOUT: post
+#+DATE: [2014-02-26 Tue 15:57]
+#+OPTIONS: H:2 num:nil tags:nil toc:nil timestamps:t
+#+CATEGORIES: atreus, keyboard, diy
+#+DESCRIPTION: my atreus keyboard adventure
+#+STARTUP: indent
 
-First assemble it using the most excellent documentation from http://atreus.technomancy.us/assembly.pdf.
+* Assemble
+
+First assemble it using the excellent documentation from http://atreus.technomancy.us/assembly.pdf.
 
 This can take some time.
 
-It took me most of the night with some coffee.
+It took me one night with some coffee.
 
-Because I'm not a solder iron expert.
-Plus I did miscomprehend some parts of the documentation and did have to unsolder and solder again (and this is much more complicated after a first tryout).
+Because:
+- I'm not a solder iron expert.
+- I did not have an unsoldering pump (it's a good idea to have if like me you're kind of first timer - I did kind of manipulate a soldering iron some ~17-18 years ago...).
 
---
+And I did miscomprehend some parts of the documentation.
+This lead to some unsoldering and soldering back session (not that easy without the right tool).
 
-Determine the usb keyboard:
-#+begin_src sh
-ls /dev > /tmp/dev-off # run this while the device is unplugged
-ls /dev > /tmp/dev-on # run this while the device is in bootloader mode
-diff /tmp/dev-off /tmp/dev-on
-#+end_src
+So let's go for some details after that - the firmware installation and setup of the keyboard.
+
+* Pre-requisite
+
+** Tools
 
 Install pre-requisite dependencies:
 
@@ -25,17 +34,26 @@ Install pre-requisite dependencies:
 nix-env -i avrdude avr-gcc-libc
 #+end_src
 
+** Firmware
+
 Clone technomancy's repository:
 
 #+begin_src sh
 git clone git@github.com:technomancy/atreus-firmware.git
 #+end_src
 
-*Note* There is another one -
+*Note*
+There is another repository which is a fork of tmk/tmk_keyboard (branch atreus).
+#+begin_src sh
+git clone git@github.com:technomancy/tmk_keyboard.git
+git checkout atreus
+#+end_src
 
 Hard reset the first time by connecting RST and GND 2 times in less than 1 second (with a wire for example).
-If it's ok the LED starts blinking differently.
-During this period, type `make upload` in the terminal from technomancy's fork folder.
+If you succeeded, the LED will start blinking differently for 8 seconds.
+
+Which is the time you have to try and upload the firmware you chose.
+Type `make upload` in the terminal from technomancy's fork folder.
 
 Something along those lines will appear.
 
@@ -97,41 +115,52 @@ Looking at dmesg, the keyboard is disconnected and reconnected:
 [234931.639220] usb 1-2: Product: Atreus
 [234931.639223] usb 1-2: Manufacturer: Technomancy
 [234931.640720] input: Technomancy Atreus as /devices/pci0000:00/0000:00:14.0/usb1/1-2/1-2:1.0/0003:16C0:047C.0004/input/input12
-[234931.640971] hid-generic 0003:16C0:047C.0004: input,hidraw0: USB HID v1.11 Keyboard [Technomancy Atreus] on usb-0000:00:14.0-2/input0
+[234931.640971] hid-generic 0003:16C0:047C.0004: input,hidraw0: USB HID v1.11 Keyboard [Technomancy Atr eus] on usb-0000:00:14.0-2/input0
 #+end_src
 
-Now typing using your keyboard should display things.
-For me, it works almost perfectly:
+And now your keyboard should be alive.
 
-A rapid tour of what does not work:
-So, what does not work immediately:
+* Status
+
+Now typing using your keyboard should display things.
+For me, it worked the first time except for some keys:
 
 ```txt
-e d k x c , ENTER
+w e d k x c , ENTER SUPER
 ```
 
-In blank the characters that are not working.
-I need to take a look at my soldering :D
+** First fix
 
---
-
-Now, after some multiple soldering sessions:
+Just trying to add some more iron on the switches not working fixed it for some:
 - ENTER works
 - w (stopped)
 - x
 - ,
 - k
 
-The only thing that did not work was the column `sw9`.
-After multiple looks at my boards, nothing was seen that was justifying problems.
-This meant, the problem lied on the other side of the board (the one no longer accessible).
+** Not enough?
 
-So, I finally unsoldered all switches.
-And indeded, on the other side, I saw that the soldering on some diodes were cluttered with too much iron, so I cleaned them.
-Also, the pins in the controller a-star were cluttered.
-Justifying the fact that sw9 was not working.
+The remaining non-working part turned out to be a column of key (`sw:9` ; e d c SUPER).
 
-Using an unsoldering pump to clean that mess and using a thinner iron (I was at 1.5 mm, now with 1mm), all is ok.
-I've got everything working nice and clean!
+After multiple looks at my board, nothing was seen that justified the problems.
+
+As I saw only one side of the board, this meant the problem lied on the other side.
+
+So, I had to unsolder all switches to access the side no longer accessible.
+
+And indeed, on the other side, some diode were cluttered with too much iron. So I cleaned up.
+
+Conclusion: This did not help.
+
+I guess more experienced user would have realised sooner than me that a non-working column meant an a-star pin was responsible.
+And indeed, some pin in the controller a-star were too much cluttered.
+
+After cleaning this up using an unsoldering pump and using a thinner iron (first 1.5 mm, after 1mm) for soldering back, all went ok!
+
+* Conlusion
+
+It works!
 
 Woohoo!
+
+Now on with the firmware adventure!
