@@ -11,17 +11,18 @@
 
 First assemble it using the excellent documentation from http://atreus.technomancy.us/assembly.pdf.
 
+#+ATTR_HTML: :width 500px
+[[../img/atreus/01-start-atreus-kit.jpg]]
+
 This can take some time.
+It took me more time than anticipated, one night with lots of coffee + some extra hours of debugging.
+But it was awesome!
 
-It took me one night with some coffee.
-
-Because:
-- I'm not a solder iron expert.
-- I did not have an unsoldering pump (it's a good idea to have if like me you're kind of first timer - I did kind of manipulate a soldering iron some ~17-18 years ago...).
+It took me some time because:
+- I'm not a solder iron expert (last time I manipulated one was at least 15 years ago).
+- I did not have an unsoldering pump (it's a good idea to have if like me you're kind of first timer).
 - I used a too large iron diameter (1.5 mm). Soldering got better with 1mm.
-
-And I did miscomprehend some parts of the documentation.
-This lead to some unsoldering and soldering back session (not that easy without the right tool).
+- I did miscomprehend some parts of the documentation. This lead to some unsoldering and soldering back session (not that easy without the right tool).
 
 So let's go for some details after that - the firmware installation and the investigation on the improper behavior.
 
@@ -44,7 +45,7 @@ git clone git@github.com:technomancy/atreus-firmware.git
 #+end_src
 
 *Note*
-There is another repository which is a fork of tmk/tmk_keyboard (branch atreus).
+There is another repository which is a fork of =tmk/tmk_keyboard= (branch atreus).
 #+begin_src sh
 git clone git@github.com:technomancy/tmk_keyboard.git
 git checkout atreus
@@ -121,14 +122,16 @@ Looking at dmesg, the keyboard is disconnected and reconnected:
 
 And now your keyboard should be alive.
 
+*Note* The firmware installed here is the default one for Atreus.
+
 * Status
 
 Now typing using your keyboard should display things.
 For me, it worked the first time except for some keys:
 
-```txt
+#+begin_src txt
 w e d k x c , ENTER SUPER
-```
+#+end_src
 
 ** First fix
 
@@ -143,40 +146,51 @@ Just trying to add some more iron on the switches not working fixed it for some:
 
 The remaining non-working part turned out to be a column of key (`sw:9` ; e d c SUPER).
 
-After multiple looks at my board, nothing was seen that justified the problems.
+After multiple looks at my board, I did not see anything troubling.
 
 As I saw only one side of the board, this meant the problem lied on the other side...
 
 Which meant unsoldering all switches.
 
-I sent some question to technomancy side and he confirmed that either it was:
-- some solder on the diode that went bad (checked before)
+First, I tried to look at some pictures I took before soldering.
+As you can see, there are lots of iron. Not so much is necessary, I used 1.5mm diameter iron which is too much, 1mm is largely enough and result in less iron once melted.
+
+#+ATTR_HTML: :width 500px
+[[../img/atreus/02-diode+a-star-controller-ok-face-1.jpg]]
+
+#+ATTR_HTML: :width 500px
+[[../img/atreus/02-diode+a-star-controller-ok-face-2.jpg]]
+
+I did not see much on the pictures. I needed to see the real thing.
+
+I sent some questions to technomancy and he confirmed that either it was:
+- some solder on the diode that went bad (checked as seen before in the previous paragraph)
 - or I had to unsolder switches to access the other side.
 
-So, I had to unsolder all switches...
+** Do and undo, it's still work
 
-And indeed, on the other side, some diode were cluttered with too much iron. So I cleaned up.
+So, no way around it, I had to unsolder all switches...
 
-Still, this did not help.
+And indeed, on the other side, some diodes were cluttered with too much iron. So I cleaned up.
+
+Still, this was not the reason.
 
 I guess more experienced user would have realised sooner that a non-working column meant an a-star pin was responsible.
-And technomancy at some point gathered as much.
-And indeed, some pin in the controller a-star were too much cluttered.
+And technomancy suspected as much but I did not understand immediately because the problem moved along as I kept fixing columns.
 
-I did not get the `too much iron on the controller pin` immediately because the problem moved along.
-That is, sw9 worked but then the sw10 column no longer worked (`wsx`)
-and then sw10 worked but sw11 no longer...
+That is, after some clean up session, *sw:9* started working but then the *sw:10* column stopped ('w', 's', 'x', ...) and then *sw:10* worked but *sw:11* ('q', 'a', 'z', ...) no longer...
 
-I did miss some sleep. Somehow, I finally got it.
+Somehow, I finally got it.
 
-After cleaning this up using an unsoldering pump and using a thinner iron for soldering back, all went ok!
+Cleaning up the pins and adding just enough iron (1mm again :D) and everything finally worked!
 
 ** feedback loop
 
-I should have searched for a simple way to ensure everything was ok before soldering the switches (after all 42 keycaps times 2 switches is kind of long to solder and unsolder).
+I should have searched for a simple way to ensure everything was ok before soldering the switches the first time around.
+After all 42 keycaps times 2 switches for each is kind of long to solder (and unsolder in case of errors, which could easily happen... :D).
 
-I got it right the last time around.
-Before soldering back, I ensured everything was right before soldering back.
+I got it right the last time around though.
+Before soldering back, I ensured everything was ok.
 
 I simply took one wire and connected the switch pins of the same keycap.
 Indeed, if everything is ok, the keyboard must then send the appropriate signal and your current software should print something.
@@ -184,6 +198,9 @@ If not, there is an issue.
 
 So, I did this to ensure every keycap was ok.
 And when all 42 keycaps did what they were supposed to, I soldered back!
+
+#+ATTR_HTML: :width 500px
+[[../img/atreus/03-almost-there.jpg]]
 
 * Conclusion
 
