@@ -4,8 +4,8 @@
 * IN-PROGRESS atreus
 - [X] command
 - [X] build
-- [ ] tweak firmware
-- [ ] Blog post about atreus build
+- [X] tweak firmware
+- [X] Blog post about atreus build
 - [ ] Add me https://github.com/technomancy/atreus/wiki/BuildLogs
 * IN-PROGRESS conkeror
 - [ ] http://retroj.net/git/conkerorrc/
@@ -65,15 +65,15 @@ https://github.com/ndmitchell/shake
 - [ ] http://lethalman.blogspot.it/2014/11/nix-pill-17-nixpkgs-overriding-packages.html
 - [X] http://sandervanderburg.blogspot.fr/2014/07/managing-private-nix-packages-outside.html
 - [ ] understand package override - https://nixos.org/wiki/Nix_Modifying_Packages
-** Nixpkgs [71%]
+** Nixpkgs [85%]
 - [X] [[https://nixos.org/nixpkgs/manual/][Nixpkgs manual]]
 - [X] Extends Nixos - https://nixos.org/wiki/NixOS:extend_NixOS
-- [-] Create the tux-guitar package for NixOS - http://nixos.org/nixpkgs/manual/ [60%]
+- [X] Create the tux-guitar package for NixOS - http://nixos.org/nixpkgs/manual/ [100%]
   - [X] Fork and clone NixOS/nixpkgs repository
   - [X] Located in pkgs/applications/misc according to http://nixos.org/nixpkgs/manual/#sec-organisation
   - [X] Reference the package in pkgs/top-level/all-packages.nix
-  - [ ] Check that everything works locally
-  - [ ] Push branch and open Pull Request
+  - [X] Check that everything works locally
+  - [X] Push branch and open Pull Request
 - [X] Fix pidgin-with-plugins
 - [ ] update nix to have emacs 25 built
 - [X] Install microscheme
