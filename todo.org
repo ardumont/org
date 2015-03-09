@@ -1,6 +1,9 @@
 #+title: Learning...
 #+author: ardumont
 
+* IN-PROGRESS haskell-mode
+- [X] Make it nix-shell (or other container technology) compatible
+- [ ] Add unit tests as asked
 * IN-PROGRESS atreus
 - [X] command
 - [X] build
@@ -75,9 +78,9 @@ https://github.com/ndmitchell/shake
   - [X] Check that everything works locally
   - [X] Push branch and open Pull Request
 - [X] Fix pidgin-with-plugins
-- [ ] update nix to have emacs 25 built
 - [X] Install microscheme
 - [X] Create microscheme derivation PR - https://github.com/NixOS/nixpkgs/pull/6342
+- [ ] update nix to have emacs 25 built
 
 ** NixOS [96%]
 - [X] Read [[http://nixos.org/nixos/manual/][NixOS manual]]
