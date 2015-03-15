@@ -68,7 +68,7 @@ https://github.com/ndmitchell/shake
 - [ ] http://lethalman.blogspot.it/2014/11/nix-pill-17-nixpkgs-overriding-packages.html
 - [X] http://sandervanderburg.blogspot.fr/2014/07/managing-private-nix-packages-outside.html
 - [ ] understand package override - https://nixos.org/wiki/Nix_Modifying_Packages
-** Nixpkgs [85%]
+** Nixpkgs [87%]
 - [X] [[https://nixos.org/nixpkgs/manual/][Nixpkgs manual]]
 - [X] Extends Nixos - https://nixos.org/wiki/NixOS:extend_NixOS
 - [X] Create the tux-guitar package for NixOS - http://nixos.org/nixpkgs/manual/ [100%]
@@ -77,9 +77,10 @@ https://github.com/ndmitchell/shake
   - [X] Reference the package in pkgs/top-level/all-packages.nix
   - [X] Check that everything works locally
   - [X] Push branch and open Pull Request
-- [X] Fix pidgin-with-plugins
-- [X] Install microscheme
+- [X] Fix pidgin-with-plugins derivation - https://github.com/NixOS/nixpkgs/pull/5009
 - [X] Create microscheme derivation PR - https://github.com/NixOS/nixpkgs/pull/6342
+- [X] Create tux-guitar derivation PR - https://github.com/NixOS/nixpkgs/pull/6697
+- [X] Create sqldeveloper derivation PR - https://github.com/NixOS/nixpkgs/pull/6777
 - [ ] update nix to have emacs 25 built
 
 ** NixOS [96%]
