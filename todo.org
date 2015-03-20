@@ -76,10 +76,9 @@ https://github.com/ndmitchell/shake
   - [X] Located in pkgs/applications/misc according to http://nixos.org/nixpkgs/manual/#sec-organisation
   - [X] Reference the package in pkgs/top-level/all-packages.nix
   - [X] Check that everything works locally
-  - [X] Push branch and open Pull Request
+  - [X] Push branch and open Pull Request - https://github.com/NixOS/nixpkgs/pull/6697
 - [X] Fix pidgin-with-plugins derivation - https://github.com/NixOS/nixpkgs/pull/5009
 - [X] Create microscheme derivation PR - https://github.com/NixOS/nixpkgs/pull/6342
-- [X] Create tux-guitar derivation PR - https://github.com/NixOS/nixpkgs/pull/6697
 - [X] Create sqldeveloper derivation PR - https://github.com/NixOS/nixpkgs/pull/6777
 - [ ] update nix to have emacs 25 built
 
@@ -230,6 +229,7 @@ https://github.com/ndmitchell/shake
 - [ ] 0.6.9
 - [X] 0.6.9.1
 - [X] 0.6.9.2
+- [X] 0.6.9.3
 - [ ] ...
 - [X] Solve #231 create-board-and-install-metadata gives error 60
 - [X] #230 Try and install emacs 25 to check this error (maybe new network-security-manager?)
