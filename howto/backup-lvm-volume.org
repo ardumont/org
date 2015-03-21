@@ -61,7 +61,7 @@ mint@mint ~ $ sudo lvdisplay /dev/vg1001
   Block device           252:0
 #+end_src
 
-Now, we can mount the volume /dev/mapper/vg10001-lv
+Now, we can mount the volume /dev/mapper/vg1001-lv
 
 #+begin_src sh
 mint@mint ~ $ mount
