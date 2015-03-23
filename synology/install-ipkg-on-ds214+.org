@@ -1,0 +1,101 @@
+#+title: How to install `ipkg` on a Synology DS214
+#+source: https://gist.githubusercontent.com/marlun78/9349792/raw/b53c13cbea1c0e72e80213d8921a37e3f570df12/ds214-ipkg-install
+
+After a couple of days of trying to get `ipkg` woking on my DS214 I found [[https://github.com/trepmag/ds213j-optware-bootstrap][this article]] by [[https://github.com/trepmag][trepmag]].
+
+* SSH
+
+You need to have enabled `ssh` on your DiskStation. Then open up your terminal and type:
+
+#+begin_src bash
+ssh root@[your-ds-ip]
+#+end_src
+
+Read more about how to setup SSH on your DiskStation [[http://forum.synology.com/wiki/index.php/Enabling_the_Command_Line_Interface][here]].
+
+* Create optware root directory
+
+#+begin_src bash
+mkdir /volume1/@optware
+mkdir /opt
+mount -o bind /volume1/@optware /opt
+#+end_src
+
+* Setup ipkg
+
+#+begin_src bash
+feed=http://ipkg.nslu2-linux.org/feeds/optware/cs08q1armel/cross/unstable
+ipk_name=`wget -qO- $feed/Packages | awk '/^Filename: ipkg-opt/ {print $2}'`
+wget $feed/$ipk_name
+tar -xOvzf $ipk_name ./data.tar.gz | tar -C / -xzvf -
+mkdir -p /opt/etc/ipkg
+echo "src cross $feed" > /opt/etc/ipkg/feeds.conf
+#+end_src
+(Source: http://www.nslu2-linux.org/wiki/Optware/HomePage)
+
+* Set PATH
+
+Add `/opt/bin:/opt/sbin:` to the `PATH` variable in `/etc/profile`.
+
+#+begin_src sh
+echo PATH=$PATH:/opt/bin:/opt/sbin >> /etc/profile
+#+end_src
+
+* Create init scripts
+
+The following steps will allow to automatically bind the /volume1/@optware directory to /opt and trigger the /opt/etc/init.d/* scripts.
+
+Create the /etc/rc.local (chmod 755):
+#+begin_src bash
+touch /etc/rc.local
+chmod 755 /etc/rc.local
+!echo <<< EOF > /etc/rc.local
+#!/bin/sh
+
+# Optware setup
+[ -x /etc/rc.optware ] && /etc/rc.optware start
+EOF
+#+end_src
+
+Create the `/etc/rc.optware` file (chmod 755):
+#+begin_src bash
+touch /etc/rc.optware
+chmod 755 /etc/rc.optware
+echo <<< EOF > /etc/rc.optware
+#!/bin/sh
+
+if test -z "${REAL_OPT_DIR}"; then
+    # next line to be replaced according to OPTWARE_TARGET
+    REAL_OPT_DIR=/volume1/@optware
+fi
+
+case "$1" in
+    start)
+        echo "Starting Optware."
+        if test -n "${REAL_OPT_DIR}"; then
+            if ! grep ' /opt ' /proc/mounts >/dev/null 2>&1 ; then
+                mkdir -p /opt
+                mount -o bind ${REAL_OPT_DIR} /opt
+            fi
+        fi
+	[ -x /opt/etc/rc.optware ] && /opt/etc/rc.optware
+    ;;
+    reconfig)
+	true
+    ;;
+    stop)
+        echo "Shutting down Optware."
+	true
+    ;;
+    *)
+        echo "Usage: $0 {start|stop|reconfig}"
+        exit 1
+esac
+
+exit 0
+EOF
+#+end_src
+
+* Finally
+
+Reboot the DiskStation and you should be done!
