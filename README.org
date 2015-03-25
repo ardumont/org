@@ -1,4 +1,4 @@
-#+title: README
+#+title: org
 #+author: Antoine R. Dumont
 #+Options: num:nil
 #+STARTUP: odd
@@ -7,8 +7,8 @@
 Mostly notes on interesting subjects that I came across.
 It might be of use to you.
 
-Unless specified otherwise, this is released under [[http://creativecommons.org/licenses/by-sa/4.0/][CC-BY-SA]].
+Unless specified otherwise, this work is licensed under a [[http://creativecommons.org/licenses/by-sa/4.0/][CC-BY-SA - Creative Commons Attribution-ShareAlike 4.0 International License]].
 
-#+begin_src html
-<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
-#+end_src
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+  <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" />
+</a>
