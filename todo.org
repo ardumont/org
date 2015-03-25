@@ -40,12 +40,13 @@ https://github.com/ndmitchell/shake
 - [ ] exquilla
 - [ ] exchange ws provider -> ericson
 - [ ] lightning
-* IN-PROGRESS Emacs [2/5]
+* IN-PROGRESS Emacs [3/6]
 - [X] Improve js-pack setup
 - [X] Learn how to store/retrieve buffer/window in register - window-configuration-to-register C-x r w/j
 - [ ] Activate tags for js2-mode, web-mode, etc...
 - [ ] Make the *grep* buffer behaves as *magit* ones (fullscreen then get back to previous frame organization).
 - [ ] Install emacs-25 from source the nix way (via package override)
+- [X] Fix nix-mode (nix-pack) regarding indentation (messed up for kill/yank)
 * IN-PROGRESS Nix* [0%]
 ** Nix [73%]
 - [X] Nix package manager - http://nixos.org/nix/manual/
