@@ -1,0 +1,15 @@
+#+title: Enchainements
+#+author: ardumont
+
+|------------------+-----------------------|
+| Prise            | Enchainement          |
+|------------------+-----------------------|
+| Ippon Seoi Nage  | Ko Uchi Gari          |
+| O Soto Gari      | Ko Soto Gari          |
+| Tai Otoshi       | Uchi Mata             |
+| Ko Uchi Gari     | Morote Seoi Nage      |
+| Morote Seoi Nage | Ko Uchi Gari          |
+| Ko Uchi Gari     | O Uchi Gari           |
+| Ko Uchi Gari     | O Soto Gake           |
+| O Uchi Gari      | Harai Tsuri Komi Ashi |
+|------------------+-----------------------|
