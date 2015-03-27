@@ -1,0 +1,44 @@
+#+title: Programme par ceinture + initiative mouvement
+#+author: ardumont
+
+* retournement
+
+FIXME: comment representer les retournements?
+
+- Uke pousse, Tori s'efface et profite du desequilibre.
+
+* Liaison sol debout
+
+| O Uchi Gari  | Tate Shiho Gatame |
+| Ko Uchi Gari | Hon Kesa Gatame   |
+
+* jaune
+
+|--------------------------+---------------------------------------------------------------------+-------------------------------|
+| Nage Waza (projection)   | Initiative                                                          | Variantes                     |
+|--------------------------+---------------------------------------------------------------------+-------------------------------|
+| Hiza Guruma              | Poussee de Uke, Tori s'efface et blocage du genou                   |                               |
+| Sasae Tsuri Komi Ashi    | Poussee de Uke, Tori s'efface et blocage de la cheville             |                               |
+| O Soto Gari              | Uke tire, Tori utilise la force                                     |                               |
+| Tai Otoshi               | Poussee de Uke, Tori s'efface et barrage                            | Forme de Morote et Tai Otoshi |
+| Ko Soto Gari             | Uke recule (est en desequilibre arriere), Tori amplifie et fauche   |                               |
+| O Uchi Gari              | Desequilibre arriere de uke, Tori amplifie et fauche                |                               |
+| Ko Uchi Gari             | Uke tire (se desequilibre), Tori amplifie le desequilibre et fauche |                               |
+|--------------------------+---------------------------------------------------------------------+-------------------------------|
+| Ne Waza (immobilisation) | Moment                                                              | Variantes                     |
+|--------------------------+---------------------------------------------------------------------+-------------------------------|
+| Hon Kesa Gatame          |                                                                     |                               |
+| Yoko Shiho Gatame        |                                                                     |                               |
+| Kami Shiho Gatame        |                                                                     |                               |
+| Tate Shiho Gatame        |                                                                     |                               |
+| Kusure Kesa Gatame       |                                                                     |                               |
+
+* orange
+
+* verte
+
+* bleu
+
+* marron
+
+* noire
