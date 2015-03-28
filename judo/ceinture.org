@@ -69,43 +69,116 @@ FIXME: comment representer les retournements?
 ** Enchainements
 *** Sol
 
-| Kusure Kesa Gatame | Hon Kesa Gatame    |   |
-| Hon Kesa Gatame    | Kusure Kesa Gatame |   |
+|--------------------+--------------------|
+| Kusure Kesa Gatame | Hon Kesa Gatame    |
+| Hon Kesa Gatame    | Kusure Kesa Gatame |
+|--------------------+--------------------|
 
 *** Debout
 
-|-----------------+-----------------------------------------+-------------|
-| Ippon Seoi Nage | Uke en arriere. Profite du desequilibre | O Soto Gari |
-| O Uchi Gari     | Uke degage sa jambe gauche              | Tai Otoshi  |
-|                 |                                         |             |
-
-| O Goshi     | Yoko Shio Gatame                                    |
-| O Uchi Gari | Blocage de jambe puis enchainement Tate Shio Gatame |
-|             |                                                     |
-|             |                                                     |
-
+|-----------------+-----------------------------------------------------+-------------|
+| Ippon Seoi Nage | Uke en arriere. Profite du desequilibre             | O Soto Gari |
+| O Uchi Gari     | Uke degage sa jambe gauche                          | Tai Otoshi  |
+| O Goshi         | Yoko Shiho Gatame                                   |             |
+| O Uchi Gari     | Blocage de jambe puis enchainement Tate Shio Gatame |             |
+|-----------------+-----------------------------------------------------+-------------|
 * verte
 ** Ceinture
-|------------------------+------------+-----------|
-| Nage Waza (projection) | Initiative | Variantes |
-|------------------------+------------+-----------|
-| Tsuri Komi Goshi       |            |           |
-| Sode Tsuri Komi Goshi  |            |           |
-| Uchi Mata              |            |           |
-|                        |            |           |
+|------------------------+--------------------------------------------------+-----------|
+| Nage Waza (projection) | Initiative                                       | Variantes |
+|------------------------+--------------------------------------------------+-----------|
+| Tsuri Komi Goshi       |                                                  |           |
+| Sode Tsuri Komi Goshi  |                                                  |           |
+| Uchi Mata              |                                                  |           |
+| Tomoe Nage             |                                                  |           |
+| Yoko Tomoe Nage        |                                                  |           |
+| Ushiro Goshi           | Uke attaque, Tori bloque, souleve et projete Uke |           |
+| Te Guruma              |                                                  |           |
+|------------------------+--------------------------------------------------+-----------|
 
 ** Enchainements
 
-| Uchi Mata Ko | Uchi Gari |
-| O Uchi Gari  | Uchi Mata |
+|-----------------------+-----------------|
+| Uchi Mata Ko          | Uchi Gari       |
+| O Uchi Gari           | Uchi Mata       |
+| O Uchi Gari           | Tomoe Nage      |
+| Ko Uchi Gari          | Yoko Tomoe Nage |
+| Ko Uchi Gari          | O Uchi Gari     |
+| Tai Otoshi            | Yoko Tomoe Nage |
+| Sode Tsuri Komi Goshi | O Soto Gori     |
+| Sode Tsuri Komi Goshi | Ko Uchi Gari    |
+| Ippon Seoi Nage       | Ippon Seoi Nage |
+| Ippon Seoi Nage       | O Soto Gari     |
+| O Uchi Gari           | Tai Otoshi      |
+|-----------------------+-----------------|
+
 
 ** Esquive
 
+|-----------+---------+------------|
 | Uchi Mata | Esquive | Tai Otoshi |
-|           |         |            |
+|-----------+---------+------------|
 
 * bleu
+** Ceinture
+|--------------------------+------------+-----------|
+| Nage Waza (projection)   | Initiative | Variantes |
+|--------------------------+------------+-----------|
+| Soto Make Komi           |            |           |
+| Hane Goshi               |            |           |
+| Kata Guruma              |            |           |
+| Sumi Gaeshi              |            |           |
+| Yoko Guruma              |            |           |
+|--------------------------+------------+-----------|
+| Ne Waza (immobilisation) | Initiative | Variantes |
+|--------------------------+------------+-----------|
+| Hadaka Jime              |            |           |
+| Okuri Eri Jime           |            |           |
+| Kata Hajime              |            |           |
+| Gyaku Juji Jime          |            |           |
+| Nami Juji Jime           |            |           |
+| Kata Juji Jime           |            |           |
+| Sankaku Jime             |            |           |
+|--------------------------+------------+-----------|
+| Armlock                  |            |           |
+|--------------------------+------------+-----------|
+| Juji Gatame              |            |           |
+| Ude Garami               |            |           |
+|--------------------------+------------+-----------|
+
+** Liaison debout/sol
+
+|-------------+-------------|
+| Harai Goshi | Juji Gatame |
+|-------------+-------------|
+
+** Enchainements
+
+|-----------------+----------------|
+| Ko Uchi Gari    | Hane Goshi     |
+| Hane Goshi      | Soto Make Komi |
+| Ippon Seoi Nage | Kata Guruma    |
+|-----------------+----------------|
 
 * marron
+** Ceinture
+|------------------------+----------------------------------------------------+-----------|
+| Nage Waza (projection) | Initiative                                         | Variantes |
+|------------------------+----------------------------------------------------+-----------|
+| Kuchiki Daoshi         | Ko Uchi Gari + accrochage a la main du pied fauche |           |
+| Morote Gari            |                                                    |           |
+| Harai Tsuri Komi Ashi  |                                                    |           |
+| Utsuri Goshi           |                                                    |           |
+| Ura Nage               |                                                    |           |
+|------------------------+----------------------------------------------------+-----------|
 
+`Yaku Soku Geiko`: Randori souple ou Uke se laisse faire.
+
+** Enchainements
+
+|-------------+----------------|
+| O Uchi Gari | Kuchiki Daoshi |
+| Morote Gari | O Soto Gari    |
+|             |                |
+|-------------+----------------|
 * noire
