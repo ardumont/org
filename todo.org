@@ -1,6 +1,18 @@
 #+title: Learning...
 #+author: ardumont
 
+* TODO xmonad
+- [ ] Fix nixos's xmonad recompile and restart procedure in nixos
+* IN-PROGRESS actions [0/7]
+- [ ] Improve email's reading/writing within emacs
+- [ ] Add my public gpg key to public gpg server
+- [ ] Sign email by default
+- [ ] Check haskell's env
+- [ ] Make a badass env in emacs for [0%]
+  - [ ] java
+  - [ ] python
+  - [ ] ocaml
+- [ ] Do I start my own emacs setup from scratch?
 * IN-PROGRESS haskell-mode
 - [X] Make it nix-shell (or other container technology) compatible
 - [ ] Add unit tests as asked
@@ -16,8 +28,6 @@
 - [ ] https://github.com/aborn/.conkerorrc
 - [X] Begin to port keysnail configuration to conkeror
 - [X] Read some source
-* TODO xmonad
-- [ ] Fix nix's xmonad recompile and restart procedure in nixos
 * DONE coding dojo (with ggirou)
 CLOSED: [2015-02-14 Sat 15:25]
 - [X] prepare coding dojo with ggirou
@@ -131,7 +141,7 @@ https://github.com/ndmitchell/shake
 - [ ] brown
 - [ ] black
 ** training
-- [ ] Find uchikomi expander to train at home
+- [X] Find uchikomi expander to train at home
 * IN-PROGRESS packer/vagrant to make nix box
 - [X] https://nixos.org/wiki/Installing_VirtualBox_on_NixOS
 - [X] Create a nixos vagrant image - https://github.com/zimbatm/nixbox
