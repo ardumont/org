@@ -20,7 +20,7 @@ CLOSED: [2011-09-12 lun. 13:09]
 CLOSED: [2011-09-12 lun. 13:09]
 ** DONE Retirer les dalles
 CLOSED: [2011-09-12 lun. 13:09]
-* PENDING Jardin cote droit [8/12]
+* PENDING Jardin cote droit [9/12]
 ** DONE Retirer toutes les mauvaises herbes
 ** DONE Planter du gazon
 l'herbe est magnifique
@@ -28,7 +28,8 @@ l'herbe est magnifique
 ** DONE Mettre en place les composteurs
 ** DONE Laisser secher les buches restantes
 CLOSED: [2013-04-11 jeu. 09:33]
-** TODO Couper les buches restantes
+** DONE Couper les troncons restants du robinier
+CLOSED: [2015-04-23 Thu 18:18]
 ** DONE Couper/Abattre l'abricotier malade.
 CLOSED: [2015-04-23 Thu 18:17]
 Trop pres du mur de separation.
