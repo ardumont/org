@@ -20,7 +20,7 @@ CLOSED: [2011-09-12 lun. 13:09]
 CLOSED: [2011-09-12 lun. 13:09]
 ** DONE Retirer les dalles
 CLOSED: [2011-09-12 lun. 13:09]
-* PENDING Jardin cote droit [11/15]
+* PENDING Jardin cote droit [13/16]
 ** DONE Retirer toutes les mauvaises herbes
 ** DONE Planter du gazon
 l'herbe est magnifique
@@ -42,10 +42,19 @@ Trop pres du mur de separation.
 CLOSED: [2011-09-12 lun. 13:09]
 ** DONE Retirer les dalles
 CLOSED: [2011-09-12 lun. 13:09]
-** TODO Reduire la souche du robinier
+** FAILED Retirer la souche du robinier
+CLOSED: [2015-04-23 Thu 18:20]
+** DONE Reduire la souche du robinier
+CLOSED: [2015-04-23 Thu 18:21]
+- [X] Couper racines restantes du robinier
+- [X] Reduire la taille de la souche
+** IN-PROGRESS Replanter du gazon [%]
+- [X] Virer les mauvaises herbes
+- [ ] Retourner la terre
+- [ ] Ajouter du terreau
+- [ ] Planter du gazon
 ** TODO Cimenter les trous du mur
-** TODO Repeindre le mur
-** TODO Replanter du gazon
+** TODO Repeindre le mur abime
 * PENDING Jardin devant [9/11]
 ** DONE parterres de fleurs [4/4]
 **** DONE Detruire le parterre de marguerite qui prend trop de place dans le jardin.
