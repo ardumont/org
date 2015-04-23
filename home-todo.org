@@ -20,7 +20,7 @@ CLOSED: [2011-09-12 lun. 13:09]
 CLOSED: [2011-09-12 lun. 13:09]
 ** DONE Retirer les dalles
 CLOSED: [2011-09-12 lun. 13:09]
-* PENDING Jardin cote droit [8/13]
+* PENDING Jardin cote droit [8/12]
 ** DONE Retirer toutes les mauvaises herbes
 ** DONE Planter du gazon
 l'herbe est magnifique
@@ -32,7 +32,8 @@ CLOSED: [2013-04-11 jeu. 09:33]
 ** DONE Couper/Abattre l'abricotier malade.
 CLOSED: [2015-04-23 Thu 18:17]
 Trop pres du mur de separation.
-** TODO Retirer la souche de l'abricotier
+** DONE Retirer la souche de l'abricotier
+CLOSED: [2015-04-23 Thu 18:18]
 ** TODO Couper/Abattre le noisetier
 Trop pres du mur de separation.
 ** TODO Cimenter les trous du mur
