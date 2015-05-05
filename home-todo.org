@@ -151,6 +151,18 @@ Merci Chris
 CLOSED: [2013-08-08 jeu. 19:36]
 ** DONE Changer radiateur
 CLOSED: [2014-01-04 sam. 00:07]
+* IN-PROGRESS Chambre de la petite derniere [4/7]
+** DONE Retirer le crepis
+CLOSED: [2015-05-05 Tue 16:03]
+** DONE Enduit de rebouchage
+CLOSED: [2015-05-05 Tue 16:04]
+** DONE Enduit de lissage
+CLOSED: [2015-05-05 Tue 16:04]
+** DONE Poncer
+CLOSED: [2015-05-05 Tue 16:04]
+** TODO Sous-couche
+** TODO Poser le papier peint
+** TODO Monter le lit
 * DONE Piece de jeux des enfants [32/32]
 CLOSED: [2013-11-10 dim. 15:20]
 ** DONE Retirer la grosse armoire du bureau
@@ -307,7 +319,7 @@ CLOSED: [2013-11-10 dim. 15:19]
 Merci Papy Claude et Chris
 ** DONE changer radiateur
 CLOSED: [2014-01-04 sam. 00:07]
-* IN-PROGRESS Cuisine [32/33]
+* PENDING Cuisine [32/33]
 ** DONE Degager le vieux frigo
 ** DONE Refaire les prises de courant
 ** DONE Retirer le crepis
@@ -371,7 +383,7 @@ CLOSED: [2013-11-10 dim. 15:21]
 ** DONE Changer la table
 CLOSED: [2014-01-03 ven. 13:55]
 ** TODO changer radiateur
-* IN-PROGRESS Couloir du haut [29/30]
+* PENDING Couloir du haut [29/30]
 ** DONE Retirer le crepis
 ** DONE Retirer le papier peint
 ** DONE Enduit
@@ -427,7 +439,7 @@ CLOSED: [2013-08-04 dim. 15:17]
 ** DONE Poser un faux plafond
 CLOSED: [2014-10-21 Tue 15:47]
 ** TODO Poser le papier peint sur les murs
-* IN-PROGRESS Toilettes du bas [7/10]
+* PENDING Toilettes du bas [7/10]
 ** DONE Sous-couche porte
 CLOSED: [2013-07-30 mar. 21:46]
 ** DONE Peindre porte
@@ -445,7 +457,7 @@ CLOSED: [2014-07-28 Mon 21:33]
 ** TODO Retirer le crepis
 ** TODO Enduit de rebouchage
 ** TODO Peinture
-* IN-PROGRESS Toilettes du haut [8/11]
+* PENDING Toilettes du haut [8/11]
 ** DONE Changer les toilettes
 CLOSED: [2013-04-11 jeu. 09:40]
 ** DONE Changer les tuyaux
@@ -468,7 +480,7 @@ CLOSED: [2013-08-08 jeu. 19:35]
 ** TODO Retirer le crepis
 ** TODO Enduit de rebouchage
 ** TODO Peindre
-* IN-PROGRESS Chambre parentale [9/16]
+* PENDING Chambre parentale [9/16]
 ** DONE Changer le siphon du lavabo
 CLOSED: [2013-04-11 jeu. 09:39]
 ** DONE Changer le robinet de la douche
@@ -494,7 +506,7 @@ CLOSED: [2014-01-05 dim. 20:05]
 ** TODO Passer la sous-couche.
 ** TODO Poser la toile de renovation
 ** TODO Poser le papier peint/Peindre
-* IN-PROGRESS Bureau [10/19]
+* PENDING Bureau [10/19]
 ** DONE Enduit de rebouchage porte
 CLOSED: [2013-07-29 lun. 18:57]
 ** DONE Peindre la porte couche 1/2
