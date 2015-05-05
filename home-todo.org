@@ -20,7 +20,7 @@ CLOSED: [2011-09-12 lun. 13:09]
 CLOSED: [2011-09-12 lun. 13:09]
 ** DONE Retirer les dalles
 CLOSED: [2011-09-12 lun. 13:09]
-* PENDING Jardin cote droit [13/16]
+* PENDING Jardin cote droit [14/16]
 ** DONE Retirer toutes les mauvaises herbes
 ** DONE Planter du gazon
 l'herbe est magnifique
@@ -48,14 +48,15 @@ CLOSED: [2015-04-23 Thu 18:20]
 CLOSED: [2015-04-23 Thu 18:21]
 - [X] Couper racines restantes du robinier
 - [X] Reduire la taille de la souche
-** IN-PROGRESS Replanter du gazon [%]
+** DONE Replanter du gazon [100%]
+CLOSED: [2015-05-05 Tue 16:07]
 - [X] Virer les mauvaises herbes
-- [ ] Retourner la terre
-- [ ] Ajouter du terreau
-- [ ] Planter du gazon
+- [X] Retourner la terre
+- [X] Ajouter du terreau
+- [X] Planter du gazon
 ** TODO Cimenter les trous du mur
 ** TODO Repeindre le mur abime
-* PENDING Jardin devant [9/11]
+* PENDING Jardin devant [10/12]
 ** DONE parterres de fleurs [4/4]
 **** DONE Detruire le parterre de marguerite qui prend trop de place dans le jardin.
 **** DONE Aplanir tous les parterres de fleurs.
@@ -71,6 +72,8 @@ CLOSED: [2015-04-23 Thu 18:21]
 CLOSED: [2013-04-11 jeu. 09:34]
 ** DONE Replanter l'herbe
 CLOSED: [2011-09-12 lun. 13:10]
+** DONE Replanter l'herbe
+CLOSED: [2015-05-05 Tue 16:08]
 ** TODO Deraciner les arbustes restant de devant (pour les planter derriere)
 
 ** TODO Faire elaguer/couper les erables
