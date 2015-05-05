@@ -90,8 +90,7 @@ CLOSED: [2013-04-11 jeu. 09:35]
 ** DONE Bruler les morceaux d'arbustes dans la cheminee [1/1]
 CLOSED: [2013-04-11 jeu. 09:35]
 **** DONE 10/10
-* DONE Encombrants [8/8]
-CLOSED: [2013-07-21 dim. 10:51]
+* IN-PROGRESS Encombrants [8/13]
 ** DONE vieux frigo
 ** DONE vieux four
 ** DONE Grosse armoire du bureau
@@ -105,6 +104,11 @@ CLOSED: [2013-07-21 dim. 10:51]
 CLOSED: [2013-07-21 dim. 10:51]
 ** DONE grosses pieces de verre
 CLOSED: [2013-04-11 jeu. 09:35]
+** TODO vieux canape
+** TODO vieux fauteuil
+** TODO vieux ecran
+** TODO vieil ordi
+** TODO seche-linge rouille
 * DONE Chambre de Chloe [11/11]
 ** DONE Retirer le papier peint de la porte
 ** DONE Retirer le papier peint des armoires
