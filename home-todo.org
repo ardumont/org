@@ -151,7 +151,7 @@ Merci Chris
 CLOSED: [2013-08-08 jeu. 19:36]
 ** DONE Changer radiateur
 CLOSED: [2014-01-04 sam. 00:07]
-* IN-PROGRESS Chambre de la petite derniere [4/7]
+* IN-PROGRESS Chambre de la petite derniere [5/8]
 ** DONE Retirer le crepis
 CLOSED: [2015-05-05 Tue 16:03]
 ** DONE Enduit de rebouchage
@@ -160,8 +160,11 @@ CLOSED: [2015-05-05 Tue 16:04]
 CLOSED: [2015-05-05 Tue 16:04]
 ** DONE Poncer
 CLOSED: [2015-05-05 Tue 16:04]
-** TODO Sous-couche
-** TODO Poser le papier peint
+** DONE Sous-couche
+CLOSED: [2015-05-07 Thu 11:04]
+Merci Papy Claude et Mamy Muguette
+** TODO Poser la toile de renovation
+** TODO Peindre
 ** TODO Monter le lit
 * DONE Piece de jeux des enfants [32/32]
 CLOSED: [2013-11-10 dim. 15:20]
