@@ -1,6 +1,7 @@
 #+title: Learning...
 #+author: ardumont
 
+* TODO GTD
 * TODO xmonad
 - [ ] Fix nixos's xmonad recompile and restart procedure in nixos
 * IN-PROGRESS actions [0/7]
