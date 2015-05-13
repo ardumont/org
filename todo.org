@@ -1,6 +1,27 @@
 #+title: Learning...
 #+author: ardumont
 
+* TODO SMT-solver
+https://en.wikipedia.org/wiki/Satisfiability_modulo_theories
+
+* IN-PROGRESS Miscellaneous
+- [X] Access to mysql (mint + nixos tryouts)
+- [X] Forward mail from inria address to gmail address
+- [X] Access to vpn
+- [X] Retake control of mail-pack
+- [X] Fix some issues on org-trello
+- [X] understand how screenkey works (record screen keys during screen cast)
+- [X] Create an emacs daemon service in nixos
+- [ ] FAIL: Create an offlineimap + mu service in nixos -> Need to access the gpg authentication mechanism
+- [ ] Learn again how to make debian package (+ in nix env) -> https://www.debian.org/doc/manuals/packaging-tutorial/packaging-tutorial.pdf (Thanks Zack)
+- [ ] Take control of your gpg key (sign, encrypt)
+- [ ] Import some known ones
+- [ ] Publish gpg public key
+- [ ] [[https://www.gnupg.org/documentation/index.html][gpgme]]
+- [ ] Learn some mutt love
+* TODO domain name
+- [ ] dumont.xyz does not exist
+- [ ] Create an email adress ar@dumont.xyz as proxy for my dedicated email
 * TODO GTD
 * TODO xmonad
 - [ ] Fix nixos's xmonad recompile and restart procedure in nixos
