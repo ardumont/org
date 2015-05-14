@@ -1,6 +1,8 @@
 #+title: Learning...
 #+author: ardumont
 
+* https://github.com/chassing/linux-sysadmin-interview-questions
+* TODO tikz
 * TODO SMT-solver
 https://en.wikipedia.org/wiki/Satisfiability_modulo_theories
 
