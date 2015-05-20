@@ -14,7 +14,7 @@ https://en.wikipedia.org/wiki/Satisfiability_modulo_theories
 - [X] Fix some issues on org-trello
 - [X] understand how screenkey works (record screen keys during screen cast)
 - [X] Create an emacs daemon service in nixos
-- [ ] FAIL: Create an offlineimap + mu service in nixos -> Need to access the gpg authentication mechanism
+- [X] FAIL: Create an offlineimap + mu service in nixos -> Need to access the gpg authentication mechanism. No need, emacs already does it.
 - [ ] Learn again how to make debian package (+ in nix env) -> https://www.debian.org/doc/manuals/packaging-tutorial/packaging-tutorial.pdf (Thanks Zack)
 - [ ] Take control of your gpg key (sign, encrypt)
 - [ ] Import some known ones
@@ -25,8 +25,9 @@ https://en.wikipedia.org/wiki/Satisfiability_modulo_theories
 - [ ] dumont.xyz does not exist
 - [ ] Create an email adress ar@dumont.xyz as proxy for my dedicated email
 * TODO GTD
-* TODO xmonad
-- [ ] Fix nixos's xmonad recompile and restart procedure in nixos
+* DONE xmonad
+CLOSED: [2015-05-20 Wed 11:54]
+- [X] Fix nixos's xmonad recompile and restart procedure in nixos
 * IN-PROGRESS actions [0/7]
 - [ ] Improve email's reading/writing within emacs
 - [ ] Add my public gpg key to public gpg server
