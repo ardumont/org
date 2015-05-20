@@ -2,6 +2,26 @@
 #+author: Antoine Romain Dumont
 #+STARTUP: indent
 
+* IN-PROGRESS Chambre de Noémy [8/9]
+** DONE Changer radiateur
+CLOSED: [2014-01-04 sam. 00:07]
+** DONE Retirer le crepis
+CLOSED: [2015-05-05 Tue 16:03]
+** DONE Enduit de rebouchage
+CLOSED: [2015-05-05 Tue 16:04]
+** DONE Enduit de lissage
+CLOSED: [2015-05-05 Tue 16:04]
+** DONE Poncer
+CLOSED: [2015-05-05 Tue 16:04]
+** DONE Sous-couche
+CLOSED: [2015-05-07 Thu 11:04]
+Merci Papy Claude et Mamy Muguette
+** DONE Poser la toile de renovation
+CLOSED: [2015-05-20 Wed 11:55]
+Merci papy Claude!
+** DONE Monter le landau
+CLOSED: [2015-05-20 Wed 11:55]
+** TODO Peindre les murs
 * DONE Jardin cote gauche [11/11]
 CLOSED: [2013-04-11 jeu. 09:34]
 ** DONE Retirer toutes les mauvaises herbes
@@ -20,7 +40,8 @@ CLOSED: [2011-09-12 lun. 13:09]
 CLOSED: [2011-09-12 lun. 13:09]
 ** DONE Retirer les dalles
 CLOSED: [2011-09-12 lun. 13:09]
-* PENDING Jardin cote droit [14/16]
+* DONE Jardin cote droit [14/14]
+CLOSED: [2015-05-20 Wed 11:57]
 ** DONE Retirer toutes les mauvaises herbes
 ** DONE Planter du gazon
 l'herbe est magnifique
@@ -54,35 +75,14 @@ CLOSED: [2015-05-05 Tue 16:07]
 - [X] Retourner la terre
 - [X] Ajouter du terreau
 - [X] Planter du gazon
-** TODO Cimenter les trous du mur
-** TODO Repeindre le mur abime
-* PENDING Jardin devant [10/12]
-** DONE parterres de fleurs [4/4]
-**** DONE Detruire le parterre de marguerite qui prend trop de place dans le jardin.
-**** DONE Aplanir tous les parterres de fleurs.
-**** DONE Ramasser toutes les briques de parpaing
-**** DONE Les ranger sous l'escalier de l'entree
-** DONE Couper l'arbre de l'entree du cote droit.
-** DONE Finir de detruire la racine restante de l'arbre
-** DONE Faire couper la haie
-** DONE Faire couper les arbres de devant
-** DONE Mettre en place des barrieres de securite le long de l'allee de descente dans le garage.
-** DONE Evacuer tous les dechets suites a toutes les actions du jardins
-** DONE Tailler le noisetier de devant.
-CLOSED: [2013-04-11 jeu. 09:34]
-** DONE Replanter l'herbe
-CLOSED: [2011-09-12 lun. 13:10]
-** DONE Replanter l'herbe
-CLOSED: [2015-05-05 Tue 16:08]
-** TODO Deraciner les arbustes restant de devant (pour les planter derriere)
-
-** TODO Faire elaguer/couper les erables
-* PENDING Jardin derriere [3/4]
+* DONE Jardin derriere [4/4]
+CLOSED: [2015-05-20 Wed 11:57]
 ** DONE Retirer le lierre
 ** DONE Tailler la haie de derriere
 ** DONE Reparer la partie de la barriere tombee a cause du lierre
 Merci papy Claude
-** TODO Replanter les arbustes de devant pour combler le trou dans la haie de derriere
+** DONE Replanter les arbustes de devant pour combler le trou dans la haie de derriere
+CLOSED: [2015-05-20 Wed 11:57]
 * DONE Relatif a l'exterieur [3/3]
 CLOSED: [2013-04-11 jeu. 09:35]
 ** DONE Tailler les arbustes en morceaux pour pouvoir les rentrer dans le garage
@@ -90,7 +90,8 @@ CLOSED: [2013-04-11 jeu. 09:35]
 ** DONE Bruler les morceaux d'arbustes dans la cheminee [1/1]
 CLOSED: [2013-04-11 jeu. 09:35]
 **** DONE 10/10
-* IN-PROGRESS Encombrants [8/13]
+* DONE Encombrants [13/13]
+CLOSED: [2015-05-20 Wed 11:57]
 ** DONE vieux frigo
 ** DONE vieux four
 ** DONE Grosse armoire du bureau
@@ -104,11 +105,16 @@ CLOSED: [2013-07-21 dim. 10:51]
 CLOSED: [2013-07-21 dim. 10:51]
 ** DONE grosses pieces de verre
 CLOSED: [2013-04-11 jeu. 09:35]
-** TODO vieux canape
-** TODO vieux fauteuil
-** TODO vieux ecran
-** TODO vieil ordi
-** TODO seche-linge rouille
+** DONE vieux canape
+CLOSED: [2015-05-20 Wed 11:57]
+** DONE vieux fauteuil
+CLOSED: [2015-05-20 Wed 11:57]
+** DONE vieil ecran
+CLOSED: [2015-05-20 Wed 11:57]
+** DONE vieil ordi
+CLOSED: [2015-05-20 Wed 11:57]
+** DONE seche-linge rouille
+CLOSED: [2015-05-20 Wed 11:57]
 * DONE Chambre de Chloe [11/11]
 ** DONE Retirer le papier peint de la porte
 ** DONE Retirer le papier peint des armoires
@@ -151,21 +157,6 @@ Merci Chris
 CLOSED: [2013-08-08 jeu. 19:36]
 ** DONE Changer radiateur
 CLOSED: [2014-01-04 sam. 00:07]
-* IN-PROGRESS Chambre de la petite derniere [5/8]
-** DONE Retirer le crepis
-CLOSED: [2015-05-05 Tue 16:03]
-** DONE Enduit de rebouchage
-CLOSED: [2015-05-05 Tue 16:04]
-** DONE Enduit de lissage
-CLOSED: [2015-05-05 Tue 16:04]
-** DONE Poncer
-CLOSED: [2015-05-05 Tue 16:04]
-** DONE Sous-couche
-CLOSED: [2015-05-07 Thu 11:04]
-Merci Papy Claude et Mamy Muguette
-** TODO Poser la toile de renovation
-** TODO Peindre
-** TODO Monter le lit
 * DONE Piece de jeux des enfants [32/32]
 CLOSED: [2013-11-10 dim. 15:20]
 ** DONE Retirer la grosse armoire du bureau
@@ -322,6 +313,36 @@ CLOSED: [2013-11-10 dim. 15:19]
 Merci Papy Claude et Chris
 ** DONE changer radiateur
 CLOSED: [2014-01-04 sam. 00:07]
+* DONE garage [3/3]
+CLOSED: [2015-05-20 Wed 11:58]
+** DONE Evacuer le casier a plan
+CLOSED: [2013-06-22 sam. 16:12]
+** DONE Installer une pompe pour evacuer l'eau a l'exterieur
+CLOSED: [2013-06-22 sam. 16:13]
+** DONE Ranger davantage le bordel
+CLOSED: [2015-05-20 Wed 11:58]
+* PENDING Jardin devant [11/12]
+** DONE parterres de fleurs [4/4]
+**** DONE Detruire le parterre de marguerite qui prend trop de place dans le jardin.
+**** DONE Aplanir tous les parterres de fleurs.
+**** DONE Ramasser toutes les briques de parpaing
+**** DONE Les ranger sous l'escalier de l'entree
+** DONE Couper l'arbre de l'entree du cote droit.
+** DONE Finir de detruire la racine restante de l'arbre
+** DONE Faire couper la haie
+** DONE Faire couper les arbres de devant
+** DONE Mettre en place des barrieres de securite le long de l'allee de descente dans le garage.
+** DONE Evacuer tous les dechets suites a toutes les actions du jardins
+** DONE Tailler le noisetier de devant.
+CLOSED: [2013-04-11 jeu. 09:34]
+** DONE Replanter l'herbe
+CLOSED: [2011-09-12 lun. 13:10]
+** DONE Replanter l'herbe
+CLOSED: [2015-05-05 Tue 16:08]
+** DONE Deraciner les arbustes restant de devant (pour les planter derriere)
+CLOSED: [2015-05-20 Wed 11:57]
+
+** TODO Faire elaguer/couper les erables
 * PENDING Cuisine [32/33]
 ** DONE Degager le vieux frigo
 ** DONE Refaire les prises de courant
@@ -632,9 +653,3 @@ CLOSED: [2013-08-08 jeu. 19:35]
 ** TODO Enduit de rebouchage
 ** TODO Sous-couche
 ** TODO Peinture
-* PENDING garage [2/3]
-** DONE Evacuer le casier a plan
-CLOSED: [2013-06-22 sam. 16:12]
-** DONE Installer une pompe pour evacuer l'eau a l'exterieur
-CLOSED: [2013-06-22 sam. 16:13]
-** TODO Ranger davantage le bordel
