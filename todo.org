@@ -1,9 +1,11 @@
 #+title: Learning...
 #+author: ardumont
 
-* Debian packaging
+* TODO Try mbsync instead of offlineimap
+* TODO Debian packaging
 - https://www.debian.org/doc/manuals/packaging-tutorial/packaging-tutorial.pdf
-* https://github.com/chassing/linux-sysadmin-interview-questions
+* TODO Some linux sysadmin interview question
+you may learn a thing or two https://github.com/chassing/linux-sysadmin-interview-questions
 * TODO tikz
 * TODO SMT-solver
 https://en.wikipedia.org/wiki/Satisfiability_modulo_theories
