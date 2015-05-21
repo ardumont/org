@@ -38,3 +38,6 @@ Update all applications in your userland:
 #+begin_src sh
 nix-env -u '*'
 #+end_src
+
+* Add files to nix store
+https://nixos.org/wiki/How_to_add_files_to_the_nix-store
