@@ -115,3 +115,12 @@ passwd tony
 - I now retrieve my home backup from elsewhere (nas rsync for example) or clone my git repositories.
 
 - When the backup is installed, I have a fully compliant replicated machine
+
+- Sometimes, nix is too old
+
+https://nixos.org/wiki/How_to_update_when_nix_is_too_old_to_evaluate_nixpkgs
+
+#+begin_src sh
+curl -L http://hydra.nixos.org/job/nixos/trunk-combined/nixpkgs.nix.x86_64-linux/latest-finished/nix/pkg/nix-1.8-x86_64-linux.nixpkg \
+   | nix-install-package --non-interactive -
+#+end_src
