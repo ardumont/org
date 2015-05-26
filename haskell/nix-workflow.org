@@ -1,0 +1,11 @@
+```
+$ cabal2nix ./. --shell > shell.nix
+$ cabal2nix ./. > project.nix
+$ # I have file default.nix [1] in project too
+$ nix-shell # going into shell to use vim, ghc-mod etc
+$ nix-build # building my project, usually doing that in parallel to vim
+$ ./result/bin/foobar # testing my executable
+{ pkgs ? import <nixpkgs> {} }:
+pkgs.haskellngPackages.callPackage ./project.nix {}
+
+```
