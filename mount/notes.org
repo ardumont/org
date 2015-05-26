@@ -1,0 +1,9 @@
+#+title: Notes on mount
+#+author: ardumont
+
+Remount read-only partition with write.
+
+#+begin_src sh
+mount -o remount,rw <device> <mount-point>
+#+end_src
+(ymmv)
