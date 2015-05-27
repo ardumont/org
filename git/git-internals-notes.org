@@ -442,3 +442,36 @@ chain length = 5: 6 objects
 chain length = 6: 1 object
 .git/objects/pack/pack-165f66cf23281f77d8078cb9831e995ed96c884f.pack: ok
 #+end_src
+* Transfer protocols basics
+
+2 protocols:
+- dumb
+- smart
+
+** dumb
+
+- git agnostic
+- http orchestration
+- less secure
+- rarely used now
+- a tad inefficient
+- from server to client only
+
+** smart
+
+- git aware
+- efficient
+- over ssh, http, https
+
+*** Upload
+
+- 2 processes:
+  - send-pack: on client side
+  - receive-pack: on server side
+  - one is connected to the other and speak their language...
+*** Download
+
+- 2 processes:
+  - fetch-pack: on client side
+  - upload-pack: on server side
+  - one is connected to the other and speak their language...
