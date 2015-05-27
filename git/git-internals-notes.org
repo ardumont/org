@@ -1,14 +1,19 @@
 #+title: git internals notes
 #+author: ardumont
 
-source: http://www.git-scm.com/book/en/v2/Git-Internals-Git-References
+Git:
+- is a content addressable file-system
+- at its core is a key/value data store
+
+source:
+http://www.git-scm.com/book/en/v2/Git-Internals-Git-References
 
 * Objects
 
-- git is a content addressable file-system
-- git core: key/value data store.
-- objects uniquely referenced by a key, a signature of their content.
-- stored in .git/objects/
+An objects is:
+- uniquely referenced by a key, a signature of their content.
+- stored in *.git/objects*
+- can be: blob, tree, commit
 
 ** Blob
 
@@ -117,23 +122,23 @@ $ git cat-file -p master^{tree}                                                 
 
 Metadata (sha1, author, timestamp, commit message, parent commit) on a Tree
 
-* Stored object format
+** Storage format
 
 When creating a new object, git does compute the following format:
 #+begin_src txt
 {object's type} {object content's length} {object's content}
 #+end_src
-with 'type' being anything from `blob, tree, commit`.
+with 'type' being anything from 'blob', 'tree', 'commit'.
 
 Then:
 - a sha1 is computed from such result (referenced as: ${sha1}).
 - compressed with zlib.
-- and finally stored in: `.git/objects/${sha1[0,1]}/${sha1[2,38]}`
+- and finally stored in: *.git/objects/${sha1[0,1]}/${sha1[2,38]}*
 
 * References
 
 - pointer to an object's sha1
-- Stored in `.git/refs`
+- Stored in *.git/refs*
 
 |----------------+-----------------------------------------------|
 | Commands       | Description                                   |
@@ -149,7 +154,7 @@ A simple pointer
 
 Symbolic reference to the current branch (pointer on reference)
 
-.git/HEAD:
+*.git/HEAD*:
 #+begin_src txt
 ref: refs/heads/master
 #+end_src
@@ -165,7 +170,8 @@ ref: refs/heads/master
 - Immutable reference to a commit.
 - Metadata on commit (name).
 
-Note: git can tag any objects (not limited to commit).
+*Note:*
+git can tag any objects (not limited to commit).
 
 ** Remote
 
@@ -176,25 +182,25 @@ Value to the last reference pushed on the remote
 ** Context
 
 Initially git:
-- stores brutally the files
+- stores object as raw file (+ type and size metadata)
 - uses zlib to compress them
 
 But, at some point in time, multiple files can mostly share the same content except for the diffs.
 
-The garbage collector, when triggered, also scans for such files when a threshold is hit (`too many loose objects`).
+The garbage collector, when triggered, also scans for such files when a threshold is hit (/too many loose objects/).
 
 It then creates packfiles.
 
-Note:
-- This repacking is done `occasionally` (need to see for the code or man page I guess)
-- user can trigger it manually using `git gc`
+*Note:*
+- This repacking is done /occasionally/ (need to see for the code or man page I guess)
+- user can trigger it manually using /git gc/
 
 ** Definition
 
 A packfile is a pair of files:
-- one archive `pack-{sha1}.pack` storing
-- one index file `pack-{sha1}.idx`
-- stored in `~/.git/objects/pack/`
+- one archive /pack-{sha1}.pack/ storing
+- one index file /pack-{sha1}.idx/
+- stored in *.git/objects/pack/*
 
 This packfile references the content relations between objects.
 
@@ -202,7 +208,7 @@ Its goal is to store more efficiently without redundancy.
 
 ** Format
 
-It's a `tree` (as per algorithmic definition not git's...):
+It's a /tree/ (as per algorithmic definition not git's...):
 - one raw object
 - multiple diffs objects referencing other object
 
