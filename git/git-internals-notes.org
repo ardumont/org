@@ -1,0 +1,438 @@
+#+title: git internals notes
+#+author: ardumont
+
+source: http://www.git-scm.com/book/en/v2/Git-Internals-Git-References
+
+* Objects
+
+- git is a content addressable file-system
+- git core: key/value data store.
+- objects uniquely referenced by a key, a signature of their content.
+- stored in .git/objects/
+
+** Blob
+
+File content without any metadata.
+
+|-----------------+---------------------------------------------------------------------|
+| Commands        | Description                                                         |
+|-----------------+---------------------------------------------------------------------|
+| git-hash-object | Compute object ID and optionally creates a blob from a file         |
+| git-cat-file    | Provide content or type and size information for repository objects |
+|-----------------+---------------------------------------------------------------------|
+
+** Tree
+Pointer to another tree or blob
+
+|------------------+---------------------------------------------------------------------|
+| Commands         | Description                                                         |
+|------------------+---------------------------------------------------------------------|
+| git-cat-file     | Provide content or type and size information for repository objects |
+| git-update-index | Register file contents in the working tree to the index             |
+| git-write-tree   | Create a tree from current index                                    |
+| git-read-tree    | Read tree information into the staging area                         |
+|------------------+---------------------------------------------------------------------|
+
+Ex:
+#+begin_src sh
+# tony at corellia in ~/repo/perso/dot-files on git:master o [8:15:38]
+$ git cat-file -p master^{tree}                                                                                                                                                                                                                                                                        ~/repo/perso/dot-files
+040000 tree af5e21235f11395f53168d8b8154d875cea1bb6b    .FBReader
+100644 blob 6b8ce12e883775c27985f95c002a5b81b690a022    .Xmodmap
+100644 blob 8c72915ddbf498ebe4fe03f1157318340422a8d3    .Xresources
+100755 blob ed29582618d6df86a9c466c9c7abdf3cbfcffd63    .bashrc
+100644 blob c0c0b02d03c1b3ad568dbceca92590e1af11d756    .conkerorrc
+100644 blob 5182b65f4c250aaa12c2d246424e87fd51760568    .ctags
+040000 tree 22fa37ca23570831f64e38f37d7b2a104c5dceaf    .ghc
+100644 blob 2a63644ee00b60378783069effc7fb3391aecc35    .gimpgimp-layout-1920x1080
+100644 blob 13f229130eb4476aad30fd10001477ee607af72c    .gimpgimp-rules
+100755 blob 5a8309076dc633f431797c4bd59876490b0d7408    .git-completion.bash
+100644 blob 5c69716f52d949c08f39cdb76e8294c759fac325    .gitconfig
+100644 blob 2067caa145a94beda293f0bbb350b7bec5658844    .gitignore
+100644 blob 65f173cbb57373ab214960f4545092b5b73b23bf    .gitignore_global
+100644 blob b7fd1b329312bec4934083d2ae6ab27323258aea    .keysnail.js
+040000 tree 96a9485c44502d21c5eaa10657da73265770c721    .layouts
+100644 blob 7f43cd1a6f8ebb7b2eda543e2a17c6a81ac889c0    .mc-lists.el
+040000 tree 773064e2b32f28debfd665762a8fc4234bb6c340    .nixpkgs
+100755 blob be5354f7b2734ed70f0f53e1822a488e1b868584    .offlineimap-helpers.py
+100644 blob 8cefef9244f3fe699722f5bdb8bb4c20e7d872b6    .offlineimaprc
+100755 blob 89be4b5e1f41da0ff3d19c8459dd02c5897f6257    .profile
+100644 blob dc62799285e3ab59d6f1de0f2d1e50dbacc8fe20    .ratpoisonrc
+100644 blob fd62e2707486375e922d42000e6b8241310e0ad4    .sbclrc
+040000 tree d0f5199e3ada998e427b693c8a4edaa8e2e2389d    .sbt
+100644 blob 36064f2f8d330cdb41a32aeb2832ea9fa82e6e3a    .shrc
+100755 blob 7f03ded7e1ff7d03d2429f1256985ac448c8b31e    .shrc-aliases
+100755 blob 5ccf522134b283fdbfbd23c45cffcb56795c6daa    .shrc-env
+100644 blob 784246904d31ba8bbc7a9fcec311e47ba2d78f46    .shrc-non-nixos
+100755 blob b300ef90ff3b14de5d22fe9564e01db7cbbd8336    .shrc-path
+100755 blob 83cde7f2eac3bef0542177c6d70723c84f8b5c86    .shrc-prompt
+100644 blob 9e2eb70f67fcf18d5bbd965956cd74778508b19c    .shrc-work
+100644 blob bd33e3364ac5ca602e065b731ee44e3c365eb48c    .signature
+100644 blob 2ff054dfeaf29ecf6d6dcc489c21dc1294324b0a    .signature2
+100644 blob e69de29bb2d1d6434b8b29ae775ad8c2e48c5391    .stalonetrayrc
+100644 blob 1c5bfac427697f1a622412d3cfc3f5f73cd514e8    .stumpwm-functions.lisp
+100755 blob efd1c2c9435d67aeac81448abaea8e131dad92ef    .stumpwm.start
+100644 blob 3f2550039a84b4ea2769d011db3d7f5ca5148f34    .stumpwmrc
+100644 blob 95fb6c25cbbf453aabd9696b55f232c224811e5c    .tmux.conf
+100644 blob 2f34906d2f7c9e01514dda6252c2fa7488c5cd1f    .travis.yml
+040000 tree c6367a1e212377b30976c5bbf14859432fa79fa5    .urxvt
+100644 blob 5eae3f781fd00d6a37759636539456fcf4a9b3eb    .vimrc
+040000 tree deb4c56b44dd41b3a193e618fa253fd8683c6650    .xinit
+100644 blob 3616e7e563b9288320c839de3a72ce83692fe625    .xmobarrc
+100755 blob e1140398e58a105e557eb41f8d72aa5b5fe61ca7    .xmonad.start
+040000 tree 8b149bb16743439ef4acd5ff3236bab1092fdeb7    .xmonad
+100644 blob 717edbae719d27a55b12d57d8acdbb467643e2a4    .xscreensaver
+100644 blob 147611c748ad40639c7029bcd6ca6f814ba40059    .zshenv
+100644 blob aad5bc6b6a4ceed342ce0885ea9c2ba5dfef2477    .zshrc
+100644 blob 1a066eb2c758b8583dd61d50fbe776af36069222    Makefile
+100644 blob fa181e0a0fb895dfd656ba1859034ae70921bf88    README.md
+100755 blob c73c7d525f18a26812f86027fe14c4a4080874d3    adjust-system-configuration.sh
+100755 blob 6f0b6fa22cc55bd0c809f417eab0a4abd7fecf8c    deploy-emacs-live-packs.sh
+100755 blob 81f54bafa332b55bef6a686ae17c4b995d9bb697    deploy-emacs-prelude-packs.sh
+100755 blob 38894b3a5c3c4365a47e91afb47d63b0f187af69    deploy-emacs.sh
+100755 blob ad6f0c21c5cf91e61c955ee603bd456477243b90    deploy-keysnail.sh
+100755 blob 7a3574976359d51976865cf8a5f1a2ac27f78a3b    deploy-platform.sh
+100755 blob f7383b67a58349c641f4b6ee2196f6c5b5c728e6    deploy.sh
+100644 blob 8534792bd9b42579531fdb3ff922ba301423f2a4    gpg-agent.conf
+100644 blob b46c4d41a39917b2d159572747c766ee685ce707    gpg.conf
+100644 blob 19095cabaebbc34ae837d2b4c23b1aeea2fc5837    gradle.properties
+040000 tree e5f2e170732d44c1ff2b80ceb6c1075b34f95d41    hs
+100644 blob 078273c1a96a613839e63e5833e45205001b354b    init.gradle
+040000 tree b1aceb92073cf6858d9fb176f29b1ac3866dff6b    keysnail
+040000 tree 5c99e16b92703e5fed17cfc9e3cba57611538cc0    keysnail@mooz.github.com
+040000 tree 5f036b439b40e30946af1d93308466de00884cba    lighttable-settings
+040000 tree 481bac783012ec06e675953e163809d2b455aa20    nixos
+100644 blob 2211c7b4b1ec019c1ae1ff7ae82c21288e91aad3    profiles.clj
+040000 tree 03778a552d4027505e3deba1f119f0d7170be5ae    project
+100644 blob 8372e87e2dd7d15b7a9209f6b45d82bb657f1341    quicklisp.lisp
+040000 tree af439d5b7f0f6a2d7cc1ba328ccbc8edd29d6c45    quicklisp
+100755 blob 84645ea867954625224e152eae57a3c3fe0cbb8f    run-travis-ci.sh
+100644 blob e9c3fbd0aff0cfca6ac9f6e90b855e6a07dda7b1    settings-idea12.jar
+100644 blob 6dff35ce2fe2b4d3b5cef5f52c3ab71b63e9f443    settings-idea13.jar
+100644 blob 1565d9c2e35f040dd92f11e48b98ecd14cdf859b    settings-idea14.jar
+100644 blob 0b3511a422fb77bbd13c61e20a3348575ad11b7a    stumpwm-macros.lisp
+#+end_src
+
+** Commit
+
+Metadata (sha1, author, timestamp, commit message, parent commit) on a Tree
+
+* Stored object format
+
+When creating a new object, git does compute the following format:
+#+begin_src txt
+{object's type} {object content's length} {object's content}
+#+end_src
+with 'type' being anything from `blob, tree, commit`.
+
+Then:
+- a sha1 is computed from such result (referenced as: ${sha1}).
+- compressed with zlib.
+- and finally stored in: `.git/objects/${sha1[0,1]}/${sha1[2,38]}`
+
+* References
+
+- pointer to an object's sha1
+- Stored in `.git/refs`
+
+|----------------+-----------------------------------------------|
+| Commands       | Description                                   |
+|----------------+-----------------------------------------------|
+| git-update-ref | Update the object name stored in a ref safely |
+|----------------+-----------------------------------------------|
+
+** Branch
+
+A simple pointer
+
+** HEAD
+
+Symbolic reference to the current branch (pointer on reference)
+
+.git/HEAD:
+#+begin_src txt
+ref: refs/heads/master
+#+end_src
+
+|------------------+-----------------------------------------------|
+| Commands         | Description                                   |
+|------------------+-----------------------------------------------|
+| git-symbolic-ref | Read, modify and delete symbolic refs         |
+|------------------+-----------------------------------------------|
+
+** Tag
+
+- Immutable reference to a commit.
+- Metadata on commit (name).
+
+Note: git can tag any objects (not limited to commit).
+
+** Remote
+
+Value to the last reference pushed on the remote
+
+* Packfiles
+
+** Context
+
+Initially git:
+- stores brutally the files
+- uses zlib to compress them
+
+But, at some point in time, multiple files can mostly share the same content except for the diffs.
+
+The garbage collector, when triggered, also scans for such files when a threshold is hit (`too many loose objects`).
+
+It then creates packfiles.
+
+Note:
+- This repacking is done `occasionally` (need to see for the code or man page I guess)
+- user can trigger it manually using `git gc`
+
+** Definition
+
+A packfile is a pair of files:
+- one archive `pack-{sha1}.pack` storing
+- one index file `pack-{sha1}.idx`
+- stored in `~/.git/objects/pack/`
+
+This packfile references the content relations between objects.
+
+Its goal is to store more efficiently without redundancy.
+
+** Format
+
+It's a `tree` (as per algorithmic definition not git's...):
+- one raw object
+- multiple diffs objects referencing other object
+
+Implementation detail:
+- The latest version is stored raw
+- The previous versions are stored as diffs
+
+Sample:
+#+begin_src sh
+$ git verify-pack -v .git/objects/pack/pack-978e03944f5c581011e6998cd0e9e30000905586.idx
+2431da676938450a4d72e260db3bf7b0f587bbc1 commit 223 155 12
+69bcdaff5328278ab1c0812ce0e07fa7d26a96d7 commit 214 152 167
+80d02664cb23ed55b226516648c7ad5d0a3deb90 commit 214 145 319
+43168a18b7613d1281e5560855a83eb8fde3d687 commit 213 146 464
+092917823486a802e94d727c820a9024e14a1fc2 commit 214 146 610
+702470739ce72005e2edff522fde85d52a65df9b commit 165 118 756
+d368d0ac0678cbe6cce505be58126d3526706e54 tag    130 122 874
+fe879577cb8cffcdf25441725141e310dd7d239b tree   136 136 996
+d8329fc1cc938780ffdd9f94e0d364e0ea74f579 tree   36 46 1132
+deef2e1b793907545e50a2ea2ddb5ba6c58c4506 tree   136 136 1178
+d982c7cb2c2a972ee391a85da481fc1f9127a01d tree   6 17 1314 1 \
+  deef2e1b793907545e50a2ea2ddb5ba6c58c4506
+3c4e9cd789d88d8d89c1073707c3585e41b0e614 tree   8 19 1331 1 \
+  deef2e1b793907545e50a2ea2ddb5ba6c58c4506
+0155eb4229851634a0f03eb265b69f5a2d56f341 tree   71 76 1350
+83baae61804e65cc73a7201a7252750c76066a30 blob   10 19 1426
+fa49b077972391ad58037050f2a75f74e3671e92 blob   9 18 1445
+
+b042a60ef7dff760008df33cee372b945b6e884e blob   22054 5799 1463
+033b4468fa6b2a9547a70d88d1bbe8bf3f9ed0d5 blob   9 20 7262 1 \
+  b042a60ef7dff760008df33cee372b945b6e884e
+
+1f7a7a472abf3dd9643fd615f6da379c4acb3e3a blob   10 19 7282
+non delta: 15 objects
+chain length = 1: 3 objects
+.git/objects/pack/pack-978e03944f5c581011e6998cd0e9e30000905586.pack: ok
+#+end_src
+
+Format (according to man with -v flag):
+#+begin_src sh
+deltified file          : {sha1} {type} {size} {size-in-pack-file} {offset-in-packfile} {depth}
+                            {base-sha1}
+
+non deltified file (raw): {sha-1} {type} {size} {size-in-pack-file} {offset-in-packfile}
+#+end_src
+
+Def:
+- sha1: object
+- type: blob, tree
+- size: flat size
+- size-in-pack-file: packed size
+- base-sha1: reference to the previous object version
+- depth: distance between diff and original
+
+|------------------+-----------------------------|
+| Commands         | Description                 |
+|------------------+-----------------------------|
+| git-verify-packs | Validate packed git archive |
+|------------------+-----------------------------|
+
+** A real extract sample
+#+begin_src sh
+# tony at corellia in ~/repo/perso/dot-files on git:master o [9:31:34]
+$ git verify-pack -v .git/objects/pack/pack-165f66cf23281f77d8078cb9831e995ed96c884f.idx                                                                                                                                                                                                               ~/repo/perso/dot-files
+ad92d39a1ca63bfbb284b76fad5d69f1239d9582 commit 362 240 12
+0ace5bd76632662f8dc57c1cf1c4fd7d4fa92082 commit 269 172 252
+225326d73a761e0ee9515a6111256b16fdd222fd commit 299 191 424
+a5ad46d39b80453154dde14461a6e86c2c8169ba commit 301 187 615
+c08a8ce310995b93adf577c710d2d70c09a381b4 commit 323 210 802
+f46e5edfadaf002f0e14524255260ec361c96d59 commit 420 263 1012
+68e2315974e9bbe7e75a5b3752a26c4f55f5b27e commit 385 244 1275
+872ea6bd3abf4546d5a2fbff90dba18e7992e4f8 commit 323 204 1519
+15ecf5583bb05ce1a310d271ec81a888c844675f commit 319 200 1723
+d7fc3016fc0bc2c639acc081fe51b4871e085b47 commit 291 202 1923
+26a7695c0d586b657549274f77a03c4d6f3a7bd9 commit 237 165 2125
+a2b26fa7681b824efa9bfcd7f610fc16c0a3ee6f commit 291 201 2290
+e084e02b62f77a24e034f4ca525ccd8f109d37e0 commit 316 198 2491
+35f15a6f124ab41ad98da2c3005d205fbce8df48 commit 351 221 2689
+6181638e96c43943bfce1c0896c6976bce9dd940 commit 314 199 2910
+2b4ea20d0c4856098e9fcaa7300a7851ebbf3063 commit 307 196 3109
+8a69f4e57d38b29de7e70d2ee3f560e0117ce481 commit 300 192 3305
+9ed735e2d5b4117f6273fba98832f7c6e62581a4 commit 291 179 3497
+d65f77fef12cd0e4e236151b4a6b3d3c6a87b3f1 commit 252 175 3676
+a8fbe7d8888fcfb803250ee3d7c5eed553f868b0 commit 319 202 3851
+663c2852e8ea70a934b3df1838c37cc35d6cd491 commit 302 192 4053
+d68f620cca51dcfa1b1bf28165b05f7f3a24f95a commit 351 213 4245
+b0e5a76f18ec802859c5c79db932d3bbddb47d3a commit 323 206 4458
+61bf5bb7f57ed1a974defb615716b3a7cb4c4cb7 commit 293 184 4664
+3f5c349346d78a430dd3c248391fedfbbaa9c300 commit 282 194 4848
+f1e36f3bb29626aea2b6f34aeeaaed14d2552f72 commit 242 164 5042
+65f3b43b6ba6df853757b9e5e33b4af7de87e15e commit 412 280 5206
+30c834f44207c17333500218b1ccef2d8cc68f03 commit 359 243 5486
+82f538f1ce9151368684f849624bd7682525c9b8 commit 357 242 5729
+34b33714a3f0031a1c4889ce6781ca87e9f1079c commit 286 175 5971
+d98a868a53660f7e7ae93b0aec3383e70353d7d6 commit 307 197 6146
+4901dfd01e8827b10f9a1c458f154682c9c1ae28 commit 272 166 6343
+3ce0ac8b92d7dfaaacf4027fc2109cbba5246eee commit 359 225 6509
+e9912dae0b4d33470b7cfa248c64e64851f3c7e4 commit 363 234 6734
+a820d66c4e3c0d4b00ee730b9f9efe7de5f2191b commit 331 205 6968
+cde437fc268222918efc7ba317c12138dac04054 commit 283 195 7173
+1d5aaa86c976ca3c21e198261df536b4a2151f0f commit 245 164 7368
+5d9fecee562a2f0c4c19ffe05e1321a5849ee70b commit 285 193 7532
+b55d4b4263409fe3b0c2cfc4218a5d275da238d9 commit 222 154 7725
+17785a2c6d25543487ea6eb52fcfcf18562621cb commit 215 149 7879
+d8200d9f8abd3c5e46da2d4ac581606f74bf25b8 commit 228 156 8028
+0a0761ce1fdc8cacf2828f6fa7c70462fb29e09e commit 246 170 8184
+fb1ff38d31a252c5af45061a7aa317c00497b9ad commit 285 195 8354
+153a24e00036b36a5437011bcdb1ca37b090d397 commit 238 163 8549
+f5b366ace4ec3e9ac4468e253b087f608ed3c6e7 commit 243 171 8712
+d132fb92c1693b188480737837485c30a50d47fd commit 233 164 8883
+7b22790f3bff33b1b36f1a94af692ef930e50cad commit 242 162 9047
+c4b85ceabcc5d698ac09b5d4cb9c7b2ba18d8599 commit 250 168 9209
+a7c390df805ca675e8782e459b5989554eb67b75 commit 234 158 9377
+f0b25deeb43911b968cc25601ef29b2060fb8e12 commit 221 152 9535
+96c4d6a28c91c330c5975ade3a5de7636c7da8cf commit 228 158 9687
+6bb8b9478a48af76ca1eca7beb8f5b650802c594 commit 225 154 9845
+64eb3b6ceca4fb9edcc81f03d7ab6cdb68da3efe commit 229 158 9999
+894dc3ac9aa54695f433ef9a07d3ed75510aec23 commit 238 163 10157
+69cce5df3347d0831b9177f357aa3fce49b12f0e commit 173 123 10320
+3eaeb9e3bf7ee05b0a0cee8e36aaf140c72bff08 tree   160 149 10443
+47a4055a34931d3d2187c97103d6fa8cb163f253 tree   30 43 10592 1 3eaeb9e3bf7ee05b0a0cee8e36aaf140c72bff08
+be4acff80902b16dd9815a04ddead9354a43a84b blob   341 207 10635
+225384c9991e4d6725ebc8c647174b813ca374a3 blob   3627 1203 10842
+3735c54a5acd230f07ff5fa2e0f94aa6ba9f77fa blob   116 78 12045 1 225384c9991e4d6725ebc8c647174b813ca374a3
+73e4fbff363c24aa8b06bbbe9d39d123b24d86d6 blob   21776 8171 12123
+e1734bdcb3f40964f64a190fabe42277d0501fd6 blob   83 90 20294
+f1dec60d206545d5c436e4ca5b9163e93f4ba00d tree   30 43 20384 1 3eaeb9e3bf7ee05b0a0cee8e36aaf140c72bff08
+5ce04aca57125f5966590f6b9d908f0badb02222 tree   30 44 20427 2 f1dec60d206545d5c436e4ca5b9163e93f4ba00d
+e7bf725be1a933c0d17d5d25e00d1bcabe08a6cf blob   12 23 20471 1 225384c9991e4d6725ebc8c647174b813ca374a3
+1ea0febd6369e54641e6043db9a840687dde2e18 blob   22 34 20494 1 225384c9991e4d6725ebc8c647174b813ca374a3
+3c728cb54e523580dda851b17f8e7fb1b75dd2fd tree   30 43 20528 1 3eaeb9e3bf7ee05b0a0cee8e36aaf140c72bff08
+0dfb65e27fe4e3b5070e4bdb719e22172c09e6b0 blob   44 56 20571 1 225384c9991e4d6725ebc8c647174b813ca374a3
+143148b231ce0ab0f08f530e3c79c5d2d5a27715 tree   122 116 20627
+e11659152d182fa7842be2ac50db2052b5cbc1dc blob   114 121 20743 1 225384c9991e4d6725ebc8c647174b813ca374a3
+5d6a6e1ca04e7f99710f17284d682192768a7f51 blob   35 47 20864 2 e11659152d182fa7842be2ac50db2052b5cbc1dc
+58f4fb903f7920a2dd93c861a8351894945477db tree   30 43 20911 1 3eaeb9e3bf7ee05b0a0cee8e36aaf140c72bff08
+6b58232f30128cf48bf21ccc1e25fe33d0a8cdfb tree   30 43 20954 1 3eaeb9e3bf7ee05b0a0cee8e36aaf140c72bff08
+db5b2b5c462650d3fc867b66bb9b481eb234e81d tree   30 42 20997 2 6b58232f30128cf48bf21ccc1e25fe33d0a8cdfb
+96bc312c8ef99a39604e3b065ee5bfc6f1773faf blob   51 61 21039 2 e11659152d182fa7842be2ac50db2052b5cbc1dc
+fe87770274e84d043471a2955f308aa6af70c243 blob   33 44 21100 3 96bc312c8ef99a39604e3b065ee5bfc6f1773faf
+0f2f93f7efc5ef757c97acdbfce10f5d75afc68e tree   122 116 21144
+89642ed8450b6de5117dd7291e5017aa90da67e6 blob   88 91 21260 3 96bc312c8ef99a39604e3b065ee5bfc6f1773faf
+e42aa62cb3a75dc0915643c27d152ecf0f07cd10 blob   22 34 21351 4 89642ed8450b6de5117dd7291e5017aa90da67e6
+b0315bc3ed133f0bf757ed50945374bd1dc935d1 tree   122 116 21385
+fee6c4a20b0aeaf350a7abe5bc13225f922269f1 tree   122 116 21501
+c6745e3feadd8cfc73a3a6b19025c24bb0836709 blob   12 23 21617 4 89642ed8450b6de5117dd7291e5017aa90da67e6
+79a92faae59c9162a0bfe0fd6a75836085d88319 tree   30 45 21640 1 3eaeb9e3bf7ee05b0a0cee8e36aaf140c72bff08
+577f5bd83b60ceaed5d3273589be79b4dac895c0 blob   10 21 21685 3 96bc312c8ef99a39604e3b065ee5bfc6f1773faf
+4a153664f72639cb61a2948450b504086ac3848a tree   30 43 21706 1 3eaeb9e3bf7ee05b0a0cee8e36aaf140c72bff08
+f70e179dd59d3a80930b8219f4485e16e7b780a2 tree   30 44 21749 2 4a153664f72639cb61a2948450b504086ac3848a
+42eef101823a6e8ad89f98064e3051523a91c416 blob   60 65 21793 3 96bc312c8ef99a39604e3b065ee5bfc6f1773faf
+9642cde3db9e1afef44a1952ad5ad8de09d99f4f blob   392 242 21858 4 42eef101823a6e8ad89f98064e3051523a91c416
+cee60762c82257af06dc6fb8a6363e05c21121f1 tree   30 43 22100 2 4a153664f72639cb61a2948450b504086ac3848a
+06b412813f843004c5f1c62fef3223c528fda639 blob   16 29 22143 5 9642cde3db9e1afef44a1952ad5ad8de09d99f4f
+5ff6d0ba4d491c427ae7e9fc9ccc8ac27472d95e tree   30 43 22172 2 4a153664f72639cb61a2948450b504086ac3848a
+3aff61c441039e7e0a0ff2d5d732dc6590f57808 blob   58 70 22215 5 9642cde3db9e1afef44a1952ad5ad8de09d99f4f
+c23e9f517a91586da22d1cf9dae08aed4ca61320 tree   30 43 22285 2 4a153664f72639cb61a2948450b504086ac3848a
+70f4cad200f68e9d3b5fc478f2521c63a3d1fe73 blob   27 40 22328 5 9642cde3db9e1afef44a1952ad5ad8de09d99f4f
+0eda267e7d3c2e37b3f6a78e542b16190ac4574e tree   122 117 22368
+7e31992da7b9f644e47711a43af366b68fd492c3 blob   18 31 22485 4 89642ed8450b6de5117dd7291e5017aa90da67e6
+efbd79702e079a31c4d36cef3b257e20a0baf155 tree   30 43 22516 1 3eaeb9e3bf7ee05b0a0cee8e36aaf140c72bff08
+d78b5be538e56b761103611d8845c83c08880076 blob   12 23 22559 4 42eef101823a6e8ad89f98064e3051523a91c416
+617c8fb30c04954d6f16bbebd658a4c9ecbf6794 tree   30 43 22582 1 3eaeb9e3bf7ee05b0a0cee8e36aaf140c72bff08
+0dccb3c9d95127dd171ae137a98f0192cf14e86e blob   22 35 22625 4 42eef101823a6e8ad89f98064e3051523a91c416
+fa7e6e958d076119292d18381225ae64b0370133 tree   30 43 22660 1 3eaeb9e3bf7ee05b0a0cee8e36aaf140c72bff08
+04fe81422e1bc9881ce75cb988e63621a2c0446c tree   30 44 22703 2 fa7e6e958d076119292d18381225ae64b0370133
+e6bbd5ce888ad70ce6dfd8154d01f41cdd43bf03 blob   20 32 22747 5 0dccb3c9d95127dd171ae137a98f0192cf14e86e
+911bb2e7dc9c3ee1c5e7d1cfff54291f00b7cf03 tree   30 44 22779 2 fa7e6e958d076119292d18381225ae64b0370133
+6ea0a766ebd8ac254429e969fc0291609bdb558a blob   1171 575 22823 1 225384c9991e4d6725ebc8c647174b813ca374a3
+a3f2a78ba4a935e0884241446a92c5414f31534d blob   25 38 23398 2 6ea0a766ebd8ac254429e969fc0291609bdb558a
+1c2022bb82880b4564f1bdf6a7df7b97e3c6ddaa blob   11 21 23436 3 a3f2a78ba4a935e0884241446a92c5414f31534d
+04d7ae1ac76c3d89f0fb6ee88c045fee3e97f235 tree   122 116 23457
+382484ceb01f76a3eed1b996fb1f316e332bde8e blob   42 55 23573 2 6ea0a766ebd8ac254429e969fc0291609bdb558a
+e55960cca5bcf4671a331e167cd94e43e6cac59f tree   122 116 23628
+d1ab71c8d78b1d55950ba6a43a251d2da2422abc blob   38 51 23744 2 6ea0a766ebd8ac254429e969fc0291609bdb558a
+668a686355a94e4ebfad427a19b412f5dd1c331f tree   122 116 23795
+d503a3f0139a894846bd45a9718ede764de5acc7 tree   6 17 23911 2 fa7e6e958d076119292d18381225ae64b0370133
+99b213996fbebc5745b0da7f7c6d217915ce3696 tree   30 45 23928 2 fa7e6e958d076119292d18381225ae64b0370133
+e7c428b06407f35208ecb1aa95bacd7f0e88f14b blob   54 57 23973 3 a3f2a78ba4a935e0884241446a92c5414f31534d
+306b1b60088fb5773f7b4b0df08cd7d192d0f8c1 tree   30 43 24030 2 fa7e6e958d076119292d18381225ae64b0370133
+56f6b203bb3b6e46389ecae464f44a523e074d3b blob   16 29 24073 3 a3f2a78ba4a935e0884241446a92c5414f31534d
+c629ea2a4a5511871387f10bab6ffa5975925628 tree   30 43 24102 2 fa7e6e958d076119292d18381225ae64b0370133
+da4b52b814e601108b8ec08866377e87a16663f1 blob   25 38 24145 3 a3f2a78ba4a935e0884241446a92c5414f31534d
+e433ac53b4566a2da97f04c9e1655b34bc4614bf tree   30 45 24183 2 fa7e6e958d076119292d18381225ae64b0370133
+b581b96c9cd6d8c2449542ce9328f528e1685b7d blob   33 46 24228 3 a3f2a78ba4a935e0884241446a92c5414f31534d
+e6fee319e75399b1926eea5f8395736077eedce7 tree   30 43 24274 2 fa7e6e958d076119292d18381225ae64b0370133
+f4b0377cc82bc9534a445aa3227213d1fd80165d blob   21 34 24317 2 6ea0a766ebd8ac254429e969fc0291609bdb558a
+da3eddf135eaf797776c7f5d5bcc2173522f5859 tree   122 116 24351
+698eb504938e2f38b028b8015dc2189fd990ce27 tree   76 84 24467
+041b9ce8baf265e703ae25be5f9c26055d221172 tree   76 84 24551
+6d97dfafed15550cfcdd1dbee2fb79dcd83f1c80 blob   23834 9641 24635
+c81be60b13505af1bcaebeb196f5c8ddee145933 blob   14 26 34276 1 6d97dfafed15550cfcdd1dbee2fb79dcd83f1c80
+b4915c5a59e6e37ec839c9669b6aa5dbab0326b0 tree   76 84 34302
+8d3ccb9cde623da57f0c526009a598fdc6eb5829 tree   76 84 34386
+ab99bb4076f259f5d8c67330c24c230d0263d6e3 blob   56 58 34470 1 6d97dfafed15550cfcdd1dbee2fb79dcd83f1c80
+eef94b9428e04f3cff2bc90e84f112046757d054 tree   76 84 34528
+1263ffc2e8710b8d734752f7953e61bdd380f221 blob   31 44 34612 2 ab99bb4076f259f5d8c67330c24c230d0263d6e3
+2e63c5d5e6f99249ec9283e6b50116d5ba30c615 tree   76 84 34656
+f4eb39ea81c6a51875feb8b700eaf8e2e1422eb2 blob   22 35 34740 3 1263ffc2e8710b8d734752f7953e61bdd380f221
+0fdbb29aa96dd4bc0f76a66bd301f33fcf4f0bc9 tree   76 84 34775
+f6227303c06fbda774cf9c7a138a2fcf90b0d4aa blob   61 71 34859 3 1263ffc2e8710b8d734752f7953e61bdd380f221
+f6a32ae5dfdf0d087adf4b2130c09602e2300215 tree   76 85 34930
+73a8077ef4dbd1aad4e69235aa1177b5dcb1989c blob   101 111 35015 1 6d97dfafed15550cfcdd1dbee2fb79dcd83f1c80
+89d53d3d17ec71aee656bf1ce19523ed76c767dc tree   76 84 35126
+6eeb6d26e14ca061ac4b9c261adf80a7a83aa47c blob   14 25 35210 2 73a8077ef4dbd1aad4e69235aa1177b5dcb1989c
+397f47e719c917e42229401631e6d62be8f4200e tree   76 84 35235
+cd9dca5784ea92f88633ef51ea2ecd930a526295 blob   91 100 35319 2 73a8077ef4dbd1aad4e69235aa1177b5dcb1989c
+149949db5b17e6a7c21332ae4bcb3a3b7524e6ce blob   18 30 35419 3 cd9dca5784ea92f88633ef51ea2ecd930a526295
+9a2a269500f6d6640171916fe55a8b6ed2234bff tree   76 84 35449
+1e0415f292e520062629ef9533b4bdb10176249b tree   76 84 35533
+e7b6074e0b109e24ed8565b3bd8548057e34d204 blob   43 55 35617 3 cd9dca5784ea92f88633ef51ea2ecd930a526295
+62bcde939b5990ef3bce575ddf898542dd46285e tree   76 84 35672
+eb2bd48e18e4e1777217e6af10968c2646e8320d blob   14 26 35756 4 e7b6074e0b109e24ed8565b3bd8548057e34d204
+5928f08dc585996fa4a4f6fec6a886ce05f52942 tree   76 84 35782
+bd8548e8c47abef5eb6925b45e4352a612984939 blob   65 77 35866 4 e7b6074e0b109e24ed8565b3bd8548057e34d204
+a6d417e1c2dc3ceac0710b7b0e8ae6774f7179eb blob   23 35 35943 5 bd8548e8c47abef5eb6925b45e4352a612984939
+180cf369781f36010fd29c1fb001f40e82efcc4a tree   76 84 35978
+9be35da87532c66cf5a2fa8db7ed99cacdc1097c tree   76 84 36062
+235dc95768d5ed507e2f00def1ce896776d80ff3 blob   63 78 36146 5 bd8548e8c47abef5eb6925b45e4352a612984939
+614401af69c687478f2fbfb6c329e785ba05fda0 blob   22 32 36224 6 235dc95768d5ed507e2f00def1ce896776d80ff3
+5f3e09be69b78380962dd5003d775e07ac04370b tree   76 84 36256
+42eb2e72438ffcf948311f22042a913b431ffdf1 tree   76 84 36340
+e69de29bb2d1d6434b8b29ae775ad8c2e48c5391 blob   0 9 36424
+8cd9dfe7c978bdeb3b78cbca77864d4d59ca58d2 tree   38 49 36433
+non delta: 90 objects
+chain length = 1: 19 objects
+chain length = 2: 23 objects
+chain length = 3: 13 objects
+chain length = 4: 8 objects
+chain length = 5: 6 objects
+chain length = 6: 1 object
+.git/objects/pack/pack-165f66cf23281f77d8078cb9831e995ed96c884f.pack: ok
+#+end_src
