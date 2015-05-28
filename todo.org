@@ -1,6 +1,11 @@
 #+title: Learning...
 #+author: ardumont
 
+* TODO zfs/xfs
+* TODO Reflection on NAS with NixOS?
+- mirror hydra's cache locally to avoid slow network connection hell?
+
+* TODO Install gitolite on nas
 * TODO Try mbsync instead of offlineimap
 * TODO Debian packaging
 - https://www.debian.org/doc/manuals/packaging-tutorial/packaging-tutorial.pdf
