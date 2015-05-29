@@ -1254,7 +1254,8 @@ CLOSED: [2013-04-19 ven. 22:39]
   - [X] http://www.terraform.io/intro/vs/index.html
   - [ ] http://www.terraform.io/intro/getting-started/install.html
   - [ ] http://www.terraform.io/intro/examples/index.html
-* PENDING RAID
+* DONE RAID
+CLOSED: [2015-05-29 Fri 11:09]
 * PENDING Make a personal live-cd (xmonad, firefox, etc...) [20%]
 - [X] Create a simple iso, boot it
 - [ ] Ensure network (wifi included) is ok

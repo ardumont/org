@@ -1,0 +1,149 @@
+#+title: RAID intro
+#+author: ardumont
+
+Redundant Array of Independent Disks
+Software and Hardware (direclty on mother board, or raid controller)
+
+* Raid 0
+
+Block/bit/byte level striping (disks head write at the same time contiguous data)
+no parity
+no mirroring
+
+** Pros-cons
+
+|--------------------------------------------------+-----------------------------------------------------|
+| Pros                                             | Cons                                                |
+|--------------------------------------------------+-----------------------------------------------------|
+| fastest                                          | no fault tolerance                                  |
+| more storage                                     | no parity                                           |
+| full storage is used                             |                                                     |
+| the more the disks, the faster the writing goes. | the more the disks the more likely the loss of data |
+|--------------------------------------------------+-----------------------------------------------------|
+
+** Recovery
+
+none
+
+** Use case
+
+- performance
+
+* Raid 1
+
+Mirroring
+no stripping
+no parity
+
+** Pros/cons
+
+- mirrored with no parity nor striping
+- as fast as the slower disk (so better to have the same hdd specs)
+n- at least 2 disks
+
+|----------------+----------------------------------------------------------------------------------|
+| Pros           | Cons                                                                             |
+|----------------+----------------------------------------------------------------------------------|
+| redundancy     | not full storage (half the space is used for storage, the other half for backup) |
+| fault tolerant |                                                                                  |
+| not slow       | not fast                                                                         |
+|----------------+----------------------------------------------------------------------------------|
+
+1/n space is used for storage
+
+*tips*
+Avoid buying the disks from the same place at the same time.
+
+** Recovery
+
+Add a new disk with the same spec as before.
+The data will be recovered with copy/paste actions (fast).
+
+** Use case
+
+- for example, only 2 hdd
+- need to have a working environment (not distraught by the loss of hdd)
+- important data to backup
+
+* Raid 5
+
+Block level striping (write contiguous data to each disk simultaneously) with distributed parity (parity sum is written on each disk alternatively)
+
+- at least 3 disks
+- Use n-1's capacity storage
+
+** Pros/cons
+
+|-----------------------------------------+--------------------------------------------------------------------------------------|
+| Pros                                    | Cons                                                                                 |
+|-----------------------------------------+--------------------------------------------------------------------------------------|
+| fast                                    | slower if one hdd is dead (the data is built back using the parity to show the data) |
+| use n-1 full storage (minus the parity) | lose 1 disk (for parity)                                                             |
+| one hdd fault tolerance                 |                                                                                      |
+|-----------------------------------------+--------------------------------------------------------------------------------------|
+
+*tips*
+Use lots of smaller disks to reduce the storage loss (due to the parity).
+
+With 2 disks of 1T, we lose 1T of storage.
+With 10 disks of 200G, we lose only 200G of storage.
+
+** Recovery
+
+Add a new disk.
+The data is rebuilt from computing the lost data out of the parity.
+It's slow. The larger the raid, the slower the recovery.
+
+** Use case
+
+High availability system
+
+* Raid 6
+
+Block level striping with doubled-distributed parity.
+
+- at least 3 disks.
+
+|--------------------------+-------------------------------------------------------------------------------|
+| Pros                     | Cons                                                                          |
+|--------------------------+-------------------------------------------------------------------------------|
+| fast                     | slower if hdd dies (the data is built back using the parity to show the data) |
+| use n-2's disks capacity | lose 2 disks (for parity and the parity's parity's sakes)                     |
+| 2 hdd fault tolerance    |                                                                               |
+|--------------------------+-------------------------------------------------------------------------------|
+
+*tips*
+Use lots of smaller disks to reduce the storage loss (due to the parity).
+
+With 2 disks of 1T, we lose 1T of storage.
+With 10 disks of 200G, we lose only 200G of storage.
+
+** Recovery
+
+Add the missing disks.
+The data is rebuilt from computing the lost data out of the parity.
+It's slow. The larger the raid, the slower the recovery.
+
+** Use case
+High availability system
+
+* Raid 10
+Mirroring and striping
+
+mirroring
+no parity
+
+** Pros/cons
+
+|----------------------------------+-----------------------------------------------------|
+| Pros                             | Cons                                                |
+|----------------------------------+-----------------------------------------------------|
+| fault tolerance (through mirror) | if we lose the mirrorred disk, we lose all the data |
+| stripping                        | only use 50 percent of the storage space            |
+|----------------------------------+-----------------------------------------------------|
+
+* Definitions
+
+- striping: write contiguous data (sliced as block/bit/byte) to each raid's disk (as a consequence, it's fast). Raid Disks's heads write at the same time.
+- parity: compute the contiguous data written to each disk and compute a hash (compression algo)
+- high availability: up all the times
