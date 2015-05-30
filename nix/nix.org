@@ -1,0 +1,9 @@
+#+title: nix tips
+
+
+* Download all sources
+
+#+begin_src sh
+nix-store -r $(grep -l outputHash $(nix-store -qR $(nix-instantiate '<nixpkgs>' -A geeqie) | grep '.drv$'))
+#+end_src
+[[https://nixos.org/wiki/Download_all_sources][source]]
