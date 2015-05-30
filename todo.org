@@ -73,8 +73,8 @@ https://github.com/ndmitchell/shake
 - [ ] Make the *grep* buffer behaves as *magit* ones (fullscreen then get back to previous frame organization).
 - [ ] Install emacs-25 from source the nix way (via package override)
 - [X] Fix nix-mode (nix-pack) regarding indentation (messed up for kill/yank)
-* IN-PROGRESS Nix* [0%]
-** Nix [73%]
+* IN-PROGRESS Nix* [20%]
+** PENDING Nix [73%]
 - [X] Nix package manager - http://nixos.org/nix/manual/
 - [X] http://lethalman.blogspot.it/2014/07/nix-pill-1-why-you-should-give-it-try.html
 - [X] http://lethalman.blogspot.it/2014/07/nix-pill-2-install-on-your-running.html
@@ -95,7 +95,7 @@ https://github.com/ndmitchell/shake
 - [ ] http://lethalman.blogspot.it/2014/11/nix-pill-17-nixpkgs-overriding-packages.html
 - [X] http://sandervanderburg.blogspot.fr/2014/07/managing-private-nix-packages-outside.html
 - [ ] understand package override - https://nixos.org/wiki/Nix_Modifying_Packages
-** Nixpkgs [88%]
+** PENDING Nixpkgs [88%]
 - [X] [[https://nixos.org/nixpkgs/manual/][Nixpkgs manual]]
 - [X] Extends Nixos - https://nixos.org/wiki/NixOS:extend_NixOS
 - [X] Create the tux-guitar package for NixOS - http://nixos.org/nixpkgs/manual/ [100%]
@@ -111,7 +111,7 @@ https://github.com/ndmitchell/shake
 - [X] Update org-trello 0.6.9.3 derivation + deps
 - [ ] update nix to have emacs 25 built
 
-** NixOS [96%]
+** PENDING NixOS [96%]
 - [X] Read [[http://nixos.org/nixos/manual/][NixOS manual]]
 - [X] Install nixos -> https://github.com/ardumont/dot-files/blob/master/configuration.nix
 - [X] Fix trouble with X (it may be my personal xmonad.hs's deps that are not satisfied)
@@ -142,9 +142,10 @@ https://github.com/ndmitchell/shake
 - [X] Fix lid close event (sometimes, when opening the lid, it closes again)
 - [X] x11vnc
 - [ ] Install nixos with encryption - http://bluishcoder.co.nz/2014/05/14/installing-nixos-with-encrypted-root-on-thinkpad-w540.html - https://nixos.org/wiki/Encrypted_Root_on_NixOS
-** Factor NixOS configuration [0%]
-- [ ] `job`, `dagobah`, `myrkr` shares 99% of configuration except for the hostname - find a way to factorize this code.
-** NixOps [0%]
+** DONE Factor NixOS configuration [100%]
+CLOSED: [2015-05-30 Sat 19:34]
+- [X] `corellia`, `dagobah`, `myrkr` shares 99% of configuration except for the hostname - find a way to factorize this code.
+** PENDING NixOps [0%]
 - [ ] [[https://nixos.org/nixops/manual/][NixOps manual]]
 - [ ] http://hydra.nixos.org/build/15623313/download/1/manual/manual.html
 * IN-PROGRESS judo
