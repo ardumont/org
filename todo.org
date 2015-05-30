@@ -7,36 +7,40 @@
 
 * TODO Install gitolite on nas
 * TODO Try mbsync instead of offlineimap
-* TODO Debian packaging
-- https://www.debian.org/doc/manuals/packaging-tutorial/packaging-tutorial.pdf
 * TODO Some linux sysadmin interview question
 you may learn a thing or two https://github.com/chassing/linux-sysadmin-interview-questions
 * TODO tikz
 * TODO SMT-solver
 https://en.wikipedia.org/wiki/Satisfiability_modulo_theories
 
-* IN-PROGRESS Miscellaneous
-- [X] Access to mysql (mint + nixos tryouts)
-- [X] Forward mail from inria address to gmail address
-- [X] Access to vpn
-- [X] Retake control of mail-pack
-- [X] Fix some issues on org-trello
-- [X] understand how screenkey works (record screen keys during screen cast)
-- [X] Create an emacs daemon service in nixos
-- [X] FAIL: Create an offlineimap + mu service in nixos -> Need to access the gpg authentication mechanism. No need, emacs already does it.
-- [ ] Learn again how to make debian package (+ in nix env) -> https://www.debian.org/doc/manuals/packaging-tutorial/packaging-tutorial.pdf (Thanks Zack)
-- [ ] Take control of your gpg key (sign, encrypt)
-- [ ] Import some known ones
-- [ ] Publish gpg public key
-- [ ] [[https://www.gnupg.org/documentation/index.html][gpgme]]
-- [ ] Learn some mutt love
+* TODO Refresher on debian packaging (+ in nix env)
+https://www.debian.org/doc/manuals/packaging-tutorial/packaging-tutorial.pdf (Thanks Zack)
 * TODO domain name
 - [ ] dumont.xyz does not exist
 - [ ] Create an email adress ar@dumont.xyz as proxy for my dedicated email
 * TODO GTD
-* DONE xmonad
-CLOSED: [2015-05-20 Wed 11:54]
-- [X] Fix nixos's xmonad recompile and restart procedure in nixos
+* TODO domotic
+- http://www.geeek.org/votre-karotz-vous-informe-quand-vous-consommez-trop-d-energie-034.html
+- https://github.com/ltoinel/domogeeek -> openzwave lib
+- https://github.com/jperkin/node-openzwave
+- https://code.google.com/p/open-zwave/ -> zwave protocol -> zwave network
+- http://zwaveworld.com/
+* TODO keysnail
+- [ ] Create a function to append the urls to copy in the kill ring
+- [ ] Define some default global js functions (callable from M-x in ffx through keysnai
+* TODO shake
+http://shakebuild.com/
+https://github.com/ndmitchell/shake
+* TODO https://github.com/oblique/create_ap
+- [ ] Create nix expression for this
+* TODO thunderbird for hostile env.
+- [ ] exquilla
+- [ ] exchange ws provider -> ericson
+- [ ] lightning
+* IN-PROGRESS gpg [3/4]
+- [X] Take control of your gpg key (sign, encrypt)
+- [X] Import some known ones
+- [X] Publish gpg public key
 * IN-PROGRESS actions [0/7]
 - [ ] Improve email's reading/writing within emacs
 - [ ] Add my public gpg key to public gpg server
@@ -62,28 +66,6 @@ CLOSED: [2015-05-20 Wed 11:54]
 - [ ] https://github.com/aborn/.conkerorrc
 - [X] Begin to port keysnail configuration to conkeror
 - [X] Read some source
-* DONE coding dojo (with ggirou)
-CLOSED: [2015-02-14 Sat 15:25]
-- [X] prepare coding dojo with ggirou
-- [X] Animate it
-* TODO domotic
-- http://www.geeek.org/votre-karotz-vous-informe-quand-vous-consommez-trop-d-energie-034.html
-- https://github.com/ltoinel/domogeeek -> openzwave lib
-- https://github.com/jperkin/node-openzwave
-- https://code.google.com/p/open-zwave/ -> zwave protocol -> zwave network
-- http://zwaveworld.com/
-* TODO keysnail
-- [ ] Create a function to append the urls to copy in the kill ring
-- [ ] Define some default global js functions (callable from M-x in ffx through keysnai
-* TODO shake
-http://shakebuild.com/
-https://github.com/ndmitchell/shake
-* TODO https://github.com/oblique/create_ap
-- [ ] Create nix expression for this
-* TODO thunderbird for hostile env.
-- [ ] exquilla
-- [ ] exchange ws provider -> ericson
-- [ ] lightning
 * IN-PROGRESS Emacs [3/6]
 - [X] Improve js-pack setup
 - [X] Learn how to store/retrieve buffer/window in register - window-configuration-to-register C-x r w/j
@@ -194,18 +176,21 @@ https://github.com/ndmitchell/shake
 - [ ] https://github.com/swank-js/swank-js - manipulate browser from node repl
 - [ ] https://github.com/skeeto/skewer-mode - manipulate browser from node repl (equivalent of swank-js)
 - [ ] https://github.com/itsatony/nREPL - nrepl server/client
-* IN-PROGRESS org-trello [96%]
-  Minor mode to sync trello and org-mode
+* IN-PROGRESS org-trello [33%]
+Minor mode to sync trello and org-mode
+** IN-PROGRESS actions [94%]
 - [X] Deploy in melpa (automated on their own)
 - [X] Deploy in marmalade
 - [X] Automate the release part to marmalade
 - [X] Improve documentation rendering -> dedicated repo and site org-trello.github.io
-- [ ] Automate the releases part on Github
-  - [ ] Upload tar archive on release
-  - [ ] Add release notes to tag
 - [X] Open issue on marmalade about being unable to publish new org-trello version
 - [X] Use jekyll to serve org-trello.github.io locally
 - [X] Make the release of 0.6.8 org-trello package
+- [ ] Automate the releases part on Github
+  - [ ] Upload tar archive on release
+  - [ ] Add release notes to tag
+** DONE old releases [%]
+CLOSED: [2015-05-30 Sat 19:10]
 - [X] 0.0.1
 - [X] 0.0.2
 - [X] 0.0.3
@@ -274,13 +259,17 @@ https://github.com/ndmitchell/shake
 - [X] 0.6.7
 - [X] 0.6.8
 - [ ] 0.6.9
+- [X] Solve #231 create-board-and-install-metadata gives error 60
+- [X] #230 Try and install emacs 25 to check this error (maybe new network-security-manager?)
 - [X] 0.6.9.1
 - [X] 0.6.9.2
 - [X] 0.6.9.3
-- [ ] ...
-- [X] Solve #231 create-board-and-install-metadata gives error 60
-- [X] #230 Try and install emacs 25 to check this error (maybe new network-security-manager?)
-* IN-PROGRESS Blog [11/15]
+- [X] 0.6.9.4
+- [X] 0.6.9.5
+- [X] 0.6.9.6
+** IN-PROGRESS Current release
+- [X] 0.7.0
+* IN-PROGRESS Blog [13/15]
 - [X] Migrate comment system to Disqus (old blog)
 - [X] Migrate from old blog system (wordpress) to a github solution -> ardumont.github.io [3/3]
   - [X] Make jekyll run locally
@@ -295,8 +284,8 @@ https://github.com/ndmitchell/shake
 - [X] Add blog's rss feed
 - [X] Fix broken links in migrated blog posts
 - [X] Install Disqus system for comments (id: tonyx-blog, ardumontblog)
-- [ ] Add github card
-- [ ] Add twitter, g+ buttons etc...
+- [X] Add github card
+- [X] Add twitter button
 - [ ] Automate the publication (let github do the job?)
 - [ ] Merge ardumont/org into ardumont/ardumont.github.io?
 * IN-PROGRESS org2jekyll - https://github.com/ardumont/org2jekyll [15/15]
@@ -1254,8 +1243,6 @@ CLOSED: [2013-04-19 ven. 22:39]
   - [X] http://www.terraform.io/intro/vs/index.html
   - [ ] http://www.terraform.io/intro/getting-started/install.html
   - [ ] http://www.terraform.io/intro/examples/index.html
-* DONE RAID
-CLOSED: [2015-05-29 Fri 11:09]
 * PENDING Make a personal live-cd (xmonad, firefox, etc...) [20%]
 - [X] Create a simple iso, boot it
 - [ ] Ensure network (wifi included) is ok
@@ -1307,6 +1294,23 @@ CLOSED: [2015-05-29 Fri 11:09]
 * PENDING online universities
 - https://www.edx.org/
 - https://www.coursera.org/
+* DONE RAID
+CLOSED: [2015-05-29 Fri 11:09]
+* DONE xmonad
+CLOSED: [2015-05-20 Wed 11:54]
+- [X] Fix nixos's xmonad recompile and restart procedure in nixos
+* DONE coding dojo (with ggirou)
+CLOSED: [2015-02-14 Sat 15:25]
+- [X] prepare coding dojo with ggirou
+- [X] Animate it
+* DONE Access to mysql (mint + nixos tryouts)
+* DONE Forward mail from inria address to gmail address
+* DONE Access to vpn
+* DONE Retake control of mail-pack
+* DONE Fix some issues on org-trello
+* DONE understand how screenkey works (record screen keys during screen cast)
+* DONE Create an emacs daemon service in nixos
+* DONE FAIL: Create an offlineimap + mu service in nixos -> Need to access the gpg authentication mechanism. No need, emacs already does it.
 * DONE Refresh on angular-js
 CLOSED: [2014-12-06 Sat 22:33]
 - [-] https://docs.angularjs.org/tutorial [12/13]
