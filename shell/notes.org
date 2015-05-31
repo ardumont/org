@@ -1,0 +1,36 @@
+#+title: Notes on shell
+#+source: http://hacktux.com/bash/bashrc/bash_profile
+
+3 shell forms:
+- Login
+- Interactive
+- Non-interactive
+
+* Login
+
+Used for connection.
+With bash, called through `bash --login`.
+
+Loading order of .sh files:
+1. /etc/profile
+2. ~/.bash_profile (delegate call to ~/.bashrc)
+3. ~/.bash_login
+4. ~/.profile
+
+* Interactive (~repl)
+
+Use locally or through remote connection (ssh)
+Standard input/output plugged to a terminal.
+
+Loading order of .sh files:
+- ~/.bashrc (can call the system one /etc/bashrc)
+
+Called by: `bash`, `sudo su`, `ssh user@host /some/command`
+
+* Non-interactive
+
+Use through local commands.
+
+No .sh file is loaded.
+
+Called by: `bash -c /some/command`, `su user -c /some/command`
