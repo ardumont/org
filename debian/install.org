@@ -1,0 +1,10 @@
+#+title: install debian
+
+I already have a nixos install.
+Unfortunately, debian did not see it.
+I installed the bootloader inside the key to avoid overwriting the one from nixos.
+
+Still here the message that could help someday:
+#+begin_src txt
+you will need to boot manually with the /vmlinuz kernel on partition /dev/sda1 and `root=/dev/sda1 quite persistent` passed as a kernel argument
+#+end_src
