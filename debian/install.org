@@ -8,3 +8,22 @@ Still here the message that could help someday:
 #+begin_src txt
 you will need to boot manually with the /vmlinuz kernel on partition /dev/sda1 and `root=/dev/sda1 quiet persistent` passed as a kernel argument
 #+end_src
+
+Some notes about grub2 (inside nix dsl)
+#+begin_src nix
+      boot.loader.grub.extraEntries = ''
+        menuentry "debian 8" {
+          insmod ext2
+          # either set manually the drive (beware, this can break)
+          set root='hd0,msdos1' # /dev/sda1 contains debian
+          linux ($drive1)/boot/vmlinuz ro persistent quiet
+          initrd ($drive1)/boot/initrd
+
+          # or look for a driver with a specific id (if you know it)
+          # search --set=drive1 --fs-uuid <kernel-id>
+          # linux ($drive1)/boot/vmlinuz ro persistent quiet
+          # initrd ($drive1)/boot/initrd
+        }
+      '';
+
+#+end_src
