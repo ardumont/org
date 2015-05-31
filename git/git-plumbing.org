@@ -1,0 +1,90 @@
+#+title: git plumbing
+#+author: pro-git's book authors
+
+git-hash-object - compute object id and optionally creates a blob from a file.
+
+#+begin_src sh
+echo 'some content' | git hash-object -w --stdin
+#+end_src
+-w      write the object inside the database.
+--stdin read the object from the standard input^
+
+Example:
+
+#+begin_src sh
+# tony at myrkr in ~/tmp/git-plumbing-lab on git:master o [18:21:57]
+$ echo 'some content' | git hash-object -w --stdin
+2ef267e25bd6c6a300bb473e604b092b6a48523b
+#+end_src
+
+Now a new object has been created in `~/.git/objets`:
+
+#+begin_src sh
+# tony at myrkr in ~/tmp/git-plumbing-lab on git:master o [18:52:28]
+$ find .git/objects -type f                                                                                                                                                                                                                                                                            ~/tmp/git-plumbing-lab
+.git/objects/2e/f267e25bd6c6a300bb473e604b092b6a48523b
+#+end_src
+
+Deal with version:
+
+#+begin_src sh
+# tony at myrkr in ~/tmp/git-plumbing-lab on git:master o [19:00:17]
+$ echo 'version 1 of the file' > test.txt                                                                                                                                                                                                                                                              ~/tmp/git-plumbing-lab
+
+# tony at myrkr in ~/tmp/git-plumbing-lab on git:master o [19:01:35]
+$ git hash-object -w test.txt                                                                                                                                                                                                                                                                         ~/tmp/git-plumbing-lab
+in 0.1 seconds automatically...
+e3137839fba0225c3d1a89211676003bb89b27f6
+
+# tony at myrkr in ~/tmp/git-plumbing-lab on git:master o [19:01:57]
+$ git hash-object -w test.txt                                                                                                                                                                                                                                                                          ~/tmp/git-plumbing-lab
+
+# tony at myrkr in ~/tmp/git-plumbing-lab on git:master o [19:02:02]
+$ em test.txt                                                                                                                                                                                                                                                                                          ~/tmp/git-plumbing-lab
+
+# tony at myrkr in ~/tmp/git-plumbing-lab on git:master o [19:02:18]
+$ git hash-object -w test.txt                                                                                                                                                                                                                                                                          ~/tmp/git-plumbing-lab
+701cb63552f6d2504491f0ef1f9c8b4c213a9072
+#+end_src
+
+This created 2 new objects:
+
+#+begin_src sh
+# tony at myrkr in ~/tmp/git-plumbing-lab on git:master o [19:02:20]
+$ find .git/objects -type f                                                                                                                                                                                                                                                                            ~/tmp/git-plumbing-lab
+.git/objects/2e/f267e25bd6c6a300bb473e604b092b6a48523b
+.git/objects/70/1cb63552f6d2504491f0ef1f9c8b4c213a9072
+.git/objects/e3/137839fba0225c3d1a89211676003bb89b27f6
+#+end_src
+
+Now we can look into those objects:
+
+#+begin_src sh
+# tony at myrkr in ~/tmp/git-plumbing-lab on git:master o [19:02:24]
+$ git cat-file -p e3137839fba0225c3d1a89211676003bb89b27f6                                                                                                                                                                                                                                             ~/tmp/git-plumbing-lab
+version 1 of the file
+
+# tony at myrkr in ~/tmp/git-plumbing-lab on git:master o [19:02:48]
+$ git cat-file -p 701cb63552f6d2504491f0ef1f9c8b4c213a9072                                                                                                                                                                                                                                             ~/tmp/git-plumbing-lab
+version 2 of the file
+i modified it
+#+end_src
+
+The last version is the same  as the actual file.
+
+#+begin_src sh
+# tony at myrkr in ~/tmp/git-plumbing-lab on git:master o [19:03:01]
+$ cat test.txt                                                                                                                                                                                                                                                                                         ~/tmp/git-plumbing-lab
+version 2 of the file
+i modified it
+#+end_src
+
+Those files are called `blob`. They do not hold anything but the contnet of the file:
+
+We can check this with the -t option of git-cat:
+
+#+begin_src sh
+# tony at myrkr in ~/tmp/git-plumbing-lab on git:master o [19:03:12]
+$ git cat-file -t 701cb63552f6d2504491f0ef1f9c8b4c213a9072                                                                                                                                                                                                                                             ~/tmp/git-plumbing-lab
+blob
+#+end_src
