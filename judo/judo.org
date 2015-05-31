@@ -1,7 +1,53 @@
 #+title: Judo
 #+author: ardumont
 
-* Waza
+* Waza - Techniques
+- Nage-Waza - Techique de projection
+  - Tachi-waza - Techique debout
+    - Te-waza - Technique de main
+    - Koshi-Waza - Techniques de hanche
+    - Ashi-Waza - Technique de pied
+  - Sutemi-waza - Techique de sacrifice
+    - Mae-Sutemi-Waza - Technique de sacrifice arriere
+    - Yoko-Sutemi-Waza - Technique de sacrifice de cote
+- ne-waza - Sol
+  - Osaekomi-waza - Immobilisation
+  - Shime-waza - Etranglement
+  - Kansetzu-Waza - Techique de luxation
+
+* Nage-No-Kata
+
+** Te Waza
+
+1. Uki Otoshi
+2. Seoi Nage
+3. Kata Guruma
+
+** Koshi-Waza
+
+1. Uki-Goshi
+2. Harai-Goshi
+3. Tsuri-Komi-Goshi
+
+** Ashi-Waza
+
+1. Okuri-Ashi-Barai
+2. Sasae-Tsuri-Komi-Ashi
+3. Uchi-Mata
+
+** Ma-Sutemi-Waza
+
+1. Tomoe-Nage
+2. Ura-Nage
+3. Sumi-Gaeshi
+
+** Yoko-Sutemi-Waza
+
+1. Yoko-Gake
+2. Yoko-Guruma
+3. Uki-Waza
+
+* Ceintures
 ** jaune/yellow
   source:
 - http://judoinfo.com/gokyo.htm
