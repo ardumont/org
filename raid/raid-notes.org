@@ -1,8 +1,12 @@
 #+title: RAID intro
 #+author: ardumont
 
-Redundant Array of Independent Disks
-Software and Hardware (direclty on mother board, or raid controller)
+Redundant Array of Independent Disks.
+2 kinds:
+- Software
+- Hardware (direclty on mother board, or raid controller card)
+
+Here is a non-exhaustive list of raids.
 
 * Raid 0
 
