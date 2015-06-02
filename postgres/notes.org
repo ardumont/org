@@ -1,0 +1,82 @@
+#+title: postgresql
+#+author: ardumont
+
+* Install
+
+Server + client:
+#+begin_src sh
+sudo apt-get install -y postgresql-server-dev-9.4 postgresql-client-9.4 postgresql-client-common
+#+end_src
+
+* Setup
+
+Connect to the unix's user `postgres`
+
+#+begin_src sh
+sudo su - postgres
+#+end_src
+
+*Note* I do not know the password for `postgres` user (yet?).
+
+To know the existing databases, take a look at the `pg_database` table:
+
+#+begin_src sh
+postgres@corellia:~ $ psql
+psql (9.4.2)
+Type "help" for help.
+
+postgres=# select datname from pg_database;
+datname
+-----------
+template1
+template0
+postgres
+(3 rows)
+#+end_src
+
+
+Create a role (e.g. tony):
+#+begin_src sh
+createuser --password tony
+#+end_src
+
+Then a db for that role (e.g. hack-pygit2):
+#+begin_src sh
+createdb -O tony hack-pygit2
+#+end_src
+
+
+* Role
+
+** Create
+
+Create a role (e.g. tony):
+#+begin_src sh
+createuser tony
+#+end_src
+
+symmetric `dropuser` command
+(sql: `DROP/CREATE ROLE role PASS`)
+
+
+** Drop
+
+#+begin_src sh
+dropuser tony
+#+end_src
+
+or once connected to psql:
+#+begin_src sql
+DROP USER tony
+#+end_src
+
+
+
+** List
+
+List the current roles:
+#+begin_src sql
+select rolname from pg_roles;
+#+end_src
+
+or psql's `\du` meta-command.
