@@ -1,33 +1,17 @@
 #+title: install debian
 
-I already have a nixos install.
-Unfortunately, debian did not see it.
+* bootloader
+
+In dual boot with nixos.
+Debian installer did not see the other linux installation.
+
+So keep using the nixos one (change with each `nixos rebuild-switch`.
+
 I installed the bootloader inside the key to avoid overwriting the one from nixos.
 
-Still here the message that could help someday:
-#+begin_src txt
-you will need to boot manually with the /vmlinuz kernel on partition /dev/sda1 and `root=/dev/sda1 quiet persistent` passed as a kernel argument
-#+end_src
+So retrieved the section from /mnt/debian/boot/grub/grub.lst (or grub.cfg):
 
-Some notes about grub2 (inside nix dsl)
-#+begin_src nix
-      boot.loader.grub.extraEntries = ''
-        menuentry "debian 8" {
-          insmod ext2
-          # either set manually the drive (beware, this can break)
-          set root='hd0,msdos1' # /dev/sda1 contains debian
-          linux ($drive1)/boot/vmlinuz ro persistent quiet
-          initrd ($drive1)/boot/initrd
-
-          # or look for a driver with a specific id (if you know it)
-          # search --set=drive1 --fs-uuid <kernel-id>
-          # linux ($drive1)/boot/vmlinuz ro persistent quiet
-          # initrd ($drive1)/boot/initrd
-        }
-      '';
-
-#+end_src
-
+And add this to nixos's setup:
 #+begin_src grub
   # Add debian entry in nixos's grub bootloader
   boot.loader.grub = {
@@ -79,3 +63,34 @@ Some notes about grub2 (inside nix dsl)
   };
 
 #+end_src
+
+* keyboard section
+Add this to /etc/X11/xorg.conf to have your usual keyboard setuped:
+
+Here is the right section from the /etc/static/X11/xorg.conf (generated in nixos)
+#+begin_src xorg
+Section "InputClass"
+  Identifier "Keyboard catchall"
+  MatchIsKeyboard "on"
+  Option "XkbRules" "base"
+  Option "XkbModel" "pc104"
+  Option "XkbLayout" "us"
+  Option "XkbOptions" "eurosign:e,ctrl:nocaps,terminate=ctrl_alt_backspace,altwin:meta_alt"
+  Option "XkbVariant" ""
+EndSection
+#+end_src
+
+In debian, edit /etc/default/keyboard accordingly:
+
+#+begin_src sh
+XKBMODEL="pc105"
+XKBLAYOUT="us"
+XKBVARIANT=""
+XKBOPTIONS="eurosign:e,ctrl:nocaps,terminate=ctrl_alt_backspace,altwin:meta_alt"
+
+BACKSPACE="guess"
+#+end_src
+
+or add: `setxkbmap us -option eurosign:e,ctrl:nocaps,terminate=ctrl_alt_backspace,altwin:meta_alt` inside the ~/.xsession
+
+Also edit /etc/initramfs-tools/initramfs.conf to have KEYMAP to `y` to have the mapping inside
