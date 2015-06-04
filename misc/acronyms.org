@@ -25,4 +25,5 @@
 | DNS     | Domain Name System                                     | Hierarchical distributed naming system for computers, services or any resources connected to the internet or a private network. |
 | IANA    | Internet Assigned Numbers Authority                    | a department of ICANN, a nonprofit American private corporation which oversees global IP address allocation...                    |
 | ICANN   | Internet Corporation for Assigned Names and Numbers    |                                                                                                                                   |
+| PAM     | Pluggable Authentication Module                        |                                                                                                                                   |
 |---------+--------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------|
