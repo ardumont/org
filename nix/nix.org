@@ -7,3 +7,16 @@
 nix-store -r $(grep -l outputHash $(nix-store -qR $(nix-instantiate '<nixpkgs>' -A geeqie) | grep '.drv$'))
 #+end_src
 [[https://nixos.org/wiki/Download_all_sources][source]]
+
+* Build and debug
+
+Use `nix-build -K`.
+This will reference where the current build folder is (in /tmp/somewhere)
+
+#+begin_src sh
+cd /tmp/somewhere
+source env-vars
+# now find and debug the problem
+# trigger
+make
+#+end_src
