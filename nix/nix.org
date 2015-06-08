@@ -20,3 +20,23 @@ source env-vars
 # trigger
 make
 #+end_src
+
+* nix-serve
+
+http://nixos.org/nix/manual/#sec-sharing-packages
+#+begin_src sh
+nix-env -i nix-serve
+nix-serve -p 8080
+#+end_src
+Now you have a nix store cache available on your network.
+
+* distributed builds
+http://nixos.org/nix/manual/#chap-distributed-builds
+
+* nix.conf
+
+http://nixos.org/nix/manual/#sec-conf-file
+
+* common env
+
+http://nixos.org/nix/manual/#sec-common-env
