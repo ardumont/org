@@ -1,6 +1,8 @@
 #+title: Learning...
 #+author: ardumont
 
+* DONE Change my laptop's broken ventilator
+CLOSED: [2015-06-08 Mon 23:53]
 * TODO zfs/xfs
 * TODO Reflection on NAS with NixOS?
 - mirror hydra's cache locally to avoid slow network connection hell?
