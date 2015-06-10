@@ -41,3 +41,15 @@ nix-env -u '*'
 
 * Add files to nix store
 https://nixos.org/wiki/How_to_add_files_to_the_nix-store
+
+* How to add a custom udev rule in nixos?
+source: https://nixos.org/wiki/FAQ#How_to_add_a_custom_udev_rule_in_nixos.3F
+http://linux.die.net/man/8/udevadm
+
+Add something like this to your /etc/nixos/configuration.nix file:
+
+#+begin_src nix
+services.udev.extraRules = ''
+  ATTRS{idVendor}=="0665", ATTRS{idProduct}=="5161", MODE="666", SYMLINK+="hidraw_protecthome"
+'';
+#+end_src
