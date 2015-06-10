@@ -151,12 +151,12 @@ CLOSED: [2015-05-30 Sat 19:34]
 - [ ] [[https://nixos.org/nixops/manual/][NixOps manual]]
 - [ ] http://hydra.nixos.org/build/15623313/download/1/manual/manual.html
 * IN-PROGRESS judo
-** dan
+** kyu
 - [X] white
 - [X] yellow
 - [X] orange
 - [X] green
-- [ ] blue
+- [X] blue
 - [ ] brown
 - [ ] black
 ** training
