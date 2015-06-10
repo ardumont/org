@@ -1,0 +1,69 @@
+#+title: udev
+#+author: ardumont
+
+udev to deal with events
+
+http://reactivated.net/writing_udev_rules.html
+https://wiki.archlinux.org/index.php/Udev#Execute_on_VGA_cable_plug_in
+
+* monitor plug/unplug event
+
+** Listen
+#+begin_src sh
+udevadm monitor --environment
+#+end_src
+
+Plug your vga/hdmi monitor in your computer and admire the results:
+
+Output:
+#+begin_src sh
+# tony at corellia in ~ [14:58:22]
+$ udevadm monitor --environment
+monitor will print the received events for:
+UDEV - the event which udev sends out after rule processing
+KERNEL - the kernel uevent
+
+KERNEL[463376.233892] change   /devices/pci0000:00/0000:00:02.0/drm/card0 (drm)
+ACTION=change
+DEVNAME=/dev/dri/card0
+DEVPATH=/devices/pci0000:00/0000:00:02.0/drm/card0
+DEVTYPE=drm_minor
+HOTPLUG=1
+MAJOR=226
+MINOR=0
+SEQNUM=6812
+SUBSYSTEM=drm
+
+UDEV  [463376.323702] change   /devices/pci0000:00/0000:00:02.0/drm/card0 (drm)
+ACTION=change
+DEVNAME=/dev/dri/card0
+DEVPATH=/devices/pci0000:00/0000:00:02.0/drm/card0
+DEVTYPE=drm_minor
+DISPLAY=:0
+HOTPLUG=1
+ID_FOR_SEAT=drm-pci-0000_00_02_0
+ID_PATH=pci-0000:00:02.0
+ID_PATH_TAG=pci-0000_00_02_0
+MAJOR=226
+MINOR=0
+SEQNUM=6812
+SUBSYSTEM=drm
+TAGS=:seat:uaccess:
+USEC_INITIALIZED=704
+#+end_src
+
+Now, what we can extract:
+- device: /devices/pci0000:00/0000:00:02.0/drm/card0
+-
+
+** Rule
+Create a file in /udev/rules.d/999-screen-layout.rules:
+
+#+begin_src sh
+KERNEL=="card0", SUBSYSTEM=="drm", ENV{DISPLAY}=":0", RUN+="/home/tony/.layouts/corellia.sh"
+#+end_src
+This is the representation of an even that udev will listen to and react.
+Here it will run the external script [[https://github.com/ardumont/dot-files/blob/master/.layouts/corellia.sh][/home/tony/.layouts/corellia.sh]]
+
+My script is in charge of triggering the add/remove.
+Surely, there must be a way to transfer this responsibility to udev...
