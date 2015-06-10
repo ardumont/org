@@ -67,3 +67,8 @@ Here it will run the external script [[https://github.com/ardumont/dot-files/blo
 
 My script is in charge of triggering the add/remove.
 Surely, there must be a way to transfer this responsibility to udev...
+
+* Improvments to implement
+
+- Automatic installation (for reproducibility)
+- udev knows in the event if it's a connection or not and delegate the add/remove event to the external script (this way, the script is just a dummy one)
