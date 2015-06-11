@@ -45,7 +45,6 @@ Then a db for that role (e.g. hack-pygit2):
 createdb -O tony hack-pygit2
 #+end_src
 
-
 * Role
 
 ** Create
@@ -80,3 +79,11 @@ select rolname from pg_roles;
 #+end_src
 
 or psql's `\du` meta-command.
+
+* db
+** rename
+
+With admin user:
+#+begin_src sh
+alter database <name> rename to <new-name>
+#+end_src
