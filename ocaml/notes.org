@@ -136,15 +136,82 @@ man ocamlopt:
 | .so       | C shared object library                          |
 | .cmxa     | Native code libraries                            |
 | .cma      | Bytecode libraries                               |
+| .cmx      | Native code compilation output (ocamlopt -c)     |
+| .cmi      | Native compiled interface                        |
 |-----------+--------------------------------------------------|
 
 * ocamlc
 
-|-------+--------+--------------------------------------------|
-| Input | Output | Description                                |
-|-------+--------+--------------------------------------------|
-| .ml   | .cmo   | Compiled object bytecode                   |
-|       | .mci   | If no .mli exists, compiled from .ml file. |
-|-------+--------+--------------------------------------------|
-| .mli  | .mci   | Compiled interface                         |
-|-------+--------+--------------------------------------------|
+** Use
+Compile without linking:
+#+begin_src sh
+ocamlc -c modulea.ml
+#+end_src
+Output:
+- modulea.cmo
+- modulea.cmi
+
+If another module depends on it:
+#+begin_src sh
+ocamlc -c modulea.cmo moduleb.ml
+#+end_src
+Output:
+- moduleb.cmo
+- moduleb.cmi
+
+Now linking phase (to create a binary):
+#+begin_src sh
+ocamlc -o main modulea.cmo moduleb.cmo
+#+end_src
+Output the binary executable main.
+
+** Extension
+
+|-------+--------+----------------------------------------------|
+| Input | Output | Description                                  |
+|-------+--------+----------------------------------------------|
+| .ml   | .cmo   | Compiled object bytecode                     |
+|       | .cmi   | Compiled interface bytecode (if .mli exists) |
+|-------+--------+----------------------------------------------|
+| .mli  | .cmi   | Compiled interface                           |
+|-------+--------+----------------------------------------------|
+
+* ocamlopt
+
+** Use
+Compile without linking:
+#+begin_src sh
+ocamlc -c modulea.ml
+#+end_src
+Output:
+- modulea.cmx
+- modulea.cmi
+- modulea.o
+
+If another module depends on it:
+#+begin_src sh
+ocamlc -c modulea.cmo moduleb.ml
+#+end_src
+Output:
+- moduleb.cmx
+- moduleb.cmi
+- moduleb.o
+
+Now linking phase (to create a binary):
+#+begin_src sh
+ocamlc -o main modulea.cmx moduleb.cmx
+#+end_src
+Output:
+- main, the binary executable
+- main.o
+
+
+** Extension
+|-------+--------+-----------------------------------------------|
+| Input | Output | Description                                   |
+|-------+--------+-----------------------------------------------|
+| .ml   | .cmx   | Ocaml compiled native object file             |
+|       | .cmi   | Ocaml compiled native interface (if not .mli) |
+|-------+--------+-----------------------------------------------|
+| .mli  | .cmi   | Ocaml compiled native interface               |
+|-------+--------+-----------------------------------------------|
