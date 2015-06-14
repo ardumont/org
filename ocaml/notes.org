@@ -1,0 +1,150 @@
+#+title: ocaml
+#+author: notes
+#+sources: http://mirror.ocamlcore.org/ocaml-tutorial.org/compiling_ocaml_projects.html
+
+* Tools
+** ocamlc - bytecode compiler
+
+Use:
+#+begin_src sh
+ocamlc -o progprog module1.ml module2.ml
+#+end_src
+*Note*:
+- order is important
+- here module1 and module2 do not depend on other libraries
+
+man ocamlc:
+#+begin_src man
+-o exec-file
+    Specify the name of the output file produced by the linker.
+    The default output name is a.out, in keeping  with the Unix tradition.
+    If the -a option is given, specify the name of the library produced.
+    If the -pack option is given, specify the name of the packed object file produced.
+    If the -output-obj option is given, specify the name of the output file produced.
+#+end_src
+
+
+Use *-I* for specifying the directory to look for during compilation:
+#+begin_src man
+-I directory
+    Add the given directory to the list of directories searched for compiled interface
+    files (.cmi), compiled object code files (.cmo), libraries (.cma), and C libraries
+    specified with  -cclib -l  xxx.
+    By default, the current directory is searched first, then the standard library
+    directory. Directories added with -I are searched after the current directory,
+    in the order in which they were given on the command line, but before the
+    standard library directory.
+    If thef given directory starts with +, it is taken relative to the standard library
+    directory. For instance, -I +labltk adds the subdirectory labltk of the standard
+    library to the search path.
+#+end_src
+
+** ocamlopt - native compiler
+
+Use:
+#+begin_src sh
+ocamlopt -o progprog module1.ml module2.ml
+#+end_src
+*Note*:
+- order is important
+- here module1 and module2 do not depend on other libraries
+
+Another more complex use:
+#+begin_src sh
+ocamlopt -o progprog unix.cmxa module1.ml module2.ml
+#+end_src
+Here some modules depends on the standard 'unix.cmxa' (which is found because it's a system standard lib)
+
+man ocamlopt:
+#+begin_src man
+-o exec-file
+       Specify  the  name  of  the  output  file produced by the linker.
+       The default output name is a.out, in keeping with the Unix tradition.
+       If the -a option is given, specify the name of the library produced.
+       If the -pack option is given, specify the name of the packed object
+       file produced.  If the -output-obj option is given, specify the name
+       of the output file produced. If the -shared option is given, specify the
+       name of plugin file produced.
+#+end_src
+
+
+Use *-I* for specifying the directory to look for during compilation
+#+begin_src man
+-I directory
+    Add the given directory to the list of directories searched for compiled interface
+    files (.cmi) and compiled object code files (.cmo). By default, the current directory
+    is searched first, then the standard library directory.
+    Directories added with -I are searched after the current directory, in the order
+    in which they were given on the command line, but before the standard library
+    directory.
+    If the given directory starts with +, it is taken relative to the standard library
+    directory. For instance, -I +labltk adds the subdirectory labltk of the standard
+    library to the search path.
+#+end_src
+
+** ocamlfind
+
+Delegates the looking up of system libraries.
+
+Use:
+#+begin_src sh
+ocamlfind ocamlopt -o progprog -linkpkg \
+  -package lablGL,sdl,sdl.sdlimage,sdl.sdlmixer,sdl.sdlttf \
+  module1.ml module2.ml
+#+end_src
+
+Wrap the call of ocamlopt and let ocamlfind the needed `package`.
+
+Another way:
+
+#+begin_src sh
+ocamlfind ocamlopt -c \
+  -package lablGL,sdl,sdl.sdlimage,sdl.sdlmixer,sdl.sdlttf \
+  module1.ml
+ocamlfind ocamlopt -c \
+  -package lablGL,sdl,sdl.sdlimage,sdl.sdlmixer,sdl.sdlttf \
+  module2.ml
+ocamlfind ocamlopt -o progprog -linkpkg \
+  -package lablGL,sdl,sdl.sdlimage,sdl.sdlmixer,sdl.sdlttf \
+  module1.cmx module2.cmx
+#+end_src
+
+Compile each file separately (for recompilation optimization)
+Then link as a final step.
+The order is still important.
+
+man ocamlopt:
+#+begin_src man
+-c     Compile only. Suppress the linking phase of the compilation.
+       Source code files are turned into compiled files, but no executable
+       file is produced. This option is useful to compile modules separately.
+#+end_src
+
+* File extensions
+
+|-----------+--------------------------------------------------|
+| Extension | Description                                      |
+|-----------+--------------------------------------------------|
+| .ml       | Implementation source file                       |
+| .mli      | Interface source file                            |
+| .mci      | Compiled interface                               |
+| .mco      | Compiled object byte-code                        |
+| .mca      | Libraries of object bytecode (~ .mco files pack) |
+| .c        | c source file                                    |
+| .o        | c object file                                    |
+| .a        | c object library                                 |
+| .so       | C shared object library                          |
+| .cmxa     | Native code libraries                            |
+| .cma      | Bytecode libraries                               |
+|-----------+--------------------------------------------------|
+
+* ocamlc
+
+|-------+--------+--------------------------------------------|
+| Input | Output | Description                                |
+|-------+--------+--------------------------------------------|
+| .ml   | .cmo   | Compiled object bytecode                   |
+|       | .mci   | If no .mli exists, compiled from .ml file. |
+|-------+--------+--------------------------------------------|
+| .mli  | .mci   | Compiled interface                         |
+|-------+--------+--------------------------------------------|
