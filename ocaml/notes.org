@@ -1,6 +1,7 @@
 #+title: ocaml
 #+author: notes
 #+sources: http://mirror.ocamlcore.org/ocaml-tutorial.org/compiling_ocaml_projects.html
+#+sources: http://mirror.ocamlcore.org/ocaml-tutorial.org/modules.html
 
 * Tools
 ** ocamlc - bytecode compiler
@@ -204,7 +205,6 @@ ocamlc -o main modulea.cmx moduleb.cmx
 Output:
 - main, the binary executable
 - main.o
-
 
 ** Extension
 |-------+--------+-----------------------------------------------|
