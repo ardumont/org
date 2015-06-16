@@ -1,12 +1,12 @@
 #+title: Learning...
 #+author: ardumont
 
-* DONE Change my laptop's broken ventilator
+* PENDING Change laptop's broken battery jack
+* DONE Change laptop's broken ventilator
 CLOSED: [2015-06-08 Mon 23:53]
 * TODO zfs/xfs
 * TODO Reflection on NAS with NixOS?
 - mirror hydra's cache locally to avoid slow network connection hell?
-
 * TODO Install gitolite on nas
 * TODO Try mbsync instead of offlineimap
 * TODO Some linux sysadmin interview question
