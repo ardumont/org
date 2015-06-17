@@ -10,27 +10,27 @@ FIXME: comment representer les retournements?
 * jaune
 ** Ceinture
 
-|--------------------------+---------------------------------------------------------------------+-------------------------------|
-| Nage Waza (projection)   | Initiative                                                          | Variantes                     |
-|--------------------------+---------------------------------------------------------------------+-------------------------------|
-| Hiza Guruma              | Poussee de Uke, Tori s'efface et blocage du genou                   |                               |
-| Sasae Tsuri Komi Ashi    | Poussee de Uke, Tori s'efface et blocage de la cheville             |                               |
-| O Soto Gari              | Uke tire, Tori utilise la force                                     |                               |
-| Tai Otoshi               | Poussee de Uke, Tori s'efface et barrage                            | Forme de Morote et Tai Otoshi |
-| Ko Soto Gari             | Uke recule (est en desequilibre arriere), Tori amplifie et fauche   |                               |
-| O Uchi Gari              | Desequilibre arriere de uke, Tori amplifie et fauche                |                               |
-| Ko Uchi Gari             | Uke tire (se desequilibre), Tori amplifie le desequilibre et fauche |                               |
-| Uki Goshi                | Desequilibre avant de Uke                                           |                               |
-| Morote Seoi Nage         |                                                                     |                               |
-|--------------------------+---------------------------------------------------------------------+-------------------------------|
-| Ne Waza (immobilisation) | Moment                                                              | Variantes                     |
-|--------------------------+---------------------------------------------------------------------+-------------------------------|
-| Hon Kesa Gatame          |                                                                     |                               |
-| Yoko Shiho Gatame        |                                                                     |                               |
-| Kami Shiho Gatame        |                                                                     |                               |
-| Tate Shiho Gatame        |                                                                     |                               |
-| Kusure Kesa Gatame       |                                                                     |                               |
-|--------------------------+---------------------------------------------------------------------+-------------------------------|
+|--------------------------+-------------------------------+---------------------------------------------------------------------+-------------------------------|
+| Nage Waza (projection)   | Sens                          | Initiative                                                          | Variantes                     |
+|--------------------------+-------------------------------+---------------------------------------------------------------------+-------------------------------|
+| Hiza Guruma              | Roue autour du genou          | Poussee de Uke, Tori s'efface et blocage du genou                   |                               |
+| Sasae Tsuri Komi Ashi    | Blocage du pied en soulevant  | Poussee de Uke, Tori s'efface et blocage de la cheville             |                               |
+| O Soto Gari              | Grand balayage exterieue      | Uke tire, Tori utilise la force                                     |                               |
+| Tai Otoshi               | Barrage du corps              | Poussee de Uke, Tori s'efface et barrage                            | Forme de Morote et Tai Otoshi |
+| Ko Soto Gari             | Petit fauchage exterieur      | Uke recule (est en desequilibre arriere), Tori amplifie et fauche   |                               |
+| O Uchi Gari              | Grand fauchage interieur      | Desequilibre arriere de uke, Tori amplifie et fauche                |                               |
+| Ko Uchi Gari             | Petit fauchage interieur      | Uke tire (se desequilibre), Tori amplifie le desequilibre et fauche |                               |
+| Uki Goshi                | Hanche flottee                | Desequilibre avant de Uke                                           |                               |
+| Morote Seoi Nage         | Projection d'epaule a 2 mains | Uke pousse, Tori se degage                                          |                               |
+|--------------------------+-------------------------------+---------------------------------------------------------------------+-------------------------------|
+| Ne Waza (immobilisation) |                               | Moment                                                              | Variantes                     |
+|--------------------------+-------------------------------+---------------------------------------------------------------------+-------------------------------|
+| Hon Kesa Gatame          | Controle latero-costal        |                                                                     |                               |
+| Yoko Shiho Gatame        | Controle lateral par le cote  |                                                                     |                               |
+| Kami Shiho Gatame        |                               |                                                                     |                               |
+| Tate Shiho Gatame        |                               |                                                                     |                               |
+| Kusure Kesa Gatame       |                               |                                                                     |                               |
+|--------------------------+-------------------------------+---------------------------------------------------------------------+-------------------------------|
 
 ** Liaison sol debout
 
@@ -45,26 +45,25 @@ FIXME: comment representer les retournements?
 * orange
 ** Ceinture
 
-|--------------------------+-------------------------------------------+-----------|
-| Nage Waza (projection)   | Initiative                                | Variantes |
-|--------------------------+-------------------------------------------+-----------|
-| Okuri Ashi Barai         |                                           |           |
-| Ashi Guruma              | Uke se deplace, Tori pivot                |           |
-| Ippon Seoi Nage          | Uke pousse                                |           |
-|                          | Uke tire                                  |           |
-|                          | Uke se deplace lateralement               |           |
-| O Goshi                  | Tori pousse, Uke reagit, Tori fait chuter |           |
-| Morote Seoi Nage         | Uke pousse, Tori se degage                |           |
-| Kata Eri Seoi Nage       |                                           |           |
-| De Ashi Barai            |                                           |           |
-| Koshi Guruma             |                                           |           |
-| Hari Goshi               |                                           |           |
-|--------------------------+-------------------------------------------+-----------|
-| Ne Waza (immobilisation) | Initiative                                | Variantes |
-|--------------------------+-------------------------------------------+-----------|
-| Yoko Shiho Gatame        |                                           |           |
-| Ushiro Geza Gatame       |                                           |           |
-|--------------------------+-------------------------------------------+-----------|
+|--------------------------+--------------------------------------+-------------------------------------------+-----------|
+| Nage Waza (projection)   | Sens                                 | Initiative                                | Variantes |
+|--------------------------+--------------------------------------+-------------------------------------------+-----------|
+| Okuri Ashi Barai         | Balayage des 2 jambes en deplacement |                                           |           |
+| Ashi Guruma              | Roue autour de la jambe              | Uke se deplace, Tori pivot                |           |
+| Ippon Seoi Nage          | Projection par l'epaule              | Uke pousse                                |           |
+|                          |                                      | Uke tire                                  |           |
+|                          |                                      | Uke se deplace lateralement               |           |
+| O Goshi                  | Grand bascule de hanche              | Tori pousse, Uke reagit, Tori fait chuter |           |
+| Kata Eri Seoi Nage       | Projection d'epaule en revers        |                                           |           |
+| De Ashi Barai            | Balayage du pied avance              |                                           |           |
+| Koshi Guruma             | Roue autour de la hanche             |                                           |           |
+| Harai Goshi              | Hanche balayee                       |                                           |           |
+|--------------------------+--------------------------------------+-------------------------------------------+-----------|
+| Ne Waza (immobilisation) |                                      | Initiative                                | Variantes |
+|--------------------------+--------------------------------------+-------------------------------------------+-----------|
+| Yoko Shiho Gatame        |                                      |                                           |           |
+| Ushiro Geza Gatame       |                                      |                                           |           |
+|--------------------------+--------------------------------------+-------------------------------------------+-----------|
 
 ** Enchainements
 *** Sol
