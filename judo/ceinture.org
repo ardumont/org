@@ -13,15 +13,14 @@ FIXME: comment representer les retournements?
 |--------------------------+-------------------------------+---------------------------------------------------------------------+-------------------------------|
 | Nage Waza (projection)   | Sens                          | Initiative                                                          | Variantes                     |
 |--------------------------+-------------------------------+---------------------------------------------------------------------+-------------------------------|
-| Hiza Guruma              | Roue autour du genou          | Poussee de Uke, Tori s'efface et blocage du genou                   |                               |
-| Sasae Tsuri Komi Ashi    | Blocage du pied en soulevant  | Poussee de Uke, Tori s'efface et blocage de la cheville             |                               |
 | O Soto Gari              | Grand balayage exterieue      | Uke tire, Tori utilise la force                                     |                               |
-| Tai Otoshi               | Barrage du corps              | Poussee de Uke, Tori s'efface et barrage                            | Forme de Morote et Tai Otoshi |
-| Ko Soto Gari             | Petit fauchage exterieur      | Uke recule (est en desequilibre arriere), Tori amplifie et fauche   |                               |
-| O Uchi Gari              | Grand fauchage interieur      | Desequilibre arriere de uke, Tori amplifie et fauche                |                               |
-| Ko Uchi Gari             | Petit fauchage interieur      | Uke tire (se desequilibre), Tori amplifie le desequilibre et fauche |                               |
+| Hiza Guruma              | Roue autour du genou          | Poussee de Uke, Tori s'efface et blocage du genou                   |                               |
+| Ippon Seoi Nage          | Projection par l'epaule              | Uke pousse                                |           |
+|                          |                                      | Uke tire                                  |           |
+|                          |                                      | Uke se deplace lateralement               |           |
+| O Goshi                  | Grand bascule de hanche              | Tori pousse, Uke reagit, Tori fait chuter |           |
+| De Ashi Barai            | Balayage du pied avance              |                                           |           |
 | Uki Goshi                | Hanche flottee                | Desequilibre avant de Uke                                           |                               |
-| Morote Seoi Nage         | Projection d'epaule a 2 mains | Uke pousse, Tori se degage                                          |                               |
 |--------------------------+-------------------------------+---------------------------------------------------------------------+-------------------------------|
 | Ne Waza (immobilisation) |                               | Moment                                                              | Variantes                     |
 |--------------------------+-------------------------------+---------------------------------------------------------------------+-------------------------------|
@@ -46,23 +45,21 @@ FIXME: comment representer les retournements?
 * orange
 ** Ceinture
 
-|--------------------------+--------------------------------------+-------------------------------------------+-----------|
-| Nage Waza (projection)   | Sens                                 | Initiative                                | Variantes |
-|--------------------------+--------------------------------------+-------------------------------------------+-----------|
-| Okuri Ashi Barai         | Balayage des 2 jambes en deplacement |                                           |           |
-| Ashi Guruma              | Roue autour de la jambe              | Uke se deplace, Tori pivot                |           |
-| Ippon Seoi Nage          | Projection par l'epaule              | Uke pousse                                |           |
-|                          |                                      | Uke tire                                  |           |
-|                          |                                      | Uke se deplace lateralement               |           |
-| O Goshi                  | Grand bascule de hanche              | Tori pousse, Uke reagit, Tori fait chuter |           |
-| Kata Eri Seoi Nage       | Projection d'epaule en revers        |                                           |           |
-| De Ashi Barai            | Balayage du pied avance              |                                           |           |
-| Koshi Guruma             | Roue autour de la hanche             |                                           |           |
-| Harai Goshi              | Hanche balayee                       |                                           |           |
-|--------------------------+--------------------------------------+-------------------------------------------+-----------|
-| Ne Waza (immobilisation) |                                      | Initiative                                | Variantes |
-|--------------------------+--------------------------------------+-------------------------------------------+-----------|
-|--------------------------+--------------------------------------+-------------------------------------------+-----------|
+|--------------------------+-------------------------------+---------------------------------------------------------------------+-------------------------------|
+| Nage Waza (projection)   | Sens                          | Initiative                                                          | Variantes                     |
+|--------------------------+-------------------------------+---------------------------------------------------------------------+-------------------------------|
+| Tai Otoshi               | Barrage du corps              | Poussee de Uke, Tori s'efface et barrage                            | Forme de Morote et Tai Otoshi |
+| Ko Soto Gari             | Petit fauchage exterieur      | Uke recule (est en desequilibre arriere), Tori amplifie et fauche   |                               |
+| O Uchi Gari              | Grand fauchage interieur      | Desequilibre arriere de uke, Tori amplifie et fauche                |                               |
+| Ko Uchi Gari             | Petit fauchage interieur      | Uke tire (se desequilibre), Tori amplifie le desequilibre et fauche |                               |
+| Morote Seoi Nage         | Projection d'epaule a 2 mains | Uke pousse, Tori se degage                                          |                               |
+| Sasae Tsuri Komi Ashi    | Blocage du pied en soulevant  | Poussee de Uke, Tori s'efface et blocage de la cheville             |                               |
+| Kata Eri Seoi Nage       | Projection d'epaule en revers |                                                                     |                               |
+| Koshi Guruma             | Roue autour de la hanche      |                                                                     |                               |
+|--------------------------+-------------------------------+---------------------------------------------------------------------+-------------------------------|
+| Ne Waza (immobilisation) |                               | Initiative                                                          | Variantes                     |
+|--------------------------+-------------------------------+---------------------------------------------------------------------+-------------------------------|
+|--------------------------+-------------------------------+---------------------------------------------------------------------+-------------------------------|
 
 ** Enchainements
 *** Sol
@@ -82,17 +79,20 @@ FIXME: comment representer les retournements?
 |-----------------+-----------------------------------------------------+-------------|
 * verte
 ** Ceinture
-|------------------------+--------------------------------------------------+-----------|
-| Nage Waza (projection) | Initiative                                       | Variantes |
-|------------------------+--------------------------------------------------+-----------|
-| Tsuri Komi Goshi       |                                                  |           |
-| Sode Tsuri Komi Goshi  |                                                  |           |
-| Uchi Mata              |                                                  |           |
-| Tomoe Nage             |                                                  |           |
-| Yoko Tomoe Nage        |                                                  |           |
-| Ushiro Goshi           | Uke attaque, Tori bloque, souleve et projete Uke |           |
-| Te Guruma              |                                                  |           |
-|------------------------+--------------------------------------------------+-----------|
+|------------------------+--------------------------------------------------+----------------------------|
+| Nage Waza (projection) | Initiative                                       | Variantes                  |
+|------------------------+--------------------------------------------------+----------------------------|
+| Ashi Guruma            | Roue autour de la jambe                          | Uke se deplace, Tori pivot |
+| Harai Goshi            | Hanche balayee                                   |                            |
+| Okuri Ashi Barai       | Balayage des 2 jambes en deplacement             |                            |
+| Tsuri Komi Goshi       |                                                  |                            |
+| Sode Tsuri Komi Goshi  |                                                  |                            |
+| Uchi Mata              |                                                  |                            |
+| Tomoe Nage             |                                                  |                            |
+| Yoko Tomoe Nage        |                                                  |                            |
+| Ushiro Goshi           | Uke attaque, Tori bloque, souleve et projete Uke |                            |
+| Te Guruma              |                                                  |                            |
+|------------------------+--------------------------------------------------+----------------------------|
 
 ** Enchainements
 
