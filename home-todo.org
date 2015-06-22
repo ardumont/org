@@ -2,7 +2,8 @@
 #+author: Antoine Romain Dumont
 #+STARTUP: indent
 
-* IN-PROGRESS Chambre de Noémy [8/9]
+* DONE Chambre de Noémy [9/9]
+CLOSED: [2015-06-22 Mon 23:43]
 ** DONE Changer radiateur
 CLOSED: [2014-01-04 sam. 00:07]
 ** DONE Retirer le crepis
@@ -21,7 +22,9 @@ CLOSED: [2015-05-20 Wed 11:55]
 Merci papy Claude!
 ** DONE Monter le landau
 CLOSED: [2015-05-20 Wed 11:55]
-** TODO Peindre les murs
+** DONE Peindre les murs
+CLOSED: [2015-06-22 Mon 23:42]
+Merci Papy Claude
 * DONE Jardin cote gauche [11/11]
 CLOSED: [2013-04-11 jeu. 09:34]
 ** DONE Retirer toutes les mauvaises herbes
