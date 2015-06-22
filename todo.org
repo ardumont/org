@@ -192,7 +192,7 @@ Minor mode to sync trello and org-mode
 - [ ] Automate the releases part on Github
   - [ ] Upload tar archive on release
   - [ ] Add release notes to tag
-** DONE old releases [%]
+** DONE old releases [98%]
 CLOSED: [2015-05-30 Sat 19:10]
 - [X] 0.0.1
 - [X] 0.0.2
@@ -270,8 +270,9 @@ CLOSED: [2015-05-30 Sat 19:10]
 - [X] 0.6.9.4
 - [X] 0.6.9.5
 - [X] 0.6.9.6
-** IN-PROGRESS Current release
 - [X] 0.7.0
+** IN-PROGRESS Current release
+- [ ] 0.7.1
 * IN-PROGRESS Blog [13/15]
 - [X] Migrate comment system to Disqus (old blog)
 - [X] Migrate from old blog system (wordpress) to a github solution -> ardumont.github.io [3/3]
