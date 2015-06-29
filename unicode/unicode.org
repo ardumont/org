@@ -7,3 +7,13 @@
 - unique code point for each character of every language
 - supports for every language as of now
 - > 1 million code points
+
+We can see unicode as the text abstraction
+
+To save unicode to disk, we have to encode it (utf-8 for example).
+
+* policy
+
+1. Decode early to unicode
+2. Unicode everywhere
+3. Encode late
