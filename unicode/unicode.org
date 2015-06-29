@@ -1,0 +1,9 @@
+#+title: Unicode
+#+author: ardumont
+
+* What
+
+- A way to represent text without bytes.
+- unique code point for each character of every language
+- supports for every language as of now
+- > 1 million code points
