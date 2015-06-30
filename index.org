@@ -10,7 +10,7 @@ Welcome to my blog.
 
 I am @ardumont on [[https://github.com/ardumont][github]] and [[https://twitter.com/ardumont][twitter]].
 
-I develop software and contribute to multiple [[https://www.gnu.org/philosophy/free-sw.html][free ones]] on my spare time.
+I develop software and contribute to multiple [[https://www.gnu.org/philosophy/free-sw.html][free/libre ones]] on my spare time.
 
 Here you will find my notes on multiple subjects that I came across at some point.
 
