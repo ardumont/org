@@ -1,0 +1,23 @@
+#+title: towards debugging org-trello
+#+author: ardumont
+
+#+begin_src emacs
+M-x ielm <RET>
+#+end_src
+
+Set the credentials for your account:
+#+begin_src lisp
+(let ((org-trello--user-logged-in "<user>")) (orgtrello-controller/load-keys!))
+#+end_src
+Note: Load in context the credentials from the file `~/.emacs.d/.trello/<user>.el`
+
+Now execute some request to check that the connection is good:
+#+begin_src lisp
+ELISP> (orgtrello-query/http-trello (orgtrello-api/get-me) 'sync)
+#s(hash-table size 65 test equal rehash-size 1.5 rehash-threshold 0.8 data
+              (:username "ardumont" :url "https://trello.com/ardumont" :status "disconnected" :full-name "Antoine R. Dumont" :id "aabbccddeeffgghhiijjkk"))
+#+end_src
+
+Note:
+You can have a pretty good idea of org-trello's api by reading the `org-trello-api.el` file.
+It's trello's api adapter.
