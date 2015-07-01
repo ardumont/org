@@ -1,6 +1,10 @@
 #+title: towards debugging org-trello
 #+author: ardumont
 
+* REPL
+
+Using ielm here:
+
 #+begin_src emacs
 M-x ielm <RET>
 #+end_src
@@ -21,3 +25,38 @@ ELISP> (orgtrello-query/http-trello (orgtrello-api/get-me) 'sync)
 Note:
 You can have a pretty good idea of org-trello's api by reading the `org-trello-api.el` file.
 It's trello's api adapter.
+
+* Trace
+
+emacs comes with `trace-fn` function.
+This can help a lot.
+
+Identify some function you want to trace (display inputs, output), for example:
+#+begin_src lisp
+(trace-function 'orgtrello-data/parse-data)
+;; (untrace-function 'orgtrello-data/parse-data)
+#+end_src
+Note:
+`orgtrello-data/parse-data` is the central function used to parse the json output of trello.
+So in case of output doubt, this can be a good starting point.
+
+** trace-functions
+
+To trace mutliple ones:
+#+begin_src lisp
+So much that I added my own based on this for dev:
+#+begin_src lisp
+(defun trace-functions (fns)
+  "Trace functions FNS."
+  (mapc 'trace-function fns))
+
+(defun untrace-functions (fns)
+  "Trace functions FNS."
+  (mapc 'untrace-function fns))
+#+end_src
+
+With sample:
+#+begin_src lisp
+(trace-functions '(orgtrello-data/parse-data))
+;; (untrace-functions '(orgtrello-data/parse-data))
+#+end_src
