@@ -1,0 +1,39 @@
+#+title: gnupg
+#+author: ardumont
+
+Not quite fluent yet.
+
+* sign a key
+
+With the person present at your side
+
+Check his/her key fingerprint (digital + something that proves the fingerprint is ok)
+
+#+begin_src sh
+gpg --edit-key 'key-id'
+> fpr
+> sign
+> save
+#+end_src
+
+Then send it back his/her key signed.
+#+begin_src sh
+gpg --export --armor 'key-id' > key-signed.asc
+#+end_src
+
+* your key has been signed
+
+Received your key updated with the signature for each of your email.
+
+decrypt the asc file and import your updated public key.
+
+#+begin_src sh
+gpg msg.asc
+gpg --import msg
+#+end_src
+
+Do not forget to publish your updates
+
+#+begin_src sh
+gpg --send-keys
+#+end_src
