@@ -1,0 +1,36 @@
+#+title: gtk notes
+#+author: ardumont
+
+To override the default bindings, here are some important files:
+
+/usr/share/themes/Emacs/gtk-2.0-key/gtkrc
+/usr/share/themes/Emacs/gtk-3.0/gtk-keys.css
+
+* gtk2
+
+Now to get inspired and adapt, we can either create a ~/.gtkrc-2.0 for the gtk2 applications.
+#+begin_src sh
+# font
+gtk-font-name = "DejaVu Sans Mono 10"
+
+# emacs bindings in chat window
+gtk-key-theme-name = "Emacs"
+
+# override some default bindings
+binding "my-pidgin-bindings"
+{
+    bind "<ctrl>i" { "insert-at-cursor" ("\t") }
+    bind "<ctrl>j" { "insert-at-cursor" ("\n") }
+    bind "Return" { "message_send" () }
+    bind "<ctrl>m" { "message_send" () }
+}
+widget "*pidgin_conv_entry" binding "my-pidgin-bindings"
+
+# This lets you edit your Pidgin key bindings from within Pidgin,
+# by hovering over a menu item and hitting a key combo.
+# gtk-can-change-accels = 1
+#+end_src
+
+* gtk3
+
+Or create a ~/.themes/Emacs/ which will certainly complement the main one.
