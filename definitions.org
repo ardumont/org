@@ -1,0 +1,27 @@
+#+title: definitions
+#+author: ardumont
+
+Multiple definition of terms that are coming my way and I do not get (even after reading multiple times about it).
+
+* coroutine
+
+- computer program components for non-preemptive multitasking
+- suspend/resume execution at certain entry points
+- language level
+
+* fiber
+- a particularly lightweight thread of executions
+- system level
+- ~<=> coroutine
+
+* thread
+- smallest sequence of programmed instructions that can be managed independently by a scheduler
+- kernel level
+
+* continuation
+
+* trampoline
+
+* green thread
+- specific thread scheduled by a runtime library or virtual machine
+- user space
