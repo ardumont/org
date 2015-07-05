@@ -1,6 +1,10 @@
 #+title: Learning...
 #+author: ardumont
 
+* IN-PROGRESS mail-pack/mu4e configuration
+- [X] Use mu4e's refiling mechanism to try and drop gmail's filters
+- [X] Add some bindings (M-x mu4e-update-index, etc...)
+- [ ] Agnostify refiling mechanism (there can be lots of rules...)
 * PENDING Change laptop's broken battery jack
 * DONE Change laptop's broken ventilator
 CLOSED: [2015-06-08 Mon 23:53]
