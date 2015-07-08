@@ -1,6 +1,11 @@
 #+title: Learning...
 #+author: ardumont
 
+* pass and xmonad pass
+There is a current limitation in XMonad.Prompt.Pass -> No seeing the pass with arborescence...
+
+- [ ] Propose patch to pass to make it possible to use pass ls without tree
+- [ ] Exploit this in the xmonad library to see all pass
 * IN-PROGRESS mail-pack/mu4e configuration
 - [X] Use mu4e's refiling mechanism to try and drop gmail's filters
 - [X] Add some bindings (M-x mu4e-update-index, etc...)
