@@ -1,4 +1,4 @@
-#+title: Learning...
+#+title: learning/hacking...
 #+author: ardumont
 
 * pass and xmonad pass
@@ -6,10 +6,17 @@ There is a current limitation in XMonad.Prompt.Pass -> No seeing the pass with a
 
 - [ ] Propose patch to pass to make it possible to use pass ls without tree
 - [ ] Exploit this in the xmonad library to see all pass
+* IN-PROGRESS chat-pack reloaded!
+- [X] Make it work again (only a configuration problem)
+- [X] Make it a minor mode
 * IN-PROGRESS mail-pack/mu4e configuration
 - [X] Use mu4e's refiling mechanism to try and drop gmail's filters
 - [X] Add some bindings (M-x mu4e-update-index, etc...)
-- [ ] Agnostify refiling mechanism (there can be lots of rules...)
+- [X] Agnostify refiling mechanism (there can be lots of rules...)
+- [X] Add tests
+- [X] Make a minor mode
+- [ ] Install CI
+- [ ] Make it load (packaging hell)
 * PENDING Change laptop's broken battery jack
 * DONE Change laptop's broken ventilator
 CLOSED: [2015-06-08 Mon 23:53]
