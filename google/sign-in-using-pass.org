@@ -1,0 +1,6 @@
+#+title: generate pass
+#+author: ardumont
+
+I never found this link when I need it.
+
+Generate password per account: https://support.google.com/accounts/answer/185833?hl=en
