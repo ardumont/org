@@ -60,3 +60,22 @@ With sample:
 (trace-functions '(orgtrello-data/parse-data))
 ;; (untrace-functions '(orgtrello-data/parse-data))
 #+end_src
+
+* Display the content of the board's global setup
+
+Inside the current org-trello buffer:
+
+M-: (orgtrello-setup/display-current-buffer-setup!)
+
+This will compute and return a list with the important settings.
+
+Something like:
+#+begin_src lisp
+(:users-id-name #s(hash-table size 65 test equal rehash-size 1.5 rehash-threshold 0.8 data ("user-id0" "orgtrello-user-antoineromaindumont" "user-id2" "orgtrello-user-orgmode" "user-id3" "orgtrello-user-ardumont" "ardumont" "orgtrello-user-me" ...))
+ :users-name-id #s(hash-table size 65 test equal rehash-size 1.5 rehash-threshold 0.8 data ("orgtrello-user-antoineromaindumont" "user-id0" "orgtrello-user-orgmode" "user-id3" "orgtrello-user-ardumont" "user-id1" "orgtrello-user-me" "ardumont" ...))
+ :user-logged-in "ardumont"
+ :org-keyword-trello-list-names ("TODO" "IN-PROGRESS" "DONE" "PENDING" "DELEGATED" "FAILED" "CANCELLED")
+ :org-keyword-id-name #s(hash-table size 65 test equal rehash-size 1.5 rehash-threshold 0.8 data ("todo-id" "TODO" "in-progress-id" "IN-PROGRESS" "done-id" "DONE" "pending-id" "PENDING" "delegated-id" "DELEGATED" "failed-id" "FAILED" "cancelled-id" "CANCELLED" ...)))
+#+end_src
+
+This can help to see if something is amiss or not.
