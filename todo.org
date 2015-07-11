@@ -1,24 +1,30 @@
 #+title: learning/hacking...
 #+author: ardumont
 
-* PENDING chat-pack reloaded!
-- [X] Make it work again (only a configuration problem)
-- [X] Make it a minor mode
-- [X] Find and install chat-pack with otr!
-- [ ] Improve packaging to avoid duplication
 * TODO pass and xmonad pass
 There is a current limitation in XMonad.Prompt.Pass -> No seeing the pass with arborescence...
 
 - [ ] Propose patch to pass to make it possible to use pass ls without tree
 - [ ] Exploit this in the xmonad library to see all pass
+* PENDING chat-pack reloaded!
+- [X] Make it work again (only a configuration problem)
+- [X] Make it a minor mode
+- [X] Find and install chat-pack with otr!
+- [ ] Improve packaging of mainstream jabber-otr to avoid duplication in my repo
 * IN-PROGRESS mail-pack/mu4e configuration
 - [X] Use mu4e's refiling mechanism to try and drop gmail's filters
 - [X] Add some bindings (M-x mu4e-update-index, etc...)
 - [X] Agnostify refiling mechanism (there can be lots of rules...)
 - [X] Add tests
 - [X] Make a minor mode
-- [ ] Install CI
-- [ ] Make it load (packaging hell)
+- [X] Make it load (packaging hell)
+- [X] Refiling now works!
+- [X] Switch between accounts now works too!
+- [ ] Add contact auto-completion that works!
+- [ ] Due to mu4e's absence in melpa/marmalade, failure to make tests run in CI through Cask (https://github.com/djcb/mu/issues/620, https://github.com/djcb/mu/issues/370)
+- [ ] Cask: how to make a git clone a source in Cask recipe?
+- [ ] Tests are ok in live emacs but not in cask, make them ok
+- [ ] Make them run on travis-ci
 * PENDING Change laptop's broken battery jack
 * DONE Change laptop's broken ventilator
 CLOSED: [2015-06-08 Mon 23:53]
@@ -157,7 +163,7 @@ https://github.com/ndmitchell/shake
 - [X] Haskell
 - [X] Fix trouble with suspend
 - [X] Propose a fix about pidgin-with-plugins which miss the folder containing the plugins - Merged
-- [X] Propose a fix about proxy to expose the env no_proxy variable too (not specified right now and create problems when developping local web app) - Merged
+- [X] Propose a fix about proxy to expose the env no_proxy variable too (not< specified right now and create problems when developping local web app) - Merged
 - [X] Propose a networking.proxy option - https://github.com/NixOS/nixpkgs/pull/5058
 - [X] Fix lid close event (sometimes, when opening the lid, it closes again)
 - [X] x11vnc
@@ -290,6 +296,8 @@ CLOSED: [2015-05-30 Sat 19:10]
 - [X] 0.6.9.6
 - [X] 0.7.0
 ** IN-PROGRESS Current release
+- [ ] read-completion
+- [ ] Check the nil user problem when installing board metadata
 - [ ] 0.7.1
 * IN-PROGRESS Blog [13/15]
 - [X] Migrate comment system to Disqus (old blog)
