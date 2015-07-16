@@ -57,7 +57,6 @@ createuser tony
 symmetric `dropuser` command
 (sql: `DROP/CREATE ROLE role PASS`)
 
-
 ** Drop
 
 #+begin_src sh
@@ -69,8 +68,6 @@ or once connected to psql:
 DROP USER tony
 #+end_src
 
-
-
 ** List
 
 List the current roles:
@@ -80,8 +77,16 @@ select rolname from pg_roles;
 
 or psql's `\du` meta-command.
 
+** Alter
+
+With an admin role (e.g. postgres):
+#+begin_src sh
+alter role <role> with superuser;
+#+end_src
+source: http://www.postgresql.org/docs/current/static/sql-alterrole.html
+
 * db
-** rename
+** Rename
 
 With admin user:
 #+begin_src sh
