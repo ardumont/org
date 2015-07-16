@@ -1,6 +1,9 @@
 #+title: learning/hacking...
 #+author: ardumont
 
+* TODO emacs configuration [%]
+- [ ] Create your own self contained emacs distribution
+- [ ] Drop git submodules maintainance
 * TODO pass and xmonad pass
 There is a current limitation in XMonad.Prompt.Pass -> No seeing the pass with arborescence...
 
