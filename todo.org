@@ -23,9 +23,9 @@ There is a current limitation in XMonad.Prompt.Pass -> No seeing the pass with a
 - [X] Make it load (packaging hell)
 - [X] Refiling now works!
 - [X] Switch between accounts now works too!
-- [ ] Add contact auto-completion that works!
-- [ ] Due to mu4e's absence in melpa/marmalade, failure to make tests run in CI through Cask (https://github.com/djcb/mu/issues/620, https://github.com/djcb/mu/issues/370)
-- [ ] Cask: how to make a git clone a source in Cask recipe?
+- [X] Add contact auto-completion that works! (already existing, just need to find the right setup)
+- [ ] Cask: how to make a git clone a source in Cask recipe? - http://cask.readthedocs.org/en/latest/guide/dsl.html?highlight=depends#el.function.depends-on
+- [ ] Due to mu4e's absence in melpa/marmalade, failure to make tests run in CI through Cask (https://github.com/djcb/mu/issues/620, https://github.com/djcb/mu/issues/370, ...)
 - [ ] Tests are ok in live emacs but not in cask, make them ok
 - [ ] Make them run on travis-ci
 * PENDING Change laptop's broken battery jack
