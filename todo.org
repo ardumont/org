@@ -28,6 +28,11 @@ There is a current limitation in XMonad.Prompt.Pass -> No seeing the pass with a
 - [ ] Due to mu4e's absence in melpa/marmalade, failure to make tests run in CI through Cask (https://github.com/djcb/mu/issues/620, https://github.com/djcb/mu/issues/370, ...)
 - [ ] Tests are ok in live emacs but not in cask, make them ok
 - [ ] Make them run on travis-ci
+* IN-PROGRESS mu4e - too many hassle
+- [X] assert notmuch (seems pretty cool and good regarding gpg support)
+- [X] branch in mail-pack for notmuch
+- [ ] Convert mail-pack to use notmuch
+- [ ] How to deal with tag
 * PENDING Change laptop's broken battery jack
 * DONE Change laptop's broken ventilator
 CLOSED: [2015-06-08 Mon 23:53]
