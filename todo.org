@@ -1,10 +1,14 @@
 #+title: learning/hacking...
 #+author: ardumont
 
-* IN-PROGRESS Chris's machine
+* IN-PROGRESS nas [2/3]
+- [X] Add other source of packages - https://synocommunity.com/
+- [X] Install znc
+- [ ] Make nas open to the world - wip
+* IN-PROGRESS Chris's machine [2/3]
 - [X] Reboot old machine
 - [X] Install pci wifi card + new hdd
-- [ ] Install nixos
+- [ ] Install nixos - wip
 * TODO emacs configuration [%]
 - [ ] Create your own self contained emacs distribution
 - [ ] Drop git submodules use
