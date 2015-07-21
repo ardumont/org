@@ -9,6 +9,8 @@ There is a current limitation in XMonad.Prompt.Pass -> No seeing the pass with a
 
 - [ ] Propose patch to pass to make it possible to use pass ls without tree
 - [ ] Exploit this in the xmonad library to see all pass
+
+Or: patch directly XMonad.Prompt.Pass with the help of http://blog.tarn-vedra.de/posts/xmonad-password-store.html
 * PENDING chat-pack reloaded!
 - [X] Make it work again (only a configuration problem)
 - [X] Make it a minor mode
