@@ -1,0 +1,37 @@
+#+title: fix fracking authorization required in nas synology
+
+To activate quickconnect or ddns
+
+from: http://forum.synology.com/enu/viewtopic.php?t=92484&start=30
+
+SSH or telnet
+
+nas> /usr/syno/sbin/synocloudserviceauth -a get
+
+gives an application key like this:
+xxxxxxxxxx-xxxxxxxxxx-xxxxxxxxxx-xxxxxxxxxx
+
+nas> /usr/syno/sbin/synocloudserviceauth -a validate
+
+gives the following:
+failed to validate a api key
+
+remove the application_key.conf file in /etc/ (you can copy the file first or rename it if you want a backup)
+
+nas> rm /etc/application_key.conf
+
+Get new application key?!
+
+DiskStation> /usr/syno/sbin/synocloudserviceauth -a get -f
+
+gives an application key like this but this time is has changed from last time:
+xxxxxxxxxx-xxxxxxxxxx-xxxxxxxxxx-xxxxxxxxxx
+
+DiskStation> /usr/syno/sbin/synocloudserviceauth -a validate
+
+now gives the new application key instead of the failed to validate a api key error :
+xxxxxxxxxx-xxxxxxxxxx-xxxxxxxxxx-xxxxxxxxxx
+
+Support told me this is an error at their end and there still investigating. However my problem is solved.
+
+Hope this helped.
