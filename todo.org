@@ -10,13 +10,19 @@ There is a current limitation in XMonad.Prompt.Pass -> No seeing the pass with a
 - [ ] Propose patch to pass to make it possible to use pass ls without tree
 - [ ] Exploit this in the xmonad library to see all pass
 
-Or: patch directly XMonad.Prompt.Pass with the help of http://blog.tarn-vedra.de/posts/xmonad-password-store.html
+- [ ] Or: patch directly XMonad.Prompt.Pass with the help of http://blog.tarn-vedra.de/posts/xmonad-password-store.html
+- [ ] Joachim seems to have already fixed this, so try the latest version! yeah!
+* DONE irc-pack reloaded
+CLOSED: [2015-07-21 Tue 13:25]
+- [X] Read server/port and fullname from configuration file directly
+- [X] Does it work with irc bouncer setup, e.g. znc? Yes, cool.
 * PENDING chat-pack reloaded!
 - [X] Make it work again (only a configuration problem)
 - [X] Make it a minor mode
 - [X] Find and install chat-pack with otr!
 - [ ] Improve packaging of mainstream jabber-otr to avoid duplication in my repo
-* IN-PROGRESS mail-pack/mu4e configuration
+* CANCELLED mail-pack/mu4e configuration -> changing to notmuch
+CLOSED: [2015-07-21 Tue 13:23]
 - [X] Use mu4e's refiling mechanism to try and drop gmail's filters
 - [X] Add some bindings (M-x mu4e-update-index, etc...)
 - [X] Agnostify refiling mechanism (there can be lots of rules...)
@@ -25,17 +31,20 @@ Or: patch directly XMonad.Prompt.Pass with the help of http://blog.tarn-vedra.de
 - [X] Make it load (packaging hell)
 - [X] Refiling now works!
 - [X] Switch between accounts now works too!
-- [X] Add contact auto-completion that works! (already existing, just need to find the right setup)
+- [X] Add contact auto-completion that works! (already existing, just needed to find the right setup)
 - [ ] Cask: how to make a git clone a source in Cask recipe? - http://cask.readthedocs.org/en/latest/guide/dsl.html?highlight=depends#el.function.depends-on
 - [ ] Due to mu4e's absence in melpa/marmalade, failure to make tests run in CI through Cask (https://github.com/djcb/mu/issues/620, https://github.com/djcb/mu/issues/370, ...)
 - [ ] Tests are ok in live emacs but not in cask, make them ok
 - [ ] Make them run on travis-ci
-* IN-PROGRESS mu4e - too many hassle
+* IN-PROGRESS notmuch
 - [X] assert notmuch (seems pretty cool and good regarding gpg support)
 - [X] branch in mail-pack for notmuch
-- [ ] Convert mail-pack to use notmuch
-- [ ] How to deal with tag
+- [X] Convert mail-pack to use notmuch
+- [ ] How to deal with tag?
 * PENDING Change laptop's broken battery jack
+- [X] Disassemble laptop
+- [ ] Fix broken piece
+- [ ] Reassemble
 * DONE Change laptop's broken ventilator
 CLOSED: [2015-06-08 Mon 23:53]
 * TODO zfs/xfs
@@ -73,42 +82,27 @@ https://github.com/ndmitchell/shake
 - [ ] exquilla
 - [ ] exchange ws provider -> ericson
 - [ ] lightning
-* IN-PROGRESS gpg [3/4]
+* DONE gpg [4/4]
+CLOSED: [2015-07-21 Tue 13:27]
 - [X] Take control of your gpg key (sign, encrypt)
 - [X] Import some known ones
 - [X] Publish gpg public key
-* IN-PROGRESS actions [0/7]
-- [ ] Improve email's reading/writing within emacs
-- [ ] Add my public gpg key to public gpg server
-- [ ] Sign email by default
-- [ ] Check haskell's env
-- [ ] Make a badass env in emacs for [0%]
-  - [ ] java
-  - [ ] python
-  - [ ] ocaml
-- [ ] Do I start my own emacs setup from scratch?
+- [X] At least one signature, yes -> zack did it
 * IN-PROGRESS haskell-mode
 - [X] Make it nix-shell (or other container technology) compatible
 - [ ] Add unit tests as asked
-* IN-PROGRESS atreus
+* PENDING atreus
 - [X] command
 - [X] build
 - [X] tweak firmware
 - [X] Blog post about atreus build
-- [ ] Add me https://github.com/technomancy/atreus/wiki/BuildLogs
+- [ ] Add me https://github.com/technomancy/atreus/wiki/BuildLogs?
 * IN-PROGRESS conkeror
 - [ ] http://retroj.net/git/conkerorrc/
 - [ ] https://github.com/PhilHudson/conkerorrc
 - [ ] https://github.com/aborn/.conkerorrc
 - [X] Begin to port keysnail configuration to conkeror
 - [X] Read some source
-* IN-PROGRESS Emacs [3/6]
-- [X] Improve js-pack setup
-- [X] Learn how to store/retrieve buffer/window in register - window-configuration-to-register C-x r w/j
-- [ ] Activate tags for js2-mode, web-mode, etc...
-- [ ] Make the *grep* buffer behaves as *magit* ones (fullscreen then get back to previous frame organization).
-- [ ] Install emacs-25 from source the nix way (via package override)
-- [X] Fix nix-mode (nix-pack) regarding indentation (messed up for kill/yank)
 * IN-PROGRESS Nix* [20%]
 ** PENDING Nix [73%]
 - [X] Nix package manager - http://nixos.org/nix/manual/
