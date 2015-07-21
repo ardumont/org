@@ -1,9 +1,13 @@
 #+title: learning/hacking...
 #+author: ardumont
 
+* IN-PROGRESS Chris's machine
+- [X] Reboot old machine
+- [X] Install pci wifi card + new hdd
+- [ ] Install nixos
 * TODO emacs configuration [%]
 - [ ] Create your own self contained emacs distribution
-- [ ] Drop git submodules maintainance
+- [ ] Drop git submodules use
 * TODO pass and xmonad pass
 There is a current limitation in XMonad.Prompt.Pass -> No seeing the pass with arborescence...
 
