@@ -1,10 +1,11 @@
 #+title: learning/hacking...
 #+author: ardumont
 
-* IN-PROGRESS nas [2/3]
+* DONE nas [3/3]
+CLOSED: [2015-07-22 Wed 09:34]
 - [X] Add other source of packages - https://synocommunity.com/
 - [X] Install znc
-- [ ] Make nas open to the world - wip
+- [X] Make nas open to the world
 * IN-PROGRESS Chris's machine [2/3]
 - [X] Reboot old machine
 - [X] Install pci wifi card + new hdd
