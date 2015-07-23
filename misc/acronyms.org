@@ -26,4 +26,9 @@
 | IANA    | Internet Assigned Numbers Authority                    | a department of ICANN, a nonprofit American private corporation which oversees global IP address allocation...                    |
 | ICANN   | Internet Corporation for Assigned Names and Numbers    |                                                                                                                                   |
 | PAM     | Pluggable Authentication Module                        |                                                                                                                                   |
+| DBMS    | Database Management System                             |                                                                                                                                   |
+| DLNA    | Digital Living Network Alliance                        |                                                                                                                                   |
+| DMA     | Digital Media Adapter                                  |                                                                                                                                   |
+| UPnP    | Universal Plug 'n Play                                 |                                                                                                                                   |
+|         |                                                        |                                                                                                                                   |
 |---------+--------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------------|
