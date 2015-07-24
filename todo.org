@@ -2,6 +2,8 @@
 #+author: ardumont
 #+options: hidestar
 
+* TODO take a look at
+https://github.com/travisbhartwell/nix-emacs
 * DONE nas [3/3]
 CLOSED: [2015-07-22 Wed 09:34]
 - [X] Add other source of packages - https://synocommunity.com/
