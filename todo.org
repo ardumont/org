@@ -4,11 +4,12 @@
 
 * TODO take a look at
 https://github.com/travisbhartwell/nix-emacs
-* DONE nas [3/3]
+* DONE nas [4/4]
 CLOSED: [2015-07-22 Wed 09:34]
 - [X] Add other source of packages - https://synocommunity.com/
 - [X] Install znc
 - [X] Make nas open to the world
+- [X] Increase znc's buffer limit
 * DONE Chris's machine - alderaan [3/3]
 CLOSED: [2015-07-23 Thu 09:20]
 - [X] Reboot old machine
