@@ -24,9 +24,9 @@ There is a current limitation in XMonad.Prompt.Pass -> No seeing the pass with a
 
 - [ ] Propose patch to pass to make it possible to use pass ls without tree
 - [ ] Exploit this in the xmonad library to see all pass
-
 - [ ] Or: patch directly XMonad.Prompt.Pass with the help of http://blog.tarn-vedra.de/posts/xmonad-password-store.html
 - [ ] Joachim seems to have already fixed this, so try the latest version! yeah!
+- [ ] backup me own store
 * DONE irc-pack reloaded
 CLOSED: [2015-07-21 Tue 13:25]
 - [X] Read server/port and fullname from configuration file directly
