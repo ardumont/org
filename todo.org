@@ -2,16 +2,15 @@
 #+author: ardumont
 #+options: hidestar
 
-* DONE Install home git server on nas
-CLOSED: [2015-07-31 Fri 20:39]
-* TODO take a look at
+* TODO take a look at nix-emacs
 https://github.com/travisbhartwell/nix-emacs
-* DONE nas [4/4]
+* DONE nas [5/5]
 CLOSED: [2015-07-22 Wed 09:34]
 - [X] Add other source of packages - https://synocommunity.com/
 - [X] Install znc
 - [X] Make nas open to the world
 - [X] Increase znc's buffer limit
+- [X] Install home git server on nas
 * DONE Chris's machine - alderaan [3/3]
 CLOSED: [2015-07-23 Thu 09:20]
 - [X] Reboot old machine
