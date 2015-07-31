@@ -2,6 +2,8 @@
 #+author: ardumont
 #+options: hidestar
 
+* DONE Install home git server on nas
+CLOSED: [2015-07-31 Fri 20:39]
 * TODO take a look at
 https://github.com/travisbhartwell/nix-emacs
 * DONE nas [4/4]
@@ -1875,3 +1877,5 @@ CLOSED: [2013-07-07 dim. 10:00]
 * DONE DevOps
 CLOSED: [2014-11-10 Mon 10:03]
 - [X] https://en.wikipedia.org/wiki/DevOps
+* TODO Review [[https://github.com/okulbilisim/awesome-datascience][okulbilisim/awesome-datascience]]
+[2015-07-29 Wed 17:52]

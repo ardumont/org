@@ -1,0 +1,61 @@
+#+title: git server
+#+author: ardumont
+
+* Main use case
+
+Create an unpriviledged user, `git` for example.
+
+#+begin_src sh
+adduser git
+#+end_src
+
+Connect with this user
+
+Install the public key of the users of the repositories.
+
+#+begin_src sh
+cat /tmp/user-public-key.pub > ~git/.ssh/authorized_keys
+#+end_src
+
+Now create a bare repository
+
+#+begin_src sh
+mkdir repo.git
+cd repo.git
+git init --bare
+#+end_src
+
+Now the user should be able to access it
+
+#+begin_src sh
+git clone git@your-server:/path/to/repo.git
+#+end_src
+
+Or add a remote
+#+begin_src sh
+git remote add origin git@your-server:/path/to/repo.git
+#+end_src
+
+* Restriction
+** /etc/shells
+
+Edit /etc/shells' user entry to specify the /bin/git-shell
+This way no interactive ssh connection is possible
+
+** exotic box
+
+You can specify where the git binaries are supposed to be found.
+
+Through git commands:
+#+begin_src sh
+git config remote.origin.uploadpack /volume2/@appstore/git/bin/git-upload-pack
+git config remote.origin.receivepack /volume2/@appstore/git/bin/git-receive-pack
+#+end_src
+
+or direct edition of .git/config file:
+
+#+begin_src ini
+[remote "origin"]
+	uploadpack = /volume2/@appstore/git/bin/git-upload-pack
+	receivepack = /volume2/@appstore/git/bin/git-receive-pack
+#+end_src
