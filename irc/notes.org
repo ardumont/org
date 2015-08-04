@@ -1,0 +1,22 @@
+#+title: irc
+#+author: ardumont
+
+* Create account
+
+#+begin_src sh
+/msg NickServ identify <account> <pass>
+#+end_src
+
+* Enforce account
+
+Avoid having his account nickname stolen.
+
+#+begin_src sh
+/nickserv set enforce on
+#+end_src
+
+* Change your pass
+
+#+begin_src sh
+/nickserv set password <new-pass>
+#+end_src
