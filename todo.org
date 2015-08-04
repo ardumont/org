@@ -17,7 +17,7 @@ CLOSED: [2015-07-23 Thu 09:20]
 - [X] Install pci wifi card + new hdd
 - [X] Install NixOS for alderaan
 
-* TODO emacs configuration [0%]
+q* TODO emacs configuration [0%]
 - [ ] Create your own self contained emacs distribution
 - [ ] Drop git submodules use
 * TODO pass and xmonad pass
@@ -95,7 +95,8 @@ https://www.debian.org/doc/manuals/packaging-tutorial/packaging-tutorial.pdf (Th
 * TODO keysnail
 - [ ] Create a function to append the urls to copy in the kill ring
 - [ ] Define some default global js functions (callable from M-x in ffx through keysnail
-* TODO shake
+* CANCELLED shake
+CLOSED: [2015-08-01 Sat 16:16]
 http://shakebuild.com/
 https://github.com/ndmitchell/shake
 * CANCELLED https://github.com/oblique/create_ap
@@ -1878,3 +1879,6 @@ CLOSED: [2014-11-10 Mon 10:03]
 - [X] https://en.wikipedia.org/wiki/DevOps
 * TODO Review [[https://github.com/okulbilisim/awesome-datascience][okulbilisim/awesome-datascience]]
 [2015-07-29 Wed 17:52]
+* TODO Review [[https://github.com/okulbilisim/awesome-datascience][okulbilisim/awesome-datascience]]
+[2015-08-03 Mon 10:41]
+holiday
