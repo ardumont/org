@@ -2,6 +2,8 @@
 #+author: ardumont
 #+options: hidestar
 
+* TODO offlineimap.el
+from julien danjou, might learn tons of stuff about process
 * TODO take a look at nix-emacs
 https://github.com/travisbhartwell/nix-emacs
 * DONE nas [5/5]
