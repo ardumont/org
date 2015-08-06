@@ -1,0 +1,33 @@
+#+title: Time manipulation in emacs-lisp
+#+author: ardumont
+
+Link times in there: http://www.gnu.org/software/emacs/manual/html_node/elisp/System-Interface.html#System-Interface
+
+Avoid losing some time api scratch tinkering:
+
+#+begin_src lisp
+;; date manipulation
+
+(parse-time-string "Thu Aug 6 09:54:43 CEST 2015")
+;; parse-time-string -> (SEC MIN HOUR DAY MON YEAR DOW DST TZ)
+;;                      (43  54  9    6   8   2015 4 nil nil)
+
+
+(apply 'encode-time '(43  54  9    6   8   2015 4 nil nil)) ;; (21955 4803)
+
+(format-time-string "%d-%m-%Y %H:%M:%s" nil 'universal) "06-08-2015 08:32:1438846375"
+
+(format-time-string "%d-%m-%Y %H:%M:%s" (apply 'encode-time (parse-time-string "Thu Aug  6 09:54:43 2015")) 'universal);; "06-08-2015 07:54:1438844083"
+(format-time-string "%d-%m-%Y %H:%M:%s" (apply 'encode-time (parse-time-string "Thu Aug  6 09:54:43 2015")) );; "06-08-2015 09:54:1438847683"
+
+(current-time) ;; (21955 6357 585689 14000)
+(current-time-string) ;; "Thu Aug  6 10:21:08b 2015"
+
+(current-time-zone);; (7200 "CEST")
+(float-time) ;; 1438849379.9876146
+#+end_src
+
+For those of us not `time` guru:
+- DOW Day Of Week
+- DST Daylight Saving Time (nonsense :D)
+- TZ Time Zone
