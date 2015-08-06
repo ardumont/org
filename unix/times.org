@@ -1,0 +1,29 @@
+#+title: unix *time
+#+author: ardumont
+
+A common mistake is that ctime is the file creation time. This is not correct, it is the inode/file change time. mtime is the file modification time. A often heard question is "What is the ctime, mtime and atime?".This is confusing so let me explain the difference between ctime, mtime and atime.
+ctime
+
+* ctime
+
+Inode/file change time
+
+Updated when file attributes are changed (ex: changing the owner, changing the permissions, moving file to
+
+* mtime
+File modification time
+
+updated when:
+- file is modified (content updated)
+- file is saved
+
+*Note*
+Most of the times, ctime and mtime are the same.
+
+* atime
+
+File access time.
+
+Updated when:
+- opening a file
+- using a file for operations like grep, sort, cat, head, tail and so on.
