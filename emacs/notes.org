@@ -1,0 +1,19 @@
+#+title: regexp-builder
+#+author: ardumont
+
+* Detail
+
+regexp-builder is awesome but it already does escape stuff so simply copy/paste ourselves the string won't work.
+We need to use `C-c C-w` to copy the regexp into kill-ring.
+
+* TL;DR
+
+M-x regexp-builder RET
+
+When regexp ready, `C-c C-w` and paste the result where you want.
+
+* Hint
+
+Change the string interpretation with
+
+M-x reb-change-syntax RET
