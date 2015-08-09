@@ -17,7 +17,7 @@ Note: Load in context the credentials from the file `~/.emacs.d/.trello/<user>.e
 
 Now execute some request to check that the connection is good:
 #+begin_src lisp
-ELISP> (orgtrello-query/http-trello (orgtrello-api/get-me) 'sync)
+ELISP> (orgtrello-query-http-trello (orgtrello-api-get-me) 'sync)
 #s(hash-table size 65 test equal rehash-size 1.5 rehash-threshold 0.8 data
               (:username "ardumont" :url "https://trello.com/ardumont" :status "disconnected" :full-name "Antoine R. Dumont" :id "aabbccddeeffgghhiijjkk"))
 #+end_src
@@ -33,8 +33,8 @@ This can help a lot.
 
 Identify some function you want to trace (display inputs, output), for example:
 #+begin_src lisp
-(trace-function 'orgtrello-data/parse-data)
-;; (untrace-function 'orgtrello-data/parse-data)
+(trace-function 'orgtrello-data-parse-data)
+;; (untrace-function 'orgtrello-data-parse-data)
 #+end_src
 Note:
 `orgtrello-data/parse-data` is the central function used to parse the json output of trello.
@@ -65,7 +65,7 @@ With sample:
 
 Inside the current org-trello buffer:
 
-M-: (orgtrello-setup/display-current-buffer-setup!)
+M-: (orgtrello-setup-display-current-buffer-setup!)
 
 This will compute and return a list with the important settings.
 
