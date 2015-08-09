@@ -1,0 +1,17 @@
+#+title: systemd notes
+#+author: ardumont
+
+Need to activate the systemd for user.
+
+Then started at first login.
+
+user services are checked in the following folder in order:
+- `/usr/lib/systemd/user/` installed by packages
+- `/etc/systemd/user/` installed by admin
+- `~/.config/systemd/user/` installed by user
+
+* check systemctl user service is started
+
+#+begin_src sh
+systemctl --user status
+#+end_src
