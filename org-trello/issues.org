@@ -1,0 +1,4598 @@
+* Issues of org-trello
+:PROPERTIES:
+:since:
+:url:      https://api.github.com/repos/org-trello/org-trello
+:END:
+** OPEN 0.7.3 - wip
+:PROPERTIES:
+:id:       281
+:date-modification: 2015-08-10T00:00:08+0200
+:date-creation: 2015-08-10T00:00:08+0200
+:author:   "ardumont"
+:END:
+** OPEN Sync all deadlines to/from Trello by converting user's timezone to/from UTC
+:PROPERTIES:
+:tags:     ("enhancement" "pull-request-welcome")
+:id:       277
+:date-modification: 2015-08-09T19:47:04+0200
+:date-creation: 2015-07-14T10:29:44+0200
+:author:   "LukeSwart"
+:END:
+: [Trello saves card due dates in UTC](http://webapps.stackexchange.com/questions/24741/what-time-zone-are-due-dates-in), so all times from the org-trello buffer should be converted to UTC before updating Trello, and from UTC before importing into the org-trello buffer.
+:
+: For example, if I set a time using [org-mode's deadline feature](http://orgmode.org/manual/Deadlines-and-scheduling.html) (default binding is `C-c C-d`) to 2015-07-14 at 18:00, then I am prompted the date selection via [emacs' calendar tool](http://members.optusnet.com.au/~charles57/GTD/org_dates/#sec-6) then org-mode outputs this line: `DEADLINE: <2015-07-14 Tue 18:00>`. If I am in PST (ie Seattle, WA, USA), this line should be converted to its UTC equivalent `DEADLINE: <2015-07-15 Wed 01:00>` before updating my Trello card.
+:
+: The same thing goes for importing dates from the Trello board - the dates are currently imported to the org-trello buffer in UTC. For example, if I use Trello's GUI to set a date for 2015-07-14 at 18:00, and I am in PST, Trello stores that date internally as 2015-07-15 at 01:00, and org-trello imports that date as `DEADLINE: <2015-07-15T01:00:00.000Z>`. (NOTE: It appears the DEADLINE format is not affected by Trello or org-trello, so `DEADLINE: <2015-07-15T01:00:00.000Z>` and `DEADLINE: <2015-07-15 Wed 01:00>` are equivalent)
+:
+: I think the best approach is to convert all deadlines from UTC to the user's local timezone when syncing from Trello to the org-trello buffer, and converting all deadlines from the user's local timezone to UTC when syncing from the org-trello buffer to Trello. Let me know if there is a better approach.
+** OPEN [internal] Improve org parser -> use more org-element.el love
+:PROPERTIES:
+:id:       279
+:date-modification: 2015-08-05T22:51:40+0200
+:date-creation: 2015-08-02T12:08:37+0200
+:author:   "ardumont"
+:END:
+: I did not use all of org's api for the parsing at first. In the mean time, org-mode clarified itself too.
+: There is a parsing org-element.el namespace. Use it (EDIT: more).
+: Of course, clean up the useless tidbits hanging after that.
+:
+: Should be especially useful for:
+: - org-trello's full compliance to org.
+: - keeping unknown org data from being lost during sync.
+** OPEN Sync from Trello, but preserve data from clock or data wrapped in a drawer
+:PROPERTIES:
+:tags:     ("need-reproduction")
+:id:       167
+:date-modification: 2015-08-05T11:44:40+0200
+:date-creation: 2014-05-17T17:32:23+0200
+:author:   "ardumont"
+:END:
+: Wrong issue tracker so from https://github.com/org-trello/org-trello.github.io/issues/15
+:
+: @arkima opened this issue:
+: > Hi,
+: > Firstly thanks for Org Trello.
+: >
+: > It would be great If I could pull data down from org-trello, but keep any clock data that I have added to entities. My workflow is something like . Pull board down >> work on items, clocking data and sometimes add data >> pull data down again.
+: > The problem being that in the last stage I lose any clock data that I've added to those entities, which complicates my workflow.
+: >
+: > I know that org mode has an ability to store data such as clock data in drawers, as in
+: >
+: > :CLOCK:
+: > My clocked times
+: > :END:
+: >
+: > Could org-trello somehow ignore that data, or add it back in, if not when it does a dump (probably complicated), at least when it syncs an entity?
+: >
+: > Thanks!
+: >
+: > Alex
+** OPEN Too much checklist sync?
+:PROPERTIES:
+:id:       278
+:date-modification: 2015-08-02T11:29:29+0200
+:date-creation: 2015-07-21T11:12:56+0200
+:author:   "ardumont"
+:END:
+: Something unexpected happens once in a while when sync to trello.
+: When syncing to trello an item from a checklist, the current checklist is synced (expected) but some other sister checklists are too (unexpected).
+:
+: Implementation hint: checklist region computation.
+** OPEN Troubles with org-capture-before-finalize-hook and org-trello/sync-card
+:PROPERTIES:
+:tags:     ("enhancement")
+:id:       233
+:date-modification: 2015-07-13T11:22:45+0200
+:date-creation: 2015-01-13T13:58:41+0100
+:author:   "jshholland"
+:END:
+: I'm not sure if this really is an issue, but it's certainly something I could do with help on.
+:
+: I want to have a board synced by org-trello as a capture file for org mode with C-c c. This is easily done via setting `org-capture-templates`, but I then run into the issue of my org file having a load of cards that haven't been pushed to Trello yet. Therefore I put `(add-hook 'org-capture-before-finalize-hook 'org-trello/sync-card)` to my startup config, which very nearly does what I want. However, it leaves a `:PROPERTIES: {}` in the file where I started the capture from, which is obviously not desirable.
+:
+: I had a fairly long debugging session in #emacs about this (thanks scottj!) and he eventually concluded that it was due to the asynchronicity of org-trello. Is this something that can be fixed? Or am I going to have to come up with something more imaginative in my config?
+** OPEN Auto indenting checklist break layout
+:PROPERTIES:
+:tags:     ("investigate" "need-feedback" "need-reproduction")
+:id:       266
+:date-modification: 2015-07-13T10:17:23+0200
+:date-creation: 2015-06-09T23:51:45+0200
+:author:   "labe-me"
+:END:
+: Hello and thank you for the org-trello,
+:
+: I am currently trying to make it work for but I experience a strange bug which doesn't occur with only org-mode.
+:
+: When I add a checklist to a card and hit Enter the checklist is automatically indented by 2 characters.
+: If I save the file (after removing the indent) the checklist is indented again.
+:
+: (And sometimes, while working on a test.trello file)
+: If I add another checklist or hit Enter again the above checklist is again indented by 2 characters.
+:
+: When things are not so bad, the produced file looks like this:
+:
+: ```
+: * TODO Test this stuff
+:   - [ ] This check list
+:     - [ ] Test item
+:       - [ ] and This item
+: ```
+:
+: When I try to synchronize with trello the check list is converted to an item because of the indent and everything else is trashed.
+:
+: When I disable org-trello-mode, remove the extra spaces and save I get the expected file without the indent but when I enable org-trello-mode again the extra indent comes back.
+:
+: And when I edit a regular .org file I don't have the problem and org saves me this:
+:
+: ```
+: * TODO Test this stuff
+: - [ ] This check list
+:   - [ ] Test item
+:     - [ ] and This item
+: ```
+:
+: Any idea what could be wrong with my setup?
+:
+: Note: I use 24.5.1/elpa/org-trello-20150524.428
+** OPEN First posting here -three problems - from an email
+:PROPERTIES:
+:tags:     ("need-feedback" "potential-setup-problem")
+:id:       260
+:date-modification: 2015-07-11T16:20:23+0200
+:date-creation: 2015-05-18T20:02:00+0200
+:author:   "boudiccas"
+:END:
+: This is an example of what I'm seeing
+: ```
+: * Doing- test-pad
+: :PROPERTIES:
+: :orgtrello-id: 555a24b76d992c82948e0241
+: :orgtrello-local-checksum: c4aa326c729dc2433dd2f478ffbd7008c3fb6a0764e64a5b929aaa70ea306154
+: :END:
+: - [ ] test one
+: - [ ] first-level
+:   - [ ] test 2
+:  :PROPERTIES: {"orgtrello-id":"555a24b898d87fc61780cca5","orgtrello-local-checksum":"d942325cf2b6e203fdd75f7702d82eedc98c3730f8a2eeb298e734433bc6c877"}
+:   - [ ] second level
+: :PROPERTIES: {"orgtrello-id":"555a24b8bff7736f0519f1e1","orgtrello-local-checksum":"2c790f2367816851363afafec0df46c959bb979510ed68e6dcfe17eac24d4dbc"}
+: ```
+: This is on emacs 24.5.50.1, org-mode 8.2.10, from uptodate git, org-trello 0.6.9.5.
+:
+: This is how it is in my auth.org (my emacs init file)
+: ```
+: ** TODO Org and Trello
+:   Using [[https://github.com/org-trello/org-trello][org-trello]] to sync particular org-mode files with [[https://trello.com/b/Kp6XZg2b][trello.com]]
+: Needs setting up properly.
+: #+BEGIN_SRC elisp
+:     (defun sk/org-trello-sync ()
+:       (interactive)
+:       (when (require 'org-trello nil t)
+:         (org-trello-mode 1)
+:         (org-trello/sync-buffer t)))
+:
+: (custom-set-variables '(org-trello-files '("~/.emacs.d/org/trello1.org" "~/.emacs.d/org/trello2.org")))
+: (global-set-key (kbd "S-<f1>") 'sk/org-trello-sync)
+: #+END_SRC
+: [2015-05-01 Fri 15:04]
+: ```
+: Oh, and by the way, none of the keybindings work!
+** OPEN Sync buffer from trello - Catch error: (error "Not in an item")
+:PROPERTIES:
+:tags:     ("to-investigate")
+:id:       270
+:date-modification: 2015-07-01T09:06:24+0200
+:date-creation: 2015-06-24T14:40:11+0200
+:author:   "Bregor"
+:END:
+: Hello again!
+:
+: Synchronization of one of boards fails with catch error.
+: Due to \*Messages\* synchronization stops in the middle of card with partly completed checklist.
+:
+: Cards without checklist and with fully completed checklists are synchronizing normally.
+:
+: Can I turn on something like debug for more precise investigation?
+** OPEN Preserve non-trello related tags/other meta data
+:PROPERTIES:
+:tags:     ("enhancement" "pull-request-welcome")
+:id:       240
+:date-modification: 2015-06-10T09:44:56+0200
+:date-creation: 2015-02-08T03:31:24+0100
+:author:   "IvanMalison"
+:END:
+: When I sync-buffer with org-trello, any metadata (tags attributes etc) that is not trello related is removed from the org entry. It seems like the right thing to do would be to leave any stuff that org-trello does not know about untouched.
+** OPEN Synchronization improvements
+:PROPERTIES:
+:tags:     ("enhancement" "pull-request-welcome")
+:id:       219
+:date-modification: 2015-06-10T09:44:36+0200
+:date-creation: 2014-11-14T09:10:14+0100
+:author:   "defanor"
+:END:
+: With relatively active conversations in comments, it becomes hard to look for new ones, and to follow those conversations, while synchronization reloads the whole buffer, folds headings, and does not mark cards with new comments. Probably it'd be tricky to solve all that in org-mode, but that would make it more suitable for such a workflow. Also, automatic synchronization with notifications on the mode line would be useful, too.
+** OPEN Add a file to the org-trello list
+:PROPERTIES:
+:tags:     ("feature-request" "pull-request-welcome")
+:id:       211
+:date-modification: 2015-06-10T09:44:36+0200
+:date-creation: 2014-10-16T21:29:12+0200
+:author:   "sutram"
+:END:
+: It would be great if org-trello allows for addition/removal of files to its list of files (see #210).
+:
+: The reason to add this is for the following scenario:
+: * User creates a new board
+: * User syncs up metadata for board with org-trello using C-c o I and syncs any new cards with C-c o s
+: * User saves the org-trello file
+: * Next time user starts emacs, this new file is already in org-trello mode and ready to go.
+:
+: Without this feature, user has to remember to manually add the org-trello file to the list.
+:
+: This could be modeled around how org-agenda also allows addition/removal of a file that is already open through certain key-bindings
+:
+: "C-c [" (org-agenda-file-to-front)
+: Add current file to the list of agenda files. The file is added to the front of the list. If it was already in the list, it is moved to the front. With a prefix argument, file is added/moved to the end.
+: "C-c ]" (org-remove-file)
+: Remove current file from the list of agenda files.
+:
+: org-agenda uses defcustom to set this up like this for example:
+:
+: ```lisp
+: ï»¿ï»¿ï»¿(custom-set-variables  '(org-agenda-files (quote ("~/Dropbox/Org/event-persister.org" "~/Dropbox/Org/cdn-log-processor.org" "~/Dropbox/Org/gtd.org" "~/Dropbox/Org/notes.org"))))
+: ```
+: Thanks
+** OPEN Update video tutorials
+:PROPERTIES:
+:tags:     ("doc-improvment" "pull-request-welcome")
+:id:       136
+:date-modification: 2015-06-10T09:44:36+0200
+:date-creation: 2014-03-23T00:12:21+0100
+:author:   "ardumont"
+:END:
+: I need to refresh the existing tutorial videos
+:
+: - web admin is almost absent
+: - some new or older functionalities are not presented:
+:   - org checkbox format for checklists and items
+:   - assign current user to the card
+:   - sync comment
+:   - add comment
+:   - C-u prefix
+:   - sync entity from trello
+:   - sync entity and structure from trello
+** OPEN Use active region
+:PROPERTIES:
+:tags:     ("enhancement" "pull-request-welcome")
+:id:       130
+:date-modification: 2015-06-10T09:44:35+0200
+:date-creation: 2014-03-20T23:11:44+0100
+:author:   "ardumont"
+:END:
+: if region is active, only act on such region.
+:
+: Inspiration from http://ergoemacs.org/emacs/elisp_idioms.html
+** OPEN One command to sync them all
+:PROPERTIES:
+:tags:     ("enhancement" "feature-request" "pull-request-welcome")
+:id:       59
+:date-modification: 2015-06-10T09:44:35+0200
+:date-creation: 2013-09-03T14:45:04+0200
+:author:   "ardumont"
+:END:
+: At the moment, there exists multiple commands with predefined actions.
+: It was suggested to me that a one command policy would be more ergonomic.
+:
+: from discussion https://github.com/ardumont/org-trello/issues/37#issuecomment-23033199
+: (EDIT: the link is broken, I believe github's garbage collector did some clean up)
+** OPEN Different use case and mappings trello <-> org
+:PROPERTIES:
+:tags:     ("feature-request" "pull-request-welcome")
+:id:       33
+:date-modification: 2015-06-10T09:44:35+0200
+:date-creation: 2013-08-14T10:44:11+0200
+:author:   "tonyday567"
+:END:
+: Hi, trello-org is a nice piece of code - well done!
+:
+: Our use case for trello is very different:
+:
+: List names are major category headings - so level 1 org headings
+: Card names correspond to category 2 org headings
+: My group makes extensive use of comments  - they are similar to category 3 headings
+:
+: I was thinking of digging in to this and seeing if I could modify the repo to suit.
+:
+: Would this be a large project?
+** OPEN Option to use indented items as cards instead of current "<list> <card title>" format
+:PROPERTIES:
+:tags:     ("big-work" "feature-request" "pull-request-welcome")
+:id:       259
+:date-modification: 2015-06-10T09:43:48+0200
+:date-creation: 2015-05-14T05:10:10+0200
+:author:   "erahhal"
+:END:
+: If you have several lists and a lot of cards per list, it syncs to one big flat list, with the list name as the item status in org.  It would be nice to have the list name as a bullet item, then each card as an indented bullet item under that list item.
+** OPEN Trying to sync a card: orgtrello-buffer/compute-marker: Wrong type argument: numberp, nil
+:PROPERTIES:
+:tags:     ("bad-format-use")
+:id:       245
+:date-modification: 2015-06-06T10:15:29+0200
+:date-creation: 2015-04-13T19:48:14+0200
+:author:   "graham-m-dunn"
+:END:
+: I've created a new trello board from my .org file, but when I try to sync a card (exists in the org buffer, but not on trello):
+:
+: ```sh
+: org-trello - Request 'sync entity with structure to trello...
+: Loading /Users/gdunn/.trello/config.el (source)...done
+: Property "orgtrello-local-checksum" deleted
+: org-trello - Synchronizing card on board 'IT-Test'...
+: Property "orgtrello-local-checksum" deleted [4 times]
+: orgtrello-buffer/compute-marker: Wrong type argument: numberp, nil
+: ```
+: org-trello - version: 0.6.9.3
+: emacs 25.0.50(9.0) OS X
+: Org-mode version 8.2.10 (8.2.10-37-gc000e8-elpa @ /Users/gdunn/.emacs.d/elpa/org-20150413/
+** OPEN lisp error on org files with indented todos
+:PROPERTIES:
+:tags:     ("bad-format-use" "enhancement")
+:id:       254
+:date-modification: 2015-06-06T10:06:31+0200
+:date-creation: 2015-05-07T07:08:51+0200
+:author:   "erahhal"
+:END:
+: Example raw org file (not synced with Trello yet).  Breaks after adding "ghi"
+:
+: ```
+: * TODO abc
+: * TODO def
+: ** TODO ghi
+: * TODO jkl
+: ```
+:
+: Call Stack on error:
+:
+: ```
+: Debugger entered--Lisp error: (wrong-type-argument integer-or-marker-p nil)
+:   buffer-substring-no-properties(36 nil)
+:   apply(buffer-substring-no-properties (36 nil))
+:   orgtrello-buffer/extract-comment-description-from-current-position!()
+:   orgtrello-buffer/--extract-description-at-point!()
+:   orgtrello-buffer/entity-metadata!()
+:   orgtrello-buffer/entry-get-full-metadata!()
+:   #[nil "\302\303\304 !!\211^X\205^P^@\305  \306 \")\207" [card-description *ORGTRELLO-BUFFER/INDENT-DESCRIPTION* orgtrello-data/entity-description orgtrello-data/current orgtrello-buffer/entry-get-ful$
+:   byte-code("\306\225\205^N^@\307\310^X^Y\311 ^H\"*^R\312\225\205^]^@\312\310^X^Y\311 ^H\"*^S\313\224\211^Tb\210\314\315 !^U\316 ^V8^N9^V:^M^V9^N:^MY\203X^@\317^N:^N;\"\211^V<\203O^@\320^N<^N;\"^V;^N:S$
+:   org-scan-tags(#[nil "\302\303\304 !!\211^X\205^P^@\305  \306 \")\207" [card-description *ORGTRELLO-BUFFER/INDENT-DESCRIPTION* orgtrello-data/entity-description orgtrello-data/current orgtrello-buffer$
+:   org-map-entries(#[nil "\302\303\304 !!\211^X\205^P^@\305  \306 \")\207" [card-description *ORGTRELLO-BUFFER/INDENT-DESCRIPTION* orgtrello-data/entity-description orgtrello-data/current orgtrello-buff$
+:   orgtrello-buffer/org-map-entries(#[nil "\302\303\304 !!\211^X\205^P^@\305 \306 \")\207" [card-description *ORGTRELLO-BUFFER/INDENT-DESCRIPTION* orgtrello-data/entity-description orgtrello-data/curren$
+:   orgtrello-buffer/indent-card-descriptions!()
+:   orgtrello-controller/prepare-buffer!()
+:   run-hooks(before-save-hook)
+:   #[0 "\300\301!\207" [run-hooks before-save-hook] 2 "\n\n(fn)"]()
+:   funcall(#[0 "\300\301!\207" [run-hooks before-save-hook] 2 "\n\n(fn)"])
+:   basic-save-buffer()
+:   save-buffer()
+:   evil-write(nil nil nil nil nil)
+:   evil-save-and-close(nil nil)
+:   call-interactively(evil-save-and-close)
+:   evil-ex-call-command(nil #("wq" 0 1 (ex-index 1) 1 2 (ex-index 2)) nil)
+:   eval((evil-ex-call-command nil #("wq" 0 1 (ex-index 1) 1 2 (ex-index 2)) nil))
+:   evil-ex-execute(#("wq" 0 1 (ex-index 1) 1 2 (ex-index 2)))
+:   evil-ex(nil)
+:   call-interactively(evil-ex nil nil)
+:   command-execute(evil-ex)
+: ```
+** OPEN Colors broken in org trello
+:PROPERTIES:
+:tags:     ("need-feedback")
+:id:       263
+:date-modification: 2015-05-25T10:48:25+0200
+:date-creation: 2015-05-23T22:07:08+0200
+:author:   "pschorf"
+:END:
+: Whenever the org-trello minor mode is active, the org mode colors I have don't work. For instance, if I load a file without org-trello, the file is highlighted correctly. Any changes I make, like adding a new line, changing a deadline, etc. are not correctly highlighted. If I load a file with org-trello enabled, nothing is highlighted correctly. I believe I'm using the latest version, 20150509.
+** CLOSED 0.7.2
+:PROPERTIES:
+:id:       280
+:date-modification: 2015-08-05T22:44:04+0200
+:date-creation: 2015-08-05T19:32:13+0200
+:author:   "ardumont"
+:END:
+: - [X] Update version
+: - [X] Close #276 - Markdown rendering in comments
+: - [X] Add test coverage
+: - [X] [internal] Full respect elisp convention
+: - [X] Release notes
+** CLOSED Markdown bullets in comments without a space prefix are incorrectly synchronized
+:PROPERTIES:
+:tags:     ("bug" "Fixed" "next-release")
+:id:       276
+:date-modification: 2015-08-05T22:44:04+0200
+:date-creation: 2015-07-13T12:41:11+0200
+:author:   "LukeSwart"
+:END:
+: If someone creates a markdown bullet on a card using the syntax "* " instead of the proper syntax " * ", `org-trello` incorrectly imports the card. The "* " is recognized as a new tree instead of as a bullet within a card.
+:
+: For example, if someone creates a card with this "slightly improper" bullet, it should be rendered as follows:
+:
+: ```
+: * TODO Meeting with Joe Blow
+: DEADLINE: <2015-07-16T18:00:00.000Z>
+: :PROPERTIES:
+: :orgtrello-id: 5524235892357298
+: :orgtrello-local-checksum: 234892745892375289
+: :END:
+:   Joe Blow wants to meet
+:
+: ** COMMENT Jane Dow, 2015-07-12T21:41:44.015Z
+: :PROPERTIES:
+: :orgtrello-id: 55a2df1861ebf6ca30d4b8f0
+: :orgtrello-local-checksum: 57eddd7332a5b28e334d1362685beac6ef84afb6665ee6c55e4c0ab56e415703
+: :END:
+:  * we are going to meet over the phone. This bullet is "improper"
+:  * this bullet is proper
+:
+: * Done New proposal
+: :PROPERTIES:
+: :orgtrello-id: 342345235
+: :orgtrello-local-checksum: wer238729384723948
+: :END:
+: ```
+: This is how it should be imported, shown above. Note the user originally typed their card comment bullet with no space prefix, as follows: `* we are going to meet over the phone. This bullet is "improper"`
+:
+: But, with the current imports, `org-trello` imports it like so:
+:
+: ```
+: * TODO Meeting with Joe Blow
+: DEADLINE: <2015-07-16T18:00:00.000Z>
+: :PROPERTIES:
+: :orgtrello-id: 5524235892357298
+: :orgtrello-local-checksum: 234892745892375289
+: :END:
+:   Joe Blow wants to meet
+:
+: ** COMMENT Jane Dow, 2015-07-12T21:41:44.015Z
+: :PROPERTIES:
+: :orgtrello-id: 55a2df1861ebf6ca30d4b8f0
+: :orgtrello-local-checksum: 57eddd7332a5b28e334d1362685beac6ef84afb6665ee6c55e4c0ab56e415703
+: :END:
+:  * this bullet is proper
+:
+: * Done New proposal
+: :PROPERTIES:
+: :orgtrello-id: 342345235
+: :orgtrello-local-checksum: wer238729384723948
+: :END:
+:
+: * we are going to meet over the phone. This bullet is "improper"
+: ```
+:
+: The bullet, `* we are going to meet over the phone. This bullet is "improper"`, is appended at the end! It appears to have been treated like a new tree in the root location. This makes for a very confusing import.
+:
+: Although the user did not enter proper markdown, Trello is still able to correctly render the bullets, so I think `org-trello` should import them as bullets as well. Possibly all strings that start with "* " can be prefixed with a space? Like "* " -> " * "?
+** CLOSED 0.7.1
+:PROPERTIES:
+:id:       275
+:date-modification: 2015-07-12T16:20:59+0200
+:date-creation: 2015-07-12T15:53:08+0200
+:author:   "ardumont"
+:END:
+: - [X] Update version
+: - [X] Close #272 - Use native completion mechanism
+: - [X] Close #273 - Fix labels when installing board
+: - [X] Close #271 - Make a user option for user to decide the policy about checksum and position
+: - [X] Use improved native completin mechanism (again)
+: - [X] Close #274 - Add `M-x org-trello-bug-report` command
+: - [X] Release notes
+** CLOSED Troubleshoot command
+:PROPERTIES:
+:tags:     ("tools")
+:id:       274
+:date-modification: 2015-07-12T16:20:59+0200
+:date-creation: 2015-07-12T13:52:20+0200
+:author:   "ardumont"
+:END:
+: Create a `standard` troubleshooting command to ease the data retrieval from the user's buffer.
+: This way, (s)he can simply paste the result inside an issue/email.
+:
+: A plus would be to scramble the ids.
+:
+: This way:
+: - a simple user command to trigger
+: - the user then simply paste the result inside the issue/email.
+: - dev have everything (s)he needs to try and reproduce.
+:
+: Note:
+: As this is free software, the user can ensure nothing is done wrong with his/her data.
+** CLOSED org-trello/install-board-metadata does not install the color labels
+:PROPERTIES:
+:tags:     ("bug" "Fixed" "next-release")
+:id:       273
+:date-modification: 2015-07-12T16:20:59+0200
+:date-creation: 2015-07-11T16:26:10+0200
+:author:   "ardumont"
+:END:
+: The colors should be fetched and installed along the color names in the global properties of the file.
+:
+: ```txt
+: #+PROPERTY: :green
+: #+PROPERTY: :yellow
+: #+PROPERTY: :orange
+: #+PROPERTY: :red
+: #+PROPERTY: :purple
+: #+PROPERTY: :blue
+: #+PROPERTY: orgtrello-user-me ardumont
+: ```
+:
+: should be for example:
+:
+: ```txt
+: #+PROPERTY: :green green label with & char
+: #+PROPERTY: :yellow yello
+: #+PROPERTY: :orange range
+: #+PROPERTY: :red red
+: #+PROPERTY: :purple violet
+: #+PROPERTY: :blue blue
+: ```
+:
+: # workaround
+:
+: `org-trello/update-board-metadata`
+** CLOSED [Refactor] Use native completion mechanism
+:PROPERTIES:
+:tags:     ("enhancement" "next-release")
+:id:       272
+:date-modification: 2015-07-12T16:20:59+0200
+:date-creation: 2015-07-11T00:09:34+0200
+:author:   "ardumont"
+:END:
+: Replace internal mechanism with `completing-read`, this will simplify code.
+:
+: ```txt
+: completing-read is a built-in function in `minibuf.c'.
+:
+: (completing-read PROMPT COLLECTION &optional PREDICATE REQUIRE-MATCH INITIAL-INPUT HIST DEF INHERIT-INPUT-METHOD)
+:
+: Read a string in the minibuffer, with completion.
+: PROMPT is a string to prompt with; normally it ends in a colon and a space.
+: COLLECTION can be a list of strings, an alist, an obarray or a hash table.
+: COLLECTION can also be a function to do the completion itself.
+: PREDICATE limits completion to a subset of COLLECTION.
+: See `try-completion' and `all-completions' for more details
+:  on completion, COLLECTION, and PREDICATE.
+:
+: REQUIRE-MATCH can take the following values:
+: - t means that the user is not allowed to exit unless
+:   the input is (or completes to) an element of COLLECTION or is null.
+: - nil means that the user can exit with any input.
+: - `confirm' means that the user can exit with any input, but she needs
+:   to confirm her choice if the input is not an element of COLLECTION.
+: - `confirm-after-completion' means that the user can exit with any
+:   input, but she needs to confirm her choice if she called
+:   `minibuffer-complete' right before `minibuffer-complete-and-exit'
+:   and the input is not an element of COLLECTION.
+: - anything else behaves like t except that typing RET does not exit if it
+:   does non-null completion.
+:
+: If the input is null, `completing-read' returns DEF, or the first element
+: of the list of default values, or an empty string if DEF is nil,
+: regardless of the value of REQUIRE-MATCH.
+:
+: If INITIAL-INPUT is non-nil, insert it in the minibuffer initially,
+:   with point positioned at the end.
+:   If it is (STRING . POSITION), the initial input is STRING, but point
+:   is placed at _zero-indexed_ position POSITION in STRING.  (*Note*
+:   that this is different from `read-from-minibuffer' and related
+:   functions, which use one-indexing for POSITION.)  This feature is
+:   deprecated--it is best to pass nil for INITIAL-INPUT and supply the
+:   default value DEF instead.  The user can yank the default value into
+:   the minibuffer easily using M-n.
+:
+: HIST, if non-nil, specifies a history list and optionally the initial
+:   position in the list.  It can be a symbol, which is the history list
+:   variable to use, or it can be a cons cell (HISTVAR . HISTPOS).  In
+:   that case, HISTVAR is the history list variable to use, and HISTPOS
+:   is the initial position (the position in the list used by the
+:   minibuffer history commands).  For consistency, you should also
+:   specify that element of the history as the value of
+:   INITIAL-INPUT.  (This is the only case in which you should use
+:   INITIAL-INPUT instead of DEF.)  Positions are counted starting from
+:   1 at the beginning of the list.  The variable `history-length'
+:   controls the maximum length of a history list.
+:
+: DEF, if non-nil, is the default value or the list of default values.
+:
+: If INHERIT-INPUT-METHOD is non-nil, the minibuffer inherits
+:   the current input method and the setting of `enable-multibyte-characters'.
+:
+: Completion ignores case if the ambient value of
+:   `completion-ignore-case' is non-nil.
+:
+: See also `completing-read-function'.
+:
+: [back]
+: ```
+** CLOSED position inside checksum and checksum computation does not work well together
+:PROPERTIES:
+:tags:     ("enhancement" "next-release")
+:id:       271
+:date-modification: 2015-07-12T16:20:59+0200
+:date-creation: 2015-07-06T11:08:25+0200
+:author:   "ardumont"
+:END:
+: Adding the position inside the cache checksum annihilates the checksum computation's needs...
+:
+: # Detail
+:
+: Since the position triggers a checksum computation, all the checksums below one line modification means that for the next sync to trello, this will trigger a sync for any entities below that point...
+: Which can be a lot depending on the current position...
+:
+: We are in a trade-off situation, removing the position from the checksum computation.
+: And then we can benefit from the checksum because we sync to trello only what's really changed.
+: But then, we can reopen #250...
+:
+: Or, we keep the position inside the checksum computation (as per actual implementation).
+: But then again, we sync to trello almost everything each time we write inside the buffer (thus rendering almost useless the checksum computation itself)...
+:
+: As a trade-off of the trade-off (in waiting for a better solution), make this behavior an option for the user...
+** CLOSED Installing from melpa (unstable) works, but then it errs on an undefined variable "error-messages"
+:PROPERTIES:
+:tags:     ("investigate" "need-feedback")
+:id:       248
+:date-modification: 2015-07-11T16:15:47+0200
+:date-creation: 2015-04-14T00:19:06+0200
+:author:   "fullofcaffeine"
+:END:
+: You can see the warnings when installing below:
+:
+: ```
+: Compiling file /Users/fullofcaffeine/.emacs.d/elpa/find-file-in-project-20141214.1952/find-file-in-project-pkg.el at Mon Apr 13 17:04:37 2015
+: Entering directory `/Users/fullofcaffeine/.emacs.d/elpa/find-file-in-project-20141214.1952/'
+: 
+: Compiling file /Users/fullofcaffeine/.emacs.d/elpa/find-file-in-project-20141214.1952/find-file-in-project.el at Mon Apr 13 17:04:37 2015
+: find-file-in-project.el:64:1:Warning: cl package required at runtime
+: find-file-in-project.el:1:1:Error: End of file during parsing
+: 
+: Compiling no file at Mon Apr 13 17:04:47 2015
+: Leaving directory `/Users/fullofcaffeine/.emacs.d/elpa/cl-generic-0.2'
+: 
+: Compiling file /Users/fullofcaffeine/.emacs.d/elpa/cl-generic-0.2/cl-generic-pkg.el at Mon Apr 13 17:04:48 2015
+: Entering directory `/Users/fullofcaffeine/.emacs.d/elpa/cl-generic-0.2/'
+: 
+: Compiling file /Users/fullofcaffeine/.emacs.d/elpa/cl-generic-0.2/cl-generic.el at Mon Apr 13 17:04:48 2015
+: ```
+:
+: And the error when trying to ```org-trello/install-board-metadata```:
+: ```
+: orgtrello-action/controls-or-actions-then-do: Symbol's function definition is void: error-messages
+: evil-move-beginning: Beginning of buffer
+: Mark set
+: ```
+:
+: I tried using the stable branch of Melpa, but  the version of ```request-deferred```required by org-trello is not present, so it doesn't install.
+:
+: Any help appreciated!
+** CLOSED Issues org-trello/install-board-metadata
+:PROPERTIES:
+:tags:     ("potential-setup-problem" "setup-env-problem")
+:id:       265
+:date-modification: 2015-07-11T16:14:20+0200
+:date-creation: 2015-06-02T10:03:28+0200
+:author:   "benquike"
+:END:
+: When issuing  org-trello/install-board-metadata, the following message occured'
+: org-trello - client - Problem during request - error-thrown: (error . exited abnormally with code 6.
+:
+: my org-trello version is  ï½org-trello - version: 0.6.9.6ï½
+** CLOSED initial sync buffer, setup problem
+:PROPERTIES:
+:tags:     ("need-feedback" "setup-problem")
+:id:       269
+:date-modification: 2015-07-11T16:07:56+0200
+:date-creation: 2015-06-24T06:33:39+0200
+:author:   "llj098"
+:END:
+: Hi,
+:
+: Version: org-trello 0.7.0, steps:
+:
+: 1. org-trello-install-key-and-token success
+: 2. org-trello-install-board-metadata success
+: 3. org-trello-sync-buffer fail, error:
+:
+: ```
+: You can run the command `org-trello-sync-buffer' with C-c o s
+: org-trello - List of errors:
+:  - Setup problem - Problem during credentials loading (consumer-key and read/write access-token) - C-c o i or M-x org-trello-install-key-and-token
+: ```
+:
+: 1. retry org-trello-install-key-and-token, result:  `already existing, skipping`
+: 2. org-trello-sync-buffer still the same error
+:
+:
+: Is it a bug?
+** CLOSED 0.7.0
+:PROPERTIES:
+:id:       268
+:date-modification: 2015-06-21T22:23:08+0200
+:date-creation: 2015-06-20T18:21:10+0200
+:author:   "ardumont"
+:END:
+: - [X] Update version
+: - [X] Close #238 - [internal] Respect elisp coding conventions [2/2]
+:   - [X] Rename constants + variables
+:   - [X] Rename entry points according to conventions + alias old definitions for backward compatibility
+: - [X] Close #239 - Migrate ~/.trello/config.el inside user-emacs-directory
+: - [X] Close #256 - one user can have multiple trello accounts [4/4]
+:   - [X] Migrate the actual setup to the multi-account setup (transparent for user)
+:   - [X] Update `org-trello-install-key-and-token` command to create the account setup
+:   - [X] Update the loading configuration mechanism multi-account aware
+:   - [X] Make sure initializing org-trello account is ok
+: - [X] Close #267 - Emptying card's description does not work
+: - [X] Remove too much verbosity (when deleting property checksum)
+: - [X] Close #250 - Changing order of checklist items not saved unless checklist item's text changed
+: - [X] Release notes
+** CLOSED Emptying description does not work
+:PROPERTIES:
+:tags:     ("bug" "next-release")
+:id:       267
+:date-modification: 2015-06-21T22:23:08+0200
+:date-creation: 2015-06-20T12:49:57+0200
+:author:   "ardumont"
+:END:
+: Once a card has a description, we cannot remove it.
+: We must use a space character and sync to trello.
+** CLOSED one user can have multiple trello accounts
+:PROPERTIES:
+:tags:     ("enhancement" "next-release")
+:id:       256
+:date-modification: 2015-06-21T22:23:08+0200
+:date-creation: 2015-05-07T11:02:35+0200
+:author:   "ardumont"
+:END:
+: As a user, I'd like to be able to connect to my boards which can be attached to different trello accounts.
+** CLOSED Changing order of checklist items not saved unless checklist item's text changed
+:PROPERTIES:
+:tags:     ("bug" "next-release")
+:id:       250
+:date-modification: 2015-06-21T22:23:08+0200
+:date-creation: 2015-04-29T03:27:01+0200
+:author:   "erahhal"
+:END:
+: Right now I'm working around this by adding a space to the end of a checklist item then syncing to Trello, after which order is saved.
+:
+: Order of cards is also not preserved/updated.
+** CLOSED Migrate ~/.trello/config.el inside user-emacs-directory
+:PROPERTIES:
+:tags:     ("enhancement" "next-release")
+:id:       239
+:date-modification: 2015-06-21T22:23:08+0200
+:date-creation: 2015-02-07T11:01:22+0100
+:author:   "ardumont"
+:END:
+: From the discussion https://github.com/org-trello/org-trello/issues/237#issuecomment-73245225, do not forget to migrate away from the user's home (regarding configuration file)
+** CLOSED [internal] Respect elisp coding conventions
+:PROPERTIES:
+:tags:     ("next-release")
+:id:       238
+:date-modification: 2015-06-21T22:23:08+0200
+:date-creation: 2015-02-07T10:48:52+0100
+:author:   "ardumont"
+:END:
+: https://www.gnu.org/software/emacs/manual/html_node/elisp/Coding-Conventions.html
+:
+: From the top of my head, stop using:
+: - `/` as delimiter in function name
+: - no star and upper case constant
+: ...
+:
+: As a first step, implement this for the exposed api (user commands).
+** CLOSED Initial sync-buffer fails, "Wrong type argument: integer-or-marker-p, nil"
+:PROPERTIES:
+:tags:     ("bad-format-use")
+:id:       258
+:date-modification: 2015-06-06T10:06:52+0200
+:date-creation: 2015-05-11T19:26:41+0200
+:author:   "cjp"
+:END:
+: I'm getting a "Wrong type argument: integer-or-marker-p, nil" when doing the initial org-trello/sync-buffer.
+:
+: *Messages* shows:
+:
+: ```
+: org-trello - Request 'sync org buffer from trello board'...
+: Loading /Users/cjp/.trello/config.el (source)...done
+: org-trello - Synchronizing the trello board 'Testorg' to the org-mode file...
+: Property "orgtrello-local-checksum" deleted [8 times]
+: org-trello - Sync buffer from trello - Catch error: (wrong-type-argument integer-or-marker-p nil)
+: ```
+:
+: Here's my test buffer. This has happened to my other (arguably much more complex) buffers.
+:
+: ```org
+: :PROPERTIES:
+: #+PROPERTY: board-name Testorg
+: #+PROPERTY: board-id 5550e2394a1e5cbd41bc1997
+: #+PROPERTY: CANCELED 5550e23b9ebd9161fe4b31de
+: #+PROPERTY: DONE 5550e23a7fdfc4743179b81a
+: #+PROPERTY: IN-PROGRESS 5550e23ab2a66a62870e6932
+: #+PROPERTY: WAIT 5550e23af08159a706173319
+: #+PROPERTY: TODO 5550e23a8487cfce607c0c2b
+: #+TODO: TODO WAIT IN-PROGRESS | DONE CANCELED
+: #+PROPERTY: orgtrello-user-cpilking 5436a831b40e6db5049de930
+: #+PROPERTY: :green
+: #+PROPERTY: :yellow
+: #+PROPERTY: :orange
+: #+PROPERTY: :red
+: #+PROPERTY: :purple
+: #+PROPERTY: :blue
+: #+PROPERTY: orgtrello-user-me cpilking
+: :END:
+: #+TITLE: Test org buffer
+: #+AUTHOR: Christopher J. Pilkington
+:
+: * Develop the plan
+: :PROPERTIES:
+: :orgtrello-id: orgtrello-marker-3c751597a03b3f33f77f2dab5083cb44e70079e3
+: :END:
+: ** IN-PROGRESS Determine resources
+: :PROPERTIES:
+: :orgtrello-id: orgtrello-marker-79679a2589255afe5c926abd93fd48ee72097785
+: :END:
+:
+: Alice might want in, but Bob will only join if she's involved.
+: Mallory is trying to get on board also, but unsure if she can be
+: trusted to work with Alice and Bob.
+:
+: ** TODO Get funding
+: - [ ] Talk to boss
+: - [ ] Beg management :PROPERTIES: {"orgtrello-id":"orgtrello-marker-9428a1128e98a2a8626f3b807bdb021c4f5e820c"}
+: ** TODO Develop schedule
+:
+: * TODO Execute plan
+:
+: ```
+:
+: Using GNU Emacs 24.4.1 (x86_64-apple-darwin14.1.0, NS apple-appkit-1344.72), with the builitin org
+: org-trello 20150509.627
+** CLOSED 0.6.9.6
+:PROPERTIES:
+:id:       264
+:date-modification: 2015-05-24T13:28:02+0200
+:date-creation: 2015-05-24T13:26:08+0200
+:author:   "ardumont"
+:END:
+: - [X] Create backlog
+: - [X] Update version
+: - [X] Fix #261 - Modifying/Adding labels ok, removing labels completely ko
+: - [X] Fix #262 - Mix between user ids and user name when assigning card
+: - [X] Release notes
+** CLOSED Mix between user id and user name when assigning card
+:PROPERTIES:
+:tags:     ("bug" "Fixed" "next-release")
+:id:       262
+:date-modification: 2015-05-24T13:28:02+0200
+:date-creation: 2015-05-22T10:44:20+0200
+:author:   "ardumont"
+:END:
+: We have both user name and user ids in the card properties.
+: We should only have user names (for people to be able to read it).
+:
+: There surely is a mix between sync-from and sync-to routines.
+** CLOSED Modifying/Adding labels works, but cannot remove label once added
+:PROPERTIES:
+:tags:     ("bug" "Fixed" "next-release")
+:id:       261
+:date-modification: 2015-05-24T13:28:02+0200
+:date-creation: 2015-05-19T11:54:59+0200
+:author:   "ardumont"
+:END:
+: When removing a label and synchronizing to trello, the label removal does not work.
+** CLOSED Doesn't work well with Evil
+:PROPERTIES:
+:tags:     ("need-feedback")
+:id:       251
+:date-modification: 2015-05-15T23:58:45+0200
+:date-creation: 2015-04-29T07:04:11+0200
+:author:   "erahhal"
+:END:
+: Example:
+:
+: With standard emacs keybindings, ctrl-e takes you to the end of the visible line, but not past the metadata, so you can insert text without corrupting anything.
+:
+: In Evil mode, if you type "A" to add to the end of the line, it will add past the metadata, breaking the structure of the file.
+** CLOSED 0.6.9.5
+:PROPERTIES:
+:id:       257
+:date-modification: 2015-05-09T15:27:53+0200
+:date-creation: 2015-05-09T15:24:12+0200
+:author:   "ardumont"
+:END:
+: - [X] Create backlog
+: - [X] Update version
+: - [X] Fix marmalade's release.sh script
+: - [X] Fix #255 regarding the org tags/trello labels
+: - [X] Release notes
+** CLOSED Labels/tags synchronization from trello not always working
+:PROPERTIES:
+:tags:     ("investigate")
+:id:       255
+:date-modification: 2015-05-09T15:27:52+0200
+:date-creation: 2015-05-07T10:49:50+0200
+:author:   "ardumont"
+:END:
+: It appears that labels seems to not be synchronized with the routine `C-u M-x org-trello/sync-buffer`.
+:
+: *Note* They are synchronized ok with the routine `C-u M-x org-trello/sync-card`.
+** CLOSED Automatically enable org-trello for .trello files
+:PROPERTIES:
+:id:       249
+:date-modification: 2015-05-05T21:52:56+0200
+:date-creation: 2015-04-26T15:35:19+0200
+:author:   "wesleyhall"
+:END:
+: Hey folks,
+:
+: Wondering if the above is possible. It might just be some elisp but maybe somebody can help me with it.
+:
+: I have seen the variable for setting a list of fixed filenames, but it seems to me to make more sense to configure a file extension to use for trello board files.
+** CLOSED 0.6.9.4
+:PROPERTIES:
+:id:       253
+:date-modification: 2015-05-05T21:46:18+0200
+:date-creation: 2015-05-05T21:25:42+0200
+:author:   "ardumont"
+:END:
+: - [X] Update version
+: - [X] Fix https://github.com/org-trello/org-trello/issues/252
+: - [X] Release notes
+** CLOSED (wrong-type-argument hash-table-p nil) error when opening a org-mode file with org-trello active
+:PROPERTIES:
+:tags:     ("bug" "investigate" "need-feedback")
+:id:       252
+:date-modification: 2015-05-05T21:46:18+0200
+:date-creation: 2015-05-05T15:00:41+0200
+:author:   "ckruse"
+:END:
+: After the first sync (via `C-u C-c o s`) I get constantly this error whenever I open the file:
+:
+: ~~~
+: Debugger entered--Lisp error: (wrong-type-argument hash-table-p nil)
+:   gethash("orgtrello-user-christiankruse" nil)
+:   #[(it) "\303\304\305	#\n\"\207" [*ORGTRELLO/USER-PREFIX* it *ORGTRELLO/HMAP-USERS-NAME-ID* gethash format "%s%s"] 5]("christiankruse")
+:   mapcar(#[(it) "\303\304\305	#\n\"\207" [*ORGTRELLO/USER-PREFIX* it *ORGTRELLO/HMAP-USERS-NAME-ID* gethash format "%s%s"] 5] ("christiankruse" "performer" "matthiasapsel" "1unitedpower"))
+:   orgtrello-buffer/--user-ids-assigned-to-current-card()
+:   orgtrello-buffer/entity-metadata!()
+:   orgtrello-buffer/entry-get-full-metadata!()
+:   #[nil "\302\303\304 !!\211\205 \305	\306 \")\207" [card-description *ORGTRELLO-BUFFER/INDENT-DESCRIPTION* orgtrello-data/entity-description orgtrello-data/current orgtrello-buffer/entry-get-full-metadata! orgtrello-buffer/indent-region! orgtrello-entity/card-metadata-region!] 4]()
+:   byte-code("\306\225\205 \307\310\311	\"*\312\225\205 \312\310\311	\"*\313\224\211b\210\314\315 !\316 89:
+: 9:
+: Y\203X \317:;\"\211<\203O \320<;\";:S\211:\2026 \203i \321\322\"
+: B;B;=\203{ \323\324\325\326\327;!\"\"\202| \211>?=\203\225 ;@\325\330;\211@A\262\"\241\210\203\270 =\203\270 =\331=\203\252 @\203\270 ;@\332;\211@A\262!\241\210A\203\304 \nB\235\203\223\331\211CD\333E!*\203\223F\334=\204\334 \335 \210A\203\362 \nB\235\203\223G\203\362 \336 \204\223F\334=\203H\203\337 \203\313\225\203\340\306\224\306\225\"\210\341\342!\210\202\207F\343=\203i\344\345I\346=\203.\347
+: S\350\"\202/\345\337 P
+: 8>%J\351J!0\fb\210\352 K\353JL\354K\355K\3568\357\n\3600\361\362&\210JMBM\202\207\363F!\203\203\310N\212F \211OMBM)\202\207\364\365!\210I\204\223\366\331!\210\367u\210\310\207" [string num todo tags lspos level 1 2 nil match-string-no-properties 4 0 org-reduced-level org-outline-level org-get-category assoc delete org-split-string ":" apply append mapcar cdr reverse #[(x) "\301!\302!\207" [x copy-sequence org-add-prop-inherited] 2] t org-remove-uninherited-tags eval sparse-tree org-agenda-skip org-agenda-check-for-timestamp-as-reason-to-ignore-todo-item org-get-heading org-highlight-new-match org-show-context tags-tree agenda org-agenda-format-item "" indented make-string 46 org-get-priority org-agenda-new-marker org-add-props org-marker org-hd-marker org-category todo-state priority type ...] 16)
+:   org-scan-tags(#[nil "\302\303\304 !!\211\205 \305	\306 \")\207" [card-description *ORGTRELLO-BUFFER/INDENT-DESCRIPTION* orgtrello-data/entity-description orgtrello-data/current orgtrello-buffer/entry-get-full-metadata! orgtrello-buffer/indent-region! orgtrello-entity/card-metadata-region!] 4] t nil nil)
+:   org-map-entries(#[nil "\302\303\304 !!\211\205 \305	\306 \")\207" [card-description *ORGTRELLO-BUFFER/INDENT-DESCRIPTION* orgtrello-data/entity-description orgtrello-data/current orgtrello-buffer/entry-get-full-metadata! orgtrello-buffer/indent-region! orgtrello-entity/card-metadata-region!] 4] nil nil comment)
+:   orgtrello-buffer/org-map-entries(#[nil "\302\303\304 !!\211\205 \305	\306 \")\207" [card-description *ORGTRELLO-BUFFER/INDENT-DESCRIPTION* orgtrello-data/entity-description orgtrello-data/current orgtrello-buffer/entry-get-full-metadata! orgtrello-buffer/indent-region! orgtrello-entity/card-metadata-region!] 4])
+:   orgtrello-buffer/indent-card-descriptions!()
+:   orgtrello-controller/prepare-buffer!()
+:   orgtrello-controller/mode-on-hook-fn()
+:   run-hooks(org-trello-mode-hook org-trello-mode-on-hook)
+:   org-trello-mode()
+:   #[nil "\301\302\"\205	 \303 \207" [org-trello-files -any\? #[(name) "\302!	\230\207" [name buffer-file-name expand-file-name] 2] org-trello-mode] 3]()
+:   run-hooks(change-major-mode-after-body-hook text-mode-hook outline-mode-hook org-mode-hook)
+:   apply(run-hooks (change-major-mode-after-body-hook text-mode-hook outline-mode-hook org-mode-hook))
+:   run-mode-hooks(org-mode-hook)
+:   org-mode()
+:   set-auto-mode-0(org-mode nil)
+:   set-auto-mode()
+:   normal-mode(t)
+:   after-find-file(nil nil t nil nil)
+:   revert-buffer--default(t nil)
+:   revert-buffer(t)
+:   #<subr call-interactively>(revert-buffer nil nil)
+:   ad-Advice-call-interactively(#<subr call-interactively> revert-buffer nil nil)
+:   apply(ad-Advice-call-interactively #<subr call-interactively> (revert-buffer nil nil))
+:   call-interactively(revert-buffer nil nil)
+:   command-execute(revert-buffer)
+: ~~~
+:
+: `org-trello.el` says:
+:
+: ~~~
+: ;; Author: Antoine R. Dumont <eniotna.t AT gmail.com>
+: ;; Maintainer: Antoine R. Dumont <eniotna.t AT gmail.com>
+: ;; Version: 0.6.9.3
+: ;; Package-Requires: ((emacs "24") (dash "2.8.0") (s "1.9.0") (deferred "0.3.2") (request-deferred "0.2.0"))
+: ;; Keywords: org-mode trello sync org-trello
+: ;; URL: https://github.com/org-trello/org-trello
+: ~~~
+:
+: Am I doing something wrong?
+** CLOSED Display only tasks when user is assigned?
+:PROPERTIES:
+:id:       244
+:date-modification: 2015-04-15T10:05:01+0200
+:date-creation: 2015-04-06T17:21:18+0200
+:author:   "Distopico"
+:END:
+: It is possible display tasks by specific user, showing only tasks when user is assigned?
+:
+: Thanks.
+** CLOSED Not listed on Melpa?
+:PROPERTIES:
+:id:       247
+:date-modification: 2015-04-14T09:01:14+0200
+:date-creation: 2015-04-13T23:21:32+0200
+:author:   "fullofcaffeine"
+:END:
+: I was using an old version from Marmelade, but looks like org-trello is not listed on Melpa nor Melpa-stable, here's the list fetched by ```package-list-packages``` for Melpa:
+:
+: http://pastie.org/10090647
+:
+: Why?
+** CLOSED REQUEST [error] Error from parser orgtrello-query/--http-parse: (void-function -when-let)
+:PROPERTIES:
+:id:       246
+:date-modification: 2015-04-14T00:21:58+0200
+:date-creation: 2015-04-13T23:05:54+0200
+:author:   "fullofcaffeine"
+:END:
+: I've got this error when running authenticating with org-trello using ```org-trello/install-key-and-token``` and later when calling ```org-trello/install-board-and-lists-ids```, both run but then fail. I can't tell if org-trello really could go through the whole OAuth flow here, but right now it's unusable because of this error.
+:
+: Any ideas?
+** CLOSED 0.6.9.3
+:PROPERTIES:
+:id:       243
+:date-modification: 2015-03-19T19:04:27+0100
+:date-creation: 2015-03-19T18:27:03+0100
+:author:   "ardumont"
+:END:
+: - [X] Create backlog
+: - [X] Update version
+: - [X] Problem in first comment point computation - Close #242
+: - [X] Release notes
+** CLOSED fresh install, bad indentation after sync-from-trello
+:PROPERTIES:
+:tags:     ("bug")
+:id:       242
+:date-modification: 2015-03-19T19:02:56+0100
+:date-creation: 2015-03-05T16:42:40+0100
+:author:   "ptitjano"
+:END:
+: Hi,
+:
+: I have just installed org-trello from melpa following the documentation.
+: When i try to import a board into a new org file (C-u C-c o s), the cards are imported but the indentation of the cards is broken. For example:
+:
+: ```txt
+: * Basics Welcome to Trello!
+:   :PROPERTIES...
+:
+:   * Basics This is a card.
+:     :PROPERTIES...
+: ```
+:
+: I got two spaces before the second card and the next ones.
+: I'm using emacs 24.4.1 with org-mode 8.2.10
+: org-trello comes from melpa (v 20150208)
+:
+: Steps to reproduce:
+: 1. Open a new org file and load org-trello-mode
+: 2. Connect the buffer to a board: C-c o I and choose "Welcome Board"
+: 3. Sync from trello: C-u C-c o s
+** CLOSED [emacs 25] Some sync command hangs in latest emacs
+:PROPERTIES:
+:tags:     ("investigate" "next-release")
+:id:       230
+:date-modification: 2015-02-11T14:32:55+0100
+:date-creation: 2015-01-02T16:04:57+0100
+:author:   "gambhiro"
+:END:
+: Awesome project!
+:
+: When I first installed `org-trello`, my emacs was installed from the [ubuntu emacs list](https://launchpad.net/~ubuntu-elisp/+archive/ubuntu/ppa) snapshots, which now installs emacs 25.
+:
+: I could complete the setup process (consumer key and token), but when calling org-trello commands to sync, it would most often just hang, and I'd have to kill and restart emacs. Very strange, occasionally it would work, but I couldn't find out when.
+:
+: Then I installed emacs 24.4.1 from source and now it works well.
+** CLOSED org heading structure breaks after 1st comment in org-mode 8.3beta
+:PROPERTIES:
+:tags:     ("bug" "investigate" "next-release")
+:id:       232
+:date-modification: 2015-02-09T12:56:04+0100
+:date-creation: 2015-01-04T18:46:45+0100
+:author:   "emelin"
+:END:
+: !!!! Thank you so much for the extended comment support (#227) !!!!
+:
+: It works like a charm!
+:
+: The only unfortunate thing is, that I need to work with org-mode 8.3beta and there the heading structure breaks after the first comment.
+:
+: I guess this happens due to an text overlay problem since this issue only occurs, if org-trello-mode is switched on.
+:
+: I hope this is not a big thing issue. Maybe you would want to take a look at this, before the soon upcoming release of org-mode 8.3.
+:
+: Here is the reproducible symptom in detail:
+:
+: 0) Switch to org-mode version 8.3beta.
+: 1) Create a new trello board (on trello) with one card and add a comment.
+: 2) Create a second comment or another card.
+: 2) C-c o I  and  C-u C-c o s  in order to sync the whole board.
+: 3) The org-buffer looks perfect, but as soon as I save it (C-x C-s) everything below the first comment appears as text and the stars of all following headlines are not color-coded anymore. As a result, if I want to sync the buffer back to trello, the whole board will be messed up completely.
+: 4) Crosscheck: When reverting the buffer (state before saving) and switching off org-trello-mode then saving the buffer works perfectly.
+** CLOSED bad *ORGTRELLO/CONFIG-FILE* on Windows
+:PROPERTIES:
+:tags:     ("enhancement" "next-release")
+:id:       237
+:date-modification: 2015-02-09T12:55:48+0100
+:date-creation: 2015-02-04T16:40:13+0100
+:author:   "VladimirAlexiev"
+:END:
+: I'm on Windows7, cygwin, and use https://sourceforge.net/projects/emacsbinw64 (25.0.50.1, mingw build).
+: After installing the keys, when I try org-trello/install-board-metadata, I get this error:
+: ~~~~
+: Debugger entered--Lisp error: (file-error "Cannot open load file" "No such file or directory" "/.trello/config.el")
+:   load("c:\\my\\/.trello/config.el")
+:   orgtrello-controller/load-keys!(nil)
+: ~~~~
+: I have `~/.trello/config.el` which is also accessible as `c:/my/.trello/config.el` and `c:\my\.trello\config.el` , but not by the name written above. The two slashes `\\/` remove everything before them, so load loogs for `/.trello/config.el` and doesn't find it
+:
+: The problem is in org-trello-setup.el:
+: ```
+: (defconst *ORGTRELLO/CONFIG-DIR*
+:   (concat (getenv "HOME") "/" ".trello"))
+: ```
+: Why not just use `~/.trello` for this?
+:
+: PS: excuse me, but the `*STARRED-UPPERCASE*` constant names go against Emacs doctrine.
+** CLOSED 0.6.9.2
+:PROPERTIES:
+:id:       241
+:date-modification: 2015-02-08T19:28:45+0100
+:date-creation: 2015-02-08T19:21:07+0100
+:author:   "ardumont"
+:END:
+: - [X] Update version
+: - [X] Clean dead code regarding old comments system
+: - [X] Fix bug regarding comments indentation (breaking org rendering)
+: - [X] Fix bug regarding empty card and next card indentation (breaking org rendering)
+: - [X] Fix compile log warning about orgtrello-buffer depending on orgtrello-controller (wrong)
+: - [X] Update README-dev.md
+: - [X] Release notes
+** CLOSED 0.6.9.1
+:PROPERTIES:
+:id:       236
+:date-modification: 2015-01-27T19:13:55+0100
+:date-creation: 2015-01-27T19:02:04+0100
+:author:   "ardumont"
+:END:
+: - [X] Create backlog
+: - [X] Update version
+: - [X] Fix region computation problem regarding comments - https://github.com/org-trello/org-trello/issues/232
+: - [X] Release notes
+** CLOSED org-trello 0.6.8 does not synchronize either way
+:PROPERTIES:
+:id:       234
+:date-modification: 2015-01-24T21:29:54+0100
+:date-creation: 2015-01-24T18:32:52+0100
+:author:   "gracjan"
+:END:
+: org-trello/version = 0.6.8
+:
+: What works:
+: 1. Install existing board
+: 2. Create a new board
+:
+: What does not work:
+: 1. C-u C-c o s - update
+: 2. C-c o d - check
+:
+: Both end with not very useful:
+:
+: ```txt
+: org-trello - List of errors:
+:  - Setup problem.
+: Either you did not connect your org-mode buffer with a trello board, to correct this:
+:   * attach to a board through C-c o I or M-x org-trello/install-board-metadata
+:   * or create a board from scratch with C-c o b or M-x org-trello/create-board-and-install-metadata).
+: Either your org-mode's todo keyword list and your trello board lists are not named the same way (which they must).
+: For this, connect to trello and rename your board's list according to your org-mode's todo list.
+: Also, you can specify on your org-mode buffer the todo list you want to work with, for example: #+TODO: TODO DOING | DONE FAIL (hit C-c C-c to refresh the setup)
+: ```
+:
+: The Messages buffer does not seem to contain anything useful, even though my org-trello/trace is at level 5.
+:
+: How to debug this?
+** CLOSED 0.6.9
+:PROPERTIES:
+:id:       235
+:date-modification: 2015-01-24T21:17:38+0100
+:date-creation: 2015-01-24T21:15:33+0100
+:author:   "ardumont"
+:END:
+: - [X] Create backlog
+: - [X] Update version
+: - [X] Fix #+property keyword to #+PROPERTY - CLOSE https://github.com/org-trello/org-trello/issues/234
+: - [X] Fix missing line on future org-mode 8.3 - CLOSE https://github.com/org-trello/org-trello/issues/232
+: - [X] Release notes
+** CLOSED create-board-and-install-metadata gives error 60
+:PROPERTIES:
+:tags:     ("investigate" "need-feedback" "need-reproduction" "potential-setup-problem")
+:id:       231
+:date-modification: 2015-01-12T19:38:51+0100
+:date-creation: 2015-01-03T01:33:04+0100
+:author:   "kaushalmodi"
+:END:
+: Hi,
+:
+: I finished the org-trello and trello.com authorization process which finishes with entering the token.
+:
+: Then I created a new empty .org file and added the below to it
+: <pre>
+: #+TODO: TODO DOING | DONE FAIL
+: </pre>
+:
+: Then I did the following:
+: 1. `M-x org-trello-mode`
+: 2. `C-c o b`
+:
+: and get this error:
+: <pre>
+: org-trello - Create board and lists...
+: Loading /home/kmodi/.trello/config.el (source)...done
+: org-trello - client - Problem during request - error-thrown: (error . exited abnormally with code 60
+: )
+: </pre>
+:
+: `C-c o I` also gives the same error:
+: <pre>
+: org-trello - client - Problem during request - error-thrown: (error . exited abnormally with code 60
+: )
+: </pre>
+** CLOSED Add script to release to marmalade
+:PROPERTIES:
+:id:       229
+:date-modification: 2014-12-30T10:44:00+0100
+:date-creation: 2014-12-30T10:43:52+0100
+:author:   "ardumont"
+:END:
+: (based on
+: https://github.com/nicferrier/emacs-marmalade-upload/blob/master/shell-script)
+** CLOSED The TLS connection to api.trello.com:443 is insecure
+:PROPERTIES:
+:tags:     ("need-feedback" "need-reproduction" "potential-setup-problem")
+:id:       228
+:date-modification: 2014-12-30T10:05:30+0100
+:date-creation: 2014-12-27T10:30:47+0100
+:author:   "kinghom"
+:END:
+: I ran the command **org-trello/install-key-and-token** successfully, but when I ran **org-trello/install-board-metadata** , I got the following message in  a "Network Security Manager" buffer, I want to know what I did wrong, Thank you!
+:
+: ```
+: Certificate information
+: Issued by:          DigiCert SHA2 Secure Server CA
+: Issued to:          Trello Inc.
+: Hostname:           *.trello.com
+: Public key:         RSA, signature: RSA-SHA256
+: Protocol:           TLS1.2, key: ECDHE-RSA, cipher: AES-256-GCM, mac: AEAD
+: Security level:     Medium
+: Valid:              From 2014-08-19 to 2017-08-23
+:
+:
+: The TLS connection to api.trello.com:443 is insecure for the following
+: reasons:
+:
+: certificate signer was not found (self-signed)
+: certificate could not be verified
+: ```
+** CLOSED 0.6.8
+:PROPERTIES:
+:id:       227
+:date-modification: 2014-12-13T12:27:02+0100
+:date-creation: 2014-12-13T12:24:50+0100
+:author:   "ardumont"
+:END:
+: - [X] Create backlog
+: - [X] Update version
+: - [X] Edit comment direct in buffer - CLOSE https://github.com/org-trello/org-trello/issues/221
+: - [X] Open binding `C-c o U` for `sync a comment` action
+: - [X] Release notes
+** CLOSED Edit existing comment
+:PROPERTIES:
+:tags:     ("enhancement")
+:id:       221
+:date-modification: 2014-12-13T12:27:02+0100
+:date-creation: 2014-12-07T17:10:48+0100
+:author:   "ardumont"
+:END:
+: As a user, I'd like to be able to edit already existing comments.
+:
+: Depends on #218
+** CLOSED Improve comment creation
+:PROPERTIES:
+:id:       225
+:date-modification: 2014-12-11T22:07:51+0100
+:date-creation: 2014-12-11T21:23:19+0100
+:author:   "ardumont"
+:END:
+: As a user, I'd like to be able to easily input a comment (with multiline).
+** CLOSED 0.6.7
+:PROPERTIES:
+:id:       226
+:date-modification: 2014-12-11T22:06:15+0100
+:date-creation: 2014-12-11T21:54:28+0100
+:author:   "ardumont"
+:END:
+: - [X] Create backlog
+: - [X] Update version
+: - [X] Improve/Refactor the comment deletion
+: - [X] Fix `orgtrello-buffer/pop-up-with-content!`
+: - [X] Improve comment creation - CLOSE https://github.com/org-trello/org-trello/issues/222 [2/2]
+:   - [X] Add checksum to the comments
+:   - [X] Improve comment creation
+: - [X] Release notes
+** CLOSED Fix typo
+:PROPERTIES:
+:id:       224
+:date-modification: 2014-12-10T19:11:07+0100
+:date-creation: 2014-12-10T19:10:18+0100
+:author:   "ardumont"
+:END:
+: Typo in last release, this fixes it.
+** CLOSED 0.6.6
+:PROPERTIES:
+:id:       223
+:date-modification: 2014-12-09T07:49:26+0100
+:date-creation: 2014-12-09T00:24:36+0100
+:author:   "ardumont"
+:END:
+: - [X] Create backlog
+: - [X] Update version
+: - [X] Delete comments - CLOSE https://github.com/org-trello/org-trello/issues/222
+: - [X] Clean no longer used show comments commands + install the delete comment command
+: - [X] Release notes
+** CLOSED Delete comments
+:PROPERTIES:
+:tags:     ("enhancement")
+:id:       222
+:date-modification: 2014-12-09T07:49:26+0100
+:date-creation: 2014-12-07T17:14:06+0100
+:author:   "ardumont"
+:END:
+: As a user, I'd like to be able to clean obsolete comments.
+:
+: Depends on #218
+** CLOSED Format user's comments in a readable format
+:PROPERTIES:
+:tags:     ("enhancement")
+:id:       218
+:date-modification: 2014-12-07T17:57:28+0100
+:date-creation: 2014-11-14T09:10:11+0100
+:author:   "defanor"
+:END:
+: The current comments implementation is not particularly handy for reading or writing long comments, and is a bit buggy when it comes to multiline ones: they get truncated on reading. In order to improve it, as well as provide a way to edit/delete comments, similar to the one that is used for cards themselves, they could be changed to something like this, using second-level headings:
+: ```
+: * <category> <card title>
+:   :PROPERTIES:...
+:
+:   <card description>
+: ** <user>, <date>
+:    <comment text>
+: ```
+** CLOSED 0.6.5
+:PROPERTIES:
+:id:       220
+:date-modification: 2014-12-07T17:38:08+0100
+:date-creation: 2014-12-06T16:45:39+0100
+:author:   "ardumont"
+:END:
+: - [X] Create backlog
+: - [X] Update version
+: - [X] Maintenance - Revert tests back to ert-deftest to have more explicit error outputs
+: - [X] Fix unit tests
+: - [X] Fix CI which does not break when failure or error.
+: - [X] Format user's comments in a readable format - https://github.com/org-trello/org-trello/issues/218 [2/2]
+:   - [X] Update the comment's format according to https://github.com/org-trello/org-trello/issues/218#issue-48750430
+:   - [X] Update the `org-trello/add-card-comments` command to improve creating comment
+: - [X] Release notes
+** CLOSED Comments and synchronization
+:PROPERTIES:
+:id:       217
+:date-modification: 2014-11-14T10:42:07+0100
+:date-creation: 2014-11-14T07:04:04+0100
+:author:   "defanor"
+:END:
+: Hello.
+: First of all, I'm new to Trello, and chances are that the problems described below shouldn't even appear with the intended workflow. Yet Trello allows such situations to appear.
+:
+: The first problem I've ran into was about multiline comments: they are truncated after the first line break when trying to read (`C-u C-c o C`), and it's not nice to write them in the minibuffer. Neither it is nice to write long comments there, nor to read relatively long conversations, and there's no way to edit/delete the comments. Probably it all could be solved by adding comments under second-level headlines, like this:
+: ```
+: * <category> <card title>
+:   :PROPERTIES:...
+:
+:   <card description>
+: ** <user>, <date>
+:    <comment text>
+: ```
+:
+: The second one is about synchronization: with relatively active conversations in comments, it becomes hard to look for new ones, and to follow those conversations, while synchronization reloads the whole buffer, folds headings, and does not mark cards with new comments. Probably it'd be tricky to solve all that in org-mode, but that would make it more suitable for such a workflow. Also, automatic synchronization with notifications on the mode line would be useful, too.
+:
+: Both issues come from trying to use Trello as an issue tracker, I guess, but if it is doable, makes sense, and could be useful for other users, we could discuss how to do it.
+** CLOSED Update ci-travis
+:PROPERTIES:
+:id:       216
+:date-modification: 2014-11-11T17:29:42+0100
+:date-creation: 2014-11-11T17:20:33+0100
+:author:   "ardumont"
+:END:
+: - deactivate bad targets
+: - add latest emacs version 24.4
+** CLOSED 0.6.4
+:PROPERTIES:
+:id:       215
+:date-modification: 2014-11-04T23:46:58+0100
+:date-creation: 2014-10-30T18:33:11+0100
+:author:   "ardumont"
+:END:
+: - [X] Minor change to allow abbreviated file path - https://github.com/org-trello/org-trello/pull/213
+: - [X] Update version
+: - [X] Move file list functionality to org-trello.el - CLOSE https://github.com/org-trello/org-trello/issues/214
+: - [X] Add ;;;### autoload for the org-trello's default commands
+: - [X] Release notes
+** CLOSED File list functionality requires org-trello setup
+:PROPERTIES:
+:id:       214
+:date-modification: 2014-11-04T23:46:58+0100
+:date-creation: 2014-10-21T05:42:03+0200
+:author:   "sutram"
+:END:
+: This is most likely a documentation improvement for new functionality related to #210 .
+: Since org-trello-setup now has an org-mode-hook that has to be executed **before** an org-trello buffer gets loaded, at a very minimum, there is a need to do a
+: ```lisp
+: (require 'org-trello-setup)
+: ```
+:  somewhere in the emacs init file
+:
+: Thanks
+** CLOSED Enable org-trello mode automatically for certain files
+:PROPERTIES:
+:tags:     ("feature-request")
+:id:       210
+:date-modification: 2014-10-20T10:28:35+0200
+:date-creation: 2014-10-16T21:16:03+0200
+:author:   "sutram"
+:END:
+: Would it be possible to automatically enable org-trello mode for certain files? For example, something similar already exists within org-agenda where I can specify the files that org-agenda cares about like this:
+:
+: ```lisp
+: (setq org-agenda-files (quote ("~/Dropbox/Org/gtd.org" "~/Dropbox/Org/notes.org")))
+: ```
+:
+: Thanks
+** CLOSED Minor change to allow abbreviated file path
+:PROPERTIES:
+:id:       213
+:date-modification: 2014-10-20T10:25:27+0200
+:date-creation: 2014-10-19T22:08:41+0200
+:author:   "sutram"
+:END:
+: Hello this enhances #210 to allow abbreviated file paths like "~/Dropbox/trello-file.org" in addition to the canonical path like "/home/sutram/Dropbox/trello-file.org"
+** CLOSED org-trello changes default tree indentation
+:PROPERTIES:
+:tags:     ("need-feedback")
+:id:       209
+:date-modification: 2014-10-19T19:50:42+0200
+:date-creation: 2014-10-08T20:12:55+0200
+:author:   "sutram"
+:END:
+: I would love to be able to test org-trello since I recently started using trello but unfortunately, I can't, because it seems that org-trello automatically changes default org tree indentation rendering the tree useless to view in (for example) the org agenda.
+: This is with org-20141006 and org-trello-20141004.218 from MELPA.
+:
+: Steps to reproduce (once org-trello is enabled) are simple for me:
+: 1) Create a test.org file
+: 2) Start creating structure like this:
+: *abc
+: **def
+: 3) Save the file. The org file now automatically changes to
+: *abc
+: __**def
+: Notice the change in indentation for "**def"
+:
+: Without org-trello enabled, the file is saved as is without changing indentation.
+:
+: Thanks.
+** CLOSED 0.6.3
+:PROPERTIES:
+:id:       212
+:date-modification: 2014-10-19T19:30:31+0200
+:date-creation: 2014-10-19T19:26:52+0200
+:author:   "ardumont"
+:END:
+: - [X] Update version
+: - [X] Enable org-trello mode automatically for certain files - https://github.com/org-trello/org-trello/issues/210
+: - [X] Release notes
+** CLOSED Sync behaves erratically
+:PROPERTIES:
+:tags:     ("setup-problem")
+:id:       201
+:date-modification: 2014-10-15T19:09:46+0200
+:date-creation: 2014-09-13T11:47:01+0200
+:author:   "rbuchmann"
+:END:
+: I just started using org-trello, was very happy when I found it!
+:
+: However, things don't work the way I expected them too.
+: API Setup and Metadata install works fine (I think)
+:
+: * When I sync from trello several times with C-u C-c os, the Cards multiply (Not exactly duplicate, interestingly enough). This happens reproducibly every time
+: * Sometimes, after synching, I have only the entries in my file, without the Properties. I tried to reproduce it, but I don't know how exactly it happens yet. It appears to happen in conjunction with synching to trello only.
+: * If I sync a card without Properties like described above, a new one is created, which is probaby to be expected
+: * It wouldn't delete cards for me, but maybe that was an entry without Properties too. I can't seem to reproduce it now.
+:
+: I'm on archlinux, emacs 24.3.1 and org-trello 20140906.158.
+** CLOSED install-board-metadata and create-board problem
+:PROPERTIES:
+:tags:     ("investigate" "need-reproduction")
+:id:       206
+:date-modification: 2014-10-11T14:26:35+0200
+:date-creation: 2014-09-27T11:08:27+0200
+:author:   "trenkert"
+:END:
+: Although install-key-and-token was successful, and trello asked me to confirm this, install-board-metadata does not work at all:
+:
+: The dialog "Input the number of the board desired" appears but without any options to choose a certain board number or any other possibility for completion.
+:
+: When I do create-board-and-install-metadata, I  get this error:
+:
+: org-trello - client - Problem during request - error-thrown: (error http 401)
+:
+: Despite this, org-trellos still seems to create columns according to the orgmode todo states like this:
+:
+: org-trello - Board id nil - Creating list 'WAITING'
+: org-trello - client - Problem during request - error-thrown: (error http 401)
+:
+: And org-trello then ends with this message:
+:
+: org-trello - Create board and lists done!
+:
+: But when I open up trello, there are no new boards.
+:
+: This happens on Emacs 24.3.1 and org-mode version 8.2.7c.
+** CLOSED Error . exited abnormally with code 35
+:PROPERTIES:
+:tags:     ("investigate" "need-reproduction")
+:id:       207
+:date-modification: 2014-10-07T11:07:16+0200
+:date-creation: 2014-09-30T08:21:29+0200
+:author:   "yottanami"
+:END:
+: After installation when I use ```M-x org-trello/install-board-metadata``` I got this message :
+:
+: ```
+: Loading /home/yottanami/.trello/config.el (source)...done
+: org-trello - client - Problem during request - error-thrown: (error . exited abnormally with code 35
+: )
+: org-trello - client - Problem during request - error-thrown: (error . exited abnormally with code 35
+: )
+: ```
+** CLOSED Synchronization problem
+:PROPERTIES:
+:tags:     ("need-reproduction" "setup-problem")
+:id:       183
+:date-modification: 2014-10-07T11:04:24+0200
+:date-creation: 2014-08-12T11:33:53+0200
+:author:   "gkirtzou"
+:END:
+: Hello,
+: I have a problem with synchronizing my org files to trello and vise-versa. At first I ran successfully the org-trello/install-key-and-token command and org-trello/install-board-and-lists-ids. But when I tried to create a new card and sync with the board I get the following error
+:
+: Contacting host: api.trello.com:443
+: REQUEST [error] Error from parser orgtrello-query/--http-parse: (json-readtable-error)
+: client - Problem during the sync request to the proxy- error-thrown: (json-readtable-error)
+:
+: I use the following
+: + emacs v24.3.1
+: + trello v0.4.8
+: + I have melpa, melpa-stable and marmalade packages, so I not sure from where org-trello is installed from.
+:
+: Any ideas what could be wrong? Thanks in advance.
+** CLOSED 0.6.2
+:PROPERTIES:
+:id:       208
+:date-modification: 2014-10-04T11:18:23+0200
+:date-creation: 2014-10-04T11:16:29+0200
+:author:   "ardumont"
+:END:
+: - [X] Backlog
+: - [X] Update version
+: - [X] Improve check connection to trello
+: - [X] Improve documentation about the org-trello setup
+: - [X] Release notes
+** CLOSED Cannot Input Board Number Because Board List Is Blank with 0.4.1 from MELPA
+:PROPERTIES:
+:tags:     ("investigate" "need-reproduction")
+:id:       156
+:date-modification: 2014-09-27T11:39:32+0200
+:date-creation: 2014-04-08T14:59:59+0200
+:author:   "ajstein"
+:END:
+: I am running an updated Arch Linux laptop with Emacs 24.3.1
+:
+: ```
+: [me@laptop ~]$ uname -a
+: Linux laptop 3.13.8-1-ARCH #1 SMP PREEMPT Tue Apr 1 12:19:51 CEST 2014 x86_64 GNU/Linux
+: [me@laptop ~]$ emacs --version
+: GNU Emacs 24.3.1
+: ```
+:
+: I configured elpa using the MELPA repo and after reading the documentation and the tickets, ran `package-install RET elnode RET` and then `package-install RET org-trello RET`.  I was able to successfully install.  However, after properly installed the key and token, I try the following procedure and it does not work.
+:
+: * Open emacs (emacsclient specifically, because I run emacs in  daemon mode, but restarting has not helped).
+: * Open a blank test file, `stuff.org`.
+: * Start org-trello-mode (`M-x org-trello-mode`)
+: * Confirm welcome startup message saying org-trello is running properly.
+: * Try to sync any board to this file.
+: * I see the prompt **Input the number of the board desired:**, but no list.
+:
+: Try this in tmux and the full GUI emacsclient with Gnome GUI has not resolved the issue.  As mentioned, restarting emacs has not solved the issue.  Any thoughts?
+: ![org-trello-boardlist-missing](https://cloud.githubusercontent.com/assets/170308/2643585/adac003e-bf1d-11e3-8cb5-8829cae8bb74.png)
+** CLOSED Improve sync request policy
+:PROPERTIES:
+:tags:     ("enhancement" "feature-request")
+:id:       58
+:date-modification: 2014-09-17T23:14:36+0200
+:date-creation: 2013-09-03T14:43:03+0200
+:author:   "ardumont"
+:END:
+: At the moment, every sync action is resolved through a trello request (resulting in too much notifications on trello board).
+: Reduce the number of trello requests.
+** CLOSED 0.6.1
+:PROPERTIES:
+:id:       205
+:date-modification: 2014-09-17T10:11:45+0200
+:date-creation: 2014-09-17T09:44:26+0200
+:author:   "ardumont"
+:END:
+: - [X] Update version
+: - [X] `Trello archived` cards are not archived on org-trello buffers - CLOSE https://github.com/org-trello/org-trello/issues/203
+: - [X] Release notes
+** CLOSED `Trello archived` cards are not archived on org-trello buffer
+:PROPERTIES:
+:tags:     ("investigate")
+:id:       203
+:date-modification: 2014-09-17T10:11:45+0200
+:date-creation: 2014-09-13T21:50:32+0200
+:author:   "ardumont"
+:END:
+: Ensure the [hypothesis](https://github.com/org-trello/org-trello/issues/201#issuecomment-55504762) is correct and if it is, fix.
+** CLOSED Checklists don't work for me - Improve checklist/item predicates
+:PROPERTIES:
+:tags:     ("enhancement")
+:id:       204
+:date-modification: 2014-09-14T19:03:34+0200
+:date-creation: 2014-09-13T23:27:32+0200
+:author:   "rbuchmann"
+:END:
+: While working on reproducing the issue from #201 , I tried to reproduce the example from your website with:
+: ```markdown
+: * foo
+: - [-] LISP
+:   - [X] Emacs-Lisp
+:   - [X] Common-Lisp
+:   - [ ] Scheme
+:   - [X] Clojure
+: ```
+: (Done in a new file, associated to a new board created with org-trello/create-foo)
+: This is the result:
+: ```markdown
+: * foo
+:   :PROPERTIES:
+:   :orgtrello-id: some-id
+:   :END:
+: - [-] LISP :PROPERTIES: {"orgtrello-id":"some-other-id"}
+: ```
+: The card on the server then has a checklist with two entries, "Common Lisp" and "Clojure".
+: I think this might be part of the reason why the problem in #201 happened, I updated it too.
+** CLOSED 0.6.0
+:PROPERTIES:
+:id:       202
+:date-modification: 2014-09-14T19:03:34+0200
+:date-creation: 2014-09-13T16:17:58+0200
+:author:   "ardumont"
+:END:
+: - [X] Refactor - Unify data structure between trello card and org-trello card
+: - [X] Refactor - Improve merge computations
+: - [X] Refactor - Remove some dead code
+: - [X] Update version
+: - [X] Improve sync request policy - [[https://github.com/org-trello/org-trello/issues/58]] [87%]
+:   - [X] 'Sync card to trello' syncs card only if local changes
+:   - [X] 'Sync card from trello' updates the card from trello and the local checksum signature
+:   - [X] 'Sync buffer from trello' updates the local card checksum
+:   - [X] 'Sync buffer to trello' syncs only card with local changes
+:   - [X] 'Delete entity' updates the checksum
+:   - [X] Extend the checksum system to the checkbox entities (checklist/item) - sync to trello
+:   - [X] Extend the checksum system to the checkbox entities (checklist/item) - sync from trello
+:   - [X] Update checksum computation depending on entities
+: - [X] `Checklists don't work for me` - It does work - Need to improve checklist and item predicates. - CLOSE https://github.com/org-trello/org-trello/issues/204
+:   - [X] Fix behavior
+:   - [X] Fix tests
+: - [X] Release notes
+** CLOSED Use custom variables instead of defvar
+:PROPERTIES:
+:tags:     ("enhancement")
+:id:       196
+:date-modification: 2014-09-06T10:58:59+0200
+:date-creation: 2014-08-29T14:35:11+0200
+:author:   "ardumont"
+:END:
+: Understand and use some more emacs' goodness.
+: https://www.gnu.org/software/emacs/manual/html_node/eintr/defcustom.html
+** CLOSED 0.5.9
+:PROPERTIES:
+:id:       200
+:date-modification: 2014-09-06T10:58:25+0200
+:date-creation: 2014-09-06T10:55:51+0200
+:author:   "ardumont"
+:END:
+: - [X] Backlog
+: - [X] Update version
+: - [X] Improve region card computation for sync card from trello.
+: - [X] Fix error on sync card from trello when nothing to sync.
+: - [X] Use defcustom instead of defvar for user customisation - CLOSE [[https://github.com/org-trello/org-trello/issues/196][#196]]
+: - [X] When not in card, explain why you cannot do the current action
+: - [X] Improve display of error when sync a card without title
+: - [X] Check package installation and fix what's needed
+: - [X] Release notes
+** CLOSED melpa-stable - Need package `request-deferred-0.2.0', but only 0.1.0 is available
+:PROPERTIES:
+:tags:     ("package-problem")
+:id:       195
+:date-modification: 2014-09-01T23:02:55+0200
+:date-creation: 2014-08-28T19:54:54+0200
+:author:   "darrylhebbes"
+:END:
+: No matter which install method I use, I cannot seem to load request-deferred-0.2.0.
+:
+: I tried all installation methods, Cask, Melpa
+:
+: Org-Trello v0.5.4
+: Emacs: GNU Emacs 24.3.1 (x86_64-apple-darwin13.3.0) of 2014-08-24  (OSX Mavericks)
+: Dependencies met so far: request-0.2.0, deferred-0.3.2
+:
+: Any suggestions
+** CLOSED 0.5.8
+:PROPERTIES:
+:id:       199
+:date-modification: 2014-09-01T23:00:12+0200
+:date-creation: 2014-09-01T22:55:09+0200
+:author:   "ardumont"
+:END:
+: - [X] Backlog
+: - [X] Update version
+: - [X] Add emacs24 dependencies - https://github.com/purcell/org-trello/commit/0fef27e83d5b1c68af03213354ddd97448c802d2 + http://www.gnu.org/software/emacs/manual/html_node/elisp/Library-Headers.html#Library-Headers + http://stackoverflow.com/questions/16805645/how-can-i-gracefully-drop-support-for-older-emacsen-in-my-elisp-package
+: - [X] Downgrade request dependency to 0.3.1 to make org-trello installation possible in melpa-stable (no answer from `request` maintainer) + https://github.com/org-trello/org-trello/issues/195
+: - [X] Release notes
+** CLOSED 0.5.7
+:PROPERTIES:
+:id:       198
+:date-modification: 2014-09-01T22:17:11+0200
+:date-creation: 2014-09-01T22:13:59+0200
+:author:   "ardumont"
+:END:
+: - [X] Backlog
+: - [X] Update version
+: - [X] Fix default keyword when not specified (trello list name) - [[https://github.com/org-trello/org-trello/issues/183][#183]]
+: - [X] Remove reference to proxy in log messages
+: - [X] Sync buffer from trello - Ignore errors when there is nothing to sort.
+: - [X] Sync buffer from trello - Fold buffer entries when done.
+: - [X] Fix bug on (orgtrello-entity/compute-card-region!)
+: - [X] Release notes
+** CLOSED 0.5.6
+:PROPERTIES:
+:id:       197
+:date-modification: 2014-08-31T13:51:13+0200
+:date-creation: 2014-08-31T13:48:31+0200
+:author:   "ardumont"
+:END:
+: - [X] backlog
+: - [X] Update version
+: - [X] Use save-excursion - save-restriction - narrow-to-region instead of using region
+: - [X] Fix behavior orgtrello-buffer/end-of-line! When going to end of line in checkbox, we need to do it twice, fix.
+: - [X] Small refactoring about overlays
+: - [X] Release notes
+** CLOSED Changes not reflected when syncing
+:PROPERTIES:
+:tags:     ("investigate" "need-reproduction" "setup-problem")
+:id:       180
+:date-modification: 2014-08-31T08:49:48+0200
+:date-creation: 2014-07-08T07:49:51+0200
+:author:   "e-calit"
+:END:
+: Given a default org-mode configuration, and a simple org file with this content :
+:
+: ```text
+: * TODO test1
+: ```
+:
+: when I try to create a new board called "test", or try the command "org-trello/sync-entity"
+: The lists "TODO" and "DONE" are created, but nothing is imported.
+: Here are some messages I came through during the process :
+:
+: ```text
+: org-trello/check-setup
+: Setup ok!
+:
+: OVERVIEW
+: Saving file /data/org/trello.org...
+: Wrote /data/org/trello.org
+: Making completion list...
+: Create board and lists...
+: Loading /Users/<myuser>/.trello/config.el (source)...done
+: Creating board 'test'
+: Closing default list with id 53bb8352a59bbf81a7e868e8
+: Closing default list with id 53bb8352a59bbf81a7e868e9
+: Closing default list with id 53bb8352a59bbf81a7e868ea
+: Board id 53bb8352a59bbf81a7e868e7 - Creating list 'DONE'
+: Board id 53bb8352a59bbf81a7e868e7 - Creating list 'TODO'
+: Saving file /data/org/trello.org...
+: Wrote /data/org/trello.org
+: (No changes need to be saved)
+: Create board and lists - done!
+:
+: Install boards and lists - done!
+: FOLDED
+: EMPTY ENTRY
+: Request 'sync entity to trello'...
+: Loading /Users/<myuser>/.trello/config.el (source)...done
+: Ensure you use utf-8 encoding for your org buffer.
+: Request 'sync entity to trello' - done!
+: ```
+:
+: GNU Emacs 24.3.1 (x86_64-apple-darwin, NS apple-appkit-1038.36) of 2013-03-13 on bob.porkrind.org
+:
+:
+: ------------------
+:
+: * I have also tried to fetch an existing board into a blank org-mode file. Here is the output message :
+:
+: ``` text
+: Saving file /data/org/club.org...
+: Wrote /data/org/club.org
+: (No changes need to be saved)
+: Install boards and lists - done!
+: Quit
+: Request 'sync org buffer from trello board'...
+: Loading /Users/<myuser>/.trello/config.el (source)...done
+: Ensure you use utf-8 encoding for your org buffer.
+: Synchronizing the trello board 'club' to the org-mode file. This may take a moment, some coffee may be a good idea...
+: Request 'sync org buffer from trello board' - done!
+: ```
+:
+: The "Synchronizing the trello board 'club' to the org-mode file" was lightening fast.
+:
+:
+: * So, every time, I have a very brief/fast message saying :
+: "Request 'sync ******' - done!"
+:
+: but nothing happens at all.
+** CLOSED 0.5.5
+:PROPERTIES:
+:id:       194
+:date-modification: 2014-08-28T18:21:58+0200
+:date-creation: 2014-08-28T16:02:50+0200
+:author:   "ardumont"
+:END:
+: - [X] Backlog
+: - [X] Update version
+: - [X] Update main github's readme to static link to the main documentation site.
+: - [X] Update bindings order to regroup them
+: - [X] Add bindings for archiving cards `C-c o A`
+: - [X] Remove old bindings `C-c o C` that synced the card.
+: - [X] Update bindings `C-c o A` to add comments to the card to `C-c o A`
+: - [X] Update bindings to show comments as `C-u C-c o A` and remove the old one `C-c o o`
+: - [X] Check everything is ok from test point of view
+: - [X] Fix Synchronization problem - #183
+: - [X] Some refactoring to reduce multiple buffer readings
+: - [X] Check package installation
+: - [X] Release notes
+** CLOSED Most actions not working
+:PROPERTIES:
+:tags:     ("bug")
+:id:       192
+:date-modification: 2014-08-28T15:43:35+0200
+:date-creation: 2014-08-27T08:32:12+0200
+:author:   "exlee"
+:END:
+: Hi, I am not able to set up anything besides installing access token. Any action I try ends up with `Symbol's value as variable is void: orgtrello-action/--execute controls.`
+:
+: No configuration has been made beyond installing and setting up setting up the token. Also - I had to install deferred manually, since required 0.3.2 version didn't exist - Emacs complained about it (I have 201408616.2205 installed).
+** CLOSED Caught exception: on org-trello-already-scanning.lock
+:PROPERTIES:
+:tags:     ("investigate" "need-reproduction" "setup-problem")
+:id:       186
+:date-modification: 2014-08-28T00:25:01+0200
+:date-creation: 2014-08-16T03:19:16+0200
+:author:   "stardiviner"
+:END:
+: ```
+: ### org-trello ### Caught exception: [(file-error Opening output file no such file or directory /home/stardiviner/.emacs.d/elnode/public_html/org-trello/org-trello-already-scanning.lock)]
+: ```
+:
+: I finished install key and token. when I execute `M-x org-trello/install-board-and-lists-ids`, then get this error.
+** CLOSED "Search failed" when trying to load org-trello-mode
+:PROPERTIES:
+:tags:     ("need-reproduction" "setup-problem")
+:id:       179
+:date-modification: 2014-08-28T00:22:44+0200
+:date-creation: 2014-06-23T19:41:27+0200
+:author:   "inuse"
+:END:
+: Up front I'll say this is under cygwin, so I understand if you say it's not possible
+:
+: I've installed latest org-trello from http://melpa-stable.milkbox.net/packages
+:
+: I've gotten the key and auth to work, but when I try to load the mode, I get
+:
+: "contacting host: localhost:9867",
+:
+: followed by:
+:
+: Search failed: "\\=[]*HTTP/\\([0-9\\.]+\\) +\\([0-9]+\\)"
+** CLOSED 0.5.4
+:PROPERTIES:
+:id:       193
+:date-modification: 2014-08-28T00:10:34+0200
+:date-creation: 2014-08-27T22:27:01+0200
+:author:   "ardumont"
+:END:
+: - [X] Backlog
+: - [X] Archive cards - CLOSE #181
+:   - [X] Open trello api about (un)archive card
+:   - [X] Refactor API to factorize behavior
+:   - [X] Install org-trello archive binding [100%]
+:     - [X] Archive card interactive command
+:     - [X] Ensure sync-from trello does not retrieve archive cards too
+:     - [X] Remap org's default archive binding `C-c $` to use org-trello's
+:     - [X] Functional checks before executing archive
+:     - [X] Add Archive DONE cards interactive command
+: - [X] Fix `Most actions not working` issue - CLOSE #192
+: - [X] Update version
+: - [X] Fix compilation warning(s)
+: - [X] Release notes
+** CLOSED Archive card.
+:PROPERTIES:
+:tags:     ("enhancement" "feature-request")
+:id:       181
+:date-modification: 2014-08-28T00:10:34+0200
+:date-creation: 2014-07-28T15:26:10+0200
+:author:   "Tritlo"
+:END:
+: Hey, is there an option of archiving cards, or archiving cards on deletion? I like to keep my old cards, so I can see what I did when. This would then function the same as a deletion in org-mode, but would archive the card on trello, rather than delete it.
+** CLOSED 0.5.3
+:PROPERTIES:
+:id:       191
+:date-modification: 2014-08-27T00:04:13+0200
+:date-creation: 2014-08-21T14:04:17+0200
+:author:   "ardumont"
+:END:
+: - [X] Backlog
+: - [X] Emacs blocks when sync - CLOSE #164 - Deferred the sync/delete actions [100%]
+:   - [X] Align execution of code regarding [100%]
+:     - [X] Sync to
+:     - [X] Sync from
+:     - [X] Delete
+:   - [X] Render the execution asynchronous [100%]
+:     - [X] Delete
+:     - [X] Sync card to trello
+:     - [X] Sync buffer to trello
+:     - [X] Sync card from trello
+:     - [X] Sync buffer from trello
+:   - [X] Fix alignment problem (sync a card from trello must enforce order on position)
+:   - [X] Remove dead code
+:   - [X] Refactor behavior between sync card and sync buffer [100%]
+:     - [X] Refactor behavior
+:     - [X] Refactor names
+:   - [X] Trigger save after sync action - cannot do this because all requests are asynchronous. So emacs will do it on his own.
+:   - [X] Caret must remain where it stands after `sync from card` action
+:   - [X] Fix - Keep the order when synchronizing the buffer
+:   - [X] Improve orgtrello-controller/do-install-key-and-token
+:   - [X] Improve org-trello/install-board-and-lists-ids [100%]
+:     - [X] Let trello do the filtering on listing the boards
+:     - [X] Resequence the actions and use parallel requests to improve speed
+:     - [X] Improve some more regarding the sequencing
+:   - [X] Improve org-trello/update-board-metadata [100%]
+:     - [X] Rework the sequencing
+:     - [X] Remove intermediary sync request
+:   - [X] Clean new dead code
+:   - [X] Improve orgtrello-controller/do-create-board-and-lists [100%]
+:     - [X] Rename org-trello/create-board to org-trello/create-board-and-install-metadata
+:     - [X] Resequence the trello requests
+:     - [X] Clean up some dead code
+: - [X] Fix caret movement problem (At the end of an action, the caret must be at the same position as before)
+: - [X] Improve logging system to prefix org-trello message with 'org-trello - '
+: - [X] Fix create board issue (regarding org keyword list + order + closing list)
+: - [X] Rename org-trello/install-board-and-lists to org-trello/install-board-metadata
+: - [X] Rename org-trello/jump-to-card to org-trello/jump-to-trello-card
+: - [X] Update package doc installation in org-trello.el
+: - [X] Check package dependencies and adapt them if need be
+: - [X] Fix problem with org-trello/end-of-line! when there is no org information at point
+: - [X] Update version
+: - [X] Release notes
+** CLOSED Blocking Emacs when syncs
+:PROPERTIES:
+:tags:     ("enhancement" "investigate")
+:id:       164
+:date-modification: 2014-08-27T00:04:13+0200
+:date-creation: 2014-05-11T17:14:37+0200
+:author:   "yangchenyun"
+:END:
+: I found the sync process is synchronous and blocking the whole emacs even for small syncs.
+** CLOSED Trello markup translation into Org markup and vice-versa
+:PROPERTIES:
+:tags:     ("feature-request")
+:id:       89
+:date-modification: 2014-08-24T15:28:26+0200
+:date-creation: 2013-11-24T06:31:44+0100
+:author:   "pinard"
+:END:
+: Hi, Antoine.
+:
+: Trello uses Markdown for markup, while Org uses its own markup.  They should be transformed into one another when synchronizing.
+:
+: Otherwise, Trello markup will not be rendered correctly by Emacs once the Trello text has been transferred in Org, and Trello will not render Org markup correctly either the other way around.
+:
+: FranÃ§ois
+** CLOSED Leverage elnode and clojurescript core.async
+:PROPERTIES:
+:tags:     ("POC")
+:id:       97
+:date-modification: 2014-08-24T14:29:39+0200
+:date-creation: 2013-11-30T17:01:05+0100
+:author:   "ardumont"
+:END:
+: pre-requisite:
+: - non emacs-lisp dependencies (from a dev point of view, I was really tempted to have a clojure server part to ease the dev but from a user point of view, I thought this was tedious)
+:
+: status:
+: - elnode is used as a proxy that executes the trello requests.
+: - clojurescript orchestrates clojure dsl code and compiles it into js code
+: - elnode is a web server (so it can serve static files including js)
+: - [core.async](https://github.com/clojure/core.async) - is "A Clojure library designed to provide facilities for async programming and communication."
+: - core.async can be used with clojurescript
+: - the webadmin part fetches the static code to serve the first time the call to the http://localhost:9876/proxy/admin webpage is loaded
+:
+: idea:
+: - delegates all trello requests through clojurescript code (using core.async for concurrency purposes)
+** CLOSED Investigate webhooks
+:PROPERTIES:
+:tags:     ("POC")
+:id:       137
+:date-modification: 2014-08-24T14:29:11+0200
+:date-creation: 2014-03-23T10:28:19+0100
+:author:   "ardumont"
+:END:
+: Basically, what I understood is it's trello which pushes updates.
+:
+: http://blog.trello.com/webhooks-are-here/
+: https://trello.com/docs/gettingstarted/webhooks.html
+: https://trello.com/docs/api/webhook/index.html
+** CLOSED 0.5.2 - Remove unnecessary bricks (proxy + webadmin)
+:PROPERTIES:
+:id:       190
+:date-modification: 2014-08-21T03:44:02+0200
+:date-creation: 2014-08-21T01:28:30+0200
+:author:   "ardumont"
+:END:
+: - [X] Remove org-trello's over engineered bricks (proxy, elnode, webadmin) -> this will render it synchronous again. [100%]
+:   - [X] Is proxy useful since emacs still blocks? -> The only thing interesting seems to be the ability to watch running actions. As no one seem to care about it, we can remove it.
+:   - [X] Can't we simply use 'deferred (or 'async library) to defer computations? -> Yes, building actions (sync, delete) as 'lazy' list (macro) of deferred computations.
+:   - [X] What about concurrency then? There will be indeed possibilities of concurrent requests.
+:   - [X] What about race conditions then? We need to find a way to compose deferred computations -> [[https://github.com/kiwanami/emacs-deferred][deferred]] seems able to do so
+:   - [X] Remove db dependency
+:   - [X] Remove elnode dependency
+:   - [X] Remove esxml dependency
+:   - [X] Remove orgtrello-db.el
+:   - [X] Remove orgtrello-webadmin.el
+:   - [X] Remove orgtrello-elnode.el
+:   - [X] Remove orgtrello-server.el
+:   - [X] Clean orgtrello-proxy.el up
+:   - [X] Get back to synchronous query (sync to + delete)
+:   - [X] Get back to synchronous query for sync from trello routines
+:   - [X] Clean load-org-trello.el up
+:   - [X] Update README-dev.md about namespace removal
+:   - [X] Fix loading of load-org-trello.el code
+:   - [X] Clean tests up
+:   - [X] Update org-trello package
+: - [X] Fix bug regarding sync-entity and structure (apparently, there is a bad limit computation and this syncs the all buffer)
+: - [X] Fix save buffer at the end of the sync actions
+: - [X] Clean README-dev.md about marmalade
+: - [X] Update dependencies version
+: - [X] Now that elnode, esxml, db dependencies' are out of the way, org-trello can be fully built on melpa-stable.
+: - [X] Update version
+: - [X] Clean dead code
+: - [X] Release notes
+** CLOSED 0.5.1
+:PROPERTIES:
+:id:       189
+:date-modification: 2014-08-20T21:20:10+0200
+:date-creation: 2014-08-20T21:00:42+0200
+:author:   "ardumont"
+:END:
+: - [X] Remove marmalade remains (release.sh + Makefile)
+: - [X] Small refactoring of the main contract
+: - [X] Fix bad code (typo caddr)
+: - [X] Update version
+: - [X] Release notes
+** CLOSED 0.5.0
+:PROPERTIES:
+:id:       188
+:date-modification: 2014-08-20T19:51:28+0200
+:date-creation: 2014-08-20T19:19:25+0200
+:author:   "ardumont"
+:END:
+: - Some problem were raised about proxy not live, so check the proxy's liveness during sync action
+: - If the proxy is not live when doing sync action, reload it
+: - Rename according to conventions
+** CLOSED Package assoc is obsolete!
+:PROPERTIES:
+:id:       169
+:date-modification: 2014-08-20T19:26:34+0200
+:date-creation: 2014-05-21T23:59:57+0200
+:author:   "kgunders"
+:END:
+: Just pulled in org-trello from melpa.  Looks cool.  Get the above 'compile' error upon installation, and every time I launch emacs thereafter.  Emacs version 24.3-6, org-version 8.2.6
+** CLOSED Revert "0.4.9"
+:PROPERTIES:
+:id:       187
+:date-modification: 2014-08-17T16:52:18+0200
+:date-creation: 2014-08-17T16:47:06+0200
+:author:   "ardumont"
+:END:
+: Reverts org-trello/org-trello#185
+:
+: Seems to exist regression.
+: Nowhere near my computer right now.
+** CLOSED 0.4.9
+:PROPERTIES:
+:id:       185
+:date-modification: 2014-08-17T16:47:06+0200
+:date-creation: 2014-08-15T09:53:48+0200
+:author:   "ardumont"
+:END:
+: - [X] Backlog
+: - [X] Emacs blocks when sync - #164
+:   - [x] deferred dependency - 0.3.1 chosen because it's the common denominator between marmalade and melpa
+:   - [X] Render the data request consumer asynchoneous
+:   - ... emacs still blocks though...
+: - [X] Sometimes the proxy seems to not be started (which is a mess), add a check on the running proxy before doing anything. - #180
+: - [X] During the check of the proxy, if not started, try to start it.
+: - [X] Update version
+: - [X] No longer deliver to marmalade (too much work)
+: - [X] Release notes
+** CLOSED 0.4.9
+:PROPERTIES:
+:id:       184
+:date-modification: 2014-08-15T09:53:30+0200
+:date-creation: 2014-08-15T09:52:21+0200
+:author:   "ardumont"
+:END:
+: - [X] Backlog
+: - [X] Emacs blocks when sync - #164
+:   - [X] deferred dependency - 0.3.1 chosen because it's the common denominator between marmalade and melpa
+:   - [X] Render the data request consumer asynchoneous
+:   - ... emacs still blocks though...
+: - [X] Sometimes the proxy seems to not be started (which is a mess), add a check on the running proxy before doing anything. - #180
+: - [X] During the check of the proxy, if not started, try to start it.
+: - [X] Update version
+: - [X] No longer deliver to marmalade (too much work)
+: - [X] Release notes
+** CLOSED Update dependencies - https://github.com/org-trello/org-trello/issues/16...
+:PROPERTIES:
+:id:       182
+:date-modification: 2014-08-14T13:19:04+0200
+:date-creation: 2014-07-29T16:56:27+0200
+:author:   "ardumont"
+:END:
+: ...9#issuecomment-50103927
+** CLOSED network-interface-list on Windows
+:PROPERTIES:
+:id:       62
+:date-modification: 2014-06-24T17:02:16+0200
+:date-creation: 2013-09-17T14:57:54+0200
+:author:   "keithmantell"
+:END:
+: Hi,
+:
+: I am having to use Windows 7.
+:
+: Starting org-trello-mode I see reports of void-function network-interface-list
+:
+: Searching the web I find comments that this function is not supported on Windows.
+:
+: Is this correct?  Have others got this working on Windows?
+:
+: Any pointers welcome.
+** CLOSED Fix to allow syncing of arbitrary markdown
+:PROPERTIES:
+:id:       175
+:date-modification: 2014-06-10T22:55:14+0200
+:date-creation: 2014-06-05T18:02:42+0200
+:author:   "jasom"
+:END:
+: The solution is as follows:
+:
+: When syncing *to* trello we use the indent of the first line as the
+: indent for the entire description.
+:
+: When syncing *from* trello we add a fixed indent of 2 to the
+: description.  This prevents markdown syntax from being interpreted as
+: org-mode syntax.
+:
+: Somewhat a workaround for issue #89 the markup isn't translated, but at
+: least it is preserved
+** CLOSED 0.4.8
+:PROPERTIES:
+:id:       178
+:date-modification: 2014-06-08T19:36:18+0200
+:date-creation: 2014-06-08T19:27:55+0200
+:author:   "ardumont"
+:END:
+: - [X] Backlog
+: - [X] mad caret syndrom - Close #177
+:   - [X] mad caret - fix sync to
+:   - [X] mad caret - the caret does not move even when sync computation takes place
+:   - [X] mad caret - fix sync from
+: - [X] Upgrade version
+: - [X] Update release notes
+** CLOSED Mad caret syndrom
+:PROPERTIES:
+:id:       177
+:date-modification: 2014-06-08T19:36:18+0200
+:date-creation: 2014-06-08T18:11:49+0200
+:author:   "ardumont"
+:END:
+: When asking for one action, the caret moves around as data is parsed and transformed into sync action.
+:
+: At the end of the user's requested action, the caret moves does not return to its original position.
+:
+: This is what I call the mad caret syndrom.
+:
+: Let the caret stay or return to its original position.
+** CLOSED 0.4.7
+:PROPERTIES:
+:id:       176
+:date-modification: 2014-06-08T13:08:39+0200
+:date-creation: 2014-06-08T12:55:45+0200
+:author:   "ardumont"
+:END:
+: - [X] Backlog
+: - [X] Improve the description management in org and trello - #89 #175
+: - [X] Revert to the block json-encode-hash-table
+: - [X] Upgrade version
+: - [X] Update release notes
+:
+: Thanks @jasom for the PR on card description #175
+** CLOSED 0.4.6
+:PROPERTIES:
+:id:       174
+:date-modification: 2014-05-30T14:06:46+0200
+:date-creation: 2014-05-30T10:51:54+0200
+:author:   "ardumont"
+:END:
+: - [X] Prepare Backlog
+: - [X] Fix - CLOSE https://github.com/org-trello/org-trello/issues/172
+: - [X] Fix - prelude does some monkey-patching on json-encode-hash-table which is used by org-trello - reimplement this function
+: - [X] CI is broken again - fix
+: - [X] Update version
+: - [X] Update release notes
+:
+: Thanks @dtebbs
+** CLOSED Descriptions break sync-buffer
+:PROPERTIES:
+:id:       172
+:date-modification: 2014-05-30T14:04:53+0200
+:date-creation: 2014-05-29T11:25:09+0200
+:author:   "dtebbs"
+:END:
+: When syncing everything from trello, some cards disappear if the card before has a description.  The buffer turns into this:
+:
+: ```
+: * TODO Trello Card 1
+:   :PROPERTIES:...
+: Description of card 1* TODO Another task
+: * TODO Trello Card 2
+:   :PROPERTIES:...
+: Description of card 2
+: ```
+:
+: Note that `* TODO Another Task` is on the same line as the previous description and has no properties associated with it.
+** CLOSED Fix - Ensure there is a newline after each description.  org-trello/org-...
+:PROPERTIES:
+:id:       173
+:date-modification: 2014-05-30T10:35:59+0200
+:date-creation: 2014-05-29T11:27:56+0200
+:author:   "dtebbs"
+:END:
+: ...trello#172
+:
+: I don't know enough about to emacs-lisp to make the proper fix.  This change just blindly adds a newline after each Description, so can result in extra lines between cards.
+** CLOSED unspecified requirement - dash
+:PROPERTIES:
+:tags:     ("invalid" "need-reproduction")
+:id:       170
+:date-modification: 2014-05-29T08:49:42+0200
+:date-creation: 2014-05-27T09:50:39+0200
+:author:   "erezschatz"
+:END:
+: During attempted usage, the following came up:
+: File error: Cannot open load file, dash
+: File error: Cannot open load file, request
+:
+: Neither dash nor request are part of org-trello, org-mode or emacs and should be mentioned as such.
+:
+: I've gave up on installing at this point, but I can assume there are others.
+** CLOSED Sync doesn't work over proxy
+:PROPERTIES:
+:tags:     ("investigate")
+:id:       171
+:date-modification: 2014-05-28T12:21:20+0200
+:date-creation: 2014-05-27T10:08:27+0200
+:author:   "puzan"
+:END:
+: Hello!
+:
+: It seems org-trello can't sync over over proxy. I have tried to fetch changes from trello and push some changes to trello. According to logs in \*Messages\* all is ok (see below). But nothing changed in buffer on trello. I have tried to sync via other network (without proxy): My test board was successfully synced.
+:
+: Proxy settings are available in emacs environment (http_proxy and https_proxy): getenv returns correct proxy server. These settings were enough for other tasks. Should I add something special for org-trello (or for elnode)? What debug info can I collect to find root cause for this issue?
+:
+: Thanks for useful org-mode extension!
+:
+: ## Logs
+:
+: Sync from trello:
+:
+: ```
+: Request 'sync org buffer from trello board'...
+: Loading /Users/puzan/.trello/config.el (source)...done
+: Ensure you use utf-8 encoding for your org buffer.
+: Synchronizing the trello board 'Test' to the org-mode file. This may take a moment, some coffee may be a good idea...
+: Request 'sync org buffer from trello board' - done!
+: ```
+:
+: Sync to trello:
+:
+: ```
+: Request 'sync org buffer to trello board'...
+: Loading /Users/puzan/.trello/config.el (source)...done
+: Ensure you use utf-8 encoding for your org buffer.
+: Synchronizing org-mode file to the board 'Test'. This may take some time, some coffee may be a good idea...
+: Synchronizing full entity with its structure on board 'Test'... [3 times]
+: Request 'sync org buffer to trello board' - done!
+: ```
+** CLOSED Parse error while syncing
+:PROPERTIES:
+:tags:     ("need-reproduction")
+:id:       150
+:date-modification: 2014-05-24T20:56:06+0200
+:date-creation: 2014-04-06T13:29:13+0200
+:author:   "nslater"
+:END:
+: While syncing a board to a buffer, I get:
+:
+: ```
+: REQUEST [error] Error from parser orgtrello-query/--http-parse: (wrong-type-argument listp "2013-10-13T12:54:33.338Z")
+: ```
+** CLOSED Can't sync any board
+:PROPERTIES:
+:id:       149
+:date-modification: 2014-05-24T20:40:13+0200
+:date-creation: 2014-04-06T13:20:29+0200
+:author:   "nslater"
+:END:
+: Steps to reproduce:
+:
+: 1. Create new board "Test" on Trello and add one card
+: 2. Create `Test.org`
+: 3. Run `M-x org-trello/install-board-and-lists-ids`
+: 4. Select "Test" board
+:
+: What I see:
+:
+: A correct-looking `:PROPERTIES:` block, and nothing else.
+:
+: What I expect to see:
+:
+: A correct-looking `:PROPERTIES:` block, and a node corresponding to test card.
+:
+: I have tried the following commands to get the cards synced:
+:
+: - `M-x org-trello/sync-entity`
+: - `M-x org-trello/sync-full-entity`
+: - `M-x org-trello/sync-buffer`
+: - `M-x org-trello/update-board-metadata`
+:
+: Nothing seems to work.
+** CLOSED Errors syncing
+:PROPERTIES:
+:tags:     ("need-reproduction")
+:id:       151
+:date-modification: 2014-05-24T19:45:45+0200
+:date-creation: 2014-04-06T14:58:48+0200
+:author:   "nslater"
+:END:
+: While syncing a board, I got lots of these:
+:
+: ```
+: Blocking call to accept-process-output with quit inhibited!!
+: ```
+:
+: Many cards were not synced, and can't be synced if I try again.
+** CLOSED Investigate org-sync
+:PROPERTIES:
+:tags:     ("POC")
+:id:       96
+:date-modification: 2014-05-20T19:28:48+0200
+:date-creation: 2013-11-30T17:00:28+0100
+:author:   "ardumont"
+:END:
+: http://orgmode.org/worg/org-contrib/gsoc2012/student-projects/org-sync/
+** CLOSED 0.4.5
+:PROPERTIES:
+:id:       168
+:date-modification: 2014-05-19T08:08:38+0200
+:date-creation: 2014-05-17T21:58:27+0200
+:author:   "ardumont"
+:END:
+: - [X] Backlog
+: - [X] 'Sync from trello' must preserve unknown data card in drawer - CLOSE #167
+:   - [x] Extract unknown information and store them in org entity representation
+:   - [X] Ensure those data transit back in trello data when merging
+:   - [X] Write back those unknown information in the sync from trello
+: - [X] Update version
+: - [X] Release notes
+** CLOSED Melpa recipe correct?
+:PROPERTIES:
+:tags:     ("Fixed" "need-reproduction")
+:id:       166
+:date-modification: 2014-05-15T11:33:18+0200
+:date-creation: 2014-05-13T01:37:36+0200
+:author:   "gstamp"
+:END:
+: Hi, I was trying to install org-trello but ran into a few problems.  I installed org-trello through melpa however it seems that this only installed
+:
+: ```
+: org-trello.el
+: ```
+:
+: and not any of the other files that seem to make up the distribution.  Consequently org-trello does not seem to have worked.
+** CLOSED 0.4.4
+:PROPERTIES:
+:id:       165
+:date-modification: 2014-05-12T21:42:13+0200
+:date-creation: 2014-05-11T23:06:06+0200
+:author:   "ardumont"
+:END:
+: - [X] Multiple files packaging - CLOSE #163
+:   - [X] Move src/*.el files to /org-trello
+:   - [X] Add 'provide statements for each of those files
+:   - [X] Rework header + org-trello + footer files
+:   - [X] Adapt main org-trello.el files to reference the needed namespaces
+:   - [X] Adapt test files so that it continues to work (add the needed require statements)
+:   - [X] Adapt loading code routine for developing + testing
+:   - [X] Refactoring step - rename some files to avoid confusion
+:   - [X] Adapt README-dev.md to the current code adaptation
+:   - [X] Adapt cask packaging
+:   - [X] Add missing standard header to namespace
+:   - [X] Does org-trello still compiles? NO
+:   - [X] Fix simple compilation warnings
+:   - [X] Fix some more warnings
+:   - [X] Does org-trello's test work? YES
+:   - [X] Does org-trello work? NO
+:   - [X] Doc - Update docstring to standard emacs convention
+:   - [X] Fix org-trello to make it work again
+:   - [X] Test package melpa install (adapt org-trello recipe and test M-x package-install-file) - https://github.com/ardumont/melpa/blob/org-trello-with-multiple-files-packaging/recipes/org-trello
+:   - [X] Test package marmalade install
+: - [X] Update version
+: - [X] Release notes
+** CLOSED org-trello with multiple files package
+:PROPERTIES:
+:id:       163
+:date-modification: 2014-05-12T21:40:32+0200
+:date-creation: 2014-05-10T20:07:43+0200
+:author:   "ardumont"
+:END:
+: # History
+:
+: org-trello:
+: - was developed in multiple files (because I like namespaces)
+: - was not packaged
+: - has been packaged to melpa
+: - then problems in multiple files
+: - so become one file to ease packaging (at the time)
+: - then has been packaged to marmalade
+: - became too big for one file, rendering emacs slow and dev painful
+: - as a consequence was splitted into many files
+: - then problems arise in multiple packaging way
+: - so code to fix packages
+: - then code to maintain ease of dev which was no longer simple (move forward and back into code)
+: - and code to maintain tests
+: - ...
+:
+: To sum up, all hell break loose!
+:
+: # State of the art
+:
+: At the moment, org-trello is splitted into multiple files in the src folder (cf. README-dev.md)
+:
+: When it's time to package, there exists a makefile target which aggregates all those files into one org-trello.el. This is this file which is packaged in melpa and marmalade.
+:
+: When testing, all the code is loaded and then tests began.
+:
+: This:
+: - is complex
+: - is not standard (thus rendering potential PR more difficult -> needs to read the README-dev.md to understand the flow)
+: - had made me do some code to load org-trello specifically for dev and test.
+:
+: # Conclusion
+:
+: It's time to move back towards standard (yes it was!).
+:
+: # Hints
+: - See https://github.com/milkypostman/melpa/issues/1704#issuecomment-42683377
+: - look at magit or org to see how they worked with splitted files.
+:
+: # Impacts
+:
+: - Simplification (good)
+: - melpa packaging -> PR to melpa to adapt the recipes
+: - marmalade packaging (all in org-trello repository so no worry I think)
+** CLOSED separate Emacs installation
+:PROPERTIES:
+:id:       162
+:date-modification: 2014-05-06T19:37:34+0200
+:date-creation: 2014-05-04T13:10:01+0200
+:author:   "lxsameer"
+:END:
+: I have two version of emacs. My current version installed somewhere in my home ( i don't have ~/.emacs and ~/.emacs.d instead i use my own paths) . When i try to start org-trello by calling `org-trello-mode` i get this error message
+:
+: ```
+: ### org-trello ### Caught exception: [(file-error Opening output file no such file or directory /home/lxsameer/.emacs.d/elnode/public_html/org-trello/org-trello-already-scanning.lock)]
+: ```
+: I customized `elnode` to serve files from my `.emacs.d` ( in this case `~/bin/KusoIDE/kuso.d`) but i get this error too.
+: ```
+: ### org-trello ### Caught exception: [(file-error Opening output file no such file or directory /home/lxsameer/bin/KusoIDE/kuso.d/elnode/public_html/org-trello/org-trello-already-scanning.lock)]
+: ```
+:
+: how can i fix this ?
+** CLOSED Replace proxy's cache file implementation by ram database implementation
+:PROPERTIES:
+:id:       161
+:date-modification: 2014-04-25T12:43:17+0200
+:date-creation: 2014-04-25T12:43:10+0200
+:author:   "ardumont"
+:END:
+: This should:
+: - simplify code
+: - reuse existing code
+: - be faster than writing/reading from disk
+:
+: #0.4.3
+** CLOSED 0.4.3
+:PROPERTIES:
+:id:       160
+:date-modification: 2014-04-25T12:41:25+0200
+:date-creation: 2014-04-25T12:21:38+0200
+:author:   "ardumont"
+:END:
+: - [X] Prepare backlog
+: - [X] Replace local back-end (file implementation) with a RAM database [100%]
+: - [X] Update README-dev.md about the new db namespace
+: - [X] Remove some useless new code
+: - [X] Improve start/stop server policy (one server may sync multiple buffers/boards... and right now, not really taken into account)
+: - [X] Clean dead code from the implementation switch from implicit disk files db to RAM db [100%]
+: - [X] Improve start/stop server policy 2
+: - [X] Some Refactoring
+: - [X] Version
+: - [X] Release notes
+** CLOSED 0.4.2
+:PROPERTIES:
+:id:       159
+:date-modification: 2014-04-12T22:02:35+0200
+:date-creation: 2014-04-12T08:52:00+0200
+:author:   "ardumont"
+:END:
+: - [X] Refactoring - Remove dead code
+: - [X] Refactoring - Remove duplicated code already existing in dependency library
+: - [X] Improve - Fold all entries when sync full file from trello is done
+: - [X] Improve loading org-trello namespaces for dev purposes
+: - [X] Version
+: - [X] Release notes
+** CLOSED 0.4.1.1
+:PROPERTIES:
+:id:       158
+:date-modification: 2014-04-10T01:02:44+0200
+:date-creation: 2014-04-09T20:52:53+0200
+:author:   "ardumont"
+:END:
+: - [X] Remove non interactive commands
+: - [X] Create board does not work - Close #157
+: - [X] Improve loading keys policy - #156
+: - [X] Use cask to make the packaging and remove old personal routines
+: - [X] Version
+: - [X] Release notes
+** CLOSED Create board command no longer works
+:PROPERTIES:
+:tags:     ("next-release")
+:id:       157
+:date-modification: 2014-04-10T01:02:44+0200
+:date-creation: 2014-04-08T22:58:35+0200
+:author:   "ardumont"
+:END:
+: Creating a board from scratch after installing the credentials does not work.
+:
+: Trace:
+: ``` text
+: Create board and lists...
+: Creating board 'some-board-to-test-creation'
+: Closing default list with id 53446227c6cd956908069b0c
+: Closing default list with id 53446227c6cd956908069b0d
+: Closing default list with id 53446227c6cd956908069b0e
+: Board id 53446227c6cd956908069b0b - Creating list 'CANCELLED'
+: Board id 53446227c6cd956908069b0b - Creating list 'DELEGATED'
+: Board id 53446227c6cd956908069b0b - Creating list 'FAIL'
+: Board id 53446227c6cd956908069b0b - Creating list 'DONE'
+: Board id 53446227c6cd956908069b0b - Creating list 'PENDING'
+: Board id 53446227c6cd956908069b0b - Creating list 'IN-PROGRESS'
+: Board id 53446227c6cd956908069b0b - Creating list 'TODO'
+: ### org-trello ### Caught exception: [(wrong-type-argument hash-table-p nil)]
+: Saving file /home/tony/repo/perso/org-trello/todo-from-scratch.org...
+: Wrote /home/tony/repo/perso/org-trello/todo-from-scratch.org
+: ```
+** CLOSED Force resize-mini-windows
+:PROPERTIES:
+:id:       144
+:date-modification: 2014-04-08T15:09:19+0200
+:date-creation: 2014-03-31T11:20:11+0200
+:author:   "sviridov"
+:END:
+: Hi!
+:
+: I set `resize-mini-windows` to `nil` in my config file. And `org-trello/install-board-and-lists-ids` didn't work correctly.
+:
+: ![old](https://cloud.githubusercontent.com/assets/1789390/2565463/252b6524-b8b5-11e3-8472-dd4b619ed1e0.png)
+:
+: Now it works fine.
+:
+: ![new](https://cloud.githubusercontent.com/assets/1789390/2565486/4b9e7386-b8b5-11e3-87a8-fcb3f7957c82.png)
+** CLOSED 0.4.1
+:PROPERTIES:
+:id:       155
+:date-modification: 2014-04-07T14:32:52+0200
+:date-creation: 2014-04-07T14:29:30+0200
+:author:   "ardumont"
+:END:
+: - [X] Fix deadline/description problem - Close #154
+: - [X] Fix deadline/due date problem - Close #153
+: - [X] When sync from trello, merge non trello org tags with trello tags (to avoid loss for the user)
+: - [X] When sync to trello, filter out org tags that will not be understood by trello (to avoid 400 request from trello)
+: - [X] Add the quick start in the main package description
+: - [X] Version
+: - [X] Release notes
+** CLOSED Deadline and description mix up
+:PROPERTIES:
+:id:       154
+:date-modification: 2014-04-07T14:32:52+0200
+:date-creation: 2014-04-07T08:09:30+0200
+:author:   "ardumont"
+:END:
+: When deadline is set (the org equivalent to trello's due date), the deadline is synced in trello card's description.
+:
+: Fix
+** CLOSED Due date sync problem
+:PROPERTIES:
+:id:       153
+:date-modification: 2014-04-07T14:32:52+0200
+:date-creation: 2014-04-07T08:09:00+0200
+:author:   "ardumont"
+:END:
+: The due date is no longer updated as org deadline when sync from trello.
+:
+: Fix
+** CLOSED Add a quick start
+:PROPERTIES:
+:id:       152
+:date-modification: 2014-04-06T22:53:58+0200
+:date-creation: 2014-04-06T20:43:09+0200
+:author:   "ardumont"
+:END:
+: Or update the existing one...
+:
+: Explaining the ways of the Force...
+:
+: Or at least how to sync from trello board from scratch.
+:
+: May be a duplicate of #136
+** CLOSED Use trello labels and org-mode tags as one
+:PROPERTIES:
+:tags:     ("enhancement" "feature-request")
+:id:       70
+:date-modification: 2014-04-05T11:53:05+0200
+:date-creation: 2013-10-03T01:10:03+0200
+:author:   "ardumont"
+:END:
+: As a trello user, I want to be able to use the trello labels to tags trello cards.
+** CLOSED Sync doesn't work if org buffer name contains special characters
+:PROPERTIES:
+:id:       147
+:date-modification: 2014-04-02T14:58:38+0200
+:date-creation: 2014-04-02T05:41:08+0200
+:author:   "XANi"
+:END:
+: When I'm using uniquify buffer my buffers are named like 'todo.org&lt;org/share>' or 'todo|org/share', that makes org-trello generate errors during sync and fail:
+:
+:     Request 'sync org buffer to trello board'...
+:     Ensure you use utf-8 encoding for your org buffer.
+:     Synchronizing org-mode file to the board 'Todo'. This may take some time, some coffee may be a good idea...
+:     Synchronizing full entity with its structure on board 'Todo'... [2 times]
+:     ### org-trello ### Caught exception: [(error Lisp nesting exceeds `max-lisp-eval-depth')]
+:     Request 'sync org buffer to trello board' - done!
+:     error in process filter: save-current-buffer: Opening output file: nie ma takiego pliku ani katalogu, /home/xani/.emacs.d/elnode/public_html/org-trello/1/todo.org|org/share-598.el
+:     error in process filter: Opening output file: nie ma takiego pliku ani katalogu, /home/xani/.emacs.d/elnode/public_html/org-trello/1/todo.org|org/share-598.el
+:     error in process filter: request--parse-response-at-point: Opening output file: nie ma takiego pliku ani katalogu, /home/xani/.emacs.d/elnode/public_html/org-trello/1/todo.org|org/share-728.el
+:     error in process filter: Opening output file: nie ma takiego pliku ani katalogu, /home/xani/.emacs.d/elnode/public_html/org-trello/1/todo.org|org/share-728.el
+:     error in process filter: request--parse-response-at-point: Opening output file: nie ma takiego pliku ani katalogu, /home/xani/.emacs.d/elnode/public_html/org-trello/2/todo.org|org/share-834.el
+:     error in process filter: Opening output file: nie ma takiego pliku ani katalogu, /home/xani/.emacs.d/elnode/public_html/org-trello/2/todo.org|org/share-834.el
+:     error in process filter: request--parse-response-at-point: Opening output file: nie ma takiego pliku ani katalogu, /home/xani/.emacs.d/elnode/public_html/org-trello/2/todo.org|org/share-1009.el
+:     error in process filter: Opening output file: nie ma takiego pliku ani katalogu, /home/xani/.emacs.d/elnode/public_html/org-trello/2/todo.org|org/share-1009.el
+:
+: Sync works fine if I disable it and buffer is named like 'todo.org'.
+: "nie ma takiego pliku ani katalogu" means "no such file or directoru" in my locale, i suspect it's because of / in buffer name.
+:
+: Software version:
+:
+: * org-20140331
+: * org-trello-20140401.1011
+** CLOSED 0.4.0.1
+:PROPERTIES:
+:id:       148
+:date-modification: 2014-04-02T14:56:31+0200
+:date-creation: 2014-04-02T14:48:17+0200
+:author:   "ardumont"
+:END:
+: - [X] Fix 'Sync doesn't work if org buffer name contains special characters' - Close #147
+: - [X] Version
+: - [X] Release notes
+** CLOSED 0.4.0
+:PROPERTIES:
+:id:       146
+:date-modification: 2014-04-01T19:11:31+0200
+:date-creation: 2014-03-31T21:46:59+0200
+:author:   "ardumont"
+:END:
+: - [X] Refactor
+: - [X] Fix - Close https://github.com/org-trello/org-trello/issues/145
+: - [X] Remove unused dependency
+: - [X] Doc - Update README-dev.md
+: - [X] Version
+: - [X] Release notes
+** CLOSED Missing definition of FIRST and SECOND functions
+:PROPERTIES:
+:id:       145
+:date-modification: 2014-04-01T19:11:31+0200
+:date-creation: 2014-03-31T17:32:27+0200
+:author:   "sviridov"
+:END:
+: Try to start clean Emacs instance (with `emacs -Q`) configured to use only `org-trello`:
+:
+: ```lisp
+: (require 'package)
+:
+: (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/" ) t)
+: (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/") t)
+:
+: (package-initialize)
+:
+: (package-install 'org-trello)
+: (require 'org-trello)
+: ```
+:
+: I get an error `Symbol's function definition is void: first` when initialize `org-trello-mode`. If I define `first` function, I get another error `Symbol's function definition is void: second`.
+:
+: My Emacs version is `24.3.50.1`. And it seems like `cl-lib` doesn't provide these functions.
+:
+: ![missing-definition](https://cloud.githubusercontent.com/assets/1789390/2569111/803ca2f0-b8e9-11e3-9765-9f7313570bc2.png)
+** CLOSED Fix CI error
+:PROPERTIES:
+:id:       143
+:date-modification: 2014-03-30T01:05:46+0100
+:date-creation: 2014-03-29T13:04:21+0100
+:author:   "ardumont"
+:END:
+: Update link to cask to try and fix the error on CI:
+:
+: `Cask could not be bootstrapped. Try again later, or report an issue at https://github.com/cask/cask/issues`
+** CLOSED 0.3.8
+:PROPERTIES:
+:id:       141
+:date-modification: 2014-03-28T17:50:40+0100
+:date-creation: 2014-03-27T01:39:53+0100
+:author:   "ardumont"
+:END:
+: - [X] Some refactoring
+:   - [X] Align sync from trello card tags/labels serialization with org's tags behavior
+:   - [X] Refactor open org-trello buffer with title/content
+:   - [X] Sanitize functions (move functions to their right namespaces)
+:   - [X] Do not override the user's existing tags
+: - [X] Provide org-trello-mode-hook - CLOSE https://github.com/org-trello/org-trello/issues/116
+: - [X] Open stop all synchronization actions - CLOSE https://github.com/org-trello/org-trello/issues/131
+: - [X] Use C-u keychord to create a symmetry use (e.g. `C-c o s` is sync to trello, `C-u C-c o s` is sync from trello)
+:   - [X] sync-buffer, sync-to-trello, with C-u, sync-from-trello
+:   - [X] assign-me, with C-u, unassign me
+:   - [X] A command to 'sync from trello' the current entity without its structure - CLOSE https://github.com/org-trello/org-trello/issues/139
+:   - [X] Use C-u on sync-entity-to-trello command to trigger the sync-entity-from-trello
+:   - [X] A command to 'sync from trello' the current entity and its structure - CLOSE https://github.com/org-trello/org-trello/issues/140
+:   - [X] Use C-u on sync-entity-and-structure-to-trello command to trigger the sync-entity-and-structure-from-trello
+: - [X] Some more refactoring
+: - [X] Fix bug regarding org keywords which disappeared
+: - [X] Version
+: - [X] Release notes
+** CLOSED 0.3.9
+:PROPERTIES:
+:id:       142
+:date-modification: 2014-03-28T17:38:40+0100
+:date-creation: 2014-03-28T17:07:41+0100
+:author:   "ardumont"
+:END:
+: - [X] Refactor - Symmetry for all commands where that makes sense (without C-u/with C-u)
+: - [X] Refactor - Enforce the api request creation usage with the params as usual
+: - [X] Let trello filter out needless data - CLOSE https://github.com/org-trello/org-trello/issues/69
+:   - [X] Let trello filter out needless data - get card
+:   - [X] Let trello filter out needless data - get checklist
+:   - [X] Let trello filter out needless data - get item
+: - [X] Upgrade Version
+: - [X] Release notes
+** CLOSED Let trello filter out needless data
+:PROPERTIES:
+:tags:     ("enhancement")
+:id:       69
+:date-modification: 2014-03-28T17:38:40+0100
+:date-creation: 2013-10-03T01:06:03+0200
+:author:   "ardumont"
+:END:
+: The trello API permits to filter data.
+: This is API specific (board, card, checklist, item, action, etc...)
+:
+: Exploit it to diminish the quantity of data to parse.
+** CLOSED Add sync entity with structure from trello
+:PROPERTIES:
+:id:       140
+:date-modification: 2014-03-27T12:35:01+0100
+:date-creation: 2014-03-27T01:32:42+0100
+:author:   "ardumont"
+:END:
+: Symmetric action of 'sync entity with structure to trello'
+** CLOSED Add sync entity from trello
+:PROPERTIES:
+:id:       139
+:date-modification: 2014-03-27T12:35:01+0100
+:date-creation: 2014-03-27T01:31:55+0100
+:author:   "ardumont"
+:END:
+: Symmetric action of 'sync entity to trello' (without the arborescence)
+** CLOSED Open 'stop all synchronization actions' as an interactive command
+:PROPERTIES:
+:id:       131
+:date-modification: 2014-03-27T12:35:01+0100
+:date-creation: 2014-03-21T17:20:36+0100
+:author:   "ardumont"
+:END:
+: https://github.com/org-trello/org-trello/issues/128#issuecomment-37904654
+** CLOSED Provide org-trello-mode-hook
+:PROPERTIES:
+:id:       116
+:date-modification: 2014-03-27T12:35:01+0100
+:date-creation: 2014-02-27T20:02:14+0100
+:author:   "ardumont"
+:END:
+** CLOSED Unable to sync checklists
+:PROPERTIES:
+:id:       121
+:date-modification: 2014-03-26T22:35:09+0100
+:date-creation: 2014-03-12T22:12:27+0100
+:author:   "baudtack"
+:END:
+: This may be me not understanding how to do it, but I made a checklist under a card and hit C-c o s on the item and the checklist doesn't show up in trello and no properties get set for each item
+** CLOSED 0.3.7
+:PROPERTIES:
+:id:       138
+:date-modification: 2014-03-24T22:08:48+0100
+:date-creation: 2014-03-24T01:00:03+0100
+:author:   "ardumont"
+:END:
+: - [X] Use `defconst` keyword instead of defvar
+: - [X] Use trello labels and org tags as one - CLOSE https://github.com/org-trello/org-trello/issues/70
+: - [X] Refactor + Fix create / connect to board
+: - [X] Update metadata command about the board currently connected (sometimes, new information arise)
+: - [X] Release notes
+: - [X] Version
+** CLOSED 0.3.6
+:PROPERTIES:
+:id:       133
+:date-modification: 2014-03-23T14:09:27+0100
+:date-creation: 2014-03-22T23:14:39+0100
+:author:   "ardumont"
+:END:
+: - [X] Test multiple emacs version - https://github.com/org-trello/org-trello/issues/52
+: - [X] Add a logo to website - https://github.com/org-trello/org-trello/issues/129
+: - [X] Synchronize user comments - https://github.com/org-trello/org-trello/issues/86
+: - [X] Add a comment to a card - https://github.com/org-trello/org-trello/issues/132
+: - [X] Take control over the test file which is now too big (dispatch in 'namespace' test buffer)
+: - [X] Version
+: - [X] Release notes
+** CLOSED Total reset of org-trello ???
+:PROPERTIES:
+:id:       128
+:date-modification: 2014-03-23T00:34:46+0100
+:date-creation: 2014-03-17T20:56:13+0100
+:author:   "emelin"
+:END:
+: I have moved my elnode-webserver-docroot elsewhere.
+:
+: But now, whenever I switch on org-trello-mode an ever returning error pops up:
+:
+:      ### org-trello ### Caught exception: [(file-error Opening output file no such file or directory /Users/admin2/.emacs.d/elnode/public_html/org-trello/org-trello-already-scanning.lock)]
+:
+: This directory however does not exist anymore. Where is this information of org-trello stored? I cannot find any other files than in .trello/config and unter elnode-webserver-docroot/org-trello. I deleted my emacs desktop and savehist files. Restarted etc. Whateer I do switching on org-trello keeps complaining instead of setting stuff up from sratch.
+:
+: What can I do?
+:
+: Thank you!
+** CLOSED Sync card comments
+:PROPERTIES:
+:tags:     ("feature-request")
+:id:       86
+:date-modification: 2014-03-23T00:05:55+0100
+:date-creation: 2013-11-23T18:53:36+0100
+:author:   "ardumont"
+:END:
+: https://github.com/ardumont/org-trello/issues/80#issuecomment-28936975
+** CLOSED 0.3.6.1
+:PROPERTIES:
+:id:       135
+:date-modification: 2014-03-23T00:01:44+0100
+:date-creation: 2014-03-22T23:55:07+0100
+:author:   "ardumont"
+:END:
+: - [X] Fix already used bindings
+: - [X] Fix edge case about adding comments
+: - [X] Version
+: - [X] Release notes
+** CLOSED Fix release script
+:PROPERTIES:
+:id:       134
+:date-modification: 2014-03-22T23:24:06+0100
+:date-creation: 2014-03-22T23:23:58+0100
+:author:   "ardumont"
+:END:
+: Fix the release since the repository has migrated to org-trello/org-trello
+** CLOSED Create card comment
+:PROPERTIES:
+:id:       132
+:date-modification: 2014-03-22T23:18:03+0100
+:date-creation: 2014-03-22T21:13:28+0100
+:author:   "ardumont"
+:END:
+: Be able to add a comment to a card.
+** CLOSED Add a logo
+:PROPERTIES:
+:id:       129
+:date-modification: 2014-03-22T23:14:39+0100
+:date-creation: 2014-03-20T18:59:06+0100
+:author:   "ardumont"
+:END:
+: - unicorn from org-mode (free software)
+: - trello (no idea)
+:
+: possibility:
+: - unicorn tatooed by the trello logo (the partial part with cards)
+: - unicorn that let its head pass through the trello cards (if we see the trello cards from the trello logo like some kind of door...)
+** CLOSED Test multiple emacs version
+:PROPERTIES:
+:tags:     ("feature-request")
+:id:       52
+:date-modification: 2014-03-22T23:14:39+0100
+:date-creation: 2013-09-01T09:08:27+0200
+:author:   "ardumont"
+:END:
+: Find a way to test multiple emacs version (to avoid problems like #51).
+: Must be automatic too!
+:
+: Hint: https://github.com/tkf/emacs-request/blob/master/Makefile
+** CLOSED Can sync some boards but not others
+:PROPERTIES:
+:id:       126
+:date-modification: 2014-03-20T18:43:35+0100
+:date-creation: 2014-03-17T17:08:25+0100
+:author:   "stefanavey"
+:END:
+: - emacs version: GNU Emacs 24.3.1 (x86_64-redhat-linux-gnu, GTK+ Version 3.8.2)
+: - org-trello version: 0.3.5
+: - marmalade installed
+: - did you install the trello board on the org-buffer (`C-c o l` or M-x org-trello/install-board-and-lists-ids as explained https://github.com/ardumont/org-trello#bindings)?
+:    Yes
+: - your full org-buffer anonymised (for reproduction, dummy data instead of your real IDs, etcâ¦)
+:    To start I have an empty buffer, then I add the board (C-c o I), and want to sync from Trello (C-c o S).  I can do this for the Welcome Board but when I do it for a shared board I'm a member of I only see the following in the minibuffer:
+:
+: Requesting sync org buffer from trello board - done!
+:
+: My emacs buffer for the Welcome Board file looks something like this:
+: ``` org
+: :PROPERTIES:
+: #+PROPERTY: board-name    Welcome Board
+: #+PROPERTY: board-id      welcomeBoardID
+: #+PROPERTY: Advanced advancdedID
+: #+PROPERTY: Intermediate intermediateID
+: #+PROPERTY: Basics BasicsID
+: #+TODO: Basics Intermediate Advanced
+: #+PROPERTY: orgtrello-user-stefanavey myUserID
+: #+PROPERTY: orgtrello-user-trello 4e6a7fad05d98b02ba00845c
+: #+PROPERTY: orgtrello-user-me stefanavey
+: :END:
+: ```
+:
+: My emacs buffer for the SharedBoard that won't sync:
+:
+: ``` org
+: :PROPERTIES:
+: #+PROPERTY: board-name    SharedBoard
+: #+PROPERTY: board-id      <boardID>
+: #+PROPERTY: List1 id1
+: #+PROPERTY: List2 id2
+: #+PROPERTY: List3 id3
+: #+PROPERTY: List4 id4
+: #+PROPERTY: List5 id5
+: #+PROPERTY: List6 id6
+: #+TODO: List1 List2 List3 List4 List5 List6
+: #+PROPERTY: orgtrello-user-otherUser1 otherUserID1
+: #+PROPERTY: orgtrello-user-stefanavey myUserID
+: #+PROPERTY: orgtrello-user-otherUser2 otherUserID2
+: #+PROPERTY: orgtrello-user-otherUser3 otherUserID3
+: #+PROPERTY: orgtrello-user-otherUser4 otherUserID4
+: #+PROPERTY: orgtrello-user-me stefanavey
+: :END:
+: ```
+:
+: I can create a board from an emacs buffer and sync both ways but this one board (SharedBoard)that was not created by me, but of which I am a member, will not sync either way.  Has anybody else had problems with syncing specific boards?
+** CLOSED how-to sync activities and comments
+:PROPERTIES:
+:id:       127
+:date-modification: 2014-03-17T22:59:06+0100
+:date-creation: 2014-03-17T19:25:59+0100
+:author:   "emelin"
+:END:
+** CLOSED Improve documentation
+:PROPERTIES:
+:id:       124
+:date-modification: 2014-03-17T20:54:53+0100
+:date-creation: 2014-03-16T16:15:23+0100
+:author:   "ardumont"
+:END:
+: The documentation is complete but dense.
+: Improve the generated site to split in sections.
+:
+: http://org-trello.github.io/
+** CLOSED Fix link to repository from ardumont/org-trello to org-trello/org-trello
+:PROPERTIES:
+:id:       125
+:date-modification: 2014-03-17T11:01:50+0100
+:date-creation: 2014-03-17T10:59:24+0100
+:author:   "ardumont"
+:END:
+** CLOSED Provide another org-trello installation procedure
+:PROPERTIES:
+:tags:     ("feature-request")
+:id:       111
+:date-modification: 2014-03-16T13:13:03+0100
+:date-creation: 2014-01-22T18:30:36+0100
+:author:   "ardumont"
+:END:
+: org-trello's installation procedure only involves emacs 24rd's packaging system.
+:
+: #84 conversation seems to suggest that this is not enough.
+: As org-mode itself provides 3 ways http://orgmode.org/manual/Installation.html.
+:
+: Maybe provide another git installation procedure.
+** CLOSED 0.3.5
+:PROPERTIES:
+:id:       123
+:date-modification: 2014-03-15T23:20:32+0100
+:date-creation: 2014-03-15T23:15:38+0100
+:author:   "ardumont"
+:END:
+: - [X] Test multiple emacs version - https://github.com/ardumont/org-trello/issues/52
+: - [X] Version
+: - [X] Update documentation note for the package view
+: - [X] Release note
+** CLOSED 0.3.4
+:PROPERTIES:
+:id:       122
+:date-modification: 2014-03-15T15:28:42+0100
+:date-creation: 2014-03-15T14:47:48+0100
+:author:   "ardumont"
+:END:
+: - [X] PR fix typo in readme - https://github.com/ardumont/org-trello/pull/120
+: - [X] Fix webadmin button to delete running action
+: - [X] Add version emacs 24.3.50 in documentation
+: - [X] Improve computation level for checkbox (checklist/items) - https://github.com/ardumont/org-trello/issues/121#issuecomment-37559929
+: - [X] Improve documentation
+: - [X] Upgrade version
+: - [X] Release notes
+** CLOSED fixed typo in README.md
+:PROPERTIES:
+:id:       120
+:date-modification: 2014-03-15T14:47:48+0100
+:date-creation: 2014-03-12T16:44:48+0100
+:author:   "baudtack"
+:END:
+** CLOSED Undue Notifications (was: Extensive damage in Trello, from "C-c o s")
+:PROPERTIES:
+:tags:     ("feature-request")
+:id:       79
+:date-modification: 2014-03-14T22:21:07+0100
+:date-creation: 2013-11-19T23:45:00+0100
+:author:   "pinard"
+:END:
+: Hi, Antoine.
+:
+: Fiou!
+:
+: C-c o s on a Trello board did some extensive damage, checking items that should have stayed unchecked, and unchecking items that should have stayed checked.  One of my coworkers shared his feeling that the logic was all inverted.
+:
+: But I'm not so sure.  Another coworker sent me all Trello notifications he got, so I could revert them.  I noticed that for one big card indeed, the logic seemed to be inverted.  However, there are other cards that I apparently did not have to touch.  Maybe my coworker did not sent me all notifications he got, or did not get them all?  I'll have to check further to find hints about what else need to be repaired on that board.
+:
+: Surely, I'm not going to retry C-c o s anytime soon.    1/2 :-).
+:
+: FranÃ§ois
+** CLOSED Broken in recent Emacs versions
+:PROPERTIES:
+:id:       117
+:date-modification: 2014-03-08T17:34:09+0100
+:date-creation: 2014-03-07T18:34:50+0100
+:author:   "purcell"
+:END:
+: The contents of `package-alist` are not plain lists in HEAD Emacs versions (and in the forthcoming 24.4 release), therefore the following line prevents `org-trello` from being loaded:
+:
+: https://github.com/ardumont/org-trello/blob/master/org-trello.el#L74
+:
+: The package entries in those newer Emacs versions are CL structs, with accessor methods for their fields.
+:
+: This was reported to the MELPA maintainers in https://github.com/milkypostman/melpa/issues/1554, but the fault is with `org-trello`.
+** CLOSED 0.3.3
+:PROPERTIES:
+:id:       119
+:date-modification: 2014-03-08T17:32:10+0100
+:date-creation: 2014-03-08T17:28:41+0100
+:author:   "ardumont"
+:END:
+: - [X] Issue when installing on melpa reported wrongly on melpa and reported back https://github.com/ardumont/org-trello/issues/117
+: - [X] Fix typo when-let in -when-let
+: - [X] Remove org as a dependency, the plugins org- do not seem to declare it + problem in dependency
+: - [X] Upgrade to dash 2.5.0
+: - [X] Clarify the possible manipulation to install the package as a file or directly from the multiple repository
+: - [X] Integration test to install the file with marmalade
+: - [X] Integration test to install the file with melpa
+: - [X] Integration test to fully install the package on marmalade
+: - [X] Integration test to fully install the package on melpa
+: - [X] Update README-dev.md about those targets
+: - [X] Decline these tests with multiple emacs versions
+: - [X] Use these targets on travis (even if the feedback will be way longer, it's better than no feedback)
+: - [X] Upgrade version
+: - [X] Ensure org-trello works with emacs 24.4 (how do i install it...)
+** CLOSED Declare emacs version dependency
+:PROPERTIES:
+:id:       118
+:date-modification: 2014-03-07T19:16:10+0100
+:date-creation: 2014-03-07T18:37:48+0100
+:author:   "purcell"
+:END:
+: Since you need Emacs 24.3, you should declare a package dependency as shown in this commit.
+** CLOSED Description extract can also synchronize org-trello's metadata which it must not
+:PROPERTIES:
+:tags:     ("bug")
+:id:       114
+:date-modification: 2014-02-03T11:54:35+0100
+:date-creation: 2014-02-03T11:23:37+0100
+:author:   "ardumont"
+:END:
+: Evaluating this code works and displays "hello there\n":
+:
+: ``` emacs-lisp
+: (orgtrello-tests/with-temp-buffer "* TODO Joy of FUN(ctional) LANGUAGES
+: :PROPERTIES:
+: :orgtrello-id: 52c945143004d4617c012528
+: :orgtrello-users:
+: :END:
+: hello there
+: - [-] LISP family :PROPERTIES: {\"orgtrello-id\":\"52c945140a364c5226007314\"}
+: - [X] Emacs-Lisp :PROPERTIES: {\"orgtrello-id\":\"52c9451784251e1b260127f8\"}
+: - [X] Common-Lisp :PROPERTIES: {\"orgtrello-id\":\"52c94518b2c5b28e37012ba4\"}"
+:        (orgtrello-buffer/extract-description-from-current-position))
+:
+: This does not and displays ":PROPERTIES:
+:  :orgtrello-id: 52c945143004d4617c012528
+:  :orgtrello-users:
+:  :END:
+:
+: hello there
+: ".
+: This is due to the blanks before org-trello's metadata properties.
+:
+: ``` emacs-lisp
+: (orgtrello-tests/with-temp-buffer "* TODO Joy of FUN(ctional) LANGUAGES
+:   :PROPERTIES:
+:  :orgtrello-id: 52c945143004d4617c012528
+:  :orgtrello-users:
+:  :END:
+: hello there
+: - [-] LISP family :PROPERTIES: {\"orgtrello-id\":\"52c945140a364c5226007314\"}
+: - [X] Emacs-Lisp :PROPERTIES: {\"orgtrello-id\":\"52c9451784251e1b260127f8\"}
+: - [X] Common-Lisp :PROPERTIES: {\"orgtrello-id\":\"52c94518b2c5b28e37012ba4\"}"
+:        (orgtrello-buffer/extract-description-from-current-position))
+: ```
+:
+: To fix.
+** CLOSED 0.3.2
+:PROPERTIES:
+:id:       115
+:date-modification: 2014-02-03T11:54:22+0100
+:date-creation: 2014-02-03T11:54:03+0100
+:author:   "ardumont"
+:END:
+: - [X] Use standard remapping to override the org-end-of-line routine - https://www.gnu.org/software/emacs/manual/html_node/elisp/Remapping-Commands.html
+: - [X] Clean some dead code
+: - [X] Use standard mode map definition for the org-trello bindings
+: - [X] Fix description extract - https://github.com/ardumont/org-trello/issues/114
+: - [X] Version
+: - [X] Release notes
+** CLOSED install fail
+:PROPERTIES:
+:id:       112
+:date-modification: 2014-01-24T20:34:49+0100
+:date-creation: 2014-01-23T03:16:02+0100
+:author:   "felix125"
+:END:
+: (require 'package)
+: (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+: (package-initialize)
+: (package-install 'elnode) ;; for some obscure reason, letting org-trello install elnode's dependencies fail!
+: (package-install 'org-trello)
+: (require 'org-trello)
+: ;; to trigger org-trello for each org file
+: (add-hook 'org-mode-hook 'org-trello-mode)
+:
+: when i run eval-buffer, i encounter error list below:
+:
+: org-trello.el:109:1:Error: Cannot open load file: org-trello-header
+:
+: --------------------------------
+: GNU Emacs 24.3.1
+: OS: archlinux
+** CLOSED 0.3.1.1
+:PROPERTIES:
+:id:       113
+:date-modification: 2014-01-23T21:15:28+0100
+:date-creation: 2014-01-23T21:13:58+0100
+:author:   "ardumont"
+:END:
+: - [X] Installation failure - https://github.com/ardumont/org-trello/issues/112
+: - [X] Version
+: - [X] Release notes
+** CLOSED [duplicate #33] Too much emphasis on #+TODO, not enough on structure
+:PROPERTIES:
+:id:       81
+:date-modification: 2014-01-22T18:37:54+0100
+:date-creation: 2013-11-20T20:54:53+0100
+:author:   "pinard"
+:END:
+: Hi, Antoine.  Here is a more philosophical one.
+:
+: In a Trello board, there are many columns, and each column gives access to many cards.
+:
+: org-trello presumes that these columns represent state, and that Trello users "progress" a card by moving it between columns; which is reflected with TODO progression on the Org side.  Which is nice, of course.
+:
+: But columns may represent something else than state.  They may be used to group cards according to really all kind of criteria.  It would be far better if org-trello was reflecting the two level structure (columns/card) by two-level structure of headers on the Org side: the outer level representing the column, the inner level representing the card within the column.
+:
+: The assumption made by org-trello that Trello columns are only used for state becomes an encumberance, as all cards within columns are all shown at the same level, with the card column identification used as a prefix.  On the Org side, users have no clean way to collapse columns they do not want to see, they rather get overly long lists, sometimes with keywords not even grouped, which is confusing overall.
+:
+: In a way, that's a bit sad that the #+TODO trickery, which is clever deep down, is not always to be used.  But this is a bit like imposing a way to use Trello, rather than reflecting Trello usage in its generality.  Maybe an option could be available, or compromises done, to salvage the trickery, but in my opinion, it should not be the default.  org-trello should reflect Trello structure in priority, and give much less prominence to particular usages.
+:
+: FranÃ§ois
+** CLOSED Canât create/update/sync cards
+:PROPERTIES:
+:tags:     ("potential-setup-problem")
+:id:       37
+:date-modification: 2014-01-22T18:36:32+0100
+:date-creation: 2013-08-21T11:45:32+0200
+:author:   "giorgio-v"
+:END:
+: I have setup my emacs/org environment. I can create a new board, and I can link to an existing one, but thereâs no way to âseeâ any card nor to create a new one.
+:
+: I donât see any error message whatsoever.
+:
+: @ardumont Please let me know what additional info or tests youâll need to debug this problem.
+:
+: Thank you.
+** CLOSED Installation difficulty, maybe because Org version numbering?
+:PROPERTIES:
+:id:       84
+:date-modification: 2014-01-22T18:32:29+0100
+:date-creation: 2013-11-23T17:36:13+0100
+:author:   "pinard"
+:END:
+: Hi, Antoine.  Here I am again, hoping you are not tired of reading me.
+:
+: I'm a bit lost with how to proceed with the dependency org-trello has on Org, in Marmelade.  I postponed that problem for a few days already, but I now want to do something about it, so this issue, to request guidance or advice.
+:
+: I usually get Org mode from Git and install it locally.  Bastien has recent commits which are very useful to me, in my day to day work, so I'd rather use a bleeding edge Org.  The problem is that Git latest tag is 7.9.3e.  And indeed, M-x org-version yields:
+:
+:     Org-mode version 7,9.3e (7.9.3e-3023-g6d0932 @ /home/pinard/macs/_/org-mode/lisp/)
+:
+: This is after removing the package "org" from the package system, as I did this morning.  But then, when I start Emacs, there is a `*Warnings*` buffer with the following contents:
+:
+:     Warning (emacs): Unable to activate package `org-trello'.
+:     Required package `org-8.0.7' is unavailable
+:     Warning (emacs): Unable to activate package `org-trello'.
+:     Required package `org-8.0.7' is unavailable
+:
+: One thing is that I do not understand why Marmelade uses version numbers for Org which are higher than the numbers in the bleeding edge version of Org.  Would I be using the wrong Git repository?  I clone from `git://orgmode.org/org-mode.git`.
+:
+: How may I, or should I, install org-trello, without pulling the version from Marmelade?  Is there something in org-trello that requires an older version of Org?  It would be infortunate, as I do not think I can have two version of Org installed simultaneously.
+:
+: As of now, I have the feeling I have to choose either org-trello, or some recent Org features.  I would prefer having both!
+:
+: FranÃ§ois
+** CLOSED May not save an trelloized Org buffer
+:PROPERTIES:
+:id:       82
+:date-modification: 2014-01-22T17:55:10+0100
+:date-creation: 2013-11-21T05:20:14+0100
+:author:   "pinard"
+:END:
+: Hi, Antoine.  Some trelloized Org buffers may be modified and saved nicely.  Others do not.  Here is a traceback for such a case.  I merely added a space and removed it so the Org file is marked modified, then saved it.  Else, this is the exact contents of a file after "C-c o S", I did not modify it otherwise.
+:
+: (But, in the text here, I replaced some strings containing binary by "[...EDITED-OUT-AS-BINARY...]" below, otherwise GitHub was truncating the traceback at the binary string.)
+:
+: Debugger entered--Lisp error: (wrong-type-argument hash-table-p nil)
+:   gethash("orgtrello-user-jeansch" nil)
+:   (lambda (it) (gethash (format "%s%s" *ORGTRELLO-USER-PREFIX* it) *HMAP-USERS-NAME-ID*))("jeansch")
+:   mapcar((lambda (it) (gethash (format "%s%s" *ORGTRELLO-USER-PREFIX* it) *HMAP-USERS-NAME-ID*)) ("jeansch"))
+:   (orgtrello/--users-to (mapcar (function (lambda (it) (gethash (format "%s%s" *ORGTRELLO-USER-PREFIX* it) *HMAP-USERS-NAME-ID*))) (orgtrello/--users-from (orgtrello/get-usernames-assigned-property!))))
+:   orgtrello/--user-ids-assigned-to-current-card()
+:   (cons (orgtrello/--user-ids-assigned-to-current-card) (cons (buffer-name) (cons od/--point (cons (orgtrello-data/extract-identifier od/--point) (cons (orgtrello-data/--convert-orgmode-date-to-trello-date (orgtrello-action/org-entry-get od/--point "DEADLINE")) (orgtrello-data/--extract-metadata))))))
+:   (orgtrello-data/--get-metadata (cons (orgtrello/--user-ids-assigned-to-current-card) (cons (buffer-name) (cons od/--point (cons (orgtrello-data/extract-identifier od/--point) (cons (orgtrello-data/--convert-orgmode-date-to-trello-date (orgtrello-action/org-entry-get od/--point "DEADLINE")) (orgtrello-data/--extract-metadata)))))))
+:   (let ((od/--point (point))) (orgtrello-data/--get-metadata (cons (orgtrello/--user-ids-assigned-to-current-card) (cons (buffer-name) (cons od/--point (cons (orgtrello-data/extract-identifier od/--point) (cons (orgtrello-data/--convert-orgmode-date-to-trello-date ...) (orgtrello-data/--extract-metadata))))))))
+:   orgtrello-data/metadata()
+:   (orgtrello/--level (orgtrello-data/metadata))
+:   orgtrello/--current-level()
+:   (= level (orgtrello/--current-level))
+:   (if (= level (orgtrello/--current-level)) (progn (funcall fn-to-execute)))
+:   (lambda nil (if (= level (orgtrello/--current-level)) (progn (funcall fn-to-execute))))()
+:   byte-code("[...EDITED-OUT-AS-BINARY...]" [string num todo tags lspos level 1 2 nil match-string-no-properties 4 0 org-reduced-level org-outline-level org-get-category assoc delete org-split-string ":" apply append mapcar cdr reverse #[(x) "[...EDITED-OUT-AS-BINARY...]" [x copy-sequence org-add-prop-inherited] 2] t org-remove-uninherited-tags eval sparse-tree org-agenda-skip org-agenda-check-for-timestamp-as-reason-to-ignore-todo-item org-get-heading org-highlight-new-match org-show-context tags-tree agenda org-agenda-format-item "" indented make-string 46 org-get-priority org-agenda-new-marker org-add-props org-marker org-hd-marker org-category todo-state priority type ...] 16)
+:   org-scan-tags((lambda nil (if (= level (orgtrello/--current-level)) (progn (funcall fn-to-execute)))) t nil nil)
+:   org-map-entries((lambda nil (if (= level (orgtrello/--current-level)) (progn (funcall fn-to-execute)))))
+:   orgtrello/org-map-entries(1 orgtrello-cbx/--justify-property-current-line)
+:   orgtrello/justify-file()
+:   (if org-trello-mode (orgtrello/justify-file))
+:   org-trello/justify-on-save()
+:   run-hooks(before-save-hook)
+:   basic-save-buffer()
+:   save-buffer(1)
+:   call-interactively(save-buffer nil nil)
+:
+: FranÃ§ois
+** CLOSED error in process filter: Invalid function: org-with-silent-modifications
+:PROPERTIES:
+:id:       92
+:date-modification: 2014-01-22T17:43:19+0100
+:date-creation: 2013-11-25T09:41:08+0100
+:author:   "webframp"
+:END:
+: Installed `org-trello version: 0.2.6` from Melpa, not sure what the issue is here but I'm missing something. Setup seemed to go fine and I could even partially sync. Now I'm unable to.
+:
+: Seems maybe related to issues encountered on #37
+:
+: ```
+: GNU Emacs 24.3.1
+: Copyright (C) 2013 Free Software Foundation, Inc.
+: GNU Emacs comes with ABSOLUTELY NO WARRANTY.
+: You may redistribute copies of Emacs
+: under the terms of the GNU General Public License.
+: For more information about these matters, see the file named COPYING.
+: ```
+:
+: M-x org-version
+: ```
+: Org-mode version 8.2.3c (8.2.3c-13-g5213e0-elpa @ /Users/sme/.emacs.d/elpa/org-20131125/)
+: ```
+:
+: Trying to sync trello -> org with `C-c o S` just complains
+:
+: Error:
+: ```
+: org-refresh-category-properties: Invalid function: org-with-silent-modifications
+: Saving file /Users/sme/org/weekly-spring-goals.org...
+: org-refresh-category-properties: Invalid function: org-with-silent-modifications
+: Saving file /Users/sme/org/weekly-spring-goals.org...
+: org-refresh-category-properties: Invalid function: org-with-silent-modifications
+: Saving file /Users/sme/org/weekly-spring-goals.org...
+: org-refresh-category-properties: Invalid function: org-with-silent-modifications
+: Saving file /Users/sme/org/weekly-spring-goals.org...
+: org-refresh-category-properties: Invalid function: org-with-silent-modifications
+: Saving file /Users/sme/org/weekly-spring-goals.org...
+: org-refresh-category-properties: Invalid function: org-with-silent-modifications
+: Saving file /Users/sme/org/weekly-spring-goals.org...
+: org-refresh-category-properties: Invalid function: org-with-silent-modifications
+: Saving file /Users/sme/org/weekly-spring-goals.org...
+: org-refresh-category-properties: Invalid function: org-with-silent-modifications
+: Quit
+: elnode--http-end: an error occurred processing the access log
+: Requesting sync org buffer from trello board...
+: Ensure you use utf-8 encoding for your org buffer.
+: Synchronizing the trello board 'Weekly Sprint Goals' to the org-mode file. This may take a moment, some coffee may be a good idea...
+: Saving file /Users/sme/org/weekly-spring-goals.org...
+: org-refresh-category-properties: Invalid function: org-with-silent-modifications
+: error in process filter: org-refresh-category-properties: Invalid function: org-with-silent-modifications
+: error in process filter: Invalid function: org-with-silent-modifications
+: ```
+** CLOSED Clean the old checklist/items format up
+:PROPERTIES:
+:id:       105
+:date-modification: 2014-01-22T17:26:31+0100
+:date-creation: 2014-01-16T21:30:50+0100
+:author:   "ardumont"
+:END:
+: Before the standard org-mode checkbox use for checklist and items, org-trello used simple star * for cards, ** for checklist, *** for items.
+:
+: - Remove this code to ease the maintenance.
+: - Also remove the reference inside the readme
+** CLOSED 0.3.1
+:PROPERTIES:
+:id:       110
+:date-modification: 2014-01-21T19:52:54+0100
+:date-creation: 2014-01-21T19:52:44+0100
+:author:   "ardumont"
+:END:
+: Update README.md
+** CLOSED 0.3.1
+:PROPERTIES:
+:id:       109
+:date-modification: 2014-01-21T19:51:28+0100
+:date-creation: 2014-01-21T19:44:59+0100
+:author:   "ardumont"
+:END:
+: - [X] Backlog
+: - [X] Version
+: - [X] Avoid duplication in declaring the org-trello version
+: - [X] Add the important information about emacs 24.3+ (org-trello is only supported from this version range)
+: - [X] Clean the code regarding the old checklist/item entities (with stars) - https://github.com/ardumont/org-trello/issues/105
+: - [X] Sometimes, multiple cards are created more than once. Improve the proxy policy regarding this - Unable to reproduce so do nothing.
+: - [X] Release notes
+** CLOSED 0.3.0
+:PROPERTIES:
+:id:       108
+:date-modification: 2014-01-20T22:07:02+0100
+:date-creation: 2014-01-20T22:03:59+0100
+:author:   "ardumont"
+:END:
+: - [X] Backlog
+: - [X] Upgrade Version
+: - [X] org-trello bindings remains present when org-trello is switched off. Fix it.
+: - [X] Update doc
+: - [X] Release notes
+** CLOSED Inordinate amount of whitespace after synchronization from Trello to Org
+:PROPERTIES:
+:id:       90
+:date-modification: 2014-01-20T19:31:19+0100
+:date-creation: 2013-11-24T06:56:26+0100
+:author:   "pinard"
+:END:
+: Hi, Antoine.
+:
+: After "C-c o S", org-trello vertically aligns ":PROPERTIES: {"orgtrello-id":..." in lines, after all the checkitem texts.
+:
+: If one of these texts is overly long, which may very well happen in practice, the alignment then uses an inordinate amount of whitespace after all short checkitem texts in the same list.  This visually translates, in Emacs display, by many white lines between the checkitem text and the ":PROPERTIES: ..." suffix, spoiling a good amount of vertical space and so, decreasing legibility and comfort.
+:
+: My suggestion would be to preset some reasonable upper bound to the length of a checkitem text, for the purpose of computing the margin for the suffixes.  For texts having lenghtier than this upper bound, the suffix would be pushed on the right as needed for those lines.  And of course, if all texts are shorter than this upper bound, the margin for the suffixes could be made shorter as it is currently done.
+:
+: Now, what value should have this upper bound?  As the suffix seems to be 56 characters wide (at least on the example I have before my eyes), it would not be reasonable aiming 79 columns limit overall, like GNU standards suggest.  But the margin itself might be guaranteed no bigger than 79.  In that way, there will be no visual vertical waste in form of white lines, given an Emacs window is 80 character wide, which is the usual default and minimum in many display contexts.
+:
+: FranÃ§ois
+** CLOSED 0.2.9
+:PROPERTIES:
+:id:       106
+:date-modification: 2014-01-20T19:31:13+0100
+:date-creation: 2014-01-19T22:35:36+0100
+:author:   "ardumont"
+:END:
+: - [X] Remove org-trello.el at the root of the code (as the package generates this file and the test load without it, no longer needs to be gitted)
+: - [X] Invisible checkbox identifier - https://github.com/ardumont/org-trello/issues/98
+: - [X] Fix sync from trello which loses the state of the checkboxes
+: - [X] Fix tests break since org-trello.el has been destroyed and simplify the testing
+: - [X] Overload the C-e mapping to go at the end of the line for the org-trello mode
+: - [X] Update doc
+: - [X] Release notes
+** CLOSED Hiding orgtrello-id texts
+:PROPERTIES:
+:id:       98
+:date-modification: 2014-01-20T18:55:46+0100
+:date-creation: 2013-12-15T15:49:01+0100
+:author:   "pinard"
+:END:
+: Hi, Antoine.  (long time no speak!)
+:
+: The `orgtrello-id` fragments within Trello Org files are rather distracting or polluting, so  I'm experimenting with this code within `org-mode-hook` to hide them:
+:
+: ``` lisp
+:      (save-excursion
+:         (goto-char (point-min))
+:         (when (search-forward ":PROPERTIES: {\"orgtrello-id\":" nil t)
+:           (font-lock-add-keywords
+:            nil '((" *:PROPERTIES: {\"orgtrello-id\":[^}\n]+}"
+:                   (0 (add-text-properties (match-beginning 0) (match-end 0)
+:                                           '(invisible org-link))))))))
+: ```
+:
+: This code seems to work for me, yet I'm not sure I understand it fully â I've been merely copying similar code from file to file for a long time :-).
+:
+: Maybe **org-trello** could install something similar right in its minor mode?
+:
+: FranÃ§ois
+** CLOSED 0.2.9.1
+:PROPERTIES:
+:id:       107
+:date-modification: 2014-01-20T18:52:27+0100
+:date-creation: 2014-01-20T18:49:18+0100
+:author:   "ardumont"
+:END:
+: - [X] Forgot to ship code
+: - [X] Update version
+: - [X] Release notes
+** CLOSED Marmalade/Melpa stats
+:PROPERTIES:
+:id:       95
+:date-modification: 2014-01-17T14:25:04+0100
+:date-creation: 2013-11-30T16:59:19+0100
+:author:   "ardumont"
+:END:
+: Measure use of org-trello
+:
+: Marmalade permits to retrieve such data from its api => ardumont/clj-jam
+** CLOSED 0.2.8.2
+:PROPERTIES:
+:id:       104
+:date-modification: 2014-01-16T21:04:03+0100
+:date-creation: 2014-01-16T21:02:23+0100
+:author:   "ardumont"
+:END:
+: - [X] Fix yet another error on synchronization from trello.
+: - [X] Update doc
+: - [X] Release notes
+** CLOSED 0.2.8.1
+:PROPERTIES:
+:id:       103
+:date-modification: 2014-01-16T20:49:37+0100
+:date-creation: 2014-01-16T20:46:39+0100
+:author:   "ardumont"
+:END:
+: - [X] Fix error on synchronization from trello
+: - [X] Update doc
+: - [X] Release notes
+** CLOSED Card description not synchronized
+:PROPERTIES:
+:id:       80
+:date-modification: 2014-01-05T17:46:08+0100
+:date-creation: 2013-11-20T20:32:27+0100
+:author:   "pinard"
+:END:
+: Hi, Antoine.
+:
+: While checklists are synchronized, mere card descriptions are not.  In our team, we often use the description to, euh, describe what the card is about, and this information is important to read.  It would be nice that org-trello reflects such information in the Org file.
+:
+: Is it meant to do so already?  Do I miss something? :-)
+:
+: FranÃ§ois
+** CLOSED 0.2.8
+:PROPERTIES:
+:id:       102
+:date-modification: 2014-01-05T17:38:32+0100
+:date-creation: 2014-01-05T17:34:13+0100
+:author:   "ardumont"
+:END:
+: - [X] Backlog
+: - [X] Synchronize description - https://github.com/ardumont/org-trello/issues/80
+: - [X] Use --reduce-from from dash instead of cl-reduce to reduce the cl deps
+: - [X] Version
+: - [X] Update doc
+: - [X] Release notes
+** CLOSED Unify abstraction around org-trello data (between the org and trello data
+:PROPERTIES:
+:id:       100
+:date-modification: 2014-01-05T12:13:34+0100
+:date-creation: 2014-01-04T19:09:36+0100
+:author:   "ardumont"
+:END:
+: This will ease the maintenance for future development.
+** CLOSED 0.2.7
+:PROPERTIES:
+:id:       101
+:date-modification: 2014-01-04T19:40:26+0100
+:date-creation: 2014-01-04T19:33:08+0100
+:author:   "ardumont"
+:END:
+:
+: - [X] Backlog
+: - [X] Create TODO template for the backlog start
+: - [X] Clean obsolete files (org-trello.org is no longer maintained, TODO-tests.org is no longer used)
+: - [X] Retry to split into `namespace` files - https://github.com/ardumont/org-trello/issues/93
+:   - [X] Split into `namespace` files
+:   - [X] Ensure packaging is generated and ok for marmalade
+:   - [X] Ensure packaging is generated and ok for melpa - yes, ensure that the root `org-trello.el` is generated before pushing on master.
+:   - [X] Ensure the tests are still ok
+: - [X] README-dev - https://github.com/ardumont/org-trello/issues/99
+: - [X] Rewrite the abstraction around fetched results to unify the `data model` (in and out identical) - https://github.com/ardumont/org-trello/issues/100
+: - [X] Unify the terms around users-assigned (org-trello) and members (trello)
+: - [X] Split the last org-trello namespace into 2 (`controller` for the orchestration function call triggered by interactive commands and `org-trello` for the interactive commands)
+: - [X] Unfold every entries before triggering the sync from trello to avoid problems similar as https://github.com/ardumont/org-trello/issues/53
+: - [X] Version
+: - [X] Release notes
+** CLOSED Create a README-dev.md for org-trello developers
+:PROPERTIES:
+:id:       99
+:date-modification: 2014-01-04T19:34:18+0100
+:date-creation: 2013-12-29T15:36:11+0100
+:author:   "ardumont"
+:END:
+: Explaining the current state of affairs regarding how to:
+: - dev
+: - package
+: - test
+** CLOSED Retry to split into "namespace" file
+:PROPERTIES:
+:id:       93
+:date-modification: 2014-01-04T19:34:18+0100
+:date-creation: 2013-11-30T16:52:50+0100
+:author:   "ardumont"
+:END:
+: The code is inlined in one file and separated with ^L in namespace.
+: This is for packaging reason.
+:
+: I have a hard time parsing it.
+: Try to split up in namespace file. There must be a way.
+:
+: Look at other emacs mode to find out how to do it.
+** CLOSED Sync to trello - C-c o s - broken
+:PROPERTIES:
+:tags:     ("bug" "next-release")
+:id:       53
+:date-modification: 2014-01-04T19:34:18+0100
+:date-creation: 2013-09-01T11:02:40+0200
+:author:   "ardumont"
+:END:
+: When trying to sync the full file, only some of the first level checkbox are synced.
+: Worst thing is some entries are destroyed too.
+:
+: Version: 0.1.7
+:
+: Workaround, sync manually lower levels via:
+: - C-c o c - sync simple entity
+: - C-c o C - sync full entity
+: - toggle visibility to see all contents of the buffer before C-c o s
+** CLOSED Clean dead code if some exists
+:PROPERTIES:
+:id:       94
+:date-modification: 2014-01-04T19:29:50+0100
+:date-creation: 2013-11-30T16:54:39+0100
+:author:   "ardumont"
+:END:
+: Take the time to look again the code and remove dead one
+** CLOSED elnode--http-end: an error occurred processing the access log
+:PROPERTIES:
+:id:       73
+:date-modification: 2013-11-25T11:42:10+0100
+:date-creation: 2013-11-17T22:17:51+0100
+:author:   "pinard"
+:END:
+: Hi, Antoine.  Selecting one board through "C-c o I" always yield:
+:
+: [...]
+: Install boards and lists - done!
+: elnode--http-end: an error occurred processing the access log
+:
+: The ".org" buffer gets 18 lines beginning with #+property, and one embedded #+TODO line, but no other contents.  I presume (without knowing yet) that this is incomplete.
+:
+: Where should I look or what should I do to get rid of the error and further in the board acquisition?
+:
+: FranÃ§ois
+** CLOSED Jumping from emacs to card"
+:PROPERTIES:
+:id:       88
+:date-modification: 2013-11-25T11:32:25+0100
+:date-creation: 2013-11-24T04:36:23+0100
+:author:   "pinard"
+:END:
+: See issue #76.
+:
+: Jumping from an entry in, an org-trelloized Org buffer, to the corresponding Trello board in a Web browser is already convenient, but for boards having many columns and possibly long list of cards, retrieving the correct card may require some searching.
+:
+: It would be nicer and more useful if org-trello could directly open the corresponding Trello card in a Web browser.
+:
+: FranÃ§ois
+** CLOSED 0.2.6
+:PROPERTIES:
+:id:       91
+:date-modification: 2013-11-24T22:43:50+0100
+:date-creation: 2013-11-24T22:38:40+0100
+:author:   "ardumont"
+:END:
+: - [X] Jump to card - https://github.com/ardumont/org-trello/issues/88
+: - [X] Rewrite convention for the "goto board" action into "jump to board"
+: - [X] Update README.md
+: - [X] Version
+: - [X] Release Note
+** CLOSED trello checklists don't map to org-mode checklists
+:PROPERTIES:
+:tags:     ("enhancement" "feature-request" "next-release")
+:id:       14
+:date-modification: 2013-11-24T20:54:02+0100
+:date-creation: 2013-07-25T12:11:10+0200
+:author:   "sw1nn"
+:END:
+: Loving org-trello - thanks for the great work.
+:
+: Feature request: Is it possible to map checklists in trello  to org-mode checklists? It would be great if they could work as detailed here:
+:
+: http://orgmode.org/manual/Checkboxes.html
+:
+: The problem is that the TODO states are incorrect, since checklists items should only allow TODO and DONE. I
+** CLOSED Jumping from Emacs to the browser
+:PROPERTIES:
+:tags:     ("feature-request")
+:id:       76
+:date-modification: 2013-11-24T04:37:09+0100
+:date-creation: 2013-11-19T17:49:43+0100
+:author:   "pinard"
+:END:
+: Hi, Antoine.
+:
+: This is a suggestion for a new little tool.  It would sometimes be convenient, quickly jumping from Emacs into the "real" Trello board or entry within a Web browser, for the case I want to see how Trello renders part of an Org buffer which has been org-trello-ized, or to address Trello capabilities which are not in org-trello yet, or even, merely to ease tests or toying around.  Could we have a keybinding and function to that effect?
+:
+: FranÃ§ois
+:
+: P.S. It would of course be fun also the other way around: from the browser within Trello, quickly jumping to the corresponding place in Org.  But one has to stay reasonable while adding demands into GitHub issues :-).
+** CLOSED (Wish) Use the same capitalization convention as in the Org manual.
+:PROPERTIES:
+:id:       83
+:date-modification: 2013-11-24T00:28:42+0100
+:date-creation: 2013-11-21T05:36:29+0100
+:author:   "pinard"
+:END:
+: Hi, Antoine.  This is a wish, not a bug report.  The Org manual, in section:
+:
+:   1.5 Typesetting conventions used in this manual
+:
+: (Top -> Introduction -> Conventions)
+:
+: chooses to write Org property names in capitals.  This does not mean that users have to use the same conventions, they may really do as they want.  Yet, I follow the conventions in my 350 or so Org files, and have a diagnostic program which (among many other things) reports to me when I am not consistent on such things.  This program started to barf on files generated by org-trello.  I could amend the program to detect trelloized files and become lenient for those specifically, but I dare suggesting changing org-trello instead. :-)
+:
+: If you agree, per some other issue of mine, to hide all such lines, it would not matter much to users anyway.
+:
+: So, my wish is that org-trello writes #+PROPERTY instead of #+property.  It already writes #+TODO, this particular one is written according to the manual convention.
+:
+: FranÃ§ois
+** CLOSED Properly use [ ], and not always [-]: they do not have the same meaning.
+:PROPERTIES:
+:tags:     ("enhancement")
+:id:       78
+:date-modification: 2013-11-24T00:27:31+0100
+:date-creation: 2013-11-19T22:49:19+0100
+:author:   "pinard"
+:END:
+: Hi, Antoine.
+:
+: Org allows checklist items to be marked "[ ]" (for undone), "[-]" (for half done) or "[X]" (for fully done).  Currently, org-trello seems to stick to either "[-]" or "[X]".
+:
+: The proper usage for "[-]" is a list having a sublist in which some items are done and some items are undone (or half done, but this likely does not apply for org-trello).  End items should either be done or undone, but never half done.  Trello does not have such a concept (so far that I know), so the current mapping is not really proper.
+:
+: FranÃ§ois
+** CLOSED Hide all the #+property lines?
+:PROPERTIES:
+:tags:     ("enhancement" "feature-request")
+:id:       77
+:date-modification: 2013-11-24T00:27:31+0100
+:date-creation: 2013-11-19T22:23:28+0100
+:author:   "pinard"
+:END:
+: Hi, Antoine, and org-trello users.
+:
+: I'm a bit annoyed by the block of #+property lines at the beginning of a synchronized org-trello buffer, which I would really prefer hidden.  This would be to decrease the visual pollution.
+:
+: I think that including all these within :PROPERTIES: and :END: lines is sufficient to do so.  I will try adding these lines myself, hoping they will survive synchronization! :-)  If they do, that Issue might be abandoned.
+:
+: Yet, I would guess that, for elegance, the default should be to hide these lines (and likely the #+TODO line as well) when generating them.
+:
+: FranÃ§ois
+** CLOSED 0.2.5
+:PROPERTIES:
+:id:       87
+:date-modification: 2013-11-24T00:22:48+0100
+:date-creation: 2013-11-24T00:21:04+0100
+:author:   "ardumont"
+:END:
+** CLOSED "Not yet trello-synchronized entities" are removed from org-buffer when sync from trello
+:PROPERTIES:
+:tags:     ("bug")
+:id:       71
+:date-modification: 2013-11-23T18:49:42+0100
+:date-creation: 2013-10-03T13:05:35+0200
+:author:   "ardumont"
+:END:
+: if new entities are referenced but not yet sync'ed on trello, they will disappear from the buffer when sync-from-trello (they should not)
+** CLOSED 0.2.4
+:PROPERTIES:
+:id:       85
+:date-modification: 2013-11-23T18:46:09+0100
+:date-creation: 2013-11-23T18:34:01+0100
+:author:   "ardumont"
+:END:
+** CLOSED Allow users to choose other keybindings
+:PROPERTIES:
+:id:       72
+:date-modification: 2013-11-19T17:40:42+0100
+:date-creation: 2013-11-17T06:39:18+0100
+:author:   "pinard"
+:END:
+: Keybindings starting with "C-c LETTER" are reserved for users, this is an Emacs convention.  Consequently, these should never be hardwired or fixed in packages.
+:
+: As I already use "C-c o" prefix for my Emacs customization, abundantly, I would like that org-trello allow me to easily choose some other prefix.
+:
+: FranÃ§ois
+** CLOSED Documentation discrepancy (C-c o D versus C-c o x)
+:PROPERTIES:
+:id:       74
+:date-modification: 2013-11-18T22:51:45+0100
+:date-creation: 2013-11-18T02:40:02+0100
+:author:   "pinard"
+:END:
+: In http://ardumont.github.io/org-trello/, Bindings section, it seems that C-c o x is written where C-c o D would be expected.
+** CLOSED 0.2.3
+:PROPERTIES:
+:id:       75
+:date-modification: 2013-11-18T22:02:48+0100
+:date-creation: 2013-11-18T19:04:20+0100
+:author:   "ardumont"
+:END:
+: - [X] Version
+: - [X] Fix discrepancy between docstring and binding to delete the setup - https://github.com/ardumont/org-trello/issues/74
+: - [X] Use a prefix binding which does not override the emacs's default user prefix (keep the original for the moment to avoid disturbing people which already use it) - https://github.com/ardumont/org-trello/issues/72
+: - [X] Update documentation about the possibility to change the default prefix key
+: - [X] Fix ci-travis build due to change in cask installation command
+: - [X] Release notes
+** CLOSED Show people assigned to a card
+:PROPERTIES:
+:tags:     ("feature-request" "next-release")
+:id:       67
+:date-modification: 2013-10-01T00:31:05+0200
+:date-creation: 2013-09-28T12:37:06+0200
+:author:   "ardumont"
+:END:
+: As an org-trelloan, I'd like to be able to see people who are assigned to the card in my org-trello buffer.
+** CLOSED 0.2.2
+:PROPERTIES:
+:id:       68
+:date-modification: 2013-10-01T00:24:31+0200
+:date-creation: 2013-09-30T22:36:07+0200
+:author:   "ardumont"
+:END:
+: - [X] Version
+: - [X] Improve abstraction around data from trello (not complete yet)
+: - [X] Show people assigned to card - https://github.com/ardumont/org-trello/issues/67
+:   - [X] Compute user properties part from the board's informations
+:   - [X] Install board setup routine (C-c o I) also install board users
+:   - [X] Create board routine (C-c o i) should also install user boards (only the current user should then appear)
+:   - [X] Setuping properties before doing any actions
+:   - [X] Cleanup routine should also remove user global properties
+:   - [X] User assigns oneself to the card
+:   - [X] User unassigns oneself to the card
+:   - [X] sync-to-trello also assign users
+:   - [X] sync-to-trello also unassign users
+:   - [X] sync-from-trello also retrieve user informations and update the org buffer
+:   - [X] cleanup routine must cleanup card properties regarding user assigned
+: - [X] Update README about new command
+: - [X] Update README TOC
+: - [X] Release notes
+** CLOSED 0.2.1.2
+:PROPERTIES:
+:id:       66
+:date-modification: 2013-09-19T19:18:36+0200
+:date-creation: 2013-09-19T19:15:48+0200
+:author:   "ardumont"
+:END:
+: - [X] Version
+: - [X] Release notes
+: - [X] Fix typography in naming windows-nt system
+** CLOSED 0.2.1.2
+:PROPERTIES:
+:id:       65
+:date-modification: 2013-09-19T19:16:41+0200
+:date-creation: 2013-09-19T19:10:30+0200
+:author:   "ardumont"
+:END:
+: - [X] Version
+: - [X] Release notes
+: - [X] Fix typography in naming windows-nt system
+** CLOSED 0.2.1
+:PROPERTIES:
+:id:       63
+:date-modification: 2013-09-18T21:41:20+0200
+:date-creation: 2013-09-18T21:33:23+0200
+:author:   "ardumont"
+:END:
+: - [X] Version
+: - [X] Improve sync from trello - In case of new item/checklist, the entry will be added at the end of the buffer instead of its rightful place.
+: - [X] Problem regarding some function on windows system - https://github.com/ardumont/org-trello/issues/62
+: - [X] Release notes
+** CLOSED 0.2.1.1 fix packaging error manipulation
+:PROPERTIES:
+:id:       64
+:date-modification: 2013-09-18T21:41:10+0200
+:date-creation: 2013-09-18T21:39:51+0200
+:author:   "ardumont"
+:END:
+** CLOSED 0.1.9
+:PROPERTIES:
+:id:       60
+:date-modification: 2013-09-11T21:54:16+0200
+:date-creation: 2013-09-05T21:35:20+0200
+:author:   "ardumont"
+:END:
+: - [X] Clean install org-trello
+: - [X] Ensure sync-from-trello keep the order of the checklists clean
+: - [X] Version
+: - [X] Release notes
+** CLOSED 0.2.0
+:PROPERTIES:
+:id:       61
+:date-modification: 2013-09-11T21:49:20+0200
+:date-creation: 2013-09-11T21:48:04+0200
+:author:   "ardumont"
+:END:
+: - [X] Version
+: - [X] Improve cleanup of the org-trello metadata
+: - [X] Videos about org-trello
+:   - [X] Webadmin
+:   - [X] Checkbox
+:   - [X] Sync from trello
+:   - [X] Cleanup trello board
+:   - [X] Cleanup org-trello buffe
+: - [X] Reference videos to README
+: - [X] Improve sync to trello
+: - [X] Release notes
+** CLOSED Installation from marmalade fails
+:PROPERTIES:
+:tags:     ("potential-setup-problem" "question")
+:id:       55
+:date-modification: 2013-09-06T20:09:09+0200
+:date-creation: 2013-09-01T11:16:39+0200
+:author:   "greenrd"
+:END:
+: It is unable to install several dependencies, e.g. unable to install `elnode` because required package `dash-1.1.0` is unavailable.
+** CLOSED Creating entries from new org-files doesn't work
+:PROPERTIES:
+:tags:     ("potential-setup-problem")
+:id:       10
+:date-modification: 2013-09-06T20:08:27+0200
+:date-creation: 2013-07-22T22:48:14+0200
+:author:   "Bassmann"
+:END:
+: I created a new board in Trello and connected it to an org file.
+:
+: Then I added some entries to the org-file and called org-trello/create-simple-entity.
+:
+: I receive the error (replaced to real key with "my-key" for the issue):
+: Property orgtrello-marker-"my key" was not present in the entry
+: There was some problem during the request to trello: (error http 400)
+:
+: Any idea what's wrong?
+** CLOSED 0.1.8
+:PROPERTIES:
+:id:       57
+:date-modification: 2013-09-02T23:24:29+0200
+:date-creation: 2013-09-02T23:17:00+0200
+:author:   "ardumont"
+:END:
+: - [X] Simplify Cask file
+: - [X] webadmin: Improve rendering [2/2]
+:   - [X] Better display for the delete buttons.
+:   - [X] Use css for the play/pause entities
+: - [X] Ensure checks before sync request to the proxy.
+: - [X] Fix sync full entity (related to map-checkbox) - https://github.com/ardumont/org-trello/issues/53
+: - [X] Improve the justify policy once and for all (this blinks at the moment!)
+: - [X] Version
+: - [X] Fix problem with archive/unarchive file routine
+: - [X] Fix problem with delete file routine (does not take place)
+: - [X] Add missing callback for the delete action
+: - [X] Improve the post-actions
+:   - [X] Justify once
+:   - [X] Saving once
+:   - [X] Unify the saving behaviour with the delete action
+** CLOSED ### org-trello ### Caught exception: [(void-function orgtrello-proxy/--files)]
+:PROPERTIES:
+:id:       54
+:date-modification: 2013-09-01T13:36:07+0200
+:date-creation: 2013-09-01T11:14:45+0200
+:author:   "greenrd"
+:END:
+: This error appears in the minibuffer and in *Messages* every few seconds.
+** CLOSED Symbol's function definition is void: cl-reduce
+:PROPERTIES:
+:id:       51
+:date-modification: 2013-09-01T13:36:00+0200
+:date-creation: 2013-09-01T00:07:28+0200
+:author:   "greenrd"
+:END:
+: org-trello 0.1.7 fails to load in emacs 24.2.1 due to the above error.
+** CLOSED 0.1.7.1
+:PROPERTIES:
+:id:       56
+:date-modification: 2013-09-01T12:59:36+0200
+:date-creation: 2013-09-01T12:58:40+0200
+:author:   "ardumont"
+:END:
+: - [X] Fix problem requiring cl-lib - https://github.com/ardumont/org-trello/issues/51
+: - [X] Fix error on when-let - https://github.com/ardumont/org-trello/issues/54
+: - [X] Version
+: - [X] release notes
+** CLOSED Ampersand (&) character in label causes various errors
+:PROPERTIES:
+:tags:     ("bug" "next-release")
+:id:       46
+:date-modification: 2013-08-31T15:36:15+0200
+:date-creation: 2013-08-28T20:53:39+0200
+:author:   "greenrd"
+:END:
+: e.g. try to create an item:
+:
+: ```
+: *** hello I'm an item &
+: ```
+:
+: and sync it. It won't work.
+** CLOSED 0.1.7 - Last fix on scripts - (need to sleep...).
+:PROPERTIES:
+:id:       50
+:date-modification: 2013-08-31T15:21:53+0200
+:date-creation: 2013-08-31T15:20:15+0200
+:author:   "ardumont"
+:END:
+** CLOSED 0.1.7 - 2 - fix yet again broken tests
+:PROPERTIES:
+:id:       49
+:date-modification: 2013-08-31T15:21:53+0200
+:date-creation: 2013-08-31T15:14:31+0200
+:author:   "ardumont"
+:END:
+** CLOSED 0.1.7 - Fix script release
+:PROPERTIES:
+:id:       48
+:date-modification: 2013-08-31T15:21:53+0200
+:date-creation: 2013-08-31T15:08:33+0200
+:author:   "ardumont"
+:END:
+** CLOSED 0.1.7
+:PROPERTIES:
+:id:       47
+:date-modification: 2013-08-31T15:21:53+0200
+:date-creation: 2013-08-31T11:04:07+0200
+:author:   "ardumont"
+:END:
+: - [X] webadmin: Add an action button on action to stop it
+: - [X] webadmin: Add an action button to stop every running actions on entities
+: - [X] URLencode/Protect the data from the query before executing the query - https://github.com/ardumont/org-trello/issues/46
+: - [X] Some refactoring about:
+:   - [X] Docstring position (same level as function definition, this way, when toggling sexp, we see the docstring too)
+:   - [X] Simplification of cond statement
+:   - [X] Adding some missing tests
+:   - [X] Simplifying some code function (removing let when not needed)
+: - [X] Fix the scan problem with level 3 (must have been introduced with the refactoring from number to variable level)
+: - [X] Remove the marker notion and use the identifier in its place (we already use it as marker)
+: - [X] Fix the :PROPERTIES: font lock (which is not painted as keyword)
+: - [X] Improve the justify policy (trim the content before computing the justifying) -> There remains erratic behaviour
+: - [X] Improve map-checkbox to deal with limit (map over checkbox inferior to current level, at the moment, we scan all checkboxes)
+: - [X] Version
+: - [X] Release notes
+** CLOSED README.md: Fix typos, grammar, add clarifications, remove prerequisite
+:PROPERTIES:
+:id:       45
+:date-modification: 2013-08-28T21:37:10+0200
+:date-creation: 2013-08-28T20:47:32+0200
+:author:   "greenrd"
+:END:
+: * marmalade and melpa instructions were the wrong way round
+: * minibuffer gets stuck if firefox is not already running
+: * `C-c o` only works in an org-mode buffer
+: * prerequisite is not needed any more
+** CLOSED Full process release from the makefile.
+:PROPERTIES:
+:id:       44
+:date-modification: 2013-08-28T14:05:32+0200
+:date-creation: 2013-08-28T14:02:52+0200
+:author:   "ardumont"
+:END:
+** CLOSED 0.1.6
+:PROPERTIES:
+:id:       43
+:date-modification: 2013-08-28T13:32:07+0200
+:date-creation: 2013-08-28T12:45:04+0200
+:author:   "ardumont"
+:END:
+: - [X] Use the native org checklist to sync to trello
+: - [X] Sync entity and arborescence tree
+: - [X] Sync to trello must sync the native checklist if the flag is activated
+: - [X] Sync from trello must create native checklists if the flag is activated
+: - [X] Cleanup routine must cleanup the new checklist.
+: - [X] Delete entity must remove entity on point
+: - [X] Upgrade version
+: - [X] Automate the release to marmalade
+: - [X] Justify the #PROPERTIES# to the left for a better rendering
+: - [X] Keywordify the #PROPERTIES#
+: - [X] Merge the org :PROPERTIES: and the org-trello #PROPERTIES# into one.
+: - [X] Improve the activation/deactivation of the new way
+: - [X] Update the readme about the new checkbox mode
+: - [X] Release notes
+: - [X] Release
+** CLOSED Release script
+:PROPERTIES:
+:id:       42
+:date-modification: 2013-08-25T15:53:06+0200
+:date-creation: 2013-08-25T15:52:47+0200
+:author:   "ardumont"
+:END:
+** CLOSED Adding a script to begin automatic release.
+:PROPERTIES:
+:id:       41
+:date-modification: 2013-08-25T15:53:06+0200
+:date-creation: 2013-08-25T15:50:50+0200
+:author:   "ardumont"
+:END:
+** CLOSED 0.1.5
+:PROPERTIES:
+:id:       40
+:date-modification: 2013-08-25T15:45:15+0200
+:date-creation: 2013-08-25T15:44:04+0200
+:author:   "ardumont"
+:END:
+: - Symmetry in the architecture - the deletion must pass through the consumer too.
+: - Upgrade version
+: - webadmin: Improve the rendering of the webadmin page to add headers and action
+: - webadmin: Add a current scanning entry in the webadmin page
+: - Defining log level using variable
+: - Redefine main function to sync an entity (they are badly named).
+: - Release notes
+: - Release
+** CLOSED 0.1.4
+:PROPERTIES:
+:id:       39
+:date-modification: 2013-08-24T18:41:10+0200
+:date-creation: 2013-08-24T18:39:50+0200
+:author:   "ardumont"
+:END:
+: - Prepare the hierarchy files to avoid problem like https://github.com/ardumont/org-trello/issues/37#issuecomment-23151353
+: - Adding a version interactive command (it will help for asking people the version they use).
+: - Upgrade version
+: - Refactoring - simplify code
+: - Improve message labels
+: - Improve failure dealing regarding the sync
+: - Improve the marker computation
+: - Remove the label/title notion and use the name notion (same as trello), this will reduce error reasoning.
+: - Fix the format with missing argument on the callback sync success
+: - Improve the test regarding the synchro completion of a level
+: - Order when syncing to trello
+: - Release notes
+: - Release
+** CLOSED 0.1.3
+:PROPERTIES:
+:id:       38
+:date-modification: 2013-08-23T10:22:58+0200
+:date-creation: 2013-08-23T10:17:32+0200
+:author:   "ardumont"
+:END:
+: - Leverage elnode's webserver capacity to display some basic monitoring about the synchronization
+: - Install bootstrap and jquery.js directly to avoid the user's manual installation (the first query to static files install bootstrap and jquery now)
+: - Simple end to end test - simple entity creation
+: - Improve the logging policy
+: - Improve the saving policy
+: - Upgrade version
+: - Release notes
+: - Release
+** CLOSED Fix typo in readme
+:PROPERTIES:
+:id:       36
+:date-modification: 2013-08-20T17:20:47+0200
+:date-creation: 2013-08-20T17:20:37+0200
+:author:   "ardumont"
+:END:
+** CLOSED Error when checking the setup
+:PROPERTIES:
+:tags:     ("bug" "next-release")
+:id:       34
+:date-modification: 2013-08-20T17:14:02+0200
+:date-creation: 2013-08-16T13:11:54+0200
+:author:   "ardumont"
+:END:
+: There is an error when checking the setup.
+:
+: https://github.com/ardumont/org-trello/issues/32#issuecomment-22598065
+** CLOSED 0.1.2
+:PROPERTIES:
+:id:       35
+:date-modification: 2013-08-20T17:13:52+0200
+:date-creation: 2013-08-20T02:13:37+0200
+:author:   "ardumont"
+:END:
+: - DONE Use an intermediary server between org and trello to permit asynchronous actions
+: - DONE Change org-trello's loading policy + update the readme about it
+: - DONE Find a way to make the proxy less verbose
+: - DONE Fix the loss of todo keywords after the synchronization -> no idea what's wrong here
+: - DONE Improve the attachment board routine to add the missing | keyword (hardcode with DONE for example)
+: - DONE Improve the clearing of already present heading metadata
+: - DONE Improve the help message to categorize the bindings
+: - DONE Improve the starting/stopping of org-trello
+: - DONE Remove end to end test as this can no longer works with asynchronous
+: - DONE Update the readme to explain the migration from 0.1.1 to 0.1.2
+: - DONE Render the sync to trello routine asynchronous
+: - DONE Render the sync complex entity routine asynchronous
+: - DONE Render the sync from trello asynchronous
+: - DONE Fix check setup routine
+: - DONE Interactive command to cleanup the org-trello data from the current buffer
+: - DONE Interactive command to delete all entities from the board and the org buffer
+: - DONE Update version
+: - DONE Release notes
+: - DONE Release
+** CLOSED error when syncing
+:PROPERTIES:
+:id:       32
+:date-modification: 2013-08-16T13:11:54+0200
+:date-creation: 2013-08-13T19:47:51+0200
+:author:   "AndreaCrotti"
+:END:
+: I just installed org-trello from the package manager, restarted Emacs just to make sure all the new versions are loaded, did the org-trello/install-key-and-token (which worked), but now if I try to do a
+: org-trello/sync-from-trello I get the following error.
+:
+: Am I doing something wrong?
+:
+: ```lisp
+: Debugger entered--Lisp error: (wrong-type-argument sequencep orgtrello/--control-properties)
+:   #[(it) "\301\302Q\207" [it "- " "\n"] 3](orgtrello/--control-properties)
+:   mapcar(#[(it) "\301\302Q\207" [it "- " "\n"] 3] (orgtrello/--control-properties))
+:   org-trello/--control-and-do((orgtrello/--setup-properties orgtrello/--control-keys orgtrello/--control-properties orgtrello/--control-encoding) orgtrello/do-sync-full-from-trello)
+:   org-trello/--msg-deco-control-and-do("Synchronizing trello board to org-mode file" (orgtrello/--setup-properties orgtrello/--control-keys orgtrello/--control-properties orgtrello/--control-encoding) orgtrello/do-sync-full-from-trello t)
+:   org-trello/sync-from-trello()
+:   call-interactively(org-trello/sync-from-trello record nil)
+:   command-execute(org-trello/sync-from-trello record)
+:   execute-extended-command(nil "org-trello/sync-from-trello")
+:   call-interactively(execute-extended-command nil nil)
+: ```
+** CLOSED Add log level setting
+:PROPERTIES:
+:id:       31
+:date-modification: 2013-08-13T18:37:36+0200
+:date-creation: 2013-08-13T18:31:23+0200
+:author:   "thomasf"
+:END:
+** CLOSED Configurable log level
+:PROPERTIES:
+:id:       30
+:date-modification: 2013-08-13T18:27:32+0200
+:date-creation: 2013-08-13T17:59:30+0200
+:author:   "thomasf"
+:END:
+: org-trello is very verbose.
+:
+: What do you think of something like this:
+:
+: https://github.com/thomasf/org-trello/commit/436daf342d83f24657a89705e0df8ee04c3c2425
+:
+: (I began doing this on master before I saw that your development branch was another one..)
+** CLOSED Adding the mailing list
+:PROPERTIES:
+:id:       29
+:date-modification: 2013-08-11T15:17:40+0200
+:date-creation: 2013-08-11T15:17:20+0200
+:author:   "ardumont"
+:END:
+** CLOSED 0.1.1
+:PROPERTIES:
+:id:       28
+:date-modification: 2013-08-11T14:16:26+0200
+:date-creation: 2013-08-11T13:46:58+0200
+:author:   "ardumont"
+:END:
+: - DONE Literate org-trello
+: - DONE Testing the packaging, at the moment, this is done manually (make package & M-x package-install-file)
+: - DONE Introducing C-c o h at the loading of the buffer when ot is loaded
+: - DONE Update readme/main page with images on videos
+: - DONE Replace already present properties regarding boards before injecting new ones.
+: - DONE Improve the current attach board and list routine to avoid manual setup for the user
+: - DONE Update version
+: - DONE Update dependencies lib to more recent version.
+: - DONE Remove some warnings
+: - DONE Add some message for the user to warn the user to use UTF-8
+: - DONE Force utf-8 for the routine of board installation (create aend attach)
+: - DONE Some more refactoring
+: - DONE Refactoring: formatting code, install consume-key and access token routine improved, ...
+: - DONE Refactoring: UTF-8 warning for every routine + Forcing UTF-8 at setup time (create board and attach board routine)
+: - DONE Refactoring: Adding ^L break line inside the code to delimit the `namespace`
+: - DONE Refactoring: Improve the callback use by avoiding to specify them
+: - DONE Refactoring: Restart org-mode after synchronization to avoid losing the user's setup.
+: - DONE Refactoring: Fix some problems (version, checklist mechanism update, warning on format, create complex entity which sync only the current entity)
+: - DONE Release notes
+: - DONE Release
+** CLOSED llterate org-trello
+:PROPERTIES:
+:id:       27
+:date-modification: 2013-08-11T13:47:52+0200
+:date-creation: 2013-08-09T10:42:05+0200
+:author:   "ardumont"
+:END:
+: As an experiment, try a literate org-trello.
+:
+: This may decrease the entry barrier to help me maintain org-trello!
+** CLOSED [README.md] Adding image videos + update TOC
+:PROPERTIES:
+:id:       26
+:date-modification: 2013-08-08T15:30:28+0200
+:date-creation: 2013-08-08T15:28:57+0200
+:author:   "ardumont"
+:END:
+** CLOSED Why pin version of org-mode?
+:PROPERTIES:
+:tags:     ("potential-setup-problem")
+:id:       19
+:date-modification: 2013-08-08T09:21:05+0200
+:date-creation: 2013-08-05T08:12:29+0200
+:author:   "boothead"
+:END:
+: I notice the current stable version of org-mode is 8.0.7. Is there a specific reason that it's pinned t 7.9.2 in the pkg file?
+** CLOSED Reverse order when syncing from trello to the org-mode buffer
+:PROPERTIES:
+:tags:     ("enhancement" "next-release")
+:id:       24
+:date-modification: 2013-08-07T15:05:46+0200
+:date-creation: 2013-08-07T08:47:17+0200
+:author:   "ardumont"
+:END:
+: from @wunki on twitter
+: Clean slate to sync with trello has all my items in reverse order.
+: Top buffer is right most @ trello
+** CLOSED Migrate carton to cask
+:PROPERTIES:
+:tags:     ("bug" "next-release")
+:id:       23
+:date-modification: 2013-08-07T15:04:59+0200
+:date-creation: 2013-08-07T08:46:45+0200
+:author:   "ardumont"
+:END:
+: travis-ci breaks because of carton.
+: I assume this is carton's migrating the culprit.
+** CLOSED 0.1.0
+:PROPERTIES:
+:id:       25
+:date-modification: 2013-08-07T15:00:45+0200
+:date-creation: 2013-08-07T13:21:22+0200
+:author:   "ardumont"
+:END:
+: - DONE Fix importing of cards with due date - https://github.com/ardumont/org-trello/pull/22
+: - DONE Migrate carton to card.el (travis-ci builds break because of this)
+: - DONE Order of creation of list (from keywords) in trello does not match the order of the keyword
+: - DONE Abstract away the query (:method, :uri, ...) implementation
+: - DONE Abstract away the implementation of the org-data some more (access of the information from the map are embedded in the function instead of delegating to dedicated function, thus not hiding the implementation)
+: - DONE Version
+: - DONE Order when synchronizing from trello does not match trello's order
+: - DONE Refactor the sync from trello routine function (2 reduce embedded, only one is sufficient)
+: - DONE Enforce the order of the card accord to the org keywords after dumping the new entries from trello
+: - DONE Abstract away the return data from the http request
+: - DONE Update org version to the latest stable
+: - DONE Release notes
+** CLOSED [Fix] importing of cards with due-dates
+:PROPERTIES:
+:tags:     ("bug" "next-release")
+:id:       22
+:date-modification: 2013-08-07T13:21:22+0200
+:date-creation: 2013-08-06T21:29:23+0200
+:author:   "wordempire"
+:END:
+: --card-due-date was mistyped as --entity-due-date, leading to `Symbol's value as variable is void: orgtrello/--entity-due-date` when importing card that had due-dates associated with them
+** CLOSED 0.0.9
+:PROPERTIES:
+:id:       21
+:date-modification: 2013-08-06T16:50:52+0200
+:date-creation: 2013-08-06T16:45:43+0200
+:author:   "ardumont"
+:END:
+: Refactoring release to fix small issues
+** CLOSED Update links to new videos.
+:PROPERTIES:
+:id:       20
+:date-modification: 2013-08-06T13:18:20+0200
+:date-creation: 2013-08-06T13:17:32+0200
+:author:   "ardumont"
+:END:
+** CLOSED Sync org DEADLINE with trello card due
+:PROPERTIES:
+:tags:     ("enhancement" "feature-request" "next-release")
+:id:       17
+:date-modification: 2013-07-31T07:03:33+0200
+:date-creation: 2013-07-30T05:53:38+0200
+:author:   "wolflee"
+:END:
+: really appreciate your great work
+:
+: I think it's just nice fit between the card field 'due' and the orgmode DEADLINE.
+:
+: ref: http://orgmode.org/manual/Inserting-deadline_002fschedule.html
+:
+: I tried to add this myself but failed, barely know anything about emacs lisp :neutral_face:
+** CLOSED Done, Todo on "check lists"
+:PROPERTIES:
+:tags:     ("enhancement" "feature-request" "next-release")
+:id:       16
+:date-modification: 2013-07-31T02:33:47+0200
+:date-creation: 2013-07-25T21:11:48+0200
+:author:   "dawidlo"
+:END:
+: Once the user sets a "check list" to DONE or TODO, then check or uncheck all the tasks it contains.
+** CLOSED V0.0.8
+:PROPERTIES:
+:id:       18
+:date-modification: 2013-07-31T02:33:42+0200
+:date-creation: 2013-07-31T02:21:34+0200
+:author:   "ardumont"
+:END:
+** CLOSED Error when #+TODO not set correctly is misleading.
+:PROPERTIES:
+:tags:     ("doc-improvment")
+:id:       13
+:date-modification: 2013-07-25T21:25:15+0200
+:date-creation: 2013-07-25T12:08:36+0200
+:author:   "sw1nn"
+:END:
+: If you sync an existing board (created via the website) and don't set #+TODO you get an error like this:
+:
+: ```
+: - C-c o i or M-x org-trello/install-key-and-token      - Setup your consumer-key and r/w access-token.
+: - C-c o I or M-x org-trello/install-board-and-list-ids - Setup org-mode file and connect it to trello.
+:                                                    - Beware, for this, you need to prepare your trello board lists with the same name as your
+:                                                    - org-mode keywords (TODO, DONE for example).
+: - C-c o b or M-x org-trello/create-board               - You can replace the previous step by creating directly a new board from your org-mode buffer.
+: ```
+:
+: This is highly misleading, could a more insightful error be shown in this case? I dug in the code a little and found that ``orgtrello/--control-properties`` fails (returns false) in this case.
+:
+: Steps to reproduce:
+:
+: * create a board via trello.com
+: * orgtrello/install-board-and-list-ids
+: * select the board from step 1 (this populates the first few lines of .org file as expected)
+: * org-trello/sync-from-trello
+:
+: gets the error above, which suggests user (re)install key/token/board/list ids.
+:
+: Adding an appropriate #+TODO to the properties 'fixes' the problem, but only after much head scratching.
+** CLOSED v0.0.7
+:PROPERTIES:
+:id:       15
+:date-modification: 2013-07-25T20:47:07+0200
+:date-creation: 2013-07-25T20:45:08+0200
+:author:   "ardumont"
+:END:
+: - DONE Reference missing bindings in documentation
+: - DONE Upgrade version
+: - DONE Improve the error message around the setup (the setup message is too generic and must be more detailed)
+: - DONE Save the buffer after the synchronization is done (after all we write the trello ids in the buffer)
+: - DONE Release
+:
+: @sw1nn I finally decided to also improve the error messages regarding the errors you mentionned.
+** CLOSED  v0.0.6.1
+:PROPERTIES:
+:id:       12
+:date-modification: 2013-07-25T10:50:23+0200
+:date-creation: 2013-07-25T10:48:52+0200
+:author:   "ardumont"
+:END:
+: Fix dependency on json-1.3 (sometimes, only json-1.2 is available)
+** CLOSED v0.0.6
+:PROPERTIES:
+:id:       11
+:date-modification: 2013-07-24T21:29:21+0200
+:date-creation: 2013-07-24T21:24:43+0200
+:author:   "ardumont"
+:END:
+: - DONE Test that the title/label of the entity is set when syncing to avoid a 400 error
+: - DONE Before making the request, ensure that everything is ok (checklist needs the card id, items needs the checklist id, etc...)
+: - DONE Up the demo video in the beginning of the readme
+: - DONE Improve readme with links to org-mode and trello
+: - DONE Improve readme's use cases
+: - DONE Mention the possible errors
+: - DONE Mention the emacs version
+: - DONE Update release notes
+: - DONE Make a release
+** CLOSED sync from trello duplicates the todo item
+:PROPERTIES:
+:tags:     ("enhancement")
+:id:       8
+:date-modification: 2013-07-19T09:48:03+0200
+:date-creation: 2013-07-18T05:58:36+0200
+:author:   "edenc"
+:END:
+: C-c o S is pulling from trello but creating a duplicate entry instead of updating the existing one.
+** CLOSED v0.0.5
+:PROPERTIES:
+:id:       9
+:date-modification: 2013-07-18T21:20:00+0200
+:date-creation: 2013-07-18T16:14:26+0200
+:author:   "ardumont"
+:END:
+: cf. release notes.
+** CLOSED DONE v0.0.4 [100%]
+:PROPERTIES:
+:id:       6
+:date-modification: 2013-07-17T07:22:02+0200
+:date-creation: 2013-07-16T18:01:51+0200
+:author:   "ardumont"
+:END:
+: @wunki, you may be interested :D
+** CLOSED DONE v0.0.4.1 [100%]
+:PROPERTIES:
+:id:       7
+:date-modification: 2013-07-16T20:36:39+0200
+:date-creation: 2013-07-16T20:29:35+0200
+:author:   "ardumont"
+:END:
+** CLOSED Adding links for the demo videos.
+:PROPERTIES:
+:id:       5
+:date-modification: 2013-07-16T18:38:10+0200
+:date-creation: 2013-07-12T21:32:05+0200
+:author:   "ardumont"
+:END:
+** CLOSED Fix release - 0.3.3.1
+:PROPERTIES:
+:id:       4
+:date-modification: 2013-07-16T18:38:10+0200
+:date-creation: 2013-07-12T20:44:37+0200
+:author:   "ardumont"
+:END:
+** CLOSED Fix + update readmes
+:PROPERTIES:
+:id:       3
+:date-modification: 2013-07-16T18:38:10+0200
+:date-creation: 2013-07-12T19:32:47+0200
+:author:   "ardumont"
+:END:
+** CLOSED v0.0.3.
+:PROPERTIES:
+:id:       2
+:date-modification: 2013-07-16T18:34:01+0200
+:date-creation: 2013-07-07T19:03:16+0200
+:author:   "ardumont"
+:END:
+: Now we can sync an entire org-mode file
+** CLOSED Beginning the v0.0.3-dev
+:PROPERTIES:
+:id:       1
+:date-modification: 2013-07-16T18:34:01+0200
+:date-creation: 2013-07-07T11:46:14+0200
+:author:   "ardumont"
+:END:
