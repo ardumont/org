@@ -1,0 +1,12 @@
+#+TITLE: emacs and time
+#+AUTHOR: ardumont
+
+Some links:
+- https://www.gnu.org/software/emacs/manual/html_node/elisp/Formatting-Strings.html
+- https://en.wikipedia.org/wiki/ISO_8601#Time_zone_designators
+- http://www.gnu.org/software/libc/manual/html_node/Locales.html#Locales
+- http://www.gnu.org/software/emacs/manual/html_node/elisp/System-Environment.html#System-Environment
+
+At the moment, I do not get how to set the local though emacs-lisp' api to permit to check multiple behavior on multiple different time locale.
+
+I need it for tests -> travis-ci's node is not on the same locale as my machine, thus break as expected.
