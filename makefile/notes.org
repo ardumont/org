@@ -1,0 +1,10 @@
+#+title: notes on Makefile
+#+author: ardumont
+
+magic keywords:
+
+- $@: target name, left of the `:`
+
+- $^: dependencies list (right of the `:`)
+
+- $<: first item in the dependencies list (right of the `:`)
