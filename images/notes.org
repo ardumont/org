@@ -1,0 +1,26 @@
+#+title: notes on images manipulation
+#+author: ardumont
+
+* Convert images
+
+Install:
+#+begin_src sh
+sudo apt-get install -y imagemagick
+#+end_src
+
+Use:
+#+begin_src sh
+convert image.jpg image.png
+#+end_src
+
+* Compress png image
+
+Install:
+#+begin_src sh
+sudo apt-get install -y optipng
+#+end_src
+
+Use:
+#+begin_src sh
+optipng -o 7 image.png
+#+end_src
