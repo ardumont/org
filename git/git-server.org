@@ -44,7 +44,7 @@ This way no interactive ssh connection is possible
 
 ** exotic box
 
-You can specify where the git binaries are supposed to be found.
+You can specify where the git binaries are supposed to be found per repository.
 
 Through git commands:
 #+begin_src sh
