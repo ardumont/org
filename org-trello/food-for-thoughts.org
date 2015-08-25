@@ -28,6 +28,6 @@ The first plugin (and example) would then be org-trello.
 --
 
 It would actually have nothing to do with org-mode.
-So we could drop the org-trello and simply call it `trello-core`...
+So we could drop the `org-` prefix and simply call it `trello-core` or `trello-lib` or whatnot...
 
 Cheers,
