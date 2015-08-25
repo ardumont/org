@@ -11,7 +11,7 @@ M-x ielm <RET>
 
 Set the credentials for your account:
 #+begin_src lisp
-(let ((org-trello--user-logged-in "<user>")) (orgtrello-controller/load-keys!))
+(let ((org-trello--user-logged-in "<user>")) (orgtrello-controller-load-keys))
 #+end_src
 Note: Load in context the credentials from the file `~/.emacs.d/.trello/<user>.el`
 
@@ -25,6 +25,14 @@ ELISP> (orgtrello-query-http-trello (orgtrello-api-get-me) 'sync)
 Note:
 You can have a pretty good idea of org-trello's api by reading the `org-trello-api.el` file.
 It's trello's api adapter.
+
+Simpler:
+
+#+begin_src lisp
+(let ((org-trello--user-logged-in "ardumont"))
+  (orgtrello-controller-load-keys)
+  (orgtrello-query-http-trello (orgtrello-api-get-me) 'sync))
+#+end_src
 
 * Trace
 
