@@ -1,0 +1,33 @@
+#+title: food for thoughts
+#+author: ardumont
+
+As a food for thoughts...
+
+Many people have great ideas and other workflows.
+I have not enough time to satisfy everyone.
+
+Having an (org-)trello-core library could help making other modes.
+
+For example:
+- #33 - other buffer's layout organization
+- simple data backup of their boards
+- many other stuff i don't even imagine yet
+
+(org-)trello-core would then be in charge of:
+- requests to trello's api (with authentication)
+- parsing response and provide them as data to other modes to do as they wish
+
+This seems like the actual following namespaces:
+- org-trello-api
+- org-trello-query
+- org-trello-data
+- some other functions + variables dispatch somewhere else
+
+The first plugin (and example) would then be org-trello.
+
+--
+
+It would actually have nothing to do with org-mode.
+So we could drop the org-trello and simply call it `trello-core`...
+
+Cheers,
