@@ -1,35 +1,88 @@
+#+TODO: OPEN | CLOSED
 * Issues of org-trello
 :PROPERTIES:
 :since:
 :url:      https://api.github.com/repos/org-trello/org-trello
 :END:
-** OPEN 0.7.3 - wip
+** OPEN org-trello - client - Problem during request - error-thrown: (json-readtable-error)
 :PROPERTIES:
-:id:       281
-:date-modification: 2015-08-10T00:00:08+0200
-:date-creation: 2015-08-10T00:00:08+0200
+:tags:     ("need-feedback" "potential-setup-problem")
+:id:       287
+:date-modification: 2015-08-25T17:53:56+0100
+:date-creation: 2015-08-25T10:35:02+0100
+:author:   "boothead"
+:END:
+: Hi,
+:
+: I have hit a problem with setting up org-trello under spacemacs. The machine is windows behind a proxy. `C-c o i` seemed to go fine as I have org-trello in my list of application now. However when I try `C-c o I` I do not get a list of board names to complete on and `org-trello - client - Problem during request - error-thrown: (json-readtable-error)` appears in my `*Messages*` buffer.
+** OPEN Separate (org-)trello-core - org-trello?
+:PROPERTIES:
+:id:       288
+:date-modification: 2015-08-25T12:12:35+0100
+:date-creation: 2015-08-25T12:07:54+0100
 :author:   "ardumont"
 :END:
-** OPEN Sync all deadlines to/from Trello by converting user's timezone to/from UTC
+: As a food for thought...
+:
+: Many people have great ideas and other workflows.
+: I have not enough time to satisfy everyone.
+:
+: Having an (org-)trello-core library could help making other modes.
+:
+: For example:
+: - #33 - other buffer's layout organization
+: - simple data backup of their boards
+: - many other stuff i don't even imagine yet
+:
+: (org-)trello-core would then be in charge of:
+: - requests to trello's api (with authentication)
+: - parsing response and provide them as data to other modes to do as they wish
+:
+: This seems like the actual following namespaces:
+: - org-trello-api
+: - org-trello-query
+: - org-trello-data
+: - some other functions + variables dispatch somewhere else
+:
+: The first plugin (and example) would then be org-trello.
+:
+: --
+:
+: It would actually have nothing to do with org-mode.
+: So we could drop the `org-` prefix and simply call it `trello-core` or `trello-lib` or whatnot...
+:
+: Cheers,
+** OPEN Issue when overloading "#+TODO: " for list names
 :PROPERTIES:
-:tags:     ("enhancement" "pull-request-welcome")
-:id:       277
-:date-modification: 2015-08-09T19:47:04+0200
-:date-creation: 2015-07-14T10:29:44+0200
-:author:   "LukeSwart"
+:id:       282
+:date-modification: 2015-08-24T23:47:36+0100
+:date-creation: 2015-08-11T20:11:03+0100
+:author:   "yangchenyun"
 :END:
-: [Trello saves card due dates in UTC](http://webapps.stackexchange.com/questions/24741/what-time-zone-are-due-dates-in), so all times from the org-trello buffer should be converted to UTC before updating Trello, and from UTC before importing into the org-trello buffer.
+: The problem is in the default parsing behavior for "#+TODO:" in org-mode.
 :
-: For example, if I set a time using [org-mode's deadline feature](http://orgmode.org/manual/Deadlines-and-scheduling.html) (default binding is `C-c C-d`) to 2015-07-14 at 18:00, then I am prompted the date selection via [emacs' calendar tool](http://members.optusnet.com.au/~charles57/GTD/org_dates/#sec-6) then org-mode outputs this line: `DEADLINE: <2015-07-14 Tue 18:00>`. If I am in PST (ie Seattle, WA, USA), this line should be converted to its UTC equivalent `DEADLINE: <2015-07-15 Wed 01:00>` before updating my Trello card.
+: >Remember that the keywords after the vertical bar (or the last keyword if no bar is there) must always mean that the item is DONE (although you may use a different word).
 :
-: The same thing goes for importing dates from the Trello board - the dates are currently imported to the org-trello buffer in UTC. For example, if I use Trello's GUI to set a date for 2015-07-14 at 18:00, and I am in PST, Trello stores that date internally as 2015-07-15 at 01:00, and org-trello imports that date as `DEADLINE: <2015-07-15T01:00:00.000Z>`. (NOTE: It appears the DEADLINE format is not affected by Trello or org-trello, so `DEADLINE: <2015-07-15T01:00:00.000Z>` and `DEADLINE: <2015-07-15 Wed 01:00>` are equivalent)
+: So a meta like below will make the Reality tag a DONE which usually has a different head font setting s(like striking through) than other states.
+: ```
+: #+TODO: Spontaneous-Ideas Ideas-being-thought-through Ideas-will-be-realized Reality
+: ```
 :
-: I think the best approach is to convert all deadlines from UTC to the user's local timezone when syncing from Trello to the org-trello buffer, and converting all deadlines from the user's local timezone to UTC when syncing from the org-trello buffer to Trello. Let me know if there is a better approach.
+: Will it be a better idea to use a grouped labels instead?
+** OPEN Rename sync -> push/pull
+:PROPERTIES:
+:id:       284
+:date-modification: 2015-08-12T15:06:50+0100
+:date-creation: 2015-08-11T20:41:12+0100
+:author:   "yangchenyun"
+:END:
+: sync usually means two way synchronization; current features more like a push / pull operation.
 ** OPEN [internal] Improve org parser -> use more org-element.el love
 :PROPERTIES:
+:tags:     ("big-work")
 :id:       279
-:date-modification: 2015-08-05T22:51:40+0200
-:date-creation: 2015-08-02T12:08:37+0200
+:date-modification: 2015-08-11T10:55:41+0100
+:date-creation: 2015-08-02T11:08:37+0100
 :author:   "ardumont"
 :END:
 : I did not use all of org's api for the parsing at first. In the mean time, org-mode clarified itself too.
@@ -39,12 +92,24 @@
 : Should be especially useful for:
 : - org-trello's full compliance to org.
 : - keeping unknown org data from being lost during sync.
+** OPEN Too much checklist sync?
+:PROPERTIES:
+:tags:     ("to-investigate")
+:id:       278
+:date-modification: 2015-08-11T10:55:28+0100
+:date-creation: 2015-07-21T10:12:56+0100
+:author:   "ardumont"
+:END:
+: Something unexpected happens once in a while when sync to trello.
+: When syncing to trello an item from a checklist, the current checklist is synced (expected) but some other sister checklists are too (unexpected).
+:
+: Implementation hint: checklist region computation.
 ** OPEN Sync from Trello, but preserve data from clock or data wrapped in a drawer
 :PROPERTIES:
 :tags:     ("need-reproduction")
 :id:       167
-:date-modification: 2015-08-05T11:44:40+0200
-:date-creation: 2014-05-17T17:32:23+0200
+:date-modification: 2015-08-05T10:44:40+0100
+:date-creation: 2014-05-17T16:32:23+0100
 :author:   "ardumont"
 :END:
 : Wrong issue tracker so from https://github.com/org-trello/org-trello.github.io/issues/15
@@ -67,23 +132,12 @@
 : > Thanks!
 : >
 : > Alex
-** OPEN Too much checklist sync?
-:PROPERTIES:
-:id:       278
-:date-modification: 2015-08-02T11:29:29+0200
-:date-creation: 2015-07-21T11:12:56+0200
-:author:   "ardumont"
-:END:
-: Something unexpected happens once in a while when sync to trello.
-: When syncing to trello an item from a checklist, the current checklist is synced (expected) but some other sister checklists are too (unexpected).
-:
-: Implementation hint: checklist region computation.
 ** OPEN Troubles with org-capture-before-finalize-hook and org-trello/sync-card
 :PROPERTIES:
 :tags:     ("enhancement")
 :id:       233
-:date-modification: 2015-07-13T11:22:45+0200
-:date-creation: 2015-01-13T13:58:41+0100
+:date-modification: 2015-07-13T10:22:45+0100
+:date-creation: 2015-01-13T12:58:41+0000
 :author:   "jshholland"
 :END:
 : I'm not sure if this really is an issue, but it's certainly something I could do with help on.
@@ -95,8 +149,8 @@
 :PROPERTIES:
 :tags:     ("investigate" "need-feedback" "need-reproduction")
 :id:       266
-:date-modification: 2015-07-13T10:17:23+0200
-:date-creation: 2015-06-09T23:51:45+0200
+:date-modification: 2015-07-13T09:17:23+0100
+:date-creation: 2015-06-09T22:51:45+0100
 :author:   "labe-me"
 :END:
 : Hello and thank you for the org-trello,
@@ -138,8 +192,8 @@
 :PROPERTIES:
 :tags:     ("need-feedback" "potential-setup-problem")
 :id:       260
-:date-modification: 2015-07-11T16:20:23+0200
-:date-creation: 2015-05-18T20:02:00+0200
+:date-modification: 2015-07-11T15:20:23+0100
+:date-creation: 2015-05-18T19:02:00+0100
 :author:   "boudiccas"
 :END:
 : This is an example of what I'm seeing
@@ -180,8 +234,8 @@
 :PROPERTIES:
 :tags:     ("to-investigate")
 :id:       270
-:date-modification: 2015-07-01T09:06:24+0200
-:date-creation: 2015-06-24T14:40:11+0200
+:date-modification: 2015-07-01T08:06:24+0100
+:date-creation: 2015-06-24T13:40:11+0100
 :author:   "Bregor"
 :END:
 : Hello again!
@@ -196,8 +250,8 @@
 :PROPERTIES:
 :tags:     ("enhancement" "pull-request-welcome")
 :id:       240
-:date-modification: 2015-06-10T09:44:56+0200
-:date-creation: 2015-02-08T03:31:24+0100
+:date-modification: 2015-06-10T08:44:56+0100
+:date-creation: 2015-02-08T02:31:24+0000
 :author:   "IvanMalison"
 :END:
 : When I sync-buffer with org-trello, any metadata (tags attributes etc) that is not trello related is removed from the org entry. It seems like the right thing to do would be to leave any stuff that org-trello does not know about untouched.
@@ -205,8 +259,8 @@
 :PROPERTIES:
 :tags:     ("enhancement" "pull-request-welcome")
 :id:       219
-:date-modification: 2015-06-10T09:44:36+0200
-:date-creation: 2014-11-14T09:10:14+0100
+:date-modification: 2015-06-10T08:44:36+0100
+:date-creation: 2014-11-14T08:10:14+0000
 :author:   "defanor"
 :END:
 : With relatively active conversations in comments, it becomes hard to look for new ones, and to follow those conversations, while synchronization reloads the whole buffer, folds headings, and does not mark cards with new comments. Probably it'd be tricky to solve all that in org-mode, but that would make it more suitable for such a workflow. Also, automatic synchronization with notifications on the mode line would be useful, too.
@@ -214,8 +268,8 @@
 :PROPERTIES:
 :tags:     ("feature-request" "pull-request-welcome")
 :id:       211
-:date-modification: 2015-06-10T09:44:36+0200
-:date-creation: 2014-10-16T21:29:12+0200
+:date-modification: 2015-06-10T08:44:36+0100
+:date-creation: 2014-10-16T20:29:12+0100
 :author:   "sutram"
 :END:
 : It would be great if org-trello allows for addition/removal of files to its list of files (see #210).
@@ -245,8 +299,8 @@
 :PROPERTIES:
 :tags:     ("doc-improvment" "pull-request-welcome")
 :id:       136
-:date-modification: 2015-06-10T09:44:36+0200
-:date-creation: 2014-03-23T00:12:21+0100
+:date-modification: 2015-06-10T08:44:36+0100
+:date-creation: 2014-03-22T23:12:21+0000
 :author:   "ardumont"
 :END:
 : I need to refresh the existing tutorial videos
@@ -264,8 +318,8 @@
 :PROPERTIES:
 :tags:     ("enhancement" "pull-request-welcome")
 :id:       130
-:date-modification: 2015-06-10T09:44:35+0200
-:date-creation: 2014-03-20T23:11:44+0100
+:date-modification: 2015-06-10T08:44:35+0100
+:date-creation: 2014-03-20T22:11:44+0000
 :author:   "ardumont"
 :END:
 : if region is active, only act on such region.
@@ -275,8 +329,8 @@
 :PROPERTIES:
 :tags:     ("enhancement" "feature-request" "pull-request-welcome")
 :id:       59
-:date-modification: 2015-06-10T09:44:35+0200
-:date-creation: 2013-09-03T14:45:04+0200
+:date-modification: 2015-06-10T08:44:35+0100
+:date-creation: 2013-09-03T13:45:04+0100
 :author:   "ardumont"
 :END:
 : At the moment, there exists multiple commands with predefined actions.
@@ -288,8 +342,8 @@
 :PROPERTIES:
 :tags:     ("feature-request" "pull-request-welcome")
 :id:       33
-:date-modification: 2015-06-10T09:44:35+0200
-:date-creation: 2013-08-14T10:44:11+0200
+:date-modification: 2015-06-10T08:44:35+0100
+:date-creation: 2013-08-14T09:44:11+0100
 :author:   "tonyday567"
 :END:
 : Hi, trello-org is a nice piece of code - well done!
@@ -307,8 +361,8 @@
 :PROPERTIES:
 :tags:     ("big-work" "feature-request" "pull-request-welcome")
 :id:       259
-:date-modification: 2015-06-10T09:43:48+0200
-:date-creation: 2015-05-14T05:10:10+0200
+:date-modification: 2015-06-10T08:43:48+0100
+:date-creation: 2015-05-14T04:10:10+0100
 :author:   "erahhal"
 :END:
 : If you have several lists and a lot of cards per list, it syncs to one big flat list, with the list name as the item status in org.  It would be nice to have the list name as a bullet item, then each card as an indented bullet item under that list item.
@@ -316,8 +370,8 @@
 :PROPERTIES:
 :tags:     ("bad-format-use")
 :id:       245
-:date-modification: 2015-06-06T10:15:29+0200
-:date-creation: 2015-04-13T19:48:14+0200
+:date-modification: 2015-06-06T09:15:29+0100
+:date-creation: 2015-04-13T18:48:14+0100
 :author:   "graham-m-dunn"
 :END:
 : I've created a new trello board from my .org file, but when I try to sync a card (exists in the org buffer, but not on trello):
@@ -337,8 +391,8 @@
 :PROPERTIES:
 :tags:     ("bad-format-use" "enhancement")
 :id:       254
-:date-modification: 2015-06-06T10:06:31+0200
-:date-creation: 2015-05-07T07:08:51+0200
+:date-modification: 2015-06-06T09:06:31+0100
+:date-creation: 2015-05-07T06:08:51+0100
 :author:   "erahhal"
 :END:
 : Example raw org file (not synced with Trello yet).  Breaks after adding "ghi"
@@ -386,16 +440,88 @@
 :PROPERTIES:
 :tags:     ("need-feedback")
 :id:       263
-:date-modification: 2015-05-25T10:48:25+0200
-:date-creation: 2015-05-23T22:07:08+0200
+:date-modification: 2015-05-25T09:48:25+0100
+:date-creation: 2015-05-23T21:07:08+0100
 :author:   "pschorf"
 :END:
 : Whenever the org-trello minor mode is active, the org mode colors I have don't work. For instance, if I load a file without org-trello, the file is highlighted correctly. Any changes I make, like adding a new line, changing a deadline, etc. are not correctly highlighted. If I load a file with org-trello enabled, nothing is highlighted correctly. I believe I'm using the latest version, 20150509.
+** CLOSED [Internal] Improve coverage
+:PROPERTIES:
+:tags:     ("enhancement")
+:id:       286
+:date-modification: 2015-08-24T23:51:55+0100
+:date-creation: 2015-08-24T20:36:56+0100
+:author:   "ardumont"
+:END:
+: Having a good coverage will ease:
+: - maintenance
+: - future contributions
+:
+: This is actually WIP in #285...
+** CLOSED feature request: toggle-assign-me
+:PROPERTIES:
+:tags:     ("feature-request" "pull-request-welcome")
+:id:       283
+:date-modification: 2015-08-24T23:51:55+0100
+:date-creation: 2015-08-11T20:39:02+0100
+:author:   "yangchenyun"
+:END:
+: As it will only be one action for assign/unassign given one state, it makes more sense to just have a toggle function instead of current prefix for unassign.
+** CLOSED 0.7.4
+:PROPERTIES:
+:id:       285
+:date-modification: 2015-08-24T23:49:13+0100
+:date-creation: 2015-08-14T22:34:00+0100
+:author:   "ardumont"
+:END:
+: - [X] Improve release script + fix typo
+: - [X] Update version
+: - [X] Coverage [10/10]
+:   - [X] stats-coverage.org for statistics (+ travis-ci/coverage.io)
+:   - [X] Fix bug on org-trello-log namespace + org-trello-log
+:   - [X] org-trello-input
+:   - [X] org-trello-query
+:   - [X] org-trello-proxy
+:   - [X] org-trello-buffer
+:   - [X] org-trello-controller
+:   - [X] org-trello-data
+:   - [X] org-trello-hash
+:   - [X] org-trello
+: - [X] #283 - Toggle assign me action
+: - [X] Release notes
+** CLOSED Sync all deadlines to/from Trello by converting user's timezone to/from UTC
+:PROPERTIES:
+:tags:     ("enhancement" "pull-request-welcome")
+:id:       277
+:date-modification: 2015-08-16T23:19:17+0100
+:date-creation: 2015-07-14T09:29:44+0100
+:author:   "LukeSwart"
+:END:
+: [Trello saves card due dates in UTC](http://webapps.stackexchange.com/questions/24741/what-time-zone-are-due-dates-in), so all times from the org-trello buffer should be converted to UTC before updating Trello, and from UTC before importing into the org-trello buffer.
+:
+: For example, if I set a time using [org-mode's deadline feature](http://orgmode.org/manual/Deadlines-and-scheduling.html) (default binding is `C-c C-d`) to 2015-07-14 at 18:00, then I am prompted the date selection via [emacs' calendar tool](http://members.optusnet.com.au/~charles57/GTD/org_dates/#sec-6) then org-mode outputs this line: `DEADLINE: <2015-07-14 Tue 18:00>`. If I am in PST (ie Seattle, WA, USA), this line should be converted to its UTC equivalent `DEADLINE: <2015-07-15 Wed 01:00>` before updating my Trello card.
+:
+: The same thing goes for importing dates from the Trello board - the dates are currently imported to the org-trello buffer in UTC. For example, if I use Trello's GUI to set a date for 2015-07-14 at 18:00, and I am in PST, Trello stores that date internally as 2015-07-15 at 01:00, and org-trello imports that date as `DEADLINE: <2015-07-15T01:00:00.000Z>`. (NOTE: It appears the DEADLINE format is not affected by Trello or org-trello, so `DEADLINE: <2015-07-15T01:00:00.000Z>` and `DEADLINE: <2015-07-15 Wed 01:00>` are equivalent)
+:
+: I think the best approach is to convert all deadlines from UTC to the user's local timezone when syncing from Trello to the org-trello buffer, and converting all deadlines from the user's local timezone to UTC when syncing from the org-trello buffer to Trello. Let me know if there is a better approach.
+** CLOSED 0.7.3
+:PROPERTIES:
+:id:       281
+:date-modification: 2015-08-14T21:48:18+0100
+:date-creation: 2015-08-09T23:00:08+0100
+:author:   "ardumont"
+:END:
+: - [X] Update version
+: - [X] #277 - Improve date time policy conversion
+: - [X] Improve release + upload to marmalade scripts
+: - [X] Fix flycheck warnings
+: - [X] Some refactoring
+: - [X] Release notes
 ** CLOSED 0.7.2
 :PROPERTIES:
 :id:       280
-:date-modification: 2015-08-05T22:44:04+0200
-:date-creation: 2015-08-05T19:32:13+0200
+:date-modification: 2015-08-05T21:44:04+0100
+:date-creation: 2015-08-05T18:32:13+0100
 :author:   "ardumont"
 :END:
 : - [X] Update version
@@ -407,8 +533,8 @@
 :PROPERTIES:
 :tags:     ("bug" "Fixed" "next-release")
 :id:       276
-:date-modification: 2015-08-05T22:44:04+0200
-:date-creation: 2015-07-13T12:41:11+0200
+:date-modification: 2015-08-05T21:44:04+0100
+:date-creation: 2015-07-13T11:41:11+0100
 :author:   "LukeSwart"
 :END:
 : If someone creates a markdown bullet on a card using the syntax "* " instead of the proper syntax " * ", `org-trello` incorrectly imports the card. The "* " is recognized as a new tree instead of as a bullet within a card.
@@ -473,8 +599,8 @@
 ** CLOSED 0.7.1
 :PROPERTIES:
 :id:       275
-:date-modification: 2015-07-12T16:20:59+0200
-:date-creation: 2015-07-12T15:53:08+0200
+:date-modification: 2015-07-12T15:20:59+0100
+:date-creation: 2015-07-12T14:53:08+0100
 :author:   "ardumont"
 :END:
 : - [X] Update version
@@ -488,8 +614,8 @@
 :PROPERTIES:
 :tags:     ("tools")
 :id:       274
-:date-modification: 2015-07-12T16:20:59+0200
-:date-creation: 2015-07-12T13:52:20+0200
+:date-modification: 2015-07-12T15:20:59+0100
+:date-creation: 2015-07-12T12:52:20+0100
 :author:   "ardumont"
 :END:
 : Create a `standard` troubleshooting command to ease the data retrieval from the user's buffer.
@@ -508,8 +634,8 @@
 :PROPERTIES:
 :tags:     ("bug" "Fixed" "next-release")
 :id:       273
-:date-modification: 2015-07-12T16:20:59+0200
-:date-creation: 2015-07-11T16:26:10+0200
+:date-modification: 2015-07-12T15:20:59+0100
+:date-creation: 2015-07-11T15:26:10+0100
 :author:   "ardumont"
 :END:
 : The colors should be fetched and installed along the color names in the global properties of the file.
@@ -542,8 +668,8 @@
 :PROPERTIES:
 :tags:     ("enhancement" "next-release")
 :id:       272
-:date-modification: 2015-07-12T16:20:59+0200
-:date-creation: 2015-07-11T00:09:34+0200
+:date-modification: 2015-07-12T15:20:59+0100
+:date-creation: 2015-07-10T23:09:34+0100
 :author:   "ardumont"
 :END:
 : Replace internal mechanism with `completing-read`, this will simplify code.
@@ -616,8 +742,8 @@
 :PROPERTIES:
 :tags:     ("enhancement" "next-release")
 :id:       271
-:date-modification: 2015-07-12T16:20:59+0200
-:date-creation: 2015-07-06T11:08:25+0200
+:date-modification: 2015-07-12T15:20:59+0100
+:date-creation: 2015-07-06T10:08:25+0100
 :author:   "ardumont"
 :END:
 : Adding the position inside the cache checksum annihilates the checksum computation's needs...
@@ -639,8 +765,8 @@
 :PROPERTIES:
 :tags:     ("investigate" "need-feedback")
 :id:       248
-:date-modification: 2015-07-11T16:15:47+0200
-:date-creation: 2015-04-14T00:19:06+0200
+:date-modification: 2015-07-11T15:15:47+0100
+:date-creation: 2015-04-13T23:19:06+0100
 :author:   "fullofcaffeine"
 :END:
 : You can see the warnings when installing below:
@@ -676,8 +802,8 @@
 :PROPERTIES:
 :tags:     ("potential-setup-problem" "setup-env-problem")
 :id:       265
-:date-modification: 2015-07-11T16:14:20+0200
-:date-creation: 2015-06-02T10:03:28+0200
+:date-modification: 2015-07-11T15:14:20+0100
+:date-creation: 2015-06-02T09:03:28+0100
 :author:   "benquike"
 :END:
 : When issuing  org-trello/install-board-metadata, the following message occured'
@@ -688,8 +814,8 @@
 :PROPERTIES:
 :tags:     ("need-feedback" "setup-problem")
 :id:       269
-:date-modification: 2015-07-11T16:07:56+0200
-:date-creation: 2015-06-24T06:33:39+0200
+:date-modification: 2015-07-11T15:07:56+0100
+:date-creation: 2015-06-24T05:33:39+0100
 :author:   "llj098"
 :END:
 : Hi,
@@ -714,8 +840,8 @@
 ** CLOSED 0.7.0
 :PROPERTIES:
 :id:       268
-:date-modification: 2015-06-21T22:23:08+0200
-:date-creation: 2015-06-20T18:21:10+0200
+:date-modification: 2015-06-21T21:23:08+0100
+:date-creation: 2015-06-20T17:21:10+0100
 :author:   "ardumont"
 :END:
 : - [X] Update version
@@ -736,8 +862,8 @@
 :PROPERTIES:
 :tags:     ("bug" "next-release")
 :id:       267
-:date-modification: 2015-06-21T22:23:08+0200
-:date-creation: 2015-06-20T12:49:57+0200
+:date-modification: 2015-06-21T21:23:08+0100
+:date-creation: 2015-06-20T11:49:57+0100
 :author:   "ardumont"
 :END:
 : Once a card has a description, we cannot remove it.
@@ -746,8 +872,8 @@
 :PROPERTIES:
 :tags:     ("enhancement" "next-release")
 :id:       256
-:date-modification: 2015-06-21T22:23:08+0200
-:date-creation: 2015-05-07T11:02:35+0200
+:date-modification: 2015-06-21T21:23:08+0100
+:date-creation: 2015-05-07T10:02:35+0100
 :author:   "ardumont"
 :END:
 : As a user, I'd like to be able to connect to my boards which can be attached to different trello accounts.
@@ -755,8 +881,8 @@
 :PROPERTIES:
 :tags:     ("bug" "next-release")
 :id:       250
-:date-modification: 2015-06-21T22:23:08+0200
-:date-creation: 2015-04-29T03:27:01+0200
+:date-modification: 2015-06-21T21:23:08+0100
+:date-creation: 2015-04-29T02:27:01+0100
 :author:   "erahhal"
 :END:
 : Right now I'm working around this by adding a space to the end of a checklist item then syncing to Trello, after which order is saved.
@@ -766,8 +892,8 @@
 :PROPERTIES:
 :tags:     ("enhancement" "next-release")
 :id:       239
-:date-modification: 2015-06-21T22:23:08+0200
-:date-creation: 2015-02-07T11:01:22+0100
+:date-modification: 2015-06-21T21:23:08+0100
+:date-creation: 2015-02-07T10:01:22+0000
 :author:   "ardumont"
 :END:
 : From the discussion https://github.com/org-trello/org-trello/issues/237#issuecomment-73245225, do not forget to migrate away from the user's home (regarding configuration file)
@@ -775,8 +901,8 @@
 :PROPERTIES:
 :tags:     ("next-release")
 :id:       238
-:date-modification: 2015-06-21T22:23:08+0200
-:date-creation: 2015-02-07T10:48:52+0100
+:date-modification: 2015-06-21T21:23:08+0100
+:date-creation: 2015-02-07T09:48:52+0000
 :author:   "ardumont"
 :END:
 : https://www.gnu.org/software/emacs/manual/html_node/elisp/Coding-Conventions.html
@@ -791,8 +917,8 @@
 :PROPERTIES:
 :tags:     ("bad-format-use")
 :id:       258
-:date-modification: 2015-06-06T10:06:52+0200
-:date-creation: 2015-05-11T19:26:41+0200
+:date-modification: 2015-06-06T09:06:52+0100
+:date-creation: 2015-05-11T18:26:41+0100
 :author:   "cjp"
 :END:
 : I'm getting a "Wrong type argument: integer-or-marker-p, nil" when doing the initial org-trello/sync-buffer.
@@ -858,8 +984,8 @@
 ** CLOSED 0.6.9.6
 :PROPERTIES:
 :id:       264
-:date-modification: 2015-05-24T13:28:02+0200
-:date-creation: 2015-05-24T13:26:08+0200
+:date-modification: 2015-05-24T12:28:02+0100
+:date-creation: 2015-05-24T12:26:08+0100
 :author:   "ardumont"
 :END:
 : - [X] Create backlog
@@ -871,8 +997,8 @@
 :PROPERTIES:
 :tags:     ("bug" "Fixed" "next-release")
 :id:       262
-:date-modification: 2015-05-24T13:28:02+0200
-:date-creation: 2015-05-22T10:44:20+0200
+:date-modification: 2015-05-24T12:28:02+0100
+:date-creation: 2015-05-22T09:44:20+0100
 :author:   "ardumont"
 :END:
 : We have both user name and user ids in the card properties.
@@ -883,8 +1009,8 @@
 :PROPERTIES:
 :tags:     ("bug" "Fixed" "next-release")
 :id:       261
-:date-modification: 2015-05-24T13:28:02+0200
-:date-creation: 2015-05-19T11:54:59+0200
+:date-modification: 2015-05-24T12:28:02+0100
+:date-creation: 2015-05-19T10:54:59+0100
 :author:   "ardumont"
 :END:
 : When removing a label and synchronizing to trello, the label removal does not work.
@@ -892,8 +1018,8 @@
 :PROPERTIES:
 :tags:     ("need-feedback")
 :id:       251
-:date-modification: 2015-05-15T23:58:45+0200
-:date-creation: 2015-04-29T07:04:11+0200
+:date-modification: 2015-05-15T22:58:45+0100
+:date-creation: 2015-04-29T06:04:11+0100
 :author:   "erahhal"
 :END:
 : Example:
@@ -904,8 +1030,8 @@
 ** CLOSED 0.6.9.5
 :PROPERTIES:
 :id:       257
-:date-modification: 2015-05-09T15:27:53+0200
-:date-creation: 2015-05-09T15:24:12+0200
+:date-modification: 2015-05-09T14:27:53+0100
+:date-creation: 2015-05-09T14:24:12+0100
 :author:   "ardumont"
 :END:
 : - [X] Create backlog
@@ -917,8 +1043,8 @@
 :PROPERTIES:
 :tags:     ("investigate")
 :id:       255
-:date-modification: 2015-05-09T15:27:52+0200
-:date-creation: 2015-05-07T10:49:50+0200
+:date-modification: 2015-05-09T14:27:52+0100
+:date-creation: 2015-05-07T09:49:50+0100
 :author:   "ardumont"
 :END:
 : It appears that labels seems to not be synchronized with the routine `C-u M-x org-trello/sync-buffer`.
@@ -927,8 +1053,8 @@
 ** CLOSED Automatically enable org-trello for .trello files
 :PROPERTIES:
 :id:       249
-:date-modification: 2015-05-05T21:52:56+0200
-:date-creation: 2015-04-26T15:35:19+0200
+:date-modification: 2015-05-05T20:52:56+0100
+:date-creation: 2015-04-26T14:35:19+0100
 :author:   "wesleyhall"
 :END:
 : Hey folks,
@@ -939,8 +1065,8 @@
 ** CLOSED 0.6.9.4
 :PROPERTIES:
 :id:       253
-:date-modification: 2015-05-05T21:46:18+0200
-:date-creation: 2015-05-05T21:25:42+0200
+:date-modification: 2015-05-05T20:46:18+0100
+:date-creation: 2015-05-05T20:25:42+0100
 :author:   "ardumont"
 :END:
 : - [X] Update version
@@ -950,8 +1076,8 @@
 :PROPERTIES:
 :tags:     ("bug" "investigate" "need-feedback")
 :id:       252
-:date-modification: 2015-05-05T21:46:18+0200
-:date-creation: 2015-05-05T15:00:41+0200
+:date-modification: 2015-05-05T20:46:18+0100
+:date-creation: 2015-05-05T14:00:41+0100
 :author:   "ckruse"
 :END:
 : After the first sync (via `C-u C-c o s`) I get constantly this error whenever I open the file:
@@ -1012,8 +1138,8 @@
 ** CLOSED Display only tasks when user is assigned?
 :PROPERTIES:
 :id:       244
-:date-modification: 2015-04-15T10:05:01+0200
-:date-creation: 2015-04-06T17:21:18+0200
+:date-modification: 2015-04-15T09:05:01+0100
+:date-creation: 2015-04-06T16:21:18+0100
 :author:   "Distopico"
 :END:
 : It is possible display tasks by specific user, showing only tasks when user is assigned?
@@ -1022,8 +1148,8 @@
 ** CLOSED Not listed on Melpa?
 :PROPERTIES:
 :id:       247
-:date-modification: 2015-04-14T09:01:14+0200
-:date-creation: 2015-04-13T23:21:32+0200
+:date-modification: 2015-04-14T08:01:14+0100
+:date-creation: 2015-04-13T22:21:32+0100
 :author:   "fullofcaffeine"
 :END:
 : I was using an old version from Marmelade, but looks like org-trello is not listed on Melpa nor Melpa-stable, here's the list fetched by ```package-list-packages``` for Melpa:
@@ -1034,8 +1160,8 @@
 ** CLOSED REQUEST [error] Error from parser orgtrello-query/--http-parse: (void-function -when-let)
 :PROPERTIES:
 :id:       246
-:date-modification: 2015-04-14T00:21:58+0200
-:date-creation: 2015-04-13T23:05:54+0200
+:date-modification: 2015-04-13T23:21:58+0100
+:date-creation: 2015-04-13T22:05:54+0100
 :author:   "fullofcaffeine"
 :END:
 : I've got this error when running authenticating with org-trello using ```org-trello/install-key-and-token``` and later when calling ```org-trello/install-board-and-lists-ids```, both run but then fail. I can't tell if org-trello really could go through the whole OAuth flow here, but right now it's unusable because of this error.
@@ -1044,8 +1170,8 @@
 ** CLOSED 0.6.9.3
 :PROPERTIES:
 :id:       243
-:date-modification: 2015-03-19T19:04:27+0100
-:date-creation: 2015-03-19T18:27:03+0100
+:date-modification: 2015-03-19T18:04:27+0000
+:date-creation: 2015-03-19T17:27:03+0000
 :author:   "ardumont"
 :END:
 : - [X] Create backlog
@@ -1056,8 +1182,8 @@
 :PROPERTIES:
 :tags:     ("bug")
 :id:       242
-:date-modification: 2015-03-19T19:02:56+0100
-:date-creation: 2015-03-05T16:42:40+0100
+:date-modification: 2015-03-19T18:02:56+0000
+:date-creation: 2015-03-05T15:42:40+0000
 :author:   "ptitjano"
 :END:
 : Hi,
@@ -1085,8 +1211,8 @@
 :PROPERTIES:
 :tags:     ("investigate" "next-release")
 :id:       230
-:date-modification: 2015-02-11T14:32:55+0100
-:date-creation: 2015-01-02T16:04:57+0100
+:date-modification: 2015-02-11T13:32:55+0000
+:date-creation: 2015-01-02T15:04:57+0000
 :author:   "gambhiro"
 :END:
 : Awesome project!
@@ -1100,8 +1226,8 @@
 :PROPERTIES:
 :tags:     ("bug" "investigate" "next-release")
 :id:       232
-:date-modification: 2015-02-09T12:56:04+0100
-:date-creation: 2015-01-04T18:46:45+0100
+:date-modification: 2015-02-09T11:56:04+0000
+:date-creation: 2015-01-04T17:46:45+0000
 :author:   "emelin"
 :END:
 : !!!! Thank you so much for the extended comment support (#227) !!!!
@@ -1126,8 +1252,8 @@
 :PROPERTIES:
 :tags:     ("enhancement" "next-release")
 :id:       237
-:date-modification: 2015-02-09T12:55:48+0100
-:date-creation: 2015-02-04T16:40:13+0100
+:date-modification: 2015-02-09T11:55:48+0000
+:date-creation: 2015-02-04T15:40:13+0000
 :author:   "VladimirAlexiev"
 :END:
 : I'm on Windows7, cygwin, and use https://sourceforge.net/projects/emacsbinw64 (25.0.50.1, mingw build).
@@ -1150,8 +1276,8 @@
 ** CLOSED 0.6.9.2
 :PROPERTIES:
 :id:       241
-:date-modification: 2015-02-08T19:28:45+0100
-:date-creation: 2015-02-08T19:21:07+0100
+:date-modification: 2015-02-08T18:28:45+0000
+:date-creation: 2015-02-08T18:21:07+0000
 :author:   "ardumont"
 :END:
 : - [X] Update version
@@ -1164,8 +1290,8 @@
 ** CLOSED 0.6.9.1
 :PROPERTIES:
 :id:       236
-:date-modification: 2015-01-27T19:13:55+0100
-:date-creation: 2015-01-27T19:02:04+0100
+:date-modification: 2015-01-27T18:13:55+0000
+:date-creation: 2015-01-27T18:02:04+0000
 :author:   "ardumont"
 :END:
 : - [X] Create backlog
@@ -1175,8 +1301,8 @@
 ** CLOSED org-trello 0.6.8 does not synchronize either way
 :PROPERTIES:
 :id:       234
-:date-modification: 2015-01-24T21:29:54+0100
-:date-creation: 2015-01-24T18:32:52+0100
+:date-modification: 2015-01-24T20:29:54+0000
+:date-creation: 2015-01-24T17:32:52+0000
 :author:   "gracjan"
 :END:
 : org-trello/version = 0.6.8
@@ -1208,8 +1334,8 @@
 ** CLOSED 0.6.9
 :PROPERTIES:
 :id:       235
-:date-modification: 2015-01-24T21:17:38+0100
-:date-creation: 2015-01-24T21:15:33+0100
+:date-modification: 2015-01-24T20:17:38+0000
+:date-creation: 2015-01-24T20:15:33+0000
 :author:   "ardumont"
 :END:
 : - [X] Create backlog
@@ -1221,8 +1347,8 @@
 :PROPERTIES:
 :tags:     ("investigate" "need-feedback" "need-reproduction" "potential-setup-problem")
 :id:       231
-:date-modification: 2015-01-12T19:38:51+0100
-:date-creation: 2015-01-03T01:33:04+0100
+:date-modification: 2015-01-12T18:38:51+0000
+:date-creation: 2015-01-03T00:33:04+0000
 :author:   "kaushalmodi"
 :END:
 : Hi,
@@ -1254,8 +1380,8 @@
 ** CLOSED Add script to release to marmalade
 :PROPERTIES:
 :id:       229
-:date-modification: 2014-12-30T10:44:00+0100
-:date-creation: 2014-12-30T10:43:52+0100
+:date-modification: 2014-12-30T09:44:00+0000
+:date-creation: 2014-12-30T09:43:52+0000
 :author:   "ardumont"
 :END:
 : (based on
@@ -1264,8 +1390,8 @@
 :PROPERTIES:
 :tags:     ("need-feedback" "need-reproduction" "potential-setup-problem")
 :id:       228
-:date-modification: 2014-12-30T10:05:30+0100
-:date-creation: 2014-12-27T10:30:47+0100
+:date-modification: 2014-12-30T09:05:30+0000
+:date-creation: 2014-12-27T09:30:47+0000
 :author:   "kinghom"
 :END:
 : I ran the command **org-trello/install-key-and-token** successfully, but when I ran **org-trello/install-board-metadata** , I got the following message in  a "Network Security Manager" buffer, I want to know what I did wrong, Thank you!
@@ -1290,8 +1416,8 @@
 ** CLOSED 0.6.8
 :PROPERTIES:
 :id:       227
-:date-modification: 2014-12-13T12:27:02+0100
-:date-creation: 2014-12-13T12:24:50+0100
+:date-modification: 2014-12-13T11:27:02+0000
+:date-creation: 2014-12-13T11:24:50+0000
 :author:   "ardumont"
 :END:
 : - [X] Create backlog
@@ -1303,8 +1429,8 @@
 :PROPERTIES:
 :tags:     ("enhancement")
 :id:       221
-:date-modification: 2014-12-13T12:27:02+0100
-:date-creation: 2014-12-07T17:10:48+0100
+:date-modification: 2014-12-13T11:27:02+0000
+:date-creation: 2014-12-07T16:10:48+0000
 :author:   "ardumont"
 :END:
 : As a user, I'd like to be able to edit already existing comments.
@@ -1313,16 +1439,16 @@
 ** CLOSED Improve comment creation
 :PROPERTIES:
 :id:       225
-:date-modification: 2014-12-11T22:07:51+0100
-:date-creation: 2014-12-11T21:23:19+0100
+:date-modification: 2014-12-11T21:07:51+0000
+:date-creation: 2014-12-11T20:23:19+0000
 :author:   "ardumont"
 :END:
 : As a user, I'd like to be able to easily input a comment (with multiline).
 ** CLOSED 0.6.7
 :PROPERTIES:
 :id:       226
-:date-modification: 2014-12-11T22:06:15+0100
-:date-creation: 2014-12-11T21:54:28+0100
+:date-modification: 2014-12-11T21:06:15+0000
+:date-creation: 2014-12-11T20:54:28+0000
 :author:   "ardumont"
 :END:
 : - [X] Create backlog
@@ -1336,16 +1462,16 @@
 ** CLOSED Fix typo
 :PROPERTIES:
 :id:       224
-:date-modification: 2014-12-10T19:11:07+0100
-:date-creation: 2014-12-10T19:10:18+0100
+:date-modification: 2014-12-10T18:11:07+0000
+:date-creation: 2014-12-10T18:10:18+0000
 :author:   "ardumont"
 :END:
 : Typo in last release, this fixes it.
 ** CLOSED 0.6.6
 :PROPERTIES:
 :id:       223
-:date-modification: 2014-12-09T07:49:26+0100
-:date-creation: 2014-12-09T00:24:36+0100
+:date-modification: 2014-12-09T06:49:26+0000
+:date-creation: 2014-12-08T23:24:36+0000
 :author:   "ardumont"
 :END:
 : - [X] Create backlog
@@ -1357,8 +1483,8 @@
 :PROPERTIES:
 :tags:     ("enhancement")
 :id:       222
-:date-modification: 2014-12-09T07:49:26+0100
-:date-creation: 2014-12-07T17:14:06+0100
+:date-modification: 2014-12-09T06:49:26+0000
+:date-creation: 2014-12-07T16:14:06+0000
 :author:   "ardumont"
 :END:
 : As a user, I'd like to be able to clean obsolete comments.
@@ -1368,8 +1494,8 @@
 :PROPERTIES:
 :tags:     ("enhancement")
 :id:       218
-:date-modification: 2014-12-07T17:57:28+0100
-:date-creation: 2014-11-14T09:10:11+0100
+:date-modification: 2014-12-07T16:57:28+0000
+:date-creation: 2014-11-14T08:10:11+0000
 :author:   "defanor"
 :END:
 : The current comments implementation is not particularly handy for reading or writing long comments, and is a bit buggy when it comes to multiline ones: they get truncated on reading. In order to improve it, as well as provide a way to edit/delete comments, similar to the one that is used for cards themselves, they could be changed to something like this, using second-level headings:
@@ -1384,8 +1510,8 @@
 ** CLOSED 0.6.5
 :PROPERTIES:
 :id:       220
-:date-modification: 2014-12-07T17:38:08+0100
-:date-creation: 2014-12-06T16:45:39+0100
+:date-modification: 2014-12-07T16:38:08+0000
+:date-creation: 2014-12-06T15:45:39+0000
 :author:   "ardumont"
 :END:
 : - [X] Create backlog
@@ -1400,8 +1526,8 @@
 ** CLOSED Comments and synchronization
 :PROPERTIES:
 :id:       217
-:date-modification: 2014-11-14T10:42:07+0100
-:date-creation: 2014-11-14T07:04:04+0100
+:date-modification: 2014-11-14T09:42:07+0000
+:date-creation: 2014-11-14T06:04:04+0000
 :author:   "defanor"
 :END:
 : Hello.
@@ -1423,8 +1549,8 @@
 ** CLOSED Update ci-travis
 :PROPERTIES:
 :id:       216
-:date-modification: 2014-11-11T17:29:42+0100
-:date-creation: 2014-11-11T17:20:33+0100
+:date-modification: 2014-11-11T16:29:42+0000
+:date-creation: 2014-11-11T16:20:33+0000
 :author:   "ardumont"
 :END:
 : - deactivate bad targets
@@ -1432,8 +1558,8 @@
 ** CLOSED 0.6.4
 :PROPERTIES:
 :id:       215
-:date-modification: 2014-11-04T23:46:58+0100
-:date-creation: 2014-10-30T18:33:11+0100
+:date-modification: 2014-11-04T22:46:58+0000
+:date-creation: 2014-10-30T17:33:11+0000
 :author:   "ardumont"
 :END:
 : - [X] Minor change to allow abbreviated file path - https://github.com/org-trello/org-trello/pull/213
@@ -1444,8 +1570,8 @@
 ** CLOSED File list functionality requires org-trello setup
 :PROPERTIES:
 :id:       214
-:date-modification: 2014-11-04T23:46:58+0100
-:date-creation: 2014-10-21T05:42:03+0200
+:date-modification: 2014-11-04T22:46:58+0000
+:date-creation: 2014-10-21T04:42:03+0100
 :author:   "sutram"
 :END:
 : This is most likely a documentation improvement for new functionality related to #210 .
@@ -1460,8 +1586,8 @@
 :PROPERTIES:
 :tags:     ("feature-request")
 :id:       210
-:date-modification: 2014-10-20T10:28:35+0200
-:date-creation: 2014-10-16T21:16:03+0200
+:date-modification: 2014-10-20T09:28:35+0100
+:date-creation: 2014-10-16T20:16:03+0100
 :author:   "sutram"
 :END:
 : Would it be possible to automatically enable org-trello mode for certain files? For example, something similar already exists within org-agenda where I can specify the files that org-agenda cares about like this:
@@ -1474,8 +1600,8 @@
 ** CLOSED Minor change to allow abbreviated file path
 :PROPERTIES:
 :id:       213
-:date-modification: 2014-10-20T10:25:27+0200
-:date-creation: 2014-10-19T22:08:41+0200
+:date-modification: 2014-10-20T09:25:27+0100
+:date-creation: 2014-10-19T21:08:41+0100
 :author:   "sutram"
 :END:
 : Hello this enhances #210 to allow abbreviated file paths like "~/Dropbox/trello-file.org" in addition to the canonical path like "/home/sutram/Dropbox/trello-file.org"
@@ -1483,8 +1609,8 @@
 :PROPERTIES:
 :tags:     ("need-feedback")
 :id:       209
-:date-modification: 2014-10-19T19:50:42+0200
-:date-creation: 2014-10-08T20:12:55+0200
+:date-modification: 2014-10-19T18:50:42+0100
+:date-creation: 2014-10-08T19:12:55+0100
 :author:   "sutram"
 :END:
 : I would love to be able to test org-trello since I recently started using trello but unfortunately, I can't, because it seems that org-trello automatically changes default org tree indentation rendering the tree useless to view in (for example) the org agenda.
@@ -1506,8 +1632,8 @@
 ** CLOSED 0.6.3
 :PROPERTIES:
 :id:       212
-:date-modification: 2014-10-19T19:30:31+0200
-:date-creation: 2014-10-19T19:26:52+0200
+:date-modification: 2014-10-19T18:30:31+0100
+:date-creation: 2014-10-19T18:26:52+0100
 :author:   "ardumont"
 :END:
 : - [X] Update version
@@ -1517,8 +1643,8 @@
 :PROPERTIES:
 :tags:     ("setup-problem")
 :id:       201
-:date-modification: 2014-10-15T19:09:46+0200
-:date-creation: 2014-09-13T11:47:01+0200
+:date-modification: 2014-10-15T18:09:46+0100
+:date-creation: 2014-09-13T10:47:01+0100
 :author:   "rbuchmann"
 :END:
 : I just started using org-trello, was very happy when I found it!
@@ -1536,8 +1662,8 @@
 :PROPERTIES:
 :tags:     ("investigate" "need-reproduction")
 :id:       206
-:date-modification: 2014-10-11T14:26:35+0200
-:date-creation: 2014-09-27T11:08:27+0200
+:date-modification: 2014-10-11T13:26:35+0100
+:date-creation: 2014-09-27T10:08:27+0100
 :author:   "trenkert"
 :END:
 : Although install-key-and-token was successful, and trello asked me to confirm this, install-board-metadata does not work at all:
@@ -1564,8 +1690,8 @@
 :PROPERTIES:
 :tags:     ("investigate" "need-reproduction")
 :id:       207
-:date-modification: 2014-10-07T11:07:16+0200
-:date-creation: 2014-09-30T08:21:29+0200
+:date-modification: 2014-10-07T10:07:16+0100
+:date-creation: 2014-09-30T07:21:29+0100
 :author:   "yottanami"
 :END:
 : After installation when I use ```M-x org-trello/install-board-metadata``` I got this message :
@@ -1581,8 +1707,8 @@
 :PROPERTIES:
 :tags:     ("need-reproduction" "setup-problem")
 :id:       183
-:date-modification: 2014-10-07T11:04:24+0200
-:date-creation: 2014-08-12T11:33:53+0200
+:date-modification: 2014-10-07T10:04:24+0100
+:date-creation: 2014-08-12T10:33:53+0100
 :author:   "gkirtzou"
 :END:
 : Hello,
@@ -1601,8 +1727,8 @@
 ** CLOSED 0.6.2
 :PROPERTIES:
 :id:       208
-:date-modification: 2014-10-04T11:18:23+0200
-:date-creation: 2014-10-04T11:16:29+0200
+:date-modification: 2014-10-04T10:18:23+0100
+:date-creation: 2014-10-04T10:16:29+0100
 :author:   "ardumont"
 :END:
 : - [X] Backlog
@@ -1614,8 +1740,8 @@
 :PROPERTIES:
 :tags:     ("investigate" "need-reproduction")
 :id:       156
-:date-modification: 2014-09-27T11:39:32+0200
-:date-creation: 2014-04-08T14:59:59+0200
+:date-modification: 2014-09-27T10:39:32+0100
+:date-creation: 2014-04-08T13:59:59+0100
 :author:   "ajstein"
 :END:
 : I am running an updated Arch Linux laptop with Emacs 24.3.1
@@ -1642,8 +1768,8 @@
 :PROPERTIES:
 :tags:     ("enhancement" "feature-request")
 :id:       58
-:date-modification: 2014-09-17T23:14:36+0200
-:date-creation: 2013-09-03T14:43:03+0200
+:date-modification: 2014-09-17T22:14:36+0100
+:date-creation: 2013-09-03T13:43:03+0100
 :author:   "ardumont"
 :END:
 : At the moment, every sync action is resolved through a trello request (resulting in too much notifications on trello board).
@@ -1651,8 +1777,8 @@
 ** CLOSED 0.6.1
 :PROPERTIES:
 :id:       205
-:date-modification: 2014-09-17T10:11:45+0200
-:date-creation: 2014-09-17T09:44:26+0200
+:date-modification: 2014-09-17T09:11:45+0100
+:date-creation: 2014-09-17T08:44:26+0100
 :author:   "ardumont"
 :END:
 : - [X] Update version
@@ -1662,8 +1788,8 @@
 :PROPERTIES:
 :tags:     ("investigate")
 :id:       203
-:date-modification: 2014-09-17T10:11:45+0200
-:date-creation: 2014-09-13T21:50:32+0200
+:date-modification: 2014-09-17T09:11:45+0100
+:date-creation: 2014-09-13T20:50:32+0100
 :author:   "ardumont"
 :END:
 : Ensure the [hypothesis](https://github.com/org-trello/org-trello/issues/201#issuecomment-55504762) is correct and if it is, fix.
@@ -1671,8 +1797,8 @@
 :PROPERTIES:
 :tags:     ("enhancement")
 :id:       204
-:date-modification: 2014-09-14T19:03:34+0200
-:date-creation: 2014-09-13T23:27:32+0200
+:date-modification: 2014-09-14T18:03:34+0100
+:date-creation: 2014-09-13T22:27:32+0100
 :author:   "rbuchmann"
 :END:
 : While working on reproducing the issue from #201 , I tried to reproduce the example from your website with:
@@ -1698,8 +1824,8 @@
 ** CLOSED 0.6.0
 :PROPERTIES:
 :id:       202
-:date-modification: 2014-09-14T19:03:34+0200
-:date-creation: 2014-09-13T16:17:58+0200
+:date-modification: 2014-09-14T18:03:34+0100
+:date-creation: 2014-09-13T15:17:58+0100
 :author:   "ardumont"
 :END:
 : - [X] Refactor - Unify data structure between trello card and org-trello card
@@ -1723,8 +1849,8 @@
 :PROPERTIES:
 :tags:     ("enhancement")
 :id:       196
-:date-modification: 2014-09-06T10:58:59+0200
-:date-creation: 2014-08-29T14:35:11+0200
+:date-modification: 2014-09-06T09:58:59+0100
+:date-creation: 2014-08-29T13:35:11+0100
 :author:   "ardumont"
 :END:
 : Understand and use some more emacs' goodness.
@@ -1732,8 +1858,8 @@
 ** CLOSED 0.5.9
 :PROPERTIES:
 :id:       200
-:date-modification: 2014-09-06T10:58:25+0200
-:date-creation: 2014-09-06T10:55:51+0200
+:date-modification: 2014-09-06T09:58:25+0100
+:date-creation: 2014-09-06T09:55:51+0100
 :author:   "ardumont"
 :END:
 : - [X] Backlog
@@ -1749,8 +1875,8 @@
 :PROPERTIES:
 :tags:     ("package-problem")
 :id:       195
-:date-modification: 2014-09-01T23:02:55+0200
-:date-creation: 2014-08-28T19:54:54+0200
+:date-modification: 2014-09-01T22:02:55+0100
+:date-creation: 2014-08-28T18:54:54+0100
 :author:   "darrylhebbes"
 :END:
 : No matter which install method I use, I cannot seem to load request-deferred-0.2.0.
@@ -1765,8 +1891,8 @@
 ** CLOSED 0.5.8
 :PROPERTIES:
 :id:       199
-:date-modification: 2014-09-01T23:00:12+0200
-:date-creation: 2014-09-01T22:55:09+0200
+:date-modification: 2014-09-01T22:00:12+0100
+:date-creation: 2014-09-01T21:55:09+0100
 :author:   "ardumont"
 :END:
 : - [X] Backlog
@@ -1777,8 +1903,8 @@
 ** CLOSED 0.5.7
 :PROPERTIES:
 :id:       198
-:date-modification: 2014-09-01T22:17:11+0200
-:date-creation: 2014-09-01T22:13:59+0200
+:date-modification: 2014-09-01T21:17:11+0100
+:date-creation: 2014-09-01T21:13:59+0100
 :author:   "ardumont"
 :END:
 : - [X] Backlog
@@ -1792,8 +1918,8 @@
 ** CLOSED 0.5.6
 :PROPERTIES:
 :id:       197
-:date-modification: 2014-08-31T13:51:13+0200
-:date-creation: 2014-08-31T13:48:31+0200
+:date-modification: 2014-08-31T12:51:13+0100
+:date-creation: 2014-08-31T12:48:31+0100
 :author:   "ardumont"
 :END:
 : - [X] backlog
@@ -1806,8 +1932,8 @@
 :PROPERTIES:
 :tags:     ("investigate" "need-reproduction" "setup-problem")
 :id:       180
-:date-modification: 2014-08-31T08:49:48+0200
-:date-creation: 2014-07-08T07:49:51+0200
+:date-modification: 2014-08-31T07:49:48+0100
+:date-creation: 2014-07-08T06:49:51+0100
 :author:   "e-calit"
 :END:
 : Given a default org-mode configuration, and a simple org file with this content :
@@ -1880,8 +2006,8 @@
 ** CLOSED 0.5.5
 :PROPERTIES:
 :id:       194
-:date-modification: 2014-08-28T18:21:58+0200
-:date-creation: 2014-08-28T16:02:50+0200
+:date-modification: 2014-08-28T17:21:58+0100
+:date-creation: 2014-08-28T15:02:50+0100
 :author:   "ardumont"
 :END:
 : - [X] Backlog
@@ -1901,8 +2027,8 @@
 :PROPERTIES:
 :tags:     ("bug")
 :id:       192
-:date-modification: 2014-08-28T15:43:35+0200
-:date-creation: 2014-08-27T08:32:12+0200
+:date-modification: 2014-08-28T14:43:35+0100
+:date-creation: 2014-08-27T07:32:12+0100
 :author:   "exlee"
 :END:
 : Hi, I am not able to set up anything besides installing access token. Any action I try ends up with `Symbol's value as variable is void: orgtrello-action/--execute controls.`
@@ -1912,8 +2038,8 @@
 :PROPERTIES:
 :tags:     ("investigate" "need-reproduction" "setup-problem")
 :id:       186
-:date-modification: 2014-08-28T00:25:01+0200
-:date-creation: 2014-08-16T03:19:16+0200
+:date-modification: 2014-08-27T23:25:01+0100
+:date-creation: 2014-08-16T02:19:16+0100
 :author:   "stardiviner"
 :END:
 : ```
@@ -1925,8 +2051,8 @@
 :PROPERTIES:
 :tags:     ("need-reproduction" "setup-problem")
 :id:       179
-:date-modification: 2014-08-28T00:22:44+0200
-:date-creation: 2014-06-23T19:41:27+0200
+:date-modification: 2014-08-27T23:22:44+0100
+:date-creation: 2014-06-23T18:41:27+0100
 :author:   "inuse"
 :END:
 : Up front I'll say this is under cygwin, so I understand if you say it's not possible
@@ -1943,8 +2069,8 @@
 ** CLOSED 0.5.4
 :PROPERTIES:
 :id:       193
-:date-modification: 2014-08-28T00:10:34+0200
-:date-creation: 2014-08-27T22:27:01+0200
+:date-modification: 2014-08-27T23:10:34+0100
+:date-creation: 2014-08-27T21:27:01+0100
 :author:   "ardumont"
 :END:
 : - [X] Backlog
@@ -1965,16 +2091,16 @@
 :PROPERTIES:
 :tags:     ("enhancement" "feature-request")
 :id:       181
-:date-modification: 2014-08-28T00:10:34+0200
-:date-creation: 2014-07-28T15:26:10+0200
+:date-modification: 2014-08-27T23:10:34+0100
+:date-creation: 2014-07-28T14:26:10+0100
 :author:   "Tritlo"
 :END:
 : Hey, is there an option of archiving cards, or archiving cards on deletion? I like to keep my old cards, so I can see what I did when. This would then function the same as a deletion in org-mode, but would archive the card on trello, rather than delete it.
 ** CLOSED 0.5.3
 :PROPERTIES:
 :id:       191
-:date-modification: 2014-08-27T00:04:13+0200
-:date-creation: 2014-08-21T14:04:17+0200
+:date-modification: 2014-08-26T23:04:13+0100
+:date-creation: 2014-08-21T13:04:17+0100
 :author:   "ardumont"
 :END:
 : - [X] Backlog
@@ -2024,8 +2150,8 @@
 :PROPERTIES:
 :tags:     ("enhancement" "investigate")
 :id:       164
-:date-modification: 2014-08-27T00:04:13+0200
-:date-creation: 2014-05-11T17:14:37+0200
+:date-modification: 2014-08-26T23:04:13+0100
+:date-creation: 2014-05-11T16:14:37+0100
 :author:   "yangchenyun"
 :END:
 : I found the sync process is synchronous and blocking the whole emacs even for small syncs.
@@ -2033,8 +2159,8 @@
 :PROPERTIES:
 :tags:     ("feature-request")
 :id:       89
-:date-modification: 2014-08-24T15:28:26+0200
-:date-creation: 2013-11-24T06:31:44+0100
+:date-modification: 2014-08-24T14:28:26+0100
+:date-creation: 2013-11-24T05:31:44+0000
 :author:   "pinard"
 :END:
 : Hi, Antoine.
@@ -2048,8 +2174,8 @@
 :PROPERTIES:
 :tags:     ("POC")
 :id:       97
-:date-modification: 2014-08-24T14:29:39+0200
-:date-creation: 2013-11-30T17:01:05+0100
+:date-modification: 2014-08-24T13:29:39+0100
+:date-creation: 2013-11-30T16:01:05+0000
 :author:   "ardumont"
 :END:
 : pre-requisite:
@@ -2069,8 +2195,8 @@
 :PROPERTIES:
 :tags:     ("POC")
 :id:       137
-:date-modification: 2014-08-24T14:29:11+0200
-:date-creation: 2014-03-23T10:28:19+0100
+:date-modification: 2014-08-24T13:29:11+0100
+:date-creation: 2014-03-23T09:28:19+0000
 :author:   "ardumont"
 :END:
 : Basically, what I understood is it's trello which pushes updates.
@@ -2081,8 +2207,8 @@
 ** CLOSED 0.5.2 - Remove unnecessary bricks (proxy + webadmin)
 :PROPERTIES:
 :id:       190
-:date-modification: 2014-08-21T03:44:02+0200
-:date-creation: 2014-08-21T01:28:30+0200
+:date-modification: 2014-08-21T02:44:02+0100
+:date-creation: 2014-08-21T00:28:30+0100
 :author:   "ardumont"
 :END:
 : - [X] Remove org-trello's over engineered bricks (proxy, elnode, webadmin) -> this will render it synchronous again. [100%]
@@ -2116,8 +2242,8 @@
 ** CLOSED 0.5.1
 :PROPERTIES:
 :id:       189
-:date-modification: 2014-08-20T21:20:10+0200
-:date-creation: 2014-08-20T21:00:42+0200
+:date-modification: 2014-08-20T20:20:10+0100
+:date-creation: 2014-08-20T20:00:42+0100
 :author:   "ardumont"
 :END:
 : - [X] Remove marmalade remains (release.sh + Makefile)
@@ -2128,8 +2254,8 @@
 ** CLOSED 0.5.0
 :PROPERTIES:
 :id:       188
-:date-modification: 2014-08-20T19:51:28+0200
-:date-creation: 2014-08-20T19:19:25+0200
+:date-modification: 2014-08-20T18:51:28+0100
+:date-creation: 2014-08-20T18:19:25+0100
 :author:   "ardumont"
 :END:
 : - Some problem were raised about proxy not live, so check the proxy's liveness during sync action
@@ -2138,16 +2264,16 @@
 ** CLOSED Package assoc is obsolete!
 :PROPERTIES:
 :id:       169
-:date-modification: 2014-08-20T19:26:34+0200
-:date-creation: 2014-05-21T23:59:57+0200
+:date-modification: 2014-08-20T18:26:34+0100
+:date-creation: 2014-05-21T22:59:57+0100
 :author:   "kgunders"
 :END:
 : Just pulled in org-trello from melpa.  Looks cool.  Get the above 'compile' error upon installation, and every time I launch emacs thereafter.  Emacs version 24.3-6, org-version 8.2.6
 ** CLOSED Revert "0.4.9"
 :PROPERTIES:
 :id:       187
-:date-modification: 2014-08-17T16:52:18+0200
-:date-creation: 2014-08-17T16:47:06+0200
+:date-modification: 2014-08-17T15:52:18+0100
+:date-creation: 2014-08-17T15:47:06+0100
 :author:   "ardumont"
 :END:
 : Reverts org-trello/org-trello#185
@@ -2157,8 +2283,8 @@
 ** CLOSED 0.4.9
 :PROPERTIES:
 :id:       185
-:date-modification: 2014-08-17T16:47:06+0200
-:date-creation: 2014-08-15T09:53:48+0200
+:date-modification: 2014-08-17T15:47:06+0100
+:date-creation: 2014-08-15T08:53:48+0100
 :author:   "ardumont"
 :END:
 : - [X] Backlog
@@ -2174,8 +2300,8 @@
 ** CLOSED 0.4.9
 :PROPERTIES:
 :id:       184
-:date-modification: 2014-08-15T09:53:30+0200
-:date-creation: 2014-08-15T09:52:21+0200
+:date-modification: 2014-08-15T08:53:30+0100
+:date-creation: 2014-08-15T08:52:21+0100
 :author:   "ardumont"
 :END:
 : - [X] Backlog
@@ -2191,16 +2317,16 @@
 ** CLOSED Update dependencies - https://github.com/org-trello/org-trello/issues/16...
 :PROPERTIES:
 :id:       182
-:date-modification: 2014-08-14T13:19:04+0200
-:date-creation: 2014-07-29T16:56:27+0200
+:date-modification: 2014-08-14T12:19:04+0100
+:date-creation: 2014-07-29T15:56:27+0100
 :author:   "ardumont"
 :END:
 : ...9#issuecomment-50103927
 ** CLOSED network-interface-list on Windows
 :PROPERTIES:
 :id:       62
-:date-modification: 2014-06-24T17:02:16+0200
-:date-creation: 2013-09-17T14:57:54+0200
+:date-modification: 2014-06-24T16:02:16+0100
+:date-creation: 2013-09-17T13:57:54+0100
 :author:   "keithmantell"
 :END:
 : Hi,
@@ -2217,8 +2343,8 @@
 ** CLOSED Fix to allow syncing of arbitrary markdown
 :PROPERTIES:
 :id:       175
-:date-modification: 2014-06-10T22:55:14+0200
-:date-creation: 2014-06-05T18:02:42+0200
+:date-modification: 2014-06-10T21:55:14+0100
+:date-creation: 2014-06-05T17:02:42+0100
 :author:   "jasom"
 :END:
 : The solution is as follows:
@@ -2235,8 +2361,8 @@
 ** CLOSED 0.4.8
 :PROPERTIES:
 :id:       178
-:date-modification: 2014-06-08T19:36:18+0200
-:date-creation: 2014-06-08T19:27:55+0200
+:date-modification: 2014-06-08T18:36:18+0100
+:date-creation: 2014-06-08T18:27:55+0100
 :author:   "ardumont"
 :END:
 : - [X] Backlog
@@ -2249,8 +2375,8 @@
 ** CLOSED Mad caret syndrom
 :PROPERTIES:
 :id:       177
-:date-modification: 2014-06-08T19:36:18+0200
-:date-creation: 2014-06-08T18:11:49+0200
+:date-modification: 2014-06-08T18:36:18+0100
+:date-creation: 2014-06-08T17:11:49+0100
 :author:   "ardumont"
 :END:
 : When asking for one action, the caret moves around as data is parsed and transformed into sync action.
@@ -2263,8 +2389,8 @@
 ** CLOSED 0.4.7
 :PROPERTIES:
 :id:       176
-:date-modification: 2014-06-08T13:08:39+0200
-:date-creation: 2014-06-08T12:55:45+0200
+:date-modification: 2014-06-08T12:08:39+0100
+:date-creation: 2014-06-08T11:55:45+0100
 :author:   "ardumont"
 :END:
 : - [X] Backlog
@@ -2277,8 +2403,8 @@
 ** CLOSED 0.4.6
 :PROPERTIES:
 :id:       174
-:date-modification: 2014-05-30T14:06:46+0200
-:date-creation: 2014-05-30T10:51:54+0200
+:date-modification: 2014-05-30T13:06:46+0100
+:date-creation: 2014-05-30T09:51:54+0100
 :author:   "ardumont"
 :END:
 : - [X] Prepare Backlog
@@ -2292,8 +2418,8 @@
 ** CLOSED Descriptions break sync-buffer
 :PROPERTIES:
 :id:       172
-:date-modification: 2014-05-30T14:04:53+0200
-:date-creation: 2014-05-29T11:25:09+0200
+:date-modification: 2014-05-30T13:04:53+0100
+:date-creation: 2014-05-29T10:25:09+0100
 :author:   "dtebbs"
 :END:
 : When syncing everything from trello, some cards disappear if the card before has a description.  The buffer turns into this:
@@ -2311,8 +2437,8 @@
 ** CLOSED Fix - Ensure there is a newline after each description.  org-trello/org-...
 :PROPERTIES:
 :id:       173
-:date-modification: 2014-05-30T10:35:59+0200
-:date-creation: 2014-05-29T11:27:56+0200
+:date-modification: 2014-05-30T09:35:59+0100
+:date-creation: 2014-05-29T10:27:56+0100
 :author:   "dtebbs"
 :END:
 : ...trello#172
@@ -2322,8 +2448,8 @@
 :PROPERTIES:
 :tags:     ("invalid" "need-reproduction")
 :id:       170
-:date-modification: 2014-05-29T08:49:42+0200
-:date-creation: 2014-05-27T09:50:39+0200
+:date-modification: 2014-05-29T07:49:42+0100
+:date-creation: 2014-05-27T08:50:39+0100
 :author:   "erezschatz"
 :END:
 : During attempted usage, the following came up:
@@ -2337,8 +2463,8 @@
 :PROPERTIES:
 :tags:     ("investigate")
 :id:       171
-:date-modification: 2014-05-28T12:21:20+0200
-:date-creation: 2014-05-27T10:08:27+0200
+:date-modification: 2014-05-28T11:21:20+0100
+:date-creation: 2014-05-27T09:08:27+0100
 :author:   "puzan"
 :END:
 : Hello!
@@ -2375,8 +2501,8 @@
 :PROPERTIES:
 :tags:     ("need-reproduction")
 :id:       150
-:date-modification: 2014-05-24T20:56:06+0200
-:date-creation: 2014-04-06T13:29:13+0200
+:date-modification: 2014-05-24T19:56:06+0100
+:date-creation: 2014-04-06T12:29:13+0100
 :author:   "nslater"
 :END:
 : While syncing a board to a buffer, I get:
@@ -2387,8 +2513,8 @@
 ** CLOSED Can't sync any board
 :PROPERTIES:
 :id:       149
-:date-modification: 2014-05-24T20:40:13+0200
-:date-creation: 2014-04-06T13:20:29+0200
+:date-modification: 2014-05-24T19:40:13+0100
+:date-creation: 2014-04-06T12:20:29+0100
 :author:   "nslater"
 :END:
 : Steps to reproduce:
@@ -2418,8 +2544,8 @@
 :PROPERTIES:
 :tags:     ("need-reproduction")
 :id:       151
-:date-modification: 2014-05-24T19:45:45+0200
-:date-creation: 2014-04-06T14:58:48+0200
+:date-modification: 2014-05-24T18:45:45+0100
+:date-creation: 2014-04-06T13:58:48+0100
 :author:   "nslater"
 :END:
 : While syncing a board, I got lots of these:
@@ -2433,16 +2559,16 @@
 :PROPERTIES:
 :tags:     ("POC")
 :id:       96
-:date-modification: 2014-05-20T19:28:48+0200
-:date-creation: 2013-11-30T17:00:28+0100
+:date-modification: 2014-05-20T18:28:48+0100
+:date-creation: 2013-11-30T16:00:28+0000
 :author:   "ardumont"
 :END:
 : http://orgmode.org/worg/org-contrib/gsoc2012/student-projects/org-sync/
 ** CLOSED 0.4.5
 :PROPERTIES:
 :id:       168
-:date-modification: 2014-05-19T08:08:38+0200
-:date-creation: 2014-05-17T21:58:27+0200
+:date-modification: 2014-05-19T07:08:38+0100
+:date-creation: 2014-05-17T20:58:27+0100
 :author:   "ardumont"
 :END:
 : - [X] Backlog
@@ -2456,8 +2582,8 @@
 :PROPERTIES:
 :tags:     ("Fixed" "need-reproduction")
 :id:       166
-:date-modification: 2014-05-15T11:33:18+0200
-:date-creation: 2014-05-13T01:37:36+0200
+:date-modification: 2014-05-15T10:33:18+0100
+:date-creation: 2014-05-13T00:37:36+0100
 :author:   "gstamp"
 :END:
 : Hi, I was trying to install org-trello but ran into a few problems.  I installed org-trello through melpa however it seems that this only installed
@@ -2470,8 +2596,8 @@
 ** CLOSED 0.4.4
 :PROPERTIES:
 :id:       165
-:date-modification: 2014-05-12T21:42:13+0200
-:date-creation: 2014-05-11T23:06:06+0200
+:date-modification: 2014-05-12T20:42:13+0100
+:date-creation: 2014-05-11T22:06:06+0100
 :author:   "ardumont"
 :END:
 : - [X] Multiple files packaging - CLOSE #163
@@ -2499,8 +2625,8 @@
 ** CLOSED org-trello with multiple files package
 :PROPERTIES:
 :id:       163
-:date-modification: 2014-05-12T21:40:32+0200
-:date-creation: 2014-05-10T20:07:43+0200
+:date-modification: 2014-05-12T20:40:32+0100
+:date-creation: 2014-05-10T19:07:43+0100
 :author:   "ardumont"
 :END:
 : # History
@@ -2551,8 +2677,8 @@
 ** CLOSED separate Emacs installation
 :PROPERTIES:
 :id:       162
-:date-modification: 2014-05-06T19:37:34+0200
-:date-creation: 2014-05-04T13:10:01+0200
+:date-modification: 2014-05-06T18:37:34+0100
+:date-creation: 2014-05-04T12:10:01+0100
 :author:   "lxsameer"
 :END:
 : I have two version of emacs. My current version installed somewhere in my home ( i don't have ~/.emacs and ~/.emacs.d instead i use my own paths) . When i try to start org-trello by calling `org-trello-mode` i get this error message
@@ -2569,8 +2695,8 @@
 ** CLOSED Replace proxy's cache file implementation by ram database implementation
 :PROPERTIES:
 :id:       161
-:date-modification: 2014-04-25T12:43:17+0200
-:date-creation: 2014-04-25T12:43:10+0200
+:date-modification: 2014-04-25T11:43:17+0100
+:date-creation: 2014-04-25T11:43:10+0100
 :author:   "ardumont"
 :END:
 : This should:
@@ -2582,8 +2708,8 @@
 ** CLOSED 0.4.3
 :PROPERTIES:
 :id:       160
-:date-modification: 2014-04-25T12:41:25+0200
-:date-creation: 2014-04-25T12:21:38+0200
+:date-modification: 2014-04-25T11:41:25+0100
+:date-creation: 2014-04-25T11:21:38+0100
 :author:   "ardumont"
 :END:
 : - [X] Prepare backlog
@@ -2599,8 +2725,8 @@
 ** CLOSED 0.4.2
 :PROPERTIES:
 :id:       159
-:date-modification: 2014-04-12T22:02:35+0200
-:date-creation: 2014-04-12T08:52:00+0200
+:date-modification: 2014-04-12T21:02:35+0100
+:date-creation: 2014-04-12T07:52:00+0100
 :author:   "ardumont"
 :END:
 : - [X] Refactoring - Remove dead code
@@ -2612,8 +2738,8 @@
 ** CLOSED 0.4.1.1
 :PROPERTIES:
 :id:       158
-:date-modification: 2014-04-10T01:02:44+0200
-:date-creation: 2014-04-09T20:52:53+0200
+:date-modification: 2014-04-10T00:02:44+0100
+:date-creation: 2014-04-09T19:52:53+0100
 :author:   "ardumont"
 :END:
 : - [X] Remove non interactive commands
@@ -2626,8 +2752,8 @@
 :PROPERTIES:
 :tags:     ("next-release")
 :id:       157
-:date-modification: 2014-04-10T01:02:44+0200
-:date-creation: 2014-04-08T22:58:35+0200
+:date-modification: 2014-04-10T00:02:44+0100
+:date-creation: 2014-04-08T21:58:35+0100
 :author:   "ardumont"
 :END:
 : Creating a board from scratch after installing the credentials does not work.
@@ -2653,8 +2779,8 @@
 ** CLOSED Force resize-mini-windows
 :PROPERTIES:
 :id:       144
-:date-modification: 2014-04-08T15:09:19+0200
-:date-creation: 2014-03-31T11:20:11+0200
+:date-modification: 2014-04-08T14:09:19+0100
+:date-creation: 2014-03-31T10:20:11+0100
 :author:   "sviridov"
 :END:
 : Hi!
@@ -2669,8 +2795,8 @@
 ** CLOSED 0.4.1
 :PROPERTIES:
 :id:       155
-:date-modification: 2014-04-07T14:32:52+0200
-:date-creation: 2014-04-07T14:29:30+0200
+:date-modification: 2014-04-07T13:32:52+0100
+:date-creation: 2014-04-07T13:29:30+0100
 :author:   "ardumont"
 :END:
 : - [X] Fix deadline/description problem - Close #154
@@ -2683,8 +2809,8 @@
 ** CLOSED Deadline and description mix up
 :PROPERTIES:
 :id:       154
-:date-modification: 2014-04-07T14:32:52+0200
-:date-creation: 2014-04-07T08:09:30+0200
+:date-modification: 2014-04-07T13:32:52+0100
+:date-creation: 2014-04-07T07:09:30+0100
 :author:   "ardumont"
 :END:
 : When deadline is set (the org equivalent to trello's due date), the deadline is synced in trello card's description.
@@ -2693,8 +2819,8 @@
 ** CLOSED Due date sync problem
 :PROPERTIES:
 :id:       153
-:date-modification: 2014-04-07T14:32:52+0200
-:date-creation: 2014-04-07T08:09:00+0200
+:date-modification: 2014-04-07T13:32:52+0100
+:date-creation: 2014-04-07T07:09:00+0100
 :author:   "ardumont"
 :END:
 : The due date is no longer updated as org deadline when sync from trello.
@@ -2703,8 +2829,8 @@
 ** CLOSED Add a quick start
 :PROPERTIES:
 :id:       152
-:date-modification: 2014-04-06T22:53:58+0200
-:date-creation: 2014-04-06T20:43:09+0200
+:date-modification: 2014-04-06T21:53:58+0100
+:date-creation: 2014-04-06T19:43:09+0100
 :author:   "ardumont"
 :END:
 : Or update the existing one...
@@ -2718,16 +2844,16 @@
 :PROPERTIES:
 :tags:     ("enhancement" "feature-request")
 :id:       70
-:date-modification: 2014-04-05T11:53:05+0200
-:date-creation: 2013-10-03T01:10:03+0200
+:date-modification: 2014-04-05T10:53:05+0100
+:date-creation: 2013-10-03T00:10:03+0100
 :author:   "ardumont"
 :END:
 : As a trello user, I want to be able to use the trello labels to tags trello cards.
 ** CLOSED Sync doesn't work if org buffer name contains special characters
 :PROPERTIES:
 :id:       147
-:date-modification: 2014-04-02T14:58:38+0200
-:date-creation: 2014-04-02T05:41:08+0200
+:date-modification: 2014-04-02T13:58:38+0100
+:date-creation: 2014-04-02T04:41:08+0100
 :author:   "XANi"
 :END:
 : When I'm using uniquify buffer my buffers are named like 'todo.org&lt;org/share>' or 'todo|org/share', that makes org-trello generate errors during sync and fail:
@@ -2757,8 +2883,8 @@
 ** CLOSED 0.4.0.1
 :PROPERTIES:
 :id:       148
-:date-modification: 2014-04-02T14:56:31+0200
-:date-creation: 2014-04-02T14:48:17+0200
+:date-modification: 2014-04-02T13:56:31+0100
+:date-creation: 2014-04-02T13:48:17+0100
 :author:   "ardumont"
 :END:
 : - [X] Fix 'Sync doesn't work if org buffer name contains special characters' - Close #147
@@ -2767,8 +2893,8 @@
 ** CLOSED 0.4.0
 :PROPERTIES:
 :id:       146
-:date-modification: 2014-04-01T19:11:31+0200
-:date-creation: 2014-03-31T21:46:59+0200
+:date-modification: 2014-04-01T18:11:31+0100
+:date-creation: 2014-03-31T20:46:59+0100
 :author:   "ardumont"
 :END:
 : - [X] Refactor
@@ -2780,8 +2906,8 @@
 ** CLOSED Missing definition of FIRST and SECOND functions
 :PROPERTIES:
 :id:       145
-:date-modification: 2014-04-01T19:11:31+0200
-:date-creation: 2014-03-31T17:32:27+0200
+:date-modification: 2014-04-01T18:11:31+0100
+:date-creation: 2014-03-31T16:32:27+0100
 :author:   "sviridov"
 :END:
 : Try to start clean Emacs instance (with `emacs -Q`) configured to use only `org-trello`:
@@ -2806,8 +2932,8 @@
 ** CLOSED Fix CI error
 :PROPERTIES:
 :id:       143
-:date-modification: 2014-03-30T01:05:46+0100
-:date-creation: 2014-03-29T13:04:21+0100
+:date-modification: 2014-03-30T00:05:46+0000
+:date-creation: 2014-03-29T12:04:21+0000
 :author:   "ardumont"
 :END:
 : Update link to cask to try and fix the error on CI:
@@ -2816,8 +2942,8 @@
 ** CLOSED 0.3.8
 :PROPERTIES:
 :id:       141
-:date-modification: 2014-03-28T17:50:40+0100
-:date-creation: 2014-03-27T01:39:53+0100
+:date-modification: 2014-03-28T16:50:40+0000
+:date-creation: 2014-03-27T00:39:53+0000
 :author:   "ardumont"
 :END:
 : - [X] Some refactoring
@@ -2841,8 +2967,8 @@
 ** CLOSED 0.3.9
 :PROPERTIES:
 :id:       142
-:date-modification: 2014-03-28T17:38:40+0100
-:date-creation: 2014-03-28T17:07:41+0100
+:date-modification: 2014-03-28T16:38:40+0000
+:date-creation: 2014-03-28T16:07:41+0000
 :author:   "ardumont"
 :END:
 : - [X] Refactor - Symmetry for all commands where that makes sense (without C-u/with C-u)
@@ -2857,8 +2983,8 @@
 :PROPERTIES:
 :tags:     ("enhancement")
 :id:       69
-:date-modification: 2014-03-28T17:38:40+0100
-:date-creation: 2013-10-03T01:06:03+0200
+:date-modification: 2014-03-28T16:38:40+0000
+:date-creation: 2013-10-03T00:06:03+0100
 :author:   "ardumont"
 :END:
 : The trello API permits to filter data.
@@ -2868,47 +2994,47 @@
 ** CLOSED Add sync entity with structure from trello
 :PROPERTIES:
 :id:       140
-:date-modification: 2014-03-27T12:35:01+0100
-:date-creation: 2014-03-27T01:32:42+0100
+:date-modification: 2014-03-27T11:35:01+0000
+:date-creation: 2014-03-27T00:32:42+0000
 :author:   "ardumont"
 :END:
 : Symmetric action of 'sync entity with structure to trello'
 ** CLOSED Add sync entity from trello
 :PROPERTIES:
 :id:       139
-:date-modification: 2014-03-27T12:35:01+0100
-:date-creation: 2014-03-27T01:31:55+0100
+:date-modification: 2014-03-27T11:35:01+0000
+:date-creation: 2014-03-27T00:31:55+0000
 :author:   "ardumont"
 :END:
 : Symmetric action of 'sync entity to trello' (without the arborescence)
 ** CLOSED Open 'stop all synchronization actions' as an interactive command
 :PROPERTIES:
 :id:       131
-:date-modification: 2014-03-27T12:35:01+0100
-:date-creation: 2014-03-21T17:20:36+0100
+:date-modification: 2014-03-27T11:35:01+0000
+:date-creation: 2014-03-21T16:20:36+0000
 :author:   "ardumont"
 :END:
 : https://github.com/org-trello/org-trello/issues/128#issuecomment-37904654
 ** CLOSED Provide org-trello-mode-hook
 :PROPERTIES:
 :id:       116
-:date-modification: 2014-03-27T12:35:01+0100
-:date-creation: 2014-02-27T20:02:14+0100
+:date-modification: 2014-03-27T11:35:01+0000
+:date-creation: 2014-02-27T19:02:14+0000
 :author:   "ardumont"
 :END:
 ** CLOSED Unable to sync checklists
 :PROPERTIES:
 :id:       121
-:date-modification: 2014-03-26T22:35:09+0100
-:date-creation: 2014-03-12T22:12:27+0100
+:date-modification: 2014-03-26T21:35:09+0000
+:date-creation: 2014-03-12T21:12:27+0000
 :author:   "baudtack"
 :END:
 : This may be me not understanding how to do it, but I made a checklist under a card and hit C-c o s on the item and the checklist doesn't show up in trello and no properties get set for each item
 ** CLOSED 0.3.7
 :PROPERTIES:
 :id:       138
-:date-modification: 2014-03-24T22:08:48+0100
-:date-creation: 2014-03-24T01:00:03+0100
+:date-modification: 2014-03-24T21:08:48+0000
+:date-creation: 2014-03-24T00:00:03+0000
 :author:   "ardumont"
 :END:
 : - [X] Use `defconst` keyword instead of defvar
@@ -2920,8 +3046,8 @@
 ** CLOSED 0.3.6
 :PROPERTIES:
 :id:       133
-:date-modification: 2014-03-23T14:09:27+0100
-:date-creation: 2014-03-22T23:14:39+0100
+:date-modification: 2014-03-23T13:09:27+0000
+:date-creation: 2014-03-22T22:14:39+0000
 :author:   "ardumont"
 :END:
 : - [X] Test multiple emacs version - https://github.com/org-trello/org-trello/issues/52
@@ -2934,8 +3060,8 @@
 ** CLOSED Total reset of org-trello ???
 :PROPERTIES:
 :id:       128
-:date-modification: 2014-03-23T00:34:46+0100
-:date-creation: 2014-03-17T20:56:13+0100
+:date-modification: 2014-03-22T23:34:46+0000
+:date-creation: 2014-03-17T19:56:13+0000
 :author:   "emelin"
 :END:
 : I have moved my elnode-webserver-docroot elsewhere.
@@ -2953,16 +3079,16 @@
 :PROPERTIES:
 :tags:     ("feature-request")
 :id:       86
-:date-modification: 2014-03-23T00:05:55+0100
-:date-creation: 2013-11-23T18:53:36+0100
+:date-modification: 2014-03-22T23:05:55+0000
+:date-creation: 2013-11-23T17:53:36+0000
 :author:   "ardumont"
 :END:
 : https://github.com/ardumont/org-trello/issues/80#issuecomment-28936975
 ** CLOSED 0.3.6.1
 :PROPERTIES:
 :id:       135
-:date-modification: 2014-03-23T00:01:44+0100
-:date-creation: 2014-03-22T23:55:07+0100
+:date-modification: 2014-03-22T23:01:44+0000
+:date-creation: 2014-03-22T22:55:07+0000
 :author:   "ardumont"
 :END:
 : - [X] Fix already used bindings
@@ -2972,24 +3098,24 @@
 ** CLOSED Fix release script
 :PROPERTIES:
 :id:       134
-:date-modification: 2014-03-22T23:24:06+0100
-:date-creation: 2014-03-22T23:23:58+0100
+:date-modification: 2014-03-22T22:24:06+0000
+:date-creation: 2014-03-22T22:23:58+0000
 :author:   "ardumont"
 :END:
 : Fix the release since the repository has migrated to org-trello/org-trello
 ** CLOSED Create card comment
 :PROPERTIES:
 :id:       132
-:date-modification: 2014-03-22T23:18:03+0100
-:date-creation: 2014-03-22T21:13:28+0100
+:date-modification: 2014-03-22T22:18:03+0000
+:date-creation: 2014-03-22T20:13:28+0000
 :author:   "ardumont"
 :END:
 : Be able to add a comment to a card.
 ** CLOSED Add a logo
 :PROPERTIES:
 :id:       129
-:date-modification: 2014-03-22T23:14:39+0100
-:date-creation: 2014-03-20T18:59:06+0100
+:date-modification: 2014-03-22T22:14:39+0000
+:date-creation: 2014-03-20T17:59:06+0000
 :author:   "ardumont"
 :END:
 : - unicorn from org-mode (free software)
@@ -3002,8 +3128,8 @@
 :PROPERTIES:
 :tags:     ("feature-request")
 :id:       52
-:date-modification: 2014-03-22T23:14:39+0100
-:date-creation: 2013-09-01T09:08:27+0200
+:date-modification: 2014-03-22T22:14:39+0000
+:date-creation: 2013-09-01T08:08:27+0100
 :author:   "ardumont"
 :END:
 : Find a way to test multiple emacs version (to avoid problems like #51).
@@ -3013,8 +3139,8 @@
 ** CLOSED Can sync some boards but not others
 :PROPERTIES:
 :id:       126
-:date-modification: 2014-03-20T18:43:35+0100
-:date-creation: 2014-03-17T17:08:25+0100
+:date-modification: 2014-03-20T17:43:35+0000
+:date-creation: 2014-03-17T16:08:25+0000
 :author:   "stefanavey"
 :END:
 : - emacs version: GNU Emacs 24.3.1 (x86_64-redhat-linux-gnu, GTK+ Version 3.8.2)
@@ -3068,15 +3194,15 @@
 ** CLOSED how-to sync activities and comments
 :PROPERTIES:
 :id:       127
-:date-modification: 2014-03-17T22:59:06+0100
-:date-creation: 2014-03-17T19:25:59+0100
+:date-modification: 2014-03-17T21:59:06+0000
+:date-creation: 2014-03-17T18:25:59+0000
 :author:   "emelin"
 :END:
 ** CLOSED Improve documentation
 :PROPERTIES:
 :id:       124
-:date-modification: 2014-03-17T20:54:53+0100
-:date-creation: 2014-03-16T16:15:23+0100
+:date-modification: 2014-03-17T19:54:53+0000
+:date-creation: 2014-03-16T15:15:23+0000
 :author:   "ardumont"
 :END:
 : The documentation is complete but dense.
@@ -3086,16 +3212,16 @@
 ** CLOSED Fix link to repository from ardumont/org-trello to org-trello/org-trello
 :PROPERTIES:
 :id:       125
-:date-modification: 2014-03-17T11:01:50+0100
-:date-creation: 2014-03-17T10:59:24+0100
+:date-modification: 2014-03-17T10:01:50+0000
+:date-creation: 2014-03-17T09:59:24+0000
 :author:   "ardumont"
 :END:
 ** CLOSED Provide another org-trello installation procedure
 :PROPERTIES:
 :tags:     ("feature-request")
 :id:       111
-:date-modification: 2014-03-16T13:13:03+0100
-:date-creation: 2014-01-22T18:30:36+0100
+:date-modification: 2014-03-16T12:13:03+0000
+:date-creation: 2014-01-22T17:30:36+0000
 :author:   "ardumont"
 :END:
 : org-trello's installation procedure only involves emacs 24rd's packaging system.
@@ -3107,8 +3233,8 @@
 ** CLOSED 0.3.5
 :PROPERTIES:
 :id:       123
-:date-modification: 2014-03-15T23:20:32+0100
-:date-creation: 2014-03-15T23:15:38+0100
+:date-modification: 2014-03-15T22:20:32+0000
+:date-creation: 2014-03-15T22:15:38+0000
 :author:   "ardumont"
 :END:
 : - [X] Test multiple emacs version - https://github.com/ardumont/org-trello/issues/52
@@ -3118,8 +3244,8 @@
 ** CLOSED 0.3.4
 :PROPERTIES:
 :id:       122
-:date-modification: 2014-03-15T15:28:42+0100
-:date-creation: 2014-03-15T14:47:48+0100
+:date-modification: 2014-03-15T14:28:42+0000
+:date-creation: 2014-03-15T13:47:48+0000
 :author:   "ardumont"
 :END:
 : - [X] PR fix typo in readme - https://github.com/ardumont/org-trello/pull/120
@@ -3132,16 +3258,16 @@
 ** CLOSED fixed typo in README.md
 :PROPERTIES:
 :id:       120
-:date-modification: 2014-03-15T14:47:48+0100
-:date-creation: 2014-03-12T16:44:48+0100
+:date-modification: 2014-03-15T13:47:48+0000
+:date-creation: 2014-03-12T15:44:48+0000
 :author:   "baudtack"
 :END:
 ** CLOSED Undue Notifications (was: Extensive damage in Trello, from "C-c o s")
 :PROPERTIES:
 :tags:     ("feature-request")
 :id:       79
-:date-modification: 2014-03-14T22:21:07+0100
-:date-creation: 2013-11-19T23:45:00+0100
+:date-modification: 2014-03-14T21:21:07+0000
+:date-creation: 2013-11-19T22:45:00+0000
 :author:   "pinard"
 :END:
 : Hi, Antoine.
@@ -3158,8 +3284,8 @@
 ** CLOSED Broken in recent Emacs versions
 :PROPERTIES:
 :id:       117
-:date-modification: 2014-03-08T17:34:09+0100
-:date-creation: 2014-03-07T18:34:50+0100
+:date-modification: 2014-03-08T16:34:09+0000
+:date-creation: 2014-03-07T17:34:50+0000
 :author:   "purcell"
 :END:
 : The contents of `package-alist` are not plain lists in HEAD Emacs versions (and in the forthcoming 24.4 release), therefore the following line prevents `org-trello` from being loaded:
@@ -3172,8 +3298,8 @@
 ** CLOSED 0.3.3
 :PROPERTIES:
 :id:       119
-:date-modification: 2014-03-08T17:32:10+0100
-:date-creation: 2014-03-08T17:28:41+0100
+:date-modification: 2014-03-08T16:32:10+0000
+:date-creation: 2014-03-08T16:28:41+0000
 :author:   "ardumont"
 :END:
 : - [X] Issue when installing on melpa reported wrongly on melpa and reported back https://github.com/ardumont/org-trello/issues/117
@@ -3193,8 +3319,8 @@
 ** CLOSED Declare emacs version dependency
 :PROPERTIES:
 :id:       118
-:date-modification: 2014-03-07T19:16:10+0100
-:date-creation: 2014-03-07T18:37:48+0100
+:date-modification: 2014-03-07T18:16:10+0000
+:date-creation: 2014-03-07T17:37:48+0000
 :author:   "purcell"
 :END:
 : Since you need Emacs 24.3, you should declare a package dependency as shown in this commit.
@@ -3202,8 +3328,8 @@
 :PROPERTIES:
 :tags:     ("bug")
 :id:       114
-:date-modification: 2014-02-03T11:54:35+0100
-:date-creation: 2014-02-03T11:23:37+0100
+:date-modification: 2014-02-03T10:54:35+0000
+:date-creation: 2014-02-03T10:23:37+0000
 :author:   "ardumont"
 :END:
 : Evaluating this code works and displays "hello there\n":
@@ -3246,8 +3372,8 @@
 ** CLOSED 0.3.2
 :PROPERTIES:
 :id:       115
-:date-modification: 2014-02-03T11:54:22+0100
-:date-creation: 2014-02-03T11:54:03+0100
+:date-modification: 2014-02-03T10:54:22+0000
+:date-creation: 2014-02-03T10:54:03+0000
 :author:   "ardumont"
 :END:
 : - [X] Use standard remapping to override the org-end-of-line routine - https://www.gnu.org/software/emacs/manual/html_node/elisp/Remapping-Commands.html
@@ -3259,8 +3385,8 @@
 ** CLOSED install fail
 :PROPERTIES:
 :id:       112
-:date-modification: 2014-01-24T20:34:49+0100
-:date-creation: 2014-01-23T03:16:02+0100
+:date-modification: 2014-01-24T19:34:49+0000
+:date-creation: 2014-01-23T02:16:02+0000
 :author:   "felix125"
 :END:
 : (require 'package)
@@ -3282,8 +3408,8 @@
 ** CLOSED 0.3.1.1
 :PROPERTIES:
 :id:       113
-:date-modification: 2014-01-23T21:15:28+0100
-:date-creation: 2014-01-23T21:13:58+0100
+:date-modification: 2014-01-23T20:15:28+0000
+:date-creation: 2014-01-23T20:13:58+0000
 :author:   "ardumont"
 :END:
 : - [X] Installation failure - https://github.com/ardumont/org-trello/issues/112
@@ -3292,8 +3418,8 @@
 ** CLOSED [duplicate #33] Too much emphasis on #+TODO, not enough on structure
 :PROPERTIES:
 :id:       81
-:date-modification: 2014-01-22T18:37:54+0100
-:date-creation: 2013-11-20T20:54:53+0100
+:date-modification: 2014-01-22T17:37:54+0000
+:date-creation: 2013-11-20T19:54:53+0000
 :author:   "pinard"
 :END:
 : Hi, Antoine.  Here is a more philosophical one.
@@ -3313,8 +3439,8 @@
 :PROPERTIES:
 :tags:     ("potential-setup-problem")
 :id:       37
-:date-modification: 2014-01-22T18:36:32+0100
-:date-creation: 2013-08-21T11:45:32+0200
+:date-modification: 2014-01-22T17:36:32+0000
+:date-creation: 2013-08-21T10:45:32+0100
 :author:   "giorgio-v"
 :END:
 : I have setup my emacs/org environment. I can create a new board, and I can link to an existing one, but thereâs no way to âseeâ any card nor to create a new one.
@@ -3327,8 +3453,8 @@
 ** CLOSED Installation difficulty, maybe because Org version numbering?
 :PROPERTIES:
 :id:       84
-:date-modification: 2014-01-22T18:32:29+0100
-:date-creation: 2013-11-23T17:36:13+0100
+:date-modification: 2014-01-22T17:32:29+0000
+:date-creation: 2013-11-23T16:36:13+0000
 :author:   "pinard"
 :END:
 : Hi, Antoine.  Here I am again, hoping you are not tired of reading me.
@@ -3356,8 +3482,8 @@
 ** CLOSED May not save an trelloized Org buffer
 :PROPERTIES:
 :id:       82
-:date-modification: 2014-01-22T17:55:10+0100
-:date-creation: 2013-11-21T05:20:14+0100
+:date-modification: 2014-01-22T16:55:10+0000
+:date-creation: 2013-11-21T04:20:14+0000
 :author:   "pinard"
 :END:
 : Hi, Antoine.  Some trelloized Org buffers may be modified and saved nicely.  Others do not.  Here is a traceback for such a case.  I merely added a space and removed it so the Org file is marked modified, then saved it.  Else, this is the exact contents of a file after "C-c o S", I did not modify it otherwise.
@@ -3395,8 +3521,8 @@
 ** CLOSED error in process filter: Invalid function: org-with-silent-modifications
 :PROPERTIES:
 :id:       92
-:date-modification: 2014-01-22T17:43:19+0100
-:date-creation: 2013-11-25T09:41:08+0100
+:date-modification: 2014-01-22T16:43:19+0000
+:date-creation: 2013-11-25T08:41:08+0000
 :author:   "webframp"
 :END:
 : Installed `org-trello version: 0.2.6` from Melpa, not sure what the issue is here but I'm missing something. Setup seemed to go fine and I could even partially sync. Now I'm unable to.
@@ -3449,8 +3575,8 @@
 ** CLOSED Clean the old checklist/items format up
 :PROPERTIES:
 :id:       105
-:date-modification: 2014-01-22T17:26:31+0100
-:date-creation: 2014-01-16T21:30:50+0100
+:date-modification: 2014-01-22T16:26:31+0000
+:date-creation: 2014-01-16T20:30:50+0000
 :author:   "ardumont"
 :END:
 : Before the standard org-mode checkbox use for checklist and items, org-trello used simple star * for cards, ** for checklist, *** for items.
@@ -3460,16 +3586,16 @@
 ** CLOSED 0.3.1
 :PROPERTIES:
 :id:       110
-:date-modification: 2014-01-21T19:52:54+0100
-:date-creation: 2014-01-21T19:52:44+0100
+:date-modification: 2014-01-21T18:52:54+0000
+:date-creation: 2014-01-21T18:52:44+0000
 :author:   "ardumont"
 :END:
 : Update README.md
 ** CLOSED 0.3.1
 :PROPERTIES:
 :id:       109
-:date-modification: 2014-01-21T19:51:28+0100
-:date-creation: 2014-01-21T19:44:59+0100
+:date-modification: 2014-01-21T18:51:28+0000
+:date-creation: 2014-01-21T18:44:59+0000
 :author:   "ardumont"
 :END:
 : - [X] Backlog
@@ -3482,8 +3608,8 @@
 ** CLOSED 0.3.0
 :PROPERTIES:
 :id:       108
-:date-modification: 2014-01-20T22:07:02+0100
-:date-creation: 2014-01-20T22:03:59+0100
+:date-modification: 2014-01-20T21:07:02+0000
+:date-creation: 2014-01-20T21:03:59+0000
 :author:   "ardumont"
 :END:
 : - [X] Backlog
@@ -3494,8 +3620,8 @@
 ** CLOSED Inordinate amount of whitespace after synchronization from Trello to Org
 :PROPERTIES:
 :id:       90
-:date-modification: 2014-01-20T19:31:19+0100
-:date-creation: 2013-11-24T06:56:26+0100
+:date-modification: 2014-01-20T18:31:19+0000
+:date-creation: 2013-11-24T05:56:26+0000
 :author:   "pinard"
 :END:
 : Hi, Antoine.
@@ -3512,8 +3638,8 @@
 ** CLOSED 0.2.9
 :PROPERTIES:
 :id:       106
-:date-modification: 2014-01-20T19:31:13+0100
-:date-creation: 2014-01-19T22:35:36+0100
+:date-modification: 2014-01-20T18:31:13+0000
+:date-creation: 2014-01-19T21:35:36+0000
 :author:   "ardumont"
 :END:
 : - [X] Remove org-trello.el at the root of the code (as the package generates this file and the test load without it, no longer needs to be gitted)
@@ -3526,8 +3652,8 @@
 ** CLOSED Hiding orgtrello-id texts
 :PROPERTIES:
 :id:       98
-:date-modification: 2014-01-20T18:55:46+0100
-:date-creation: 2013-12-15T15:49:01+0100
+:date-modification: 2014-01-20T17:55:46+0000
+:date-creation: 2013-12-15T14:49:01+0000
 :author:   "pinard"
 :END:
 : Hi, Antoine.  (long time no speak!)
@@ -3552,8 +3678,8 @@
 ** CLOSED 0.2.9.1
 :PROPERTIES:
 :id:       107
-:date-modification: 2014-01-20T18:52:27+0100
-:date-creation: 2014-01-20T18:49:18+0100
+:date-modification: 2014-01-20T17:52:27+0000
+:date-creation: 2014-01-20T17:49:18+0000
 :author:   "ardumont"
 :END:
 : - [X] Forgot to ship code
@@ -3562,8 +3688,8 @@
 ** CLOSED Marmalade/Melpa stats
 :PROPERTIES:
 :id:       95
-:date-modification: 2014-01-17T14:25:04+0100
-:date-creation: 2013-11-30T16:59:19+0100
+:date-modification: 2014-01-17T13:25:04+0000
+:date-creation: 2013-11-30T15:59:19+0000
 :author:   "ardumont"
 :END:
 : Measure use of org-trello
@@ -3572,8 +3698,8 @@
 ** CLOSED 0.2.8.2
 :PROPERTIES:
 :id:       104
-:date-modification: 2014-01-16T21:04:03+0100
-:date-creation: 2014-01-16T21:02:23+0100
+:date-modification: 2014-01-16T20:04:03+0000
+:date-creation: 2014-01-16T20:02:23+0000
 :author:   "ardumont"
 :END:
 : - [X] Fix yet another error on synchronization from trello.
@@ -3582,8 +3708,8 @@
 ** CLOSED 0.2.8.1
 :PROPERTIES:
 :id:       103
-:date-modification: 2014-01-16T20:49:37+0100
-:date-creation: 2014-01-16T20:46:39+0100
+:date-modification: 2014-01-16T19:49:37+0000
+:date-creation: 2014-01-16T19:46:39+0000
 :author:   "ardumont"
 :END:
 : - [X] Fix error on synchronization from trello
@@ -3592,8 +3718,8 @@
 ** CLOSED Card description not synchronized
 :PROPERTIES:
 :id:       80
-:date-modification: 2014-01-05T17:46:08+0100
-:date-creation: 2013-11-20T20:32:27+0100
+:date-modification: 2014-01-05T16:46:08+0000
+:date-creation: 2013-11-20T19:32:27+0000
 :author:   "pinard"
 :END:
 : Hi, Antoine.
@@ -3606,8 +3732,8 @@
 ** CLOSED 0.2.8
 :PROPERTIES:
 :id:       102
-:date-modification: 2014-01-05T17:38:32+0100
-:date-creation: 2014-01-05T17:34:13+0100
+:date-modification: 2014-01-05T16:38:32+0000
+:date-creation: 2014-01-05T16:34:13+0000
 :author:   "ardumont"
 :END:
 : - [X] Backlog
@@ -3619,16 +3745,16 @@
 ** CLOSED Unify abstraction around org-trello data (between the org and trello data
 :PROPERTIES:
 :id:       100
-:date-modification: 2014-01-05T12:13:34+0100
-:date-creation: 2014-01-04T19:09:36+0100
+:date-modification: 2014-01-05T11:13:34+0000
+:date-creation: 2014-01-04T18:09:36+0000
 :author:   "ardumont"
 :END:
 : This will ease the maintenance for future development.
 ** CLOSED 0.2.7
 :PROPERTIES:
 :id:       101
-:date-modification: 2014-01-04T19:40:26+0100
-:date-creation: 2014-01-04T19:33:08+0100
+:date-modification: 2014-01-04T18:40:26+0000
+:date-creation: 2014-01-04T18:33:08+0000
 :author:   "ardumont"
 :END:
 :
@@ -3650,8 +3776,8 @@
 ** CLOSED Create a README-dev.md for org-trello developers
 :PROPERTIES:
 :id:       99
-:date-modification: 2014-01-04T19:34:18+0100
-:date-creation: 2013-12-29T15:36:11+0100
+:date-modification: 2014-01-04T18:34:18+0000
+:date-creation: 2013-12-29T14:36:11+0000
 :author:   "ardumont"
 :END:
 : Explaining the current state of affairs regarding how to:
@@ -3661,8 +3787,8 @@
 ** CLOSED Retry to split into "namespace" file
 :PROPERTIES:
 :id:       93
-:date-modification: 2014-01-04T19:34:18+0100
-:date-creation: 2013-11-30T16:52:50+0100
+:date-modification: 2014-01-04T18:34:18+0000
+:date-creation: 2013-11-30T15:52:50+0000
 :author:   "ardumont"
 :END:
 : The code is inlined in one file and separated with ^L in namespace.
@@ -3676,8 +3802,8 @@
 :PROPERTIES:
 :tags:     ("bug" "next-release")
 :id:       53
-:date-modification: 2014-01-04T19:34:18+0100
-:date-creation: 2013-09-01T11:02:40+0200
+:date-modification: 2014-01-04T18:34:18+0000
+:date-creation: 2013-09-01T10:02:40+0100
 :author:   "ardumont"
 :END:
 : When trying to sync the full file, only some of the first level checkbox are synced.
@@ -3692,16 +3818,16 @@
 ** CLOSED Clean dead code if some exists
 :PROPERTIES:
 :id:       94
-:date-modification: 2014-01-04T19:29:50+0100
-:date-creation: 2013-11-30T16:54:39+0100
+:date-modification: 2014-01-04T18:29:50+0000
+:date-creation: 2013-11-30T15:54:39+0000
 :author:   "ardumont"
 :END:
 : Take the time to look again the code and remove dead one
 ** CLOSED elnode--http-end: an error occurred processing the access log
 :PROPERTIES:
 :id:       73
-:date-modification: 2013-11-25T11:42:10+0100
-:date-creation: 2013-11-17T22:17:51+0100
+:date-modification: 2013-11-25T10:42:10+0000
+:date-creation: 2013-11-17T21:17:51+0000
 :author:   "pinard"
 :END:
 : Hi, Antoine.  Selecting one board through "C-c o I" always yield:
@@ -3718,8 +3844,8 @@
 ** CLOSED Jumping from emacs to card"
 :PROPERTIES:
 :id:       88
-:date-modification: 2013-11-25T11:32:25+0100
-:date-creation: 2013-11-24T04:36:23+0100
+:date-modification: 2013-11-25T10:32:25+0000
+:date-creation: 2013-11-24T03:36:23+0000
 :author:   "pinard"
 :END:
 : See issue #76.
@@ -3732,8 +3858,8 @@
 ** CLOSED 0.2.6
 :PROPERTIES:
 :id:       91
-:date-modification: 2013-11-24T22:43:50+0100
-:date-creation: 2013-11-24T22:38:40+0100
+:date-modification: 2013-11-24T21:43:50+0000
+:date-creation: 2013-11-24T21:38:40+0000
 :author:   "ardumont"
 :END:
 : - [X] Jump to card - https://github.com/ardumont/org-trello/issues/88
@@ -3745,8 +3871,8 @@
 :PROPERTIES:
 :tags:     ("enhancement" "feature-request" "next-release")
 :id:       14
-:date-modification: 2013-11-24T20:54:02+0100
-:date-creation: 2013-07-25T12:11:10+0200
+:date-modification: 2013-11-24T19:54:02+0000
+:date-creation: 2013-07-25T11:11:10+0100
 :author:   "sw1nn"
 :END:
 : Loving org-trello - thanks for the great work.
@@ -3760,8 +3886,8 @@
 :PROPERTIES:
 :tags:     ("feature-request")
 :id:       76
-:date-modification: 2013-11-24T04:37:09+0100
-:date-creation: 2013-11-19T17:49:43+0100
+:date-modification: 2013-11-24T03:37:09+0000
+:date-creation: 2013-11-19T16:49:43+0000
 :author:   "pinard"
 :END:
 : Hi, Antoine.
@@ -3774,8 +3900,8 @@
 ** CLOSED (Wish) Use the same capitalization convention as in the Org manual.
 :PROPERTIES:
 :id:       83
-:date-modification: 2013-11-24T00:28:42+0100
-:date-creation: 2013-11-21T05:36:29+0100
+:date-modification: 2013-11-23T23:28:42+0000
+:date-creation: 2013-11-21T04:36:29+0000
 :author:   "pinard"
 :END:
 : Hi, Antoine.  This is a wish, not a bug report.  The Org manual, in section:
@@ -3795,8 +3921,8 @@
 :PROPERTIES:
 :tags:     ("enhancement")
 :id:       78
-:date-modification: 2013-11-24T00:27:31+0100
-:date-creation: 2013-11-19T22:49:19+0100
+:date-modification: 2013-11-23T23:27:31+0000
+:date-creation: 2013-11-19T21:49:19+0000
 :author:   "pinard"
 :END:
 : Hi, Antoine.
@@ -3810,8 +3936,8 @@
 :PROPERTIES:
 :tags:     ("enhancement" "feature-request")
 :id:       77
-:date-modification: 2013-11-24T00:27:31+0100
-:date-creation: 2013-11-19T22:23:28+0100
+:date-modification: 2013-11-23T23:27:31+0000
+:date-creation: 2013-11-19T21:23:28+0000
 :author:   "pinard"
 :END:
 : Hi, Antoine, and org-trello users.
@@ -3826,31 +3952,31 @@
 ** CLOSED 0.2.5
 :PROPERTIES:
 :id:       87
-:date-modification: 2013-11-24T00:22:48+0100
-:date-creation: 2013-11-24T00:21:04+0100
+:date-modification: 2013-11-23T23:22:48+0000
+:date-creation: 2013-11-23T23:21:04+0000
 :author:   "ardumont"
 :END:
 ** CLOSED "Not yet trello-synchronized entities" are removed from org-buffer when sync from trello
 :PROPERTIES:
 :tags:     ("bug")
 :id:       71
-:date-modification: 2013-11-23T18:49:42+0100
-:date-creation: 2013-10-03T13:05:35+0200
+:date-modification: 2013-11-23T17:49:42+0000
+:date-creation: 2013-10-03T12:05:35+0100
 :author:   "ardumont"
 :END:
 : if new entities are referenced but not yet sync'ed on trello, they will disappear from the buffer when sync-from-trello (they should not)
 ** CLOSED 0.2.4
 :PROPERTIES:
 :id:       85
-:date-modification: 2013-11-23T18:46:09+0100
-:date-creation: 2013-11-23T18:34:01+0100
+:date-modification: 2013-11-23T17:46:09+0000
+:date-creation: 2013-11-23T17:34:01+0000
 :author:   "ardumont"
 :END:
 ** CLOSED Allow users to choose other keybindings
 :PROPERTIES:
 :id:       72
-:date-modification: 2013-11-19T17:40:42+0100
-:date-creation: 2013-11-17T06:39:18+0100
+:date-modification: 2013-11-19T16:40:42+0000
+:date-creation: 2013-11-17T05:39:18+0000
 :author:   "pinard"
 :END:
 : Keybindings starting with "C-c LETTER" are reserved for users, this is an Emacs convention.  Consequently, these should never be hardwired or fixed in packages.
@@ -3861,16 +3987,16 @@
 ** CLOSED Documentation discrepancy (C-c o D versus C-c o x)
 :PROPERTIES:
 :id:       74
-:date-modification: 2013-11-18T22:51:45+0100
-:date-creation: 2013-11-18T02:40:02+0100
+:date-modification: 2013-11-18T21:51:45+0000
+:date-creation: 2013-11-18T01:40:02+0000
 :author:   "pinard"
 :END:
 : In http://ardumont.github.io/org-trello/, Bindings section, it seems that C-c o x is written where C-c o D would be expected.
 ** CLOSED 0.2.3
 :PROPERTIES:
 :id:       75
-:date-modification: 2013-11-18T22:02:48+0100
-:date-creation: 2013-11-18T19:04:20+0100
+:date-modification: 2013-11-18T21:02:48+0000
+:date-creation: 2013-11-18T18:04:20+0000
 :author:   "ardumont"
 :END:
 : - [X] Version
@@ -3883,16 +4009,16 @@
 :PROPERTIES:
 :tags:     ("feature-request" "next-release")
 :id:       67
-:date-modification: 2013-10-01T00:31:05+0200
-:date-creation: 2013-09-28T12:37:06+0200
+:date-modification: 2013-09-30T23:31:05+0100
+:date-creation: 2013-09-28T11:37:06+0100
 :author:   "ardumont"
 :END:
 : As an org-trelloan, I'd like to be able to see people who are assigned to the card in my org-trello buffer.
 ** CLOSED 0.2.2
 :PROPERTIES:
 :id:       68
-:date-modification: 2013-10-01T00:24:31+0200
-:date-creation: 2013-09-30T22:36:07+0200
+:date-modification: 2013-09-30T23:24:31+0100
+:date-creation: 2013-09-30T21:36:07+0100
 :author:   "ardumont"
 :END:
 : - [X] Version
@@ -3915,8 +4041,8 @@
 ** CLOSED 0.2.1.2
 :PROPERTIES:
 :id:       66
-:date-modification: 2013-09-19T19:18:36+0200
-:date-creation: 2013-09-19T19:15:48+0200
+:date-modification: 2013-09-19T18:18:36+0100
+:date-creation: 2013-09-19T18:15:48+0100
 :author:   "ardumont"
 :END:
 : - [X] Version
@@ -3925,8 +4051,8 @@
 ** CLOSED 0.2.1.2
 :PROPERTIES:
 :id:       65
-:date-modification: 2013-09-19T19:16:41+0200
-:date-creation: 2013-09-19T19:10:30+0200
+:date-modification: 2013-09-19T18:16:41+0100
+:date-creation: 2013-09-19T18:10:30+0100
 :author:   "ardumont"
 :END:
 : - [X] Version
@@ -3935,8 +4061,8 @@
 ** CLOSED 0.2.1
 :PROPERTIES:
 :id:       63
-:date-modification: 2013-09-18T21:41:20+0200
-:date-creation: 2013-09-18T21:33:23+0200
+:date-modification: 2013-09-18T20:41:20+0100
+:date-creation: 2013-09-18T20:33:23+0100
 :author:   "ardumont"
 :END:
 : - [X] Version
@@ -3946,15 +4072,15 @@
 ** CLOSED 0.2.1.1 fix packaging error manipulation
 :PROPERTIES:
 :id:       64
-:date-modification: 2013-09-18T21:41:10+0200
-:date-creation: 2013-09-18T21:39:51+0200
+:date-modification: 2013-09-18T20:41:10+0100
+:date-creation: 2013-09-18T20:39:51+0100
 :author:   "ardumont"
 :END:
 ** CLOSED 0.1.9
 :PROPERTIES:
 :id:       60
-:date-modification: 2013-09-11T21:54:16+0200
-:date-creation: 2013-09-05T21:35:20+0200
+:date-modification: 2013-09-11T20:54:16+0100
+:date-creation: 2013-09-05T20:35:20+0100
 :author:   "ardumont"
 :END:
 : - [X] Clean install org-trello
@@ -3964,8 +4090,8 @@
 ** CLOSED 0.2.0
 :PROPERTIES:
 :id:       61
-:date-modification: 2013-09-11T21:49:20+0200
-:date-creation: 2013-09-11T21:48:04+0200
+:date-modification: 2013-09-11T20:49:20+0100
+:date-creation: 2013-09-11T20:48:04+0100
 :author:   "ardumont"
 :END:
 : - [X] Version
@@ -3983,8 +4109,8 @@
 :PROPERTIES:
 :tags:     ("potential-setup-problem" "question")
 :id:       55
-:date-modification: 2013-09-06T20:09:09+0200
-:date-creation: 2013-09-01T11:16:39+0200
+:date-modification: 2013-09-06T19:09:09+0100
+:date-creation: 2013-09-01T10:16:39+0100
 :author:   "greenrd"
 :END:
 : It is unable to install several dependencies, e.g. unable to install `elnode` because required package `dash-1.1.0` is unavailable.
@@ -3992,8 +4118,8 @@
 :PROPERTIES:
 :tags:     ("potential-setup-problem")
 :id:       10
-:date-modification: 2013-09-06T20:08:27+0200
-:date-creation: 2013-07-22T22:48:14+0200
+:date-modification: 2013-09-06T19:08:27+0100
+:date-creation: 2013-07-22T21:48:14+0100
 :author:   "Bassmann"
 :END:
 : I created a new board in Trello and connected it to an org file.
@@ -4008,8 +4134,8 @@
 ** CLOSED 0.1.8
 :PROPERTIES:
 :id:       57
-:date-modification: 2013-09-02T23:24:29+0200
-:date-creation: 2013-09-02T23:17:00+0200
+:date-modification: 2013-09-02T22:24:29+0100
+:date-creation: 2013-09-02T22:17:00+0100
 :author:   "ardumont"
 :END:
 : - [X] Simplify Cask file
@@ -4030,24 +4156,24 @@
 ** CLOSED ### org-trello ### Caught exception: [(void-function orgtrello-proxy/--files)]
 :PROPERTIES:
 :id:       54
-:date-modification: 2013-09-01T13:36:07+0200
-:date-creation: 2013-09-01T11:14:45+0200
+:date-modification: 2013-09-01T12:36:07+0100
+:date-creation: 2013-09-01T10:14:45+0100
 :author:   "greenrd"
 :END:
 : This error appears in the minibuffer and in *Messages* every few seconds.
 ** CLOSED Symbol's function definition is void: cl-reduce
 :PROPERTIES:
 :id:       51
-:date-modification: 2013-09-01T13:36:00+0200
-:date-creation: 2013-09-01T00:07:28+0200
+:date-modification: 2013-09-01T12:36:00+0100
+:date-creation: 2013-08-31T23:07:28+0100
 :author:   "greenrd"
 :END:
 : org-trello 0.1.7 fails to load in emacs 24.2.1 due to the above error.
 ** CLOSED 0.1.7.1
 :PROPERTIES:
 :id:       56
-:date-modification: 2013-09-01T12:59:36+0200
-:date-creation: 2013-09-01T12:58:40+0200
+:date-modification: 2013-09-01T11:59:36+0100
+:date-creation: 2013-09-01T11:58:40+0100
 :author:   "ardumont"
 :END:
 : - [X] Fix problem requiring cl-lib - https://github.com/ardumont/org-trello/issues/51
@@ -4058,8 +4184,8 @@
 :PROPERTIES:
 :tags:     ("bug" "next-release")
 :id:       46
-:date-modification: 2013-08-31T15:36:15+0200
-:date-creation: 2013-08-28T20:53:39+0200
+:date-modification: 2013-08-31T14:36:15+0100
+:date-creation: 2013-08-28T19:53:39+0100
 :author:   "greenrd"
 :END:
 : e.g. try to create an item:
@@ -4072,29 +4198,29 @@
 ** CLOSED 0.1.7 - Last fix on scripts - (need to sleep...).
 :PROPERTIES:
 :id:       50
-:date-modification: 2013-08-31T15:21:53+0200
-:date-creation: 2013-08-31T15:20:15+0200
+:date-modification: 2013-08-31T14:21:53+0100
+:date-creation: 2013-08-31T14:20:15+0100
 :author:   "ardumont"
 :END:
 ** CLOSED 0.1.7 - 2 - fix yet again broken tests
 :PROPERTIES:
 :id:       49
-:date-modification: 2013-08-31T15:21:53+0200
-:date-creation: 2013-08-31T15:14:31+0200
+:date-modification: 2013-08-31T14:21:53+0100
+:date-creation: 2013-08-31T14:14:31+0100
 :author:   "ardumont"
 :END:
 ** CLOSED 0.1.7 - Fix script release
 :PROPERTIES:
 :id:       48
-:date-modification: 2013-08-31T15:21:53+0200
-:date-creation: 2013-08-31T15:08:33+0200
+:date-modification: 2013-08-31T14:21:53+0100
+:date-creation: 2013-08-31T14:08:33+0100
 :author:   "ardumont"
 :END:
 ** CLOSED 0.1.7
 :PROPERTIES:
 :id:       47
-:date-modification: 2013-08-31T15:21:53+0200
-:date-creation: 2013-08-31T11:04:07+0200
+:date-modification: 2013-08-31T14:21:53+0100
+:date-creation: 2013-08-31T10:04:07+0100
 :author:   "ardumont"
 :END:
 : - [X] webadmin: Add an action button on action to stop it
@@ -4115,8 +4241,8 @@
 ** CLOSED README.md: Fix typos, grammar, add clarifications, remove prerequisite
 :PROPERTIES:
 :id:       45
-:date-modification: 2013-08-28T21:37:10+0200
-:date-creation: 2013-08-28T20:47:32+0200
+:date-modification: 2013-08-28T20:37:10+0100
+:date-creation: 2013-08-28T19:47:32+0100
 :author:   "greenrd"
 :END:
 : * marmalade and melpa instructions were the wrong way round
@@ -4126,15 +4252,15 @@
 ** CLOSED Full process release from the makefile.
 :PROPERTIES:
 :id:       44
-:date-modification: 2013-08-28T14:05:32+0200
-:date-creation: 2013-08-28T14:02:52+0200
+:date-modification: 2013-08-28T13:05:32+0100
+:date-creation: 2013-08-28T13:02:52+0100
 :author:   "ardumont"
 :END:
 ** CLOSED 0.1.6
 :PROPERTIES:
 :id:       43
-:date-modification: 2013-08-28T13:32:07+0200
-:date-creation: 2013-08-28T12:45:04+0200
+:date-modification: 2013-08-28T12:32:07+0100
+:date-creation: 2013-08-28T11:45:04+0100
 :author:   "ardumont"
 :END:
 : - [X] Use the native org checklist to sync to trello
@@ -4155,22 +4281,22 @@
 ** CLOSED Release script
 :PROPERTIES:
 :id:       42
-:date-modification: 2013-08-25T15:53:06+0200
-:date-creation: 2013-08-25T15:52:47+0200
+:date-modification: 2013-08-25T14:53:06+0100
+:date-creation: 2013-08-25T14:52:47+0100
 :author:   "ardumont"
 :END:
 ** CLOSED Adding a script to begin automatic release.
 :PROPERTIES:
 :id:       41
-:date-modification: 2013-08-25T15:53:06+0200
-:date-creation: 2013-08-25T15:50:50+0200
+:date-modification: 2013-08-25T14:53:06+0100
+:date-creation: 2013-08-25T14:50:50+0100
 :author:   "ardumont"
 :END:
 ** CLOSED 0.1.5
 :PROPERTIES:
 :id:       40
-:date-modification: 2013-08-25T15:45:15+0200
-:date-creation: 2013-08-25T15:44:04+0200
+:date-modification: 2013-08-25T14:45:15+0100
+:date-creation: 2013-08-25T14:44:04+0100
 :author:   "ardumont"
 :END:
 : - Symmetry in the architecture - the deletion must pass through the consumer too.
@@ -4184,8 +4310,8 @@
 ** CLOSED 0.1.4
 :PROPERTIES:
 :id:       39
-:date-modification: 2013-08-24T18:41:10+0200
-:date-creation: 2013-08-24T18:39:50+0200
+:date-modification: 2013-08-24T17:41:10+0100
+:date-creation: 2013-08-24T17:39:50+0100
 :author:   "ardumont"
 :END:
 : - Prepare the hierarchy files to avoid problem like https://github.com/ardumont/org-trello/issues/37#issuecomment-23151353
@@ -4204,8 +4330,8 @@
 ** CLOSED 0.1.3
 :PROPERTIES:
 :id:       38
-:date-modification: 2013-08-23T10:22:58+0200
-:date-creation: 2013-08-23T10:17:32+0200
+:date-modification: 2013-08-23T09:22:58+0100
+:date-creation: 2013-08-23T09:17:32+0100
 :author:   "ardumont"
 :END:
 : - Leverage elnode's webserver capacity to display some basic monitoring about the synchronization
@@ -4219,16 +4345,16 @@
 ** CLOSED Fix typo in readme
 :PROPERTIES:
 :id:       36
-:date-modification: 2013-08-20T17:20:47+0200
-:date-creation: 2013-08-20T17:20:37+0200
+:date-modification: 2013-08-20T16:20:47+0100
+:date-creation: 2013-08-20T16:20:37+0100
 :author:   "ardumont"
 :END:
 ** CLOSED Error when checking the setup
 :PROPERTIES:
 :tags:     ("bug" "next-release")
 :id:       34
-:date-modification: 2013-08-20T17:14:02+0200
-:date-creation: 2013-08-16T13:11:54+0200
+:date-modification: 2013-08-20T16:14:02+0100
+:date-creation: 2013-08-16T12:11:54+0100
 :author:   "ardumont"
 :END:
 : There is an error when checking the setup.
@@ -4237,8 +4363,8 @@
 ** CLOSED 0.1.2
 :PROPERTIES:
 :id:       35
-:date-modification: 2013-08-20T17:13:52+0200
-:date-creation: 2013-08-20T02:13:37+0200
+:date-modification: 2013-08-20T16:13:52+0100
+:date-creation: 2013-08-20T01:13:37+0100
 :author:   "ardumont"
 :END:
 : - DONE Use an intermediary server between org and trello to permit asynchronous actions
@@ -4263,8 +4389,8 @@
 ** CLOSED error when syncing
 :PROPERTIES:
 :id:       32
-:date-modification: 2013-08-16T13:11:54+0200
-:date-creation: 2013-08-13T19:47:51+0200
+:date-modification: 2013-08-16T12:11:54+0100
+:date-creation: 2013-08-13T18:47:51+0100
 :author:   "AndreaCrotti"
 :END:
 : I just installed org-trello from the package manager, restarted Emacs just to make sure all the new versions are loaded, did the org-trello/install-key-and-token (which worked), but now if I try to do a
@@ -4287,15 +4413,15 @@
 ** CLOSED Add log level setting
 :PROPERTIES:
 :id:       31
-:date-modification: 2013-08-13T18:37:36+0200
-:date-creation: 2013-08-13T18:31:23+0200
+:date-modification: 2013-08-13T17:37:36+0100
+:date-creation: 2013-08-13T17:31:23+0100
 :author:   "thomasf"
 :END:
 ** CLOSED Configurable log level
 :PROPERTIES:
 :id:       30
-:date-modification: 2013-08-13T18:27:32+0200
-:date-creation: 2013-08-13T17:59:30+0200
+:date-modification: 2013-08-13T17:27:32+0100
+:date-creation: 2013-08-13T16:59:30+0100
 :author:   "thomasf"
 :END:
 : org-trello is very verbose.
@@ -4308,15 +4434,15 @@
 ** CLOSED Adding the mailing list
 :PROPERTIES:
 :id:       29
-:date-modification: 2013-08-11T15:17:40+0200
-:date-creation: 2013-08-11T15:17:20+0200
+:date-modification: 2013-08-11T14:17:40+0100
+:date-creation: 2013-08-11T14:17:20+0100
 :author:   "ardumont"
 :END:
 ** CLOSED 0.1.1
 :PROPERTIES:
 :id:       28
-:date-modification: 2013-08-11T14:16:26+0200
-:date-creation: 2013-08-11T13:46:58+0200
+:date-modification: 2013-08-11T13:16:26+0100
+:date-creation: 2013-08-11T12:46:58+0100
 :author:   "ardumont"
 :END:
 : - DONE Literate org-trello
@@ -4342,8 +4468,8 @@
 ** CLOSED llterate org-trello
 :PROPERTIES:
 :id:       27
-:date-modification: 2013-08-11T13:47:52+0200
-:date-creation: 2013-08-09T10:42:05+0200
+:date-modification: 2013-08-11T12:47:52+0100
+:date-creation: 2013-08-09T09:42:05+0100
 :author:   "ardumont"
 :END:
 : As an experiment, try a literate org-trello.
@@ -4352,16 +4478,16 @@
 ** CLOSED [README.md] Adding image videos + update TOC
 :PROPERTIES:
 :id:       26
-:date-modification: 2013-08-08T15:30:28+0200
-:date-creation: 2013-08-08T15:28:57+0200
+:date-modification: 2013-08-08T14:30:28+0100
+:date-creation: 2013-08-08T14:28:57+0100
 :author:   "ardumont"
 :END:
 ** CLOSED Why pin version of org-mode?
 :PROPERTIES:
 :tags:     ("potential-setup-problem")
 :id:       19
-:date-modification: 2013-08-08T09:21:05+0200
-:date-creation: 2013-08-05T08:12:29+0200
+:date-modification: 2013-08-08T08:21:05+0100
+:date-creation: 2013-08-05T07:12:29+0100
 :author:   "boothead"
 :END:
 : I notice the current stable version of org-mode is 8.0.7. Is there a specific reason that it's pinned t 7.9.2 in the pkg file?
@@ -4369,8 +4495,8 @@
 :PROPERTIES:
 :tags:     ("enhancement" "next-release")
 :id:       24
-:date-modification: 2013-08-07T15:05:46+0200
-:date-creation: 2013-08-07T08:47:17+0200
+:date-modification: 2013-08-07T14:05:46+0100
+:date-creation: 2013-08-07T07:47:17+0100
 :author:   "ardumont"
 :END:
 : from @wunki on twitter
@@ -4380,8 +4506,8 @@
 :PROPERTIES:
 :tags:     ("bug" "next-release")
 :id:       23
-:date-modification: 2013-08-07T15:04:59+0200
-:date-creation: 2013-08-07T08:46:45+0200
+:date-modification: 2013-08-07T14:04:59+0100
+:date-creation: 2013-08-07T07:46:45+0100
 :author:   "ardumont"
 :END:
 : travis-ci breaks because of carton.
@@ -4389,8 +4515,8 @@
 ** CLOSED 0.1.0
 :PROPERTIES:
 :id:       25
-:date-modification: 2013-08-07T15:00:45+0200
-:date-creation: 2013-08-07T13:21:22+0200
+:date-modification: 2013-08-07T14:00:45+0100
+:date-creation: 2013-08-07T12:21:22+0100
 :author:   "ardumont"
 :END:
 : - DONE Fix importing of cards with due date - https://github.com/ardumont/org-trello/pull/22
@@ -4409,32 +4535,32 @@
 :PROPERTIES:
 :tags:     ("bug" "next-release")
 :id:       22
-:date-modification: 2013-08-07T13:21:22+0200
-:date-creation: 2013-08-06T21:29:23+0200
+:date-modification: 2013-08-07T12:21:22+0100
+:date-creation: 2013-08-06T20:29:23+0100
 :author:   "wordempire"
 :END:
 : --card-due-date was mistyped as --entity-due-date, leading to `Symbol's value as variable is void: orgtrello/--entity-due-date` when importing card that had due-dates associated with them
 ** CLOSED 0.0.9
 :PROPERTIES:
 :id:       21
-:date-modification: 2013-08-06T16:50:52+0200
-:date-creation: 2013-08-06T16:45:43+0200
+:date-modification: 2013-08-06T15:50:52+0100
+:date-creation: 2013-08-06T15:45:43+0100
 :author:   "ardumont"
 :END:
 : Refactoring release to fix small issues
 ** CLOSED Update links to new videos.
 :PROPERTIES:
 :id:       20
-:date-modification: 2013-08-06T13:18:20+0200
-:date-creation: 2013-08-06T13:17:32+0200
+:date-modification: 2013-08-06T12:18:20+0100
+:date-creation: 2013-08-06T12:17:32+0100
 :author:   "ardumont"
 :END:
 ** CLOSED Sync org DEADLINE with trello card due
 :PROPERTIES:
 :tags:     ("enhancement" "feature-request" "next-release")
 :id:       17
-:date-modification: 2013-07-31T07:03:33+0200
-:date-creation: 2013-07-30T05:53:38+0200
+:date-modification: 2013-07-31T06:03:33+0100
+:date-creation: 2013-07-30T04:53:38+0100
 :author:   "wolflee"
 :END:
 : really appreciate your great work
@@ -4448,24 +4574,24 @@
 :PROPERTIES:
 :tags:     ("enhancement" "feature-request" "next-release")
 :id:       16
-:date-modification: 2013-07-31T02:33:47+0200
-:date-creation: 2013-07-25T21:11:48+0200
+:date-modification: 2013-07-31T01:33:47+0100
+:date-creation: 2013-07-25T20:11:48+0100
 :author:   "dawidlo"
 :END:
 : Once the user sets a "check list" to DONE or TODO, then check or uncheck all the tasks it contains.
 ** CLOSED V0.0.8
 :PROPERTIES:
 :id:       18
-:date-modification: 2013-07-31T02:33:42+0200
-:date-creation: 2013-07-31T02:21:34+0200
+:date-modification: 2013-07-31T01:33:42+0100
+:date-creation: 2013-07-31T01:21:34+0100
 :author:   "ardumont"
 :END:
 ** CLOSED Error when #+TODO not set correctly is misleading.
 :PROPERTIES:
 :tags:     ("doc-improvment")
 :id:       13
-:date-modification: 2013-07-25T21:25:15+0200
-:date-creation: 2013-07-25T12:08:36+0200
+:date-modification: 2013-07-25T20:25:15+0100
+:date-creation: 2013-07-25T11:08:36+0100
 :author:   "sw1nn"
 :END:
 : If you sync an existing board (created via the website) and don't set #+TODO you get an error like this:
@@ -4493,8 +4619,8 @@
 ** CLOSED v0.0.7
 :PROPERTIES:
 :id:       15
-:date-modification: 2013-07-25T20:47:07+0200
-:date-creation: 2013-07-25T20:45:08+0200
+:date-modification: 2013-07-25T19:47:07+0100
+:date-creation: 2013-07-25T19:45:08+0100
 :author:   "ardumont"
 :END:
 : - DONE Reference missing bindings in documentation
@@ -4507,16 +4633,16 @@
 ** CLOSED  v0.0.6.1
 :PROPERTIES:
 :id:       12
-:date-modification: 2013-07-25T10:50:23+0200
-:date-creation: 2013-07-25T10:48:52+0200
+:date-modification: 2013-07-25T09:50:23+0100
+:date-creation: 2013-07-25T09:48:52+0100
 :author:   "ardumont"
 :END:
 : Fix dependency on json-1.3 (sometimes, only json-1.2 is available)
 ** CLOSED v0.0.6
 :PROPERTIES:
 :id:       11
-:date-modification: 2013-07-24T21:29:21+0200
-:date-creation: 2013-07-24T21:24:43+0200
+:date-modification: 2013-07-24T20:29:21+0100
+:date-creation: 2013-07-24T20:24:43+0100
 :author:   "ardumont"
 :END:
 : - DONE Test that the title/label of the entity is set when syncing to avoid a 400 error
@@ -4532,67 +4658,67 @@
 :PROPERTIES:
 :tags:     ("enhancement")
 :id:       8
-:date-modification: 2013-07-19T09:48:03+0200
-:date-creation: 2013-07-18T05:58:36+0200
+:date-modification: 2013-07-19T08:48:03+0100
+:date-creation: 2013-07-18T04:58:36+0100
 :author:   "edenc"
 :END:
 : C-c o S is pulling from trello but creating a duplicate entry instead of updating the existing one.
 ** CLOSED v0.0.5
 :PROPERTIES:
 :id:       9
-:date-modification: 2013-07-18T21:20:00+0200
-:date-creation: 2013-07-18T16:14:26+0200
+:date-modification: 2013-07-18T20:20:00+0100
+:date-creation: 2013-07-18T15:14:26+0100
 :author:   "ardumont"
 :END:
 : cf. release notes.
 ** CLOSED DONE v0.0.4 [100%]
 :PROPERTIES:
 :id:       6
-:date-modification: 2013-07-17T07:22:02+0200
-:date-creation: 2013-07-16T18:01:51+0200
+:date-modification: 2013-07-17T06:22:02+0100
+:date-creation: 2013-07-16T17:01:51+0100
 :author:   "ardumont"
 :END:
 : @wunki, you may be interested :D
 ** CLOSED DONE v0.0.4.1 [100%]
 :PROPERTIES:
 :id:       7
-:date-modification: 2013-07-16T20:36:39+0200
-:date-creation: 2013-07-16T20:29:35+0200
+:date-modification: 2013-07-16T19:36:39+0100
+:date-creation: 2013-07-16T19:29:35+0100
 :author:   "ardumont"
 :END:
 ** CLOSED Adding links for the demo videos.
 :PROPERTIES:
 :id:       5
-:date-modification: 2013-07-16T18:38:10+0200
-:date-creation: 2013-07-12T21:32:05+0200
+:date-modification: 2013-07-16T17:38:10+0100
+:date-creation: 2013-07-12T20:32:05+0100
 :author:   "ardumont"
 :END:
 ** CLOSED Fix release - 0.3.3.1
 :PROPERTIES:
 :id:       4
-:date-modification: 2013-07-16T18:38:10+0200
-:date-creation: 2013-07-12T20:44:37+0200
+:date-modification: 2013-07-16T17:38:10+0100
+:date-creation: 2013-07-12T19:44:37+0100
 :author:   "ardumont"
 :END:
 ** CLOSED Fix + update readmes
 :PROPERTIES:
 :id:       3
-:date-modification: 2013-07-16T18:38:10+0200
-:date-creation: 2013-07-12T19:32:47+0200
+:date-modification: 2013-07-16T17:38:10+0100
+:date-creation: 2013-07-12T18:32:47+0100
 :author:   "ardumont"
 :END:
 ** CLOSED v0.0.3.
 :PROPERTIES:
 :id:       2
-:date-modification: 2013-07-16T18:34:01+0200
-:date-creation: 2013-07-07T19:03:16+0200
+:date-modification: 2013-07-16T17:34:01+0100
+:date-creation: 2013-07-07T18:03:16+0100
 :author:   "ardumont"
 :END:
 : Now we can sync an entire org-mode file
 ** CLOSED Beginning the v0.0.3-dev
 :PROPERTIES:
 :id:       1
-:date-modification: 2013-07-16T18:34:01+0200
-:date-creation: 2013-07-07T11:46:14+0200
+:date-modification: 2013-07-16T17:34:01+0100
+:date-creation: 2013-07-07T10:46:14+0100
 :author:   "ardumont"
 :END:
