@@ -34,6 +34,21 @@ Simpler:
   (orgtrello-query-http-trello (orgtrello-api-get-me) 'sync))
 #+end_src
 
+** Improvment on debug
+
+#+begin_src lisp
+(let ((org-trello-file "/home/tony/repo/perso/org-trello/TESTS-simple.org")
+      (orgtrello-log-level orgtrello-log-trace))
+  (with-temp-buffer
+    (insert-file-contents org-trello-file)
+    (org-mode)
+    (org-trello-mode)
+    (orgtrello-controller-load-keys)
+    (-> (orgtrello-buffer-board-id)
+        orgtrello-api-get-full-cards
+        (orgtrello-query-http-trello 'sync))))
+#+end_src
+
 * Trace
 
 emacs comes with `trace-fn` function.
