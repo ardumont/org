@@ -2,6 +2,8 @@
 #+author: ardumont
 #+options: hidestar
 
+* TODO nix and haskell dev
+http://nixos.org/nixpkgs/manual/#how-to-create-a-development-environment
 * TODO offlineimap.el
 from julien danjou, might learn tons of stuff about process
 * TODO take a look at nix-emacs
