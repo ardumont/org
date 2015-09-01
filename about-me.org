@@ -9,7 +9,8 @@
 
 * Just me
 
-[[../img/tux-clj.png]]
+#+ATTR_HTML: :width 420px :height 420px
+[[../img/ardumont.png]]
 
 * Personally
 I'm a free software fan boy geek (GNU/Linux, GNU/Emacs, *BSD, Android and Free Software etc...).

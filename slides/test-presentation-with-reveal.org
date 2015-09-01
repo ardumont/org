@@ -13,7 +13,7 @@
 #+CAPTION: This is a cool image
 #+LABEL: fig: me
 #+ATTR_LaTeX: height=.77\textheight
-[[../resources/tux-clj.png]]
+[[../img/ardumont.png]]
 
 * org-reveal
 
