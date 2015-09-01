@@ -3,16 +3,18 @@
 
 Not quite fluent yet.
 
-* sign a key
+* Sign a key
 
 With the person present at your side
 
 Check his/her key fingerprint (digital + something that proves the fingerprint is ok)
 
 #+begin_src sh
-gpg --edit-key 'key-id'
+gpg --edit-key 'key-to-sign-id'
 > fpr
+# check the fingerprint with the one she/he gave you
 > sign
+# sign with your key
 > save
 #+end_src
 
@@ -21,19 +23,33 @@ Then send it back his/her key signed.
 gpg --export --armor 'key-id' > key-signed.asc
 #+end_src
 
-* your key has been signed
+And send it to the user
+
+* Your key has been signed
 
 Received your key updated with the signature for each of your email.
 
 decrypt the asc file and import your updated public key.
+
+In notmuch, select the region and `M-x epa-import-keys-region RET`
 
 #+begin_src sh
 gpg msg.asc
 gpg --import msg
 #+end_src
 
-Do not forget to publish your updates
-
 #+begin_src sh
-gpg --send-keys
+gpg --keyserver pool.sks-keyservers.net --send-key <your-key>
 #+end_src
+
+To find your key:
+#+begin_src sh
+gpg --keyid-format long --list-key <your-id-or-something-that-id-you-and-make-sense-for-gpg>
+#+end_src
+
+
+* tools
+
+Not yet used but knowing people told me to look at:
+- caff (in package signing-party)
+- parcimonie (eponym package)
