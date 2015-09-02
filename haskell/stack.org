@@ -1,0 +1,37 @@
+#+title: stack startup
+#+author: ardumont
+
+* Prepare
+
+#+BEGIN_SRC sh
+mkdir -p ~/.stack/
+touch stack.yaml
+#+END_SRC
+
+Content sample:
+#+BEGIN_SRC yaml
+author-email: user@mail.com
+author-name: user's name
+#+END_SRC
+
+* Initialize a new project
+#+BEGIN_SRC sh
+stack new <project-name> new-template
+#+END_SRC
+
+* Build the new project
+#+BEGIN_SRC sh
+cd <project-name>
+stack build
+#+END_SRC
+
+* Run the new project
+
+#+BEGIN_SRC sh
+stack exec <binary-name>-exe
+#+END_SRC
+
+* Run the tests
+#+BEGIN_SRC sh
+stack test
+#+END_SRC
