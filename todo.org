@@ -2,16 +2,49 @@
 #+author: ardumont
 #+options: hidestar
 
-* TODO nix and haskell dev
-http://nixos.org/nixpkgs/manual/#how-to-create-a-development-environment
-* mbsync/offlineimap
+* TODO org2jekyll - https://github.com/ardumont/org2jekyll [0/1]
+** PENDING Releases [15/16]
+- [X] 0.0.1
+- [X] 0.0.2
+- [X] 0.0.3
+- [X] 0.0.4
+- [X] 0.0.5
+- [X] 0.0.6
+- [X] 0.0.7
+- [X] 0.0.8
+- [X] 0.0.9
+- [X] 0.1.0
+- [X] 0.1.1
+- [X] 0.1.2
+- [X] 0.1.3
+- [X] 0.1.4
+- [X] 0.1.5
+- [ ] 0.1.6
+** Issues
+- Fix https://github.com/ardumont/org2jekyll/issues/26
+* TODO haskell [1/2]
+** IN-PROGRESS snake
+Make a snake with Theo in haskell
+** DONE env dev [4/4]
+CLOSED: [2015-09-04 Fri 15:27]
+- [X] nix - http://nixos.org/nixpkgs/manual/#how-to-create-a-development-environment
+- [X] stack
+- [X] cabal and nix
+- [X] haskell-mode + cabal and nix
+* TODO emacs [/]
+** TODO emacs configuration [0%]
+- [ ] Create your own self contained emacs distribution
+- [ ] Drop git submodules use
+- [ ] Take a deeper look at nix' derivation
+** TODO take a look at nix-emacs
+https://github.com/travisbhartwell/nix-emacs
+
+* TODO mbsync/offlineimap [0/2]
+- [ ] offlineimap.el - from julien danjou, might learn tons of stuff about process
+- [ ] check out mbsync
 * TODO gpg tools
 - [X] signing-party (caff for signing keys)
 - [ ] parcimonie (to silently update keys through tor)
-* TODO offlineimap.el
-from julien danjou, might learn tons of stuff about process
-* TODO take a look at nix-emacs
-https://github.com/travisbhartwell/nix-emacs
 * DONE nas [5/5]
 CLOSED: [2015-07-22 Wed 09:34]
 - [X] Add other source of packages - https://synocommunity.com/
@@ -25,9 +58,6 @@ CLOSED: [2015-07-23 Thu 09:20]
 - [X] Install pci wifi card + new hdd
 - [X] Install NixOS for alderaan
 
-q* TODO emacs configuration [0%]
-- [ ] Create your own self contained emacs distribution
-- [ ] Drop git submodules use
 * TODO pass and xmonad pass
 There is a current limitation in XMonad.Prompt.Pass -> No seeing the pass with arborescence...
 
@@ -44,7 +74,7 @@ CLOSED: [2015-07-21 Tue 13:25]
 - [X] Make it work again (only a configuration problem)
 - [X] Make it a minor mode
 - [X] Find and install chat-pack with otr!
-- [ ] Improve packaging of mainstream jabber-otr to avoid duplication in my repo
+- [ ] Improve packaging of mainstream jabber-otr to avoid duplication in my repo ~> nix to the rescue
 * CANCELLED mail-pack/mu4e configuration -> changing to notmuch
 CLOSED: [2015-07-21 Tue 13:23]
 - [X] Use mu4e's refiling mechanism to try and drop gmail's filters
@@ -64,7 +94,7 @@ CLOSED: [2015-07-21 Tue 13:23]
 - [X] assert notmuch (seems pretty cool and good regarding gpg support)
 - [X] branch in mail-pack for notmuch
 - [X] Convert mail-pack to use notmuch
-- [ ] Learn how to deal with tag? ~> this seems possible only by using `notmuch tag` find a configuration file setup
+- [ ] Learn how to deal with tag? ~> this seems possible only by using `notmuch tag` -> find a configuration file setup
 * PENDING Change laptop's broken battery jack
 - [X] Disassemble laptop
 - [ ] Fix broken piece
@@ -360,23 +390,6 @@ CLOSED: [2015-05-30 Sat 19:10]
 - [X] Add twitter button
 - [ ] Automate the publication (let github do the job?)
 - [ ] Merge ardumont/org into ardumont/ardumont.github.io?
-* IN-PROGRESS org2jekyll - https://github.com/ardumont/org2jekyll [15/15]
-- [X] 0.0.1
-- [X] 0.0.2
-- [X] 0.0.3
-- [X] 0.0.4
-- [X] 0.0.5
-- [X] 0.0.6
-- [X] 0.0.7
-- [X] 0.0.8
-- [X] 0.0.9
-- [X] 0.1.0
-- [X] 0.1.1
-- [X] 0.1.2
-- [X] 0.1.3
-- [X] 0.1.4
-- [X] 0.1.5
-
 * IN-PROGRESS Articles [87%]
 ** DONE Chroot to save one's GNU/Linux
 CLOSED: [2012-04-21 Sat 18:07]
