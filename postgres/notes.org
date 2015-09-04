@@ -40,9 +40,18 @@ Create a role (e.g. tony):
 createuser --password tony
 #+end_src
 
+*Note* use --interactive to have it asking you questions.
+
 Then a db for that role (e.g. hack-pygit2):
 #+begin_src sh
 createdb -O tony hack-pygit2
+#+end_src
+
+** Change user's password
+
+Connect to db and execute this query:
+#+begin_src sql
+ALTER USER tony WITH PASSWORD '<newpassword>';
 #+end_src
 
 * Role
