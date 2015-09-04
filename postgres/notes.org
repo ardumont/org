@@ -54,6 +54,10 @@ Connect to db and execute this query:
 ALTER USER tony WITH PASSWORD '<newpassword>';
 #+end_src
 
+** Host Based authentication
+
+`pg_hba.conf` file deals with cluster connection's remote access to db
+
 * Role
 
 ** Create
