@@ -34,6 +34,13 @@ Simpler:
   (orgtrello-query-http-trello (orgtrello-api-get-me) 'sync))
 #+end_src
 
+#+BEGIN_SRC lisp
+(let ((org-trello--user-logged-in "ardumont"))
+  (orgtrello-controller-load-keys)
+  (orgtrello-query-http-trello (orgtrello-api-get-board "board-id") 'sync))
+#+END_SRC
+
+
 ** Improvment on debug
 
 #+begin_src lisp
