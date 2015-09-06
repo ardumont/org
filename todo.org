@@ -15,6 +15,17 @@ Minor mode to sync trello and org-mode
 - [ ] Automate the releases part on Github
   - [ ] Upload tar archive on release
   - [ ] Add release notes to tag
+
+** Hint for automated release
+from https://github.com/blog/1645-releases-api-preview
+#+BEGIN_SRC sh
+curl -H "Authorization: token <yours>" \
+     -H "Accept: application/vnd.github.manifold-preview" \
+     -H "Content-Type: application/zip" \
+     --data-binary @build/mac/package.zip \
+     "https://uploads.github.com/repos/hubot/singularity/releases/123/assets?name=1.0.0-mac.zip"
+#+END_SRC
+
 ** DONE old releases [98%]
 CLOSED: [2015-05-30 Sat 19:10]
 - [X] 0.0.1
