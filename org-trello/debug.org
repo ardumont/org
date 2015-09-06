@@ -1,9 +1,20 @@
-#+title: towards debugging org-trello
-#+author: ardumont
+#+STARTUP: showall
+#+STARTUP: hidestars
+#+OPTIONS: H:2 num:nil tags:nil toc:nil timestamps:t
+#+LAYOUT: post
+#+AUTHOR: ardumont
+#+DATE: 2015-09-06 Sun 12:59
+#+TITLE: org-trello debug tools
+#+DESCRIPTION: org-trello debugging tools
+#+TAGS: tools,org-trello,debug
+#+CATEGORIES: tools,org-trello,debug
 
-* REPL
+Here is a list of tools I use to help in debugging/maintaining org-trello.
+This could help user when they have trouble.
 
-Using ielm here:
+* Repl
+
+Using emacs-lisp's repl ielm:
 
 #+begin_src emacs
 M-x ielm <RET>
@@ -43,11 +54,13 @@ Simpler:
 
 ** Improvment on debug
 
+Adapt according to your need, this will help loading the org-trello context and:
+
 #+begin_src lisp
-(let ((org-trello-file "/home/tony/repo/perso/org-trello/TESTS-simple.org")
+(let ((org-trello-file-to-debug "/home/tony/repo/perso/org-trello/TESTS-simple.org")
       (orgtrello-log-level orgtrello-log-trace))
   (with-temp-buffer
-    (insert-file-contents org-trello-file)
+    (insert-file-contents org-trello-file-to-debug)
     (org-mode)
     (org-trello-mode)
     (orgtrello-controller-load-keys)
@@ -56,9 +69,11 @@ Simpler:
         (orgtrello-query-http-trello 'sync))))
 #+end_src
 
+*Note*: This made me [[https://github.com/org-trello/org-trello/issues/288][realize that org-trello could spawn an adapter library `trello-core` or `trello-lib`]].
+
 * Trace
 
-emacs comes with `trace-fn` function.
+Emacs comes with `trace-fn` function.
 This can help a lot.
 
 Identify some function you want to trace (display inputs, output), for example:
@@ -72,9 +87,10 @@ So in case of output doubt, this can be a good starting point.
 
 ** trace-functions
 
+It helps a lot and you can add more functions with the following ones.
+
 To trace mutliple ones:
 #+begin_src lisp
-So much that I added my own based on this for dev:
 #+begin_src lisp
 (defun trace-functions (fns)
   "Trace functions FNS."
