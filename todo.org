@@ -276,7 +276,7 @@ CLOSED: [2015-07-21 Tue 13:27]
 - [ ] https://github.com/aborn/.conkerorrc
 - [X] Begin to port keysnail configuration to conkeror
 - [X] Read some source
-* IN-PROGRESS Nix* [20%]
+* TODO Nix* [20%]
 ** PENDING Nix [73%]
 - [X] Nix package manager - http://nixos.org/nix/manual/
 - [X] http://lethalman.blogspot.it/2014/07/nix-pill-1-why-you-should-give-it-try.html
@@ -298,7 +298,7 @@ CLOSED: [2015-07-21 Tue 13:27]
 - [ ] http://lethalman.blogspot.it/2014/11/nix-pill-17-nixpkgs-overriding-packages.html
 - [X] http://sandervanderburg.blogspot.fr/2014/07/managing-private-nix-packages-outside.html
 - [ ] understand package override - https://nixos.org/wiki/Nix_Modifying_Packages
-** PENDING Nixpkgs [88%]
+** PENDING Nixpkgs [100%]
 - [X] [[https://nixos.org/nixpkgs/manual/][Nixpkgs manual]]
 - [X] Extends Nixos - https://nixos.org/wiki/NixOS:extend_NixOS
 - [X] Create the tux-guitar package for NixOS - http://nixos.org/nixpkgs/manual/ [100%]
@@ -312,7 +312,8 @@ CLOSED: [2015-07-21 Tue 13:27]
 - [X] Create sqldeveloper derivation PR - https://github.com/NixOS/nixpkgs/pull/6777
 - [X] Create org-trello 0.6.9.2 derivation + deps
 - [X] Update org-trello 0.6.9.3 derivation + deps
-- [ ] update nix to have emacs 25 built
+- [X] Update org-trello derivation + deps
+- [X] new https://github.com/aktau/github-release/releases NixOS/nixpkgs/pull/9702
 
 ** PENDING NixOS [96%]
 - [X] Read [[http://nixos.org/nixos/manual/][NixOS manual]]
@@ -348,9 +349,9 @@ CLOSED: [2015-07-21 Tue 13:27]
 ** DONE Factor NixOS configuration [50%]
 CLOSED: [2015-05-30 Sat 19:34]
 - [X] `corellia`, `dagobah`, `myrkr` shares 99% of configuration except for the hostname - find a way to factorize this code.
-- [ ] Make alderaan's setup shareable with other machines' [0/3]
-  - [ ] extract xserver's setup inside each machine for one (chris does not use xmonad nor does she know qwerty)
-  - [ ] Install a bunch of default packages but let the machines define their specific one (chris' machine is not a dev one)
+- [-] Make alderaan's setup shareable with other machines' [2/3]
+  - [X] extract xserver's setup inside each machine for one (chris does not use xmonad nor does she know qwerty)
+  - [X] Install a bunch of default packages but let the machines define their specific one (chris' machine is not a dev one)
   - [ ] Find a way to define a keyboard layout/language per user
 ** PENDING NixOps [0%]
 - [ ] [[https://nixos.org/nixops/manual/][NixOps manual]]
