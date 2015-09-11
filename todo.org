@@ -130,6 +130,7 @@ CLOSED: [2015-05-30 Sat 19:10]
 - [X] 0.1.6
 - [X] 0.1.7
 - [X] 0.1.8
+- [ ] make a nix derivation
 * TODO haskell [1/2]
 ** IN-PROGRESS snake game
 Make a snake with my son Theo in haskell
