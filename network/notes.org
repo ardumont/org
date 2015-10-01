@@ -1,0 +1,9 @@
+#+title: Notes on network setup
+
+
+* /etc/resolv.conf
+
+Local resolver configuration file - (cf. `man resolv.conf`)
+
+To ease shortname lookup, use the `search` directive:
+search <some-domain0> <some-other-domain>...
