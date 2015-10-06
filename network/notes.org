@@ -1,6 +1,5 @@
 #+title: Notes on network setup
 
-
 * /etc/resolv.conf
 
 Local resolver configuration file - (cf. `man resolv.conf`)
