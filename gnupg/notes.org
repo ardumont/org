@@ -53,3 +53,7 @@ gpg --keyid-format long --list-key <your-id-or-something-that-id-you-and-make-se
 Not yet used but knowing people told me to look at:
 - caff (in package signing-party)
 - parcimonie (eponym package)
+
+* Stats on gpg key
+
+For example, [[http://pgp.cs.uu.nl/stats/0D10C3B8.html][mine]].
