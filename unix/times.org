@@ -5,14 +5,14 @@
 
 Inode/file change time
 
-Updated when file attributes are changed (ex: changing the owner, changing the permissions, moving file to
+Updated when file attributes are changed (ex: changing the owner, changing the permissions, moving file to...)
 
 * mtime
 File modification time
 
-updated when:
-- file is modified (content updated)
-- file is saved
+updated when file is:
+- modified (content updated)
+- saved
 
 *Note*
 Most of the times, ctime and mtime are the same.
