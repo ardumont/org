@@ -6,3 +6,19 @@ Local resolver configuration file - (cf. `man resolv.conf`)
 
 To ease shortname lookup, use the `search` directive:
 search <some-domain0> <some-other-domain>...
+
+Make the resolv.conf persistent:
+#+begin_src sh
+nmcli con mod <conn-name> +ipv4.dns-search <some-other-domain>
+#+end_src
+
+Add dns:
+#+begin_src sh
+nmcli con mod <conn-name> +ipv4.dns <some-dns-ip>
+#+end_src
+
+Then restart the network-manager service:
+
+#+begin_src sh
+sudo systemctl restart network-manager.service
+#+end_src
