@@ -54,7 +54,6 @@ USEC_INITIALIZED=704
 
 Now, what we can extract:
 - device: /devices/pci0000:00/0000:00:02.0/drm/card0
--
 
 ** Rule
 Create a file in /udev/rules.d/999-screen-layout.rules:
