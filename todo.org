@@ -1915,9 +1915,7 @@ CLOSED: [2014-11-10 Mon 10:03]
 - [X] https://en.wikipedia.org/wiki/DevOps
 * TODO Review [[https://github.com/okulbilisim/awesome-datascience][okulbilisim/awesome-datascience]]
 [2015-07-29 Wed 17:52]
-* TODO Review [[https://github.com/okulbilisim/awesome-datascience][okulbilisim/awesome-datascience]]
-[2015-08-03 Mon 10:41]
-holiday
+
 * TODO Review [[https://github.com/jwiegley/alert][jwiegley/alert]]
 [2015-08-12 Wed 11:35]
 * TODO Review [[http://emacs.stackexchange.com/questions/798/recording-a-gif-screencast-of-emacs][images - Recording a GIF screencast of Emacs - Emacs Stack Exchange]]
@@ -1926,3 +1924,4 @@ holiday
 [2015-08-12 Wed 15:14]
 * TODO Review [[http://www-archive.mozilla.org/unix/customizing.html#key_example][Customizing Mozilla]]
 [2015-08-15 Sat 10:27]
+* [[https://github.com/SynoCommunity/spksrc/wiki/Architecture-per-Synology-model][syno matrix architecture]]
