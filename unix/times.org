@@ -3,12 +3,13 @@
 
 * ctime
 
-Inode/file change time
+Inode/file's last change time
 
 Updated when file attributes are changed (ex: changing the owner, changing the permissions, moving file to...)
 
 * mtime
-File modification time
+
+File's last modification time
 
 updated when file is:
 - modified (content updated)
@@ -19,7 +20,7 @@ Most of the times, ctime and mtime are the same.
 
 * atime
 
-File access time.
+File's last access time.
 
 Updated when:
 - opening a file
