@@ -287,3 +287,11 @@ media_dir=P,/path/to/pictures
 media_dir=M,/path/to/musics
 media_dir=V,/path/to/videos
 
+Then start it:
+#+begin_src sh
+/etc/init.d/minidlna start
+#+end_src
+
+Note:
+Add it to /root/chroot-services.pl
+
