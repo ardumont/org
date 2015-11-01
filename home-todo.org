@@ -225,7 +225,7 @@ Merci Chris et papy
 CLOSED: [2013-07-30 mar. 21:57]
 ** DONE nouveau radiateur
 CLOSED: [2013-11-10 dim. 15:19]
-* DONE Couloir [43/43]
+* DONE Couloir [44/44]
 CLOSED: [2014-01-04 sam. 00:07]
 ** DONE Changer les portes de l'armoire
 Merci papy Claude
@@ -316,6 +316,8 @@ CLOSED: [2013-11-10 dim. 15:19]
 Merci Papy Claude et Chris
 ** DONE changer radiateur
 CLOSED: [2014-01-04 sam. 00:07]
+** DONE Changer porte d'entree
+CLOSED: [2015-11-01 Sun 22:27]
 * DONE garage [3/3]
 CLOSED: [2015-05-20 Wed 11:58]
 ** DONE Evacuer le casier a plan
@@ -569,7 +571,7 @@ CLOSED: [2014-01-05 dim. 22:50]
 ** TODO Poser la toile de renovation
 ** TODO Poser le papier peint/Peindre
 ** TODO Ranger la piece
-* PENDING Salon [15/17]
+* TODO Salon [15/18]
 ** DONE Retirer le papier peint du plafond
 ** DONE Retirer le crepis
 ** DONE Reparer la fissure de la cheminee
@@ -602,6 +604,7 @@ CLOSED: [2013-11-24 dim. 19:04]
 Merci papy Claude
 ** TODO Peindre le plafond
 ** TODO Poser le papier peint
+** TODO Retirer cheminee condamnee
 
 * PENDING Buanderie [8/12]
 ** DONE Sous-couche porte buanderie/couloir
