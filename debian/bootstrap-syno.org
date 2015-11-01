@@ -123,7 +123,7 @@ my @services = ('/etc/init.d/rsyslog',
 #                '/etc/init.d/bind9',
 #                '/etc/init.d/isc-dhcp-server',
 #                '/etc/init.d/apache2',
-#                '/etc/init.d/transmission-daemon',
+                '/etc/init.d/transmission-daemon',
                 '/etc/init.d/ssh',
                 '/etc/init.d/rsync',
 #                '/etc/init.d/mysql',
@@ -358,6 +358,23 @@ esac
 Then start it:
 #+begin_src sh
 /etc/init.d/zncd start
+#+end_src
+
+Note:
+Add it to /root/chroot-services.pl
+
+* Transmission
+
+Install:
+#+begin_src sh
+sudo apt-get install transmission transmission-daemon transmission-cli transmission-remote-cli python-transmissionrpc
+#+end_src
+
+Adapt /etc/transmission-daemon/settings.json.
+
+Then hot reload the service's configuration when ready:
+#+begin_src sh
+invoke-rc.d transmission-daemon reload
 #+end_src
 
 Note:
