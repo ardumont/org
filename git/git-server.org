@@ -9,7 +9,7 @@ Create an unpriviledged user, `git` for example.
 adduser git
 #+end_src
 
-Connect with this user
+Connect with this user:
 
 Install the public key of the users of the repositories.
 
