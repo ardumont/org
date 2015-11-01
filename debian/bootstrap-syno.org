@@ -295,3 +295,62 @@ Then start it:
 Note:
 Add it to /root/chroot-services.pl
 
+* znc
+
+Install znc:
+#+begin_src sh
+sudo apt-get install znc
+#+end_src
+
+As a user, generate a default configuration:
+#+begin_src sh
+znc --makeconf
+#+end_src
+Answer the questions it asks.
+
+Then start it as a user:
+#+begin_src sh
+znc
+#+end_src
+
+To make it start as a service, install the following file in /etc/init.d/:
+#+begin_src sh
+#!/bin/sh
+# /etc/init.d/zncd
+
+PIDFILE=/var/run/znc.pid
+USER_SERVICE=tony
+
+case "$1" in
+  start|"")
+    su -l $USER_SERVICE -c znc
+    pidof znc > $PIDFILE
+    ;;
+  restart|reload|force-reload)
+   echo "Error: argument '$1' not supported" >&2
+   exit 3
+   ;;
+  status)
+    [ -f $PIDFILE ] && echo "znc is running with pid `cat $PIDFILE`" || echo "znc not running."
+    exit 0
+    ;;
+  stop)
+    rm -f $PIDFILE
+    pkill znc
+    ;;
+  *)
+    echo "Usage: zncd [start|stop|status]" >&2
+    exit 3
+    ;;
+esac
+#+end_src
+
+Then start it:
+#+begin_src sh
+/etc/init.d/zncd start
+#+end_src
+
+Note:
+Add it to /root/chroot-services.pl
+
+* DNS
