@@ -371,6 +371,12 @@ sudo apt-get install transmission transmission-daemon transmission-cli transmiss
 #+end_src
 
 Adapt /etc/transmission-daemon/settings.json.
+For example:
+#+begin_src json
+  ...
+  "download-dir": "/volume1/transmission/downloads"
+  ...
+#+end_src
 
 Then hot reload the service's configuration when ready:
 #+begin_src sh
@@ -379,5 +385,16 @@ invoke-rc.d transmission-daemon reload
 
 Note:
 Add it to /root/chroot-services.pl
+
+Add mediagroup (gid 65537 in syno nas):
+#+begin_src sh
+addgroup --gid 65537 mediagroup
+addgroup debian-transmission mediagroup
+chown -R debian-transmission:mediagroup /volume1/transmission/
+chmod g+rwX -R /volume1/transmission/
+#+end_src
+
+Note:
+Add <user> to the mediagroup.
 
 * DNS
