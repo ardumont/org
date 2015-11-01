@@ -1,0 +1,274 @@
+#+title: debian chroot on syno
+#+source: https://sites.google.com/a/courville.org/courville/home/synology-debian-chroot
+
+* Bootstrap
+
+Install the needed tools from your debian install:
+#+begin_src sh
+sudo apt-get install debootstrap
+mkdir debian
+sudo debootstrap --foreign --arch armhf wheezy debian
+sudo tar cvzfp debian.tgz debian
+#+end_src
+
+Send the debian.tgz to your synology nas.
+Then, ofn the synology, untar the archive.
+
+#+begin_src sh
+cd /volume1
+tar jxvpf debian.tar.gz
+#+end_src
+
+For the following command, add this:
+#+begin_src sh
+CHROOT=/volume1/debian
+#+end_src
+
+Create $CHROOT/usr/bin/policy-rc.d with the following content and rights:
+#+begin_src sh
+cat << EOF > $CHROOT/usr/bin/policy-rc.d
+#!/bin/sh
+exit 101
+EOF
+chmod a+rx $CHROOT/usr/bin/policy-rc.d
+#+end_src
+
+Mount the various relevant partitions:
+
+#+begin_src sh
+mount -o bind /dev $CHROOT/dev
+mount -o bind /proc $CHROOT/proc
+mount -o bind /dev/pts $CHROOT/dev/pts
+mount -o bind /sys $CHROOT/sys
+#+end_src
+
+Get DNS resolution:
+
+#+begin_src sh
+cp /etc/resolv.conf $CHROOT/etc/resolv.conf
+#+end_src
+
+Chroot in order to bootstrap second stage:
+
+#+begin_src sh
+chroot $CHROOT /bin/bash
+#+end_src
+
+Once in chroot env, bootstrap the second stage and give root some pass:
+#+begin_src sh
+unset LD_LIBRARY_PATH
+/debootstrap/debootstrap --second-stage
+passwd root
+#+end_src
+
+Note: As of those notes, jessie is the current debian stable, so we'll use this one.
+
+Prepare the sources to use for package installation:
+#+begin_src sh
+cat << EOF > /etc/apt/sources.list
+## jessie
+deb http://ftp.fr.debian.org/debian/ jessie main contrib non-free
+deb-src http://ftp.fr.debian.org/debian/ jessie main contrib non-free
+## jessie security
+deb http://security.debian.org/ jessie/updates main contrib non-free
+deb-src http://security.debian.org/ jessie/updates main contrib non-free
+# jessie update
+deb http://ftp.fr.debian.org/debian/ jessie-updates main contrib non-free
+deb-src http://ftp.fr.debian.org/debian/ jessie-updates main contrib non-free
+
+EOF
+#+end_src
+
+Now fetch the debian indexes and install the locales:
+#+begin_src sh
+apt-get update
+apt-get install locales
+dpkg-reconfigure locales
+#+end_src
+
+Reconfigure your timezone to get proper time:
+#+begin_src sh
+dpkg-reconfigure tzdata
+#+end_src
+
+Now, install some must have packages:
+#+begin_src sh
+apt-get install openssh-server openssh-client rsync tmux less \
+  emacs24-nox mosh htop most uptimed mutt irssi vim unrar tig sudo
+#+end_src
+
+Start some default services:
+
+#+begin_src sh
+/etc/init.d/rsyslog start
+# /etc/init.d/mtab.sh start  # does not exist for me
+/etc/init.d/mountall.sh start
+/etc/init.d/cron start
+/etc/init.d/ssh start
+/etc/init.d/uptimed start
+#+end_src
+
+To permit persistence over syno's reboot, add the following files in the synology:
+- When the debian starts, we need some way to bootstrap the services
+  needed. Add such file /volume1/debian/root/chroot-services.pl here:
+#+begin_src sh
+#!/usr/bin/perl -W
+
+use strict;
+
+my @services = ('/etc/init.d/rsyslog',
+                '/etc/init.d/sudo',
+                '/etc/init.d/uptimed',
+                '/etc/init.d/cron',
+#                '/etc/init.d/bind9',
+#                '/etc/init.d/isc-dhcp-server',
+#                '/etc/init.d/apache2',
+#                '/etc/init.d/transmission-daemon',
+                '/etc/init.d/ssh',
+                '/etc/init.d/rsync',
+#                '/etc/init.d/mysql',
+#                '/etc/init.d/tt-rss',
+               );
+
+$SIG{'INT'} = $SIG{'TERM'} = 'kill_running_services';
+
+my @running_services = ();
+
+foreach my $s (@services) {
+        print "Starting $s ... ";
+        `$s start`;
+        if ($? == 0) {
+                push @running_services, $s;
+                print "done.\n";
+        }
+        else {
+                print "failed.\n";
+        }
+}
+while(my $in = <STDIN>) {};
+exit;
+
+
+sub kill_running_services
+{
+        my @services = reverse @running_services;
+        while (my $s = shift @services) {
+                print "Stopping $s ... ";
+                `$s stop`;
+                print "done.\n";
+        }
+        exit;
+}
+#+end_src
+Note: The normal init system cannot be used since it's not debian that
+is in control.  So we'll have to add the new service in the @services
+array in this script (for now)
+
+- Now we need the proper environment with the right volumes,
+  etc... This /volume1/debian/root/chroot-debian-with-services.sh:
+#+begin_src sh
+#!/bin/sh
+
+CHROOT=/volume1/debian
+
+mount -o bind /dev $CHROOT/dev
+mount -o bind /proc $CHROOT/proc
+mount -o bind /dev/pts $CHROOT/dev/pts
+mount -o bind /sys $CHROOT/sys
+[ ! -d $CHROOT/volume1 ] && mkdir -p $CHROOT/volume1
+[ ! -d $CHROOT/volume2 ] && mkdir -p $CHROOT/volume2
+[ ! -d $CHROOT/volumeUSB1/usbshare ] && mkdir -p $CHROOT/volumeUSB1/usbshare
+mount -o bind /volume1 $CHROOT/volume1
+mount -o bind /volume2 $CHROOT/volume2
+mount -o bind /volumeUSB1/usbshare $CHROOT/volumeUSB1/usbshare
+cp /etc/resolv.conf $CHROOT/etc/resolv.conf
+grep -v rootfs /proc/mounts > $CHROOT/etc/mtab
+chroot $CHROOT /root/chroot-services.pl
+#+end_src
+
+- (optional) You can also add another one chroot-debian.sh, which will
+  permit you to boostrap from syno the debian env (without the
+  services):
+#+begin_src sh
+#!/bin/sh
+
+CHROOT=/volume1/debian
+
+mount -o bind /dev $CHROOT/dev
+mount -o bind /proc $CHROOT/proc
+mount -o bind /dev/pts $CHROOT/dev/pts
+mount -o bind /sys $CHROOT/sys
+[ ! -d $CHROOT/volume1 ] && mkdir -p $CHROOT/volume1
+[ ! -d $CHROOT/volume2 ] && mkdir -p $CHROOT/volume2
+[ ! -d $CHROOT/volumeUSB1/usbshare ] && mkdir -p $CHROOT/volumeUSB1/usbshare
+mount -o bind /volume1 $CHROOT/volume1
+mount -o bind /volume2 $CHROOT/volume2
+mount -o bind /volumeUSB1/usbshare $CHROOT/volumeUSB1/usbshare
+cp /etc/resolv.conf $CHROOT/etc/resolv.conf
+grep -v rootfs /proc/mounts > $CHROOT/etc/mtab
+chroot $CHROOT /bin/bash
+#+end_src
+FIXME: avoid duplication (later)
+
+Note: To launch debian from the nas, we just just need to call
+/volume1/debian/root/chroot-debian.sh
+
+- Add the following rights to the /volume1/debian/root/chroot* scripts:
+#+begin_src sh
+chmod a+rx /volume1/debian/root/chroot*
+#+end_src
+
+- At last, we must tell the syno to trigger the chroot box, add the /etc/rc.local:
+#+begin_src sh
+cat << EOF > /etc/rc.local
+#!/bin/sh
+# Optware setup
+[ -x /etc/rc.optware ] && /etc/rc.optware start
+
+# To change the default ssh port of syno (i don't use that)
+# sed -e "s/^#Port 22$/Port 2222/g" -i /etc.defaults/ssh/sshd_config /etc/ssh/sshd_config
+# sed -e s/ssh_port=\"22\"/ssh_port=\"2222\"/ -e s/sftpPort=\"22\"/sftpPort=\"2222\"/ -e s/rsync_sshd_port=\"22\"/rsync_sshd_port=\"2222\"/ -i /etc/synoinfo.conf
+# /usr/syno/sbin/synoservicecfg --restart ssh-shell
+
+# For syno's default web server syno, use 8080 and 8443
+sed -e "s/^Listen 80$/Listen 8080/g" -i /etc/httpd/conf/httpd.conf-user
+sed -e "s/^Listen 443/Listen 8443/g" -i /etc/httpd/conf/extra/httpd-ssl.conf-user
+# sed -e s/httpport=\"80\"/httpport=\"8080\"/ -i /etc/synoinfo.conf
+/usr/syno/sbin/synoservicecfg --restart httpd-user
+
+# Launch chroot
+sh /volume1/debian/root/chroot-debian-with-services.sh
+exit 0
+EOF
+#+end_src
+Note: It's also in charge of changing syno's conflicting ports with
+the debian box's own equivalent services.
+
+* Complement
+
+Add the user from your synology with the same uid and gid.
+You can use the /etc/passwd to identify such uid (3rd field) and gid (4th field).
+
+Given userlogin, the user login, its uid is:
+#+begin_src sh
+grep userlogin /etc/passwd | cut -f3,4 -d':'  # uid:gid
+#+end_src
+
+#+begin_src sh
+adduser <userlogin> --uid <userid> --gid <usergid> --home /volume1/homes/<userlogin>
+#+end_src
+
+e.g:
+#+begin_src sh
+adduser tony --uid 1056 --gid 100 --home /volume1/homes/tony
+#+end_src
+
+Check in your chroot env:
+#+begin_src sh
+grep tony /etc/passwd
+#+end_src
+
+Add your user to sudo (it can help):
+#+begin_src sh
+usermod -G sudo tony
+#+end_src
