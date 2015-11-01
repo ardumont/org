@@ -272,3 +272,18 @@ Add your user to sudo (it can help):
 #+begin_src sh
 usermod -G sudo tony
 #+end_src
+
+* video
+
+#+begin_src sh
+apt-get install minidlna
+#+end_src
+
+Edit the configuration file /etc/minidlna.conf and restart the service with the:
+media_dir entry
+
+Example:
+media_dir=P,/path/to/pictures
+media_dir=M,/path/to/musics
+media_dir=V,/path/to/videos
+
