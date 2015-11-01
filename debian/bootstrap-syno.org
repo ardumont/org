@@ -12,7 +12,7 @@ sudo tar cvzfp debian.tgz debian
 #+end_src
 
 Send the debian.tgz to your synology nas.
-Then, ofn the synology, untar the archive.
+Then, on the synology, untar the archive.
 
 #+begin_src sh
 cd /volume1
