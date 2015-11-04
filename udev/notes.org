@@ -116,14 +116,19 @@ Note the KERNEL and SUBSYSTEM entries which will definitely help.
 ** Rule
 
 Create a file in /udev/rules.d/999-screen-layout.rules:
-#+begin_src sh
-KERNEL=="card0", SUBSYSTEM=="drm", ENV{DISPLAY}=":0", RUN+="/home/tony/.layouts/corellia.sh"
+#+begin_src txt
+KERNEL=="card0", SUBSYSTEM=="drm", ENV{DISPLAY}+=":0", RUN+="/home/tony/.layouts/corellia.sh"
 #+end_src
 This is the representation of an even that udev will listen to and react.
 Here it will run the external script [[https://github.com/ardumont/dot-files/blob/master/.layouts/corellia.sh][/home/tony/.layouts/corellia.sh]]
 
 My script is in charge of triggering the add/remove.
 Surely, there must be a way to transfer this responsibility to udev...
+
+You could also have a non generic rule:
+#+begin_src txt
+DEVPATH=="/devices/pci0000:00/0000:00:02.0/drm/card0", ENV{DISPLAY}+=":0", RUN+="/home/tony/.layouts/corellia.sh"
+#+end_src
 
 ** Test
 
