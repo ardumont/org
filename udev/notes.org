@@ -67,6 +67,74 @@ Here it will run the external script [[https://github.com/ardumont/dot-files/blo
 My script is in charge of triggering the add/remove.
 Surely, there must be a way to transfer this responsibility to udev...
 
+** Test
+
+Knowing the path to test the rule would help:
+#+begin_src sh
+udevadm test /devices/pci0000:00/0000:00:02.0/drm/card0
+#+end_src
+
+Example output:
+
+#+begin_src txt
+# tony at corellia in ~/work/inria/repo/swh-environment/puppet-environment on git:master o [10:05:09]
+$ udevadm test /devices/pci0000:00/0000:00:02.0/drm/card0
+calling: test
+version 227
+This program is for debugging only, it does not run any program
+specified by a RUN key. It may show incorrect results, because
+some values may be different, or not available at a simulation run.
+
+=== trie on-disk ===
+tool version:          227
+file size:         6868557 bytes
+header size             80 bytes
+strings            1722621 bytes
+nodes              5145856 bytes
+Load module index
+timestamp of '/etc/systemd/network' changed
+timestamp of '/lib/systemd/network' changed
+Parsed configuration file /lib/systemd/network/99-default.link
+Parsed configuration file /lib/systemd/network/90-mac-for-usb.link
+Created link configuration context.
+timestamp of '/etc/udev/rules.d' changed
+timestamp of '/lib/udev/rules.d' changed
+Reading rules file: /lib/udev/rules.d/39-usbmuxd.rules
+...snip...
+IMPORT found builtin 'usb_id --export %p', replacing /lib/udev/rules.d/55-Argyll.rules:110
+Reading rules file: /lib/udev/rules.d/55-dm.rules
+...snip...
+Reading rules file: /lib/udev/rules.d/97-hid2hci.rules
+Reading rules file: /etc/udev/rules.d/999-screen-layout.rules
+Reading rules file: /lib/udev/rules.d/99-systemd.rules
+rules contain 393216 bytes tokens (32768 * 12 bytes), 32092 bytes strings
+22463 strings (187852 bytes), 19217 de-duplicated (159007 bytes), 3247 trie nodes used
+GROUP 44 /lib/udev/rules.d/50-udev-default.rules:35
+IMPORT builtin 'path_id' /lib/udev/rules.d/60-drm.rules:3
+RUN 'uaccess' /lib/udev/rules.d/73-seat-late.rules:15
+RUN '/home/tony/.layouts/corellia.sh' /etc/udev/rules.d/999-screen-layout.rules:1
+handling device node '/dev/dri/card0', devnum=c226:0, mode=0660, uid=0, gid=44
+preserve permissions /dev/dri/card0, 020660, uid=0, gid=44
+preserve already existing symlink '/dev/char/226:0' to '../dri/card0'
+ACTION=add
+DEVNAME=/dev/dri/card0
+DEVPATH=/devices/pci0000:00/0000:00:02.0/drm/card0
+DEVTYPE=drm_minor
+DISPLAY=:0
+ID_FOR_SEAT=drm-pci-0000_00_02_0
+ID_PATH=pci-0000:00:02.0
+ID_PATH_TAG=pci-0000_00_02_0
+MAJOR=226
+MINOR=0
+SUBSYSTEM=drm
+TAGS=:uaccess:master-of-seat:seat:
+USEC_INITIALIZED=6637072
+run: 'uaccess'
+run: '/home/tony/.layouts/corellia.sh'
+Unload module index
+Unloaded link configuration context.
+#+end_src
+
 * Improvments to implement
 
 - Automatic installation (for reproducibility)
