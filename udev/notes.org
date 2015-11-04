@@ -55,9 +55,67 @@ USEC_INITIALIZED=704
 Now, what we can extract:
 - device: /devices/pci0000:00/0000:00:02.0/drm/card0
 
-** Rule
-Create a file in /udev/rules.d/999-screen-layout.rules:
+Now extract some more detail which will help creating the rule:
 
+#+begin_src sh
+udevadm info -a --path=/devices/pci0000:00/0000:00:02.0/drm/card0
+#+end_src
+
+Sample output:
+#+begin_src sh
+Udevadm info starts with the device specified by the devpath and then
+walks up the chain of parent devices. It prints for every device
+found, all possible attributes in the udev rules key format.
+A rule to match, can be composed by the attributes of the device
+and the attributes from one single parent device.
+
+  looking at device '/devices/pci0000:00/0000:00:02.0/drm/card0':
+    KERNEL=="card0"
+    SUBSYSTEM=="drm"
+    DRIVER==""
+    ATTR{gt_RP0_freq_mhz}=="950"
+    ATTR{gt_RP1_freq_mhz}=="300"
+    ATTR{gt_RPn_freq_mhz}=="300"
+    ATTR{gt_act_freq_mhz}=="450"
+    ATTR{gt_cur_freq_mhz}=="450"
+    ATTR{gt_max_freq_mhz}=="950"
+    ATTR{gt_min_freq_mhz}=="450"
+
+  looking at parent device '/devices/pci0000:00/0000:00:02.0':
+    KERNELS=="0000:00:02.0"
+    SUBSYSTEMS=="pci"
+    DRIVERS=="i915"
+    ATTRS{boot_vga}=="1"
+    ATTRS{broken_parity_status}=="0"
+    ATTRS{class}=="0x030000"
+    ATTRS{consistent_dma_mask_bits}=="39"
+    ATTRS{d3cold_allowed}=="1"
+    ATTRS{device}=="0x1616"
+    ATTRS{dma_mask_bits}=="39"
+    ATTRS{driver_override}=="(null)"
+    ATTRS{enable}=="1"
+    ATTRS{index}=="1"
+    ATTRS{irq}=="52"
+    ATTRS{label}=="32"
+    ATTRS{local_cpulist}=="0-3"
+    ATTRS{local_cpus}=="0f"
+    ATTRS{msi_bus}=="1"
+    ATTRS{numa_node}=="-1"
+    ATTRS{subsystem_device}=="0x2216"
+    ATTRS{subsystem_vendor}=="0x103c"
+    ATTRS{vendor}=="0x8086"
+
+  looking at parent device '/devices/pci0000:00':
+    KERNELS=="pci0000:00"
+    SUBSYSTEMS==""
+    DRIVERS==""
+#+end_src
+
+Note the KERNEL and SUBSYSTEM entries which will definitely help.
+
+** Rule
+
+Create a file in /udev/rules.d/999-screen-layout.rules:
 #+begin_src sh
 KERNEL=="card0", SUBSYSTEM=="drm", ENV{DISPLAY}=":0", RUN+="/home/tony/.layouts/corellia.sh"
 #+end_src
