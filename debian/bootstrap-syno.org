@@ -398,4 +398,23 @@ chmod g+rwX -R /volume1/transmission/
 Note:
 Add <user> to the mediagroup.
 
+* syncthing
+
+From: http://apt.syncthing.net/
+#+begin_src sh
+# Add the release PGP keys:
+curl -s https://syncthing.net/release-key.txt | sudo apt-key add -
+
+# Add the "release" channel to your APT sources:
+echo "deb http://apt.syncthing.net/ syncthing release" | sudo tee /etc/apt/sources.list.d/syncthing.list
+
+# Update and install syncthing:
+sudo apt-get update
+sudo apt-get install syncthing#+end_src
+#+end_src
+
+Not done, yet.
+Still needs to properly start syncthing as daemon.
+http://docs.syncthing.net/users/autostart.html#using-systemd
+
 * DNS
