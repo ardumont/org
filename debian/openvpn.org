@@ -1,0 +1,25 @@
+#+title: openvpn
+
+* install
+
+client + server
+#+begin_src sh
+sudo apt-get install -y openvpn
+#+end_src
+
+** synology trouble
+
+When trouble arises:
+
+http://superuser.com/questions/497245/how-to-load-tun-module-in-linux
+
+Retrieve `/lib/modules/tun.ko` in the syno
+Send it to the chroot install.
+
+#+begin_src sh
+mkdir /lib/modules/${kernel-version}
+mv tun.ko /lib/modules/${kernel-version}
+insmod /lib/modules/${kernel-version}/tun.ko
+#+end_src
+
+and should be ready.
