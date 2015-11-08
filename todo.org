@@ -2,15 +2,16 @@
 #+author: ardumont
 #+options: hidestar
 
-* IN-PROGRESS synology debian [6/8]
+* IN-PROGRESS synology debian [8/10]
 - [X] Install debian chroot
 - [X] Make it persistent over syno's reboot
 - [X] minidlna
 - [X] znc
 - [X] etckeeper
 - [X] git server
-- [ ] transmission
-- [ ] bind9
+- [X] transmission
+- [X] bind9
+- [ ] openvpn
 
 * PENDING org-trello [33%]
 Minor mode to sync trello and org-mode
