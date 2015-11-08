@@ -1,6 +1,8 @@
 #+title: Notes on network setup
 
-* /etc/resolv.conf
+* Resolver configuration file
+
+/etc/resolv.conf is managed through network manager (at least in debian and in nixos, it's also possible to use it)
 
 Local resolver configuration file - (cf. `man resolv.conf`)
 
@@ -17,8 +19,18 @@ Add dns:
 nmcli con mod <conn-name> +ipv4.dns <some-dns-ip>
 #+end_src
 
-Then restart the network-manager service:
+* DNS
 
+When you have to setup some other dns, you have by default the gateway which adds itself
+
+Remove this option:
 #+begin_src sh
-sudo systemctl restart network-manager.service
+nmcli con mod <conn-name> +ipv4.ignore-auto-dns yes
+#+end_src
+
+* Apply modifications
+
+Then restart the network-manager service to check the persistence:
+#+begin_src sh
+sudo systemctl restart NetworkManager.service
 #+end_src
