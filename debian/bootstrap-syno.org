@@ -417,4 +417,33 @@ Not done, yet.
 Still needs to properly start syncthing as daemon.
 http://docs.syncthing.net/users/autostart.html#using-systemd
 
+* minidlna
+#+begin_src sh
+sudo apt-get install minidlna
+#+end_src
+
+Edit /etc/default/minidlna and change group:
+#+begin_src sh
+GROUP=mediagroup
+#+end_src
+
+Edit /etc/minidla.conf and add the media_dir lines according to your needs:
+#+begin_src conf
+media_dir=A,/some/path/to/audio
+media_dir=V,/some/path/to/video
+media_dir=P,/some/path/to/pictures
+#+end_src
+
+Make sure the volumes use the right group (here mediagroup)
+
+#+begin_src sh
+sudo chown -R user:group /some/path/to/{audio,video,pictures}
+#+end_src
+
+Restart:
+#+begin_src sh
+sudo /etc/init.d/minidlna restart
+#+end_src
+
 * DNS
+...
