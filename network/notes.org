@@ -41,3 +41,5 @@ from network-manager package
 ncurse ui in the terminal to add/edit connection
 
 nmcli is quite good though
+
+[[http://www.cyberciti.biz/faq/rhel-redhat-centos-7-change-hostname-command/][source]]
