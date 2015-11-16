@@ -34,3 +34,10 @@ Then restart the network-manager service to check the persistence:
 #+begin_src sh
 sudo systemctl restart NetworkManager.service
 #+end_src
+* nmtui
+
+from network-manager package
+
+ncurse ui in the terminal to add/edit connection
+
+nmcli is quite good though
