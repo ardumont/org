@@ -1,0 +1,207 @@
+#+title: how to make modules/plugins/extension
+#+author: ardumont
+
+Some notes on how to extend applications
+
+* applications's extendability api
+
+** Apache module
+
+|-------------+------------------------------------------|
+| description | url                                      |
+|-------------+------------------------------------------|
+| site        | https://modules.apache.org/              |
+| old         | https://modules.apache.org/archive/      |
+| docs        | https://modules.apache.org/reference.lua |
+|-------------+------------------------------------------|
+
+*** Finding howto?
+
+**** from Apache foundation
+
+From main site, it's kind of complicated.
+
+https://www.apache.org/ > link to http server > http://httpd.apache.org/ > http://httpd.apache.org/modules/ > https://modules.apache.org/
+
+**** from web search
+
+Direct through web search
+
+"apache module" in duckduckgo for example: https://duckduckgo.com/?q=apache+module&t=ffsb
+
+First hit is https://modules.apache.org/
+
+*** Howto
+
+apache module are written in c so examples are snippets of c code.
+
+http://httpd.apache.org/docs/current/developer/modguide.html
+
+Overall:
+- Create Introduction by doing mixed with explanations
+- Simple and efficient
+- Objectively, no cons on this site.
+
+*** pros
+
+- straight to the point
+- table of contents with internal links
+- dedicated site for modules with references to actual non-official modules
+- link to archived site of modules
+- information about creating modules is found directly in the main
+  site without looking for it in the "Reference docs" section
+- puts in front of everything an howto do one module with explanations along the way
+- this howto is one page with many existing links to further documentations (if need be)
+- concentrates first by deploying a dummy module (to get the deployment out of the way)
+- gives snippet of code and finally link to a full file with the actual snippets
+- gives redundant task snippets (which apparently does not exist altogether)
+- once the simple module is done, create another more advanced one
+- and more advanced
+- and goes on with how to configure the module with the standard apache configuration file
+- Add comments to the end of the page for doc improvment
+- absolutely no typos (nowhere)
+
+*** cons
+
+- No sample of what actually deploying and running do.  For the user to
+confront its own result, it'd be great to see how it is triggered and
+what's the result.
+- The table of contents should be alongside the article always
+  (without intrusion that is)
+
+** Firefox add-on
+
+|---------------------+------------------------------------------------------|
+| description         | url                                                  |
+|---------------------+------------------------------------------------------|
+| site                | https://addons.mozilla.org/en-US/firefox/            |
+| extension           | https://addons.mozilla.org/en-US/firefox/extensions/ |
+| developer hub       | https://addons.mozilla.org/en-US/developers/         |
+| main doc for add-on | https://developer.mozilla.org/en-US/Add-ons          |
+|---------------------+------------------------------------------------------|
+
+*** Finding howto?
+
+**** from mozilla
+
+kind of complicated too.
+
+https://www.mozilla.org/en-US/ > https://www.mozilla.org/en-US/firefox/products/ > https://www.mozilla.org/en-US/firefox/desktop/ > https://addons.mozilla.org/en-US/firefox/
+
+**** from web search
+
+Direct through web search.
+
+"firefox add-ons" search on duckduckgo: https://duckduckgo.com/?q=firefox+add-ons&t=ffsb
+
+First hit is https://addons.mozilla.org/en-US/firefox/
+
+*** howto
+
+Firefox add-ons are written in js/css.
+
+**** doc?
+
+From there, to find the doc is not straightforward.
+Scroll to the bottom and click on `developer Hub` https://addons.mozilla.org/en-US/developers/
+Then: with the mouse (!!), select Documentation > Extension development
+
+Note: why 2 words (extension and add-on)?
+
+3 kinds of add-ons (+ 1 in the making)
+
+|--------------------------------------+---------------------------------------------------------------------|
+| add-on kind                          | url to doc                                                          |
+|--------------------------------------+---------------------------------------------------------------------|
+| sdk                                  | https://developer.mozilla.org/en-US/Add-ons/SDK                     |
+| restartless                          | https://developer.mozilla.org/en-US/Add-ons/Bootstrapped_extensions |
+| legacy                               | https://developer.mozilla.org/en-US/Add-ons/Overlay_Extensions      |
+| webextension - new way in the making | https://developer.mozilla.org/en-US/Add-ons/WebExtensions           |
+|--------------------------------------+---------------------------------------------------------------------|
+
+I chose one, the recommended one: https://developer.mozilla.org/en-US/Add-ons/SDK
+
+|---------------------+---------------------------------------------------------------------------------|
+| sdk installation    | https://developer.mozilla.org/en-US/Add-ons/SDK/Tools/jpm#Installation          |
+| dev getting started | https://developer.mozilla.org/en-US/Add-ons/SDK/Tutorials/Getting_Started_(jpm) |
+| troubleshooting     | https://developer.mozilla.org/en-US/Add-ons/SDK/Tutorials/Troubleshooting       |
+|---------------------+---------------------------------------------------------------------------------|
+
+**** pros
+
+- propose an #irc channel for help
+- 3 getting started sections
+  https://developer.mozilla.org/en-US/Add-ons/SDK/Tutorials#getting-started
+  -> installation, actual sample add-on getting started and troubleshooting (~faq)
+
+- dedicated sections for installing/using jpm which eases add-on
+  development
+  https://developer.mozilla.org/en-US/Add-ons/SDK/Tools/jpm#Installation
+- tool (jpm) to help bootstrap a default template (jpm init), package (xpi), deploy (post, watchpost), sign, etc... (run|sign|etc...)
+
+About readability:
+- doc is clear (when found)
+- table of contents always present without being intrusive
+
+About documentation:
+- same as wikipedia, the article is annotated with indications about
+  review, the goal, etc...  sentence like `This article is in need of
+  an editorial review.`, or ` You can use jpm for Firefox 38 and
+  onwards. This article is the reference for jpm.`etc...  This gives
+  sensible information for the reader. Notably, this could help her in
+  establishing to which point she can trust what she's reading... Or
+  help her in choosing to whether to file a bug/typo or not
+
+- docs on how to officially deploy the add-on near the doc to develop them
+- blog posts about it https://blog.mozilla.org/addons/2014/06/05/how-to-develop-firefox-extension/
+
+**** cons
+
+- too many ways of doing an extension thus a guide to compare the methods is provided... https://developer.mozilla.org/en-US/Add-ons/Comparing_Extension_Toolchains
+- not straight to the point (too many indirection) surely because of the choices
+- the getting started is deep
+
+Note:
+There are many ways to extend firefox because it runs not only on desktop but also on mobile phone
+
+**** lacks
+
+** Eclipse plugin
+
+http://www.eclipse.org/ > scroll down at bottom and click Documentation http://help.eclipse.org/mars/index.jsp
+
+Not that easy to find, we need to scroll.
+
+Many sections which i don't know how to choose from:
+- Plaftorm Plug-in developer user guide.
+- JDT Plug-in developer guide
+- Plug-in Development Environment guide
+
+-> somehow, it creeps me out. I want to leave their site without looking back.
+
+*** cons
+
+- hard to find the documentation first hand
+
+** intellij idea plugin
+
+http://www.jetbrains.com/idea/ > plugins menu url http://www.jetbrains.com/idea/plugins/ > section `Information for Plugin Developers` link -
+
+*** pros
+
+- direct access
+- first section on how to use idea and second section for plugin devel
+- sdk to ease dev
+- source code sample in idea's repository code
+- videos for dev: https://www.youtube.com/watch?v=-ZmQD6Fr6KE, https://www.youtube.com/watch?v=s_cCB2R5_1k
+- many screenshots of idea's state for dev (use idea to develop idea plugin :)
+
+*** lacks
+
+* Ideas on top of my head
+
+- Deploy first the extension
+- Deploy at each step with results (so that the user can compare its output)
+- FAQ with general annoyances and how to avoid them
+- Tools to bootstrap a template (interactively ask question, etc...)
+- tutorial videos
