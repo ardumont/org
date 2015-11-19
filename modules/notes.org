@@ -182,6 +182,7 @@ Many sections which i don't know how to choose from:
 *** cons
 
 - hard to find the documentation first hand
+- site's look'n feel is old-fashion so much that i left (and i'm not a hipster :)
 
 ** intellij idea plugin
 
@@ -195,13 +196,60 @@ http://www.jetbrains.com/idea/ > plugins menu url http://www.jetbrains.com/idea/
 - source code sample in idea's repository code
 - videos for dev: https://www.youtube.com/watch?v=-ZmQD6Fr6KE, https://www.youtube.com/watch?v=s_cCB2R5_1k
 - many screenshots of idea's state for dev (use idea to develop idea plugin :)
+- quick start guide: http://www.jetbrains.org/intellij/sdk/docs/basics.html
+- create first plugin: http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/creating_plugin_project.html
+- developer api community https://devnet.jetbrains.com/community/idea/open_api_and_plugin_development
+
+- look'n feel of the site is easy on the eyes
 
 *** lacks
 
-* Ideas on top of my head
+** emacs
 
-- Deploy first the extension
-- Deploy at each step with results (so that the user can compare its output)
+*** finding the doc
+
+What we found easy enough is [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Modes.html][explanation about what major and minor
+modes are and how to use it but not how to develop them]].
+
+Otherwise, after multiple attempts, the web search query needed is: "defining mode emacs"
+and first hit is https://www.gnu.org/software/emacs/manual/html_node/elisp/Defining-Minor-Modes.html
+and then up the chain through Minor mode and then Modes.
+
+Digging more:
+- http://www.gnu.org/software/emacs/manual/html_node/elisp/Modes.html#Modes
+- http://www.gnu.org/software/emacs/manual/html_node/elisp/Minor-Modes.html#Minor-Modes
+
+Other tutorials found:
+- http://www.emacswiki.org/emacs/ModeTutorial (via stack overflow).
+- This [[http://nullprogram.com/blog/2013/02/06/][tutorial]] seems pretty good for minor mode with snippet of code.
+
+*** cons
+
+- Difficulties in finding first hand official documentation
+- More reference guide than actual howto (i found those difficult to follow)
+- The documentation in itself won't suffice, you'll need other guides and existing mode sample
+
+*** pros
+
+- Well hierarchised pages
+- Add an `expected conventions to follow` page
+- Provide sample page of a mode
+
+* Conclusion
+
+For referencing the documentation:
+- Dedicated documentation
+- Must be easy to find so reference it clearly on first page (link to
+  a documentation page)
+- Show the tools to install first, how to use them (this can become a reference page)
 - FAQ with general annoyances and how to avoid them
-- Tools to bootstrap a template (interactively ask question, etc...)
-- tutorial videos
+
+For the howto itself:
+- Provide snippet of code + output sample of what it does (so that
+  extension developer can compare notes)
+- Deploy first a dummy extension that may be doing almost nothing and
+  then increase slightly its abilities
+- Deploy at each development step and show expected results (so that
+  the extension developer can compare notes)
+- Provide a tool to bootstrap a template (interactively ask question, etc...)
+- Tutorial videos seems nice (but may be a maintenance hassle)
