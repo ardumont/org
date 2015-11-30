@@ -326,6 +326,72 @@ CLOSED: [2013-06-22 sam. 16:12]
 CLOSED: [2013-06-22 sam. 16:13]
 ** DONE Ranger davantage le bordel
 CLOSED: [2015-05-20 Wed 11:58]
+* DONE Couloir du haut [31/31]
+** DONE Retirer le crepis
+** DONE Retirer le papier peint
+** DONE Enduit
+** DONE Reboucher les fissures
+** DONE Poncage
+CLOSED: [2011-10-29 sam. 12:50]
+** DONE Enduit
+** DONE Poncage
+CLOSED: [2011-10-29 sam. 12:51]
+** DONE Enduit
+CLOSED: [2011-10-31 lun. 10:12]
+** DONE Lessivage/nettoyage
+CLOSED: [2011-10-31 lun. 19:36]
+** DONE Passer la sous-couche.
+CLOSED: [2011-10-31 lun. 19:36]
+** DONE porte chambre de theo - couloir + tour de porte couche 1
+CLOSED: [2013-07-26 ven. 19:10]
+** DONE porte chambre de theo - couloir + tour de porte couche 2
+CLOSED: [2013-07-28 dim. 14:14]
+** DONE porte bureau - couloir + tour de porte couche 1
+CLOSED: [2013-07-26 ven. 19:11]
+** DONE porte bureau - couloir + tour de porte couche 2
+CLOSED: [2013-07-28 dim. 14:14]
+** DONE porte chloe - couloir + tour de porte couche 1
+CLOSED: [2013-07-26 ven. 19:11]
+** DONE porte chloe - couloir + tour de porte couche 2
+CLOSED: [2013-07-28 dim. 14:14]
+** DONE porte chambre parentale - couloir + tour de porte couche 1
+CLOSED: [2013-07-26 ven. 19:11]
+** DONE porte chambre parentale - couloir + tour de porte couche 2
+CLOSED: [2013-07-28 dim. 14:14]
+** DONE porte toilette - couloir + tour de porte couche 1
+CLOSED: [2013-07-26 ven. 19:11]
+** DONE porte toilette - couloir + tour de porte couche 2
+CLOSED: [2013-07-28 dim. 14:14]
+
+** DONE porte salle de bain - couloir + tour de porte couche 1
+CLOSED: [2013-07-26 ven. 19:11]
+** DONE porte salle de bain - couloir + tour de porte couche 2
+CLOSED: [2013-07-28 dim. 14:15]
+** DONE peindre porte de bureau couche 1
+CLOSED: [2013-07-28 dim. 14:15]
+** DONE Peindre le plafond
+CLOSED: [2013-07-26 ven. 19:09]
+** DONE peindre porte de bureau couche 2
+CLOSED: [2013-07-30 mar. 22:00]
+** DONE Interrupteur couloir
+CLOSED: [2013-08-03 sam. 22:22]
+** DONE Interrupteur salle de bain
+CLOSED: [2013-08-04 dim. 15:17]
+** DONE Plafonnier
+CLOSED: [2013-08-04 dim. 15:17]
+** DONE Encadrement [100%]
+CLOSED: [2015-11-30 Mon 11:34]
+- [X] porte Noemy
+- [X] porte Theo
+- [X] porte Chloe
+- [X] porte nous
+- [X] trappe comble
+** DONE Peindre le plafond
+CLOSED: [2015-11-30 Mon 11:38]
+- [X] couche 1
+- [X] couche 2
+** DONE Poser papier peint sur les murs
+CLOSED: [2015-11-30 Mon 11:38]
 * PENDING Jardin devant [11/12]
 ** DONE parterres de fleurs [4/4]
 **** DONE Detruire le parterre de marguerite qui prend trop de place dans le jardin.
@@ -412,68 +478,6 @@ CLOSED: [2013-11-10 dim. 15:21]
 ** DONE Changer la table
 CLOSED: [2014-01-03 ven. 13:55]
 ** TODO changer radiateur
-* IN-PROGRESS Couloir du haut [29/31]
-** DONE Retirer le crepis
-** DONE Retirer le papier peint
-** DONE Enduit
-** DONE Reboucher les fissures
-** DONE Poncage
-CLOSED: [2011-10-29 sam. 12:50]
-** DONE Enduit
-** DONE Poncage
-CLOSED: [2011-10-29 sam. 12:51]
-** DONE Enduit
-CLOSED: [2011-10-31 lun. 10:12]
-** DONE Lessivage/nettoyage
-CLOSED: [2011-10-31 lun. 19:36]
-** DONE Passer la sous-couche.
-CLOSED: [2011-10-31 lun. 19:36]
-** DONE porte chambre de theo - couloir + tour de porte couche 1
-CLOSED: [2013-07-26 ven. 19:10]
-** DONE porte chambre de theo - couloir + tour de porte couche 2
-CLOSED: [2013-07-28 dim. 14:14]
-** DONE porte bureau - couloir + tour de porte couche 1
-CLOSED: [2013-07-26 ven. 19:11]
-** DONE porte bureau - couloir + tour de porte couche 2
-CLOSED: [2013-07-28 dim. 14:14]
-** DONE porte chloe - couloir + tour de porte couche 1
-CLOSED: [2013-07-26 ven. 19:11]
-** DONE porte chloe - couloir + tour de porte couche 2
-CLOSED: [2013-07-28 dim. 14:14]
-** DONE porte chambre parentale - couloir + tour de porte couche 1
-CLOSED: [2013-07-26 ven. 19:11]
-** DONE porte chambre parentale - couloir + tour de porte couche 2
-CLOSED: [2013-07-28 dim. 14:14]
-** DONE porte toilette - couloir + tour de porte couche 1
-CLOSED: [2013-07-26 ven. 19:11]
-** DONE porte toilette - couloir + tour de porte couche 2
-CLOSED: [2013-07-28 dim. 14:14]
-
-** DONE porte salle de bain - couloir + tour de porte couche 1
-CLOSED: [2013-07-26 ven. 19:11]
-** DONE porte salle de bain - couloir + tour de porte couche 2
-CLOSED: [2013-07-28 dim. 14:15]
-** DONE peindre porte de bureau couche 1
-CLOSED: [2013-07-28 dim. 14:15]
-** DONE Peindre le plafond
-CLOSED: [2013-07-26 ven. 19:09]
-** DONE peindre porte de bureau couche 2
-CLOSED: [2013-07-30 mar. 22:00]
-** DONE Interrupteur couloir
-CLOSED: [2013-08-03 sam. 22:22]
-** DONE Interrupteur salle de bain
-CLOSED: [2013-08-04 dim. 15:17]
-** DONE Plafonnier
-CLOSED: [2013-08-04 dim. 15:17]
-** DONE Poser un faux plafond
-CLOSED: [2014-10-21 Tue 15:47]
-** IN-PROGRESS Encadrement [16%]
-- [X] porte Noemy
-- [ ] porte Theo
-- [ ] porte Chloe
-- [ ] porte nous
-- [ ] trappe comble
-** TODO Poser le papier peint sur les murs
 * PENDING Toilettes du bas [7/10]
 ** DONE Sous-couche porte
 CLOSED: [2013-07-30 mar. 21:46]
