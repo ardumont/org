@@ -1,0 +1,48 @@
+#+title: packaging in debian
+#+author: ardumont
+#+source: https://www.debian.org/doc/manuals/packaging-tutorial/packaging-tutorial.en.pdf
+
+Notes around packaging stuff in debian.
+
+* Common packages tools
+
+- build-essential
+- devscripts
+- debhelper
+- dh-make*
+
+* Common tools
+
+|-------------+------------------------------------------------------|
+| dget        | retrieve an existing source package                  |
+| dpkg-source | .dsc manipulation                                    |
+| debhelper   |                                                      |
+| dh_*        | debhelper++                                          |
+| dch         | debian changelog                                     |
+| pbuilder    | sandbox to test clean build                          |
+| debc        | check the content of a .deb                          |
+| debi        | to test and install a .deb in building dev process   |
+| lintian     | `lintian -EviIL +pedantic`                         + |
+|-------------+------------------------------------------------------|
+
+* package kind
+
+- native (to debian env)
+- non-native -> may contain path to adapt to debian environment
+
+* .dsc
+
+metadata file describing information on:
+- project description
+- homepage
+- author, maintainer
+- runtime package dependencies
+- build package dependencies
+- license
+- checksums
+- ...
+
+* python
+
+git-dpm
+pypi2debian
