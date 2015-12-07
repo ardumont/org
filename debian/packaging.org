@@ -13,17 +13,22 @@ Notes around packaging stuff in debian.
 
 * Common tools
 
-|-------------+------------------------------------------------------|
-| dget        | retrieve an existing source package                  |
-| dpkg-source | .dsc manipulation                                    |
-| debhelper   |                                                      |
-| dh_*        | debhelper++                                          |
-| dch         | debian changelog                                     |
-| pbuilder    | sandbox to test clean build                          |
-| debc        | check the content of a .deb                          |
-| debi        | to test and install a .deb in building dev process   |
-| lintian     | `lintian -EviIL +pedantic`                         + |
-|-------------+------------------------------------------------------|
+|-------------+-----------------------------------------------------------------------------|
+| dget        | retrieve an existing source package                                         |
+| dpkg-source | .dsc manipulation                                                           |
+| debhelper   |                                                                             |
+| dh_*        | debhelper++                                                                 |
+| dch         | debian changelog                                                            |
+| pbuilder    | sandbox to test clean build                                                 |
+| debc        | check the content of a .deb                                                 |
+| debi        | to test and install a .deb in building dev process                          |
+| lintian     | `lintian -EviIL +pedantic` to check the .deb file                         + |
+| pbuilder    | personal package builder for debian packages                                |
+| cowdancer   | copy-on-write directory tree utility                                        |
+| cowbuilder  | pbuilder running on cowdancer                                               |
+| sbuild      | sbuild chroot tools (sbuild-update, etc...)                                 |
+|             |                                                                             |
+|-------------+-----------------------------------------------------------------------------|
 
 * package kind
 
@@ -41,6 +46,13 @@ metadata file describing information on:
 - license
 - checksums
 - ...
+
+* update chroot
+
+Update sid chroot:
+#+begin_src sh
+sbuild-update -ud sid
+#+end_src
 
 * python
 
