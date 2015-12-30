@@ -1,0 +1,162 @@
+#+title: rubik's cube
+
+* misc
+middle cube do not move
+
+white <-> yellow
+blue <-> green
+orange <-> red
+
+* movments
+
+** Cross
+
+First the cross
+Main color as a cross
+The middle edged color touching the front face with colors
+
+Taking the white color...
+
+** Fill in the edge case
+
+To have the first adjacent rows filled
+
+** Middle layer
+
+Now on for the second line
+movment
+inverse the rubik
+Now create an inversed T
+The upper edge color will be a piece to go right or left.
+
+If going to the right, do: U R Ui Ri Ui Fi U F
+
+Or, going to the left: do: Ui Li U L U F Ui Fi
+
+** yellow cross
+
+upper face (yellow):
+
+*** yellow cross already
+
+#+BEGIN_SRC txt
+-#-
+###
+-#-
+#+END_SRC
+
+Skip this step
+
+*** 1 yellow line center
+
+#+BEGIN_SRC txt
+---
+###
+---
+#+END_SRC
+
+do: F U R Ui Ri Fi
+
+Then check again this step:
+
+*** Little inverse L
+
+
+#+BEGIN_SRC txt
+##-
+-#-
+---
+#+END_SRC
+
+do: F U R Ui Ri Fi
+
+*** Horizontal line
+
+#+BEGIN_SRC txt
+---
+###
+---
+#+END_SRC
+
+do: F R U Ri Ui Fi
+
+** Make all corners yellow
+
+Match to one of those states:
+
+*** one corner yellow on left adjacent face
+
+#+BEGIN_SRC txt
+-|-#-
+-|###
+#|-#-
+#+END_SRC
+do: R U Ri U R U U Ri
+
+*** one yellow corner in same face
+
+#+BEGIN_SRC txt
+-#-
+###
+##-
+#+END_SRC
+
+do once: R U Ri U R U U Ri
+
+*** one yellow face on bottom adjacent face
+
+#+BEGIN_SRC txt
+-#-
+###
+-#-
+___
+#
+#+END_SRC
+do: R U Ri U R U U Ri
+and check this step back
+
+
+** All edges yellow
+
+The top face is all yellow but not all edge corners colors are respected...
+
+A _ B
+_ _ _
+C _ D
+
+If corner A and B are ok, place them at the back
+
+And to switch C and D:
+
+Ri F Ri B B R Fi
+Ri B B R R Ui
+
+Now may remain only 4 edge center pieces badly set
+
+If corner A and D or C and B needs to be switched diagonally, do the sequence once.
+Place correctly A and B to the back and do the sequence again.
+
+** Last edge pieces
+
+- 4 incorrects edge pieces:
+
+F F U L Ri F
+F Li R U F F
+
+- 3:
+
+good one to the back
+determine the direction for the frontal bad edge piece.
+
+clockwise:
+F F U L Ri F
+F Li R U F F
+
+counter-clockwise:
+
+F F Ui L Ri F
+F Li R Ui F F
+
+- 2:
+
+- 1:
