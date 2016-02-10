@@ -76,9 +76,15 @@ sudo su - postgres
 
 Then
 #+BEGIN_SRC sh
-createuser -D -A -P $NEW_USER
+createuser -d -s $NEW_USER
 createdb -O $NEW_USER $NEW_DATABASE
 #+END_SRC
+Note:
+-d: the user will be able to create database
+-D: the user won't
+-A: ?
+-P: to ask for a user pass
+-s: be a superuser (to install extension, etc...)
 
 * Drop a database and a user
 Beware of the order. You won't be able to drop a database if a user is
