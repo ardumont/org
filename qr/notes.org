@@ -1,0 +1,3 @@
+#+begin_src sh
+xclip -o selection clipboard | qrencode --size 10 -o - | feh -x --title QR -g +200+200 -
+#+end_src
