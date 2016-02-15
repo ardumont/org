@@ -105,3 +105,10 @@ With admin user:
 #+begin_src sh
 alter database <name> rename to <new-name>
 #+end_src
+
+** Alter Owner
+
+as postgres or someone with the rights to it:
+#+begin_src sql
+alter table <table> owner to <new-owner>
+#+end_src
