@@ -104,3 +104,19 @@ dropdb $NEW_DATABASE
 #+BEGIN_SRC sh
 dropuser $NEW_USER
 #+END_SRC
+* copy a large table from one db to another
+
+To avoid writing to disk:
+#+begin_src sh
+mkfifo piping-db-dump
+#+end_src
+
+Then write to the fifo the required dump:
+#+begin_src sh
+pv dump.gz | pigz -dc > piping-db-dump
+#+end_src
+
+Open a connection to the db, reading from the fifo:
+#+begin_src
+copy tablename from '/path/to/piping-db-dump';
+#+end_src
