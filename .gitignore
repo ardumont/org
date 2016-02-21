@@ -8,3 +8,4 @@ libpeerconnection.log
 *.tex
 *.texi
 *.pdf
+/maths/ltxpng

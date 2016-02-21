@@ -1,0 +1,102 @@
+#+title: dérivation
+#+category: maths
+
+* Definition
+
+f est dérivable sur I si, pour tout a de I, f est dérivable en a.
+I.e le nombre dérivé de f en a, noté f'(a) existe.
+
+* Approximation
+
+Soit f une fonction definie sur I dont on admet la derivabilite sur I.
+
+En calculant:
+
+\[
+\forall{x \in I}, \lim_{h \to 0} \frac{f(x+h) - f(x)}{h}
+\]
+
+Nous pouvons prouver qu'une fonction est derivable sur l'intervalle definie.
+
+Exemple:
+
+\[
+f: \mathbb{R} \to \mathbb{R}, f(x) = x^2
+\]
+
+\[
+\forall{x \in I}, \lim_{h \to 0} \quad \frac{f(x+h) - f(x)}{h} = 2x
+\]
+
+En effet,
+
+\[
+\frac{f(x+h) - f(x)}{h} = \frac{ (x+h)^2 - x^2 }{h}
+                        = \frac{x^2 + 2xh + h^2 - x^2}{h}
+                        = \frac{h(2x + h)}{h}
+                        = 2x + h
+\]
+
+Et:
+
+\[
+\forall{x \in I}, \lim_{h \to 0} \quad 2x + h = 2x
+\]
+
+* Derivees usuelles
+
+\[
+\forall{x} \in \mathbb{R}, f(x) = a \implies \forall{x} \in \mathbb{R}, f'(x) = 0
+\]
+
+\[
+\forall{x} \in \mathbb{R}, f(x) = ax \implies \forall{x} \in \mathbb{R}, f'(x) = a
+\]
+
+\[
+n \in \mathbb{Z*}, \forall{x} \in \mathbb{R}, f(x) = x^n \implies \forall{x} \in \mathbb{R}, f'(x) = ax^a-1
+\]
+
+\[
+\forall{x} \in \mathbb{R*}, f(x) = \frac{1}{x} \implies \forall{x} \in \mathbb{R*}, f'(x) = -\frac{1}{x^2}
+\]
+
+\[
+\forall{x} \in \mathbb{R}_{>0}, f(x) = \sqrt{x} \implies \forall{x} \in \mathbb{R}_{>0}, f'(x) = \frac{1}{2\sqrt{x}}
+\]
+
+\[
+\forall{x} \in \mathbb{R}, f(x) = \sin{x} \implies \forall{x} \in \mathbb{R}, f'(x) = \cos{x}
+\]
+
+\[
+\forall{x} \in \mathbb{R}, f(x) = \cos{x} \implies \forall{x} \in \mathbb{R}, f'(x) = -\sin{x}
+\]
+
+\[
+\forall{x} \in \mathbb{R}, f(x) = \tan{x} \implies \forall{x} \in \mathbb{R}, f'(x) = \frac{1}{ \cos{x^2} }
+\]
+
+\[
+\forall{x} \in \mathbb{R}, f(x) = \ln{x} \implies \forall{x} \in \mathbb{R}, f'(x) = \frac{1}{x}
+\]
+
+* Operations
+
+u, v derivable sur I
+
+\[
+(u+v)' = u' + v'
+\]
+
+\[
+(uv)' = u'v + uv'
+\]
+
+\[
+(ku)' = ku'
+\]
+
+\[
+\frac{u}{v} = \frac{u'v - uv'}{v^2}, v \neq 0
+\]
