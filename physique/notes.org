@@ -1,0 +1,80 @@
+#+title: physique
+
+* tension
+
+La tension electrique est une grandeur mesurable delivree par un generateur.
+Elle permet de quantifier l'electricite.
+
+** Definition
+
+La tension aux bornes d'un appareil electrique est la difference d'etat electrique existant entre les bornes d'entree et de sortie.
+Elle est egalement appellee difference de potentiel.
+
+d.d.p entre A et B notee U_AB, A et B 2 points d'un circuit electrique.
+
+** Unite
+
+V - Volt
+
+** Mesure
+
+Avec un voltmetre branche en derivation (en //) entre les points dont on veut mesurer la tension.
+
+** Proprietes
+
+Sur un circuit possedant un generateur et des dipoles...
+
+Si les dipoles sont branches en serie, la somme des tensions des
+dipoles est egale a la tension aux bornes du generateur.
+U_g = U_d1 + U_d2
+
+Si les dipoles sont branches en parallele, la tension aux bornes des
+dipoles est egale a la tension aux bornes du generateur.
+U_g = U_d1 = U_d2
+
+Note:
+- Dipole est un composant electrique possedant 2 bornes.
+- Dipole actif est un generateur de courant.
+- Dipole passif est un consommateur de courant.
+- La tension aux bornes d'un interrupteur ferme est nulle.
+
+** Loi d'ohm
+
+La tension aux bornes d'une resistance est proportionnelle a l'intensite du signal qui l'a traverse.
+
+#+begin_src phy
+U = R I
+#+end_src
+
+Unites:
+- R - \Omega - Ohms
+- I - A - Ampere
+
+* Intensite
+** Definition
+
+L'intensite du courant est definie comme la charge electrique portee par les electrons traversant une section de circuit en une seconde.
+
+** Unite
+
+A - Ampere
+
+** Mesure
+
+Avec un amperemetre (dont la resistance est faible) branche en serie avec un dipole ds un circuit.
+
+Note:
+- Borne A et COM sont utilisees
+- Le courant doit sortir par la borne COM.
+- Commence par utiliser le calibre le plus grand et on affine pour avoir une meilleure precision
+
+** Proprietes
+
+Sur un circuit possedant un generateur et des dipoles...
+
+Montage en serie, l'intensite du courant electrique est la meme ds tout le circuit.
+I_g = I_d1 = I_d2
+
+Montage en //, la somme des intensites des courants ds chaque branche est egale a l'intensite du courant parcourant le generateur.
+
+I_g = I_d1 + I_d2
