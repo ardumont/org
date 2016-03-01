@@ -575,7 +575,7 @@ CLOSED: [2014-01-05 dim. 22:50]
 ** TODO Poser la toile de renovation
 ** TODO Poser le papier peint/Peindre
 ** TODO Ranger la piece
-* TODO Salon [15/18]
+* TODO Salon [16/19]
 ** DONE Retirer le papier peint du plafond
 ** DONE Retirer le crepis
 ** DONE Reparer la fissure de la cheminee
@@ -606,10 +606,11 @@ Merci papy Claude
 ** DONE Changer radiateur 2
 CLOSED: [2013-11-24 dim. 19:04]
 Merci papy Claude
+** DONE Retirer cheminee condamnee
+CLOSED: [2016-03-01 Tue 18:56]
+** TODO Enduit de lissage sur la partie retiree de cheminee
 ** TODO Peindre le plafond
 ** TODO Poser le papier peint
-** TODO Retirer cheminee condamnee
-
 * PENDING Buanderie [8/12]
 ** DONE Sous-couche porte buanderie/couloir
 CLOSED: [2013-07-30 mar. 21:47]
@@ -631,7 +632,7 @@ CLOSED: [2013-07-31 mer. 13:19]
 ** TODO Enduit de rebouchage
 ** TODO Sous-couche
 ** TODO Peinture
-* PENDING Escalier salon-1er [8/10]
+* IN-PROGRESS Escalier salon-1er [10/11]
 ** DONE Retirer le crepis
 ** DONE Enduit de lissage
 CLOSED: [2011-10-31 lun. 10:11]
@@ -649,8 +650,10 @@ CLOSED: [2013-04-11 jeu. 09:37]
 CLOSED: [2013-08-03 sam. 22:22]
 ** DONE Faux-plafond
 CLOSED: [2014-11-04 Tue 20:16]
-** TODO Poser la toile de renovation
-** TODO Poser le papier peint/Peindre
+** DONE Enduit de rebouchage et lissage (encore)
+CLOSED: [2016-03-01 Tue 18:55]
+** IN-PROGRESS Poser le papier peint/Peindre
+chris et papy claude
 * PENDING Salle d'eau [6/11]
 ** DONE Sous-couche cadre de porte
 CLOSED: [2013-07-30 mar. 21:51]
