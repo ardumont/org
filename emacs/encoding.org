@@ -1,0 +1,15 @@
+#+title: emacs and encoding
+
+#+begin_src sh
+C-x RET C-\	set-input-method
+C-x RET F	set-file-name-coding-system
+C-x RET X	set-next-selection-coding-system
+C-x RET c	universal-coding-system-argument
+C-x RET f	set-buffer-file-coding-system
+C-x RET k	set-keyboard-coding-system
+C-x RET l	set-language-environment
+C-x RET p	set-buffer-process-coding-system
+C-x RET r	revert-buffer-with-coding-system
+C-x RET t	set-terminal-coding-system
+C-x RET x	set-selection-coding-system
+#+end_src
