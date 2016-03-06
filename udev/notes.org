@@ -57,7 +57,9 @@ Now, what we can extract:
 
 Now extract some more detail which will help creating the rule:
 
+Example:
 #+begin_src sh
+udevadm info -a --name=/dev/ttyACM0
 udevadm info -a --path=/devices/pci0000:00/0000:00:02.0/drm/card0
 #+end_src
 
@@ -130,11 +132,22 @@ You could also have a non generic rule:
 DEVPATH=="/devices/pci0000:00/0000:00:02.0/drm/card0", ENV{DISPLAY}+=":0", RUN+="/home/tony/.layouts/corellia.sh"
 #+end_src
 
+** Reinstall rules
+
+#+begin_src sh
+sudo udevadm control --reload-rules
+#+end_src
+
 ** Test
 
-Knowing the path to test the rule would help:
+To retrieve the path of the device provided you know its name:
 #+begin_src sh
-udevadm test /devices/pci0000:00/0000:00:02.0/drm/card0
+udevadm info -q path -n /dev/ttyACM0
+#+end_src
+
+So triggering a test for add action:
+#+begin_src sh
+udevadm test -action add $(udevadm info -q path -n /dev/ttyACM0)
 #+end_src
 
 Example output:
