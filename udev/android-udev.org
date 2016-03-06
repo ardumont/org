@@ -1,0 +1,134 @@
+#+title: Plug android phone with user access
+#+source: https://wiki.debian.org/udev
+#+source: http://developer.android.com/tools/device.html#setting-up
+#+source: http://superuser.com/questions/814386/adb-fails-with-cannot-bind-local5037
+
+* Goal
+
+On debian, being able to:
+#+begin_src sh
+adb [devices|shell|push]
+#+end_src
+
+Actual problem:
+#+begin_src sh
+# tony at corellia in ~ [11:24:45]
+$ adb devices
+* daemon not running. starting it now on port 5037 *
+cannot bind 'local:5037'
+ADB server didn't ACK
+* failed to start daemon *
+error: cannot connect to daemon
+#+end_src
+
+But i'm able to do it as sudo, which is bad...
+As a rule of thumb, don't give powers you don't need to give, ever...
+
+* Pre-requisite
+
+** GNU/Linux
+
+As a pre-requisite, your current user should be in plugdev group.
+
+To check:
+#+begin_src sh
+$ id blah
+uid=1000(blah) gid=1000(blah) groups=1000(blah),24(foo),25(bar),46(plugdev)
+#+end_src
+
+If not add it.
+#+begin_src sh
+useradd -G plugdev blah
+#+end_src
+
+** Android
+
+For push write permissions, Developer options unlocked > Android debugging on
+This permits to use `adb push|pull` to transfer back and forth between computer and files.
+
+* How
+
+At plug time, change the group and right of the /dev/tty for the android devices
+
+#+begin_src sh
+# htc
+SUBSYSTEM=="tty", ATTRS{idVendor}=="0bb4", MODE="0660", GROUP="plugdev"
+# samsung
+SUBSYSTEM=="tty", ATTRS{idVendor}=="04e8", MODE="0660", GROUP="plugdev"
+# oneplus
+SUBSYSTEM=="tty", ATTRS{idVendor}=="05c6", MODE="0660", GROUP="plugdev"
+#+end_src
+
+Once installed, reload the udev rules:
+#+begin_src sh
+sudo udevadm control --reload-rules
+udevadm test --action add $(udevadm info -q path -n /dev/ttyACM0)
+#+end_src
+
+Now, unplug your android devices if it was plugged.
+
+In a terminal:
+#+begin_src sh
+watch ls -lh /dev/ttyACM0
+#+end_src
+
+And plug the phone, the watch will reload the ls -l command every 2s.
+At one point, you should see the following:
+#+begin_src sh
+crw-rw----+ 1 root plugdev 166, 0 Mar  6 11:30 /dev/ttyACM0
+#+end_src
+
+Ok, it works!
+
+* Ready?
+
+Now is this sufficient?
+
+#+begin_src sh
+# tony at corellia in ~ [11:34:04]
+$ adb shell
+* daemon not running. starting it now on port 5037 *
+cannot bind 'local:5037'
+ADB server didn't ACK
+* failed to start daemon *
+error: cannot connect to daemon
+#+end_src
+
+Apparently not.
+
+I used to 'sudo adb devices', so some dangling files could have the bad permissions somehow.
+
+Indeed:
+
+#+begin_src sh
+# tony at corellia in ~ [11:38:13]
+$ ls -l /tmp/5037
+srwxr-xr-x 1 root root 0 Mar  6 00:11 /tmp/5037
+#+end_src
+
+So stop the server, remove this dangling file.
+#+begin_src sh
+sudo adb kill-server
+sudo rm /tmp/5037
+#+end_src
+
+* Enough already?
+
+Note: Don't forget to check on your phone for authorization popup (and accept).
+
+With oden on our side...
+#+begin_src sh
+# tony at corellia in ~ [11:42:13]
+$ adb devices
+List of devices attached
+7e0c8df5        device
+#+end_src
+
+Victory!
+
+So now:
+#+begin_src sh
+adb shell
+#+end_src
+
+Another adventure begins...
