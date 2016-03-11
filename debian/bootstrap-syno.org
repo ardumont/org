@@ -94,8 +94,8 @@ dpkg-reconfigure tzdata
 Now, install some must have packages:
 #+begin_src sh
 apt-get install openssh-server openssh-client rsync tmux less \
-  emacs24-nox mosh htop most uptimed mutt irssi vim unrar tig sudo git \
-  curl tree
+  emacs24-nox mosh htop most uptimed mutt irssi vim tig sudo git \
+  curl tree minidlna znc weechat pv pigz
 #+end_src
 
 Start some default services:
