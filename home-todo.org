@@ -632,7 +632,7 @@ CLOSED: [2013-07-31 mer. 13:19]
 ** TODO Enduit de rebouchage
 ** TODO Sous-couche
 ** TODO Peinture
-* IN-PROGRESS Escalier salon-1er [10/11]
+* DONE Escalier salon-1er [11/11]
 ** DONE Retirer le crepis
 ** DONE Enduit de lissage
 CLOSED: [2011-10-31 lun. 10:11]
@@ -652,8 +652,9 @@ CLOSED: [2013-08-03 sam. 22:22]
 CLOSED: [2014-11-04 Tue 20:16]
 ** DONE Enduit de rebouchage et lissage (encore)
 CLOSED: [2016-03-01 Tue 18:55]
-** IN-PROGRESS Poser le papier peint/Peindre
-chris et papy claude
+** DONE Poser le papier peint
+CLOSED: [2016-03-14 Mon 23:00]
+merci Chris et papy Claude
 * PENDING Salle d'eau [6/11]
 ** DONE Sous-couche cadre de porte
 CLOSED: [2013-07-30 mar. 21:51]
