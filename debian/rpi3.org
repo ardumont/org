@@ -1,0 +1,42 @@
+#+title: bootstrap raspberry pi 3 as nas
+#+author: ardumont
+
+* Default setup
+
+Now fetch the debian indexes and install the locales:
+#+begin_src sh
+apt-get update
+apt-get install locales
+dpkg-reconfigure locales
+#+end_src
+
+Reconfigure your timezone to get proper time:
+#+begin_src sh
+dpkg-reconfigure tzdata
+#+end_src
+
+
+* Apps
+
+#+begin_src sh
+sudo apt-get install locale zsh openssh-server openssh-client rsync tmux less \
+  emacs24-nox mosh htop most uptimed mutt irssi vim tig sudo git \
+  curl tree minidlna znc weechat pv pigz transmission transmission-cli transmission-daemon \
+#+end_src
+
+** user
+
+Change the default user's pass or create a new user with a strong pass.
+
+** sshd
+
+Edit the sshd option to:
+- remove connection through passwords
+- remove empty password authorization
+- use authorized_keys with public key
+
+** minidlna
+
+#+begin_src sh
+echo fs.inotify.max_user_watches=1000000 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+#+end_src
