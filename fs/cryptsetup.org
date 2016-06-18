@@ -1,0 +1,99 @@
+#+title: cryptsetup
+#+source: httpsx://gitlab.com/cryptsetup/cryptsetup/wikis/FrequentlyAskedQuestions
+
+* Create a cryptsetup disk
+
+#+BEGIN_SRC shell
+DEVICE=/dev/sdb
+# clean the previous signature on device
+sudo wipefs --all --backup $DEVICE
+# Format with luks (follow the interactive question, prepare some passphrase)
+sudo cryptsetup luksFormat $DEVICE
+# Create the /dev/mapper/c1 device
+sudo cryptsetup luksOpen $DEVICE c1
+# optionally as root
+pv /dev/zero > /dev/mapper/c1
+# create the fs on the mapped container
+sudo mkfs.ext4 -L backup /dev/mapper/c1
+#+END_SRC
+
+Output sample:
+#+BEGIN_SRC sh
+tony@machine $ DEVICE=/dev/sdb
+tony@machine $ sudo wipefs --all --backup $DEVICE
+[sudo] password for tony:
+/dev/sdb: 2 bytes were erased at offset 0x000001fe (dos): 55 aa
+/dev/sdb: calling ioctl to re-read partition table: Success
+tony@machine $ sudo cryptsetup luksFormat $DEVICE
+
+WARNING!
+========
+This will overwrite data on /dev/sdb irrevocably.
+
+Are you sure? (Type uppercase yes): YES
+Enter passphrase:
+Verify passphrase:
+tony@machine $ sudo cryptsetup luksOpen $DEVICE c2
+Enter passphrase for /dev/sdb:
+tony@machine $ file /dev/mapper/c2
+/dev/mapper/c2: symbolic link to ../dm-0
+
+tony@machine $ sudo mkfs.ext4 -L full-backup /dev/mapper/c2                                                                                                                                                                                   1 mke2fs 1.43-WIP (15-Mar-2016)
+Creating filesystem with 488369920 4k blocks and 122093568 inodes
+Filesystem UUID: 3d4ae36b-97ce-4f42-b846-f767ba71216d
+Superblock backups stored on blocks:
+        32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632, 2654208,
+        4096000, 7962624, 11239424, 20480000, 23887872, 71663616, 78675968,
+        102400000, 214990848
+
+Allocating group tables: done
+Writing inode tables: done
+Creating journal (32768 blocks): done
+Writing superblocks and filesystem accounting information: done
+
+tony@machine $ sudo parted /dev/sdb
+GNU Parted 3.2
+Using /dev/sdb
+Welcome to GNU Parted! Type 'help' to view a list of commands.
+(parted) p
+Error: /dev/sdb: unrecognised disk label
+Model: WD My Passport 0820 (scsi)
+Disk /dev/sdb: 2000GB
+Sector size (logical/physical): 512B/512B
+Partition Table: unknown
+Disk Flags:
+(parted)
+tony@machine $ sudo parted /dev/mapper/c2
+GNU Parted 3.2
+Using /dev/mapper/c2
+Welcome to GNU Parted! Type 'help' to view a list of commands.
+(parted) p
+Model: Linux device-mapper (crypt) (dm)
+Disk /dev/mapper/c2: 2000GB
+Sector size (logical/physical): 512B/512B
+Partition Table: loop
+Disk Flags:
+
+Number  Start  End     Size    File system  Flags
+ 1      0.00B  2000GB  2000GB  ext4
+
+(parted) q
+tony@machine $
+#+END_SRC
+
+* Mount a cryptsetup disk
+
+#+BEGIN_SRC sh
+DEVICE=/dev/sdb
+sudo mkdir -p /mnt/disk
+sudo cryptsetup luksOpen $DEVICE c1
+sudo mount /dev/mapper/c1 /mnt/disk
+#+END_SRC
+
+* Umount
+
+#+BEGIN_SRC sh
+DEVICE=/dev/sdb
+sudo umount /mnt/disk
+sudo cryptsetup luksClose c1
+#+END_SRC
