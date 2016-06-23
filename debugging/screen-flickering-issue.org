@@ -1,0 +1,495 @@
+#+title: Debugging issue on resume
+#+author: ardumont
+
+My latest issue unsolved for now is that my screen flickers With RGB
+vertical line noise on resume or unlock screen.  It's somehow
+screen/graphical card/xscreensaver/power management related.
+
+I don't think it's totally hardware related since I don't see the
+problem on tty.
+
+Well, i don't completely rule out the hardware issue.  Could it be the
+gpu?
+
+#+BEGIN_SRC sh
+$ lspci -k | grep -i -A4 vga
+00:02.0 VGA compatible controller: Intel Corporation Broadwell-U Integrated Graphics (rev 09)
+        DeviceName: 32
+        Subsystem: Hewlett-Packard Company ZBook 15u G2 Mobile Workstation
+        Kernel driver in use: i915
+        Kernel modules: i915
+#+END_SRC
+
+I don't know the detail of what is used in terms of hardware when in tty.
+Maybe the graphical card is not intensely used then, but when X is started, it is.
+
+Anyway, When i lock the screen or open the lid and resume use, my screen
+flickers with lots of screen noise (rgb vertical lines, kind of this
+https://bbs.archlinux.org/viewtopic.php?pid=1614883).
+
+Here is my attempt to find out what's wrong.
+
+Using the /var/log/kern.log file.
+
+* systemctl suspend
+
+No issue , kern.log
+#+BEGIN_SRC sh
+Jun 19 12:20:16 corellia kernel: [59389.268806] ACPI: Preparing to enter system sleep state S3
+Jun 19 12:20:16 corellia kernel: [59389.316508] ACPI : EC: EC stopped
+Jun 19 12:20:16 corellia kernel: [59389.316508] PM: Saving platform NVS memory
+Jun 19 12:20:16 corellia kernel: [59389.316513] Disabling non-boot CPUs ...
+Jun 19 12:20:16 corellia kernel: [59389.316704] Broke affinity for irq 42
+Jun 19 12:20:16 corellia kernel: [59389.316708] Broke affinity for irq 44
+Jun 19 12:20:16 corellia kernel: [59389.316712] Broke affinity for irq 47
+Jun 19 12:20:16 corellia kernel: [59389.316714] Broke affinity for irq 48
+Jun 19 12:20:16 corellia kernel: [59389.316718] Broke affinity for irq 52
+Jun 19 12:20:16 corellia kernel: [59389.317729] smpboot: CPU 1 is now offline
+Jun 19 12:20:16 corellia kernel: [59389.318220] Broke affinity for irq 42
+Jun 19 12:20:16 corellia kernel: [59389.318223] Broke affinity for irq 44
+Jun 19 12:20:16 corellia kernel: [59389.318228] Broke affinity for irq 47
+Jun 19 12:20:16 corellia kernel: [59389.318230] Broke affinity for irq 48
+Jun 19 12:20:16 corellia kernel: [59389.318234] Broke affinity for irq 52
+Jun 19 12:20:16 corellia kernel: [59389.319248] smpboot: CPU 2 is now offline
+Jun 19 12:20:16 corellia kernel: [59389.320577] Broke affinity for irq 1
+Jun 19 12:20:16 corellia kernel: [59389.320582] Broke affinity for irq 8
+Jun 19 12:20:16 corellia kernel: [59389.320586] Broke affinity for irq 9
+Jun 19 12:20:16 corellia kernel: [59389.320590] Broke affinity for irq 12
+Jun 19 12:20:16 corellia kernel: [59389.320594] Broke affinity for irq 17
+Jun 19 12:20:16 corellia kernel: [59389.320599] Broke affinity for irq 18
+Jun 19 12:20:16 corellia kernel: [59389.320603] Broke affinity for irq 39
+Jun 19 12:20:16 corellia kernel: [59389.320608] Broke affinity for irq 42
+Jun 19 12:20:16 corellia kernel: [59389.320612] Broke affinity for irq 43
+Jun 19 12:20:16 corellia kernel: [59389.320615] Broke affinity for irq 44
+Jun 19 12:20:16 corellia kernel: [59389.320623] Broke affinity for irq 47
+Jun 19 12:20:16 corellia kernel: [59389.320627] Broke affinity for irq 48
+Jun 19 12:20:16 corellia kernel: [59389.320632] Broke affinity for irq 51
+Jun 19 12:20:16 corellia kernel: [59389.320636] Broke affinity for irq 52
+Jun 19 12:20:16 corellia kernel: [59389.321662] smpboot: CPU 3 is now offline
+Jun 19 12:20:16 corellia kernel: [59389.325314] ACPI: Low-level resume complete
+Jun 19 12:20:16 corellia kernel: [59389.325389] ACPI : EC: EC started
+Jun 19 12:20:16 corellia kernel: [59389.325389] PM: Restoring platform NVS memory
+Jun 19 12:20:16 corellia kernel: [59389.325820] Enabling non-boot CPUs ...
+Jun 19 12:20:16 corellia kernel: [59389.325908] x86: Booting SMP configuration:
+Jun 19 12:20:16 corellia kernel: [59389.325909] smpboot: Booting Node 0 Processor 1 APIC 0x1
+Jun 19 12:20:16 corellia kernel: [59389.329172]  cache: parent cpu1 should not be sleeping
+Jun 19 12:20:16 corellia kernel: [59389.329385] CPU1 is up
+Jun 19 12:20:16 corellia kernel: [59389.329455] smpboot: Booting Node 0 Processor 2 APIC 0x2
+Jun 19 12:20:16 corellia kernel: [59389.332423]  cache: parent cpu2 should not be sleeping
+Jun 19 12:20:16 corellia kernel: [59389.332621] CPU2 is up
+Jun 19 12:20:16 corellia kernel: [59389.332676] smpboot: Booting Node 0 Processor 3 APIC 0x3
+Jun 19 12:20:16 corellia kernel: [59389.335673]  cache: parent cpu3 should not be sleeping
+Jun 19 12:20:16 corellia kernel: [59389.335941] CPU3 is up
+Jun 19 12:20:16 corellia kernel: [59389.346962] ACPI: Waking up from system sleep state S3
+Jun 19 12:20:16 corellia kernel: [59389.673615] acpi LNXPOWER:02: Turning OFF
+Jun 19 12:20:16 corellia kernel: [59389.673701] acpi LNXPOWER:01: Turning OFF
+Jun 19 12:20:16 corellia kernel: [59389.691410] ehci-pci 0000:00:1d.0: System wakeup disabled by ACPI
+Jun 19 12:20:16 corellia kernel: [59389.691466] xhci_hcd 0000:00:14.0: System wakeup disabled by ACPI
+Jun 19 12:20:16 corellia kernel: [59389.696012] PM: noirq resume of devices complete after 22.259 msecs
+Jun 19 12:20:16 corellia kernel: [59389.702063] PM: early resume of devices complete after 6.035 msecs
+Jun 19 12:20:16 corellia kernel: [59389.702153] usb usb2: root hub lost power or was reset
+Jun 19 12:20:16 corellia kernel: [59389.702156] usb usb3: root hub lost power or was reset
+Jun 19 12:20:16 corellia kernel: [59389.702301] e1000e 0000:00:19.0: System wakeup disabled by ACPI
+Jun 19 12:20:16 corellia kernel: [59389.703983] sd 1:0:0:0: [sda] Starting disk
+Jun 19 12:20:16 corellia kernel: [59389.916160] usb 3-3: reset SuperSpeed USB device number 2 using xhci_hcd
+Jun 19 12:20:16 corellia kernel: [59389.928062] usb 1-1: reset high-speed USB device number 2 using ehci-pci
+Jun 19 12:20:16 corellia kernel: [59390.044174] usb 2-3: reset high-speed USB device number 2 using xhci_hcd
+Jun 19 12:20:16 corellia kernel: [59390.064031] ata2: SATA link up 6.0 Gbps (SStatus 133 SControl 300)
+Jun 19 12:20:16 corellia kernel: [59390.081374] ata2.00: configured for UDMA/133
+Jun 19 12:20:16 corellia kernel: [59390.284130] usb 2-7: reset high-speed USB device number 7 using xhci_hcd
+Jun 19 12:20:16 corellia kernel: [59390.636255] usb 2-4: reset full-speed USB device number 3 using xhci_hcd
+Jun 19 12:20:16 corellia kernel: [59390.932314] usb 2-5: reset full-speed USB device number 5 using xhci_hcd
+Jun 19 12:20:16 corellia kernel: [59391.124878] rtc_cmos 00:02: System wakeup disabled by ACPI
+Jun 19 12:20:16 corellia kernel: [59391.232298] tpm_tis 00:05: TPM is disabled/deactivated (0x7)
+Jun 19 12:20:16 corellia kernel: [59391.238292] PM: resume of devices complete after 1536.030 msecs
+Jun 19 12:20:16 corellia kernel: [59391.238387] usb 2-4:1.0: rebind failed: -517
+Jun 19 12:20:16 corellia kernel: [59391.238392] usb 2-4:1.1: rebind failed: -517
+Jun 19 12:20:16 corellia kernel: [59391.238863] Restarting tasks ...
+Jun 19 12:20:16 corellia kernel: [59391.252847] acpi PNP0501:00: Still not present
+Jun 19 12:20:16 corellia kernel: [59391.256073] Bluetooth: hci0: read Intel version: 370810011002270d00
+Jun 19 12:20:16 corellia org.gnome.OnlineAccounts[3376]: (goa-daemon:12668): GoaBackend-WARNING **: secret_password_lookup_sync() returned NULL
+Jun 19 12:20:16 corellia kernel: [59391.266911] done.
+Jun 19 12:20:16 corellia kernel: [59391.266964] bluetooth hci0: firmware: direct-loading firmware intel/ibt-hw-37.8.10-fw-1.10.2.27.d.bseq
+Jun 19 12:20:16 corellia kernel: [59391.266968] Bluetooth: hci0: Intel Bluetooth firmware file: intel/ibt-hw-37.8.10-fw-1.10.2.27.d.bseq
+Jun 19 12:20:17 corellia gnome-session[2258]: Window manager warning: Failed to set power save mode for output eDP37: Permission denied
+Jun 19 12:20:17 corellia kernel: [59391.502090] Bluetooth: hci0: Intel Bluetooth firmware patch completed and activated
+Jun 19 12:20:17 corellia NetworkManager[881]: <info>  [1466331617.1730] manager: wake requested (sleeping: yes  enabled: yes)
+Jun 19 12:20:17 corellia NetworkManager[881]: <info>  [1466331617.1730] manager: waking up...
+Jun 19 12:20:17 corellia NetworkManager[881]: <info>  [1466331617.1731] device (eth0): state change: unavailable -> unmanaged (reason 'sleeping') [20 10 37]
+Jun 19 12:20:17 corellia NetworkManager[881]: <info>  [1466331617.2711] device (wlan0): state change: unmanaged -> unavailable (reason 'managed') [10 20 2]
+Jun 19 12:20:17 corellia kernel: [59391.596770] e1000e: eth0 NIC Link is Down
+Jun 19 12:20:17 corellia kernel: [59391.597325] IPv6: ADDRCONF(NETDEV_UP): wlan0: link is not ready
+Jun 19 12:20:17 corellia kernel: [59391.597792] iwlwifi 0000:03:00.0: L1 Enabled - LTR Enabled
+Jun 19 12:20:17 corellia kernel: [59391.598243] iwlwifi 0000:03:00.0: L1 Enabled - LTR Enabled
+Jun 19 12:20:17 corellia kernel: [59391.656944] iwlwifi 0000:03:00.0: L1 Enabled - LTR Enabled
+Jun 19 12:20:17 corellia kernel: [59391.657442] iwlwifi 0000:03:00.0: L1 Enabled - LTR Enabled
+Jun 19 12:20:17 corellia NetworkManager[881]: <info>  [1466331617.3509] device (eth0): state change: unmanaged -> unavailable (reason 'managed') [10 20 2]
+Jun 19 12:20:17 corellia kernel: [59391.676333] IPv6: ADDRCONF(NETDEV_UP): wlan0: link is not ready
+Jun 19 12:20:17 corellia kernel: [59391.677451] IPv6: ADDRCONF(NETDEV_UP): eth0: link is not ready
+Jun 19 12:20:17 corellia NetworkManager[881]: <info>  [1466331617.5470] manager: NetworkManager state is now CONNECTED_LOCAL
+Jun 19 12:20:17 corellia kernel: [59391.872422] IPv6: ADDRCONF(NETDEV_UP): eth0: link is not ready
+Jun 19 12:20:17 corellia NetworkManager[881]: <info>  [1466331617.5830] sup-iface[0x1aefac0,wlan0]: supports 5 scan SSIDs
+Jun 19 12:20:17 corellia NetworkManager[881]: <info>  [1466331617.5839] device (wlan0): supplicant interface state: starting -> ready
+Jun 19 12:20:17 corellia NetworkManager[881]: <info>  [1466331617.5840] device (wlan0): state change: unavailable -> disconnected (reason 'supplicant-available') [20 30 42]
+Jun 19 12:20:17 corellia kernel: [59391.910256] IPv6: ADDRCONF(NETDEV_UP): wlan0: link is not ready
+Jun 19 12:20:18 corellia kernel: [59392.601920] psmouse serio3: synaptics: queried max coordinates: x [..5668], y [..4762]
+Jun 19 12:20:18 corellia kernel: [59392.635662] psmouse serio3: synaptics: queried min coordinates: x [1360..], y [1160..]
+Jun 19 12:20:18 corellia org.gnome.OnlineAccounts[3376]: (goa-daemon:12668): GoaBackend-WARNING **: secret_password_lookup_sync() returned NULL
+Jun 19 12:20:20 corellia NetworkManager[881]: <info>  [1466331620.9563] device (wlan0): supplicant interface state: ready -> inactive
+Jun 19 12:20:20 corellia NetworkManager[881]: <info>  [1466331620.9588] policy: auto-activating connection 'tatooine'
+Jun 19 12:20:20 corellia NetworkManager[881]: <info>  [1466331620.9595] device (wlan0): Activation: starting connection 'tatooine' (7c1ce125-7e64-4be0-9717-9bbc021a26d5)
+Jun 19 12:20:20 corellia NetworkManager[881]: <info>  [1466331620.9596] device (wlan0): state change: disconnected -> prepare (reason 'none') [30 40 0]
+Jun 19 12:20:20 corellia NetworkManager[881]: <info>  [1466331620.9597] manager: NetworkManager state is now CONNECTING
+Jun 19 12:20:20 corellia NetworkManager[881]: <info>  [1466331620.9601] device (wlan0): state change: prepare -> config (reason 'none') [40 50 0]
+Jun 19 12:20:20 corellia NetworkManager[881]: <info>  [1466331620.9602] device (wlan0): Activation: (wifi) access point 'tatooine' has security, but secrets are required.
+Jun 19 12:20:20 corellia NetworkManager[881]: <info>  [1466331620.9602] device (wlan0): state change: config -> need-auth (reason 'none') [50 60 0]
+Jun 19 12:20:20 corellia NetworkManager[881]: <info>  [1466331620.9628] device (wlan0): state change: need-auth -> prepare (reason 'none') [60 40 0]
+Jun 19 12:20:20 corellia NetworkManager[881]: <info>  [1466331620.9631] device (wlan0): state change: prepare -> config (reason 'none') [40 50 0]
+Jun 19 12:20:20 corellia NetworkManager[881]: <info>  [1466331620.9632] device (wlan0): Activation: (wifi) connection 'tatooine' has security, and secrets exist.  No new secrets needed.
+Jun 19 12:20:20 corellia NetworkManager[881]: <info>  [1466331620.9632] Config: added 'ssid' value 'tatooine'
+Jun 19 12:20:20 corellia NetworkManager[881]: <info>  [1466331620.9632] Config: added 'scan_ssid' value '1'
+Jun 19 12:20:20 corellia NetworkManager[881]: <info>  [1466331620.9632] Config: added 'key_mgmt' value 'WPA-PSK'
+Jun 19 12:20:20 corellia NetworkManager[881]: <info>  [1466331620.9632] Config: added 'psk' value '<omitted>'
+Jun 19 12:20:20 corellia NetworkManager[881]: <info>  [1466331620.9902] sup-iface[0x1aefac0,wlan0]: config: set interface ap_scan to 1
+Jun 19 12:20:21 corellia kernel: [59395.328767] wlan0: authenticate with 00:24:d4:5b:15:fc
+Jun 19 12:20:21 corellia NetworkManager[881]: <info>  [1466331621.0084] device (wlan0): supplicant interface state: inactive -> authenticating
+Jun 19 12:20:21 corellia kernel: [59395.333900] wlan0: send auth to 00:24:d4:5b:15:fc (try 1/3)
+Jun 19 12:20:21 corellia kernel: [59395.335916] wlan0: authenticated
+Jun 19 12:20:21 corellia kernel: [59395.336565] wlan0: associate with 00:24:d4:5b:15:fc (try 1/3)
+Jun 19 12:20:21 corellia kernel: [59395.340279] wlan0: RX AssocResp from 00:24:d4:5b:15:fc (capab=0x411 status=0 aid=1)
+Jun 19 12:20:21 corellia NetworkManager[881]: <info>  [1466331621.0151] device (wlan0): supplicant interface state: authenticating -> associating
+Jun 19 12:20:21 corellia kernel: [59395.341796] wlan0: associated
+Jun 19 12:20:21 corellia kernel: [59395.341831] IPv6: ADDRCONF(NETDEV_CHANGE): wlan0: link becomes ready
+Jun 19 12:20:21 corellia NetworkManager[881]: <info>  [1466331621.0213] device (wlan0): supplicant interface state: associating -> 4-way handshake
+Jun 19 12:20:21 corellia NetworkManager[881]: <info>  [1466331621.0304] device (wlan0): supplicant interface state: 4-way handshake -> completed
+Jun 19 12:20:21 corellia NetworkManager[881]: <info>  [1466331621.0305] device (wlan0): Activation: (wifi) Stage 2 of 5 (Device Configure) successful.  Connected to wireless network 'tatooine'.
+Jun 19 12:20:21 corellia NetworkManager[881]: <info>  [1466331621.0306] device (wlan0): state change: config -> ip-config (reason 'none') [50 70 0]
+Jun 19 12:20:21 corellia NetworkManager[881]: <info>  [1466331621.0310] dhcp4 (wlan0): activation: beginning transaction (timeout in 45 seconds)
+Jun 19 12:20:21 corellia NetworkManager[881]: <info>  [1466331621.0330] dhcp4 (wlan0): dhclient started with pid 13615
+Jun 19 12:20:21 corellia NetworkManager[881]: <info>  [1466331621.0818]   address 192.168.0.12
+Jun 19 12:20:21 corellia NetworkManager[881]: <info>  [1466331621.0818]   plen 24 (255.255.255.0)
+Jun 19 12:20:21 corellia NetworkManager[881]: <info>  [1466331621.0818]   gateway 192.168.0.254
+Jun 19 12:20:21 corellia NetworkManager[881]: <info>  [1466331621.0818]   server identifier 192.168.0.254
+Jun 19 12:20:21 corellia NetworkManager[881]: <info>  [1466331621.0818]   lease time 43200
+Jun 19 12:20:21 corellia NetworkManager[881]: <info>  [1466331621.0819]   nameserver '192.168.0.254'
+Jun 19 12:20:21 corellia NetworkManager[881]: <info>  [1466331621.0819]   nameserver '192.168.0.29'
+Jun 19 12:20:21 corellia NetworkManager[881]: <info>  [1466331621.0819] dhcp4 (wlan0): state changed unknown -> bound
+Jun 19 12:20:21 corellia NetworkManager[881]: <info>  [1466331621.0842] device (wlan0): state change: ip-config -> ip-check (reason 'none') [70 80 0]
+Jun 19 12:20:21 corellia NetworkManager[881]: <info>  [1466331621.0846] device (wlan0): state change: ip-check -> secondaries (reason 'none') [80 90 0]
+Jun 19 12:20:21 corellia NetworkManager[881]: <info>  [1466331621.0849] device (wlan0): state change: secondaries -> activated (reason 'none') [90 100 0]
+Jun 19 12:20:21 corellia NetworkManager[881]: <info>  [1466331621.0850] manager: NetworkManager state is now CONNECTED_LOCAL
+Jun 19 12:20:21 corellia NetworkManager[881]: <info>  [1466331621.0976] manager: NetworkManager state is now CONNECTED_GLOBAL
+Jun 19 12:20:21 corellia NetworkManager[881]: <info>  [1466331621.0977] policy: set 'tatooine' (wlan0) as default for IPv4 routing and DNS
+Jun 19 12:20:21 corellia NetworkManager[881]: <info>  [1466331621.0979] device (wlan0): Activation: successful, device activated.
+Jun 19 12:20:24 corellia org.gnome.OnlineAccounts[3376]: (goa-daemon:12668): GoaBackend-WARNING **: secret_password_lookup_sync() returned NULL
+#+END_SRC
+
+
+This attracted my eyes:
+#+BEGIN_SRC sh
+Jun 19 12:20:17 corellia gnome-session[2258]: Window manager warning: Failed to set power save mode for output eDP37: Permission denied
+#+END_SRC
+
+Reason:
+eDP37 looks like the identifier of my screen when i use xrandr
+eDP1 (it seems to be graphical related)
+
+* lock screen
+
+No issue
+
+* close lid
+
+No screensaver running.
+The issue takes place.
+
+#+BEGIN_SRC sh
+Jun 19 12:23:31 corellia kernel: [59585.165646] atkbd serio0: Unknown key pressed (translated set 2, code 0x85 on isa0060/serio0).
+Jun 19 12:23:31 corellia kernel: [59585.165649] atkbd serio0: Use 'setkeycodes e005 <keycode>' to make it known.
+Jun 19 12:23:31 corellia gnome-session[2258]: Window manager warning: Failed to read EDID of output eDP37: No such file or directory
+Jun 19 12:23:31 corellia NetworkManager[881]: <info>  [1466331811.3592] manager: sleep requested (sleeping: no  enabled: yes)
+Jun 19 12:23:31 corellia NetworkManager[881]: <info>  [1466331811.3592] manager: sleeping...
+Jun 19 12:23:31 corellia NetworkManager[881]: <info>  [1466331811.3593] device (wlan0): state change: activated -> unmanaged (reason 'sleeping') [100 10 37]
+Jun 19 12:23:31 corellia gnome-session[2258]: Window manager warning: Failed to set power save mode for output eDP37: Permission denied
+Jun 19 12:23:31 corellia NetworkManager[881]: <info>  [1466331811.3755] dhcp4 (wlan0): canceled DHCP transaction, DHCP client pid 13615
+Jun 19 12:23:31 corellia NetworkManager[881]: <info>  [1466331811.3755] dhcp4 (wlan0): state changed bound -> done
+Jun 19 12:23:31 corellia NetworkManager[881]: <info>  [1466331811.3785] manager: NetworkManager state is now ASLEEP
+Jun 19 12:23:31 corellia kernel: [59585.193184] wlan0: deauthenticating from 00:24:d4:5b:15:fc by local choice (Reason: 3=DEAUTH_LEAVING)
+Jun 19 12:23:59 corellia kernel: [59585.246080] PM: Syncing filesystems ... done.
+Jun 19 12:23:59 corellia kernel: [59585.488458] (NULL device *): firmware: direct-loading firmware iwlwifi-7265-16.ucode
+Jun 19 12:23:59 corellia kernel: [59585.488480] (NULL device *): firmware: direct-loading firmware intel/ibt-hw-37.8.10-fw-1.10.2.27.d.bseq
+Jun 19 12:23:59 corellia kernel: [59585.488486] Freezing user space processes ... (elapsed 0.001 seconds) done.
+Jun 19 12:23:59 corellia kernel: [59585.490101] Freezing remaining freezable tasks ... (elapsed 0.001 seconds) done.
+Jun 19 12:23:59 corellia kernel: [59585.491398] Suspending console(s) (use no_console_suspend to debug)
+Jun 19 12:23:59 corellia kernel: [59585.491774] sd 1:0:0:0: [sda] Synchronizing SCSI cache
+Jun 19 12:23:59 corellia kernel: [59585.496520] sd 1:0:0:0: [sda] Stopping disk
+Jun 19 12:23:59 corellia kernel: [59585.693311] e1000e: EEE TX LPI TIMER: 00000011
+Jun 19 12:23:59 corellia kernel: [59585.976257] PM: suspend of devices complete after 484.638 msecs
+Jun 19 12:23:59 corellia kernel: [59585.996948] PM: late suspend of devices complete after 20.684 msecs
+Jun 19 12:23:59 corellia kernel: [59585.999001] ehci-pci 0000:00:1d.0: System wakeup enabled by ACPI
+Jun 19 12:23:59 corellia kernel: [59585.999089] e1000e 0000:00:19.0: System wakeup enabled by ACPI
+Jun 19 12:23:59 corellia kernel: [59585.999178] xhci_hcd 0000:00:14.0: System wakeup enabled by ACPI
+Jun 19 12:23:59 corellia kernel: [59586.032882] PM: noirq suspend of devices complete after 35.924 msecs
+Jun 19 12:23:59 corellia kernel: [59586.033240] ACPI: Preparing to enter system sleep state S3
+Jun 19 12:23:59 corellia kernel: [59586.080927] ACPI : EC: EC stopped
+Jun 19 12:23:59 corellia kernel: [59586.080927] PM: Saving platform NVS memory
+Jun 19 12:23:59 corellia kernel: [59586.080932] Disabling non-boot CPUs ...
+Jun 19 12:23:59 corellia kernel: [59586.081132] Broke affinity for irq 42
+Jun 19 12:23:59 corellia kernel: [59586.081136] Broke affinity for irq 44
+Jun 19 12:23:59 corellia kernel: [59586.081141] Broke affinity for irq 47
+Jun 19 12:23:59 corellia kernel: [59586.081143] Broke affinity for irq 48
+Jun 19 12:23:59 corellia kernel: [59586.081147] Broke affinity for irq 52
+Jun 19 12:23:59 corellia kernel: [59586.082515] smpboot: CPU 1 is now offline
+Jun 19 12:23:59 corellia kernel: [59586.083020] Broke affinity for irq 42
+Jun 19 12:23:59 corellia kernel: [59586.083025] Broke affinity for irq 44
+Jun 19 12:23:59 corellia kernel: [59586.083030] Broke affinity for irq 47
+Jun 19 12:23:59 corellia kernel: [59586.083032] Broke affinity for irq 48
+Jun 19 12:23:59 corellia kernel: [59586.083037] Broke affinity for irq 52
+Jun 19 12:23:59 corellia kernel: [59586.084049] smpboot: CPU 2 is now offline
+Jun 19 12:23:59 corellia kernel: [59586.084738] Broke affinity for irq 1
+Jun 19 12:23:59 corellia kernel: [59586.084743] Broke affinity for irq 8
+Jun 19 12:23:59 corellia kernel: [59586.084747] Broke affinity for irq 9
+Jun 19 12:23:59 corellia kernel: [59586.084751] Broke affinity for irq 12
+Jun 19 12:23:59 corellia kernel: [59586.084755] Broke affinity for irq 17
+Jun 19 12:23:59 corellia kernel: [59586.084760] Broke affinity for irq 18
+Jun 19 12:23:59 corellia kernel: [59586.084765] Broke affinity for irq 39
+Jun 19 12:23:59 corellia kernel: [59586.084769] Broke affinity for irq 42
+Jun 19 12:23:59 corellia kernel: [59586.084773] Broke affinity for irq 43
+Jun 19 12:23:59 corellia kernel: [59586.084777] Broke affinity for irq 44
+Jun 19 12:23:59 corellia kernel: [59586.084785] Broke affinity for irq 47
+Jun 19 12:23:59 corellia kernel: [59586.084789] Broke affinity for irq 48
+Jun 19 12:23:59 corellia kernel: [59586.084794] Broke affinity for irq 51
+Jun 19 12:23:59 corellia kernel: [59586.084798] Broke affinity for irq 52
+Jun 19 12:23:59 corellia kernel: [59586.085844] smpboot: CPU 3 is now offline
+Jun 19 12:23:59 corellia kernel: [59586.089613] ACPI: Low-level resume complete
+Jun 19 12:23:59 corellia kernel: [59586.089691] ACPI : EC: EC started
+Jun 19 12:23:59 corellia kernel: [59586.089692] PM: Restoring platform NVS memory
+Jun 19 12:23:59 corellia kernel: [59586.090120] Enabling non-boot CPUs ...
+Jun 19 12:23:59 corellia kernel: [59586.090217] x86: Booting SMP configuration:
+Jun 19 12:23:59 corellia kernel: [59586.090218] smpboot: Booting Node 0 Processor 1 APIC 0x1
+Jun 19 12:23:59 corellia kernel: [59586.093580]  cache: parent cpu1 should not be sleeping
+Jun 19 12:23:59 corellia kernel: [59586.093814] CPU1 is up
+Jun 19 12:23:59 corellia kernel: [59586.093885] smpboot: Booting Node 0 Processor 2 APIC 0x2
+Jun 19 12:23:59 corellia kernel: [59586.096959]  cache: parent cpu2 should not be sleeping
+Jun 19 12:23:59 corellia kernel: [59586.097156] CPU2 is up
+Jun 19 12:23:59 corellia kernel: [59586.097210] smpboot: Booting Node 0 Processor 3 APIC 0x3
+Jun 19 12:23:59 corellia kernel: [59586.100260]  cache: parent cpu3 should not be sleeping
+Jun 19 12:23:59 corellia kernel: [59586.100437] CPU3 is up
+Jun 19 12:23:59 corellia kernel: [59586.106072] ACPI: Waking up from system sleep state S3
+Jun 19 12:23:59 corellia kernel: [59586.433563] acpi LNXPOWER:02: Turning OFF
+Jun 19 12:23:59 corellia kernel: [59586.433614] acpi LNXPOWER:01: Turning OFF
+Jun 19 12:23:59 corellia kernel: [59586.450494] ehci-pci 0000:00:1d.0: System wakeup disabled by ACPI
+Jun 19 12:23:59 corellia kernel: [59586.451149] xhci_hcd 0000:00:14.0: System wakeup disabled by ACPI
+Jun 19 12:23:59 corellia kernel: [59586.452641] PM: noirq resume of devices complete after 18.991 msecs
+Jun 19 12:23:59 corellia kernel: [59586.458686] PM: early resume of devices complete after 6.028 msecs
+Jun 19 12:23:59 corellia kernel: [59586.458791] usb usb2: root hub lost power or was reset
+Jun 19 12:23:59 corellia kernel: [59586.458793] usb usb3: root hub lost power or was reset
+Jun 19 12:23:59 corellia kernel: [59586.459706] e1000e 0000:00:19.0: System wakeup disabled by ACPI
+Jun 19 12:23:59 corellia kernel: [59586.464608] sd 1:0:0:0: [sda] Starting disk
+Jun 19 12:23:59 corellia kernel: [59586.684735] usb 1-1: reset high-speed USB device number 2 using ehci-pci
+Jun 19 12:23:59 corellia kernel: [59586.780802] usb 3-3: reset SuperSpeed USB device number 2 using xhci_hcd
+Jun 19 12:23:59 corellia kernel: [59586.828766] ata2: SATA link up 6.0 Gbps (SStatus 133 SControl 300)
+Jun 19 12:23:59 corellia kernel: [59586.846539] ata2.00: configured for UDMA/133
+Jun 19 12:23:59 corellia kernel: [59586.908844] usb 2-4: reset full-speed USB device number 3 using xhci_hcd
+Jun 19 12:23:59 corellia kernel: [59587.148863] usb 2-3: reset high-speed USB device number 2 using xhci_hcd
+Jun 19 12:23:59 corellia kernel: [59587.388860] usb 2-7: reset high-speed USB device number 7 using xhci_hcd
+Jun 19 12:23:59 corellia kernel: [59587.684980] usb 2-5: reset full-speed USB device number 5 using xhci_hcd
+Jun 19 12:23:59 corellia kernel: [59587.893630] rtc_cmos 00:02: System wakeup disabled by ACPI
+Jun 19 12:23:59 corellia kernel: [59588.000981] tpm_tis 00:05: TPM is disabled/deactivated (0x7)
+Jun 19 12:23:59 corellia kernel: [59588.004338] PM: resume of devices complete after 1545.323 msecs
+Jun 19 12:23:59 corellia kernel: [59588.004387] usb 2-4:1.0: rebind failed: -517
+Jun 19 12:23:59 corellia kernel: [59588.004389] usb 2-4:1.1: rebind failed: -517
+Jun 19 12:23:59 corellia kernel: [59588.004617] Restarting tasks ...
+Jun 19 12:23:59 corellia kernel: [59588.004734] acpi PNP0501:00: Still not present
+Jun 19 12:23:59 corellia org.gnome.OnlineAccounts[3376]: (goa-daemon:12668): GoaBackend-WARNING **: secret_password_lookup_sync() returned NULL
+Jun 19 12:23:59 corellia kernel: [59588.042195] done.
+Jun 19 12:23:59 corellia kernel: [59588.045466] Bluetooth: hci0: read Intel version: 370810011002270d00
+Jun 19 12:23:59 corellia kernel: [59588.045472] Bluetooth: hci0: Intel Bluetooth firmware file: intel/ibt-hw-37.8.10-fw-1.10.2.27.d.bseq
+Jun 19 12:24:00 corellia gnome-session[2258]: Window manager warning: Failed to set power save mode for output eDP37: Permission denied
+Jun 19 12:24:00 corellia NetworkManager[881]: <info>  [1466331840.1745] manager: wake requested (sleeping: yes  enabled: yes)
+Jun 19 12:24:00 corellia NetworkManager[881]: <info>  [1466331840.1745] manager: waking up...
+Jun 19 12:24:00 corellia NetworkManager[881]: <info>  [1466331840.1746] device (eth0): state change: unavailable -> unmanaged (reason 'sleeping') [20 10 37]
+Jun 19 12:24:00 corellia kernel: [59588.277474] Bluetooth: hci0: Intel Bluetooth firmware patch completed and activated
+Jun 19 12:24:00 corellia NetworkManager[881]: <info>  [1466331840.2734] device (wlan0): state change: unmanaged -> unavailable (reason 'managed') [10 20 2]
+Jun 19 12:24:00 corellia kernel: [59588.363460] e1000e: eth0 NIC Link is Down
+Jun 19 12:24:00 corellia kernel: [59588.364126] IPv6: ADDRCONF(NETDEV_UP): wlan0: link is not ready
+Jun 19 12:24:00 corellia kernel: [59588.364733] iwlwifi 0000:03:00.0: L1 Enabled - LTR Enabled
+Jun 19 12:24:00 corellia kernel: [59588.365274] iwlwifi 0000:03:00.0: L1 Enabled - LTR Enabled
+Jun 19 12:24:00 corellia kernel: [59588.423888] iwlwifi 0000:03:00.0: L1 Enabled - LTR Enabled
+Jun 19 12:24:00 corellia kernel: [59588.424493] iwlwifi 0000:03:00.0: L1 Enabled - LTR Enabled
+Jun 19 12:24:00 corellia kernel: [59588.440373] IPv6: ADDRCONF(NETDEV_UP): wlan0: link is not ready
+Jun 19 12:24:00 corellia kernel: [59588.444908] IPv6: ADDRCONF(NETDEV_UP): eth0: link is not ready
+Jun 19 12:24:00 corellia NetworkManager[881]: <info>  [1466331840.3538] device (eth0): state change: unmanaged -> unavailable (reason 'managed') [10 20 2]
+Jun 19 12:24:00 corellia NetworkManager[881]: <info>  [1466331840.5633] manager: NetworkManager state is now CONNECTED_LOCAL
+Jun 19 12:24:00 corellia kernel: [59588.653231] IPv6: ADDRCONF(NETDEV_UP): eth0: link is not ready
+Jun 19 12:24:00 corellia NetworkManager[881]: <info>  [1466331840.6231] sup-iface[0x1a85950,wlan0]: supports 5 scan SSIDs
+Jun 19 12:24:00 corellia NetworkManager[881]: <info>  [1466331840.6243] device (wlan0): supplicant interface state: starting -> ready
+Jun 19 12:24:00 corellia NetworkManager[881]: <info>  [1466331840.6243] device (wlan0): state change: unavailable -> disconnected (reason 'supplicant-available') [20 30 42]
+Jun 19 12:24:00 corellia kernel: [59588.715150] IPv6: ADDRCONF(NETDEV_UP): wlan0: link is not ready
+Jun 19 12:24:00 corellia org.gnome.OnlineAccounts[3376]: (goa-daemon:12668): GoaBackend-WARNING **: secret_password_lookup_sync() returned NULL
+Jun 19 12:24:01 corellia kernel: [59589.408380] psmouse serio3: synaptics: queried max coordinates: x [..5668], y [..4762]
+Jun 19 12:24:01 corellia kernel: [59589.441296] psmouse serio3: synaptics: queried min coordinates: x [1360..], y [1160..]
+Jun 19 12:24:03 corellia NetworkManager[881]: <info>  [1466331843.9910] device (wlan0): supplicant interface state: ready -> inactive
+Jun 19 12:24:03 corellia NetworkManager[881]: <info>  [1466331843.9913] policy: auto-activating connection 'tatooine'
+Jun 19 12:24:03 corellia NetworkManager[881]: <info>  [1466331843.9921] device (wlan0): Activation: starting connection 'tatooine' (7c1ce125-7e64-4be0-9717-9bbc021a26d5)
+Jun 19 12:24:03 corellia NetworkManager[881]: <info>  [1466331843.9922] device (wlan0): state change: disconnected -> prepare (reason 'none') [30 40 0]
+Jun 19 12:24:03 corellia NetworkManager[881]: <info>  [1466331843.9924] manager: NetworkManager state is now CONNECTING
+Jun 19 12:24:03 corellia NetworkManager[881]: <info>  [1466331843.9929] device (wlan0): state change: prepare -> config (reason 'none') [40 50 0]
+Jun 19 12:24:03 corellia NetworkManager[881]: <info>  [1466331843.9931] device (wlan0): Activation: (wifi) access point 'tatooine' has security, but secrets are required.
+Jun 19 12:24:03 corellia NetworkManager[881]: <info>  [1466331843.9931] device (wlan0): state change: config -> need-auth (reason 'none') [50 60 0]
+Jun 19 12:24:04 corellia NetworkManager[881]: <info>  [1466331844.0134] device (wlan0): state change: need-auth -> prepare (reason 'none') [60 40 0]
+Jun 19 12:24:04 corellia NetworkManager[881]: <info>  [1466331844.0144] device (wlan0): state change: prepare -> config (reason 'none') [40 50 0]
+Jun 19 12:24:04 corellia NetworkManager[881]: <info>  [1466331844.0153] device (wlan0): Activation: (wifi) connection 'tatooine' has security, and secrets exist.  No new secrets needed.
+Jun 19 12:24:04 corellia NetworkManager[881]: <info>  [1466331844.0160] Config: added 'ssid' value 'tatooine'
+Jun 19 12:24:04 corellia NetworkManager[881]: <info>  [1466331844.0165] Config: added 'scan_ssid' value '1'
+Jun 19 12:24:04 corellia NetworkManager[881]: <info>  [1466331844.0171] Config: added 'key_mgmt' value 'WPA-PSK'
+Jun 19 12:24:04 corellia NetworkManager[881]: <info>  [1466331844.0177] Config: added 'psk' value '<omitted>'
+Jun 19 12:24:04 corellia NetworkManager[881]: <info>  [1466331844.0251] sup-iface[0x1a85950,wlan0]: config: set interface ap_scan to 1
+Jun 19 12:24:04 corellia kernel: [59592.124811] wlan0: authenticate with 00:24:d4:5b:15:fc
+Jun 19 12:24:04 corellia kernel: [59592.129410] wlan0: send auth to 00:24:d4:5b:15:fc (try 1/3)
+Jun 19 12:24:04 corellia NetworkManager[881]: <info>  [1466331844.0397] device (wlan0): supplicant interface state: inactive -> authenticating
+Jun 19 12:24:04 corellia kernel: [59592.131348] wlan0: authenticated
+Jun 19 12:24:04 corellia kernel: [59592.133852] wlan0: associate with 00:24:d4:5b:15:fc (try 1/3)
+Jun 19 12:24:04 corellia kernel: [59592.137564] wlan0: RX AssocResp from 00:24:d4:5b:15:fc (capab=0x411 status=0 aid=1)
+Jun 19 12:24:04 corellia NetworkManager[881]: <info>  [1466331844.0470] device (wlan0): supplicant interface state: authenticating -> associating
+Jun 19 12:24:04 corellia kernel: [59592.138886] wlan0: associated
+Jun 19 12:24:04 corellia kernel: [59592.138917] IPv6: ADDRCONF(NETDEV_CHANGE): wlan0: link becomes ready
+Jun 19 12:24:04 corellia NetworkManager[881]: <info>  [1466331844.0534] device (wlan0): supplicant interface state: associating -> 4-way handshake
+Jun 19 12:24:04 corellia NetworkManager[881]: <info>  [1466331844.0621] device (wlan0): supplicant interface state: 4-way handshake -> completed
+Jun 19 12:24:04 corellia NetworkManager[881]: <info>  [1466331844.0621] device (wlan0): Activation: (wifi) Stage 2 of 5 (Device Configure) successful.  Connected to wireless network 'tatooine'.
+Jun 19 12:24:04 corellia NetworkManager[881]: <info>  [1466331844.0622] device (wlan0): state change: config -> ip-config (reason 'none') [50 70 0]
+Jun 19 12:24:04 corellia NetworkManager[881]: <info>  [1466331844.0626] dhcp4 (wlan0): activation: beginning transaction (timeout in 45 seconds)
+Jun 19 12:24:04 corellia NetworkManager[881]: <info>  [1466331844.0643] dhcp4 (wlan0): dhclient started with pid 15711
+Jun 19 12:24:04 corellia NetworkManager[881]: <info>  [1466331844.0978]   address 192.168.0.12
+Jun 19 12:24:04 corellia NetworkManager[881]: <info>  [1466331844.0978]   plen 24 (255.255.255.0)
+Jun 19 12:24:04 corellia NetworkManager[881]: <info>  [1466331844.0978]   gateway 192.168.0.254
+Jun 19 12:24:04 corellia NetworkManager[881]: <info>  [1466331844.0978]   server identifier 192.168.0.254
+Jun 19 12:24:04 corellia NetworkManager[881]: <info>  [1466331844.0978]   lease time 43200
+Jun 19 12:24:04 corellia NetworkManager[881]: <info>  [1466331844.0978]   nameserver '192.168.0.254'
+Jun 19 12:24:04 corellia NetworkManager[881]: <info>  [1466331844.0979]   nameserver '192.168.0.29'
+Jun 19 12:24:04 corellia NetworkManager[881]: <info>  [1466331844.0979] dhcp4 (wlan0): state changed unknown -> bound
+Jun 19 12:24:04 corellia NetworkManager[881]: <info>  [1466331844.0997] device (wlan0): state change: ip-config -> ip-check (reason 'none') [70 80 0]
+Jun 19 12:24:04 corellia NetworkManager[881]: <info>  [1466331844.1001] device (wlan0): state change: ip-check -> secondaries (reason 'none') [80 90 0]
+Jun 19 12:24:04 corellia NetworkManager[881]: <info>  [1466331844.1004] device (wlan0): state change: secondaries -> activated (reason 'none') [90 100 0]
+Jun 19 12:24:04 corellia NetworkManager[881]: <info>  [1466331844.1005] manager: NetworkManager state is now CONNECTED_LOCAL
+Jun 19 12:24:04 corellia NetworkManager[881]: <info>  [1466331844.1193] manager: NetworkManager state is now CONNECTED_GLOBAL
+Jun 19 12:24:04 corellia NetworkManager[881]: <info>  [1466331844.1194] policy: set 'tatooine' (wlan0) as default for IPv4 routing and DNS
+Jun 19 12:24:04 corellia NetworkManager[881]: <info>  [1466331844.1196] device (wlan0): Activation: successful, device activated.
+Jun 19 12:24:08 corellia org.gnome.OnlineAccounts[3376]: (goa-daemon:12668): GoaBackend-WARNING **: secret_password_lookup_sync() returned NULL
+
+#+END_SRC
+
+Again with eDP37:
+#+BEGIN_SRC sh
+Jun 19 12:23:31 corellia gnome-session[2258]: Window manager warning: Failed to read EDID of output eDP37: No such file or directory
+Jun 19 12:23:31 corellia gnome-session[2258]: Window manager warning: Failed to set power save mode for output eDP37: Permission denied
+Jun 19 12:24:00 corellia gnome-session[2258]: Window manager warning: Failed to set power save mode for output eDP37: Permission denied
+#+END_SRC
+
+EDID: Extended Display Identification Data
+
+* Stabilize screen
+
+Don't know why yet but:
+- C-M-F1 to switch to tty1 (any other works)
+- C-M-F7 to come back to gdm authentication screen
+-
+
+#+BEGIN_SRC sh
+Jun 19 12:26:37 corellia /usr/lib/gdm3/gdm-x-session[3366]: (**) Option "fd" "53"
+Jun 19 12:26:37 corellia /usr/lib/gdm3/gdm-x-session[3366]: (**) Option "fd" "51"
+Jun 19 12:26:37 corellia /usr/lib/gdm3/gdm-x-session[3366]: (**) Option "fd" "49"
+Jun 19 12:26:37 corellia /usr/lib/gdm3/gdm-x-session[3366]: (**) Option "fd" "47"
+Jun 19 12:26:37 corellia /usr/lib/gdm3/gdm-x-session[3366]: (**) Option "fd" "48"
+Jun 19 12:26:37 corellia /usr/lib/gdm3/gdm-x-session[3366]: (**) Option "fd" "44"
+Jun 19 12:26:37 corellia /usr/lib/gdm3/gdm-x-session[3366]: (**) Option "fd" "50"
+Jun 19 12:26:37 corellia /usr/lib/gdm3/gdm-x-session[3366]: (**) Option "fd" "45"
+Jun 19 12:26:37 corellia /usr/lib/gdm3/gdm-x-session[3366]: (II) AIGLX: Suspending AIGLX clients for VT switch
+Jun 19 12:26:38 corellia /usr/lib/gdm3/gdm-x-session[3366]: (II) systemd-logind: got pause for 13:65
+Jun 19 12:26:38 corellia /usr/lib/gdm3/gdm-x-session[3366]: (II) systemd-logind: got pause for 13:79
+Jun 19 12:26:38 corellia /usr/lib/gdm3/gdm-x-session[3366]: (II) systemd-logind: got pause for 13:69
+Jun 19 12:26:38 corellia /usr/lib/gdm3/gdm-x-session[3366]: (II) systemd-logind: got pause for 13:78
+Jun 19 12:26:38 corellia /usr/lib/gdm3/gdm-x-session[3366]: (II) systemd-logind: got pause for 13:64
+Jun 19 12:26:38 corellia /usr/lib/gdm3/gdm-x-session[3366]: (II) systemd-logind: got pause for 13:71
+Jun 19 12:26:38 corellia /usr/lib/gdm3/gdm-x-session[3366]: (II) systemd-logind: got pause for 13:81
+Jun 19 12:26:38 corellia /usr/lib/gdm3/gdm-x-session[3366]: (II) systemd-logind: got pause for 226:0
+Jun 19 12:26:38 corellia /usr/lib/gdm3/gdm-x-session[3366]: (II) systemd-logind: got pause for 13:73
+Jun 19 12:26:38 corellia /usr/lib/gdm3/gdm-x-session[3366]: (II) systemd-logind: got pause for 13:70
+Jun 19 12:26:46 corellia /usr/lib/gdm3/gdm-x-session[3366]: (II) systemd-logind: got resume for 13:65
+Jun 19 12:26:46 corellia /usr/lib/gdm3/gdm-x-session[3366]: (II) systemd-logind: got resume for 13:79
+Jun 19 12:26:46 corellia /usr/lib/gdm3/gdm-x-session[3366]: (II) systemd-logind: got resume for 13:69
+Jun 19 12:26:46 corellia /usr/lib/gdm3/gdm-x-session[3366]: (II) systemd-logind: got resume for 13:78
+Jun 19 12:26:46 corellia /usr/lib/gdm3/gdm-x-session[3366]: (II) systemd-logind: got resume for 13:64
+Jun 19 12:26:46 corellia /usr/lib/gdm3/gdm-x-session[3366]: (II) systemd-logind: got resume for 13:71
+Jun 19 12:26:46 corellia /usr/lib/gdm3/gdm-x-session[3366]: (II) systemd-logind: got resume for 13:81
+Jun 19 12:26:46 corellia /usr/lib/gdm3/gdm-x-session[3366]: (II) systemd-logind: got resume for 226:0
+Jun 19 12:26:46 corellia /usr/lib/gdm3/gdm-x-session[3366]: (II) AIGLX: Resuming AIGLX clients after VT switch
+Jun 19 12:26:46 corellia /usr/lib/gdm3/gdm-x-session[3366]: (II) intel(0): switch to mode 1920x1080@60.0 on eDP1 using pipe 1, position (0, 0), rotation normal, reflection none
+Jun 19 12:26:47 corellia /usr/lib/gdm3/gdm-x-session[3366]: (EE) intel(0): sna_mode_shutdown_crtc: invalid state found on pipe 0, disabling CRTC:26
+Jun 19 12:26:47 corellia /usr/lib/gdm3/gdm-x-session[3366]: (II) input device 'Video Bus', /dev/input/event17 is tagged by udev as: Keyboard
+Jun 19 12:26:47 corellia /usr/lib/gdm3/gdm-x-session[3366]: (II) input device 'Video Bus', /dev/input/event17 is a keyboard
+Jun 19 12:26:47 corellia /usr/lib/gdm3/gdm-x-session[3366]: (II) input device 'Sleep Button', /dev/input/event7 is tagged by udev as: Keyboard
+Jun 19 12:26:47 corellia /usr/lib/gdm3/gdm-x-session[3366]: (II) input device 'Sleep Button', /dev/input/event7 is a keyboard
+Jun 19 12:26:47 corellia /usr/lib/gdm3/gdm-x-session[3366]: (II) input device 'HP HD Webcam', /dev/input/event14 is tagged by udev as: Keyboard
+Jun 19 12:26:47 corellia /usr/lib/gdm3/gdm-x-session[3366]: (II) input device 'HP HD Webcam', /dev/input/event14 is a keyboard
+Jun 19 12:26:47 corellia /usr/lib/gdm3/gdm-x-session[3366]: (II) input device 'AT Translated Set 2 keyboard', /dev/input/event0 is tagged by udev as: Keyboard
+Jun 19 12:26:47 corellia /usr/lib/gdm3/gdm-x-session[3366]: (II) input device 'AT Translated Set 2 keyboard', /dev/input/event0 is a keyboard
+Jun 19 12:26:47 corellia /usr/lib/gdm3/gdm-x-session[3366]: (II) input device 'PS/2 Generic Mouse', /dev/input/event1 is tagged by udev as: Mouse
+Jun 19 12:26:47 corellia /usr/lib/gdm3/gdm-x-session[3366]: (II) input device 'PS/2 Generic Mouse', /dev/input/event1 is a pointer caps
+Jun 19 12:26:47 corellia /usr/lib/gdm3/gdm-x-session[3366]: (--) synaptics: SynPS/2 Synaptics TouchPad: touchpad found
+Jun 19 12:26:47 corellia /usr/lib/gdm3/gdm-x-session[3366]: (II) input device 'HP WMI hotkeys', /dev/input/event15 is tagged by udev as: Keyboard
+Jun 19 12:26:47 corellia /usr/lib/gdm3/gdm-x-session[3366]: (II) input device 'HP WMI hotkeys', /dev/input/event15 is a keyboard
+Jun 19 12:26:47 corellia /usr/lib/gdm3/gdm-x-session[3366]: (II) systemd-logind: got resume for 13:73
+Jun 19 12:26:47 corellia /usr/lib/gdm3/gdm-x-session[3366]: (II) input device 'Power Button', /dev/input/event9 is tagged by udev as: Keyboard
+Jun 19 12:26:47 corellia /usr/lib/gdm3/gdm-x-session[3366]: (II) input device 'Power Button', /dev/input/event9 is a keyboard
+Jun 19 12:26:47 corellia /usr/lib/gdm3/gdm-x-session[3366]: (II) systemd-logind: got resume for 13:70
+Jun 19 12:26:47 corellia /usr/lib/gdm3/gdm-x-session[3366]: (II) input device 'HP Wireless hotkeys', /dev/input/event6 is tagged by udev as: Keyboard
+Jun 19 12:26:47 corellia /usr/lib/gdm3/gdm-x-session[3366]: (II) input device 'HP Wireless hotkeys', /dev/input/event6 is a keyboard
+#+END_SRC
+
+* Solution
+
+This line in kern.log after a resume session triggered my curiosity so:
+#+BEGIN_SRC sh
+Jun 23 13:54:12 corellia kernel: [137982.399639] [drm] Reducing the compressed framebuffer size. This may lead to less power savings than a non-reduced-size. Try to increase stolen memory size if available in BIOS.
+#+END_SRC
+
+Looking around, i found some discussion which seems related:
+https://bugs.freedesktop.org/show_bug.cgi?id=95176
+http://www.phoronix.com/scan.php?page=news_item&px=Intel-DRM-Next-PSR-FBC
+http://www.phoronix.com/scan.php?page=news_item&px=Intel-DRM-Next-Linux-4.8
+
+Talked about drm and i915 module and PSR option activated by default.
+
+#+BEGIN_SRC sh
+$ sudo lsmod | head -1; sudo lsmod | grep i915
+Module                  Size  Used by
+i915                 1245184  8
+drm_kms_helper        143360  1 i915
+drm                   356352  9 i915,drm_kms_helper
+i2c_algo_bit           16384  1 i915
+video                  40960  1 i915
+button                 16384  1 i915
+$ sudo modinfo --author --description --parameters i915 | peco
+enable_psr:Enable PSR (0=disabled, 1=enabled - link mode chosen per-platform, 2=force link-standby mode, 3=force link-off mode) Default: -1 (use per-chip default) (int)
+$ sudo cat /sys/module/i915/parameters/enable_psr
+1
+#+END_SRC
+
+So indeed, it's activated.
+
+Now on to deactivate this, adding an option for i915 in /etc/modprobe.d/modesetting.conf:
+#+BEGIN_SRC sh
+$ sudo cat /etc/modprobe.d/modesetting.conf
+options cirrus modeset=1
+options mgag200 modeset=1
+options i915 enable_psr=0
+#+END_SRC
+
+Rebooting, checking the option is ok:
+#+BEGIN_SRC sh
+$ sudo cat /sys/module/i915/parameters/enable_psr
+0
+#+END_SRC
+
+And now, the flickering has vanished.
