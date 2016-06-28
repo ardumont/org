@@ -1,13 +1,15 @@
 #+title: irc
 #+author: ardumont
 
-* Create account
+* Account
+
+** Create account
 
 #+begin_src sh
 /msg NickServ identify <account> <pass>
 #+end_src
 
-* Enforce account
+** Enforce account
 
 Avoid having his account nickname stolen.
 
@@ -15,8 +17,57 @@ Avoid having his account nickname stolen.
 /nickserv set enforce on
 #+end_src
 
-* Change your pass
+** Change your pass
 
 #+begin_src sh
 /nickserv set password <new-pass>
 #+end_src
+
+* Channel
+
+First join an inexisting channel.
+#+BEGIN_SRC sh
+/join <desired-channel-name>
+#+END_SRC
+
+If you are not identified, identify yourself:
+#+BEGIN_SRC sh
+/msg nickserv identify <login> <pass>
+#+END_SRC
+
+Then register channel
+#+BEGIN_SRC sh
+/msg chanserv register <desired-channel-name> <description>
+#+END_SRC
+
+Note:
+Convention on freenode:
+- prefixed by # for official channel name
+- prefixed by ## for unofficial ones
+
+Examples for org-trello:
+
+/msg chanserv register #org-trello Org minor mode - 2-way sync org & trello http://org-trello.github.io/
+#+BEGIN_SRC sh
+15:51:42 freenode  -- | MSG(chanserv): register #org-trello Org minor mode - 2-way sync org & trello http://org-trello.github.io/
+15:51:42 freenode  -- | ChanServ (ChanServ@services.): #org-trello is now registered to ardumont.
+15:51:42 freenode  -- | ChanServ (ChanServ@services.):
+15:51:42 freenode  -- | ChanServ (ChanServ@services.): Channel guidelines can be found on the freenode website
+15:51:42 freenode  -- | ChanServ (ChanServ@services.): (http://freenode.net/channel_guidelines.shtml).
+15:51:42 freenode  -- | ChanServ (ChanServ@services.): This is a primary namespace channel as per
+15:51:42 freenode  -- | ChanServ (ChanServ@services.): http://freenode.net/policy.shtml#primarychannels
+15:51:42 freenode  -- | ChanServ (ChanServ@services.): If you do not own this name, please consider
+15:51:42 freenode  -- | ChanServ (ChanServ@services.): dropping #org-trello and using ##org-trello instead.
+#+END_SRC
+
+Now, you should be the default op since you are the first one to connect to it:
+
+/msg chanserv access #org-trello list
+#+BEGIN_SRC sh
+15:56:14 freenode  -- | MSG(chanserv): access #org-trello list
+15:56:14 freenode  -- | ChanServ (ChanServ@services.): Entry Nickname/Host          Flags
+15:56:14 freenode  -- | ChanServ (ChanServ@services.): ----- ---------------------- -----
+15:56:14 freenode  -- | ChanServ (ChanServ@services.): 1     ardumont               +AFRefiorstv [modified 4m 33s ago]
+15:56:14 freenode  -- | ChanServ (ChanServ@services.): ----- ---------------------- -----
+15:56:14 freenode  -- | ChanServ (ChanServ@services.): End of #org-trello FLAGS listing.
+#+END_SRC
