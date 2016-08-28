@@ -78,7 +78,7 @@ CLOSED: [2015-05-05 Tue 16:07]
 - [X] Retourner la terre
 - [X] Ajouter du terreau
 - [X] Planter du gazon
-* DONE Jardin derriere [4/4]
+* DONE Jardin derriere [7/7]
 CLOSED: [2015-05-20 Wed 11:57]
 ** DONE Retirer le lierre
 ** DONE Tailler la haie de derriere
@@ -86,6 +86,12 @@ CLOSED: [2015-05-20 Wed 11:57]
 Merci papy Claude
 ** DONE Replanter les arbustes de devant pour combler le trou dans la haie de derriere
 CLOSED: [2015-05-20 Wed 11:57]
+** DONE Retirer les seryngas
+CLOSED: [2016-08-28 Sun 18:28]
+** DONE Replanter les hibiscus
+CLOSED: [2016-08-28 Sun 18:29]
+** DONE Ajouter du paillage
+CLOSED: [2016-08-28 Sun 18:29]
 * DONE Relatif a l'exterieur [3/3]
 CLOSED: [2013-04-11 jeu. 09:35]
 ** DONE Tailler les arbustes en morceaux pour pouvoir les rentrer dans le garage
@@ -392,7 +398,7 @@ CLOSED: [2015-11-30 Mon 11:38]
 - [X] couche 2
 ** DONE Poser papier peint sur les murs
 CLOSED: [2015-11-30 Mon 11:38]
-* PENDING Jardin devant [11/12]
+* TODO Jardin devant [13/17]
 ** DONE parterres de fleurs [4/4]
 **** DONE Detruire le parterre de marguerite qui prend trop de place dans le jardin.
 **** DONE Aplanir tous les parterres de fleurs.
@@ -412,8 +418,14 @@ CLOSED: [2011-09-12 lun. 13:10]
 CLOSED: [2015-05-05 Tue 16:08]
 ** DONE Deraciner les arbustes restant de devant (pour les planter derriere)
 CLOSED: [2015-05-20 Wed 11:57]
-
+** DONE Installer une balancoire
+CLOSED: [2016-08-28 Sun 18:27]
+** DONE Ajouter un recuperateur d'eau
+CLOSED: [2016-08-28 Sun 18:31]
 ** TODO Faire elaguer/couper les erables
+** TODO Faire elaguer/couper les peupliers
+** TODO Enlever la haie de laurier
+** TODO Planter du bambou
 * PENDING Cuisine [32/33]
 ** DONE Degager le vieux frigo
 ** DONE Refaire les prises de courant
@@ -575,7 +587,7 @@ CLOSED: [2014-01-05 dim. 22:50]
 ** TODO Poser la toile de renovation
 ** TODO Poser le papier peint/Peindre
 ** TODO Ranger la piece
-* TODO Salon [16/19]
+* TODO Salon [18/20]
 ** DONE Retirer le papier peint du plafond
 ** DONE Retirer le crepis
 ** DONE Reparer la fissure de la cheminee
@@ -608,9 +620,12 @@ CLOSED: [2013-11-24 dim. 19:04]
 Merci papy Claude
 ** DONE Retirer cheminee condamnee
 CLOSED: [2016-03-01 Tue 18:56]
-** TODO Enduit de lissage sur la partie retiree de cheminee
-** TODO Peindre le plafond
-** TODO Poser le papier peint
+** DONE Enduit de lissage sur la partie retiree de cheminee
+CLOSED: [2016-08-28 Sun 18:26]
+** DONE Peindre le plafond
+CLOSED: [2016-08-28 Sun 18:26]
+** TODO Poser la toile de renovation
+** TODO Peindre
 * PENDING Buanderie [8/12]
 ** DONE Sous-couche porte buanderie/couloir
 CLOSED: [2013-07-30 mar. 21:47]
