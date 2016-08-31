@@ -112,3 +112,14 @@ as postgres or someone with the rights to it:
 #+begin_src sql
 alter table <table> owner to <new-owner>
 #+end_src
+* Location
+
+Show the location of the db
+#+BEGIN_SRC sh
+psql -p5432 <db-name> -c 'show data_directory'
+#+END_SRC
+
+Show all meta information:
+#+BEGIN_SRC sh
+psql -p5432 <db-name> -c 'show all'
+#+END_SRC
