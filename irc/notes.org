@@ -71,3 +71,5 @@ Now, you should be the default op since you are the first one to connect to it:
 15:56:14 freenode  -- | ChanServ (ChanServ@services.): ----- ---------------------- -----
 15:56:14 freenode  -- | ChanServ (ChanServ@services.): End of #org-trello FLAGS listing.
 #+END_SRC
+
+[[http://freenode.net/news/registering-a-channel-on-freenode][source]]
