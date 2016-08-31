@@ -3,53 +3,69 @@
 #+STARTUP: indent
 #+STARTUP: hidestars odd
 
-First they ignored you, then they laughed at you, then they fought you, now you've won. -- Not quite Gandhi
+  First they ignored you, then they laughed at you, then they fought you, now you've won.
+-- Not quite Gandhi
 
-Any intelligent fool can make things bigger, more complex, and more violent. It takes a touch of genius
-and a lot of courage to move in the opposite direction.
+  Any intelligent fool can make things bigger, more complex, and more violent. It takes a touch of genius
+  and a lot of courage to move in the opposite direction.
 -- Schumacher
 
-Happiness comes when you believe that you have done something truly meaningful.
+  Happiness comes when you believe that you have done something truly meaningful.
 -- Yan
 
-Effort only fully releases its reward after a person refuses to quit.
+  Effort only fully releases its reward after a person refuses to quit.
 -- Hill
 
-Satisfaction lies in the effort, not in the attainment, full effort is
-full victory. -- Gandhi
+  It takes time to succeed because success is merely the natural reward
+  of taking time to do anything well.
+-- Ross
 
-It takes time to succeed because success is merely the natural reward
-of taking time to do anything well. -- Ross
-
-Out of clutter find simplicity;
-from discord find harmony;
-in the middle of difficulty lies
-opportunity.
+  Out of clutter find simplicity;
+  from discord find harmony;
+  in the middle of difficulty lies
+  opportunity.
 -- Einstein
 
-Satisfaction lies in the effort, not in the attainment, full effort is
-full victory.
+  Satisfaction lies in the effort, not in the attainment, full effort is
+  full victory.
 -- Gandhi
 
-The highest reward for a man's toil is not what he gets for it but
-what he becomes by it.
+  The highest reward for a man's toil is not what he gets for it but
+  what he becomes by it.
 -- Ruskin
 
-Good code is its own best documentation.
+  Good code is its own best documentation.
 -- Steve McConnell
 
-Simplicity, carried to the extreme, becomes elegance.
+  Simplicity, carried to the extreme, becomes elegance.
 -- Jon Franklin
 
-Intellectual 'work' is misnamed; it is a pleasure, a dissipation,and
-is its own highest reward.
+  Intellectual 'work' is misnamed; it is a pleasure, a dissipation,and
+  is its own highest reward.
 -- Mark Twain
 
-
-I have no right, by anything I do or
-say, to demean a human being in his own
-eyes. What matters is not what I think
-of him; it is what he thinks of
-himself. To undermine a man's
-self-respect is a sin.
+  I have no right, by anything I do or
+  say, to demean a human being in his own
+  eyes. What matters is not what I think
+  of him; it is what he thinks of
+  himself. To undermine a man's
+  self-respect is a sin.
 -- Antoine de Saint-Exupery
+
+  The desire to be rewarded for one's creativity does not justify depriving the world in general of all or part of that creativity.
+-- Richard Stallman
+
+  Imagination is more important than knowledge
+-- Albert Einstein
+
+  Programming today is a race between software engineers striving to build bigger and better idiot-proof programs, and the universe trying to build bigger and better idiots. So far, the universe is winning.
+-- Rick Cook
+
+  I must not fear.
+  Fear is the mind-killer.
+  Fear is the little-death that brings total obliteration.
+  I will face my fear.
+  I will permit it to pass over me and through me.
+  And when it has gone past I will turn the inner eye to see its path.
+  Where the fear has gone there will be nothing. Only I will remain.
+-- Dune
