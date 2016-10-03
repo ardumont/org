@@ -1,0 +1,55 @@
+#+title: participating in debian package maintenance
+#+author: ardumont
+
+source: https://wiki.debian.org/Teams/PythonModulesTeam/HowToJoin
+
+* irc
+
+#debian-python on OFTC network
+
+* Register on alioth
+
+- https://alioth.debian.org/account/register.php
+- Fill in and submit the form
+- Go and activate the link in your associated email.
+
+* Debian policy
+
+* DPMT policy
+
+http://python-modules.alioth.debian.org/policy.html
+
+* My request to join
+
+https://lists.debian.org/debian-python/2016/09/msg00031.html
+
+* tools
+
+#+BEGIN_SRC sh
+sudo apt install git-buildpackage git-dpm lintian cme licensecheck
+#+END_SRC
+
+* new package
+https://www.debian.org/doc/manuals/developers-reference/pkgs.en.html#newpackage
+
+Sending itp, etc...
+** Best practices about description
+
+https://www.debian.org/doc/manuals/developers-reference/ch06.en.html#bpp-desc-basics
+
+* bug control server
+https://www.debian.org/Bugs/server-control
+* excuses
+
+Excuse seems to be reasons why not deploying the package from unstable
+to testing.
+
+(This must surely not be limited to unstable -> testing but also
+testing -> stable)
+
+Now when a package will hit testing:
+https://qa.debian.org/excuses.php?package=python-azure-storage
+* maintainer page
+
+For example for the pkg-azure-team:
+https://qa.debian.org/developer.php?login=pkg-azure-team@lists.alioth.debian.org
