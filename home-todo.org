@@ -587,7 +587,7 @@ CLOSED: [2014-01-05 dim. 22:50]
 ** TODO Poser la toile de renovation
 ** TODO Poser le papier peint/Peindre
 ** TODO Ranger la piece
-* TODO Salon [18/20]
+* IN-PROGRESS Salon [19/21]
 ** DONE Retirer le papier peint du plafond
 ** DONE Retirer le crepis
 ** DONE Reparer la fissure de la cheminee
@@ -624,8 +624,11 @@ CLOSED: [2016-03-01 Tue 18:56]
 CLOSED: [2016-08-28 Sun 18:26]
 ** DONE Peindre le plafond
 CLOSED: [2016-08-28 Sun 18:26]
-** TODO Poser la toile de renovation
-** TODO Peindre
+** DONE Poser la toile de renovation
+CLOSED: [2016-10-28 Fri 18:04]
+** IN-PROGRESS Peindre separation du bas
+2/3 done!
+** TODO Peindre haut
 * PENDING Buanderie [8/12]
 ** DONE Sous-couche porte buanderie/couloir
 CLOSED: [2013-07-30 mar. 21:47]

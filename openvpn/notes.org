@@ -1,0 +1,41 @@
+#+title: openvpn
+#+author: ardumont
+
+* install
+
+#+BEGIN_SRC sh
+sudo apt install openvpn-server
+#+END_SRC
+
+* New client
+
+As root:
+#+BEGIN_SRC sh
+cd /etc/openvpn/easy-rsa/
+source vars
+./build-key-pass <hostname>
+#+END_SRC
+
+Answer the questions.
+
+Then:
+#+BEGIN_SRC sh
+cd keys/
+openssl rsa -in <hostname>.key -des3 -out <hostname>.3des.key
+#+END_SRC
+
+
+Then:
+#+BEGIN_SRC sh
+./make-ovpn.sh <hostname>
+#+END_SRC
+
+defaults.txt:
+#+BEGIN_SRC sh
+#+END_SRC
+
+
+make-ovpn.sh:
+#+BEGIN_SRC sh
+
+#+END_SRC
