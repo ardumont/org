@@ -30,6 +30,7 @@ sudo apt install git-buildpackage git-dpm lintian cme licensecheck
 #+END_SRC
 
 * new package
+
 https://www.debian.org/doc/manuals/developers-reference/pkgs.en.html#newpackage
 
 Sending itp, etc...
@@ -39,6 +40,7 @@ https://www.debian.org/doc/manuals/developers-reference/ch06.en.html#bpp-desc-ba
 
 * bug control server
 https://www.debian.org/Bugs/server-control
+
 * excuses
 
 Excuse seems to be reasons why not deploying the package from unstable
@@ -53,3 +55,5 @@ https://qa.debian.org/excuses.php?package=python-azure-storage
 
 For example for the pkg-azure-team:
 https://qa.debian.org/developer.php?login=pkg-azure-team@lists.alioth.debian.org
+* social contract
+https://www.debian.org/social_contract
