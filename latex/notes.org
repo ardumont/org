@@ -1,0 +1,14 @@
+#+title: Notes on latex
+#+author: ardumont
+
+svg and latex does not go well together so pipeline the conversion.
+
+zack:
+#+BEGIN_SRC sh
+inkscape --export-area-drawing --export-{ps,eps,pdf} OUTPUT.{ps,eps,pdf} INPUT.svg
+#+END_SRC
+
+[[https://en.wikibooks.org/wiki/LaTeX/Importing_Graphics][doc]]:
+#+BEGIN_SRC sh
+inkscape -z -D --file=input.svg --export-pdf=output.pdf
+#+END_SRC
