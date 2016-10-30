@@ -1,5 +1,5 @@
 #+Title: TODO maison
-#+author: Antoine Romain Dumont
+#+author: ardumont
 #+STARTUP: indent
 
 * DONE Chambre de Noémy [9/9]
@@ -398,7 +398,7 @@ CLOSED: [2015-11-30 Mon 11:38]
 - [X] couche 2
 ** DONE Poser papier peint sur les murs
 CLOSED: [2015-11-30 Mon 11:38]
-* TODO Jardin devant [13/17]
+* IN-PROGRESS Jardin devant [14/19]
 ** DONE parterres de fleurs [4/4]
 **** DONE Detruire le parterre de marguerite qui prend trop de place dans le jardin.
 **** DONE Aplanir tous les parterres de fleurs.
@@ -426,6 +426,10 @@ CLOSED: [2016-08-28 Sun 18:31]
 ** TODO Faire elaguer/couper les peupliers
 ** TODO Enlever la haie de laurier
 ** TODO Planter du bambou
+** DONE Voisin - Plus de mur entre voisins et nous
+CLOSED: [2014-02-28]
+De 2014 a 2016
+** IN-PROGRESS Voisin - Remonter le mur
 * PENDING Cuisine [32/33]
 ** DONE Degager le vieux frigo
 ** DONE Refaire les prises de courant
@@ -587,7 +591,7 @@ CLOSED: [2014-01-05 dim. 22:50]
 ** TODO Poser la toile de renovation
 ** TODO Poser le papier peint/Peindre
 ** TODO Ranger la piece
-* IN-PROGRESS Salon [19/21]
+* TODO Salon [20/21]
 ** DONE Retirer le papier peint du plafond
 ** DONE Retirer le crepis
 ** DONE Reparer la fissure de la cheminee
@@ -626,9 +630,13 @@ CLOSED: [2016-08-28 Sun 18:26]
 CLOSED: [2016-08-28 Sun 18:26]
 ** DONE Poser la toile de renovation
 CLOSED: [2016-10-28 Fri 18:04]
-** IN-PROGRESS Peindre separation du bas
-2/3 done!
-** TODO Peindre haut
+Merci Papy Claude
+** DONE Peindre separation du bas
+CLOSED: [2016-10-30 Sun 13:50]
+- [X] couche 1
+- [X] couche 2
+** IN-PROGRESS Peindre separation du haut
+Merci Papy Claude
 * PENDING Buanderie [8/12]
 ** DONE Sous-couche porte buanderie/couloir
 CLOSED: [2013-07-30 mar. 21:47]
