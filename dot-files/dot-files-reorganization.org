@@ -1,0 +1,40 @@
+#+title: dot-files organization
+#+author: ardumont
+
+* Tools
+** git
+
+versioning/history
+
+** myrepos
+
+Define in one file the git repositories used and synchronize
+
+** GNU/Stow
+
+To architecture where the configuration directories/files need to be located in the home
+
+* Repositories
+
+- https://github.com/ardumont/.xmonad
+- https://github.com/ardumont/dot-files
+  - https://github.com/ardumont/prelude
+  - https://github.com/ardumont/prelude-packs
+  - https://github.com/ardumont/oh-my-zsh
+
+* Possible refactoring?
+
+Today, it's my dot-files repository which is in charge of deploying.
+Over the time, I came to realize that I no longer use the script
+deploy.sh defined in it.
+
+Instead, I symply rsync from my backup disk.
+Still, i'd like to be more declarative.
+
+'deploy.sh' is currently in charge of:
+- cloning the repositories i depend on for my everyday use
+- create symlinks in my home to the needed dot-files
+
+So, to remove it and be more declarative, those tools could be used:
+- [[https://github.com/joeyh/myrepos][myrepos:]] declare in one file the repositories to manage
+- [[https://www.gnu.org/software/stow/][GNU Stow]]: to manage symlinks
