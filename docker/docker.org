@@ -12,7 +12,8 @@
 |-------------------+-----------------------------------------------------------------+--------------|
 
 * Install
-
+** Debian
+https://docs.docker.com/engine/installation/linux/debian/
 ** Ubuntu
 OS on ubuntu 12.04 or 13.10:
 #+begin_src sh
