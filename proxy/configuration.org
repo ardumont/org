@@ -1,0 +1,39 @@
+#+title: debian proxy configuration
+#+author: ardumont
+
+I have a slow network.
+Once one machine has downloaded a package, I'd like it to be available to all my other machines.
+Here comes deb-squid-proxy.
+
+* server
+#+BEGIN_SRC sh
+sudo apt-get install deb-squid-proxy
+#+END_SRC
+
+* clients
+
+#+BEGIN_SRC sh
+sudo apt-get install deb-squid-proxy-client
+#+END_SRC
+
+This will install a file to autodetect a proxy via avahi:
+
+#+BEGIN_SRC conf
+Acquire::http::ProxyAutoDetect "/usr/share/squid-deb-proxy-client/apt-avahi-discover";
+#+END_SRC
+
+* Avoid proxy
+
+The thing that might pose problem is that if you have some internal
+repository you cannot access through that proxy when apt-get update.
+You then have 403 forbidden all other the places. It's because, your
+client is accessing all the repositories through the proxy.
+
+You can define then some rule to ignore the proxy for specific
+repository.  For example in the same file add:
+
+#+BEGIN_SRC conf
+Acquire::http::Proxy {
+    your.repository.to.access.directly DIRECT;
+};
+#+END_SRC
