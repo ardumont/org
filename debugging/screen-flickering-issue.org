@@ -449,6 +449,7 @@ Jun 19 12:26:47 corellia /usr/lib/gdm3/gdm-x-session[3366]: (II) input device 'H
 
 * Solution
 
+**
 This line in kern.log after a resume session triggered my curiosity so:
 #+BEGIN_SRC sh
 Jun 23 13:54:12 corellia kernel: [137982.399639] [drm] Reducing the compressed framebuffer size. This may lead to less power savings than a non-reduced-size. Try to increase stolen memory size if available in BIOS.
@@ -493,3 +494,16 @@ $ sudo cat /sys/module/i915/parameters/enable_psr
 #+END_SRC
 
 And now, the flickering has vanished.
+
+** grub solution
+
+sudo nano /etc/defaults/grub and update the variable GRUB_CMDLINE_LINUX_DEFAULT:
+#+BEGIN_SRC shell
+GRUB_CMDLINE_LINUX_DEFAULT="quiet i915.enable_psr=0"
+#+END_SRC
+
+
+Now install the update:
+#+BEGIN_SRC shell
+sudo update-grub
+#+END_SRC
