@@ -326,13 +326,13 @@ CLOSED: [2014-01-04 sam. 00:07]
 ** DONE Changer porte d'entree
 CLOSED: [2015-11-01 Sun 22:27]
 * TODO sous-sol [2/5]
-** DONE piece principale [2/2]
+** DONE piece principale [2/3]
 CLOSED: [2017-08-25 Fri 10:01]
 *** DONE Changer douille b22 -> e27 (x2)
 CLOSED: [2017-08-25 Fri 10:01]
 *** DONE installer lampe a led (x2)
 CLOSED: [2017-08-25 Fri 10:01]
-*** Poser protection sur porte de garage
+*** TODO Poser protection sur porte de garage
 ** DONE sellier [2/2]
 CLOSED: [2017-08-25 Fri 10:00]
 *** DONE Changer douille b22 -> e27
@@ -345,22 +345,39 @@ CLOSED: [2017-08-25 Fri 10:04]
 *** DONE installer lampe a led
 CLOSED: [2017-08-25 Fri 10:04]
 *** TODO Ranger bazar
-** TODO atelier [3/6]
+** TODO atelier [7/11]
 *** DONE Evacuer le casier a plan
 CLOSED: [2013-06-22 sam. 16:12]
 *** DONE Installer une pompe pour evacuer l'eau a l'exterieur
 CLOSED: [2013-06-22 sam. 16:13]
 *** DONE Ranger davantage le bordel
 CLOSED: [2015-05-20 Wed 11:58]
-*** TODO Ranger bazar
+*** DONE Changer douille b22 -> e27
+CLOSED: [2017-08-25 Fri 10:04]
+*** DONE installer lampe a led
+CLOSED: [2017-08-25 Fri 10:04]
+*** DONE Nettoyer la piece
+CLOSED: [2017-09-01 Fri 19:34]
+*** DONE Trier le bordel restant
+CLOSED: [2017-09-01 Fri 19:30]
+*** TODO Evacuer le bordel trie a la dechetterie [2/4]
+- [X] voyage 1
+- [X] voyage 2 (merci Francois :)
+- [ ] voyage 3
+- [ ] voyage 4
 *** TODO Installer planche a outils
-** TODO grande piece [2/3]
-*** TODO Trier bazar accumule...
+- [ ] Nettoyer planche
+- [ ] Poser
+- [ ] Installer les outils
+*** TODO Changer/retaper fenetre 1
+*** TODO Changer/retaper fenetre 2
+** TODO grande piece [2/4]
 *** DONE Changer douille b22 -> e27
 CLOSED: [2017-08-25 Fri 21:04]
 *** DONE installer lampe a led
 CLOSED: [2017-08-25 Fri 21:04]
-
+*** TODO Trier bazar accumule...
+*** TODO Changer/retaper fenetre
 * DONE Couloir du haut [31/31]
 ** DONE Retirer le crepis
 ** DONE Retirer le papier peint
