@@ -326,13 +326,17 @@ CLOSED: [2014-01-04 sam. 00:07]
 ** DONE Changer porte d'entree
 CLOSED: [2015-11-01 Sun 22:27]
 * TODO sous-sol [2/5]
-** DONE piece principale [2/3]
+** DONE piece principale [4/5]
 CLOSED: [2017-08-25 Fri 10:01]
 *** DONE Changer douille b22 -> e27 (x2)
 CLOSED: [2017-08-25 Fri 10:01]
 *** DONE installer lampe a led (x2)
 CLOSED: [2017-08-25 Fri 10:01]
-*** TODO Poser protection sur porte de garage
+*** DONE Ranger/trier bordel
+CLOSED: [2017-09-02 Sat 20:11]
+*** DONE Evacuer bordel a la dechetterie
+CLOSED: [2017-09-02 Sat 20:11]
+*** TODO Poser couche isolation sur porte de garage
 ** DONE sellier [2/2]
 CLOSED: [2017-08-25 Fri 10:00]
 *** DONE Changer douille b22 -> e27
@@ -344,8 +348,8 @@ CLOSED: [2017-08-25 Fri 10:00]
 CLOSED: [2017-08-25 Fri 10:04]
 *** DONE installer lampe a led
 CLOSED: [2017-08-25 Fri 10:04]
-*** TODO Ranger bazar
-** TODO atelier [7/11]
+*** TODO Ranger bordel
+** TODO atelier [8/11]
 *** DONE Evacuer le casier a plan
 CLOSED: [2013-06-22 sam. 16:12]
 *** DONE Installer une pompe pour evacuer l'eau a l'exterieur
@@ -360,11 +364,12 @@ CLOSED: [2017-08-25 Fri 10:04]
 CLOSED: [2017-09-01 Fri 19:34]
 *** DONE Trier le bordel restant
 CLOSED: [2017-09-01 Fri 19:30]
-*** TODO Evacuer le bordel trie a la dechetterie [2/4]
+*** DONE Evacuer le bordel a la dechetterie [4/4]
+CLOSED: [2017-09-02 Sat 20:10]
 - [X] voyage 1
 - [X] voyage 2 (merci Francois :)
-- [ ] voyage 3
-- [ ] voyage 4
+- [X] voyage 3
+- [X] voyage 4
 *** TODO Installer planche a outils
 - [ ] Nettoyer planche
 - [ ] Poser
@@ -376,8 +381,12 @@ CLOSED: [2017-09-01 Fri 19:30]
 CLOSED: [2017-08-25 Fri 21:04]
 *** DONE installer lampe a led
 CLOSED: [2017-08-25 Fri 21:04]
-*** TODO Trier bazar accumule...
+*** TODO Trier bordel accumule...
 *** TODO Changer/retaper fenetre
+** escalier cuisine <-> sous-sol [1/1]
+*** DONE Trier bordel
+CLOSED: [2017-09-02 Sat 20:12]
+*** Changer rideau isolation
 * DONE Couloir du haut [31/31]
 ** DONE Retirer le crepis
 ** DONE Retirer le papier peint
@@ -549,7 +558,7 @@ CLOSED: [2017-08-25 Fri 09:45]
 ** DONE Changer robinet evier
 CLOSED: [2017-08-25 Fri 09:45]
 ** TODO Changer meubles cuisine
-* TODO Toilettes du bas [11/14]
+* TODO Toilettes du bas [12/15]
 ** DONE Sous-couche porte
 CLOSED: [2013-07-30 mar. 21:46]
 ** DONE Peindre porte
@@ -572,6 +581,8 @@ CLOSED: [2017-08-25 Fri 09:45]
 CLOSED: [2017-08-25 Fri 09:46]
 ** DONE Changer lampe economie d'energie pour led
 CLOSED: [2017-08-25 Fri 09:48]
+** DONE Poser planche a rangement
+CLOSED: [2017-09-02 Sat 20:14]
 ** TODO Poser la sous-couche
 ** TODO Poser toile de renovation
 ** TODO Peindre
