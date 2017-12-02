@@ -13,7 +13,7 @@ FIXME: comment representer les retournements?
 |---------------------------------+-------------------------------------|
 | Nage Waza (projection)          | Sens                                |
 |---------------------------------+-------------------------------------|
-| O Soto Gari                     | Grand balayage exterieue            |
+| O Soto Gari                     | Grand balayage exterieur            |
 | Hiza Guruma                     | Roue autour du genou                |
 | Ippon Seoi Nage                 | Projection par l'epaule             |
 |                                 |                                     |
@@ -29,7 +29,7 @@ FIXME: comment representer les retournements?
 | Kami Shiho Gatame               | Controle des 4 points               |
 |---------------------------------+-------------------------------------|
 
-** Liaison sol debout
+** Liaison debout sol
 
 |--------------+--------------------------------------------------------------------------|
 | O Uchi Gari  | Tate Shiho Gatame                                                        |
