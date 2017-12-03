@@ -179,31 +179,31 @@
 
 *** Nage No Kata
 
-**** Te Waza
+**** Te Waza - Techniques de bras
 
 1. Uki Otoshi
 2. Seoi Nage
 3. Kata Guruma
 
-**** Koshi Waza
+**** Koshi Waza - Techniques de hanche
 
 1. Uki Goshi
 2. Harai Goshi
 3. Tsuri Komi Goshi
 
-**** Ashi Waza
+**** Ashi Waza - Techniques de jambe
 
 1. Okuri Ashi Barai
 2. Sasae Tsuri Komi Ashi
 3. Uchi Mata
 
-**** Ma-Sutemi Waza
+**** Ma-Sutemi Waza - Techniques de sacrifice arriere
 
 1. Tomoe Nage
 2. Ura Nage
 3. Sumi Gaeshi
 
-**** Yoko-Sutemi Waza
+**** Yoko-Sutemi Waza - Techniques de sacrifice sur le cote
 
 1. Yoko Gake
 2. Yoko Guruma
@@ -211,8 +211,8 @@
 
 *** Shiai / Competition
 100 points ou 5 victoires consecutives
-*** Arbitrage
 
+*** Arbitrage
 
 * Combinaison
 
