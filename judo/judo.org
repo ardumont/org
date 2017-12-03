@@ -91,10 +91,10 @@
 #+CAPTION: Green belt
 #+NAME:   tab:basic-data
 |--------------------------+------------------------------------------------------+----------------------------------|
-| Nage waza                | Projection                                           | Demo                    |
+| Nage waza                | Projection                                           | Demo                             |
 |--------------------------+------------------------------------------------------+----------------------------------|
 | Kata Guruma              | Roue autour des épaules                              | [[./img/green/kata-guruma.gif]]      |
-| Tomoe Nage               | Projection en cercle                                 | [[./img/green/tomoe-nage.gif]]       |
+| Tomoe Nage               | Sacrifice en cercle                                  | [[./img/green/tomoe-nage.gif]]       |
 | Ko-Soto-Gake             | Petit accrochage exterieur                           | [[./img/green/ko-soto-gake.gif]]     |
 | Uki-Otoshi               | Renversement du corps                                | [[./img/green/uki-otoshi.gif]]       |
 | Ashi-Guruma              | Roue autour de la jambe                              | [[./img/green/ashi-guruma.gif]]      |
@@ -104,83 +104,78 @@
 | Kata Juji Jime           | Croise mixte facial                                  | [[./img/green/kata-juji-jime.jpg]]   |
 | Gyaku Juji Jime          | Croise mixte facial (position inversee / supination) | [[./img/green/gyaku-juji-jime.jpg]]  |
 | Nami Juji Jime           | Croise mixte facial (position normale / pronation)   | [[./img/green/nami-juji-jime.jpg]]   |
-| Morote Jime              | Facial non croisé en pro-supination                  | [[./img/green/morote-jime.gif]]      |
+| Morote Jime              | Facial non croisé en pro-supination                  | [[./img/green/morote-jime.jpg]]      |
 | Hadaka Jime              | Arriere par l'avant-bras                             | [[./img/green/hadaka-jime.jpg]]      |
 | Okuri Eri Jime           | Arriere en glissant par les revers                   | [[./img/green/okuri-eri-jime.jpg]]   |
 | Kata Ha Jime             | Arriere par controle d'un bras                       | [[./img/green/kata-ha-jime.jpg]]     |
-| Sode Guruma Jime         | Par enroulement du revers                            | [[./img/green/sode-guruma-jime.gif]] |
+| Sode Guruma Jime         | Par enroulement du revers                            | [[./img/green/sode-guruma-jime.png]] |
 | Ashi Gatame Jime         | Avec bras et jambe                                   | [[./img/green/ashi-gatame-jime.gif]] |
 | Katate Jime              | Avec une main                                        | [[./img/green/katate-jime.gif]]      |
 |--------------------------+------------------------------------------------------+----------------------------------|
 
 ** bleu/blue
-  source:
-- http://kodokanireland.com/GreenBelt.html
 
 #+CAPTION: Blue belt
 #+NAME:   tab:basic-data
-|-----------------------------+----------------------------------+--------------------------------------+------------------------------|
-| Nage waza                   | Projection                       | Demo                                 |                              |
-|-----------------------------+----------------------------------+--------------------------------------+------------------------------|
-| O Guruma                    | Grand enroulement                | [[./img/blue/o-guruma.gif]]              |                              |
-| Harai Goshi                 | Hanche fauchee                   | [[./img/blue/harai-goshi.gif]]           | [[./img/blue/harai-goshi-2.gif]] |
-| Uchi Mata                   | Fauchage interieur (en cercle)   | [[./img/blue/uchi-mata.gif]]             |                              |
-| O Soto Otoshi               | Grand renversement exterieur     | [[./img/blue/o-soto-otoshi.gif]]         |                              |
-| Soto Maki Komi              | Enroulement exterieur            | [[./img/blue/soto-maki-komi.gif]]        |                              |
-| Harai Tsuri Komi Ashi       | Balayage du pied en pêchant      | [[./img/blue/harai-tsuri-komi-ashi.gif]] |                              |
-| Uki Waza                    | Sutemi lateral avant             | [[./img/blue/uki-waza.gif]]              |                              |
-|-----------------------------+----------------------------------+--------------------------------------+------------------------------|
-| Katame waza / Kansetsu Waza | Techniques de controle / Clés    |                                      |                              |
-|-----------------------------+----------------------------------+--------------------------------------+------------------------------|
-| Ude Garami                  | Torsion du coude par enroulement | [[./img/blue/ude-garami.jpg]]            |                              |
-| (Ude Hishigi) Juji Gatame   | Hyperextension par le pubis      | [[./img/blue/juji-gatame.jpg]]           |                              |
-| Ude Gatame                  | Hyperextension avec les mains    | [[./img/blue/ude-gatame.jpg]]            |                              |
-| (Ude Hishigi) Hiza Gatame   | Hyperextension par le genou      | [[./img/blue/hiza-gatame.jpg]]           |                              |
-| (Ude Hishigi) Waki Gatame   | Hyperextension par l’aisselle    | [[./img/blue/waki-gatame.jpg]]           |                              |
-| Hara Gatame                 | Hyperextension par le ventre     | [[./img/blue/hara-gatame.jpg]]           |                              |
-| Ude Gatame                  | Clé au coude avec les bras       | [[./img/blue/ude-gatame.gif]]            |                              |
-|-----------------------------+----------------------------------+--------------------------------------+------------------------------|
+|-----------------------------+----------------------------------+--------------------------------------|
+| Nage waza                   | Projection                       | Demo                                 |
+|-----------------------------+----------------------------------+--------------------------------------|
+| O Guruma                    | Grand enroulement                | [[./img/blue/o-guruma.gif]]              |
+| Harai Goshi                 | Hanche fauchee                   | [[./img/blue/harai-goshi.gif]]           |
+| Uchi Mata                   | Fauchage interieur (en cercle)   | [[./img/blue/uchi-mata.gif]]             |
+| O Soto Otoshi               | Grand renversement exterieur     | [[./img/blue/o-soto-otoshi.gif]]         |
+| Soto Maki Komi              | Enroulement exterieur            | [[./img/blue/soto-maki-komi.gif]]        |
+| Harai Tsuri Komi Ashi       | Balayage du pied en pêchant      | [[./img/blue/harai-tsuri-komi-ashi.gif]] |
+| Uki Waza                    | Sutemi lateral avant             | [[./img/blue/uki-waza.gif]]              |
+|-----------------------------+----------------------------------+--------------------------------------|
+| Katame waza / Kansetsu Waza | Techniques de controle / Clés    |                                      |
+|-----------------------------+----------------------------------+--------------------------------------|
+| Ude Garami                  | Torsion du coude par enroulement | [[./img/blue/ude-garami.jpg]]            |
+| (Ude Hishigi) Juji Gatame   | Hyperextension par le pubis      | [[./img/blue/juji-gatame.jpg]]           |
+| Ude Gatame                  | Hyperextension avec les mains    | [[./img/blue/ude-gatame.gif]]            |
+| (Ude Hishigi) Hiza Gatame   | Hyperextension par le genou      | [[./img/blue/hiza-gatame.jpg]]           |
+| (Ude Hishigi) Waki Gatame   | Hyperextension par l’aisselle    | [[./img/blue/waki-gatame.jpg]]           |
+| Hara Gatame                 | Hyperextension par le ventre     | [[./img/blue/hara-gatame.jpg]]           |
+|-----------------------------+----------------------------------+--------------------------------------|
 
-** marron/brown
-  source:
-- http://kodokanireland.com/BlueBelt.html
+** marron/black
 
 #+CAPTION: Brown belt
 #+NAME:   tab:basic-data
-|---------------+----------------------------------------+------------------------------+-------------------------------|
-| Nage waza     | Projection                             | Demo                         |                               |
-|---------------+----------------------------------------+------------------------------+-------------------------------|
-| Yoko Otoshi   | Sutemi lateral                         | [[./img/brown/yoko-otoshi.gif]]  | [[./img/brown/yoko-otoshi-2.gif]] |
-| Utsuri Goshi  | Contre de hanche avant                 | [[./img/brown/utsuri-goshi.gif]] |                               |
-| Yoko Guruma   | Sutemi enroule de cote par l'exterieur | [[./img/brown/yokoguruma.gif]]   |                               |
-| Ushiro Goshi  | Contre de hanche arriere               | [[./img/brown/ushirogoshi.gif]]  |                               |
-| Te Guruma     | Enroulement par les mains              | [[./img/brown/te-guruma.gif]]    |                               |
-|---------------+----------------------------------------+------------------------------+-------------------------------|
-| Katame waza   | Techniques de controle                 |                              |                               |
-|---------------+----------------------------------------+------------------------------+-------------------------------|
-| Osaekomi waza | Immobilisations (Revision)             |                              |                               |
-| Shime waza    | Etranglements (Revision)               |                              |                               |
-| Kansetsu waza | Cles de bras (Revision)                |                              |                               |
-|---------------+----------------------------------------+------------------------------+-------------------------------|
+|---------------+----------------------------------------+------------------------------|
+| Nage waza     | Projection                             | Demo                         |
+|---------------+----------------------------------------+------------------------------|
+| Yoko Otoshi   | Sutemi lateral                         | [[./img/brown/yoko-otoshi.gif]]  |
+| Utsuri Goshi  | Contre de hanche avant                 | [[./img/brown/utsuri-goshi.gif]] |
+| Yoko Guruma   | Sutemi enroule de cote par l'exterieur | [[./img/brown/yoko-guruma.gif]]  |
+| Ushiro Goshi  | Contre de hanche arriere               | [[./img/brown/ushiro-goshi.gif]] |
+| Te Guruma     | Enroulement par les mains              | [[./img/brown/te-guruma.gif]]    |
+|---------------+----------------------------------------+------------------------------|
+| Katame waza   | Techniques de controle                 |                              |
+|---------------+----------------------------------------+------------------------------|
+| Osaekomi waza | Immobilisations (Revision)             |                              |
+| Shime waza    | Etranglements (Revision)               |                              |
+| Kansetsu waza | Cles de bras (Revision)                |                              |
+|---------------+----------------------------------------+------------------------------|
 
-** noir/black
+** noir/black - 1er dan
 
 #+CAPTION: Black belt
 #+NAME:   tab:basic-data
-|----------------+-------------------------------------+-------------------------------|
-| Nage waza      | Projection                          | Demo                          |
-|----------------+-------------------------------------+-------------------------------|
-| Sumi Gaeshi    | Renversement dans l’angle           | [[./img/black/sumigaeshi2.gif]]   |
-| Tani Otoshi    | Chute dans la vallée                | [[./img/black/tani-otoshi2.gif]]  |
-| Hane Maki Komi | Hanche sautée enroulée              | [[./img/black/hanemakikomi4.gif]] |
-| Sukui Nage     | Projection en cuillère              | [[./img/black/sukui-nage2.gif]]   |
-| Tsuri Goshi    | Hanche soulevee                     | [[./img/black/tsurigoshi.gif]]    |
-| O Soto Guruma  | Grande roue extérieure              | [[./img/black/o-soto-guruma.gif]] |
-| Yoko Wakare    | Séparation de côté                  | [[./img/black/yoko-wakare.gif]]   |
-| Ura Nage       | Projection en se lançant en arrière | [[./img/black/uranage.gif]]       |
-| Yoko Gake      | Accrochage de côté                  | [[./img/black/yokogake.gif]]      |
-| Sumi Otoshi    | Chute dans l’angle                  | [[./img/black/sumiotoshi.gif]]    |
-|----------------+-------------------------------------+-------------------------------|
+|----------------+-------------------------------------+--------------------------------|
+| Nage waza      | Projection                          | Demo                           |
+|----------------+-------------------------------------+--------------------------------|
+| Sumi Gaeshi    | Renversement dans l’angle           | [[./img/black/sumi-gaeshi.gif]]    |
+| Tani Otoshi    | Chute dans la vallée                | [[./img/black/tani-otoshi.gif]]    |
+| Hane Maki Komi | Hanche sautée enroulée              | [[./img/black/hane-maki-komi.gif]] |
+| Sukui Nage     | Projection en cuillère              | [[./img/black/sukui-nage.gif]]     |
+| Tsuri Goshi    | Hanche soulevee                     | [[./img/black/tsuri-goshi.gif]]    |
+| O Soto Guruma  | Grande roue extérieure              | [[./img/black/o-soto-guruma.gif]]  |
+| Yoko Wakare    | Séparation de côté                  | [[./img/black/yoko-wakare.gif]]    |
+| Ura Nage       | Projection en se lançant en arrière | [[./img/black/ura-nage.gif]]       |
+| Yoko Gake      | Accrochage de côté                  | [[./img/black/yoko-gake.gif]]      |
+| Sumi Otoshi    | Chute dans l’angle                  | [[./img/black/sumi-otoshi.gif]]    |
+|----------------+-------------------------------------+--------------------------------|
 
 *** Nage No Kata
 
