@@ -15,7 +15,7 @@
   - Shime-waza - Etranglement
   - Kansetzu-Waza - Techique de luxation
 
-* Progression Gokyo
+* Progression Gokyo avec opportunites
 ** blanche/white
 
 #+CAPTION: White belt
@@ -217,6 +217,36 @@
 *** Shiai / Competition
 100 points ou 5 victoires consecutives
 *** Arbitrage
+
+
+* Combinaison
+
+|------------------+---------------------------------------|
+| Ouverture        | Combinaison                           |
+|------------------+---------------------------------------|
+| Ippon Seoi Nage  | Ko Uchi Gari                          |
+|                  | O Soto Gari                           |
+|------------------+---------------------------------------|
+| O Soto Gari      | Sasae Tsuri Komi Goshi (fausse garde) |
+|                  | O Uchi Gari                           |
+|                  | Ko Soto Gari                          |
+|                  | Tai Otoshi                            |
+|------------------+---------------------------------------|
+| Tai Otoshi       | Uchi Mata                             |
+|------------------+---------------------------------------|
+| Morote Seoi Nage | Ko Uchi Gari                          |
+|------------------+---------------------------------------|
+| Ko Uchi Gari     | Hane Goshi                            |
+|                  | Harai Goshi                           |
+|                  | Uchi Mata                             |
+|                  | O Uchi Gari                           |
+|                  | Ippon Seoi Nage                       |
+|                  | Morote Seoi Nage                      |
+|------------------+---------------------------------------|
+| O Uchi Gari      | Harai Tsuri Komi Ashi                 |
+|                  | Uchi Mata                             |
+|                  | O Soto Gari                           |
+|------------------+---------------------------------------|
 
 * Retournements/Sorties
 
