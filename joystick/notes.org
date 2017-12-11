@@ -1,0 +1,64 @@
+#+title: Note about joystick and emulator
+
+* mednafen
+
+** ps3 sixaxis mapping
+
+0 1  2  3 4 5 6 7 8  9  a  b  c  d  e  f
+0 1  2  3 4 5 6 7 8  9  10 11 12 13 14 15
+R l3 r3 s u r d l l2 r2 l1 r1 /\ O  X  []
+
+R reset
+s start
+u up
+r right
+d down
+l left
+
+#+BEGIN_SRC sh
+joystick identifier: 3017d77374ccf98b
+
+# setup for megadrive emulator
+md.input.port1.gamepad.a joystick 3017d77374ccf98b 0000000e
+md.input.port1.gamepad.rapid_a joystick 3017d77374ccf98b 0000000d
+md.input.port1.gamepad.b joystick 3017d77374ccf98b 0000000f
+md.input.port1.gamepad.rapid_b joystick 3017d77374ccf98b 0000000c
+md.input.port1.gamepad.c joystick 3017d77374ccf98b 0000000a
+md.input.port1.gamepad.rapid_c joystick 3017d77374ccf98b 0000000b
+md.input.port1.gamepad.select joystick 3017d77374ccf98b 00000000
+md.input.port1.gamepad.start joystick 3017d77374ccf98b 00000003
+md.input.port1.gamepad.right joystick 3017d77374ccf98b 00000005
+md.input.port1.gamepad.left joystick 3017d77374ccf98b 00000007
+md.input.port1.gamepad.up joystick 3017d77374ccf98b 00000004
+md.input.port1.gamepad.down joystick 3017d77374ccf98b 00000006
+
+nes.input.port1.gamepad.a joystick 3017d77374ccf98b 0000000e
+nes.input.port1.gamepad.rapid_a joystick 3017d77374ccf98b 0000000e
+nes.input.port1.gamepad.b joystick 3017d77374ccf98b 0000000d
+nes.input.port1.gamepad.rapid_b joystick 3017d77374ccf98b 0000000d
+nes.input.port1.gamepad.select joystick 3017d77374ccf98b 00000000
+nes.input.port1.gamepad.start joystick 3017d77374ccf98b 00000003
+nes.input.port1.gamepad.right joystick 3017d77374ccf98b 00000005
+nes.input.port1.gamepad.left joystick 3017d77374ccf98b 00000007
+nes.input.port1.gamepad.up joystick 3017d77374ccf98b 00000004
+nes.input.port1.gamepad.down joystick 3017d77374ccf98b 00000006
+#+END_SRC
+
+** ps4 controller
+
+#+BEGIN_SRC sh
+joystick identifier: 670371ad9e4da711
+
+md.input.port2.gamepad.a joystick 670371ad9e4da711 0000000e
+md.input.port2.gamepad.rapid_a joystick 670371ad9e4da711 0000000d
+md.input.port2.gamepad.b joystick 670371ad9e4da711 0000000f
+md.input.port2.gamepad.rapid_b joystick 670371ad9e4da711 0000000c
+md.input.port2.gamepad.c joystick 670371ad9e4da711 0000000a
+md.input.port2.gamepad.rapid_c joystick 670371ad9e4da711 0000000b
+md.input.port2.gamepad.select joystick 670371ad9e4da711 00000000
+md.input.port2.gamepad.start joystick 670371ad9e4da711 00000003
+md.input.port2.gamepad.right joystick 670371ad9e4da711 00000005
+md.input.port2.gamepad.left joystick 670371ad9e4da711 00000007
+md.input.port2.gamepad.up joystick 670371ad9e4da711 00000004
+md.input.port2.gamepad.down joystick 670371ad9e4da711 00000006
+#+END_SRC
