@@ -2,29 +2,6 @@
 #+AUTHOR: ardumont
 #+STARTUP: indent
 
-* DONE Chambre des filles (Chloé, Noémy) [9/9]
-CLOSED: [2015-06-22 Mon 23:43]
-** DONE Changer radiateur
-CLOSED: [2014-01-04 sam. 00:07]
-** DONE Retirer le crepis
-CLOSED: [2015-05-05 Tue 16:03]
-** DONE Enduit de rebouchage
-CLOSED: [2015-05-05 Tue 16:04]
-** DONE Enduit de lissage
-CLOSED: [2015-05-05 Tue 16:04]
-** DONE Poncer
-CLOSED: [2015-05-05 Tue 16:04]
-** DONE Sous-couche
-CLOSED: [2015-05-07 Thu 11:04]
-Merci Papy Claude et Mamy Muguette
-** DONE Poser la toile de renovation
-CLOSED: [2015-05-20 Wed 11:55]
-Merci papy Claude!
-** DONE Monter le landau
-CLOSED: [2015-05-20 Wed 11:55]
-** DONE Peindre les murs
-CLOSED: [2015-06-22 Mon 23:42]
-Merci Papy Claude
 * DONE Jardin cote gauche [11/11]
 CLOSED: [2013-04-11 jeu. 09:34]
 ** DONE Retirer toutes les mauvaises herbes
@@ -124,7 +101,7 @@ CLOSED: [2015-05-20 Wed 11:57]
 CLOSED: [2015-05-20 Wed 11:57]
 ** DONE seche-linge rouille
 CLOSED: [2015-05-20 Wed 11:57]
-* DONE Chambre de Timéo [11/12]
+* PENDING Chambre Timéo [11/14]
 ** DONE Retirer le papier peint de la porte
 ** DONE Retirer le papier peint des armoires
 ** DONE Finalement remplacer les portes d'armoire
@@ -144,7 +121,9 @@ CLOSED: [2013-08-08 jeu. 19:35]
 ** DONE Changer radiateur
 CLOSED: [2014-01-03 ven. 13:54]
 ** TODO Retirer decorations (photos/sticker)
-* DONE Chambre de Théo [12/12]
+** TODO Repeindre les murs (ou poser le papier peint)
+** PENDING Poser sol vinyl
+* PENDING Chambre Théo [12/13]
 ** DONE Retirer le papier peint de la porte
 ** DONE Retirer le papier peint des armoires
 ** DONE Finalement remplacer les portes d'armoire
@@ -167,6 +146,7 @@ Merci Chris
 CLOSED: [2013-08-08 jeu. 19:36]
 ** DONE Changer radiateur
 CLOSED: [2014-01-04 sam. 00:07]
+** TODO Poser sol vinyl
 * DONE Piece de jeux des enfants [32/32]
 CLOSED: [2013-11-10 dim. 15:20]
 ** DONE Retirer la grosse armoire du bureau
@@ -325,7 +305,7 @@ Merci Papy Claude et Chris
 CLOSED: [2014-01-04 sam. 00:07]
 ** DONE Changer porte d'entree
 CLOSED: [2015-11-01 Sun 22:27]
-* TODO sous-sol [2/5]
+* PENDING Sous-sol [4/6]
 ** DONE piece principale [4/5]
 CLOSED: [2017-08-25 Fri 10:01]
 *** DONE Changer douille b22 -> e27 (x2)
@@ -343,13 +323,19 @@ CLOSED: [2017-08-25 Fri 10:00]
 CLOSED: [2017-08-25 Fri 10:00]
 *** DONE installer lampe a led
 CLOSED: [2017-08-25 Fri 10:00]
-** TODO couloir atelier [2/3]
+** DONE couloir atelier [3/3]
 *** DONE Changer douille b22 -> e27
 CLOSED: [2017-08-25 Fri 10:04]
 *** DONE installer lampe a led
 CLOSED: [2017-08-25 Fri 10:04]
-*** TODO Ranger bordel
-** TODO atelier [8/11]
+*** DONE Ranger bordel
+CLOSED: [2018-01-14 Sun 12:09]
+** DONE escalier cuisine <-> sous-sol [2/2]
+*** DONE Trier bordel
+CLOSED: [2017-09-02 Sat 20:12]
+*** DONE Changer rideau isolation
+CLOSED: [2018-01-14 Sun 12:10]
+** PENDING atelier [8/11]
 *** DONE Evacuer le casier a plan
 CLOSED: [2013-06-22 sam. 16:12]
 *** DONE Installer une pompe pour evacuer l'eau a l'exterieur
@@ -376,17 +362,13 @@ CLOSED: [2017-09-02 Sat 20:10]
 - [ ] Installer les outils
 *** TODO Changer/retaper fenetre 1
 *** TODO Changer/retaper fenetre 2
-** TODO grande piece [2/4]
+** PENDING grande piece [2/4]
 *** DONE Changer douille b22 -> e27
 CLOSED: [2017-08-25 Fri 21:04]
 *** DONE installer lampe a led
 CLOSED: [2017-08-25 Fri 21:04]
 *** TODO Trier bordel accumule...
 *** TODO Changer/retaper fenetre
-** escalier cuisine <-> sous-sol [1/1]
-*** DONE Trier bordel
-CLOSED: [2017-09-02 Sat 20:12]
-*** Changer rideau isolation
 * DONE Couloir du haut [31/31]
 ** DONE Retirer le crepis
 ** DONE Retirer le papier peint
@@ -453,7 +435,7 @@ CLOSED: [2015-11-30 Mon 11:38]
 - [X] couche 2
 ** DONE Poser papier peint sur les murs
 CLOSED: [2015-11-30 Mon 11:38]
-* TODO Jardin devant [17/21]
+* PENDING Jardin devant [20/22]
 ** DONE parterres de fleurs [4/4]
 **** DONE Detruire le parterre de marguerite qui prend trop de place dans le jardin.
 **** DONE Aplanir tous les parterres de fleurs.
@@ -477,10 +459,12 @@ CLOSED: [2015-05-20 Wed 11:57]
 CLOSED: [2016-08-28 Sun 18:27]
 ** DONE Ajouter un recuperateur d'eau
 CLOSED: [2016-08-28 Sun 18:31]
-** TODO Faire elaguer/couper les erables
-** TODO Faire elaguer/couper les peupliers
-** TODO Enlever la haie de laurier
-** TODO Planter du bambou
+** DONE Faire elaguer/couper les erables
+CLOSED: [2018-01-14 Sun 12:10]
+** DONE Faire elaguer/couper les peupliers
+CLOSED: [2018-01-14 Sun 12:10]
+** DONE Tailler haie de laurier
+CLOSED: [2018-01-14 Sun 12:10]
 ** DONE Voisin - Plus de mur entre voisins et nous
 CLOSED: [2014-02-28]
 De 2014 a 2016
@@ -490,6 +474,8 @@ CLOSED: [2016-11-07 Mon 10:17]
 CLOSED: [2016-11-06 Sun 17:17]
 ** DONE Changer applique exterieur + lampe a led
 CLOSED: [2017-08-25 Fri 21:03]
+** TODO Planter du bambou
+** TODO Couper les buches de restes d'erable et peuplier
 * PENDING Cuisine [34/35]
 ** DONE Degager le vieux frigo
 ** DONE Refaire les prises de courant
@@ -558,7 +544,7 @@ CLOSED: [2017-08-25 Fri 09:45]
 ** DONE Changer robinet evier
 CLOSED: [2017-08-25 Fri 09:45]
 ** TODO Changer meubles cuisine
-* TODO Toilettes du bas [12/15]
+* PENDING Toilettes du bas [13/16]
 ** DONE Sous-couche porte
 CLOSED: [2013-07-30 mar. 21:46]
 ** DONE Peindre porte
@@ -583,10 +569,12 @@ CLOSED: [2017-08-25 Fri 09:46]
 CLOSED: [2017-08-25 Fri 09:48]
 ** DONE Poser planche a rangement
 CLOSED: [2017-09-02 Sat 20:14]
+** DONE Poser faux plafond
+CLOSED: [2018-01-14 Sun 12:11]
 ** TODO Poser la sous-couche
 ** TODO Poser toile de renovation
 ** TODO Peindre
-* TODO Toilettes du haut [11/14]
+* PENDING Toilettes du haut [14/17]
 ** DONE Changer les toilettes
 CLOSED: [2013-04-11 jeu. 09:40]
 ** DONE Changer les tuyaux
@@ -614,10 +602,12 @@ CLOSED: [2017-08-25 Fri 09:48]
 CLOSED: [2017-08-25 Fri 09:46]
 ** DONE Changer lampe economie d'energie pour led
 CLOSED: [2017-08-25 Fri 09:48]
+** DONE Poser faux-plafond
+CLOSED: [2018-01-14 Sun 12:11]
 ** TODO Poser la sous-couche
 ** TODO Poser toile de renovation
 ** TODO Peindre
-* PENDING Chambre parentale [17/20]
+* DONE Chambre parentale [22/22]
 ** DONE Changer le siphon du lavabo
 CLOSED: [2013-04-11 jeu. 09:39]
 ** DONE Changer le robinet de la douche
@@ -652,12 +642,39 @@ CLOSED: [2017-08-25 Fri 09:50]
 CLOSED: [2017-08-25 Fri 09:50]
 ** DONE Changer lampe economie d'energie pour led
 CLOSED: [2017-08-25 Fri 10:09]
-** TODO Poser la toile de renovation
-** TODO Changer la douche
-** TODO Poser meuble vasque
+** DONE Repeindre les murs en blanc
+CLOSED: [2018-01-14 Sun 12:12]
+** DONE Poser sous-couche et peinture sur plafond
+CLOSED: [2018-01-14 Sun 12:12]
+** DONE Changer la douche
+CLOSED: [2018-01-14 Sun 12:12]
+** DONE Poser meuble vasque
+CLOSED: [2018-01-14 Sun 12:12]
 
-* PENDING Bureau [19/19]
-** DONE Enduit de rebouchage porte
+** DONE Poser sol vinyl
+CLOSED: [2018-01-14 Sun 12:13]
+* PENDING Chambre Chloe & Noemy [19/21]
+** DONE Changer radiateur
+CLOSED: [2014-01-04 sam. 00:07]
+** DONE Retirer le crepis
+CLOSED: [2015-05-05 Tue 16:03]
+** DONE Enduit de rebouchage
+CLOSED: [2015-05-05 Tue 16:04]
+** DONE Enduit de lissage
+CLOSED: [2015-05-05 Tue 16:04]
+** DONE Poncer
+CLOSED: [2015-05-05 Tue 16:04]
+** DONE Sous-couche
+CLOSED: [2015-05-07 Thu 11:04]
+Merci Papy Claude et Mamy Muguette
+** DONE Poser la toile de renovation
+CLOSED: [2015-05-20 Wed 11:55]
+Merci papy Claude!
+** DONE Monter le landau
+CLOSED: [2015-05-20 Wed 11:55]
+** DONE Peindre les murs
+CLOSED: [2015-06-22 Mon 23:42]
+Merci Papy Claude** DONE Enduit de rebouchage porte
 CLOSED: [2013-07-29 lun. 18:57]
 ** DONE Peindre la porte couche 1/2
 CLOSED: [2013-07-29 lun. 18:57]
@@ -695,6 +712,8 @@ CLOSED: [2017-08-16 Wed 14:18]
 CLOSED: [2017-08-16 Wed 14:18]
 ** DONE Changer lampe economie d'energie pour led
 CLOSED: [2017-08-25 Fri 10:10]
+** TODO Peindre plafond (sous-couche + couches peinture)
+** TODO Poser sol vinyl
 * DONE Salon [24/24]
 ** DONE Retirer le papier peint du plafond
 ** DONE Retirer le crepis
@@ -757,7 +776,7 @@ CLOSED: [2016-11-05 Sat 12:45]
 - [X] Poser rideaux
 ** DONE Changer lampe economie d'energie pour led (x2)  ))
 CLOSED: [2017-08-25 Fri 09:51]
-* TODO buanderie/salle d'eau [15/17]
+* PENDING buanderie/salle d'eau [15/17]
 ** DONE Sous-couche porte buanderie/couloir
 CLOSED: [2013-07-30 mar. 21:47]
 ** DONE Sous-couche porte buanderie/toilette
@@ -792,6 +811,8 @@ CLOSED: [2017-08-25 Fri 09:52]
 CLOSED: [2017-08-25 Fri 09:53]
 ** DONE Changer lampe economie d'energie pour led
 CLOSED: [2017-08-25 Fri 09:53]
+** DONE Changer la douche
+CLOSED: [2018-01-14 Sun 12:15]
 ** TODO Sous-couche
 ** TODO Poser la toile de renovation
 * DONE Escalier salon-1er [12/12]
@@ -819,7 +840,7 @@ CLOSED: [2016-03-14 Mon 23:00]
 merci Chris et papy Claude
 ** DONE Changer lampe economie d'energie pour led
 CLOSED: [2017-08-25 Fri 10:13]
-* PENDING Salle de bain [8/13]
+* PENDING Salle de bain [9/13]
 ** DONE Sous-couche cadre de porte
 CLOSED: [2013-07-30 mar. 21:51]
 ** DONE Sous-couche porte
@@ -836,7 +857,8 @@ CLOSED: [2013-08-08 jeu. 19:35]
 CLOSED: [2017-08-25 Fri 10:13]
 ** DONE Changer lampe economie d'energie pour led
 CLOSED: [2017-08-25 Fri 10:13]
-** TODO Interrupteur
+** DONE Interrupteur
+CLOSED: [2018-01-14 Sun 12:15]
 ** TODO Retirer le crepis
 ** TODO Enduit de rebouchage
 ** TODO Sous-couche
