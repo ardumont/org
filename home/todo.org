@@ -101,52 +101,6 @@ CLOSED: [2015-05-20 Wed 11:57]
 CLOSED: [2015-05-20 Wed 11:57]
 ** DONE seche-linge rouille
 CLOSED: [2015-05-20 Wed 11:57]
-* PENDING Chambre Timéo [11/14]
-** DONE Retirer le papier peint de la porte
-** DONE Retirer le papier peint des armoires
-** DONE Finalement remplacer les portes d'armoire
-Merci Papy Claude
-** DONE Retirer le papier peint
-** DONE Retirer le papier peint des portes
-** DONE Lessivage/nettoyage
-Merci Papy Claude
-** DONE Passer la sous-couche.
-Merci Papy Claude
-** DONE Peindre
-Merci Papy Claude
-** DONE Decoration
-Merci Chris
-** DONE Poignee de porte
-CLOSED: [2013-08-08 jeu. 19:35]
-** DONE Changer radiateur
-CLOSED: [2014-01-03 ven. 13:54]
-** TODO Retirer decorations (photos/sticker)
-** TODO Repeindre les murs (ou poser le papier peint)
-** PENDING Poser sol vinyl
-* PENDING Chambre Théo [12/13]
-** DONE Retirer le papier peint de la porte
-** DONE Retirer le papier peint des armoires
-** DONE Finalement remplacer les portes d'armoire
-Merci Papy Claude
-** DONE Retirer la peinture "3d" (poncer)
-Merci Papy Claude
-** DONE Poncer le plafond
-Merci Papy Claude
-** DONE Peindre le plafond
-Merci Papy Claude
-** DONE Changer la prise de courant
-Merci Papy Claude
-** DONE Lessivage/nettoyage
-Merci Papy Claude
-** DONE Peindre la chambre
-Merci Papy Claude
-** DONE Decoration
-Merci Chris
-** DONE Poignee de porte
-CLOSED: [2013-08-08 jeu. 19:36]
-** DONE Changer radiateur
-CLOSED: [2014-01-04 sam. 00:07]
-** TODO Poser sol vinyl
 * DONE Piece de jeux des enfants [32/32]
 CLOSED: [2013-11-10 dim. 15:20]
 ** DONE Retirer la grosse armoire du bureau
@@ -305,70 +259,6 @@ Merci Papy Claude et Chris
 CLOSED: [2014-01-04 sam. 00:07]
 ** DONE Changer porte d'entree
 CLOSED: [2015-11-01 Sun 22:27]
-* PENDING Sous-sol [4/6]
-** DONE piece principale [4/5]
-CLOSED: [2017-08-25 Fri 10:01]
-*** DONE Changer douille b22 -> e27 (x2)
-CLOSED: [2017-08-25 Fri 10:01]
-*** DONE installer lampe a led (x2)
-CLOSED: [2017-08-25 Fri 10:01]
-*** DONE Ranger/trier bordel
-CLOSED: [2017-09-02 Sat 20:11]
-*** DONE Evacuer bordel a la dechetterie
-CLOSED: [2017-09-02 Sat 20:11]
-*** TODO Poser couche isolation sur porte de garage
-** DONE sellier [2/2]
-CLOSED: [2017-08-25 Fri 10:00]
-*** DONE Changer douille b22 -> e27
-CLOSED: [2017-08-25 Fri 10:00]
-*** DONE installer lampe a led
-CLOSED: [2017-08-25 Fri 10:00]
-** DONE couloir atelier [3/3]
-*** DONE Changer douille b22 -> e27
-CLOSED: [2017-08-25 Fri 10:04]
-*** DONE installer lampe a led
-CLOSED: [2017-08-25 Fri 10:04]
-*** DONE Ranger bordel
-CLOSED: [2018-01-14 Sun 12:09]
-** DONE escalier cuisine <-> sous-sol [2/2]
-*** DONE Trier bordel
-CLOSED: [2017-09-02 Sat 20:12]
-*** DONE Changer rideau isolation
-CLOSED: [2018-01-14 Sun 12:10]
-** PENDING atelier [8/11]
-*** DONE Evacuer le casier a plan
-CLOSED: [2013-06-22 sam. 16:12]
-*** DONE Installer une pompe pour evacuer l'eau a l'exterieur
-CLOSED: [2013-06-22 sam. 16:13]
-*** DONE Ranger davantage le bordel
-CLOSED: [2015-05-20 Wed 11:58]
-*** DONE Changer douille b22 -> e27
-CLOSED: [2017-08-25 Fri 10:04]
-*** DONE installer lampe a led
-CLOSED: [2017-08-25 Fri 10:04]
-*** DONE Nettoyer la piece
-CLOSED: [2017-09-01 Fri 19:34]
-*** DONE Trier le bordel restant
-CLOSED: [2017-09-01 Fri 19:30]
-*** DONE Evacuer le bordel a la dechetterie [4/4]
-CLOSED: [2017-09-02 Sat 20:10]
-- [X] voyage 1
-- [X] voyage 2 (merci Francois :)
-- [X] voyage 3
-- [X] voyage 4
-*** TODO Installer planche a outils
-- [ ] Nettoyer planche
-- [ ] Poser
-- [ ] Installer les outils
-*** TODO Changer/retaper fenetre 1
-*** TODO Changer/retaper fenetre 2
-** PENDING grande piece [2/4]
-*** DONE Changer douille b22 -> e27
-CLOSED: [2017-08-25 Fri 21:04]
-*** DONE installer lampe a led
-CLOSED: [2017-08-25 Fri 21:04]
-*** TODO Trier bordel accumule...
-*** TODO Changer/retaper fenetre
 * DONE Couloir du haut [31/31]
 ** DONE Retirer le crepis
 ** DONE Retirer le papier peint
@@ -435,47 +325,246 @@ CLOSED: [2015-11-30 Mon 11:38]
 - [X] couche 2
 ** DONE Poser papier peint sur les murs
 CLOSED: [2015-11-30 Mon 11:38]
-* PENDING Jardin devant [20/22]
-** DONE parterres de fleurs [4/4]
-**** DONE Detruire le parterre de marguerite qui prend trop de place dans le jardin.
-**** DONE Aplanir tous les parterres de fleurs.
-**** DONE Ramasser toutes les briques de parpaing
-**** DONE Les ranger sous l'escalier de l'entree
-** DONE Couper l'arbre de l'entree du cote droit.
-** DONE Finir de detruire la racine restante de l'arbre
-** DONE Faire couper la haie
-** DONE Faire couper les arbres de devant
-** DONE Mettre en place des barrieres de securite le long de l'allee de descente dans le garage.
-** DONE Evacuer tous les dechets suites a toutes les actions du jardins
-** DONE Tailler le noisetier de devant.
-CLOSED: [2013-04-11 jeu. 09:34]
-** DONE Replanter l'herbe
-CLOSED: [2011-09-12 lun. 13:10]
-** DONE Replanter l'herbe
-CLOSED: [2015-05-05 Tue 16:08]
-** DONE Deraciner les arbustes restant de devant (pour les planter derriere)
-CLOSED: [2015-05-20 Wed 11:57]
-** DONE Installer une balancoire
-CLOSED: [2016-08-28 Sun 18:27]
-** DONE Ajouter un recuperateur d'eau
-CLOSED: [2016-08-28 Sun 18:31]
-** DONE Faire elaguer/couper les erables
-CLOSED: [2018-01-14 Sun 12:10]
-** DONE Faire elaguer/couper les peupliers
-CLOSED: [2018-01-14 Sun 12:10]
-** DONE Tailler haie de laurier
-CLOSED: [2018-01-14 Sun 12:10]
-** DONE Voisin - Plus de mur entre voisins et nous
-CLOSED: [2014-02-28]
-De 2014 a 2016
-** DONE Voisin - Remonter le mur
-CLOSED: [2016-11-07 Mon 10:17]
-** DONE Retirer sapins malades
-CLOSED: [2016-11-06 Sun 17:17]
-** DONE Changer applique exterieur + lampe a led
-CLOSED: [2017-08-25 Fri 21:03]
-** TODO Planter du bambou
-** TODO Couper les buches de restes d'erable et peuplier
+* DONE Chambre parentale [22/22]
+** DONE Changer le siphon du lavabo
+CLOSED: [2013-04-11 jeu. 09:39]
+** DONE Changer le robinet de la douche
+CLOSED: [2013-04-11 jeu. 09:39]
+** DONE Peindre porte
+CLOSED: [2013-07-31 mer. 13:21]
+** DONE Peindre cadre de porte 1/2
+CLOSED: [2013-07-31 mer. 13:21]
+** DONE Peindre cadre de porte 2/2
+CLOSED: [2013-08-01 jeu. 19:27]
+** DONE Interrupteur
+CLOSED: [2013-08-04 dim. 15:18]
+** DONE Poignee de porte
+CLOSED: [2013-08-08 jeu. 19:35]
+** DONE Changer le radiateur par celui du salon
+CLOSED: [2013-11-24 dim. 19:07]
+** DONE Changer le radiateur
+CLOSED: [2014-01-05 dim. 20:05]
+** DONE Changer robinet lavabo (+ remise au normes)
+CLOSED: [2017-08-25 Fri 09:49]
+** DONE Retirer le crepis
+CLOSED: [2017-08-25 Fri 09:49]
+** DONE Enduit de rebouchage
+CLOSED: [2017-08-25 Fri 09:49]
+** DONE Lessivage/nettoyage
+CLOSED: [2017-08-25 Fri 09:49]
+** DONE Poser la sous-couche
+CLOSED: [2017-08-25 Fri 09:50]
+** DONE Retirer la vasque
+CLOSED: [2017-08-25 Fri 09:50]
+** DONE Deboucher canalisation
+CLOSED: [2017-08-25 Fri 09:50]
+** DONE Changer lampe economie d'energie pour led
+CLOSED: [2017-08-25 Fri 10:09]
+** DONE Repeindre les murs en blanc
+CLOSED: [2018-01-14 Sun 12:12]
+** DONE Poser sous-couche et peinture sur plafond
+CLOSED: [2018-01-14 Sun 12:12]
+** DONE Changer la douche
+CLOSED: [2018-01-14 Sun 12:12]
+** DONE Poser meuble vasque
+CLOSED: [2018-01-14 Sun 12:12]
+
+** DONE Poser sol vinyl
+CLOSED: [2018-01-14 Sun 12:13]
+* DONE Salon [24/24]
+** DONE Retirer le papier peint du plafond
+** DONE Retirer le crepis
+** DONE Reparer la fissure de la cheminee
+Merci Papy Claude
+** DONE Reparer les fissures du plafond
+Mercy Papy Claude
+** DONE Reboucher les trous (enduit)
+Merci Papy Claude
+** DONE Lessivage/nettoyage
+Merci Papy Claude
+** DONE Passer la sous-couche.
+Merci Papy Claude
+** DONE Peindre porte salon / couloir 1/2
+CLOSED: [2013-08-01 jeu. 19:26]
+** DONE Peindre porte salon / couloir 2/2
+CLOSED: [2013-08-01 jeu. 19:26]
+** DONE Peindre cadre de porte salon / couloir 1/2
+CLOSED: [2013-08-01 jeu. 19:26]
+** DONE Peindre cadre de porte salon / couloir 2/2
+CLOSED: [2013-08-01 jeu. 19:26]
+** DONE Interrupteurs salon/escalier
+CLOSED: [2013-08-03 sam. 21:11]
+
+** DONE Cheminee a remplacer par un poele
+** DONE Changer radiateur 1
+CLOSED: [2013-11-24 dim. 19:04]
+Merci papy Claude
+** DONE Changer radiateur 2
+CLOSED: [2013-11-24 dim. 19:04]
+Merci papy Claude
+** DONE Retirer cheminee condamnee
+CLOSED: [2016-03-01 Tue 18:56]
+** DONE Enduit de lissage sur la partie retiree de cheminee
+CLOSED: [2016-08-28 Sun 18:26]
+** DONE Peindre le plafond
+CLOSED: [2016-08-28 Sun 18:26]
+** DONE Poser la toile de renovation
+CLOSED: [2016-10-28 Fri 18:04]
+Merci Papy Claude
+** DONE Peindre separation du bas
+CLOSED: [2016-10-30 Sun 13:50]
+- [X] couche 1
+- [X] couche 2
+** DONE Peindre separation du haut [2/2]
+CLOSED: [2016-11-05 Sat 11:36]
+- [X] Couche 1
+- [X] Couche 2
+Merci Papy Claude
+** DONE baguettes [5/5]
+CLOSED: [2016-11-07 Mon 10:16]
+- [X] Decouper
+- [X] Peindre couche 1
+- [X] Peindre couche 2
+- [X] Peindre couche 3
+- [X] Poser
+** DONE Poser rideaux [2/2]
+CLOSED: [2016-11-05 Sat 12:45]
+- [X] Poser tringle a rideaux
+- [X] Poser rideaux
+** DONE Changer lampe economie d'energie pour led (x2)  ))
+CLOSED: [2017-08-25 Fri 09:51]
+* DONE Escalier salon-1er [12/12]
+** DONE Retirer le crepis
+** DONE Enduit de lissage
+CLOSED: [2011-10-31 lun. 10:11]
+** DONE Poncer
+CLOSED: [2011-10-31 lun. 10:11]
+** DONE Retirer le papier peint
+CLOSED: [2011-10-31 lun. 10:11]
+** DONE Enduit de lissage
+CLOSED: [2011-10-31 lun. 19:34]
+** DONE Lessivage/nettoyage
+CLOSED: [2011-10-31 lun. 19:35]
+** DONE Passer la sous-couche. [0/1]
+CLOSED: [2013-04-11 jeu. 09:37]
+** DONE Interrupteur escalier/couloir du haut
+CLOSED: [2013-08-03 sam. 22:22]
+** DONE Faux-plafond
+CLOSED: [2014-11-04 Tue 20:16]
+** DONE Enduit de rebouchage et lissage (encore)
+CLOSED: [2016-03-01 Tue 18:55]
+** DONE Poser le papier peint
+CLOSED: [2016-03-14 Mon 23:00]
+merci Chris et papy Claude
+** DONE Changer lampe economie d'energie pour led
+CLOSED: [2017-08-25 Fri 10:13]
+* PENDING Chambre Chloe & Noemy [19/21]
+** DONE Changer radiateur
+CLOSED: [2014-01-04 sam. 00:07]
+** DONE Retirer le crepis
+CLOSED: [2015-05-05 Tue 16:03]
+** DONE Enduit de rebouchage
+CLOSED: [2015-05-05 Tue 16:04]
+** DONE Enduit de lissage
+CLOSED: [2015-05-05 Tue 16:04]
+** DONE Poncer
+CLOSED: [2015-05-05 Tue 16:04]
+** DONE Sous-couche
+CLOSED: [2015-05-07 Thu 11:04]
+Merci Papy Claude et Mamy Muguette
+** DONE Poser la toile de renovation
+CLOSED: [2015-05-20 Wed 11:55]
+Merci papy Claude!
+** DONE Monter le landau
+CLOSED: [2015-05-20 Wed 11:55]
+** DONE Peindre les murs
+CLOSED: [2015-06-22 Mon 23:42]
+Merci Papy Claude** DONE Enduit de rebouchage porte
+CLOSED: [2013-07-29 lun. 18:57]
+** DONE Peindre la porte couche 1/2
+CLOSED: [2013-07-29 lun. 18:57]
+** DONE Peindre la porte couche 2/2
+CLOSED: [2013-07-30 mar. 21:49]
+** DONE Sous-couche cadre de porte bureau/couloir
+CLOSED: [2013-07-30 mar. 21:49]
+** DONE Peindre cadre de porte bureau/couloir 1/2
+CLOSED: [2013-08-01 jeu. 19:27]
+** DONE Peindre cadre de porte bureau/couloir 2/2
+CLOSED: [2013-08-01 jeu. 19:28]
+** DONE Interrupteur
+CLOSED: [2013-08-04 dim. 15:18]
+** DONE Poignee de porte
+CLOSED: [2013-08-08 jeu. 19:35]
+** DONE Changer le radiateur par celui du salon
+CLOSED: [2013-11-24 dim. 19:07]
+** DONE Changer le radiateur
+CLOSED: [2014-01-05 dim. 22:50]
+** DONE Retirer le crepis
+CLOSED: [2017-08-16 Wed 14:17]
+** DONE Enduit de rebouchage
+CLOSED: [2017-08-16 Wed 14:17]
+** DONE Enduit de lissage
+CLOSED: [2017-08-16 Wed 14:17]
+** DONE Lessivage/nettoyage
+CLOSED: [2017-08-16 Wed 14:18]
+** DONE Poser la sous-couche
+CLOSED: [2017-08-16 Wed 14:18]
+** DONE Poser la toile de renovation
+CLOSED: [2017-08-16 Wed 14:18]
+** DONE Poser le papier peint
+CLOSED: [2017-08-16 Wed 14:18]
+** DONE Ranger la piece
+CLOSED: [2017-08-16 Wed 14:18]
+** DONE Changer lampe economie d'energie pour led
+CLOSED: [2017-08-25 Fri 10:10]
+** TODO Peindre plafond (sous-couche + couches peinture)
+** TODO Poser sol vinyl
+* PENDING Chambre Théo [12/13]
+** DONE Retirer le papier peint de la porte
+** DONE Retirer le papier peint des armoires
+** DONE Finalement remplacer les portes d'armoire
+Merci Papy Claude
+** DONE Retirer la peinture "3d" (poncer)
+Merci Papy Claude
+** DONE Poncer le plafond
+Merci Papy Claude
+** DONE Peindre le plafond
+Merci Papy Claude
+** DONE Changer la prise de courant
+Merci Papy Claude
+** DONE Lessivage/nettoyage
+Merci Papy Claude
+** DONE Peindre la chambre
+Merci Papy Claude
+** DONE Decoration
+Merci Chris
+** DONE Poignee de porte
+CLOSED: [2013-08-08 jeu. 19:36]
+** DONE Changer radiateur
+CLOSED: [2014-01-04 sam. 00:07]
+** TODO Poser sol vinyl
+* PENDING Chambre Timéo [11/14]
+** DONE Retirer le papier peint de la porte
+** DONE Retirer le papier peint des armoires
+** DONE Finalement remplacer les portes d'armoire
+Merci Papy Claude
+** DONE Retirer le papier peint
+** DONE Retirer le papier peint des portes
+** DONE Lessivage/nettoyage
+Merci Papy Claude
+** DONE Passer la sous-couche.
+Merci Papy Claude
+** DONE Peindre
+Merci Papy Claude
+** DONE Decoration
+Merci Chris
+** DONE Poignee de porte
+CLOSED: [2013-08-08 jeu. 19:35]
+** DONE Changer radiateur
+CLOSED: [2014-01-03 ven. 13:54]
+** TODO Retirer decorations (photos/sticker)
+** TODO Repeindre les murs (ou poser le papier peint)
+** PENDING Poser sol vinyl
 * PENDING Cuisine [34/35]
 ** DONE Degager le vieux frigo
 ** DONE Refaire les prises de courant
@@ -544,6 +633,47 @@ CLOSED: [2017-08-25 Fri 09:45]
 ** DONE Changer robinet evier
 CLOSED: [2017-08-25 Fri 09:45]
 ** TODO Changer meubles cuisine
+* PENDING Jardin devant [20/22]
+** DONE parterres de fleurs [4/4]
+**** DONE Detruire le parterre de marguerite qui prend trop de place dans le jardin.
+**** DONE Aplanir tous les parterres de fleurs.
+**** DONE Ramasser toutes les briques de parpaing
+**** DONE Les ranger sous l'escalier de l'entree
+** DONE Couper l'arbre de l'entree du cote droit.
+** DONE Finir de detruire la racine restante de l'arbre
+** DONE Faire couper la haie
+** DONE Faire couper les arbres de devant
+** DONE Mettre en place des barrieres de securite le long de l'allee de descente dans le garage.
+** DONE Evacuer tous les dechets suites a toutes les actions du jardins
+** DONE Tailler le noisetier de devant.
+CLOSED: [2013-04-11 jeu. 09:34]
+** DONE Replanter l'herbe
+CLOSED: [2011-09-12 lun. 13:10]
+** DONE Replanter l'herbe
+CLOSED: [2015-05-05 Tue 16:08]
+** DONE Deraciner les arbustes restant de devant (pour les planter derriere)
+CLOSED: [2015-05-20 Wed 11:57]
+** DONE Installer une balancoire
+CLOSED: [2016-08-28 Sun 18:27]
+** DONE Ajouter un recuperateur d'eau
+CLOSED: [2016-08-28 Sun 18:31]
+** DONE Faire elaguer/couper les erables
+CLOSED: [2018-01-14 Sun 12:10]
+** DONE Faire elaguer/couper les peupliers
+CLOSED: [2018-01-14 Sun 12:10]
+** DONE Tailler haie de laurier
+CLOSED: [2018-01-14 Sun 12:10]
+** DONE Voisin - Plus de mur entre voisins et nous
+CLOSED: [2014-02-28]
+De 2014 a 2016
+** DONE Voisin - Remonter le mur
+CLOSED: [2016-11-07 Mon 10:17]
+** DONE Retirer sapins malades
+CLOSED: [2016-11-06 Sun 17:17]
+** DONE Changer applique exterieur + lampe a led
+CLOSED: [2017-08-25 Fri 21:03]
+** TODO Planter du bambou
+** TODO Couper les buches de restes d'erable et peuplier
 * PENDING Toilettes du bas [13/16]
 ** DONE Sous-couche porte
 CLOSED: [2013-07-30 mar. 21:46]
@@ -607,175 +737,6 @@ CLOSED: [2018-01-14 Sun 12:11]
 ** TODO Poser la sous-couche
 ** TODO Poser toile de renovation
 ** TODO Peindre
-* DONE Chambre parentale [22/22]
-** DONE Changer le siphon du lavabo
-CLOSED: [2013-04-11 jeu. 09:39]
-** DONE Changer le robinet de la douche
-CLOSED: [2013-04-11 jeu. 09:39]
-** DONE Peindre porte
-CLOSED: [2013-07-31 mer. 13:21]
-** DONE Peindre cadre de porte 1/2
-CLOSED: [2013-07-31 mer. 13:21]
-** DONE Peindre cadre de porte 2/2
-CLOSED: [2013-08-01 jeu. 19:27]
-** DONE Interrupteur
-CLOSED: [2013-08-04 dim. 15:18]
-** DONE Poignee de porte
-CLOSED: [2013-08-08 jeu. 19:35]
-** DONE Changer le radiateur par celui du salon
-CLOSED: [2013-11-24 dim. 19:07]
-** DONE Changer le radiateur
-CLOSED: [2014-01-05 dim. 20:05]
-** DONE Changer robinet lavabo (+ remise au normes)
-CLOSED: [2017-08-25 Fri 09:49]
-** DONE Retirer le crepis
-CLOSED: [2017-08-25 Fri 09:49]
-** DONE Enduit de rebouchage
-CLOSED: [2017-08-25 Fri 09:49]
-** DONE Lessivage/nettoyage
-CLOSED: [2017-08-25 Fri 09:49]
-** DONE Poser la sous-couche
-CLOSED: [2017-08-25 Fri 09:50]
-** DONE Retirer la vasque
-CLOSED: [2017-08-25 Fri 09:50]
-** DONE Deboucher canalisation
-CLOSED: [2017-08-25 Fri 09:50]
-** DONE Changer lampe economie d'energie pour led
-CLOSED: [2017-08-25 Fri 10:09]
-** DONE Repeindre les murs en blanc
-CLOSED: [2018-01-14 Sun 12:12]
-** DONE Poser sous-couche et peinture sur plafond
-CLOSED: [2018-01-14 Sun 12:12]
-** DONE Changer la douche
-CLOSED: [2018-01-14 Sun 12:12]
-** DONE Poser meuble vasque
-CLOSED: [2018-01-14 Sun 12:12]
-
-** DONE Poser sol vinyl
-CLOSED: [2018-01-14 Sun 12:13]
-* PENDING Chambre Chloe & Noemy [19/21]
-** DONE Changer radiateur
-CLOSED: [2014-01-04 sam. 00:07]
-** DONE Retirer le crepis
-CLOSED: [2015-05-05 Tue 16:03]
-** DONE Enduit de rebouchage
-CLOSED: [2015-05-05 Tue 16:04]
-** DONE Enduit de lissage
-CLOSED: [2015-05-05 Tue 16:04]
-** DONE Poncer
-CLOSED: [2015-05-05 Tue 16:04]
-** DONE Sous-couche
-CLOSED: [2015-05-07 Thu 11:04]
-Merci Papy Claude et Mamy Muguette
-** DONE Poser la toile de renovation
-CLOSED: [2015-05-20 Wed 11:55]
-Merci papy Claude!
-** DONE Monter le landau
-CLOSED: [2015-05-20 Wed 11:55]
-** DONE Peindre les murs
-CLOSED: [2015-06-22 Mon 23:42]
-Merci Papy Claude** DONE Enduit de rebouchage porte
-CLOSED: [2013-07-29 lun. 18:57]
-** DONE Peindre la porte couche 1/2
-CLOSED: [2013-07-29 lun. 18:57]
-** DONE Peindre la porte couche 2/2
-CLOSED: [2013-07-30 mar. 21:49]
-** DONE Sous-couche cadre de porte bureau/couloir
-CLOSED: [2013-07-30 mar. 21:49]
-** DONE Peindre cadre de porte bureau/couloir 1/2
-CLOSED: [2013-08-01 jeu. 19:27]
-** DONE Peindre cadre de porte bureau/couloir 2/2
-CLOSED: [2013-08-01 jeu. 19:28]
-** DONE Interrupteur
-CLOSED: [2013-08-04 dim. 15:18]
-** DONE Poignee de porte
-CLOSED: [2013-08-08 jeu. 19:35]
-** DONE Changer le radiateur par celui du salon
-CLOSED: [2013-11-24 dim. 19:07]
-** DONE Changer le radiateur
-CLOSED: [2014-01-05 dim. 22:50]
-** DONE Retirer le crepis
-CLOSED: [2017-08-16 Wed 14:17]
-** DONE Enduit de rebouchage
-CLOSED: [2017-08-16 Wed 14:17]
-** DONE Enduit de lissage
-CLOSED: [2017-08-16 Wed 14:17]
-** DONE Lessivage/nettoyage
-CLOSED: [2017-08-16 Wed 14:18]
-** DONE Poser la sous-couche
-CLOSED: [2017-08-16 Wed 14:18]
-** DONE Poser la toile de renovation
-CLOSED: [2017-08-16 Wed 14:18]
-** DONE Poser le papier peint
-CLOSED: [2017-08-16 Wed 14:18]
-** DONE Ranger la piece
-CLOSED: [2017-08-16 Wed 14:18]
-** DONE Changer lampe economie d'energie pour led
-CLOSED: [2017-08-25 Fri 10:10]
-** TODO Peindre plafond (sous-couche + couches peinture)
-** TODO Poser sol vinyl
-* DONE Salon [24/24]
-** DONE Retirer le papier peint du plafond
-** DONE Retirer le crepis
-** DONE Reparer la fissure de la cheminee
-Merci Papy Claude
-** DONE Reparer les fissures du plafond
-Mercy Papy Claude
-** DONE Reboucher les trous (enduit)
-Merci Papy Claude
-** DONE Lessivage/nettoyage
-Merci Papy Claude
-** DONE Passer la sous-couche.
-Merci Papy Claude
-** DONE Peindre porte salon / couloir 1/2
-CLOSED: [2013-08-01 jeu. 19:26]
-** DONE Peindre porte salon / couloir 2/2
-CLOSED: [2013-08-01 jeu. 19:26]
-** DONE Peindre cadre de porte salon / couloir 1/2
-CLOSED: [2013-08-01 jeu. 19:26]
-** DONE Peindre cadre de porte salon / couloir 2/2
-CLOSED: [2013-08-01 jeu. 19:26]
-** DONE Interrupteurs salon/escalier
-CLOSED: [2013-08-03 sam. 21:11]
-
-** DONE Cheminee a remplacer par un poele
-** DONE Changer radiateur 1
-CLOSED: [2013-11-24 dim. 19:04]
-Merci papy Claude
-** DONE Changer radiateur 2
-CLOSED: [2013-11-24 dim. 19:04]
-Merci papy Claude
-** DONE Retirer cheminee condamnee
-CLOSED: [2016-03-01 Tue 18:56]
-** DONE Enduit de lissage sur la partie retiree de cheminee
-CLOSED: [2016-08-28 Sun 18:26]
-** DONE Peindre le plafond
-CLOSED: [2016-08-28 Sun 18:26]
-** DONE Poser la toile de renovation
-CLOSED: [2016-10-28 Fri 18:04]
-Merci Papy Claude
-** DONE Peindre separation du bas
-CLOSED: [2016-10-30 Sun 13:50]
-- [X] couche 1
-- [X] couche 2
-** DONE Peindre separation du haut [2/2]
-CLOSED: [2016-11-05 Sat 11:36]
-- [X] Couche 1
-- [X] Couche 2
-Merci Papy Claude
-** DONE baguettes [5/5]
-CLOSED: [2016-11-07 Mon 10:16]
-- [X] Decouper
-- [X] Peindre couche 1
-- [X] Peindre couche 2
-- [X] Peindre couche 3
-- [X] Poser
-** DONE Poser rideaux [2/2]
-CLOSED: [2016-11-05 Sat 12:45]
-- [X] Poser tringle a rideaux
-- [X] Poser rideaux
-** DONE Changer lampe economie d'energie pour led (x2)  ))
-CLOSED: [2017-08-25 Fri 09:51]
 * PENDING buanderie/salle d'eau [15/17]
 ** DONE Sous-couche porte buanderie/couloir
 CLOSED: [2013-07-30 mar. 21:47]
@@ -815,31 +776,6 @@ CLOSED: [2017-08-25 Fri 09:53]
 CLOSED: [2018-01-14 Sun 12:15]
 ** TODO Sous-couche
 ** TODO Poser la toile de renovation
-* DONE Escalier salon-1er [12/12]
-** DONE Retirer le crepis
-** DONE Enduit de lissage
-CLOSED: [2011-10-31 lun. 10:11]
-** DONE Poncer
-CLOSED: [2011-10-31 lun. 10:11]
-** DONE Retirer le papier peint
-CLOSED: [2011-10-31 lun. 10:11]
-** DONE Enduit de lissage
-CLOSED: [2011-10-31 lun. 19:34]
-** DONE Lessivage/nettoyage
-CLOSED: [2011-10-31 lun. 19:35]
-** DONE Passer la sous-couche. [0/1]
-CLOSED: [2013-04-11 jeu. 09:37]
-** DONE Interrupteur escalier/couloir du haut
-CLOSED: [2013-08-03 sam. 22:22]
-** DONE Faux-plafond
-CLOSED: [2014-11-04 Tue 20:16]
-** DONE Enduit de rebouchage et lissage (encore)
-CLOSED: [2016-03-01 Tue 18:55]
-** DONE Poser le papier peint
-CLOSED: [2016-03-14 Mon 23:00]
-merci Chris et papy Claude
-** DONE Changer lampe economie d'energie pour led
-CLOSED: [2017-08-25 Fri 10:13]
 * PENDING Salle de bain [9/13]
 ** DONE Sous-couche cadre de porte
 CLOSED: [2013-07-30 mar. 21:51]
@@ -863,3 +799,67 @@ CLOSED: [2018-01-14 Sun 12:15]
 ** TODO Enduit de rebouchage
 ** TODO Sous-couche
 ** TODO Peinture
+* PENDING Sous-sol [4/6]
+** DONE piece principale [4/5]
+CLOSED: [2017-08-25 Fri 10:01]
+*** DONE Changer douille b22 -> e27 (x2)
+CLOSED: [2017-08-25 Fri 10:01]
+*** DONE installer lampe a led (x2)
+CLOSED: [2017-08-25 Fri 10:01]
+*** DONE Ranger/trier bordel
+CLOSED: [2017-09-02 Sat 20:11]
+*** DONE Evacuer bordel a la dechetterie
+CLOSED: [2017-09-02 Sat 20:11]
+*** TODO Poser couche isolation sur porte de garage
+** DONE sellier [2/2]
+CLOSED: [2017-08-25 Fri 10:00]
+*** DONE Changer douille b22 -> e27
+CLOSED: [2017-08-25 Fri 10:00]
+*** DONE installer lampe a led
+CLOSED: [2017-08-25 Fri 10:00]
+** DONE couloir atelier [3/3]
+*** DONE Changer douille b22 -> e27
+CLOSED: [2017-08-25 Fri 10:04]
+*** DONE installer lampe a led
+CLOSED: [2017-08-25 Fri 10:04]
+*** DONE Ranger bordel
+CLOSED: [2018-01-14 Sun 12:09]
+** DONE escalier cuisine <-> sous-sol [2/2]
+*** DONE Trier bordel
+CLOSED: [2017-09-02 Sat 20:12]
+*** DONE Changer rideau isolation
+CLOSED: [2018-01-14 Sun 12:10]
+** PENDING atelier [8/11]
+*** DONE Evacuer le casier a plan
+CLOSED: [2013-06-22 sam. 16:12]
+*** DONE Installer une pompe pour evacuer l'eau a l'exterieur
+CLOSED: [2013-06-22 sam. 16:13]
+*** DONE Ranger davantage le bordel
+CLOSED: [2015-05-20 Wed 11:58]
+*** DONE Changer douille b22 -> e27
+CLOSED: [2017-08-25 Fri 10:04]
+*** DONE installer lampe a led
+CLOSED: [2017-08-25 Fri 10:04]
+*** DONE Nettoyer la piece
+CLOSED: [2017-09-01 Fri 19:34]
+*** DONE Trier le bordel restant
+CLOSED: [2017-09-01 Fri 19:30]
+*** DONE Evacuer le bordel a la dechetterie [4/4]
+CLOSED: [2017-09-02 Sat 20:10]
+- [X] voyage 1
+- [X] voyage 2 (merci Francois :)
+- [X] voyage 3
+- [X] voyage 4
+*** TODO Installer planche a outils
+- [ ] Nettoyer planche
+- [ ] Poser
+- [ ] Installer les outils
+*** TODO Changer/retaper fenetre 1
+*** TODO Changer/retaper fenetre 2
+** PENDING grande piece [2/4]
+*** DONE Changer douille b22 -> e27
+CLOSED: [2017-08-25 Fri 21:04]
+*** DONE installer lampe a led
+CLOSED: [2017-08-25 Fri 21:04]
+*** TODO Trier bordel accumule...
+*** TODO Changer/retaper fenetre
