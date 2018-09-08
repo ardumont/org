@@ -90,13 +90,20 @@ select rolname from pg_roles;
 
 or psql's `\du` meta-command.
 
-** Alter
+** Alter user
 
 With an admin role (e.g. postgres):
 #+begin_src sh
 alter role <role> with superuser;
 #+end_src
 source: http://www.postgresql.org/docs/current/static/sql-alterrole.html
+
+** Give read access
+#+BEGIN_SRC sql
+grant select
+on all tables in schema public
+TO <role>;
+#+END_SRC
 
 * db
 ** Rename
