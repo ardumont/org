@@ -1936,3 +1936,21 @@ CLOSED: [2014-11-10 Mon 10:03]
 * TODO Review [[http://www-archive.mozilla.org/unix/customizing.html#key_example][Customizing Mozilla]]
 [2015-08-15 Sat 10:27]
 * [[https://github.com/SynoCommunity/spksrc/wiki/Architecture-per-Synology-model][syno matrix architecture]]
+* emails
+** client [6/7]
+- [X] Abstract further from gmail
+- [X] Take back control (offlineimap, notmuch, afew)
+- [X] Improve filtering (afew)
+- [X] Separate emails setup (ardumont/dot-mails) from ardumont/dot-files
+- [X] Deal with 'spam' and 'deleted' emails
+- [X] Deploy
+- [-] Improve notmuch-emacs performance [2/5]
+  - [X] gmail is slow when inbox contains too much emails
+  - [X] notmuch-emacs is rendering slowly because:
+    - [X] too much emails in mailbox
+    - [X] no pagination (nor cache)
+    - [ ] Split into subfolders?
+  - [ ] sieve filtering?
+
+** Investigate running server
+- dovecot, sieve
