@@ -1,0 +1,59 @@
+#+title: Install nix on debian
+
+Following the [[documentation][documentation]], the install failed at first.
+
+#+BEGIN_SRC shh
+Note: a multi-user installation is possible. See https://nixos.org/nix/manual/#sect-multi-user-installation
+performing a single-user installation of Nix...
+directory /nix does not exist; creating it by running 'mkdir -m 0755 /nix && chown tony /nix' using sudo
+copying Nix to /nix/store.................................
+initialising Nix database...
+Nix: creating /home/tony/.nix-profile
+installing 'nix-2.2.1'
+error: cloning builder process: Operation not permitted
+#+END_SRC
+
+After multiple tryouts with the same result... the same error
+happened.  As this downloads always the same file and my connection is
+slow... I settled on retrieving the file [[https://nixos.org/nix/install][the curl script]] fetches:
+
+#+BEGIN_SRC sh
+$ wget https://nixos.org/releases/nix/nix-2.2.1/nix-2.2.1-x86_64-linux.tar.bz2
+$ cat nix-2.2.1-x86_64-linux.tar.bz2.sha256  # script-embedded, copied in file
+e229e28f250cad684c278c9007b07a24eb4ead239280c237ed2245871eca79e0
+$ sha256 nix-2.2.1-x86_64-linux.tar.bz2
+e229e28f250cad684c278c9007b07a24eb4ead239280c237ed2245871eca79e0
+#+END_SRC
+
+The error is apparently due to [[kernel userspace not being unabled in some%0Adistributions (including debian, archlinux)][kernel userspace not being enabled by
+default in some distributions (including debian, archlinux)]].
+
+So, fixing that (at least in the current shell session):
+#+BEGIN_SRC sh
+sudo sysctl kernel.unprivileged_userns_clone=1
+#+END_SRC
+
+Finally installing worked!
+
+#+BEGIN_SRC sh
+./install
+Note: a multi-user installation is possible. See https://nixos.org/nix/manual/#sect-multi-user-installation
+performing a single-user installation of Nix...
+directory /nix does not exist; creating it by running 'mkdir -m 0755 /nix && chown tony /nix' using sudo
+copying Nix to /nix/store.................................
+initialising Nix database...
+Nix: creating /home/tony/.nix-profile
+installing 'nix-2.2.1'
+building '/nix/store/jkcbkr60gzcmz6bk9y4j4bhlx8qcqcyz-user-environment.drv'...
+created 6 symlinks in user environment
+unpacking channels...
+created 2 symlinks in user environment
+modifying /home/tony/.profile...
+
+Installation finished!  To ensure that the necessary environment
+variables are set, either log in again, or type
+
+  . /home/tony/.nix-profile/etc/profile.d/nix.sh
+
+in your shell.
+#+END_SRC
