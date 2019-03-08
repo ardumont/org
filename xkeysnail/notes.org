@@ -1,0 +1,23 @@
+#+title: xkeysnail
+#+author: ardumont
+
+Add yourself to the group input
+
+* system setup
+
+#+BEGIN_SRC sh
+sudo apt install python3-pip
+sudo pip3 install xkeysnail
+# to avoid having to run xkeysnail in sudo root
+sudo usermod -G -a input tony
+sudo chown root:uinput /dev/uinput
+#+END_SRC
+
+* configuration
+
+
+
+* start
+#+BEGIN_SRC sh
+xkeysnail ~/.config/xkeysnail/config.py
+#+END_SRC
