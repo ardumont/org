@@ -3,31 +3,38 @@
 
 - Boot on usb disk
 
-- Log as root (no pass by default)
+- Log in as root (no pass by default)
 
-- The first time around, we need to slice the disks accordingly using fdisk (legacy MBR) or cfdisk (for UEFI partitions).
+- The first time around, we need to slice the disks accordingly using
+  fdisk (legacy MBR) or parted (for UEFI partitions).
 
 #+begin_src sh
-fdisk /dev/sda
+parted /dev/sda -- mklabel gpt                           # gpt partition table
+parted /dev/sda -- mkpart primary 512MiB -8GiB           # root partition
+parted /dev/sda -- mkpart primary linux-swap -8GiB 100%  # swap
+parted /dev/sda -- mkpart ESP fat32 1MiB 512Mib          # EFI system partition
+parted /dev/sda -- set 3 boot on                         # used as /boot
 #+end_src
 
-- Now that the partition are done, we can create the filesystem accordingly
+- Now that the partition are done, we can create the filesystem
+  accordingly (using labels to ease mounting later)
 
 #+begin_src sh
-mkfs.ext4 -L boot /dev/sda1
-mkswap -L swap /dev/sda2
-mkfs.ext4 -L root /dev/sda3
+mkfs.ext4 -L nixos /dev/sda1      # label 'nixos'
+mkswap -L swap /dev/sda2          # label 'swap'
+mkfs.fat -F 32 -n boot /dev/sda3  # label 'boot'
 #+end_src
 
 - Mount the partitions
 
 #+begin_src sh
-mount /dev/disk/by-label/root /mnt/
+mount /dev/disk/by-label/nixos /mnt/
 mkdir /mnt/boot && mount /dev/disk/by-label/boot /mnt/boot
 swapon /dev/disk/by-label/swap
 #+end_src
 
-- Ask NixOS to generate the templates configuration.nix and hardware-configuration.nix (scanned from the previous operations).
+- Ask NixOS to generate the templates configuration.nix and
+  hardware-configuration.nix (scanned from the previous operations).
 
 #+begin_src sh
 nixos-generate-config --root /mnt
@@ -39,8 +46,9 @@ nixos-generate-config --root /mnt
 wpa_passphrase <SSID> <PASSPHRASE> > /etc/wpa_supplicant.conf
 #+end_src
 
-*Note* This will generate the wpa supplicant expression.
-Beware, there is an encrypted entry and a clear text entry you'll need to remove after.
+*Note* This will generate the wpa supplicant expression.  Beware,
+       there is an encrypted entry and a clear text entry you'll need
+       to remove after.
 
 - Restart the dedicated service
 
@@ -48,7 +56,8 @@ Beware, there is an encrypted entry and a clear text entry you'll need to remove
 systemctl restart wpa_supplicant.service
 #+end_src
 
-*Note* Now you should have access to internet (check the access restrictions, e.g. mac address filering on your box)
+*Note* Now you should have access to internet (check the access
+       restrictions, e.g. mac address filering on your box)
 
 - Copy the wpa_supplicant.conf (to keep it after reboot)
 
@@ -56,27 +65,31 @@ systemctl restart wpa_supplicant.service
 cp /etc/wpa_supplicant.conf /mnt/etc/
 #+end_src
 
-- Update the channel to the latest
+- (optional) Update the channel to the latest
 
 #+begin_src sh
 nix-channel --add https://nixos.org/channels/nixos-unstable
 nix-channel --update
 #+end_src
 
-- Override the configuration.nix with your configuration (here I use mine)
+- Override the configuration.nix with your configuration (here I use
+  mine)
 
 #+begin_src sh
 nix-env -i wget
-wget https://raw.githubusercontent.com/ardumont/dot-files/master/nixos/configuration.nix --output-document /mnt/etc/nixos/configuration.nix
+wget https://raw.githubusercontent.com/ardumont/dot-files/master/etc/nixos/configuration.nix \
+   --output-document /mnt/etc/nixos/configuration.nix
 #+end_src
 
-*Note*
-Update temporarily the configuration.nix file to add the `password` entry in the user section:
+*Note* Update temporarily the configuration.nix file to add the
+      `password` entry in the user section:
+
 #+begin_src nix
     password = "dummy";
 #+end_src
-This way the user ends up having a "dummy" password (this way you can connect on the login manager at next reboot).
-Do not forget to override (and remove) this from the configuration.nix at next reboot.
+This way the user ends up having a "dummy" password (this way you can
+connect on the login manager at next reboot).  Do not forget to
+override (and remove) this from the configuration.nix at next reboot.
 
 - Install NixOS
 
@@ -108,19 +121,12 @@ passwd
 passwd tony
 #+end_src
 
-*Note* You could fill the password in configuration.nix (as mine is on github, no thank you).
+*Note* You could fill the password in configuration.nix
 
 - And now a replicated nixos install from the software point of view
 
-- I now retrieve my home backup from elsewhere (nas rsync for example) or clone my git repositories.
+- I now retrieve my home backup from elsewhere (nas rsync for example)
+  or clone my git repositories.
 
-- When the backup is installed, I have a fully compliant replicated machine
-
-- Sometimes, nix is too old
-
-https://nixos.org/wiki/How_to_update_when_nix_is_too_old_to_evaluate_nixpkgs
-
-#+begin_src sh
-curl -L http://hydra.nixos.org/job/nixos/trunk-combined/nixpkgs.nix.x86_64-linux/latest-finished/nix/pkg/nix-1.8-x86_64-linux.nixpkg \
-   | nix-install-package --non-interactive -
-#+end_src
+- When the backup is installed, I have a fully compliant replicated
+  machine
