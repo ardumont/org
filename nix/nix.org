@@ -1,6 +1,5 @@
 #+title: nix tips
 
-
 * Download all sources
 
 #+begin_src sh
