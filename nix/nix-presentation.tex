@@ -1,0 +1,250 @@
+% Created 2019-04-07 Sun 16:56
+% Intended LaTeX compiler: pdflatex
+\documentclass[smaller]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\mode<beamer>{\usetheme{Darmstadt}\usecolortheme{seahorse}}
+\AtBeginSection[]{\begin{frame}<beamer>\frametitle{Topic}\tableofcontents[currentsection]\end{frame}}
+\author{Antoine R. Dumont (@ardumont)}
+\date{07/04/2019}
+\title{Nix}
+\hypersetup{
+ pdfauthor={Antoine R. Dumont (@ardumont)},
+ pdftitle={Nix},
+ pdfkeywords={nix functional declarative},
+ pdfsubject={Nix a declarative package manager},
+ pdfcreator={Emacs 26.1 (Org mode 9.1.14)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+
+\section{purely functional package manager}
+\label{sec:org4bbf8c8}
+
+Enforces functional approach to package management\\
+
+\begin{enumerate}
+\item Declarative
+\label{sec:orgb1be189}
+
+Let the machines work or complain!\\
+
+\item Lazy
+\label{sec:org49ef633}
+
+Only compute and install what you ask for!\\
+
+\item Pure
+\label{sec:org286b4c8}
+
+Idempotency!\\
+\end{enumerate}
+
+\section{Expectations}
+\label{sec:orgf31d04b}
+
+Same as other package managers:\\
+
+\begin{itemize}
+\item install programs/libraries (with a \emph{unified} DSL)\\
+
+\item integrated in a distribution: NixOS\\
+
+\item home-manager: Reproduce your home!\\
+\end{itemize}
+
+\section{Pros}
+\label{sec:orgd8b99de}
+\begin{itemize}
+\item \textbf{\textbf{\emph{Unified} DSL}}\\
+\item \textbf{\textbf{Multi-user}} support\\
+\item \textbf{\textbf{Source/binary}} model (binary cache, build-farm, hydra, etc\ldots{})\\
+\item \textbf{\textbf{Upgrades/rollback}} environment\\
+\item \textbf{\textbf{No versioning clash}} in dependencies between programs/libraries\\
+\item \textbf{\textbf{Reproducibility}}\\
+\item \textbf{\textbf{Documented}} \href{https://nixos.org/}{(mostly centralized today)}\\
+\item \textbf{\textbf{Community}} (open discussion on tracker/irc, open PR, etc\ldots{})\\
+\item \textbf{\textbf{Tools}}: nix repl, nix search, nix-build, nix-shell, nix-collect-garbage, \ldots{}\\
+\end{itemize}
+
+\section{Cons}
+\label{sec:org61bfa37}
+
+\begin{itemize}
+\item \textbf{\textbf{Steep}} learning curve, quite some new notions (nix-channel,\\
+derivation, overlays\ldots{})\\
+\item \textbf{\textbf{Disk Space}} (\(\rightarrow\) \emph{nix-collect-garbage})\\
+\item Inconsistency in between environments or within (haskell, python, etc\ldots{})\\
+\item Not unified tool interface (nix build vs nix-build?\ldots{})\\
+\end{itemize}
+
+\section{Nix sample}
+\label{sec:orgbdb5430}
+\begin{enumerate}
+\item Program
+\label{sec:org49b0f9c}
+
+\begin{verbatim}
+{ stdenv, fetchurl }:
+
+stdenv.mkDerivation rec {
+  name = "hello-${version}";
+  version = "2.10";
+  src = fetchurl {
+    url = "mirror://gnu/hello/${name}.tar.gz";
+    sha256 =
+      "0ssi1wpaf7plaswqqjwigppsg5fyh99vdlb9kzl7c9lng89ndq1i";
+  };
+  doCheck = true;
+  meta = with stdenv.lib; {
+    description = "Produces a familiar friendly greeting";
+    homepage = https://www.gnu.org/software/hello/manual/;
+    license = licenses.gpl3Plus;
+    maintainers = [ maintainers.eelco ];
+    platforms = platforms.all;
+  };
+}
+\end{verbatim}
+
+\item Service
+\label{sec:org2e8f16b}
+\begin{verbatim}
+{ config, lib, pkgs, ... }:
+
+with lib;
+let cfg = config.services.xserver.windowManager.fluxbox; in {
+  options = {
+    services.xserver.windowManager.fluxbox.enable =
+      mkEnableOption "fluxbox";
+  };
+  config = mkIf cfg.enable {
+    services.xserver.windowManager.session = singleton {
+      name = "fluxbox";
+      start = ''
+        ${pkgs.fluxbox}/bin/startfluxbox &
+        waitPID=$!
+      '';
+    };
+    environment.systemPackages = [ pkgs.fluxbox ];
+  };
+}
+\end{verbatim}
+
+\hfill\\
+\hfill\\
+
+\item Library
+\label{sec:org4dba30a}
+TODO\\
+\end{enumerate}
+
+\section{Install}
+\label{sec:org100e578}
+\begin{enumerate}
+\item Imperative
+\label{sec:orgf7a4fd2}
+
+\begin{verbatim}
+$ hello
+The program ‘hello’ is currently not installed. It is provided by
+several packages. You can install it by typing one of the following:
+  nix-env -iA nixos.hello
+  nix-env -iA nixos.mbedtls
+  nix-env -iA nixos.perkeep
+$ nix-env -i hello
+warning: there are multiple derivations named 'hello-2.10'; using the first one
+installing 'hello-2.10'
+these paths will be fetched (0.04 MiB download, 0.19 MiB unpacked):
+  /nix/store/gdh8165b7rg4y53v64chjys7mbbw89f9-hello-2.10
+copying path '/nix/store/gdh8165b7rg4y53v64chjys7mbbw89f9-hello-2.10'
+from 'https://cache.nixos.org'...
+building '/nix/store/39c7sm1sn97yd783jyw50bdabq69gfjm-user-environment.drv'...
+created 1656 symlinks in user environment
+$ hello
+Hello, world!
+\end{verbatim}
+
+\hfill\\
+\hfill\\
+\hfill\\
+
+\item Declarative
+\label{sec:org3afb36c}
+For a bare nix, the declarative part is not so clear.\\
+
+\begin{enumerate}
+\item nix (with home-manager)
+\label{sec:orga175ac5}
+
+\begin{verbatim}
+...
+home.packages = [
+  pkgs.hello
+];
+\end{verbatim}
+
+Then:\\
+\begin{verbatim}
+home-manager switch
+\end{verbatim}
+
+\item nixos
+\label{sec:orga3559c9}
+
+\begin{verbatim}
+...
+environment.systemPackages = [
+  pkgs.hello
+];
+\end{verbatim}
+
+Then:\\
+\begin{verbatim}
+sudo nixos-rebuild switch
+\end{verbatim}
+
+Note: All users have now access to that program\\
+\end{enumerate}
+\end{enumerate}
+
+\section{Remove}
+\label{sec:orgbfd830a}
+\begin{enumerate}
+\item Imperative
+\label{sec:org6895ab4}
+Remove explicitely from user environment:\\
+
+\begin{verbatim}
+$ nix-env -e hello
+uninstalling 'hello-2.10'
+$ hello
+The program ‘hello’ is currently not installed. It is provided by
+...
+\end{verbatim}
+
+\item Declarative
+\label{sec:orgc39a926}
+Rollback to previous generation\\
+
+\begin{verbatim}
+$ nix-env --rollback
+switching from generation 91 to 90
+$ hello
+The program ‘hello’ is currently not installed. It is provided by
+...
+\end{verbatim}
+\end{enumerate}
+\end{document}
