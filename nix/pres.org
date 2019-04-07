@@ -1,0 +1,203 @@
+#+TITLE: Nix
+#+AUTHOR: Antoine R. Dumont (@ardumont)
+#+DATE: 07/04/2019
+#+DESCRIPTION: Nix a declarative package manager
+#+KEYWORDS: nix functional declarative
+#+LANGUAGE: en
+#+OPTIONS: H:2 num:t toc:t \n:t @:nil ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS: TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+INFOJS_OPT: view:nil toc:nil ltoc:t mouse:underline buttons:0 path:https://orgmode.org/org-info.js
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:
+#+LINK_HOME:
+
+#+latex_header: \mode<beamer>{\usetheme{Darmstadt}\usecolortheme{seahorse}}
+#+latex_header: \AtBeginSection[]{\begin{frame}<beamer>\frametitle{Topic}\tableofcontents[currentsection]\end{frame}}
+#+startup: beamer
+#+LaTeX_CLASS: beamer
+#+LaTeX_CLASS_OPTIONS: [smaller]
+#+COLUMNS: %40ITEM %10BEAMER_env(Env) %9BEAMER_envargs(Env Args) %4BEAMER_col(Col) %10BEAMER_extra(Extra)
+
+* purely functional package manager
+
+Enforces functional approach to package management
+
+*** Declarative
+
+Let the machines work or complain!
+
+*** Lazy
+
+Only compute and install what you ask for!
+
+*** Pure
+
+Idempotency!
+
+* Expectations
+
+Same as other package managers:
+
+- install programs/libraries (with a /unified/ DSL)
+
+- integrated in a distribution: NixOS
+
+- home-manager: Reproduce your home!
+
+* Pros
+- **/Unified/ DSL**
+- **Multi-user** support
+- **Source/binary** model (binary cache, build-farm, hydra, etc...)
+- **Upgrades/rollback** environment
+- **No versioning clash** in dependencies between programs/libraries
+- **Reproducibility**
+- **Documented** [[https://nixos.org/][(mostly centralized today)]]
+- **Community** (open discussion on tracker/irc, open PR, etc...)
+- **Tools**: nix repl, nix search, nix-build, nix-shell, nix-collect-garbage, ...
+
+* Cons
+
+- **Steep** learning curve, quite some new notions (nix-channel,
+  derivation, overlays...)
+- **Disk Space** (\rightarrow /nix-collect-garbage/)
+- Inconsistency in between environments or within (haskell, python, etc...)
+- Not unified tool interface (nix build vs nix-build?...)
+
+* Nix sample
+*** Program
+
+#+NAME: hello derivation
+#+BEGIN_SRC nix
+{ stdenv, fetchurl }:
+
+stdenv.mkDerivation rec {
+  name = "hello-${version}";
+  version = "2.10";
+  src = fetchurl {
+    url = "mirror://gnu/hello/${name}.tar.gz";
+    sha256 =
+      "0ssi1wpaf7plaswqqjwigppsg5fyh99vdlb9kzl7c9lng89ndq1i";
+  };
+  doCheck = true;
+  meta = with stdenv.lib; {
+    description = "Produces a familiar friendly greeting";
+    homepage = https://www.gnu.org/software/hello/manual/;
+    license = licenses.gpl3Plus;
+    maintainers = [ maintainers.eelco ];
+    platforms = platforms.all;
+  };
+}
+#+END_SRC
+
+*** Service
+#+BEGIN_SRC nix
+{ config, lib, pkgs, ... }:
+
+with lib;
+let cfg = config.services.xserver.windowManager.fluxbox; in {
+  options = {
+    services.xserver.windowManager.fluxbox.enable =
+      mkEnableOption "fluxbox";
+  };
+  config = mkIf cfg.enable {
+    services.xserver.windowManager.session = singleton {
+      name = "fluxbox";
+      start = ''
+        ${pkgs.fluxbox}/bin/startfluxbox &
+        waitPID=$!
+      '';
+    };
+    environment.systemPackages = [ pkgs.fluxbox ];
+  };
+}
+#+END_SRC
+
+\hfill
+\hfill
+
+*** Library
+TODO
+
+* Install
+*** Imperative
+
+#+BEGIN_SRC sh
+$ hello
+The program ‘hello’ is currently not installed. It is provided by
+several packages. You can install it by typing one of the following:
+  nix-env -iA nixos.hello
+  nix-env -iA nixos.mbedtls
+  nix-env -iA nixos.perkeep
+$ nix-env -i hello
+warning: there are multiple derivations named 'hello-2.10'; using the first one
+installing 'hello-2.10'
+these paths will be fetched (0.04 MiB download, 0.19 MiB unpacked):
+  /nix/store/gdh8165b7rg4y53v64chjys7mbbw89f9-hello-2.10
+copying path '/nix/store/gdh8165b7rg4y53v64chjys7mbbw89f9-hello-2.10'
+from 'https://cache.nixos.org'...
+building '/nix/store/39c7sm1sn97yd783jyw50bdabq69gfjm-user-environment.drv'...
+created 1656 symlinks in user environment
+$ hello
+Hello, world!
+#+END_SRC
+
+\hfill
+\hfill
+\hfill
+
+*** Declarative
+For a bare nix, the declarative part is not so clear.
+
+**** nix (with home-manager)
+
+#+BEGIN_SRC nix
+...
+home.packages = [
+  pkgs.hello
+];
+#+END_SRC
+
+Then:
+#+BEGIN_SRC sh
+home-manager switch
+#+END_SRC
+
+**** nixos
+
+#+BEGIN_SRC nix
+...
+environment.systemPackages = [
+  pkgs.hello
+];
+#+END_SRC
+
+Then:
+#+BEGIN_SRC sh
+sudo nixos-rebuild switch
+#+END_SRC
+
+Note: All users have now access to that program
+
+* Remove
+*** Imperative
+Remove explicitely from user environment:
+
+#+BEGIN_SRC sh
+$ nix-env -e hello
+uninstalling 'hello-2.10'
+$ hello
+The program ‘hello’ is currently not installed. It is provided by
+...
+#+END_SRC
+
+*** Declarative
+Rollback to previous generation
+
+#+BEGIN_SRC sh
+$ nix-env --rollback
+switching from generation 91 to 90
+$ hello
+The program ‘hello’ is currently not installed. It is provided by
+...
+#+END_SRC
