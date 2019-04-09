@@ -66,7 +66,6 @@ Same as other package managers:
 
 * Nix sample
 *** Program
-
 #+NAME: hello derivation
 #+BEGIN_SRC nix
 { stdenv, fetchurl }:
@@ -76,8 +75,7 @@ stdenv.mkDerivation rec {
   version = "2.10";
   src = fetchurl {
     url = "mirror://gnu/hello/${name}.tar.gz";
-    sha256 =
-      "0ssi1wpaf7plaswqqjwigppsg5fyh99vdlb9kzl7c9lng89ndq1i";
+    sha256 =  "0ssi1wpaf7plaswqqjwigppsg5fyh99vdlb9kz...";
   };
   doCheck = true;
   meta = with stdenv.lib; {
@@ -95,7 +93,8 @@ stdenv.mkDerivation rec {
 { config, lib, pkgs, ... }:
 
 with lib;
-let cfg = config.services.xserver.windowManager.fluxbox; in {
+let cfg = config.services.xserver.windowManager.fluxbox;
+in {
   options = {
     services.xserver.windowManager.fluxbox.enable =
       mkEnableOption "fluxbox";
@@ -120,23 +119,26 @@ let cfg = config.services.xserver.windowManager.fluxbox; in {
 TODO
 
 * Install
+
 *** Imperative
 
-#+BEGIN_SRC sh
+#+BEGIN_SRC shell
 $ hello
-The program ‘hello’ is currently not installed. It is provided by
-several packages. You can install it by typing one of the following:
+The program ‘hello’ is currently not installed.
+It is provided by several packages. You can install
+it by typing one of the following:
   nix-env -iA nixos.hello
-  nix-env -iA nixos.mbedtls
-  nix-env -iA nixos.perkeep
-$ nix-env -i hello
-warning: there are multiple derivations named 'hello-2.10'; using the first one
+...
+$ nix-env --install hello
 installing 'hello-2.10'
-these paths will be fetched (0.04 MiB download, 0.19 MiB unpacked):
+these paths will be fetched (0.04 MiB download, 0.19 MiB
+unpacked):
   /nix/store/gdh8165b7rg4y53v64chjys7mbbw89f9-hello-2.10
-copying path '/nix/store/gdh8165b7rg4y53v64chjys7mbbw89f9-hello-2.10'
+copying path '/nix/store/gdh8165b7rg4y53v64chjys7mbbw89f9
+-hello-2.10'
 from 'https://cache.nixos.org'...
-building '/nix/store/39c7sm1sn97yd783jyw50bdabq69gfjm-user-environment.drv'...
+building '/nix/store/39c7sm1sn97yd783jyw50bdabq69gfjm-user-
+environment.drv'...
 created 1656 symlinks in user environment
 $ hello
 Hello, world!
@@ -144,36 +146,28 @@ Hello, world!
 
 \hfill
 \hfill
-\hfill
 
 *** Declarative
-For a bare nix, the declarative part is not so clear.
 
 **** nix (with home-manager)
 
 #+BEGIN_SRC nix
-...
-home.packages = [
-  pkgs.hello
-];
+home.packages = [ pkgs.hello ];
 #+END_SRC
 
 Then:
-#+BEGIN_SRC sh
+#+BEGIN_SRC shell
 home-manager switch
 #+END_SRC
 
 **** nixos
 
 #+BEGIN_SRC nix
-...
-environment.systemPackages = [
-  pkgs.hello
-];
+environment.systemPackages = [ pkgs.hello ];
 #+END_SRC
 
 Then:
-#+BEGIN_SRC sh
+#+BEGIN_SRC shell
 sudo nixos-rebuild switch
 #+END_SRC
 
@@ -183,21 +177,19 @@ Note: All users have now access to that program
 *** Imperative
 Remove explicitely from user environment:
 
-#+BEGIN_SRC sh
-$ nix-env -e hello
+#+BEGIN_SRC shell
+$ nix-env --uninstall hello
 uninstalling 'hello-2.10'
 $ hello
-The program ‘hello’ is currently not installed. It is provided by
-...
+The program ‘hello’ is currently not installed...
 #+END_SRC
 
 *** Declarative
 Rollback to previous generation
 
-#+BEGIN_SRC sh
+#+BEGIN_SRC shell
 $ nix-env --rollback
 switching from generation 91 to 90
 $ hello
-The program ‘hello’ is currently not installed. It is provided by
-...
+The program ‘hello’ is currently not installed...
 #+END_SRC

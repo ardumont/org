@@ -1,4 +1,4 @@
-% Created 2019-04-07 Sun 16:56
+% Created 2019-04-10 Wed 00:02
 % Intended LaTeX compiler: pdflatex
 \documentclass[smaller]{beamer}
 \usepackage[utf8]{inputenc}
@@ -15,6 +15,7 @@
 \usepackage{hyperref}
 \mode<beamer>{\usetheme{Darmstadt}\usecolortheme{seahorse}}
 \AtBeginSection[]{\begin{frame}<beamer>\frametitle{Topic}\tableofcontents[currentsection]\end{frame}}
+\usetheme{default}
 \author{Antoine R. Dumont (@ardumont)}
 \date{07/04/2019}
 \title{Nix}
@@ -28,33 +29,30 @@
 \begin{document}
 
 \maketitle
+\begin{frame}{Outline}
 \tableofcontents
+\end{frame}
 
 
 \section{purely functional package manager}
-\label{sec:org4bbf8c8}
+\label{sec:org137326a}
 
 Enforces functional approach to package management\\
 
-\begin{enumerate}
-\item Declarative
-\label{sec:orgb1be189}
-
+\begin{block}{Declarative}
 Let the machines work or complain!\\
+\end{block}
 
-\item Lazy
-\label{sec:org49ef633}
-
+\begin{block}{Lazy}
 Only compute and install what you ask for!\\
+\end{block}
 
-\item Pure
-\label{sec:org286b4c8}
-
+\begin{block}{Pure}
 Idempotency!\\
-\end{enumerate}
+\end{block}
 
 \section{Expectations}
-\label{sec:orgf31d04b}
+\label{sec:orgc793fa8}
 
 Same as other package managers:\\
 
@@ -67,36 +65,33 @@ Same as other package managers:\\
 \end{itemize}
 
 \section{Pros}
-\label{sec:orgd8b99de}
+\label{sec:org817aeda}
 \begin{itemize}
-\item \textbf{\textbf{\emph{Unified} DSL}}\\
-\item \textbf{\textbf{Multi-user}} support\\
-\item \textbf{\textbf{Source/binary}} model (binary cache, build-farm, hydra, etc\ldots{})\\
-\item \textbf{\textbf{Upgrades/rollback}} environment\\
-\item \textbf{\textbf{No versioning clash}} in dependencies between programs/libraries\\
-\item \textbf{\textbf{Reproducibility}}\\
-\item \textbf{\textbf{Documented}} \href{https://nixos.org/}{(mostly centralized today)}\\
-\item \textbf{\textbf{Community}} (open discussion on tracker/irc, open PR, etc\ldots{})\\
-\item \textbf{\textbf{Tools}}: nix repl, nix search, nix-build, nix-shell, nix-collect-garbage, \ldots{}\\
+\item \alert{\alert{\emph{Unified} DSL}}\\
+\item \alert{\alert{Multi-user}} support\\
+\item \alert{\alert{Source/binary}} model (binary cache, build-farm, hydra, etc\ldots{})\\
+\item \alert{\alert{Upgrades/rollback}} environment\\
+\item \alert{\alert{No versioning clash}} in dependencies between programs/libraries\\
+\item \alert{\alert{Reproducibility}}\\
+\item \alert{\alert{Documented}} \href{https://nixos.org/}{(mostly centralized today)}\\
+\item \alert{\alert{Community}} (open discussion on tracker/irc, open PR, etc\ldots{})\\
+\item \alert{\alert{Tools}}: nix repl, nix search, nix-build, nix-shell, nix-collect-garbage, \ldots{}\\
 \end{itemize}
 
 \section{Cons}
-\label{sec:org61bfa37}
+\label{sec:org50a6500}
 
 \begin{itemize}
-\item \textbf{\textbf{Steep}} learning curve, quite some new notions (nix-channel,\\
+\item \alert{\alert{Steep}} learning curve, quite some new notions (nix-channel,\\
 derivation, overlays\ldots{})\\
-\item \textbf{\textbf{Disk Space}} (\(\rightarrow\) \emph{nix-collect-garbage})\\
+\item \alert{\alert{Disk Space}} (\(\rightarrow\) \emph{nix-collect-garbage})\\
 \item Inconsistency in between environments or within (haskell, python, etc\ldots{})\\
 \item Not unified tool interface (nix build vs nix-build?\ldots{})\\
 \end{itemize}
 
 \section{Nix sample}
-\label{sec:orgbdb5430}
-\begin{enumerate}
-\item Program
-\label{sec:org49b0f9c}
-
+\label{sec:org8a1540f}
+\begin{block}{Program}
 \begin{verbatim}
 { stdenv, fetchurl }:
 
@@ -105,8 +100,7 @@ stdenv.mkDerivation rec {
   version = "2.10";
   src = fetchurl {
     url = "mirror://gnu/hello/${name}.tar.gz";
-    sha256 =
-      "0ssi1wpaf7plaswqqjwigppsg5fyh99vdlb9kzl7c9lng89ndq1i";
+    sha256 =  "0ssi1wpaf7plaswqqjwigppsg5fyh99vdlb9kz...";
   };
   doCheck = true;
   meta = with stdenv.lib; {
@@ -118,14 +112,15 @@ stdenv.mkDerivation rec {
   };
 }
 \end{verbatim}
+\end{block}
 
-\item Service
-\label{sec:org2e8f16b}
+\begin{block}{Service}
 \begin{verbatim}
 { config, lib, pkgs, ... }:
 
 with lib;
-let cfg = config.services.xserver.windowManager.fluxbox; in {
+let cfg = config.services.xserver.windowManager.fluxbox;
+in {
   options = {
     services.xserver.windowManager.fluxbox.enable =
       mkEnableOption "fluxbox";
@@ -145,33 +140,33 @@ let cfg = config.services.xserver.windowManager.fluxbox; in {
 
 \hfill\\
 \hfill\\
+\end{block}
 
-\item Library
-\label{sec:org4dba30a}
+\begin{block}{Library}
 TODO\\
-\end{enumerate}
+\end{block}
 
 \section{Install}
-\label{sec:org100e578}
-\begin{enumerate}
-\item Imperative
-\label{sec:orgf7a4fd2}
+\label{sec:org4ce68b6}
 
+\begin{block}{Imperative}
 \begin{verbatim}
 $ hello
-The program ‘hello’ is currently not installed. It is provided by
-several packages. You can install it by typing one of the following:
+The program ‘hello’ is currently not installed.
+It is provided by several packages. You can install
+it by typing one of the following:
   nix-env -iA nixos.hello
-  nix-env -iA nixos.mbedtls
-  nix-env -iA nixos.perkeep
-$ nix-env -i hello
-warning: there are multiple derivations named 'hello-2.10'; using the first one
+...
+$ nix-env --install hello
 installing 'hello-2.10'
-these paths will be fetched (0.04 MiB download, 0.19 MiB unpacked):
+these paths will be fetched (0.04 MiB download, 0.19 MiB
+unpacked):
   /nix/store/gdh8165b7rg4y53v64chjys7mbbw89f9-hello-2.10
-copying path '/nix/store/gdh8165b7rg4y53v64chjys7mbbw89f9-hello-2.10'
+copying path '/nix/store/gdh8165b7rg4y53v64chjys7mbbw89f9
+-hello-2.10'
 from 'https://cache.nixos.org'...
-building '/nix/store/39c7sm1sn97yd783jyw50bdabq69gfjm-user-environment.drv'...
+building '/nix/store/39c7sm1sn97yd783jyw50bdabq69gfjm-user-
+environment.drv'...
 created 1656 symlinks in user environment
 $ hello
 Hello, world!
@@ -179,36 +174,23 @@ Hello, world!
 
 \hfill\\
 \hfill\\
-\hfill\\
+\end{block}
 
-\item Declarative
-\label{sec:org3afb36c}
-For a bare nix, the declarative part is not so clear.\\
-
-\begin{enumerate}
-\item nix (with home-manager)
-\label{sec:orga175ac5}
-
+\begin{block}{Declarative}
+\begin{block}{nix (with home-manager)}
 \begin{verbatim}
-...
-home.packages = [
-  pkgs.hello
-];
+home.packages = [ pkgs.hello ];
 \end{verbatim}
 
 Then:\\
 \begin{verbatim}
 home-manager switch
 \end{verbatim}
+\end{block}
 
-\item nixos
-\label{sec:orga3559c9}
-
+\begin{block}{nixos}
 \begin{verbatim}
-...
-environment.systemPackages = [
-  pkgs.hello
-];
+environment.systemPackages = [ pkgs.hello ];
 \end{verbatim}
 
 Then:\\
@@ -217,34 +199,30 @@ sudo nixos-rebuild switch
 \end{verbatim}
 
 Note: All users have now access to that program\\
-\end{enumerate}
-\end{enumerate}
+\end{block}
+\end{block}
 
 \section{Remove}
-\label{sec:orgbfd830a}
-\begin{enumerate}
-\item Imperative
-\label{sec:org6895ab4}
+\label{sec:orge02497a}
+\begin{block}{Imperative}
 Remove explicitely from user environment:\\
 
 \begin{verbatim}
-$ nix-env -e hello
+$ nix-env --uninstall hello
 uninstalling 'hello-2.10'
 $ hello
-The program ‘hello’ is currently not installed. It is provided by
-...
+The program ‘hello’ is currently not installed...
 \end{verbatim}
+\end{block}
 
-\item Declarative
-\label{sec:orgc39a926}
+\begin{block}{Declarative}
 Rollback to previous generation\\
 
 \begin{verbatim}
 $ nix-env --rollback
 switching from generation 91 to 90
 $ hello
-The program ‘hello’ is currently not installed. It is provided by
-...
+The program ‘hello’ is currently not installed...
 \end{verbatim}
-\end{enumerate}
+\end{block}
 \end{document}
