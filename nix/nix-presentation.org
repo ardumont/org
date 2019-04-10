@@ -19,7 +19,7 @@
 #+LaTeX_CLASS_OPTIONS: [smaller]
 #+COLUMNS: %40ITEM %10BEAMER_env(Env) %9BEAMER_envargs(Env Args) %4BEAMER_col(Col) %10BEAMER_extra(Extra)
 
-* purely functional package manager
+* Purely functional package manager
 
 Enforces functional approach to package management
 
@@ -144,12 +144,26 @@ $ hello
 Hello, world!
 #+END_SRC
 
-\hfill
-\hfill
+*** Declarative: config.nix
 
-*** Declarative
+#+BEGIN_SRC nix
+{ pkgs }:
 
-**** nix (with home-manager)
+{
+  packageOverrides = self: {
+    helloEnv = pkgs.buildEnv {
+      name = "hello-nix";
+      paths = [ pkgs.hello ];
+    };
+}
+#+END_SRC
+
+Then:
+#+BEGIN_SRC shell
+nix-env --install hello-nix
+#+END_SRC
+
+*** Declarative: home-manager
 
 #+BEGIN_SRC nix
 home.packages = [ pkgs.hello ];
@@ -160,7 +174,7 @@ Then:
 home-manager switch
 #+END_SRC
 
-**** nixos
+*** Declarative: nixos
 
 #+BEGIN_SRC nix
 environment.systemPackages = [ pkgs.hello ];

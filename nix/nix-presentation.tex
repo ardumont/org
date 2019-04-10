@@ -1,4 +1,4 @@
-% Created 2019-04-10 Wed 00:02
+% Created 2019-04-10 Wed 09:28
 % Intended LaTeX compiler: pdflatex
 \documentclass[smaller]{beamer}
 \usepackage[utf8]{inputenc}
@@ -34,8 +34,8 @@
 \end{frame}
 
 
-\section{purely functional package manager}
-\label{sec:org137326a}
+\section{Purely functional package manager}
+\label{sec:org97beb8d}
 
 Enforces functional approach to package management\\
 
@@ -52,7 +52,7 @@ Idempotency!\\
 \end{block}
 
 \section{Expectations}
-\label{sec:orgc793fa8}
+\label{sec:org4e76bb1}
 
 Same as other package managers:\\
 
@@ -65,7 +65,7 @@ Same as other package managers:\\
 \end{itemize}
 
 \section{Pros}
-\label{sec:org817aeda}
+\label{sec:orgc0b92b5}
 \begin{itemize}
 \item \alert{\alert{\emph{Unified} DSL}}\\
 \item \alert{\alert{Multi-user}} support\\
@@ -79,7 +79,7 @@ Same as other package managers:\\
 \end{itemize}
 
 \section{Cons}
-\label{sec:org50a6500}
+\label{sec:org5bd5de9}
 
 \begin{itemize}
 \item \alert{\alert{Steep}} learning curve, quite some new notions (nix-channel,\\
@@ -90,7 +90,7 @@ derivation, overlays\ldots{})\\
 \end{itemize}
 
 \section{Nix sample}
-\label{sec:org8a1540f}
+\label{sec:orgcd7a9c8}
 \begin{block}{Program}
 \begin{verbatim}
 { stdenv, fetchurl }:
@@ -147,7 +147,7 @@ TODO\\
 \end{block}
 
 \section{Install}
-\label{sec:org4ce68b6}
+\label{sec:org7afc341}
 
 \begin{block}{Imperative}
 \begin{verbatim}
@@ -171,13 +171,28 @@ created 1656 symlinks in user environment
 $ hello
 Hello, world!
 \end{verbatim}
-
-\hfill\\
-\hfill\\
 \end{block}
 
-\begin{block}{Declarative}
-\begin{block}{nix (with home-manager)}
+\begin{block}{Declarative: config.nix}
+\begin{verbatim}
+{ pkgs }:
+
+{
+  packageOverrides = self: {
+    helloEnv = pkgs.buildEnv {
+      name = "hello-nix";
+      paths = [ pkgs.hello ];
+    };
+}
+\end{verbatim}
+
+Then:\\
+\begin{verbatim}
+nix-env --install hello-nix
+\end{verbatim}
+\end{block}
+
+\begin{block}{Declarative: home-manager}
 \begin{verbatim}
 home.packages = [ pkgs.hello ];
 \end{verbatim}
@@ -188,7 +203,7 @@ home-manager switch
 \end{verbatim}
 \end{block}
 
-\begin{block}{nixos}
+\begin{block}{Declarative: nixos}
 \begin{verbatim}
 environment.systemPackages = [ pkgs.hello ];
 \end{verbatim}
@@ -200,10 +215,9 @@ sudo nixos-rebuild switch
 
 Note: All users have now access to that program\\
 \end{block}
-\end{block}
 
 \section{Remove}
-\label{sec:orge02497a}
+\label{sec:orgc41711c}
 \begin{block}{Imperative}
 Remove explicitely from user environment:\\
 
