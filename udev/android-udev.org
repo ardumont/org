@@ -7,7 +7,7 @@
 
 On debian, being able to:
 #+begin_src sh
-adb [devices|shell|push]
+adb [devices|shell|push|pull|sync]
 #+end_src
 
 Actual problem:
@@ -41,41 +41,38 @@ If not add it.
 useradd -G plugdev blah
 #+end_src
 
+Note: You might have to `newgrp <login>` or logout/login.
+
 ** Android
 
-For push write permissions, Developer options unlocked > Android debugging on
-This permits to use `adb push|pull` to transfer back and forth between computer and files.
+For push write permissions, Developer options unlocked > Android debugging on.
+This permits to use `adb push|pull` to transfer back and forth between computer
+and files.
 
 * How
 
-At plug time, change the group and right of the /dev/tty for the android devices
-
+At plug time, change the group and right of the /dev/usb* for android devices
 #+begin_src sh
 # htc
-SUBSYSTEM=="tty", ATTRS{idVendor}=="0bb4", MODE="0660", GROUP="plugdev"
-# samsung
-SUBSYSTEM=="tty", ATTRS{idVendor}=="04e8", MODE="0660", GROUP="plugdev"
-# oneplus
-SUBSYSTEM=="tty", ATTRS{idVendor}=="05c6", MODE="0660", GROUP="plugdev"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="18d1", ATTRS{idProduct}=="4ee7", MODE="0660", GROUP="plugdev", SYMLINK+="android%n"
 #+end_src
 
 Once installed, reload the udev rules:
 #+begin_src sh
 sudo udevadm control --reload-rules
-udevadm test --action add $(udevadm info -q path -n /dev/ttyACM0)
+udevadm test --action add $(udevadm info -q path -n /dev/android7)
 #+end_src
 
 Now, unplug your android devices if it was plugged.
 
 In a terminal:
 #+begin_src sh
-watch ls -lh /dev/ttyACM0
+watch ls -lh /dev/android*
 #+end_src
 
-And plug the phone, the watch will reload the ls -l command every 2s.
-At one point, you should see the following:
+And plug the phone, the watch command will display something at some point:
 #+begin_src sh
-crw-rw----+ 1 root plugdev 166, 0 Mar  6 11:30 /dev/ttyACM0
+crw-rw----+ 1 root plugdev 166, 0 Mar  6 11:30 /dev/android7
 #+end_src
 
 Ok, it works!
@@ -112,11 +109,12 @@ sudo adb kill-server
 sudo rm /tmp/5037
 #+end_src
 
+
 * Enough already?
 
 Note: Don't forget to check on your phone for authorization popup (and accept).
 
-With oden on our side...
+With Oden on our side...
 #+begin_src sh
 # tony at corellia in ~ [11:42:13]
 $ adb devices
