@@ -8,8 +8,9 @@
 #+TITLE: Archives
 #+DESCRIPTION: Archives
 #+CATEGORIES: archives
+#+TAGS: archives
 
-#+BEGIN_HTML
+#+BEGIN_EXPORT html
 {% if site.posts.size > site.archivelimit %}
     <div id="container" class="archives">
       <div class="index">
@@ -31,4 +32,4 @@
       </div> <!-- /.index -->
     </div> <!-- /#container.archives -->
 {% endif %}
-#+END_HTML
+#+END_EXPORT
