@@ -1,4 +1,4 @@
-#+AUTHOR: Antoine R. Dumont
+#+AUTHOR: Antoine R. Dumont (@ardumont)
 #+OPTIONS: num:nil
 #+STARTUP: showall indent
 #+LAYOUT: default
@@ -6,17 +6,13 @@
 #+DESCRIPTION: Welcome to my blog
 #+CATEGORIES: about
 
-Welcome to my blog.
+Welcome to @ardumont's blog ([[https://github.com/ardumont][github]], [[https://twitter.com/ardumont][twitter]], ...).
 
-I am @ardumont on [[https://github.com/ardumont][github]] and [[https://twitter.com/ardumont][twitter]].
+I am an enthusiastic software developer/devops. I like to contribute to
+multiple [[https://www.gnu.org/philosophy/free-sw.html][libre software]] on my spare time.
 
-I develop software and contribute to multiple [[https://www.gnu.org/philosophy/free-sw.html][free/libre ones]] on my spare time.
+Here you will find some notes on multiple subjects that I am interested in.
 
-Here you will find my notes on multiple subjects that I came across at some point.
+These are mostly notes or articles.
 
-Sometimes, these are:
-- notes
-- articles
-- to reproduce some advanced automation I keep forgetting.
-
-With a little luck, this could help others too.
+This might interest others as well so enjoy.
