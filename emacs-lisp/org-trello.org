@@ -12,7 +12,7 @@ As I dayly use emacs, I think it was the logical course of action.
 And, as I:
 - already use [[http://orgmode.org/][org-mode]] a lot (even for blogging this very moment)
 - kept encountering [[https://trello.com/][trello]] for team organisation
-- don't like to duplicate informations
+- don't like to duplicate information
 - can't expect everybody to try and learn [[https://www.gnu.org/software/emacs/][emacs]] and [[%20%5B%5Bhttp://orgmode.org/%5D%5Borg-mode%5D%5D%20][org-mode]]
 - [[https://trello.com/][trello]] exposes a [[https://trello.com/docs/][public API]]
 
