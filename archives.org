@@ -18,7 +18,7 @@
         <ul>
           {% for post in site.posts offset: site.archivelimit %}
             <li>
-              <a href="{{ post.url }}/#notebook" title="{{ post.title }}">
+              <a href="{{ post.url }}" title="{{ post.title }}">
                 <span class="date">
                   <span class="day">{{ post.date | date: '%d' }}</span>
                   <span class="month"><abbr>{{ post.date | date: '%b' }}</abbr></span>
