@@ -5,19 +5,21 @@
 #+AUTHOR: ardumont
 #+DESCRIPTION: Synchronize your trello board from emacs
 #+CATEGORIES: org-trello, org-mode, emacs, trello, tools
+#+TAGS: org-trello, org-mode, emacs, trello, tools
 
 For some time now, I wanted to learn [[https://www.gnu.org/software/emacs/manual/html_node/elisp/index.html][Emacs-lisp]] some [[https://github.com/ardumont/emacs-live-packs][more than I already did]].
 As I dayly use emacs, I think it was the logical course of action.
 
 And, as I:
-- already use [[http://orgmode.org/][org-mode]] a lot (even for blogging this very moment)
+- already use [[https://orgmode.org/][org-mode]] a lot (even for blogging this very moment)
 - kept encountering [[https://trello.com/][trello]] for team organisation
 - don't like to duplicate information
-- can't expect everybody to try and learn [[https://www.gnu.org/software/emacs/][emacs]] and [[%20%5B%5Bhttp://orgmode.org/%5D%5Borg-mode%5D%5D%20][org-mode]]
+- can't expect everybody to try and learn [[https://www.gnu.org/software/emacs/][emacs]] and [[https://orgmode.org/][org-mode]]
 - [[https://trello.com/][trello]] exposes a [[https://trello.com/docs/][public API]]
 
-I thought "what the hell, let's do this!".
-And here is the result: [[https://github.com/org-trello/org-trello][org-trello]], an [[http://orgmode.org/][org-mode]] [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Minor-Modes.html][minor-mode]] to permit the synchronization between a [[https://trello.com/][trello]] board and an [[http://orgmode.org/][org-mode]] file (and vice versa).
+I thought "what the hell, let's do this!". And here is the result: [[https://github.com/org-trello/org-trello][org-trello]],
+an [[https://orgmode.org/][org-mode]] [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Minor-Modes.html][minor-mode]] to permit the synchronization between a [[https://trello.com/][trello]] board and
+an [[https://orgmode.org/][org-mode]] file (and vice versa).
 
 * Demo!
 
