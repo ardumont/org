@@ -1,0 +1,30 @@
+#+STARTUP: showall
+#+STARTUP: hidestars
+#+OPTIONS: H:2 num:nil tags:nil toc:nil timestamps:t
+#+LAYOUT: post
+#+AUTHOR: ardumont
+#+DATE: 2020-05-10 Sun 16:50
+#+TITLE: About updating org-trello tutorials
+#+DESCRIPTION: It's time for an update
+#+TAGS: org-trello, tutorial, screencast
+#+CATEGORIES: org-trello, tutorial, screencast
+#+PERMALINK: /about-update-org-trello-tutorials
+
+The [[https://org-trello.github.io][documentation]] has been updated alongside features and fixes. But the [[https://org-trello.github.io/demo.html][video
+tutorials]] remained the same.
+
+It has been [[https://github.com/org-trello/org-trello/issues/136][in my mind for a while (~ 5 years or so)]]. Lots of cogs changed over
+that period (emacs, org, org-trello, ...). So might as well update some of
+them.
+
+For the videos, I would like to use something simple. The result output ideally
+rendered in an html page. The html rendered [[https://github.com/org-trello/org-trello][README.md]] and the [[https://org-trello.github.io][online doc]] are
+html pages after all.
+
+So back to basics, an animated video picture would do. I came across
+[[https://gitlab.com/ambrevar/emacs-gif-screencast][gif-screencast]] which seems nice enough for my endeavor.
+
+I also need a tool which displays what i'm currently typing. I recall [[https://gitlab.com/screenkey/screenkey][screenkey]]
+was nice enough.
+
+In the coming days, I should be able to start doing so.
