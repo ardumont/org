@@ -1,16 +1,17 @@
 #+STARTUP: showall
 #+STARTUP: hidestars
-#+OPTIONS: H:2 num:nil tags:nil toc:nil timestamps:t
+#+OPTIONS: H:2 num:t tags:t toc:t timestamps:t
 #+LAYOUT: post
 #+AUTHOR: ardumont
 #+DATE: 2015-09-06 Sun 12:59
 #+TITLE: org-trello debug tools
 #+DESCRIPTION: org-trello debugging tools
-#+TAGS: tools,org-trello,debug
-#+CATEGORIES: tools,org-trello,debug
+#+TAGS: tools org-trello debug
+#+CATEGORIES: tools org-trello debug
+#+PERMALINK: /debug/
 
-Here is a list of tools I use to help in debugging/maintaining org-trello.
-This could help user when they have trouble.
+Here is a list of tools that helps me debugging/maintaining org-trello. This
+could help users when they have trouble.
 
 * Repl
 
@@ -22,7 +23,8 @@ M-x ielm <RET>
 
 Set the credentials for your account:
 #+begin_src lisp
-(let ((org-trello--user-logged-in "<user>")) (orgtrello-controller-load-keys))
+(let ((org-trello--user-logged-in "<user>"))
+  (orgtrello-controller-load-keys))
 #+end_src
 Note: Load in context the credentials from the file `~/.emacs.d/.trello/<user>.el`
 
@@ -30,7 +32,9 @@ Now execute some request to check that the connection is good:
 #+begin_src lisp
 ELISP> (orgtrello-query-http-trello (orgtrello-api-get-me) 'sync)
 #s(hash-table size 65 test equal rehash-size 1.5 rehash-threshold 0.8 data
-              (:username "ardumont" :url "https://trello.com/ardumont" :status "disconnected" :full-name "Antoine R. Dumont" :id "aabbccddeeffgghhiijjkk"))
+              (:username "ardumont" :url "https://trello.com/ardumont"
+               :status "disconnected" :full-name "Antoine R. Dumont"
+               :id "aabbccddeeffgghhiijjkk"))
 #+end_src
 
 Note:
@@ -54,10 +58,10 @@ Simpler:
 
 ** Improvment on debug
 
-Adapt according to your need, this will help loading the org-trello context and:
+Adapt according to your need, this will help loading the org-trello context:
 
 #+begin_src lisp
-(let ((org-trello-file-to-debug "/home/tony/repo/perso/org-trello/TESTS-simple.org")
+(let ((org-trello-file-to-debug "/home/tony/board.org")
       (orgtrello-log-level orgtrello-log-trace))
   (with-temp-buffer
     (insert-file-contents org-trello-file-to-debug)
@@ -69,21 +73,21 @@ Adapt according to your need, this will help loading the org-trello context and:
         (orgtrello-query-http-trello 'sync))))
 #+end_src
 
-*Note*: This made me [[https://github.com/org-trello/org-trello/issues/288][realize that org-trello could spawn an adapter library `trello-core` or `trello-lib`]].
+*Note*: This made me [[https://github.com/org-trello/org-trello/issues/288][realize that org-trello could spawn an adapter library
+`trello-core` or `trello-lib`]].
 
 * Trace
 
-Emacs comes with `trace-fn` function.
-This can help a lot.
+Emacs comes with `trace-fn` function. This can help a lot.
 
 Identify some function you want to trace (display inputs, output), for example:
 #+begin_src lisp
 (trace-function 'orgtrello-data-parse-data)
-;; (untrace-function 'orgtrello-data-parse-data)
+(untrace-function 'orgtrello-data-parse-data)
 #+end_src
-Note:
-`orgtrello-data/parse-data` is the central function used to parse the json output of trello.
-So in case of output doubt, this can be a good starting point.
+Note: `orgtrello-data/parse-data` is the central function used to parse the
+json output of trello. So in case of output doubt, this can be a good starting
+point.
 
 ** trace-functions
 
@@ -104,7 +108,7 @@ To trace mutliple ones:
 With sample:
 #+begin_src lisp
 (trace-functions '(orgtrello-data/parse-data))
-;; (untrace-functions '(orgtrello-data/parse-data))
+(untrace-functions '(orgtrello-data/parse-data))
 #+end_src
 
 * Display the content of the board's global setup
@@ -117,11 +121,24 @@ This will compute and return a list with the important settings.
 
 Something like:
 #+begin_src lisp
-(:users-id-name #s(hash-table size 65 test equal rehash-size 1.5 rehash-threshold 0.8 data ("user-id0" "orgtrello-user-antoineromaindumont" "user-id2" "orgtrello-user-orgmode" "user-id3" "orgtrello-user-ardumont" "ardumont" "orgtrello-user-me" ...))
- :users-name-id #s(hash-table size 65 test equal rehash-size 1.5 rehash-threshold 0.8 data ("orgtrello-user-antoineromaindumont" "user-id0" "orgtrello-user-orgmode" "user-id3" "orgtrello-user-ardumont" "user-id1" "orgtrello-user-me" "ardumont" ...))
+(:users-id-name #s(hash-table size 65 test equal rehash-size 1.5...
+  data (
+    "user-id0" "orgtrello-user-antoineromaindumont" "user-id2"
+    "orgtrello-user-orgmode" "user-id3" "orgtrello-user-ardumont"
+    "ardumont" "orgtrello-user-me" ...))
+ :users-name-id #s(hash-table size 65 test equal rehash-size 1.5...
+  data (
+    "orgtrello-user-antoineromaindumont" "user-id0"
+    "orgtrello-user-orgmode" "user-id3" "orgtrello-user-ardumont"
+    "user-id1" "orgtrello-user-me" "ardumont" ...))
  :user-logged-in "ardumont"
- :org-keyword-trello-list-names ("TODO" "IN-PROGRESS" "DONE" "PENDING" "DELEGATED" "FAILED" "CANCELLED")
- :org-keyword-id-name #s(hash-table size 65 test equal rehash-size 1.5 rehash-threshold 0.8 data ("todo-id" "TODO" "in-progress-id" "IN-PROGRESS" "done-id" "DONE" "pending-id" "PENDING" "delegated-id" "DELEGATED" "failed-id" "FAILED" "cancelled-id" "CANCELLED" ...)))
+ :org-keyword-trello-list-names (
+    "TODO" "IN-PROGRESS" "DONE" "PENDING" "DELEGATED" "FAILED" "CANCELLED")
+ :org-keyword-id-name #s(hash-table size 65 test equal rehash-size 1.5...
+  data (
+    "todo-id" "TODO" "in-progress-id" "IN-PROGRESS" "done-id" "DONE"
+    "pending-id" "PENDING" "delegated-id" "DELEGATED" "failed-id"
+    "FAILED" "cancelled-id" "CANCELLED" ...)))
 #+end_src
 
 This can help to see if something is amiss or not.
