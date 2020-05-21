@@ -1,20 +1,26 @@
-#+LAYOUT: post
-#+DATE: 2014-12-21 Sun 19:03
 #+TITLE: Feedback loop
 #+AUTHOR: ardumont
+#+LAYOUT: post
+#+DATE: 2014-12-21 Sun 19:03
+#+OPTIONS: H:2 num:nil tags:nil toc:t timestamps:t
 #+DESCRIPTION: Later is too late!
-#+CATEGORIES: feedback, tools, stumpwm, xmonad, emacs, org-mode, tmux, firefox, keysnail, git, vagrant, virtualbox, docker, make, script
+#+CATEGORIES: feedback tools stumpwm xmonad emacs org-mode tmux firefox keysnail git vagrant virtualbox docker make script
 
 * TL;DR
-Use the right tools for the right job. And feedback all the way!
+
+Use the right tools for the job. They should:
+- reply fast, success or failure
+- be explicit when something is wrong
+- not get in your way.
 
 * DISCLAIMER
 
 I present my set of tools.
 
-In no way do I claim these are the supreme tools. As always, your mileage may vary.
+In no way do I claim these are the supreme tools. As always, your mileage may
+vary.
 
-The only claim I make is that they make me fast.
+The only claim I make is that they make me go faster.
 
 * Introduction
 
@@ -27,24 +33,33 @@ I want to:
 
 * Why?
 
-Because ideas are as fast as poping out of nowhere as disappearing into nowhere...
+Because ideas are as fast as poping out of nowhere as disappearing into
+nowhere...
 
-Sometimes, it's right to think and think again and go implementing later...
-And sometimes, it's better to go think and tinker along the way too...
+Sometimes, it's right to think and think again and go implementing later... And
+sometimes, it's better to go think and tinker along the way too...
 
 I believe that this feedback loop is the very nature of mouvements like:
-- agility (as in `small sprint to show rapidly to the users something that works`)
-- devops (as in `reproducible environment as soon as possible to avoid later trouble`)
-- tests culture (as in `testing the runtime now and not when the application will be deployed)
+
+- agility (as in `small sprint to show rapidly to the users something that
+  works`)
+- devops (as in `reproducible environment as soon as possible to avoid later
+  trouble`)
+- tests culture (as in `testing the runtime now and not when the application
+  will be deployed)
 - etc...
 
-I'd need to revisit this video but what at some point showed me I was hitting in the right direction was this particular video: [[http://vimeo.com/36579366][Bref Victor - Inventing on principles]] and some consequences it had.
+I'd need to revisit this video but what at some point showed me I was hitting
+in the right direction was this particular video: [[http://vimeo.com/36579366][Bref Victor - Inventing on
+principles]] and some consequences it had.
 
- As a result, [[https://twitter.com/ibdknox][Chris Granger]] reacted immediately (it appeared as much to me) and came up the very next day with an equivalent demo in [[https://github.com/clojure/clojurescript][clojurescript]].
-Then some time after that, [[https://twitter.com/ibdknox][Chris Granger]] came up with [[https://www.kickstarter.com/projects/ibdknox/light-table][LightTable]], to try and exercise what he thought was possible.
+As a result, [[https://twitter.com/ibdknox][Chris Granger]] reacted immediately (it appeared as much to me) and
+came up the very next day with an equivalent demo in [[https://github.com/clojure/clojurescript][clojurescript]]. Then some
+time after that, [[https://twitter.com/ibdknox][Chris Granger]] came up with [[https://www.kickstarter.com/projects/ibdknox/light-table][LightTable]], to try and exercise
+what he thought was possible.
 
-And [[https://www.kickstarter.com/projects/ibdknox/light-table][Lighttable]] showed a new [[https://en.wikipedia.org/wiki/REPL][REPL]], an instarepl - As you type along your clojure(script) expression, you have immediately the result.
-FEEDBACK!.
+And [[https://www.kickstarter.com/projects/ibdknox/light-table][Lighttable]] showed a new [[https://en.wikipedia.org/wiki/REPL][REPL]], an instarepl - As you type along your
+clojure(script) expression, you have immediately the result. FEEDBACK!.
 
 It is an awesome idea which embraces further the notion of feedback.
 
@@ -54,8 +69,8 @@ Here is my non-exhaustive list of tools I use to:
 
 - [[https://www.gnu.org/gnu/linux-and-gnu.html][GNU/Linux]] and now more specifically [[http://nixos.org/][NixOS]]
 
-Stable, user-friendly, extendable, reproducible...
-These are unavoidable qualities.
+Stable, user-friendly, extendable, reproducible... These are unavoidable
+qualities.
 
 - [[https://www.gnu.org/software/emacs/][GNU/Emacs]]
 
@@ -69,10 +84,13 @@ The *emacs* like window manager!
 
 - [[http://xmonad.org/][XMonad]]
 
-In a graphical world, one has to display graphical software and what a pain it is to manually place windows.
-XMonad takes care of this for me. What a nice dude!
+In a graphical world, one has to display graphical software and what a pain it
+is to manually place windows. XMonad takes care of this for me. What a nice
+dude!
 
-Also I kept the way I called my applications from the stumpwm window manager (that is, I use a prefix key, `C-;` then another binding and this triggers the run or raise action for the particular application).
+Also I kept the way I called my applications from the stumpwm window manager
+(that is, I use a prefix key, `C-;` then another binding and this triggers the
+run or raise action for the particular application).
 
 - [[http://orgmode.org][Org-mode]]
 
@@ -86,7 +104,8 @@ The *emacs* terminal session manager!
 
 Firefox, the emacs way!
 
-No mouse (as much as possible, unfortunately, some site use some shitty js/css thingy that force the user to use his/her mouse)
+No mouse (as much as possible, unfortunately, some site use some shitty js/css
+thingy that force the user to use his/her mouse)
 
 - [[http://git-scm.com/][Git]]
 
