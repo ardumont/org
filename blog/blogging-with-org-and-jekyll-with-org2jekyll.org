@@ -1,10 +1,10 @@
-#+LAYOUT: post
-#+DATE: [2014-12-20 Sat. 23:00]
 #+TITLE: org2jekyll - blog with org & jekyll
 #+AUTHOR: Antoine R. Dumont
-#+OPTIONS: H:2 num:nil tags:nil toc:nil timestamps:t
-#+CATEGORIES: org-mode, jekyll, org2jekyll, emacs, blog, tools
-#+DESCRIPTION: org2jekyll, the new kid in town
+#+LAYOUT: post
+#+DATE: 2014-12-20 Sat. 23:00
+#+OPTIONS: H:2 num:t tags:t toc:t timestamps:t
+#+CATEGORIES: org-mode jekyll org2jekyll emacs blog tools
+#+DESCRIPTION: org2jekyll the new kid in town
 #+STARTUP: indent
 
 * Rationale
@@ -18,10 +18,11 @@ And making them work...
 
 I was not satisfied with the existing solution.
 
-Why? Because we need to adapt the org-mode file with specific jekyll yaml settings inside an org-mode html block code.
+Why? Because we need to adapt the org-mode file with specific jekyll yaml
+settings inside an org-mode html block code.
 
-But here is my thing, I don't want to adapt org with alien yaml or any other strange metadata.
-I'd like to have some standard org metadata, for example:
+But here is my thing, I don't want to adapt org with alien yaml or any other
+strange metadata. I'd like to have some standard org metadata, for example:
 
 #+begin_src org
 #+LAYOUT: post
@@ -37,7 +38,8 @@ I'd like to have some standard org metadata, for example:
 
 Then publish the blog post (/M-x org2jekyll/publish!/).
 
-Using some emacs-lisp incantation, we can make /org-publish/ and /jekyll/ work together.
+Using some emacs-lisp incantation, we can make /org-publish/ and /jekyll/ work
+together.
 
 So, here comes https://github.com/ardumont/org2jekyll...
 
@@ -62,32 +64,45 @@ How do I install org2jekyll?
 
 Install from [[https://marmalade-repo.org/packages/org2jekyll][marmalade]] available or from [[https://github.com/ardumont/org2jekyll/releases][github releases]].
 
-** Marmalade
+** Melpa-stable
 
 #+begin_src emacs-lisp
 (require 'package)
-(add-to-list 'package-archives '("marmalade" . "https://marmalade-repo.org/packages/") t)
+(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 (package-initialize)
 #+end_src
 
 /M-x package-install RET org2jekyll RET/
 
+Note: You could also use the melpa version which follows more closely the
+repository's master branch. I do cut release as soon as possible so there
+should not be much advantage over melpa-stable.
+
+** Marmalade
+
+I used to do the work of releasing there as well but I stopped around May 2020
+as melpa is way less work to maintain.
+
 ** github
 
+I do use the github release mechanism so you can install from there:
 #+begin_src sh
-wget https://github.com/ardumont/org2jekyll/releases/download/0.0.7/org2jekyll-0.0.7.tar
+wget https://github.com/ardumont/org2jekyll/releases/download/0.2.4/org2jekyll-0.2.4.tar
 #+end_src
 
-/M-x package-install-file RET org2jekyll.tar/
+/M-x package-install-file RET org2jekyll-0.2.4.tar/
+
+Or simply clone the [[https://github.com/ardumont/org2jekyll][repository]] and load the org2jekyll.el file.
 
 * Contribution/Issues
 
-I intend to maintain this as the other solution referenced are no longer.
+I intend to continue maintaining org2jekyll.
 
 As usual, feel free to [[https://github.com/ardumont/org2jekyll/issues][open issues on the tracker]] or [[https://github.com/ardumont/org2jekyll/pulls][pull requests]].
 
-As all of you, I have other things to attend to but I'll do my best to answer.
+I will do my best to answer to issues but that could take some time.
 
 * Inspiration
 
-I used a lot [[https://github.com/punchagan/org2blog.git][the great org2blog (org -> wordpress bridge)]] and was inspired by the name and the org headers approach.
+I used a lot [[https://github.com/punchagan/org2blog.git][the great org2blog (org -> wordpress bridge)]] and was inspired by
+the name and the org headers approach.

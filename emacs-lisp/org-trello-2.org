@@ -1,9 +1,11 @@
-#+DATE: [2013-08-05 lun. 20:59]
-#+OPTIONS: toc:nil
-#+CATEGORIES: org-trello, org-mode, emacs, trello, tools
-#+DESCRIPTION: Synchronize your trello board from emacs - new features
 #+TITLE: org-trello - New features
+#+AUTHOR: ardumont
+#+DATE: 2013-08-05 lun. 20:59
+#+OPTIONS: H:2 num:t tags:t toc:t timestamps:t
+#+DESCRIPTION: Synchronize your trello board from emacs - new features
 #+LAYOUT: post
+#+CATEGORIES: org-trello org-mode emacs trello tools
+#+TAGS: org-trello org-mode emacs trello tools
 
 In a [[http://ardumont.github.io/org-trello][previous article]], I introduced [[http://ardumont.github.io/org-trello/][org-trello]].
 
@@ -11,7 +13,7 @@ In this blog post, I will show some more actions you can do with [[http://ardumo
 
 The current version is [[https://github.com/org-trello/org-trello/releases/tag/0.0.8][0.0.8]].
 
-Also, a new site is hosted on [[http://org-trello.github.io/org-trello/]].
+Also, I deployed a [[http://org-trello.github.io/org-trello/][new documentation site on org-trello]].
 
 * Demo
 
@@ -41,8 +43,6 @@ http://youtu.be/2OlmPMwtCAs
 
 * Thanks
 
-Thanks to all contributors of issues!
+Thanks to all issues contributors!
 
-Please, keep the issues flowing!
-
-Also, [[https://help.github.com/articles/using-pull-requests][PR]] are welcome!
+Please, keep the issue/improvments reports and [[https://help.github.com/articles/using-pull-requests][pull requests]] flowing!

@@ -1,19 +1,23 @@
+#+TITLE: Literate org-trello
+#+AUTHOR: Antoine R. Dumont
 #+LAYOUT: post
 #+DATE: 2013-08-11 Sun. 14:28
-#+title: Literate org-trello
-#+author: Antoine R. Dumont
-#+CATEGORIES: literate-programming, org-mode, org-trello, emacs, emacs-lisp
+#+OPTIONS: H:2 num:t tags:t toc:t timestamps:t
+#+CATEGORIES: literate-programming org-mode org-trello emacs emacs-lisp
+#+TAGS: literate-programming org-mode org-trello emacs emacs-lisp
 #+DESCRIPTION: literate org-trello tryout
+#+TOC_STICKY: true
 
-To help improving the maintenance of [[http://ardumont.github.io/org-trello/][org-trello]], we will describe it using [[https://en.wikipedia.org/wiki/Literate_programming][literate programming]].
-For this, we will use [[http://orgmode.org/][org-mode]] and [[http://orgmode.org/worg/org-contrib/babel/intro.html][babel]].
+To help improving the maintenance of [[http://ardumont.github.io/org-trello/][org-trello]], we will describe it using
+[[https://en.wikipedia.org/wiki/Literate_programming][literate programming]]. For this, we will use [[http://orgmode.org/][org-mode]] and [[http://orgmode.org/worg/org-contrib/babel/intro.html][babel]].
 
 We'll begin by:
 - a simple how to
 - a little description
 - the license
 - a manual
-- a full description step-by-step of the code (may need to find another organisation that the code order)
+- a full description step-by-step of the code (may need to find another
+  organisation that the code order)
 
 * Howto
 - Open this file
@@ -27,10 +31,12 @@ Or
 make tangle
 ```
 
+
 * Description
-org-trello is an emacs's org minor mode to permit the 2-way synchonization between org buffer and a trello board.
-The headers needs to start with ;;; as a prerequisite for packaging.
-This is an important step where we describe the different information about the project:
+org-trello is an emacs's org minor mode to permit the 2-way synchonization
+between org buffer and a trello board. The headers needs to start with ;;; as a
+prerequisite for packaging. This is an important step where we describe the
+different information about the project:
 - principal author
 - maintainer
 - current version
@@ -180,7 +186,7 @@ This is the main entry namespace of org-trello.
 Starting with the minor mode definition, we will show each higher interactive command after this.
 
 *** Minor mode
-As we said in the [[#description][description]] step, [[http://ardumont.github.io/org-trello/][org-trello]] is a [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Minor-Modes.html][minor mode]].
+As we said in the description step, [[http://ardumont.github.io/org-trello/][org-trello]] is a [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Minor-Modes.html][minor mode]].
 
 **** Description
 
