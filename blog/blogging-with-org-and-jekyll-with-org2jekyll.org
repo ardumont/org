@@ -53,16 +53,16 @@ For this to work, you need to have this ready:
 * Example
 
 Here is my working setup:
-- blog: http://ardumont.github.io/blog/
+- blog: http://ardumont.github.io/
 - source: https://github.com/ardumont/org2jekyll
-- setup: https://github.com/ardumont/blog-pack/blob/master/blog-pack.el
+- setup: https://gitlab.com/ardumont/home/-/blob/master/emacs/blog-pack.el
 
 * Install
 
 Ok, I'm sold!
 How do I install org2jekyll?
 
-Install from [[https://marmalade-repo.org/packages/org2jekyll][marmalade]] available or from [[https://github.com/ardumont/org2jekyll/releases][github releases]].
+Install from [[https://stable.melpa.org/][melpa-stable]] or from [[https://github.com/ardumont/org2jekyll/releases][github releases]].
 
 ** Melpa-stable
 
