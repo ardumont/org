@@ -17,3 +17,5 @@ Here you will find some notes on multiple subjects that I am interested in.
 These are mostly notes or articles.
 
 This might interest others as well so enjoy.
+
+[[./assets/ardumont-gpg-pub.txt][gpg key]]
