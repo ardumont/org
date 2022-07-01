@@ -1,0 +1,35 @@
+#+title: les 20 techniques imposees
+
+|-------------------------+--------------------------------------------|
+| Serie A                 | Saisie avec les mains                      |
+|-------------------------+--------------------------------------------|
+| Katate Dori             | Saisie du poignet a 2 mains                |
+| Eri Dori                | Saisie croisee du revers                   |
+| Mae Dori Kubi           | Saisie a 2 mains de face au coup           |
+| Yoko Dori Kubi          | Saisie a 2 mains de cote au coup           |
+| Yoko Sode Dori          | Saisie de la manche de cote                |
+|-------------------------+--------------------------------------------|
+| Serie B                 | Saisie avec les bras                       |
+|-------------------------+--------------------------------------------|
+| Mae Dori                | Saisie de face en ceinturant avec les bras |
+| Yoko Dori               | Saisie de cote en ceinturant les bras      |
+| Yoko Dori               | Saisie de cote au cou                      |
+| Mae Dori                | Saisie de face au cou                      |
+| Hadaka Jime             | Etranglement par l'arriere                 |
+|-------------------------+--------------------------------------------|
+| Serie C                 | Coups                                      |
+|-------------------------+--------------------------------------------|
+| Yodan Oi Tsuki          | Coup de poing direct haut                  |
+| Shudan Gyaku Tsuki      | Coup de poing direct (plexus)              |
+| Yodan Naname Shuto      | Attaque oblique du tranchant de la main    |
+| Shudan Mae Geri Keikomi | Coup de pied direct de face                |
+| Shudan Mawashi Geri     | Coup de pied circulaire                    |
+|-------------------------+--------------------------------------------|
+| Serie D                 | Coups avec armes                           |
+|-------------------------+--------------------------------------------|
+| Naname Tsuki            | Pique avec couteau de haut en bas          |
+| Shudan Tsukomi          | Pique de face avec couteau                 |
+| Naname Uchi             | Pique avec couteau de biais en revers      |
+| Kiri Komi               | Attaque de haut en bas avec baton court    |
+| Yoko Uchi               | Attaque oblique a la tete avec baton court |
+|-------------------------+--------------------------------------------|
